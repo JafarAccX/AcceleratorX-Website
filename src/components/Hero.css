@@ -1,0 +1,103 @@
+.meteor {
+  position: absolute;
+  bottom: 0;
+  width: 4px; /* Slightly wider meteors for better visibility */
+  height: var(--meteor-length); /* Use custom length for each meteor */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 1;
+  animation: meteorAnimation 5s forwards; /* Run once and hold final state */
+  filter: blur(2px) brightness(1.5); /* Slight blur for softness and initial brightness */
+  transform-origin: top center; /* Origin for curved motion */
+}
+
+/* Individual meteors with different delays, random heights, and random stop positions */
+.meteor-1 {
+  left: 20%;
+  animation-delay: 0s;
+  animation-duration: 4s;
+  --meteor-length: 235px;
+}
+
+.meteor-2 {
+  left: 40%;
+  animation-delay: 1s;
+  animation-duration: 4.5s;
+  --meteor-length: 100px;
+}
+
+.meteor-3 {
+  left: 60%;
+  animation-delay: 1.5s;
+  animation-duration: 5s;
+  --meteor-length: 85px;
+}
+
+.meteor-4 {
+  left: 80%;
+  animation-delay: 0.5s;
+  animation-duration: 4.2s;
+  --meteor-length: 190px;
+}
+
+.meteor-5 {
+  left: 30%;
+  animation-delay: 2s;
+  animation-duration: 4.7s;
+  --meteor-length: 130px;
+}
+
+/* Animation for brush-like effect with slight curvature */
+@keyframes meteorAnimation {
+  0% {
+    transform: translateY(100vh) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(2); /* Increase brightness mid-way */
+  }
+
+  75% {
+    transform: translateY(10vh) scale(1.1) rotate(-5deg); /* Small curve */
+  }
+
+  100% {
+    transform: translateY(calc(-10vh + 20px * var(--random-stop))) scale(1.2)
+      rotate(0deg);
+    opacity: 1;
+    filter: brightness(2.5); /* Stronger glow at the end */
+  }
+}
+
+.center-beam {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0)
+  );
+  transform: translateX(-50%);
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+.button-sparkle {
+  position: relative;
+}
+
+.enroll-button,
+.download-button {
+  position: relative;
+  z-index: 1; /* Ensure buttons are above beam */
+}
