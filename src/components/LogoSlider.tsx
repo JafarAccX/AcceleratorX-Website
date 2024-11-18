@@ -23,6 +23,7 @@ const companies = [
 ];
 
 const LogoSlider: React.FC = () => {
+  const [isHovered, setIsHovered] = React.useState(false);
   const logoSet = [...companies, ...companies]; // Duplicate for seamless looping
 
   return (
@@ -48,28 +49,57 @@ const LogoSlider: React.FC = () => {
       </motion.div>
 
       {/* Seamless Logo Slider */}
-      <div className="overflow-hidden relative">
+      <div
+        className="overflow-hidden relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Gradient Overlays */}
+        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-dark to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-dark to-transparent z-10"></div>
+
         <motion.div
-          className="flex items-center space-x-6"
+          className="flex items-center space-x-8 px-4 will-change-transform"
           initial={{ x: "0%" }}
-          animate={{ x: "-100%" }} // Shift entire width
+          animate={{ x: "-50%" }}
           transition={{
             repeat: Infinity,
-            duration: 30, // Smooth scrolling speed
-            ease: "linear",
+            duration: 12,
+            ease: [0.32, 0, 0.67, 0],
+            pause: isHovered,
+            repeatType: "loop"
+          }}
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "translate3d(0,0,0)",
+            WebkitTransform: "translate3d(0,0,0)"
           }}
         >
           {logoSet.map((company, index) => (
-            <div
+            <motion.div
               key={index}
-              className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 bg-white rounded-lg shadow-md flex items-center justify-center"
+              className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center p-4 hover:bg-white/10 transition-all duration-300 will-change-transform"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0.8 }}
+              whileInView={{ opacity: 1 }}
+              style={{
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                transform: "translate3d(0,0,0)",
+                WebkitTransform: "translate3d(0,0,0)"
+              }}
             >
               <img
                 src={company.logo}
                 alt={company.name}
-                className="object-contain h-full"
+                className="object-contain h-full w-full filter brightness-100 hover:brightness-110 transition-all duration-300"
+                style={{
+                  imageRendering: "auto",
+                  WebkitImageRendering: "auto"
+                }}
               />
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

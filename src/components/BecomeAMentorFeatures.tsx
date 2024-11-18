@@ -342,7 +342,7 @@ export default function BecomeAMentorFeatures() {
                   <p className="text-gray-400 text-sm line-clamp-2">
                     {feature.description}
                   </p>
-                  <div className="mt-auto pt-2">
+                  {/* <div className="mt-auto pt-2">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -357,7 +357,7 @@ export default function BecomeAMentorFeatures() {
                         →
                       </motion.span>
                     </motion.button>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 group-hover:opacity-40 transition-opacity duration-300">
                   <motion.div
