@@ -60,215 +60,228 @@ export default function ChatWidget() {
     <>
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 overflow-y-auto">
-            <div className="flex min-h-screen items-center justify-center p-4">
-              {/* Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsOpen(false)}
-                className="fixed inset-0 bg-black/60"
-              />
-
-              {/* Modal */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="relative bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6"
-              >
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute right-4 top-4 text-gray-400 hover:text-white"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-                <div className="flex flex-col gap-2 justify-center items-center mb-2">
-                  <h3 className="text-2xl font-bold text-white">Let's Chat</h3>
-                  <p className="text-sm font-semibold text-white">
-                    How can we help you?
-                  </p>
+          <div className="fixed bottom-24 right-6 z-50 w-[400px] max-w-[calc(100vw-2rem)] max-h-[85vh] overflow-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-700"
+            >
+              <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center relative">
+                      <MessageCircleHeart className="h-6 w-6 text-white" />
+                      <span className="absolute top-1 right-1 h-2.5 w-2.5">
+                        <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white tracking-tight">Let's Chat</h3>
+                      <p className="text-blue-100/80 text-sm mt-0.5">How can we help you?</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="rounded-xl p-2 hover:bg-white/10 transition-colors"
+                  >
+                    <X className="h-5 w-5 text-white/80" />
+                  </button>
                 </div>
+              </div>
 
-                <div className="mt-4">
-                  {!isSubmitted ? (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      {/* Name Field */}
+              <div className="p-4 space-y-4">
+                {!isSubmitted ? (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-3">
                       <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-gray-300 mb-1"
-                        >
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
                           Full Name
                         </label>
                         <input
                           type="text"
-                          id="name"
                           required
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Your Name"
+                          className="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
+                          placeholder="Enter your name"
                           value={formData.name}
-                          onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
-                          }
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                       </div>
 
-                      {/* Phone Field */}
-
                       <div>
-                        <label
-                          htmlFor="phone"
-                          className="block text-sm font-medium text-gray-300 mb-1"
-                        >
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
                           Phone Number
                         </label>
-                        <div className="flex items-center">
-                          <span className="bg-gray-700 text-white px-3 py-2 rounded-l-lg border border-gray-600">
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-gray-700 bg-gray-800/50 text-gray-300">
                             +91
                           </span>
                           <input
                             type="tel"
-                            id="phone"
                             required
-                            className="w-full bg-gray-700 border border-gray-600 rounded-r-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            placeholder="1234567890"
+                            className="w-full bg-gray-800/50 border border-gray-700 rounded-r-xl px-3 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
+                            placeholder="Your phone number"
                             value={formData.phone}
                             onChange={(e) => {
-                              const sanitizedValue = e.target.value
-                                .replace(/\D/g, "")
-                                .slice(0, 10);
-                              setFormData({
-                                ...formData,
-                                phone: sanitizedValue,
-                              });
+                              const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 10);
+                              setFormData({ ...formData, phone: sanitizedValue });
                             }}
                           />
                         </div>
-                        {formData.phone.length > 0 &&
-                          formData.phone.length < 10 && (
-                            <p className="text-red-500 text-sm mt-1">
-                              Phone number must be 10 digits.
-                            </p>
-                          )}
                       </div>
 
-                      {/* Email Field */}
                       <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-gray-300 mb-1"
-                        >
-                          Email
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Email Address
                         </label>
                         <input
                           type="email"
-                          id="email"
                           required
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
                           placeholder="you@example.com"
                           value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         />
                       </div>
 
-                      {/* Education Level Field */}
                       <div>
-                        <label
-                          htmlFor="education"
-                          className="block text-sm font-medium text-gray-300 mb-1"
-                        >
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
                           Education Level
                         </label>
                         <select
-                          id="education"
                           required
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
                           value={formData.education}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              education: e.target.value,
-                            })
-                          }
+                          onChange={(e) => setFormData({ ...formData, education: e.target.value })}
                         >
-                          <option value="" hidden>
-                            Select your education
-                          </option>
+                          <option value="" hidden>Select your education</option>
                           <option value="Bachelor's">Bachelor's</option>
                           <option value="Master's">Master's</option>
                           <option value="PhD">PhD</option>
                           <option value="Others">Others</option>
                         </select>
                       </div>
-
-                      {/* Buttons */}
-                      <div className="flex justify-between items-center mt-6">
-                        <button
-                          type="button"
-                          onClick={handleWhatsApp}
-                          className="inline-flex items-center px-3 py-2 border border-green-600 text-sm font-medium rounded-lg text-green-600 bg-gray-700 hover:bg-green-700 hover:text-white transition"
-                        >
-                          <MessageCircleHeart size={20} className="mr-2" />
-                          WhatsApp
-                        </button>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          type="submit"
-                          className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 transition"
-                        >
-                          Submit
-                          <Send size={16} className="ml-2" />
-                        </motion.button>
-                      </div>
-                    </form>
-                  ) : (
-                    <div className="text-center py-8">
-                      <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                        <svg
-                          className="h-6 w-6 text-green-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </div>
-                      <h3 className="mt-2 text-sm font-medium text-white">
-                        Submission Successful!
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-300">
-                        We'll get back to you soon.
-                      </p>
                     </div>
-                  )}
-                </div>
 
-                <p className="mt-4 text-sm text-center text-gray-400">
-                  By submitting, you agree to our Terms of Service and Privacy
-                  Policy
+                    <div className="space-y-2">
+                      <motion.button
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                        type="submit"
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl px-4 py-2.5 font-medium hover:from-blue-500 hover:to-blue-400 transition-all duration-200 flex items-center justify-center gap-2"
+                      >
+                        Submit Form
+                        <Send className="h-4 w-4" />
+                      </motion.button>
+                      
+                      <motion.button
+                        type="button"
+                        onClick={handleWhatsApp}
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                        className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-xl px-4 py-2.5 font-medium hover:from-emerald-500 hover:to-emerald-400 transition-all duration-200 flex items-center justify-center gap-2"
+                      >
+                        <MessageCircleHeart className="h-4 w-4" />
+                        Chat on WhatsApp
+                      </motion.button>
+                    </div>
+                  </form>
+                ) : (
+                  <div className="text-center py-6">
+                    <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-br from-green-400 to-green-500">
+                      <svg
+                        className="h-6 w-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="mt-3 text-lg font-semibold text-white">
+                      Submission Successful!
+                    </h3>
+                    <p className="mt-1 text-gray-300">
+                      We'll get back to you soon.
+                    </p>
+                  </div>
+                )}
+
+                <p className="text-xs text-center text-gray-400 mt-2">
+                  By submitting, you agree to our Terms of Service and Privacy Policy
                 </p>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         )}
       </AnimatePresence>
 
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition-colors z-50"
-      >
-        <MessageCircle size={24} />
-      </button>
+      <AnimatePresence>
+        {!isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            className="fixed bottom-6 right-6 z-50"
+          >
+            <motion.div
+              className="flex items-center gap-3 bg-gradient-to-r from-blue-600/90 to-blue-500/90 backdrop-blur-lg pl-4 pr-3 py-2.5 rounded-xl shadow-lg"
+            >
+              <motion.p 
+                className="text-sm font-medium text-white whitespace-nowrap"
+                animate={{ 
+                  opacity: [0.8, 1, 0.8] 
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                AcceX Buddy is here
+              </motion.p>
+              
+              <motion.button
+                onClick={() => setIsOpen(!isOpen)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-1.5 rounded-lg bg-white/10 relative"
+              >
+                <MessageCircle className="h-5 w-5 text-white" />
+                <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating chat button when chat is open */}
+      {isOpen && (
+        <motion.button
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          onClick={() => setIsOpen(!isOpen)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-blue-500 p-4 rounded-xl shadow-lg hover:shadow-blue-500/20 transition-all duration-200 relative"
+        >
+          <MessageCircle className="h-6 w-6 text-white" />
+          <span className="absolute -top-0.5 -right-0.5 h-3 w-3">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+        </motion.button>
+      )}
     </>
   );
 }
