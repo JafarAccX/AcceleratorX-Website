@@ -54,7 +54,7 @@ export default function ChatWidget() {
   };
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/+918884288277`, "_blank");
+    window.open(`https://wa.me/918884288277`, "_blank");
   };
 
   return (
