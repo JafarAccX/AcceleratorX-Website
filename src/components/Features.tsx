@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import { Maximize2, Zap, Shield } from "lucide-react";
+import { Maximize2, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
     icon: <Maximize2 className="w-8 h-8" />,
-    title: "Future-Forward Solutions",
+    title: "Product Management",
     description:
-      "Our Web3 fintech simplifies complex finance for everyone. With innovative technology, we make navigating the financial future easier.",
+      "Our program empowers you to lead with data-driven insights and real-world strategies, making complex product management accessible. Gain hands-on experience in crafting products that resonate with users and drive measurable growth.",
     image: (
       <motion.svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
@@ -30,104 +31,82 @@ const features = [
         <motion.g
           stroke="currentColor"
           fill="none"
-          strokeWidth="1"
+          strokeWidth="1.5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1 }}
         >
           {/* Main diamond container */}
           <motion.path
             d="M100 50L150 100L100 150L50 100Z"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, repeat: Infinity }}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: 2,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "loop",
+              repeatDelay: 1,
+            }}
           />
 
           {/* Four circles in corners */}
-          <motion.circle
-            cx="70"
-            cy="70"
-            r="20"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="130"
-            cy="70"
-            r="20"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.7, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="130"
-            cy="130"
-            r="20"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.9, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="70"
-            cy="130"
-            r="20"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 1.1, repeat: Infinity }}
-          />
+          {[
+            { cx: 70, cy: 70, delay: 0 },
+            { cx: 130, cy: 70, delay: 0.5 },
+            { cx: 130, cy: 130, delay: 1 },
+            { cx: 70, cy: 130, delay: 1.5 },
+          ].map((circle, index) => (
+            <motion.circle
+              key={index}
+              cx={circle.cx}
+              cy={circle.cy}
+              r="20"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                duration: 1,
+                delay: circle.delay,
+                repeat: Infinity,
+                repeatType: "reverse",
+                repeatDelay: 1,
+              }}
+            />
+          ))}
 
-          {/* Center dots */}
-          <motion.circle
-            cx="70"
-            cy="70"
-            r="2"
-            fill="currentColor"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="130"
-            cy="70"
-            r="2"
-            fill="currentColor"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 0] }}
-            transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="130"
-            cy="130"
-            r="2"
-            fill="currentColor"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 0] }}
-            transition={{ duration: 2, delay: 1, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="70"
-            cy="130"
-            r="2"
-            fill="currentColor"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 0] }}
-            transition={{ duration: 2, delay: 1.5, repeat: Infinity }}
-          />
+          {/* Animated dots */}
+          {[
+            { cx: 70, cy: 70, delay: 0 },
+            { cx: 130, cy: 70, delay: 0.5 },
+            { cx: 130, cy: 130, delay: 1 },
+            { cx: 70, cy: 130, delay: 1.5 },
+          ].map((dot, index) => (
+            <motion.circle
+              key={`dot-${index}`}
+              cx={dot.cx}
+              cy={dot.cy}
+              r="3"
+              fill="currentColor"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: [0, 1, 0], opacity: [0, 1, 0] }}
+              transition={{
+                duration: 2,
+                delay: dot.delay,
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            />
+          ))}
         </motion.g>
       </motion.svg>
     ),
+    path: "/courses/product-management",
   },
   {
     icon: <Zap className="w-8 h-8" />,
-    title: "Efficient Smart Contract Execution",
+    title: "Data Analytics",
     description:
-      "Our platform ensures your smart contracts are executed seamlessly, optimizing both speed and accuracy.",
+      "Unlock the power of data to drive product success. This program equips you with essential analytics skills and deep insights into product metrics, user behavior, and retention strategies, preparing you to make impactful product decisions.",
     image: (
       <motion.svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
@@ -151,192 +130,111 @@ const features = [
         <motion.g
           stroke="currentColor"
           fill="none"
-          strokeWidth="1"
+          strokeWidth="1.5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1 }}
         >
-          {/* Main circle */}
-          <motion.circle
-            cx="100"
-            cy="100"
-            r="60"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3, repeat: Infinity }}
-          />
+          {/* Concentric circles */}
+          {[60, 45, 30].map((radius, index) => (
+            <motion.circle
+              key={`circle-${index}`}
+              cx="100"
+              cy="100"
+              r={radius}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                duration: 1.5,
+                delay: index * 0.3,
+                repeat: Infinity,
+                repeatType: "reverse",
+                repeatDelay: 0.5,
+              }}
+            />
+          ))}
 
-          {/* Inner circles */}
-          <motion.circle
-            cx="100"
-            cy="100"
-            r="45"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
-          />
-
-          <motion.circle
-            cx="100"
-            cy="100"
-            r="30"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3, delay: 1, repeat: Infinity }}
-          />
-
-          {/* Small circles on the main circle */}
+          {/* Orbiting points */}
           {[0, 60, 120, 180, 240, 300].map((angle, index) => {
             const x = 100 + 60 * Math.cos((angle * Math.PI) / 180);
             const y = 100 + 60 * Math.sin((angle * Math.PI) / 180);
             return (
-              <motion.circle
-                key={angle}
-                cx={x}
-                cy={y}
-                r="2"
-                fill="currentColor"
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1, 0] }}
-                transition={{
-                  duration: 2,
-                  delay: index * 0.3,
-                  repeat: Infinity,
-                }}
-              />
-            );
-          })}
-        </motion.g>
-      </motion.svg>
-    ),
-  },
-  {
-    icon: <Shield className="w-8 h-8" />,
-    title: "Unleash the Potential of Finance",
-    description:
-      "Experience the power of decentralized finance right at your fingertips, transforming the way you manage your assets and engage with the financial world.",
-    image: (
-      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
-        <defs>
-          <pattern
-            id="grid3"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 20 0 L 0 0 0 20"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              strokeOpacity="0.1"
-            />
-          </pattern>
-          <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="1" />
-          </linearGradient>
-        </defs>
-        <rect width="200" height="200" fill="url(#grid3)" />
-
-        <motion.g
-          stroke="currentColor"
-          fill="none"
-          strokeWidth="1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {/* Central star */}
-          <motion.path
-            d="M100 40L108 82L150 82L116 108L126 150L100 126L74 150L84 108L50 82L92 82L100 40Z"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0, rotate: 0 }}
-            animate={{ pathLength: 1, rotate: 360 }}
-            transition={{
-              pathLength: { duration: 3, repeat: Infinity },
-              rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-            }}
-          />
-
-          {/* Orbital rings */}
-          <motion.circle
-            cx="100"
-            cy="100"
-            r="70"
-            strokeDasharray="4 4"
-            initial={{ rotate: 0 }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          />
-
-          {/* Orbiting stars */}
-          {[0, 72, 144, 216, 288].map((angle, index) => {
-            const radius = 70;
-            const x = 100 + radius * Math.cos((angle * Math.PI) / 180);
-            const y = 100 + radius * Math.sin((angle * Math.PI) / 180);
-            return (
-              <motion.g key={angle}>
-                <motion.path
-                  d={`M${x} ${y - 8}L${x + 3} ${y - 3}L${x + 8} ${y - 2}L${
-                    x + 4
-                  } ${y + 2}L${x + 5} ${y + 8}L${x} ${y + 4}L${x - 5} ${
-                    y + 8
-                  }L${x - 4} ${y + 2}L${x - 8} ${y - 2}L${x - 3} ${y - 3}Z`}
+              <motion.g key={`orbit-${index}`}>
+                <motion.circle
+                  cx={x}
+                  cy={y}
+                  r="3"
                   fill="currentColor"
-                  initial={{ scale: 0, rotate: 0 }}
+                  initial={{ scale: 0, opacity: 0 }}
                   animate={{
                     scale: [0, 1, 0],
+                    opacity: [0, 1, 0],
                     rotate: 360,
                   }}
                   transition={{
-                    scale: {
-                      duration: 2,
-                      delay: index * 0.4,
-                      repeat: Infinity,
-                    },
-                    rotate: { duration: 10, repeat: Infinity, ease: "linear" },
+                    duration: 2,
+                    delay: index * 0.2,
+                    repeat: Infinity,
+                    repeatDelay: 0.5,
+                  }}
+                />
+                <motion.line
+                  x1="100"
+                  y1="100"
+                  x2={x}
+                  y2={y}
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: [0, 0.2, 0] }}
+                  transition={{
+                    duration: 2,
+                    delay: index * 0.2,
+                    repeat: Infinity,
+                    repeatDelay: 0.5,
                   }}
                 />
               </motion.g>
             );
           })}
 
-          {/* Pulsing center */}
+          {/* Center point */}
           <motion.circle
             cx="100"
             cy="100"
             r="4"
             fill="currentColor"
             initial={{ scale: 0 }}
-            animate={{ scale: [0, 1.5, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            animate={{ scale: [0, 1, 0.5, 1] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
           />
         </motion.g>
       </motion.svg>
     ),
+    path: "/courses/data-analytics",
   },
 ];
 
 export default function Features() {
+  const navigate = useNavigate();
+
   return (
-    <section className="relative bg-black py-24 px-4 sm:px-8 lg:px-16">
+    <section
+      id="features"
+      className="relative bg-black py-16 px-4 sm:px-8 lg:px-16"
+    >
       {/* Background grid effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]" />
 
-      <div className="relative max-w-3xl mx-auto">
+      <div className="relative max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="bg-gray-900/30 backdrop-blur-sm px-6 py-2 rounded-full text-gray-400 text-sm">
-            Flexibility and efficiency
-          </span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -345,18 +243,18 @@ export default function Features() {
           >
             <span className="text-white">Simplifying </span>
             <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-transparent bg-clip-text">
-              Product Manager
+              Futuristic Skills
             </span>{" "}
             <span className="text-white">For Everyone</span>
           </motion.h2>
         </motion.div>
 
-        <div className="space-y-16 md:space-y-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{
                 duration: 0.8,
@@ -364,41 +262,38 @@ export default function Features() {
                 type: "spring",
                 stiffness: 50,
               }}
-              className={`flex flex-col md:flex-row ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              } items-center gap-10 sm:gap-12`}
+              className="flex flex-col bg-gray-900/20 backdrop-blur-sm rounded-2xl p-2 border border-gray-800 hover:border-indigo-500/50 transition-colors duration-300"
             >
-              <div className="flex-1 space-y-4 md:space-y-6">
-                <div className="bg-gray-900/50 backdrop-blur-sm w-10 h-10 rounded-lg flex items-center justify-center text-indigo-400">
+              <div className="flex flex-col h-full">
+                <div className="bg-gray-900/50 backdrop-blur-sm w-12 h-12 rounded-lg flex items-center justify-center text-indigo-400 mb-6">
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
+
+                <h3 className="text-2xl font-bold text-white mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-400 text-base leading-relaxed">
+
+                <p className="text-gray-400 text-base leading-relaxed mb-6 flex-grow">
                   {feature.description}
                 </p>
+
+                <div className="h-60 w-auto mb-6 relative">
+                  <div className="absolute inset-0 bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+                    <div className="w-auto h-60 text-indigo-400">
+                      {feature.image}
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-xl" />
+                  </div>
+                </div>
+
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg text-sm font-medium w-full transition-colors duration-300"
+                  onClick={() => navigate(feature.path)}
                 >
                   Learn More
                 </motion.button>
-              </div>
-              <div className="flex-1">
-                <div className="relative aspect-square bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-700 shadow-lg">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false }}
-                    transition={{ delay: index * 0.2 + 0.4 }}
-                    className="w-full h-full text-indigo-400"
-                  >
-                    {feature.image}
-                  </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-2xl" />
-                </div>
               </div>
             </motion.div>
           ))}

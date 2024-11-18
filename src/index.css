@@ -12,7 +12,6 @@
   background: black;
 } */
 
-
 html,
 body {
   margin: 0;
@@ -31,7 +30,6 @@ body {
   width: 100%;
 }
 
-
 /* Beam Animation */
 
 @keyframes beamUpward {
@@ -48,33 +46,6 @@ body {
     transform: translateY(-300px) scaleY(1.5);
     opacity: 0;
   }
-}
-
-.beam-container {
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  width: 100%;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.beam {
-  position: absolute;
-  top: 0;
-  width: 30px;
-  height: 500px;
-  background: radial-gradient(circle at center, rgba(255, 150, 50, 0.6), transparent 70%),
-    linear-gradient(to top, rgba(255, 100, 50, 0.8), transparent);
-
-  animation: beamUpward 4s infinite ease-in-out;
-  filter: blur(8px);
-  opacity: 0.6;
-  transform-origin: top center;
-  mix-blend-mode: screen;
 }
 
 @layer utilities {
@@ -96,7 +67,6 @@ body {
 .shimmer {
   animation: shimmer 4s infinite linear;
 }
-
 
 /* Enhanced Puzzle Grid Animation for Better Visibility */
 @keyframes puzzleAnimation {
@@ -122,15 +92,16 @@ body {
 }
 
 .bg-puzzle-grid {
-  background-image: linear-gradient(to right,
+  background-image: linear-gradient(
+      to right,
       rgba(255, 255, 255, 0.3) 1px,
-      transparent 1px),
+      transparent 1px
+    ),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: puzzleAnimation 10s ease-in-out infinite;
   filter: drop-shadow(0px 0px 12px rgba(144, 205, 244, 0.5));
 }
-
 
 /* Animation for Individual Box Grids */
 @keyframes gridAnimation {
@@ -144,15 +115,16 @@ body {
 }
 
 .bg-glow-grid {
-  background-image: linear-gradient(to right,
+  background-image: linear-gradient(
+      to right,
       rgba(144, 205, 244, 0.3) 1px,
-      transparent 1px),
+      transparent 1px
+    ),
     linear-gradient(to bottom, rgba(144, 205, 244, 0.3) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: gridAnimation 10s linear infinite;
   filter: drop-shadow(0px 0px 4px rgba(144, 205, 244, 0.6));
 }
-
 
 @keyframes scroll-left {
   0% {
@@ -265,8 +237,6 @@ body {
   animation: button 1s ease-out 0.6s both;
 }
 
-
-
 @layer utilities {
   .perspective {
     perspective: 1000px;
@@ -309,8 +279,6 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-
-
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -327,7 +295,7 @@ body {
 }
 
 .content-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -425,4 +393,75 @@ body {
 
 ::-webkit-scrollbar-thumb {
   @apply bg-white/30 rounded-full hover:bg-white/40 transition-colors duration-200;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-rise {
+    animation: rise 1s ease-out forwards;
+  }
+
+  .animate-draw {
+    animation: draw 2s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 4s ease-in-out infinite;
+  }
+
+  @keyframes rise {
+    from {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    to {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1000;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulseSlow {
+    0%,
+    100% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
 }

@@ -1,19 +1,41 @@
-import React from 'react';
-import { Linkedin, Youtube, Twitter } from 'lucide-react';
+import React from "react";
+import companyLogo from "/assets/companylogo.png";
+import { Link } from "react-router-dom";
 
 const footerLinks = {
   services: {
-    title: 'Services',
-    links: ['Features', 'Solutions', 'Testimonials', 'FAQ']
+    title: "Courses",
+    links: [
+      {
+        label: "Product Management Program",
+        url: "/courses/product-management",
+      },
+      { label: "Data Analytics Program", url: "/courses/data-analytics" },
+    ],
   },
   company: {
-    title: 'Company',
-    links: ['About', 'Blog', 'Privacy Policy', 'Terms of Use', 'Contact Us']
+    title: "Company",
+    links: [
+      { label: "About", url: "/aboutus" },
+      { label: "Blog", url: "/blogs" },
+      { label: "Privacy Policy", url: "/privacy-policy" },
+      { label: "Terms of Use", url: "/terms-of-use" },
+    ],
   },
   social: {
-    title: 'Social',
-    links: ['LinkedIn', 'Youtube', 'X (Twitter)']
-  }
+    title: "Social",
+    links: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/company/accelerator-x/",
+      },
+      { label: "Instagram", url: "https://www.instagram.com/acceleratorxco/" },
+      {
+        label: "Facebook",
+        url: "https://www.facebook.com/profile.php?id=61566261154591",
+      },
+    ],
+  },
 };
 
 export default function Footer() {
@@ -23,11 +45,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Logo and Brand */}
           <div className="md:col-span-3">
-            <div className="flex items-center gap-2 text-white mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="font-bold">in</span>
-              </div>
-              <span className="font-semibold">Inno</span>
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center space-x-2">
+                <img
+                  src={companyLogo}
+                  alt="company logo"
+                  className="w-auto h-14"
+                />
+              </Link>
             </div>
           </div>
 
@@ -37,12 +62,14 @@ export default function Footer() {
               <h3 className="font-semibold text-white mb-4">{section.title}</h3>
               <ul className="space-y-3">
                 {section.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="hover:text-white transition-colors"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}

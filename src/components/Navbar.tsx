@@ -1,18 +1,27 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import companyLogo from "/assets/companylogo.png";
 
-export default function Navbar() {
+export default function Navbar({
+  onEnrollClick,
+}: {
+  onEnrollClick: () => void;
+}) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const menuItems = [
-    { label: "Program", path: "/program" },
-    { label: "Hire With Us", path: "/hirewithus" },
-    { label: "Become a Mentor", path: "/becomeamentor" },
     { label: "About", path: "/aboutus" },
     { label: "Blog", path: "/blogs" },
+    { label: "Hire With Us", path: "/hirewithus" },
+    { label: "Become a Mentor", path: "/becomeamentor" },
+  ];
+
+  const courses = [
+    { label: "Product Management", path: "/courses/product-management" },
+    { label: "Data Analytics", path: "/courses/data-analytics" },
   ];
 
   return (
@@ -40,6 +49,43 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
+            {/* Courses Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center cursor-pointer text-gray-300 hover:text-white text-sm font-medium"
+              >
+                Courses <ChevronDown size={16} className="ml-1" />
+              </motion.div>
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute left-0 mt-2 w-48 bg-black border border-white/10 rounded-lg shadow-lg z-50"
+                    style={{ pointerEvents: isDropdownOpen ? "auto" : "none" }}
+                  >
+                    {courses.map((course) => (
+                      <Link
+                        key={course.label}
+                        to={course.path}
+                        className="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white text-sm font-medium"
+                      >
+                        {course.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Other Menu Items */}
             {menuItems.map((item) => (
               <motion.div
                 key={item.label}
@@ -54,16 +100,17 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
-          </div>
 
-          {/* Get Template Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block bg-[#6366F1] text-white px-6 py-2 rounded-lg text-sm font-medium"
-          >
-            Join AcceX
-          </motion.button>
+            {/* Apply Now Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#1a71f6] text-white px-6 py-2 rounded-lg text-sm font-medium"
+              onClick={onEnrollClick}
+            >
+              Apply Now
+            </motion.button>
+          </div>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -87,6 +134,38 @@ export default function Navbar() {
             className="md:hidden bg-black/95"
           >
             <div className="px-4 pt-2 pb-6 space-y-4">
+              {/* Courses Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center justify-between w-full text-gray-300 hover:text-white text-sm font-medium"
+                >
+                  Courses <ChevronDown size={16} />
+                </button>
+                <AnimatePresence>
+                  {isDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mt-2 space-y-2"
+                    >
+                      {courses.map((course) => (
+                        <Link
+                          key={course.label}
+                          to={course.path}
+                          className="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white text-sm font-medium"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {course.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Other Menu Items */}
               {menuItems.map((item) => (
                 <motion.div
                   key={item.label}
@@ -105,10 +184,13 @@ export default function Navbar() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-[#6366F1] text-white px-4 py-2 rounded-lg text-sm font-medium mt-4"
-                onClick={() => setIsOpen(false)}
+                className="w-full bg-[#1a71f6] text-white px-4 py-2 rounded-lg text-sm font-medium mt-4"
+                onClick={() => {
+                  setIsOpen(false);
+                  onEnrollClick();
+                }}
               >
-                Join AcceX
+                Apply Now
               </motion.button>
             </div>
           </motion.div>

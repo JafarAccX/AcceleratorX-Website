@@ -25,7 +25,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         className="text-6xl font-bold text-white mb-4"
       >
-        Abour <span className="text-indigo-500">AcceleratorX</span>
+        About <span className="text-indigo-500">Us</span>
       </motion.h1>
 
       <motion.p
@@ -34,7 +34,7 @@ const Hero = () => {
         transition={{ delay: 0.3 }}
         className="text-gray-400 text-xl mb-12"
       >
-        Empowering Financial Growth with Web3 Technology
+        Meet our teams
       </motion.p>
 
       <motion.div

@@ -274,33 +274,33 @@ const ScalabilityCard = () => {
 
 export const features = [
   {
-    title: "Decentralized Identity Verification",
+    title: "Build Your Dream Product",
     description:
-      "Protect user privacy and ensure digital identity security through decentralized identity verification systems.",
+      "Empower yourself to ideate, design, and launch a product from scratch, mastering every stage of the product lifecycle with real-world tools and insights.",
     icon: <Shield className="w-12 h-12 text-blue-500" />,
     className: "md:col-span-1",
     image: <IdentityCard />,
   },
   {
-    title: "Seamless Blockchain Integration",
+    title: "BYDP: Transforming Ideas into Market-Ready Products",
     description:
-      "Easily integrate blockchain technology into existing systems, enhancing data transparency and security.",
+      "From user research to go-to-market strategy, BYDP guides you through a structured journey to build, test, and present a product that solves real problems.",
     icon: <Boxes className="w-12 h-12 text-blue-500" />,
     className: "md:col-span-2",
     image: <BlockchainCard />,
   },
   {
-    title: "Real-Time Asset Management",
+    title: "Hands-On Product Building Experience",
     description:
-      "Monitor and manage your digital assets in real-time, ensuring full control and efficiency.",
+      "Gain real-time skills in product management by building and managing your own product idea from concept to execution, with full guidance and resources.",
     icon: <Wallet className="w-12 h-12 text-blue-500" />,
     className: "md:col-span-2",
     image: <AssetCard />,
   },
   {
-    title: "High Scalability",
+    title: "Scalable Product Management Skills",
     description:
-      "The Inno platform offers high scalability, effortlessly handling business needs of any size.",
+      "Learn scalable strategies and frameworks that equip you to handle products of any size and complexity, preparing you for real-world industry demands.",
     icon: <LineChart className="w-12 h-12 text-blue-500" />,
     className: "md:col-span-1",
     image: <ScalabilityCard />,

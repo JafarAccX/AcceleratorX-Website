@@ -21,18 +21,28 @@ const Values = () => {
           className="text-gray-300 space-y-8"
         >
           <p>
-            Inno was founded with a clear vision: to revolutionize the financial
-            industry by harnessing the power of Web3 technology. We believe that
-            the future of finance should be accessible, transparent, and secure
-            for everyone. Our mission is to break down barriers and create
-            financial solutions that empower individuals and businesses alike.
+            At AcceleratorX, we are on a mission to shape visionary leaders who
+            dare to redefine the future. We believe in harnessing ambition and
+            transforming it into unstoppable momentum, turning ideas into action
+            and dreams into impactful careers. Our commitment is to empower
+            individuals with immersive, hands-on learning experiences that
+            challenge limits, unlock potential, and open doors to a world of
+            opportunity.
           </p>
 
           <p>
-            At the core of our values are innovation, integrity, and
-            inclusivity. We are committed to building a financial ecosystem that
-            is fair, equitable, and sustainable, ensuring that everyone has the
-            opportunity to thrive in the digital economy.
+            Our programs are meticulously crafted for those who strive not just
+            to learn but to lead, with a focus on real-world application,
+            mentorship from top industry experts, and a powerful support
+            network. Through a curriculum that bridges theory and practice, we
+            guide our students in mastering high-impact skills, building their
+            personal brand, and navigating competitive markets with confidence
+            and purpose. With access to elite mentors from companies like Tata,
+            Walmart, and PayPal, and an unmatched placement support system, we
+            create a seamless path from ambition to achievement. At
+            AcceleratorX, we don't just prepare you for a career; we equip you
+            to make waves. Join us to build, lead, and succeed in the arena of
+            tomorrow’s leaders. The future starts with you.
           </p>
         </motion.div>
       </motion.div>

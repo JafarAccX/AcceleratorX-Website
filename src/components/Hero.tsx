@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Lock } from "lucide-react";
+import { TypeAnimation } from "react-type-animation";
 import "./Hero.css";
 
 export default function Hero() {
@@ -38,38 +38,41 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-10 text-center w-full max-w-4xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-gray-900/30 backdrop-blur-sm px-2 py-1 rounded-full inline-block mb-6"
+          <TypeAnimation
+            sequence={[
+              "Build",
+              1000,
+              "",
+              500,
+              "Lead",
+              1000,
+              "",
+              500,
+              "Succeed",
+              1000,
+              "",
+              500,
+            ]}
+            wrapper="h1"
+            speed={50}
+            className="text-6xl sm:text-8xl mb-5 font-bold text-white text-transparent bg-clip-text"
+            repeat={Infinity}
+            cursor={true}
             style={{
-              boxShadow:
-                "0 0 10px rgba(144, 205, 244, 0.5), 0 0 20px rgba(144, 205, 244, 0.3)",
+              whiteSpace: "pre",
+              display: "inline-block",
+              minWidth: "300px",
             }}
-          >
-            <span className="text-gray-300 font-thin text-sm sm:text-base">
-              Next Cohort Starts on 30 Nov
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-white to-indigo-400 text-transparent bg-clip-text"
-          >
-            Build, Lead & Succeed
-          </motion.h1>
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-gray-300 text-sm sm:text-lg mb-8 max-w-lg mx-auto leading-relaxed"
+            className="text-gray-300 text-sm sm:text-xl font-semibold text-center mb-8 max-w-lg mx-auto leading-relaxed"
           >
-            Transform your ideas into action. <br /> Become the Product Manager
-            you were meant to be.
+            Transform your ideas into action. <br /> Accelerating ideas into
+            impactful solution that shapes the future.
           </motion.p>
 
           <div className="button-sparkle">
@@ -83,17 +86,14 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="enroll-button bg-blue-600 flex justify-center items-center gap-2 text-white px-5 py-3 rounded-lg text-sm sm:text-base font-medium"
+                onClick={() => {
+                  const featuresSection = document.getElementById("features");
+                  if (featuresSection) {
+                    featuresSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
-                Enroll Now
-                <Lock size={16} />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="download-button bg-gray-800 flex justify-center items-center gap-2 text-white px-5 py-3 rounded-lg text-sm sm:text-base font-medium"
-              >
-                Download Curriculum
-                <Download size={16} />
+                Explore Courses
               </motion.button>
             </motion.div>
           </div>
