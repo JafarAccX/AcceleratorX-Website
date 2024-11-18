@@ -66,33 +66,6 @@ function BecomeAMentor() {
     }
   };
 
-  const features = [
-    {
-      icon: <Rocket className="w-8 h-8" />,
-      title: "Financial Innovation",
-      description:
-        "Guide aspiring professionals in revolutionizing traditional finance with cutting-edge Web3 technology.",
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Secure Infrastructure",
-      description:
-        "Share your expertise in enterprise-grade security protocols and best practices.",
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Lightning Fast",
-      description:
-        "Mentor others in building high-performance systems for real-time operations.",
-    },
-    {
-      icon: <BarChart3 className="w-8 h-8" />,
-      title: "Advanced Analytics",
-      description:
-        "Help develop powerful insights and data-driven financial solutions.",
-    },
-  ];
-
   const benefits = [
     {
       icon: <Users className="w-8 h-8" />,
@@ -145,40 +118,7 @@ function BecomeAMentor() {
           </motion.button>
         </div>
       </motion.div>
-
-      {/* Features Grid */}
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          What You'll Help With
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -5 }}
-              className="relative bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 shadow-lg hover:shadow-blue-500/10 hover:border-blue-500/50 transition-all duration-300 group overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative z-10">
-                <div className="text-blue-400 mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-white/90">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  {feature.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Benefits Section */}
+      ={/* Benefits Section */}
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           Benefits of Mentoring
@@ -209,7 +149,6 @@ function BecomeAMentor() {
           ))}
         </div>
       </div>
-
       {/* Contact Form */}
       <div className="container mx-auto px-4 py-20">
         <motion.div

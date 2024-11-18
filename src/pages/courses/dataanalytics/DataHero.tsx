@@ -51,7 +51,8 @@ export default function DataHero() {
 
   const handleModalSubmit = () => {
     if (isDownload) {
-      window.location.href = "https://google.com";
+      window.location.href =
+        "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/Acce%20x%20DA.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2UgeCBEQS5wZGYiLCJpYXQiOjE3MzE5NDE4MjUsImV4cCI6MTc2MzQ3NzgyNX0.XyWtn3AOF-c7WJN2zbDuZTar_ismG2xQXQ_y3KpXsLw&t=2024-11-18T14%3A57%3A06.163Z";
     }
     handleModalClose();
   };
