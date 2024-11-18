@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Rocket,
-  Shield,
-  Zap,
-  BarChart3,
-  Users,
-  BookOpen,
-  Target,
-  Award,
-} from "lucide-react";
+import { Users, BookOpen, Target, Award } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -210,7 +201,21 @@ function BecomeAMentor() {
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">
-                Why do you want to mentor?
+                Designation
+              </label>
+              <input
+                type="text"
+                name="designation"
+                className="w-full px-4 py-3 bg-slate-950  rounded-lg focus:ring-2 focus:ring-blue-500 outline-none border border-gray-600 focus:border-blue-500 transition-colors duration-300"
+                placeholder="Product Manager"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">
+                Describe your expertise.
               </label>
               <textarea
                 name="motivation"

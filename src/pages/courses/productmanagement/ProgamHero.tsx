@@ -50,9 +50,8 @@ export default function ProgramHero() {
 
   const handleModalSubmit = () => {
     if (isDownload) {
-      // Redirect to file download or external URL after form submission
       window.location.href =
-        "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Brochure%20(3).pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBCcm9jaHVyZSAoMykucGRmIiwiaWF0IjoxNzMxOTQxODg0LCJleHAiOjE3NjM0Nzc4ODR9.5CmoBe0dKWL49WdTTjTp0MPJ101YW2uP4ZuJVyiGguA&t=2024-11-18T14%3A58%3A05.029Z"; // Replace with your file download URL
+        "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Brochure%20(3).pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBCcm9jaHVyZSAoMykucGRmIiwiaWF0IjoxNzMxOTQxODg0LCJleHAiOjE3NjM0Nzc4ODR9.5CmoBe0dKWL49WdTTjTp0MPJ101YW2uP4ZuJVyiGguA&t=2024-11-18T14%3A58%3A05.029Z";
     }
     handleModalClose();
   };
