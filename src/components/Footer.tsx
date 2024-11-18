@@ -19,7 +19,8 @@ const footerLinks = {
       { label: "About", url: "/aboutus" },
       { label: "Blog", url: "/blogs" },
       { label: "Privacy Policy", url: "/privacy-policy" },
-      { label: "Terms of Use", url: "/terms-of-use" },
+      { label: "Terms & Conditions", url: "/terms-and-conditions" },
+      { label: "Refund Policy", url: "/refund-policy" },
     ],
   },
   social: {

@@ -5,7 +5,6 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 

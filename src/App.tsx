@@ -47,6 +47,7 @@ import BecomeAMentorFeatures from "./components/BecomeAMentorFeatures";
 import ChatWidget from "./components/ChatWidget";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import StickyBookNav from "./components/StickyBookNav";
+import Refund from "./pages/refund/Refund";
 
 // Context for managing course selection
 
@@ -163,7 +164,8 @@ function App() {
                 <Route path="/aboutus" element={<AboutPage />} />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/privacy-policy" element={<Privacy />} />
-                <Route path="/terms-of-use" element={<Terms />} />
+                <Route path="/terms-and-conditions" element={<Terms />} />
+                <Route path="/refund-policy" element={<Refund />} />
                 <Route
                   path="/courses/product-management"
                   element={<ProgramAnalyticsPage />}
