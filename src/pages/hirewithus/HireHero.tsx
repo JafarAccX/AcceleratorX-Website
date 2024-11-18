@@ -202,7 +202,7 @@ function EnquiryForm() {
           value={formData.projectDetails}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-500"
-          placeholder="Tell us about your project requirements..."
+          placeholder="Tell us about your requirements..."
         />
       </motion.div>
 
@@ -295,8 +295,7 @@ export default function HireWithUsPage() {
               <GradientText>Hire</GradientText> best talents with AcceleratorX
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-              Be the part of hiring mine and skilled Product Managers for your
-              teams.
+              Be the part of hiring mine and skilled individuals for your teams.
             </p>
           </motion.div>
 
@@ -340,7 +339,7 @@ export default function HireWithUsPage() {
                   className="text-center mb-12"
                 >
                   <h2 className="text-3xl font-bold mb-4">
-                    <GradientText>Tell Us About Your Project</GradientText>
+                    <GradientText>Let's get to know each other</GradientText>
                   </h2>
                   <p className="text-gray-400">
                     Fill out the form below and we'll get back to you within 24
