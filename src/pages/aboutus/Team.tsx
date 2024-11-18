@@ -78,6 +78,25 @@ const Team = () => {
             </div>
           </div>
         </motion.div>
+
+        {/* Team Photo Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 flex justify-center"
+        >
+          <div className="rounded-lg border-4 border-indigo-500 overflow-hidden w-80">
+            <img
+              src="/assets/team.jpg"
+              alt="AcceleratorX Team"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </motion.div>
+        <p className="text-gray-400 font-semibold text-center mt-4">
+          The talented and diverse AcceleratorX Team
+        </p>
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ export default function ChatWidget() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsOpen(true);
+      setIsOpen(false);
     }, 2000);
 
     return () => clearTimeout(timer);
