@@ -156,7 +156,7 @@ function App() {
               isOpen={isEnrollmentModalOpen}
               onClose={handleCloseModal}
             />
-            <main className="bg-black min-h-screen">
+            <main className="bg-black min-h-screen py-10">
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/hirewithus" element={<HireHero />} />
