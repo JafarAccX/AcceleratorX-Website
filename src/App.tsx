@@ -142,7 +142,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/">
       <CourseProvider>
         <ScrollToTop />
         <RouteLogic setSelectedCourse={setSelectedCourse} />
