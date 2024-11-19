@@ -63,7 +63,7 @@ export default function CTA() {
             whileTap={{ scale: 0.95 }}
             onClick={handleEnrollClick}
           >
-            Enroll Now
+            Apply Now
           </motion.button>
 
           {/* Decorative Divider */}

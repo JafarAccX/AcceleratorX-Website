@@ -40,8 +40,8 @@ export default function DataPricing() {
 
         <PricingCard
           courseName="Data Analytics"
-          originalPrice={59000}
-          discountedPrice={47200}
+          originalPrice={35400}
+          discountedPrice={27999}
           features={features}
           onEnroll={() => setIsModalOpen(true)}
         />

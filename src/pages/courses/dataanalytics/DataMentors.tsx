@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 import { Users } from "lucide-react";
 
 const companies = [
-  {
-    name: "Accenture",
-    logo: "/assets/dataAnalyticsLogo/accenture.png",
-  },
-  {
-    name: "Deloitte",
-    logo: "/assets/dataAnalyticsLogo/Deloitte.png",
-  },
+  // {
+  //   name: "Accenture",
+  //   logo: "/assets/dataAnalyticsLogo/accenture.png",
+  // },
+  // {
+  //   name: "Deloitte",
+  //   logo: "/assets/dataAnalyticsLogo/Deloitte.png",
+  // },
   {
     name: "EXL Service",
     logo: "/assets/dataAnalyticsLogo/EXL_Service_logo.svg.png",
@@ -46,8 +46,6 @@ const companies = [
 ];
 
 const DataMentors: React.FC = () => {
-  const logoSet = [...companies, ...companies]; // Duplicate for seamless looping
-
   return (
     <div className="min-h-screen bg-black">
       <section className="py-24">
@@ -75,31 +73,59 @@ const DataMentors: React.FC = () => {
           </motion.div>
 
           {/* Seamless Logo Slider */}
-          <div className="relative overflow-hidden py-4">
-            <motion.div
-              className="flex items-center space-x-6"
-              initial={{ x: "0%" }}
-              animate={{ x: "-100%" }} // Shift entire width
-              transition={{
-                repeat: Infinity,
-                duration: 30, // Smooth scrolling speed
-                ease: "linear",
-              }}
-            >
-              {logoSet.map((company, index) => (
-                <div
+          <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:w-[100px] before:h-full before:bg-gradient-to-r before:from-black before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:w-[100px] after:h-full after:bg-gradient-to-l after:from-black after:to-transparent">
+            <div className="flex gap-8 logos-slide">
+              {[...companies, ...companies].map((company, index) => (
+                <motion.div
                   key={index}
-                  className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 bg-white rounded-lg shadow-md flex items-center justify-center"
+                  className="flex-shrink-0 w-[150px] h-[80px] bg-white/[0.03] backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center p-4 hover:bg-white/[0.06] transition-all duration-300 border border-white/10 group"
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 },
+                  }}
+                  style={{
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                    transform: "translate3d(0,0,0)",
+                    WebkitTransform: "translate3d(0,0,0)",
+                  }}
                 >
                   <img
                     src={company.logo}
                     alt={company.name}
-                    className="object-contain h-full"
+                    className="w-full h-full object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-125"
+                    loading="lazy"
+                    style={{
+                      imageRendering: "auto",
+                      WebkitImageRendering: "auto",
+                    }}
                   />
-                </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
+
+          <style jsx global>{`
+            @keyframes slide {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+
+            .logos-slide {
+              animation: slide 20s linear infinite;
+              animation-play-state: running;
+              width: fit-content;
+              will-change: transform;
+            }
+
+            .logos-slide:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
         </div>
       </section>
     </div>

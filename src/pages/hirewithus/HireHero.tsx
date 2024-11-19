@@ -12,7 +12,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 function GradientText({ children, className = "" }) {
   return (
     <span
-      className={`bg-gradient-to-r from-indigo-400 via-blue-400 to-purple-400 bg-clip-text text-transparent ${className}`}
+      className={`bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 bg-clip-text text-transparent ${className}`}
     >
       {children}
     </span>
@@ -112,7 +112,7 @@ function EnquiryForm() {
             required
             value={formData.fullName}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-500"
+            className="w-full px-4 py-2.5 bg-black/60 border border-blue-900/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
             placeholder="John Doe"
           />
         </motion.div>
@@ -134,7 +134,7 @@ function EnquiryForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-500"
+            className="w-full px-4 py-2.5 bg-black/60 border border-blue-900/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
             placeholder="john@example.com"
           />
         </motion.div>
@@ -156,7 +156,7 @@ function EnquiryForm() {
             required
             value={formData.companyName}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-500"
+            className="w-full px-4 py-2.5 bg-black/60 border border-blue-900/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
             placeholder="Your Company Name"
           />
         </motion.div>
@@ -178,7 +178,7 @@ function EnquiryForm() {
             required
             value={formData.companyDomain}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-500"
+            className="w-full px-4 py-2.5 bg-black/60 border border-blue-900/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
             placeholder="e.g., Software Engineer"
           />
         </motion.div>
@@ -201,7 +201,7 @@ function EnquiryForm() {
           rows={4}
           value={formData.projectDetails}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-500"
+          className="w-full px-4 py-2.5 bg-black/60 border border-blue-900/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
           placeholder="Tell us about your requirements..."
         />
       </motion.div>
@@ -217,7 +217,7 @@ function EnquiryForm() {
           whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={loading}
-          className={`inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium rounded-lg shadow-lg hover:shadow-indigo-500/50 transition-all duration-200 ${
+          className={`inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg shadow-lg hover:shadow-blue-500/30 transition-all duration-200 ${
             loading ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -237,14 +237,14 @@ function FinanceCard({ icon: Icon, title, description, delay }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.02, translateY: -5 }}
-      className="relative group"
+      className="relative group bg-gradient-to-r from-black to-black/95 hover:from-blue-900/10 hover:to-blue-800/10 transition-all duration-300"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-      <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 p-6 rounded-xl h-full">
-        <div className="flex flex-col space-y-4">
-          <Icon className="w-8 h-8 text-indigo-400" />
-          <h3 className="text-xl font-semibold text-white">{title}</h3>
-          <p className="text-gray-400 leading-relaxed">{description}</p>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+      <div className="relative bg-black/40 backdrop-blur-xl border border-blue-900/10 p-5 rounded-xl h-full">
+        <div className="flex flex-col space-y-3">
+          <Icon className="w-7 h-7 text-blue-400" />
+          <h3 className="text-lg font-semibold text-white">{title}</h3>
+          <p className="text-gray-400 leading-relaxed text-sm">{description}</p>
         </div>
       </div>
     </motion.div>
@@ -281,9 +281,9 @@ export default function HireWithUsPage() {
   ];
 
   return (
-    <section className="relative bg-black text-white py-20 overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="space-y-20">
+    <section className="relative bg-black text-white py-12 overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="space-y-16">
           {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -291,16 +291,16 @@ export default function HireWithUsPage() {
             transition={{ duration: 0.6 }}
             className="text-center space-y-6"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               <GradientText>Hire</GradientText> best talents with AcceleratorX
             </h1>
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
               Be the part of hiring mine and skilled individuals for your teams.
             </p>
           </motion.div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {features.map((feature, index) => (
               <FinanceCard
                 key={index}
@@ -330,7 +330,7 @@ export default function HireWithUsPage() {
             </div>
 
             {/* Form Section */}
-            <div className="bg-gradient-to-r from-indigo-900/10 to-purple-900/10 backdrop-blur-xl border border-white/5 rounded-2xl p-8">
+            <div className="bg-gradient-to-r from-blue-900/5 to-blue-800/5 backdrop-blur-xl border border-blue-900/10 rounded-2xl p-6 sm:p-8">
               <div className="max-w-3xl mx-auto">
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -338,10 +338,10 @@ export default function HireWithUsPage() {
                   transition={{ duration: 0.5 }}
                   className="text-center mb-12"
                 >
-                  <h2 className="text-3xl font-bold mb-4">
+                  <h2 className="text-2xl font-bold mb-3">
                     <GradientText>Let's get to know each other</GradientText>
                   </h2>
-                  <p className="text-gray-400">
+                  <p className="text-gray-400 text-sm">
                     Fill out the form below and we'll get back to you within 24
                     hours.
                   </p>

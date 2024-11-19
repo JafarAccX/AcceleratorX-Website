@@ -85,14 +85,14 @@ export const tools: Tool[] = [
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
     description: "UI/UX Design & Prototyping",
-    category: "Design",
+    category: "UI/UX",
   },
   {
     name: "Jira",
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
     description: "Project Management & Tracking",
-    category: "Management",
+    category: "Collaboration",
   },
   {
     name: "Slack",
@@ -131,49 +131,49 @@ export const tools: Tool[] = [
     name: "Github",
     image: "/assets/logo/github.png",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "Technical",
   },
   {
     name: "MixPanel",
     image: "/assets/logo/Mixpanel.png",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "Analytics",
   },
   {
     name: "Amplitude",
     image: "/assets/logo/Amplitude.png",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "Analytics",
   },
   {
     name: "Postman",
     image: "/assets/logo/Postman.png",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "Technical",
   },
   {
     name: "Whimsical",
     image: "/assets/logo/Whimsical.png",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "UI/UX",
   },
   {
     name: "MySQL",
     image: "/assets/logo/Mysql.png",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "Analytics",
   },
   {
     name: "User testing",
     image: "/assets/logo/UserTesting.png",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "Feedback Collection",
   },
   {
     name: "Optimizely",
     image: "/assets/logo/optimizely.webp",
     description: "Visual Collaboration",
-    category: "Collaboration",
+    category: "A/B Testing",
   },
 ];
 

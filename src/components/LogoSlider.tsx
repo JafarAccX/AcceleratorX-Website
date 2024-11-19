@@ -24,7 +24,6 @@ const companies = [
 
 const LogoSlider: React.FC = () => {
   const [isHovered, setIsHovered] = React.useState(false);
-  const logoSet = [...companies, ...companies]; // Duplicate for seamless looping
 
   return (
     <div className="relative overflow-hidden bg-dark text-white w-full py-16">
@@ -38,7 +37,7 @@ const LogoSlider: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="mt-6 text-xl md:text-3xl font-bold"
+          className="mt-6 text-xl md:text-5xl font-bold"
         >
           <span className="text-white">Our </span>
           <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-transparent bg-clip-text">
@@ -48,61 +47,69 @@ const LogoSlider: React.FC = () => {
         </motion.h2>
       </motion.div>
 
-      {/* Seamless Logo Slider */}
       <div
-        className="overflow-hidden relative"
+        className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:w-[100px] before:h-full before:bg-gradient-to-r before:from-dark before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:w-[100px] after:h-full after:bg-gradient-to-l after:from-dark after:to-transparent"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-dark to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-dark to-transparent z-10"></div>
-
-        <motion.div
-          className="flex items-center space-x-8 px-4 will-change-transform"
-          initial={{ x: "0%" }}
-          animate={{ x: "-50%" }}
-          transition={{
-            repeat: Infinity,
-            duration: 12,
-            ease: [0.32, 0, 0.67, 0],
-            pause: isHovered,
-            repeatType: "loop"
-          }}
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "translate3d(0,0,0)",
-            WebkitTransform: "translate3d(0,0,0)"
-          }}
-        >
-          {logoSet.map((company, index) => (
+        <div className="flex gap-8 logos-slide">
+          {[...companies, ...companies].map((company, index) => (
             <motion.div
               key={index}
-              className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center p-4 hover:bg-white/10 transition-all duration-300 will-change-transform"
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0.8 }}
-              whileInView={{ opacity: 1 }}
+              className="flex-shrink-0 w-[150px] h-[80px] bg-white/[0.03] backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center p-4 hover:bg-white/[0.06] transition-all duration-300 border border-white/10 group"
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+              }}
               style={{
                 backfaceVisibility: "hidden",
                 WebkitBackfaceVisibility: "hidden",
                 transform: "translate3d(0,0,0)",
-                WebkitTransform: "translate3d(0,0,0)"
+                WebkitTransform: "translate3d(0,0,0)",
               }}
             >
               <img
                 src={company.logo}
                 alt={company.name}
-                className="object-contain h-full w-full filter brightness-100 hover:brightness-110 transition-all duration-300"
+                className="w-full h-full object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-125"
+                loading="lazy"
                 style={{
                   imageRendering: "auto",
-                  WebkitImageRendering: "auto"
+                  WebkitImageRendering: "auto",
                 }}
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes slide {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .logos-slide {
+          animation: slide 20s linear infinite;
+          animation-play-state: running;
+          width: fit-content;
+          will-change: transform;
+        }
+
+        .logos-slide:hover {
+          animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .logos-slide {
+            animation-duration: 40s;
+          }
+        }
+      `}</style>
     </div>
   );
 };

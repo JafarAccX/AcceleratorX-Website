@@ -22,7 +22,7 @@ const capeSteps = [
   },
   {
     icon: <ClipboardCheck className="h-6 w-6 text-blue-500" />,
-    title: "CAPE Project",
+    title: "CAP Project",
     description: "Complete a custom project to showcase your data skills.",
     duration: "Weeks 10–13",
   },
@@ -40,7 +40,7 @@ export default function CAPE() {
           className="text-center"
         >
           <h2 className="text-3xl font-bold text-white">
-            Build Your CAPE Portfolio
+            Build Your CAP Portfolio
           </h2>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             A Portfolio That Speaks for You – Build Skills That Stand Out

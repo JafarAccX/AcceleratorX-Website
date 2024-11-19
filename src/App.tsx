@@ -108,7 +108,7 @@ function DataAnalyticsPage() {
       <DataMentors />
       <DataSkillsTools />
       <DataPricing />
-      <StickyBookNav />
+      {/* <StickyBookNav /> */}
     </>
   );
 }

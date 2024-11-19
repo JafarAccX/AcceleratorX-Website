@@ -111,7 +111,7 @@ export default function DataHero() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Counter end={16} suffix="LPA" />
-                <p className="text-sm text-gray-400 mt-2">Starting Salary</p>
+                <p className="text-sm text-gray-400 mt-2">Average Salary</p>
               </motion.div>
               <motion.div
                 className="p-6 rounded-lg shadow-lg flex flex-col items-center"
