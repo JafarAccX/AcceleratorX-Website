@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { ChevronLeft, Calendar, Clock, User } from "lucide-react";
+import { ChevronLeft, Calendar, Clock, User, ArrowLeft } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 
-interface Blog {
+interface Blogs {
   id: number;
   title: string;
   excerpt: string;
@@ -13,301 +13,210 @@ interface Blog {
   author?: string;
 }
 
-const Blogs = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+function Blogs() {
+  const [Blogss, setBlogss] = useState<Blogs[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+  const [selectedBlogs, setSelectedBlogs] = useState<Blogs | null>(null);
 
   useEffect(() => {
-    const fetchBlogs = async () => {
+    const fetchBlogss = async () => {
       try {
-        // Since we're not using actual integration, let's create mock data
-        const mockBlogs: Blog[] = [
+        const mockBlogss: Blogs[] = [
           {
             id: 1,
             title: "Leveraging Data Analytics in Product Management",
             excerpt: "Discover how data analytics empowers product managers to make informed decisions, prioritize features, and deliver products that users love.",
-            coverImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3",
-            content: `
-# Leveraging Data Analytics in Product Management
+            coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80",
+            content: `# Leveraging Data Analytics in Product Management
 
-Data analytics has revolutionized the way we approach product management in the modern digital landscape. This comprehensive guide explores how data-driven decision-making can transform your product strategy and lead to better outcomes.
+In today's data-driven world, product managers must harness the power of analytics to make informed decisions and drive success. Let's explore how data analytics transforms product management.
 
-## Understanding the Power of Data Analytics
+## The Power of Data-Driven Decisions
 
-In today's competitive market, intuition alone isn't enough. Data analytics provides the concrete insights needed to make informed decisions and drive product success. Let's explore how this transformation happens.
+### 1. Understanding User Behavior
+- Track user interactions
+- Analyze usage patterns
+- Identify pain points
 
-### Why Data Analytics Matters
+### 2. Feature Prioritization
+- Impact assessment
+- User demand analysis
+- Resource optimization
 
-Data analytics empowers product managers in several crucial ways:
+### 3. Performance Metrics
+- Conversion rates
+- User engagement
+- Revenue impact
 
-* **Informed Decision Making**
-  - Eliminates guesswork from product strategy
-  - Provides concrete evidence for feature prioritization
-  - Enables accurate measurement of success
+## Implementation Strategy
 
-* **User Understanding**
-  - Reveals actual user behavior patterns
-  - Identifies pain points and opportunities
-  - Tracks user journey and engagement
+1. **Data Collection**
+   - Define KPIs
+   - Set up tracking
+   - Ensure data quality
 
-* **Strategic Planning**
-  - Guides roadmap development
-  - Informs resource allocation
-  - Supports stakeholder communication
+2. **Analysis**
+   - Pattern recognition
+   - Trend analysis
+   - Insight generation
 
-## Key Metrics That Drive Success
+3. **Action Plan**
+   - Feature roadmap
+   - Implementation timeline
+   - Success metrics
 
-Understanding and tracking the right metrics is crucial for product success. Here are the essential metrics every product manager should monitor:
+> "Without data, you're just another person with an opinion." - W. Edwards Deming
 
-### 1. User Engagement Metrics
+## Best Practices
 
-* **Daily Active Users (DAU)**
-  - Measures daily product engagement
-  - Indicates product stickiness
-  - Helps identify usage patterns
+- Regular data reviews
+- Cross-functional collaboration
+- Continuous improvement
+- Data-driven culture
 
-* **Session Duration**
-  - Shows user engagement depth
-  - Identifies potential usability issues
-  - Tracks feature effectiveness
-
-### 2. Business Performance Indicators
-
-* **Conversion Rates**
-  - Measures user journey effectiveness
-  - Identifies optimization opportunities
-  - Tracks business goal achievement
-
-* **Customer Lifetime Value (CLV)**
-  - Projects long-term user value
-  - Guides acquisition strategy
-  - Informs retention efforts
-
-## Implementing Data-Driven Strategies
-
-Success in data-driven product management requires a systematic approach. Here's how to implement effective strategies:
-
-### 1. Data Collection Framework
-
-1. **Define Clear Objectives**
-   - Set specific, measurable goals
-   - Identify key performance indicators
-   - Establish measurement timeframes
-
-2. **Choose the Right Tools**
-   - Select appropriate analytics platforms
-   - Implement tracking mechanisms
-   - Ensure data accuracy and reliability
-
-### 2. Analysis and Action
-
-1. **Regular Data Review**
-   - Schedule periodic analysis sessions
-   - Look for trends and patterns
-   - Document key findings
-
-2. **Action Planning**
-   - Develop data-backed strategies
-   - Set clear implementation timelines
-   - Monitor results and adjust
-
-## Best Practices for Success
-
-To maximize the benefits of data analytics in product management:
-
-* **Stay Focused on Objectives**
-  - Align metrics with business goals
-  - Avoid vanity metrics
-  - Maintain clear success criteria
-
-* **Ensure Data Quality**
-  - Implement proper tracking
-  - Validate data accuracy
-  - Clean and maintain datasets
-
-* **Foster Data Culture**
-  - Share insights across teams
-  - Encourage data-driven decisions
-  - Provide training and support
-
-## Tools and Resources
-
-Essential tools for data-driven product management:
-
-1. **Analytics Platforms**
-   - Google Analytics
-   - Mixpanel
-   - Amplitude
-
-2. **Visualization Tools**
-   - Tableau
-   - Power BI
-   - Data Studio
-
-## Looking Ahead
-
-The future of product management lies in leveraging data analytics effectively. As technology evolves, the ability to harness data insights becomes increasingly crucial for product success.
-
-> "The goal is to turn data into information, and information into insight." - Carly Fiorina
-
----
-
-*Want to learn more about data-driven product management? Explore our other resources or reach out to our team for personalized guidance.*`,
-            date: "2023-11-15",
+Remember: Data should inform decisions, not make them. Balance quantitative insights with qualitative understanding for optimal results.`,
+            date: "2024-03-15",
             readTime: "8 min",
-            author: "Sarah Johnson"
+            author: "Sarah Chen"
           },
           {
             id: 2,
-            title: "Machine Learning Fundamentals",
-            excerpt: "Explore the basic concepts of machine learning and its applications in real-world scenarios.",
-            coverImage: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3",
-            content: "# Machine Learning Fundamentals\n\nMachine learning is transforming industries across the globe...",
-            date: "2024-01-10",
-            readTime: "8 min read",
-            author: "Jane Smith"
+            title: "The Future of AI in Enterprise",
+            excerpt: "Explore how artificial intelligence is reshaping business operations and decision-making processes in enterprise environments.",
+            coverImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80",
+            content: "# The Future of AI in Enterprise\n\nArtificial Intelligence is transforming how enterprises operate...",
+            date: "2024-03-14",
+            readTime: "6 min",
+            author: "Michael Torres"
           },
           {
             id: 3,
-            title: "The Future of AI",
-            excerpt: "Discover what the future holds for artificial intelligence and its impact on society.",
-            coverImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3",
-            content: "# The Future of AI\n\nArtificial Intelligence is rapidly evolving and shaping our future...",
-            date: "2024-01-05",
-            readTime: "6 min read",
+            title: "Building Scalable Cloud Architecture",
+            excerpt: "Learn the essential principles and best practices for designing cloud systems that can grow with your business needs.",
+            coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80",
+            content: "# Building Scalable Cloud Architecture\n\nIn the modern digital landscape, scalability is crucial...",
+            date: "2024-03-13",
+            readTime: "10 min",
             author: "Alex Johnson"
-          },
+          }
         ];
         
-        setBlogs(mockBlogs);
+        setBlogss(mockBlogss);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error("Error fetching Blogss:", error);
         setLoading(false);
       }
     };
 
-    fetchBlogs();
+    fetchBlogss();
   }, []);
-
-  const handleReadMore = (blog: Blog) => {
-    setSelectedBlog(blog);
-    window.scrollTo(0, 0);
-  };
-
-  const handleClose = () => {
-    setSelectedBlog(null);
-  };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-pulse">
-          <div className="h-8 w-32 bg-blue-600/20 rounded"></div>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center">
+        <div className="space-y-4">
+          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-blue-400 animate-pulse">Loading amazing content...</p>
         </div>
       </div>
     );
   }
 
-  if (selectedBlog) {
-    return (
-      <div className="min-h-screen bg-black py-24">
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          <button
-            onClick={handleClose}
-            className="flex items-center text-white hover:text-blue-400 mb-6 group transition-colors duration-300"
-          >
-            <ChevronLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
-            Back to Blogs
-          </button>
-
-          <article className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
-            <img
-              src={selectedBlog.coverImage}
-              alt={selectedBlog.title}
-              className="w-full h-[400px] object-cover"
-            />
-            <div className="p-8">
-              <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  <span>{selectedBlog.date}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  <span>{selectedBlog.readTime}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <User className="w-4 h-4" />
-                  <span>{selectedBlog.author}</span>
-                </div>
-              </div>
-              <h1 
-                className="text-4xl font-bold mb-6 bg-gradient-to-r from-black to-blue-600 bg-clip-text text-transparent" 
-                dangerouslySetInnerHTML={{ __html: selectedBlog.title }}
-              />
-              <div className="prose prose-lg max-w-none 
-                prose-headings:font-bold prose-headings:text-blue-600 
-                prose-h1:text-4xl prose-h1:mb-8 
-                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-6
-                prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
-                prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
-                prose-li:my-2 prose-li:pl-2
-                prose-strong:text-black prose-strong:font-semibold
-                prose-em:text-gray-600 prose-em:italic
-                prose-blockquote:border-l-4 prose-blockquote:border-blue-600 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8
-                prose-hr:my-12">
-                <ReactMarkdown>{selectedBlog.content}</ReactMarkdown>
-              </div>
+  const BlogsPost = ({ Blogs, onBack }: { Blogs: Blogs; onBack: () => void }) => (
+    <article className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="relative h-[400px]">
+        <img
+          src={Blogs.coverImage}
+          alt={Blogs.title}
+          className="w-full h-full object-cover"
+        />
+        <button
+          onClick={onBack}
+          className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors duration-300"
+        >
+          <ArrowLeft className="w-6 h-6 text-gray-800" />
+        </button>
+      </div>
+      <div className="p-8">
+        <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+          {Blogs.date && (
+            <div className="flex items-center gap-1">
+              <Calendar className="w-4 h-4" />
+              <span>{Blogs.date}</span>
             </div>
-          </article>
+          )}
+          {Blogs.readTime && (
+            <div className="flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              <span>{Blogs.readTime}</span>
+            </div>
+          )}
+          {Blogs.author && (
+            <div className="flex items-center gap-1">
+              <User className="w-4 h-4" />
+              <span>{Blogs.author}</span>
+            </div>
+          )}
         </div>
+        <div className="prose prose-lg max-w-none">
+          <ReactMarkdown>{Blogs.content}</ReactMarkdown>
+        </div>
+      </div>
+    </article>
+  );
+
+  if (selectedBlogs) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-12 px-4">
+        <BlogsPost Blogs={selectedBlogs} onBack={() => setSelectedBlogs(null)} />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black py-24">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-12">
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-5xl font-bold text-white mb-4 text-center">Latest Blog Posts</h1>
-        <p className="text-blue-400 text-center mb-12 text-lg">Discover insights and knowledge from our experts</p>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
+          Latest Insights
+        </h1>
+        <p className="text-blue-400 text-center mb-12 text-lg">
+          Discover thought-provoking articles from industry experts
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
+          {Blogss.map((Blogs) => (
             <div
-              key={blog.id}
+              key={Blogs.id}
               className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={blog.coverImage}
-                  alt={blog.title}
+                  src={Blogs.coverImage}
+                  alt={Blogs.title}
                   className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-110"
                 />
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{blog.date}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    <span>{blog.readTime}</span>
-                  </div>
+                  {Blogs.date && (
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>{Blogs.date}</span>
+                    </div>
+                  )}
+                  {Blogs.readTime && (
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{Blogs.readTime}</span>
+                    </div>
+                  )}
                 </div>
-                <h2 
-                  className="text-xl font-bold mb-3 bg-gradient-to-r from-black to-blue-600 bg-clip-text text-transparent"
-                  dangerouslySetInnerHTML={{ __html: blog.title }}
-                />
-                <div 
-                  className="text-gray-600 mb-4 line-clamp-3"
-                  dangerouslySetInnerHTML={{ __html: blog.excerpt }}
-                />
+                <h2 className="text-xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-blue-600 bg-clip-text text-transparent">
+                  {Blogs.title}
+                </h2>
+                <p className="text-gray-600 mb-4 line-clamp-3">{Blogs.excerpt}</p>
                 <button
-                  onClick={() => handleReadMore(blog)}
+                  onClick={() => setSelectedBlogs(Blogs)}
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
                 >
                   Read More
@@ -320,6 +229,6 @@ The future of product management lies in leveraging data analytics effectively. 
       </div>
     </div>
   );
-};
+}
 
 export default Blogs;
