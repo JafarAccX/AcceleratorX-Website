@@ -42,7 +42,7 @@ const LeaderCard = ({
   >
     {/* Background glow effect */}
     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 blur-3xl opacity-30 rounded-full"></div>
-    
+
     {/* Image Card */}
     <div className="relative group">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
@@ -92,11 +92,11 @@ const Team = () => {
       <div className="absolute inset-0">
         {/* Grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-        
+
         {/* Floating orbs */}
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-float"></div>
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-float-delayed"></div>
-        
+
         {/* Particles */}
         {[...Array(20)].map((_, i) => (
           <div
@@ -137,7 +137,7 @@ const Team = () => {
           <LeaderCard
             name="Shahid Naseem"
             role="Founder & CEO"
-            image="/assets/founder/shahidsir.jpg"
+            image="/assets/founder/Sahid.jpg"
             linkedin="https://www.linkedin.com/in/shahid-naseem-a16220144"
             title="Words from our Founder"
             quote="Innovation in education is not just about technology; it's about creating opportunities that transform lives and shape futures. At AcceleratorX, we're committed to empowering the next generation with the tools and knowledge they need to succeed in an ever-evolving digital world."
