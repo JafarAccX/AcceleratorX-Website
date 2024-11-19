@@ -42,7 +42,7 @@ const Hero = () => {
         transition={{ delay: 0.3 }}
         className="relative text-gray-300 text-xl mb-12"
       >
-        Meet our teams
+        Meet our team
       </motion.p>
 
       <motion.div
@@ -54,7 +54,9 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-20 blur-3xl rounded-full"></div>
         <div className="relative z-10 w-full h-full p-8 backdrop-blur-sm bg-black/30 rounded-2xl border border-blue-500/20">
           <p className="text-gray-300 text-lg leading-relaxed">
-            Welcome to AcceleratorX, where innovation meets education. We're dedicated to transforming ambitious individuals into industry leaders through cutting-edge technology and personalized mentorship.
+            Welcome to AcceleratorX, where innovation meets education. We're
+            dedicated to transforming ambitious individuals into industry
+            leaders through cutting-edge technology and personalized mentorship.
           </p>
         </div>
       </motion.div>
