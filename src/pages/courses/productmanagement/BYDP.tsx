@@ -44,19 +44,7 @@ function BYDP() {
               </motion.span>
               program.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05, x: 5 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-8 px-6 py-3 bg-blue-500/10 border border-blue-500/20 rounded-full flex items-center gap-2 mx-auto text-blue-400 hover:text-blue-300 hover:border-blue-400/40 transition-colors group"
-            >
-              Get Started
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <ArrowRight className="w-4 h-4" />
-              </motion.div>
-            </motion.button>
+            
           </motion.div>
         </motion.div>
 

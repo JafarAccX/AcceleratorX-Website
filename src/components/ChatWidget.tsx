@@ -60,7 +60,7 @@ export default function ChatWidget() {
     <>
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed bottom-24 right-6 z-50 w-[400px] max-w-[calc(100vw-2rem)] max-h-[85vh] overflow-auto">
+          <div className="fixed bottom-2 right-6 z-50 w-[400px] max-w-[calc(100vw-2rem)] max-h-[85vh] overflow-auto">
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -228,7 +228,7 @@ export default function ChatWidget() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="fixed bottom-6 right-6 z-50"
+            className="fixed bottom-[6rem] right-6 z-50"
           >
             <motion.div
               className="flex items-center gap-3 bg-gradient-to-r from-blue-600/90 to-blue-500/90 backdrop-blur-lg pl-4 pr-3 py-2.5 rounded-xl shadow-lg"

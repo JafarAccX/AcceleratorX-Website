@@ -73,7 +73,7 @@ function ProgramAnalyticsPage() {
   const { setSelectedCourse } = useCourseContext();
 
   useEffect(() => {
-    setSelectedCourse("Product Management"); // Set the course context for this page
+    setSelectedCourse("Product Management");
   }, [setSelectedCourse]);
 
   return (

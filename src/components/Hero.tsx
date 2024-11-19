@@ -135,77 +135,9 @@ export default function Hero() {
       }
     }
 
-    // Lightning class for electric effects
-    class Lightning {
-      startX: number;
-      startY: number;
-      endX: number;
-      endY: number;
-      segments: { x: number; y: number; }[];
-      life: number;
-      maxLife: number;
-
-      constructor() {
-        this.reset();
-      }
-
-      reset() {
-        this.startX = Math.random() * canvas.width;
-        this.startY = Math.random() * canvas.height;
-        this.endX = this.startX + (Math.random() - 0.5) * 200;
-        this.endY = this.startY + (Math.random() - 0.5) * 200;
-        this.segments = this.generateSegments();
-        this.life = 0;
-        this.maxLife = 10 + Math.random() * 10;
-      }
-
-      generateSegments() {
-        const segments = [{ x: this.startX, y: this.startY }];
-        let currentX = this.startX;
-        let currentY = this.startY;
-        const steps = 8 + Math.floor(Math.random() * 4);
-        
-        for (let i = 0; i < steps; i++) {
-          currentX += (this.endX - this.startX) / steps + (Math.random() - 0.5) * 30;
-          currentY += (this.endY - this.startY) / steps + (Math.random() - 0.5) * 30;
-          segments.push({ x: currentX, y: currentY });
-        }
-        
-        segments.push({ x: this.endX, y: this.endY });
-        return segments;
-      }
-
-      update() {
-        this.life++;
-        if (this.life > this.maxLife) {
-          this.reset();
-        }
-      }
-
-      draw(ctx: CanvasRenderingContext2D) {
-        const opacity = 1 - (this.life / this.maxLife);
-        
-        ctx.strokeStyle = `rgba(120, 180, 255, ${opacity})`;
-        ctx.lineWidth = 2;
-        ctx.shadowColor = 'rgba(120, 180, 255, 0.8)';
-        ctx.shadowBlur = 20;
-        
-        ctx.beginPath();
-        ctx.moveTo(this.segments[0].x, this.segments[0].y);
-        
-        for (let i = 1; i < this.segments.length; i++) {
-          ctx.lineTo(this.segments[i].x, this.segments[i].y);
-        }
-        
-        ctx.stroke();
-        ctx.shadowBlur = 0;
-      }
-    }
-
     // Create objects
     const stars = Array(200).fill(null).map(() => new Star());
     const planets = Array(5).fill(null).map(() => new Planet());
-    const lightnings = Array(3).fill(null).map(() => new Lightning());
 
     // Animation loop
     let animationFrameId: number;
@@ -229,13 +161,6 @@ export default function Hero() {
         planet.centerX = rightHalf + (canvas.width / 4); // Center of right half
         planet.update();
         planet.draw(ctx);
-      });
-
-      // Draw lightning only on the right side
-      lightnings.forEach(lightning => {
-        lightning.startX = rightHalf + (Math.random() * (canvas.width / 2));
-        lightning.update();
-        lightning.draw(ctx);
       });
       
       // Reset composite operation
@@ -262,11 +187,11 @@ export default function Hero() {
       />
 
       {/* Main content container */}
-      <div className="relative z-10 flex min-h-screen w-full flex-col lg:flex-row">
+      <div className="relative z-10 flex min-h-screen w-full items-center justify-center lg:items-stretch lg:justify-start">
         {/* Left side - Text content */}
-        <div className="relative z-20 flex w-full items-center px-6 py-10 lg:w-1/2 lg:px-16 xl:px-24">
-          <div className="w-full">
-            <div className="max-w-xl">
+        <div className="relative z-20 w-full px-6 py-10 lg:w-1/2 lg:px-16 xl:px-24">
+          <div className="flex h-full w-full items-center justify-center lg:justify-start">
+            <div className="w-full max-w-xl text-center lg:text-left">
               <TypeAnimation
                 sequence={[
                   "Build",
@@ -298,7 +223,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="mb-8 max-w-lg text-left text-sm font-semibold leading-relaxed text-gray-300 md:text-lg lg:text-xl"
+                className="mx-auto mb-8 max-w-lg text-sm font-semibold leading-relaxed text-gray-300 md:text-lg lg:mx-0 lg:text-xl"
               >
                 Transform your ideas into action. <br /> Accelerating ideas into
                 impactful solution that shapes the future.
@@ -309,7 +234,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
-                  className="mb-8 flex flex-col items-start gap-4 sm:flex-row"
+                  className="mb-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start"
                 >
                   <motion.button
                     whileHover={{ scale: 1.05 }}

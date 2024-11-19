@@ -107,31 +107,31 @@ const BookingForm = ({ isOpen, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
+        className="fixed inset-0 bg-black/70 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
         onClick={(e) => e.target === e.currentTarget && onClose()}
       >
         <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.95, opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="w-full max-w-lg bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-2xl overflow-hidden my-4"
+          initial={{ scale: 0.95, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.95, opacity: 0, y: 20 }}
+          transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
+          className="w-full max-w-lg bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.2)] overflow-hidden my-4 border border-slate-700/50"
         >
           {/* Header */}
-          <div className="relative p-4 border-b border-gray-700">
+          <div className="relative p-4 sm:p-5 border-b border-slate-700/50 bg-slate-800/50">
             <button
               onClick={onClose}
-              className="absolute right-2 top-2 text-gray-400 hover:text-white transition-colors"
+              className="absolute right-3 top-3 text-slate-400 hover:text-white transition-colors duration-200 hover:bg-slate-700/50 p-1 rounded-full"
             >
               <X size={20} />
             </button>
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
               <Calendar className="w-5 h-5 text-blue-400" />
               Book Mentor Session
             </h2>
           </div>
 
-          <div className="p-4">
+          <div className="p-4 sm:p-5">
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Personal Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

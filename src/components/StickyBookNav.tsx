@@ -24,7 +24,12 @@ const StickyBookNav = () => {
   const springStyles = useSpring({
     transform: isVisible ? "translateY(0)" : "translateY(100%)",
     opacity: isVisible ? 1 : 0,
-    config: { tension: 220, friction: 30 },
+    config: { 
+      tension: 180, 
+      friction: 24,
+      mass: 1,
+      clamp: true 
+    },
   });
 
   if (!selectedCourse) return null;
@@ -38,28 +43,33 @@ const StickyBookNav = () => {
           bottom: 0,
           left: 0,
           right: 0,
-          zIndex: 50,
+          zIndex: 40,
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          // Adjusted padding for chat widget while maintaining responsiveness
+          paddingRight: "clamp(1rem, 4.5rem, 5vw)",
         }}
-        className="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg"
+        // Modern gradient with subtle transparency and neutral tones
+        className="bg-gradient-to-r from-slate-800/95 via-slate-700/95 to-slate-900/95 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] backdrop-blur-sm"
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
-            <div className="flex items-center space-x-4">
-              <p className="text-white text-lg font-semibold">
+        {/* Container with responsive padding:
+            - Smaller padding on mobile for better space utilization
+            - Gradually increases padding on larger screens */}
+        <div className="max-w-7xl mx-auto px-2 sm:px-3 md:px-4 py-2.5 sm:py-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left">
+              <p className="text-white text-sm sm:text-base md:text-lg font-medium leading-tight flex items-center gap-2">
+                <span className="animate-bounce hidden sm:inline-block">💡</span>
                 Got doubts? Book a session with our mentor 1:1
+                <span className="hidden sm:inline-block animate-pulse">🎯</span>
               </p>
-              <div className="flex items-center justify-center bg-blue-500/30 px-4 py-1 rounded-full">
-                <span className="text-sm font-medium text-white">
-                  Only 10 seats remaining
-                </span>
-              </div>
             </div>
             <button
               onClick={() => setIsFormOpen(true)}
-              className="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-base font-medium rounded-lg text-blue-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 border border-transparent text-sm sm:text-base font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] shadow-sm group"
             >
               Book Your Session
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300">⚡</span>
             </button>
           </div>
         </div>
