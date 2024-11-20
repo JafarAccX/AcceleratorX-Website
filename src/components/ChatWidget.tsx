@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, MessageCircleHeart } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
+import { useCourseContext } from "../context/courseContext";
+import { useLocation } from "react-router-dom";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -11,6 +13,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { selectedCourse } = useCourseContext();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -19,12 +23,16 @@ export default function ChatWidget() {
   });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Show chat widget after 3 seconds on course pages
+    if (location.pathname.includes("/courses/")) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 4000);
+      return () => clearTimeout(timer);
+    } else {
       setIsOpen(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    }
+  }, [location.pathname]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +44,7 @@ export default function ChatWidget() {
           phone_number: formData.phone,
           email: formData.email,
           education_level: formData.education,
+          course: selectedCourse,
         },
       ]);
 
@@ -46,7 +55,7 @@ export default function ChatWidget() {
         setIsOpen(false);
         setIsSubmitted(false);
         setFormData({ name: "", phone: "", email: "", education: "" });
-      }, 3000);
+      }, 4000);
     } catch (error) {
       console.error("Error submitting form:", error);
     }

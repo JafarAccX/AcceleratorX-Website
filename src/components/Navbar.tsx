@@ -13,10 +13,10 @@ export default function Navbar({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const menuItems = [
-    { label: "About", path: "/aboutus" },
+    { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
-    { label: "Hire With Us", path: "/hirewithus" },
-    { label: "Become a Mentor", path: "/becomeamentor" },
+    { label: "Hire With Us", path: "/hire-with-us" },
+    { label: "Become a Mentor", path: "/become-a-mentor" },
   ];
 
   const courses = [
@@ -108,7 +108,7 @@ export default function Navbar({
               className="bg-[#1a71f6] text-white px-6 py-2 rounded-lg text-sm font-medium"
               onClick={onEnrollClick}
             >
-              Apply Now
+              Join AcceX Squad
             </motion.button>
           </div>
 
@@ -190,8 +190,7 @@ export default function Navbar({
                   onEnrollClick();
                 }}
               >
-                Apply Now
-              </motion.button>
+                Join AcceX Squad              </motion.button>
             </div>
           </motion.div>
         )}

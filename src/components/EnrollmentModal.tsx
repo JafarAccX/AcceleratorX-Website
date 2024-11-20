@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
+import toast from "react-hot-toast";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -42,7 +43,18 @@ export default function EnrollmentModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (formData.phone.length !== 10) {
+      toast.error("Please enter a valid 10-digit phone number");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
     try {
+      const loadingToast = toast.loading("Submitting your enrollment...");
       const { error } = await supabase.from("enrollments").insert([
         {
           full_name: formData.name,
@@ -53,19 +65,21 @@ export default function EnrollmentModal({
         },
       ]);
 
-      if (error) throw error;
-
-      setIsSubmitted(true);
-
-      // Trigger onSubmit callback if provided
-      if (onSubmit) {
-        onSubmit();
+      toast.dismiss(loadingToast);
+      if (error) {
+        if (error.code === "23505") {
+          toast.error("You have already enrolled with this email address");
+        } else {
+          toast.error("Failed to submit enrollment. Please try again.");
+        }
+        console.error("Error submitting form:", error);
+        return;
       }
 
-      // Show thank-you modal
+      setIsSubmitted(true);
+      if (onSubmit) onSubmit();
       setIsThankYouModalOpen(true);
 
-      // Reset form data after 3 seconds
       setTimeout(() => {
         setFormData({
           name: "",
@@ -78,6 +92,7 @@ export default function EnrollmentModal({
         onClose();
       }, 3000);
     } catch (error) {
+      toast.error("An unexpected error occurred. Please try again later.");
       console.error("Error submitting form:", error);
     }
   };

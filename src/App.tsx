@@ -48,6 +48,7 @@ import ChatWidget from "./components/ChatWidget";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import StickyBookNav from "./components/StickyBookNav";
 import Refund from "./pages/refund/Refund";
+import { Toaster } from "react-hot-toast";
 
 // Context for managing course selection
 
@@ -143,46 +144,49 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/">
-      <CourseProvider>
-        <ScrollToTop />
-        <RouteLogic setSelectedCourse={setSelectedCourse} />
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <>
-            <Navbar onEnrollClick={handleEnrollClick} />
-            <EnrollmentModal
-              isOpen={isEnrollmentModalOpen}
-              onClose={handleCloseModal}
-            />
-            <main className="bg-black min-h-screen py-10">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/hirewithus" element={<HireHero />} />
-                <Route path="/becomeamentor" element={<BecomeAMentor />} />
-                <Route path="/aboutus" element={<AboutPage />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/privacy-policy" element={<Privacy />} />
-                <Route path="/terms-and-conditions" element={<Terms />} />
-                <Route path="/refund-policy" element={<Refund />} />
-                <Route
-                  path="/courses/product-management"
-                  element={<ProgramAnalyticsPage />}
-                />
-                <Route
-                  path="/courses/data-analytics"
-                  element={<DataAnalyticsPage />}
-                />
-              </Routes>
-              <ChatWidget />
-            </main>
-          </>
-        )}
+    <CourseProvider>
+      <Router basename="/">
+        <div className="relative">
+          <Toaster position="top-center" />
+          <ScrollToTop />
+          <RouteLogic setSelectedCourse={setSelectedCourse} />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <Navbar onEnrollClick={handleEnrollClick} />
+              <EnrollmentModal
+                isOpen={isEnrollmentModalOpen}
+                onClose={handleCloseModal}
+              />
+              <main className="bg-black min-h-screen py-10">
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/hire-with-us" element={<HireHero />} />
+                  <Route path="/become-a-mentor" element={<BecomeAMentor />} />
+                  <Route path="/about-us" element={<AboutPage />} />
+                  <Route path="/blogs" element={<Blogs />} />
+                  <Route path="/privacy-policy" element={<Privacy />} />
+                  <Route path="/terms-and-conditions" element={<Terms />} />
+                  <Route path="/refund-policy" element={<Refund />} />
+                  <Route
+                    path="/courses/product-management"
+                    element={<ProgramAnalyticsPage />}
+                  />
+                  <Route
+                    path="/courses/data-analytics"
+                    element={<DataAnalyticsPage />}
+                  />
+                </Routes>
+                <ChatWidget />
+              </main>
+            </>
+          )}
 
-        {!isLoading && <Footer />}
-      </CourseProvider>
-    </Router>
+          {!isLoading && <Footer />}
+        </div>
+      </Router>
+    </CourseProvider>
   );
 }
 
@@ -191,9 +195,9 @@ function RouteLogic({ setSelectedCourse }) {
 
   useEffect(() => {
     // Set default course context based on route
-    if (location.pathname.includes("/courses/product-management")) {
+    if (location.pathname === "/courses/product-management") {
       setSelectedCourse("Product Management");
-    } else if (location.pathname.includes("/courses/data-analytics")) {
+    } else if (location.pathname === "/courses/data-analytics") {
       setSelectedCourse("Data Analytics");
     } else {
       setSelectedCourse(null); // Reset for non-course pages

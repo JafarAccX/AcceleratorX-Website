@@ -1,4 +1,4 @@
-import { Tab, TabGroup, TabList, TabPanels } from "@headlessui/react";
+import { Tab } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
@@ -77,9 +77,9 @@ export default function LearningJourney() {
 
         <ProgressBar currentWeek={currentWeek} totalWeeks={weeklyData.length} />
 
-        <TabGroup onChange={handleTabChange} selectedIndex={currentWeek - 1}>
+        <Tab.Group onChange={handleTabChange} selectedIndex={currentWeek - 1}>
           <div className="glass-effect rounded-2xl p-1 shadow-xl mb-8">
-            <TabList
+            <Tab.List
               ref={tabsContainerRef}
               className="flex space-x-1 rounded-xl p-1 overflow-x-auto scroll-smooth hide-scrollbar"
             >
@@ -90,24 +90,22 @@ export default function LearningJourney() {
                     clsx(
                       "tab-button",
                       "focus:outline-none",
-                      "transition-all duration-500",
+                      "px-4 py-2 text-sm font-medium",
+                      "transition-all duration-200",
                       selected
-                        ? "bg-blue-600 text-white shadow-lg scale-105"
-                        : "text-gray-300 hover:text-blue-300",
-                      idx >= visibleRange.start && idx < visibleRange.end
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-50"
+                        ? "bg-white shadow text-black"
+                        : "text-white hover:bg-white/[0.12]"
                     )
                   }
                 >
                   Week {week.week}
                 </Tab>
               ))}
-            </TabList>
+            </Tab.List>
           </div>
 
           <AnimatePresence mode="wait">
-            <TabPanels>
+            <Tab.Panels>
               {weeklyData.map((week, idx) => (
                 <Tab.Panel
                   key={idx}
@@ -141,9 +139,9 @@ export default function LearningJourney() {
                   </motion.div>
                 </Tab.Panel>
               ))}
-            </TabPanels>
+            </Tab.Panels>
           </AnimatePresence>
-        </TabGroup>
+        </Tab.Group>
         <div className="flex flex-row justify-center items-center gap-4 mt-4">
           <Trophy className="h-8 w-8 text-white" />
           <h1 className="text-2xl font-bold text-white">

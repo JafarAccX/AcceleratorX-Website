@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "./LogoSlider.css";
 
 const companies = [
   { name: "Adobe", logo: "/assets/companyLogos/adobe.png" },
@@ -82,34 +83,6 @@ const LogoSlider: React.FC = () => {
           ))}
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes slide {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .logos-slide {
-          animation: slide 20s linear infinite;
-          animation-play-state: running;
-          width: fit-content;
-          will-change: transform;
-        }
-
-        .logos-slide:hover {
-          animation-play-state: paused;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .logos-slide {
-            animation-duration: 40s;
-          }
-        }
-      `}</style>
     </div>
   );
 };
