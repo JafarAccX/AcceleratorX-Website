@@ -1,16 +1,17 @@
 @keyframes slide {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-50%);
+
+  to {
+    transform: translateX(calc(-50%));
   }
 }
 
 .logos-slide {
-  animation: slide 20s linear infinite;
+  animation: slide 30s linear infinite;
   animation-play-state: running;
-  width: fit-content;
+  display: inline-flex;
   will-change: transform;
 }
 
@@ -20,6 +21,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .logos-slide {
-    animation-duration: 40s;
+    animation-duration: 60s;
   }
 }

@@ -53,11 +53,11 @@ const LogoSlider: React.FC = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="flex gap-8 logos-slide">
+        <div className="inline-flex logos-slide">
           {[...companies, ...companies].map((company, index) => (
             <motion.div
               key={index}
-              className="flex-shrink-0 w-[150px] h-[80px] bg-white/[0.03] backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center p-4 hover:bg-white/[0.06] transition-all duration-300 border border-white/10 group"
+              className="flex-shrink-0 w-[150px] mx-4 h-[80px] bg-white/[0.03] backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center p-4 hover:bg-white/[0.06] transition-all duration-300 border border-white/10 group"
               whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.2 },
