@@ -6,7 +6,7 @@ export default function CTA() {
   const navigate = useNavigate();
 
   const handleEnrollClick = () => {
-    navigate("/becomeamentor");
+    navigate("/become-a-mentor");
   };
 
   return (

@@ -13,16 +13,14 @@ export interface Skill {
 }
 
 export interface Blog {
-  id: string;
+  id: number;
   title: string;
   excerpt: string;
+  cover_image: string; // Changed from coverImage to match DB column
   content: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
-  coverImage: string;
-  date: string;
-  readTime: string;
-  category: string;
+  date?: string;
+  read_time?: string; // Changed from readTime to match DB column
+  author?: string;
+  created_at?: string;
+  updated_at?: string;
 }

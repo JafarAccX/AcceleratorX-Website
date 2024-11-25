@@ -13,6 +13,7 @@ import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
 import BecomeAMentor from "./pages/becomeamentor/BecomeAMentor";
 import Blogs from "./pages/blogs/Blogs";
+import BlogDashboard from './pages/blogs/BlogDashboard';
 
 import HeroAbout from "./pages/aboutus/HeroAbout";
 import Team from "./pages/aboutus/Team";
@@ -49,6 +50,9 @@ import { CourseProvider, useCourseContext } from "./context/courseContext";
 import StickyBookNav from "./components/StickyBookNav";
 import Refund from "./pages/refund/Refund";
 import { Toaster } from "react-hot-toast";
+import Login from './pages/auth/Login';
+import ProtectedRoute from './components/ProtectedRoute';
+import BlogForm from "./pages/blogs/BlogForm";
 
 // Context for managing course selection
 
@@ -166,6 +170,17 @@ function App() {
                   <Route path="/become-a-mentor" element={<BecomeAMentor />} />
                   <Route path="/about-us" element={<AboutPage />} />
                   <Route path="/blogs" element={<Blogs />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/blogs/dashboard" element={
+                    <ProtectedRoute>
+                      <BlogDashboard />
+                    </ProtectedRoute>
+                  } />
+                  <Route path="/blogs/manage" element={
+                    <ProtectedRoute>
+                      <BlogForm onClose={() => {}} onSuccess={() => {}} />
+                    </ProtectedRoute>
+                  } />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/terms-and-conditions" element={<Terms />} />
                   <Route path="/refund-policy" element={<Refund />} />

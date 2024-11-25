@@ -233,17 +233,18 @@ export default function ChatWidget() {
 
       <AnimatePresence>
         {!isOpen && (
-          <motion.div
+          <motion.button
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             className="fixed bottom-[6rem] right-6 z-50"
+            onClick={() => setIsOpen(!isOpen)}
           >
             <motion.div
-              className="flex items-center gap-3 bg-gradient-to-r from-blue-600/90 to-blue-500/90 backdrop-blur-lg pl-4 pr-3 py-2.5 rounded-xl shadow-lg"
+              className="flex items-center gap-3 bg-white/90 backdrop-blur-lg pl-4 pr-3 py-2.5 rounded-xl shadow-lg"
             >
               <motion.p 
-                className="text-sm font-medium text-white whitespace-nowrap"
+                className="text-sm font-medium text-blue-600 whitespace-nowrap"
                 animate={{ 
                   opacity: [0.8, 1, 0.8] 
                 }}
@@ -257,19 +258,19 @@ export default function ChatWidget() {
               </motion.p>
               
               <motion.button
-                onClick={() => setIsOpen(!isOpen)}
+                
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-1.5 rounded-lg bg-white/10 relative"
               >
-                <MessageCircle className="h-5 w-5 text-white" />
+                <MessageCircle className="h-5 w-5 text-blue-600" />
                 <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                 </span>
               </motion.button>
             </motion.div>
-          </motion.div>
+          </motion.button>
         )}
       </AnimatePresence>
 

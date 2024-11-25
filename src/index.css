@@ -492,3 +492,53 @@ body {
     }
   }
 }
+
+@layer base {
+  .prose {
+    max-width: none;
+  }
+  
+  .prose h1 {
+    @apply text-3xl font-bold mb-4 mt-6;
+  }
+  
+  .prose h2 {
+    @apply text-2xl font-bold mb-3 mt-5;
+  }
+  
+  .prose p {
+    @apply mb-4 text-gray-700 leading-relaxed;
+  }
+  
+  .prose ul {
+    @apply list-disc list-inside mb-4;
+  }
+  
+  .prose ol {
+    @apply list-decimal list-inside mb-4;
+  }
+  
+  .prose li {
+    @apply mb-2;
+  }
+  
+  .prose img {
+    @apply rounded-lg my-4 max-w-full;
+  }
+  
+  .prose a {
+    @apply text-blue-600 hover:text-blue-800 underline;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic my-4;
+  }
+  
+  [data-align='center'] {
+    @apply text-center;
+  }
+  
+  [data-align='right'] {
+    @apply text-right;
+  }
+}

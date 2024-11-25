@@ -1,82 +1,78 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import { ChevronLeft, Calendar, Clock, User } from "lucide-react";
+import React, { useState } from "react";
+import { Calendar, Clock, User } from "lucide-react";
+import { Blog } from "../../utils/types";
 
 interface BlogPostProps {
-  title: string;
-  content: string;
-  date?: string;
-  readTime?: string;
-  author?: string;
-  onBack: () => void;
+  blog: Blog;
+  onBack?: () => void;
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({
-  title,
-  content,
-  date,
-  readTime,
-  author,
-  onBack
-}) => {
+export function BlogPost({ blog, onBack }: BlogPostProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const createMarkup = (content: string) => {
+    return { __html: content };
+  };
+
   return (
-    <article className="bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="p-6">
-        {/* Back Button */}
+    <article className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-300">
+      <div className="relative h-[250px]">
+        <img
+          src={blog.coverImage}
+          alt={blog.title}
+          className="w-full h-full object-cover"
+        />
         <button
           onClick={onBack}
-          className="flex items-center text-gray-600 mb-4 hover:text-gray-800 transition-colors"
+          className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors duration-300"
         >
-          <ChevronLeft className="w-4 h-4 mr-1" />
-          Back to Blogs
+          <ArrowLeft className="w-6 h-6 text-gray-800" />
         </button>
-
-        {/* Blog Metadata */}
-        <div className="flex items-center gap-4 text-gray-600 mb-6">
-          {date && (
+        {blog.category && (
+          <span className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+            {blog.category}
+          </span>
+        )}
+      </div>
+      <div className="p-6">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">{blog.title}</h2>
+        <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+          {blog.date && (
             <div className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
-              <span className="text-sm">{date}</span>
+              <span>{blog.date}</span>
             </div>
           )}
-          {readTime && (
+          {blog.readTime && (
             <div className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
-              <span className="text-sm">{readTime}</span>
+              <span>{blog.readTime}</span>
             </div>
           )}
-          {author && (
+          {blog.author && (
             <div className="flex items-center gap-1">
               <User className="w-4 h-4" />
-              <span className="text-sm">{author}</span>
+              <span>{blog.author}</span>
             </div>
           )}
         </div>
-
-        {/* Blog Title */}
-        <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-black to-blue-600 bg-clip-text text-transparent">
-          {title}
-        </h1>
-
-        {/* Blog Content */}
-        <div className="prose prose-lg max-w-none 
-          prose-headings:font-bold prose-headings:text-blue-600 
-          prose-h1:text-4xl prose-h1:mb-8 
-          prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-          prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-          prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-6
-          prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
-          prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
-          prose-li:my-2 prose-li:pl-2
-          prose-strong:text-black prose-strong:font-semibold
-          prose-em:text-gray-600 prose-em:italic
-          prose-blockquote:border-l-4 prose-blockquote:border-blue-600 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8
-          prose-hr:my-12">
-          <ReactMarkdown>{content}</ReactMarkdown>
-        </div>
+        
+        <div 
+          className={`prose prose-sm max-w-none ${!isExpanded ? 'line-clamp-3' : ''}`}
+          dangerouslySetInnerHTML={createMarkup(isExpanded ? blog.content : blog.excerpt)}
+        />
+        
+        <button
+          onClick={toggleExpand}
+          className="mt-4 text-blue-500 hover:text-blue-600 font-medium transition-colors duration-200"
+        >
+          {isExpanded ? 'Show Less' : 'Read More'}
+        </button>
       </div>
     </article>
   );
-};
-
-export default BlogPost;
+}

@@ -223,7 +223,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative bg-black py-16 px-4 sm:px-8 lg:px-16"
+      className="relative bg-black px-4 sm:px-8 lg:px-16"
     >
       {/* Background grid effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]" />

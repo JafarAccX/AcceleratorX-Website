@@ -76,8 +76,8 @@ export default function Hero() {
         this.angle = Math.random() * Math.PI * 2;
         this.speed = 0.001 + Math.random() * 0.002;
         this.size = 5 + Math.random() * 15;
-        this.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
-        this.glowColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
+        this.color = '#1E90FF'; // Changed to blue
+        this.glowColor = '#4169E1'; // Changed to royal blue for glow
         
         // Add satellites
         this.satellites = Array(Math.floor(1 + Math.random() * 3)).fill(null).map(() => ({
@@ -101,7 +101,7 @@ export default function Hero() {
 
         // Draw orbit
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.arc(this.centerX, this.centerY, this.orbitRadius, 0, Math.PI * 2);
         ctx.stroke();
 
@@ -120,7 +120,7 @@ export default function Hero() {
           
           // Satellite orbit
           ctx.beginPath();
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
           ctx.arc(x, y, sat.radius, 0, Math.PI * 2);
           ctx.stroke();
 
@@ -137,7 +137,25 @@ export default function Hero() {
 
     // Create objects
     const stars = Array(200).fill(null).map(() => new Star());
-    const planets = Array(5).fill(null).map(() => new Planet());
+    const planets = Array(5).fill(null).map((_, index) => {
+      const planet = new Planet();
+      // Set fixed orbit radiuses for each planet
+      planet.orbitRadius = 80 + (index * 60); // Increasing radius for each planet
+      planet.speed = 0.002 / (index + 1); // Outer planets move slower
+      planet.size = 8 + (index * 2); // Size increases slightly for outer planets
+      planet.color = '#1E90FF';
+      planet.glowColor = '#4169E1';
+      
+      // Adjust satellite properties based on planet index
+      planet.satellites = Array(Math.min(2, index + 1)).fill(null).map(() => ({
+        radius: planet.size * 2 + Math.random() * planet.size,
+        angle: Math.random() * Math.PI * 2,
+        speed: 0.02 + Math.random() * 0.01,
+        size: 2 + Math.random() * 2
+      }));
+      
+      return planet;
+    });
 
     // Animation loop
     let animationFrameId: number;
@@ -156,7 +174,16 @@ export default function Hero() {
       // Calculate the right half of the screen for solar system
       const rightHalf = canvas.width / 2;
       
-      // Adjust planet positions to be only on the right side
+      // Draw orbit lines first (behind planets)
+      planets.forEach(planet => {
+        const centerX = rightHalf + (canvas.width / 4);
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.arc(centerX, planet.centerY, planet.orbitRadius, 0, Math.PI * 2);
+        ctx.stroke();
+      });
+      
+      // Then draw planets
       planets.forEach(planet => {
         planet.centerX = rightHalf + (canvas.width / 4); // Center of right half
         planet.update();
@@ -209,13 +236,14 @@ export default function Hero() {
                 ]}
                 wrapper="h1"
                 speed={50}
-                className="mb-5 bg-clip-text text-4xl font-bold text-white md:text-6xl lg:text-7xl xl:text-8xl"
+                className="mb-5 bg-clip-text text-4xl font-bold text-blue-600 md:text-6xl lg:text-7xl xl:text-8xl"
                 repeat={Infinity}
                 cursor={true}
                 style={{
                   whiteSpace: "pre",
                   display: "inline-block",
                   minWidth: "200px",
+                  textShadow: "0 0 10px rgba(255, 255, 255, 0)"
                 }}
               />
 
@@ -239,7 +267,7 @@ export default function Hero() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="enroll-button flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white md:text-base"
+                    className="enroll-button flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-medium text-blue-600 md:text-base"
                     onClick={() => {
                       const featuresSection = document.getElementById("features");
                       if (featuresSection) {
