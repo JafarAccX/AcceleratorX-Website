@@ -59,14 +59,13 @@ export default function BenefitsGrid() {
               </span>
             </h2>
           </motion.div>
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             className="flex-1 text-gray-400 text-lg"
           >
-            Boost your business operations with Inno's innovative Web3 platform,
-            combining security, efficiency, and transparency.
-          </motion.p>
+            Build Products that matters.
+          </motion.p> */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
