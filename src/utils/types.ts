@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Tool {
   name: string;
   image: string;
@@ -23,4 +25,11 @@ export interface Blog {
   author?: string;
   created_at?: string;
   updated_at?: string;
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  image: string;
+  icon: ReactNode;
 }

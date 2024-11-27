@@ -22,6 +22,7 @@ export default function Navbar({
   const courses = [
     { label: "Product Management", path: "/courses/product-management" },
     { label: "Data Analytics", path: "/courses/data-analytics" },
+    { label: "No-Code Development", path: "/courses/no-code-tool-program" },
   ];
 
   return (
@@ -190,7 +191,8 @@ export default function Navbar({
                   onEnrollClick();
                 }}
               >
-                Join AcceX Squad              </motion.button>
+                Join AcceX Squad{" "}
+              </motion.button>
             </div>
           </motion.div>
         )}

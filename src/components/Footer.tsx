@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import companyLogo from "/assets/companylogo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const footerLinks = {
   services: {
@@ -11,6 +11,7 @@ const footerLinks = {
         url: "/courses/product-management",
       },
       { label: "Data Analytics Program", url: "/courses/data-analytics" },
+      { label: "No-Code Development", url: "/courses/no-code-tool-program" },
     ],
   },
   company: {
@@ -40,6 +41,31 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const sitesealContainer = document.getElementById("siteseal");
+
+    if (location.pathname === "/") {
+      // Add the site seal script dynamically for the home page
+      if (sitesealContainer && !document.getElementById("siteseal-script")) {
+        const script = document.createElement("script");
+        script.id = "siteseal-script";
+        script.async = true;
+        script.type = "text/javascript";
+        script.src =
+          "https://seal.starfieldtech.com/getSeal?sealID=I0Pkklr2oFJr6LRUc174f6BxE8hDE1T0lghkh2Wng6oca8kd7FoaY1IUHwLT";
+        sitesealContainer.appendChild(script);
+      }
+    } else {
+      // Remove the script on other pages
+      const script = document.getElementById("siteseal-script");
+      if (script) {
+        script.remove();
+      }
+    }
+  }, [location]);
+
   return (
     <footer className="bg-[#0a0a0a] text-gray-400 py-16">
       <div className="max-w-6xl mx-auto px-4">
@@ -75,6 +101,16 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+        {/* Site Seal Section */}
+        <div id="siteseal" className="flex justify-center items-center mt-10">
+          <span id="siteseal">
+            <script
+              async
+              type="text/javascript"
+              src="https://seal.starfieldtech.com/getSeal?sealID=I0Pkklr2oFJr6LRUc174f6BxE8hDE1T0lghkh2Wng6oca8kd7FoaY1IUHwLT"
+            ></script>
+          </span>
         </div>
       </div>
     </footer>

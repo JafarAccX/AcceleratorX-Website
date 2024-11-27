@@ -83,7 +83,7 @@ const LogoSlider: React.FC = () => {
             </div>
           </div>
 
-          <style jsx global>{`
+          <style jsx="true" global="true">{`
             @keyframes slide {
               0% {
                 transform: translateX(0);

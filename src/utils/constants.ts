@@ -346,7 +346,11 @@ export const weeklyData = [
       "Guesstimation",
     ],
     image: "/assets/week2.png",
-    caseStudies: ["/assets/caseStudiesLogo/uber.png", "/assets/caseStudiesLogo/Google_Maps.png", "/assets/caseStudiesLogo/samsung.png"],
+    caseStudies: [
+      "/assets/caseStudiesLogo/uber.png",
+      "/assets/caseStudiesLogo/Google_Maps.png",
+      "/assets/caseStudiesLogo/samsung.png",
+    ],
   },
   {
     week: 3,
@@ -400,11 +404,7 @@ export const weeklyData = [
   },
   {
     week: 7,
-    topics: [
-      "Product Teardown",
-      "Case Study and Q&A",
-      "Product Marketing",
-    ],
+    topics: ["Product Teardown", "Case Study and Q&A", "Product Marketing"],
     skills: ["Product Teardown", "Product Marketing", "Functional Analysis"],
     image: "/assets/week7.png",
     caseStudies: ["/assets/caseStudiesLogo/tata-motors.webp"],
@@ -435,14 +435,13 @@ export const weeklyData = [
   },
   {
     week: 10,
-    topics: [
-      "GTM Strategy Presentation",
-      "A/B Testing",
-      "Product Analytics",
-    ],
+    topics: ["GTM Strategy Presentation", "A/B Testing", "Product Analytics"],
     skills: ["GTM Strategy", "A/B Testing", "Product Analytics"],
     image: "/assets/week10.png",
-    caseStudies: ["/assets/caseStudiesLogo/flipkart-logo.webp", "/assets/caseStudiesLogo/amazon.webp"],
+    caseStudies: [
+      "/assets/caseStudiesLogo/flipkart-logo.webp",
+      "/assets/caseStudiesLogo/amazon.webp",
+    ],
   },
   {
     week: 11,
@@ -455,7 +454,10 @@ export const weeklyData = [
     ],
     skills: ["Product Analytics", "Technical Foundations", "Google Analytics"],
     image: "/assets/week11.png",
-    caseStudies: ["/assets/caseStudiesLogo/paytm.webp", "/assets/caseStudiesLogo/phonepe.webp"],
+    caseStudies: [
+      "/assets/caseStudiesLogo/paytm.webp",
+      "/assets/caseStudiesLogo/phonepe.webp",
+    ],
   },
   {
     week: 12,
@@ -476,7 +478,6 @@ export const weeklyData = [
       "Monetization Strategies",
       "Growth Management",
       "Acquisition and Activation",
-      
     ],
     skills: [
       "Retention Strategies",
@@ -484,7 +485,11 @@ export const weeklyData = [
       "Growth (AARRR Framework)",
     ],
     image: "/assets/week13.png",
-    caseStudies: ["/assets/caseStudiesLogo/primevideo.webp", "/assets/caseStudiesLogo/jiocinema.webp", "/assets/caseStudiesLogo/dropbox.webp"],
+    caseStudies: [
+      "/assets/caseStudiesLogo/primevideo.webp",
+      "/assets/caseStudiesLogo/jiocinema.webp",
+      "/assets/caseStudiesLogo/dropbox.webp",
+    ],
   },
   {
     week: 14,
@@ -492,7 +497,6 @@ export const weeklyData = [
       "Product-Led Growth",
       "Mock Interview - 2",
       "Introduction to AI & ML",
-     
     ],
     skills: ["Product-Led Growth", "AI & Machine Learning Integration"],
     image: "/assets/week14.png",
@@ -500,12 +504,7 @@ export const weeklyData = [
   },
   {
     week: 15,
-    topics: [
-      "Components of AI Management",
-      "AI Landscape",
-      "Leveraging AI",
-      
-    ],
+    topics: ["Components of AI Management", "AI Landscape", "Leveraging AI"],
     skills: [
       "AI Management",
       "AI Product Strategy",
@@ -516,29 +515,19 @@ export const weeklyData = [
   },
   {
     week: 16,
-    topics: [
-      "How to Build AI Products?",
-      "AI Ethics",
-      "Industry Session",
-      
-    ],
+    topics: ["How to Build AI Products?", "AI Ethics", "Industry Session"],
     skills: ["AI Product Development", "AI Ethics", "Presentation Skills"],
     image: "/assets/week16.png",
     caseStudies: ["/assets/caseStudiesLogo/instagram.webp"],
   },
   {
     week: 17,
-    topics: [
-      "BYDP Presentation",
-      "Mock Interview - 4",
-      "Q&A Session",
-    ],
+    topics: ["BYDP Presentation", "Mock Interview - 4", "Q&A Session"],
     skills: ["AI Product Development", "AI Ethics", "Presentation Skills"],
     image: "/assets/week17.png",
     caseStudies: [],
   },
 ];
-
 
 export const dataAnalyticsmodules = [
   {
@@ -608,8 +597,7 @@ export const dataAnalyticsTools = [
   },
   {
     name: "Tableau",
-    image:
-      "/assets/dataTools/tableu.webp",
+    image: "/assets/dataTools/tableu.webp",
   },
   {
     name: "Power BI",
@@ -695,7 +683,6 @@ export const dataAnalyticsSkills = [
   "Customer Segmentation",
   "Sentiment Analysis and NLP",
 ];
-
 
 export const dataAnalyticsMentors = [
   {
@@ -1123,5 +1110,48 @@ export const blogs: Blog[] = [
     date: "Nov 15, 2024",
     readTime: "10 min read",
     category: "Startup Growth",
+  },
+];
+
+export const noCodetools = [
+  {
+    name: "Webflow",
+    description: "Website design and development",
+    logo: "/assets/noCodeTool/webflow.webp",
+    emoji: "🎨",
+    bgColor: "from-blue-500/10 to-blue-600/10",
+    borderColor: "group-hover:border-blue-500",
+  },
+  {
+    name: "Adalo",
+    description: "Mobile app creation",
+    logo: "/assets/noCodeTool/adalo.webp",
+    emoji: "📱",
+    bgColor: "from-purple-500/10 to-purple-600/10",
+    borderColor: "group-hover:border-purple-500",
+  },
+  {
+    name: "Zapier",
+    description: "Automation and integrations",
+    logo: "/assets/noCodeTool/zapier.webp",
+    emoji: "⚡",
+    bgColor: "from-orange-500/10 to-orange-600/10",
+    borderColor: "group-hover:border-orange-500",
+  },
+  {
+    name: "Airtable",
+    description: "Data management",
+    logo: "/assets/noCodeTool/airtable.webp",
+    emoji: "📊",
+    bgColor: "from-green-500/10 to-green-600/10",
+    borderColor: "group-hover:border-green-500",
+  },
+  {
+    name: "Figma",
+    description: "Prototyping and wireframing",
+    logo: "/assets/logo/Figma.png",
+    emoji: "✨",
+    bgColor: "from-pink-500/10 to-pink-600/10",
+    borderColor: "group-hover:border-pink-500",
   },
 ];

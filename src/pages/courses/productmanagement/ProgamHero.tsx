@@ -76,7 +76,7 @@ export default function ProgramHero() {
               }}
             >
               <span className="text-gray-300 font-semibold text-sm sm:text-base">
-                Next Cohort Starts on 30 Nov
+                Next Cohort Starts on 15 Dec
               </span>
             </motion.div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">

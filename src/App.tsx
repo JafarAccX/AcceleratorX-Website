@@ -55,11 +55,24 @@ import { CourseProvider, useCourseContext } from "./context/courseContext";
 import StickyBookNav from "./components/StickyBookNav";
 import Refund from "./pages/refund/Refund";
 import { Toaster } from "react-hot-toast";
+import { NoCodeHero } from "./pages/courses/nocodeTool/NoCodeHero";
+import NoCodeBenefitsGrid from "./pages/courses/nocodeTool/NoCodeBenefitsGrid";
+
+import NoCodeLearningJourney from "./pages/courses/nocodeTool/NoCodeLearningJourney";
+import TargetAudience from "./pages/courses/nocodeTool/TargetAudience";
+import Timeline from "./pages/courses/nocodeTool/Timeline";
+import NoCodeTool from "./pages/courses/nocodeTool/NoCodeTool";
+import ProjectsSection from "./pages/courses/nocodeTool/ProjectSection";
+import { PricingSection } from "./pages/courses/nocodeTool/PricingSection";
+import NoCodeFAQ from "./pages/courses/nocodeTool/NoCodeFAQ";
 
 // Context for managing course selection
 
 function HomePage() {
-  const { setSelectedCourse } = useCourseContext();
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
 
   useEffect(() => {
     setSelectedCourse(null); // Reset course selection on homepage
@@ -77,7 +90,10 @@ function HomePage() {
 }
 
 function ProgramAnalyticsPage() {
-  const { setSelectedCourse } = useCourseContext();
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
 
   useEffect(() => {
     setSelectedCourse("Product Management");
@@ -101,7 +117,10 @@ function ProgramAnalyticsPage() {
 }
 
 function DataAnalyticsPage() {
-  const { setSelectedCourse } = useCourseContext();
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
 
   useEffect(() => {
     setSelectedCourse("Data Analytics");
@@ -120,6 +139,31 @@ function DataAnalyticsPage() {
   );
 }
 
+function NoCodeToolPage() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("No-Code Development");
+  }, [setSelectedCourse]);
+
+  return (
+    <>
+      <NoCodeHero />
+      <NoCodeBenefitsGrid />
+      <NoCodeLearningJourney />
+      <TargetAudience />
+      <Timeline />
+      <NoCodeTool />
+      <ProjectsSection />
+      <PricingSection />
+      <NoCodeFAQ />
+    </>
+  );
+}
+
 function AboutPage() {
   return (
     <>
@@ -134,7 +178,10 @@ function App() {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { setSelectedCourse } = useCourseContext();
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
 
   const handleEnrollClick = () => {
     setEnrollmentModalOpen(true);
@@ -200,6 +247,10 @@ function App() {
                     path="/courses/data-analytics"
                     element={<DataAnalyticsPage />}
                   />
+                  <Route
+                    path="/courses/no-code-tool-program"
+                    element={<NoCodeToolPage />}
+                  />
                 </Routes>
                 <ChatWidget />
               </main>
@@ -213,7 +264,11 @@ function App() {
   );
 }
 
-function RouteLogic({ setSelectedCourse }) {
+function RouteLogic({
+  setSelectedCourse,
+}: {
+  setSelectedCourse: (course: string | null) => void;
+}) {
   const location = useLocation();
 
   useEffect(() => {
@@ -222,6 +277,8 @@ function RouteLogic({ setSelectedCourse }) {
       setSelectedCourse("Product Management");
     } else if (location.pathname === "/courses/data-analytics") {
       setSelectedCourse("Data Analytics");
+    } else if (location.pathname === "/courses/no-code-tool-program") {
+      setSelectedCourse("No-Code Development");
     } else {
       setSelectedCourse(null); // Reset for non-course pages
     }
