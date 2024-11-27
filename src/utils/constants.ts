@@ -287,7 +287,7 @@ export const mentors = [
   },
   {
     name: "Anand Muralidharan",
-    role: "Senior PM at Paypal",
+    role: "Ex SPM at Paypal",
     experience: "13 Years",
     image: "/assets/mentor/anand.png",
     linkedin: "https://www.linkedin.com/in/anand-m-6518b752/",
