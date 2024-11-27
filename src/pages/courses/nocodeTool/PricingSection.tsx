@@ -5,7 +5,6 @@ import EnrollmentModal from "../../../components/EnrollmentModal";
 const features = [
   "🎯 Lifetime Course Access",
   "👨‍🏫 Personal Mentorship",
-  "📱 Mobile App Access",
   "💬 Priority Support",
   "📚 Project-based Learning",
   "🎖️ Certification",
