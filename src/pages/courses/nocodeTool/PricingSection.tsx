@@ -38,7 +38,7 @@ const comparisonData = [
   },
 ];
 
-export function PricingSection() {
+export default function PricingSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleModalClose = () => {

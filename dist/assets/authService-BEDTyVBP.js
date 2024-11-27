@@ -1,0 +1,1 @@
+const a="admin@acceleratorx.org",o="acceleratorx@3948",r={async login(t,e){return t===a&&e===o?(localStorage.setItem("blog_auth_token","admin_authenticated"),!0):!1},logout(){localStorage.removeItem("blog_auth_token")},isAuthenticated(){return localStorage.getItem("blog_auth_token")==="admin_authenticated"}};export{r as a};

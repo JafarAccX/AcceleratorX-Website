@@ -5,7 +5,7 @@ import { NoCodeSVG } from "./components/NoCodeSVG";
 import { StatsCounter } from "./components/StatsCounter";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 
-export function NoCodeHero() {
+function NoCodeHero() {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -125,3 +125,5 @@ export function NoCodeHero() {
     </div>
   );
 }
+
+export default NoCodeHero;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,64 +7,58 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import FAQ from "./components/FAQ";
-import CTA from "./components/CTA";
-import BecomeAMentor from "./pages/becomeamentor/BecomeAMentor";
-
-//Blogs Section
-import Blogs from "./pages/blogs/Blogs";
-import BlogDashboard from "./pages/blogs/BlogDashboard";
-import Login from "./pages/auth/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
-import BlogForm from "./pages/blogs/BlogForm";
-
-import HeroAbout from "./pages/aboutus/HeroAbout";
-import Team from "./pages/aboutus/Team";
-import Values from "./pages/aboutus/Values";
-import ScrollToTop from "./components/ScrollToTop";
-import LogoSlider from "./components/LogoSlider";
-import HireHero from "./pages/hirewithus/HireHero";
-
-// Data Analytics Course Pages
-import DataHero from "./pages/courses/dataanalytics/DataHero";
-import DataProgram from "./pages/courses/dataanalytics/DataProgram";
-import CAPE from "./pages/courses/dataanalytics/CAPE";
-import DataPricing from "./pages/courses/dataanalytics/dataPricing";
-import DataMentors from "./pages/courses/dataanalytics/DataMentors";
-import DataSkillsTools from "./pages/courses/dataanalytics/DataSkillsTools";
-
-// Program Management Course
-import ProgramHighlights from "./pages/courses/productmanagement/ProgramHighlights";
-import ProgramHero from "./pages/courses/productmanagement/ProgamHero";
-import BYDP from "./pages/courses/productmanagement/BYDP";
-import BenefitsGrid from "./pages/courses/productmanagement/BenefitsGrid";
-import Mentors from "./pages/courses/productmanagement/Mentors";
-import SkillsAndTools from "./pages/courses/productmanagement/SkillsAndTools";
-import Pricing from "./pages/courses/productmanagement/Pricing";
-import EnrollmentModal from "./components/EnrollmentModal";
-import Privacy from "./pages/Privacy/Privacy";
-import Terms from "./pages/Terms/Terms";
-import SkillsAssessment from "./pages/courses/productmanagement/SkillAssessment";
-import LearningJourney from "./pages/courses/productmanagement/LearningJourney";
 import Loader from "./components/Loader";
-import BecomeAMentorFeatures from "./components/BecomeAMentorFeatures";
-import ChatWidget from "./components/ChatWidget";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
-import StickyBookNav from "./components/StickyBookNav";
-import Refund from "./pages/refund/Refund";
 import { Toaster } from "react-hot-toast";
-import { NoCodeHero } from "./pages/courses/nocodeTool/NoCodeHero";
-import NoCodeBenefitsGrid from "./pages/courses/nocodeTool/NoCodeBenefitsGrid";
 
-import NoCodeLearningJourney from "./pages/courses/nocodeTool/NoCodeLearningJourney";
-import TargetAudience from "./pages/courses/nocodeTool/TargetAudience";
-import Timeline from "./pages/courses/nocodeTool/Timeline";
-import NoCodeTool from "./pages/courses/nocodeTool/NoCodeTool";
-import ProjectsSection from "./pages/courses/nocodeTool/ProjectSection";
-import { PricingSection } from "./pages/courses/nocodeTool/PricingSection";
-import NoCodeFAQ from "./pages/courses/nocodeTool/NoCodeFAQ";
+// Lazy load components
+const Hero = lazy(() => import("./components/Hero"));
+const Features = lazy(() => import("./components/Features"));
+const FAQ = lazy(() => import("./components/FAQ"));
+const CTA = lazy(() => import("./components/CTA"));
+const BecomeAMentor = lazy(() => import("./pages/becomeamentor/BecomeAMentor"));
+const Blogs = lazy(() => import("./pages/blogs/Blogs"));
+const BlogDashboard = lazy(() => import("./pages/blogs/BlogDashboard"));
+const Login = lazy(() => import("./pages/auth/Login"));
+const BlogForm = lazy(() => import("./pages/blogs/BlogForm"));
+const ProtectedRoute = lazy(() => import("./components/ProtectedRoute"));
+const HeroAbout = lazy(() => import("./pages/aboutus/HeroAbout"));
+const Team = lazy(() => import("./pages/aboutus/Team"));
+const Values = lazy(() => import("./pages/aboutus/Values"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
+const LogoSlider = lazy(() => import("./components/LogoSlider"));
+const HireHero = lazy(() => import("./pages/hirewithus/HireHero"));
+const DataHero = lazy(() => import("./pages/courses/dataanalytics/DataHero"));
+const DataProgram = lazy(() => import("./pages/courses/dataanalytics/DataProgram"));
+const CAPE = lazy(() => import("./pages/courses/dataanalytics/CAPE"));
+const DataPricing = lazy(() => import("./pages/courses/dataanalytics/dataPricing"));
+const DataMentors = lazy(() => import("./pages/courses/dataanalytics/DataMentors"));
+const DataSkillsTools = lazy(() => import("./pages/courses/dataanalytics/DataSkillsTools"));
+const ProgramHighlights = lazy(() => import("./pages/courses/productmanagement/ProgramHighlights"));
+const ProgramHero = lazy(() => import("./pages/courses/productmanagement/ProgamHero"));
+const BYDP = lazy(() => import("./pages/courses/productmanagement/BYDP"));
+const BenefitsGrid = lazy(() => import("./pages/courses/productmanagement/BenefitsGrid"));
+const Mentors = lazy(() => import("./pages/courses/productmanagement/Mentors"));
+const SkillsAndTools = lazy(() => import("./pages/courses/productmanagement/SkillsAndTools"));
+const Pricing = lazy(() => import("./pages/courses/productmanagement/Pricing"));
+const EnrollmentModal = lazy(() => import("./components/EnrollmentModal"));
+const Privacy = lazy(() => import("./pages/Privacy/Privacy"));
+const Terms = lazy(() => import("./pages/Terms/Terms"));
+const SkillsAssessment = lazy(() => import("./pages/courses/productmanagement/SkillAssessment"));
+const LearningJourney = lazy(() => import("./pages/courses/productmanagement/LearningJourney"));
+const BecomeAMentorFeatures = lazy(() => import("./components/BecomeAMentorFeatures"));
+const ChatWidget = lazy(() => import("./components/ChatWidget"));
+const StickyBookNav = lazy(() => import("./components/StickyBookNav"));
+const Refund = lazy(() => import("./pages/refund/Refund"));
+const NoCodeHero = lazy(() => import("./pages/courses/nocodeTool/NoCodeHero"));
+const NoCodeBenefitsGrid = lazy(() => import("./pages/courses/nocodeTool/NoCodeBenefitsGrid"));
+const NoCodeLearningJourney = lazy(() => import("./pages/courses/nocodeTool/NoCodeLearningJourney"));
+const TargetAudience = lazy(() => import("./pages/courses/nocodeTool/TargetAudience"));
+const Timeline = lazy(() => import("./pages/courses/nocodeTool/Timeline"));
+const NoCodeTool = lazy(() => import("./pages/courses/nocodeTool/NoCodeTool"));
+const ProjectsSection = lazy(() => import("./pages/courses/nocodeTool/ProjectSection"));
+const PricingSection = lazy(() => import("./pages/courses/nocodeTool/PricingSection"));
+const NoCodeFAQ = lazy(() => import("./pages/courses/nocodeTool/NoCodeFAQ"));
 
 // Context for managing course selection
 
@@ -79,13 +73,13 @@ function HomePage() {
   }, [setSelectedCourse]);
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Hero />
       <LogoSlider />
       <Features />
       <BecomeAMentorFeatures />
       <CTA />
-    </>
+    </Suspense>
   );
 }
 
@@ -100,7 +94,7 @@ function ProgramAnalyticsPage() {
   }, [setSelectedCourse]);
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <ProgramHero />
       <ProgramHighlights />
       <BYDP />
@@ -112,7 +106,7 @@ function ProgramAnalyticsPage() {
       <Pricing />
       <FAQ />
       <StickyBookNav />
-    </>
+    </Suspense>
   );
 }
 
@@ -127,7 +121,7 @@ function DataAnalyticsPage() {
   }, [setSelectedCourse]);
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <DataHero />
       <DataProgram />
       <CAPE />
@@ -135,7 +129,7 @@ function DataAnalyticsPage() {
       <DataSkillsTools />
       <DataPricing />
       {/* <StickyBookNav /> */}
-    </>
+    </Suspense>
   );
 }
 
@@ -150,7 +144,7 @@ function NoCodeToolPage() {
   }, [setSelectedCourse]);
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <NoCodeHero />
       <NoCodeBenefitsGrid />
       <NoCodeLearningJourney />
@@ -160,17 +154,17 @@ function NoCodeToolPage() {
       <ProjectsSection />
       <PricingSection />
       <NoCodeFAQ />
-    </>
+    </Suspense>
   );
 }
 
 function AboutPage() {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <HeroAbout />
       <Values />
       <Team />
-    </>
+    </Suspense>
   );
 }
 
