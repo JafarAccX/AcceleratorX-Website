@@ -242,42 +242,121 @@ function App() {
               />
               <main className="bg-black min-h-screen py-10">
                 <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/hire-with-us" element={<HireHero />} />
-                  <Route path="/become-a-mentor" element={<BecomeAMentor />} />
-                  <Route path="/about-us" element={<AboutPage />} />
-                  <Route path="/blogs" element={<Blogs />} />
-                  <Route path="/login" element={<Login />} />
+                  <Route
+                    path="/"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <HomePage />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/hire-with-us"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <HireHero />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/become-a-mentor"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <BecomeAMentor />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/about-us"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <AboutPage />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/blogs"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <Blogs />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/login"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <Login />
+                      </Suspense>
+                    }
+                  />
                   <Route
                     path="/blogs/dashboard"
                     element={
-                      <ProtectedRoute>
-                        <BlogDashboard />
-                      </ProtectedRoute>
+                      <Suspense fallback={<Loader />}>
+                        <ProtectedRoute>
+                          <BlogDashboard />
+                        </ProtectedRoute>
+                      </Suspense>
                     }
                   />
                   <Route
                     path="/blogs/manage"
                     element={
-                      <ProtectedRoute>
-                        <BlogForm onClose={() => {}} onSuccess={() => {}} />
-                      </ProtectedRoute>
+                      <Suspense fallback={<Loader />}>
+                        <ProtectedRoute>
+                          <BlogForm onClose={() => {}} onSuccess={() => {}} />
+                        </ProtectedRoute>
+                      </Suspense>
                     }
                   />
-                  <Route path="/privacy-policy" element={<Privacy />} />
-                  <Route path="/terms-and-conditions" element={<Terms />} />
-                  <Route path="/refund-policy" element={<Refund />} />
+                  <Route
+                    path="/privacy-policy"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <Privacy />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/terms-and-conditions"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <Terms />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/refund-policy"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <Refund />
+                      </Suspense>
+                    }
+                  />
                   <Route
                     path="/courses/product-management"
-                    element={<ProgramAnalyticsPage />}
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <ProgramAnalyticsPage />
+                      </Suspense>
+                    }
                   />
                   <Route
                     path="/courses/data-analytics"
-                    element={<DataAnalyticsPage />}
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <DataAnalyticsPage />
+                      </Suspense>
+                    }
                   />
                   <Route
                     path="/courses/no-code-tool-program"
-                    element={<NoCodeToolPage />}
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <NoCodeToolPage />
+                      </Suspense>
+                    }
                   />
                 </Routes>
                 <ChatWidget />
