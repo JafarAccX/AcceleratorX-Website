@@ -1,9 +1,39 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { X, Sparkles, Zap } from "lucide-react";
+
+// Timer component
+const Timer = ({ days, hours, minutes, seconds }: { days: number; hours: number; minutes: number; seconds: number }) => {
+  return (
+    <div className="flex items-center space-x-2 sm:space-x-3 text-xs sm:text-sm">
+      <div className="flex items-center">
+        <span className="font-mono font-bold text-white">{days.toString().padStart(2, '0')}d</span>
+      </div>
+      <span className="text-white/50">:</span>
+      <div className="flex items-center">
+        <span className="font-mono font-bold text-white">{hours.toString().padStart(2, '0')}h</span>
+      </div>
+      <span className="text-white/50">:</span>
+      <div className="flex items-center">
+        <span className="font-mono font-bold text-white">{minutes.toString().padStart(2, '0')}m</span>
+      </div>
+      <span className="text-white/50">:</span>
+      <div className="flex items-center">
+        <span className="font-mono font-bold text-white">{seconds.toString().padStart(2, '0')}s</span>
+      </div>
+    </div>
+  );
+};
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -204,6 +234,31 @@ export default function Hero() {
     };
   }, []);
 
+  // Timer logic
+  useEffect(() => {
+    const targetDate = new Date("2024-11-30"); // Set your target date here
+
+    const updateTimer = () => {
+      const now = new Date();
+      const difference = targetDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      }
+    };
+
+    // Update immediately and then every second
+    updateTimer();
+    const timer = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black">
       {/* Space Background Canvas */}
@@ -213,80 +268,137 @@ export default function Hero() {
         style={{ opacity: 0.9 }}
       />
 
+      {/* Black Friday Banner */}
+      <AnimatePresence>
+      
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="relative z-20"
+          >
+            <div className="w-full bg-gradient-to-r from-[#0A0F1C] via-[#1A1F3C] to-[#2A2F4C] border-b border-white/10 mt-6">
+              <div className="max-w-7xl mx-auto px-4 py-2">
+                <div className="flex items-center justify-center space-x-4">
+                  
+
+                  {/* Sale Icon */}
+                  <div className="relative">
+                    <Zap className="w-5 h-5 text-yellow-400" />
+                    <motion.div
+                      className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full"
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        opacity: [1, 0.5, 1],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    />
+                  </div>
+
+                  {/* Sale Text */}
+                  <div className="flex items-center space-x-2 sm:space-x-4">
+                    <span className="text-sm sm:text-base font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-blue-100">
+                      BLACK FRIDAY SALE IS LIVE
+                    </span>
+                    <span className="hidden sm:inline text-white/20">|</span>
+                    <span className="text-xs sm:text-sm text-blue-400">
+                      Up to 70% off on Premium Courses
+                    </span>
+                  </div>
+
+                  <span className="hidden sm:inline text-white/20">|</span>
+                  
+                  {/* Timer */}
+                  <Timer {...timeLeft} />
+
+                  <Sparkles className="hidden sm:block w-5 h-5 text-blue-400 animate-pulse" />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        
+      </AnimatePresence>
+
       {/* Main content container */}
-      <div className="relative z-10 flex min-h-screen w-full items-center justify-center lg:items-stretch lg:justify-start">
-        {/* Left side - Text content */}
-        <div className="relative z-20 w-full px-6 py-10 lg:w-1/2 lg:px-16 xl:px-24">
-          <div className="flex h-full w-full items-center justify-center lg:justify-start">
-            <div className="w-full max-w-xl text-center lg:text-left">
-              <TypeAnimation
-                sequence={[
-                  "Build",
-                  1000,
-                  "",
-                  500,
-                  "Lead",
-                  1000,
-                  "",
-                  500,
-                  "Succeed",
-                  1000,
-                  "",
-                  500,
-                ]}
-                wrapper="h1"
-                speed={50}
-                className="mb-5 bg-clip-text text-4xl font-bold text-blue-600 md:text-6xl lg:text-7xl xl:text-8xl"
-                repeat={Infinity}
-                cursor={true}
-                style={{
-                  whiteSpace: "pre",
-                  display: "inline-block",
-                  minWidth: "200px",
-                  textShadow: "0 0 10px rgba(255, 255, 255, 0)"
-                }}
-              />
+      <div className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center lg:items-stretch lg:justify-start">
+        {/* Content Wrapper */}
+        <div className="flex w-full flex-1">
+          {/* Left side - Text content */}
+          <div className="relative z-20 w-full px-6 py-10 lg:w-1/2 lg:px-16 xl:px-24">
+            <div className="flex h-full w-full items-center justify-center lg:justify-start">
+              <div className="w-full max-w-xl text-center lg:text-left">
+                <TypeAnimation
+                  sequence={[
+                    "Build",
+                    1000,
+                    "",
+                    500,
+                    "Lead",
+                    1000,
+                    "",
+                    500,
+                    "Succeed",
+                    1000,
+                    "",
+                    500,
+                  ]}
+                  wrapper="h1"
+                  speed={50}
+                  className="mb-5 bg-clip-text text-4xl font-bold text-blue-600 md:text-6xl lg:text-7xl xl:text-8xl"
+                  repeat={Infinity}
+                  cursor={true}
+                  style={{
+                    whiteSpace: "pre",
+                    display: "inline-block",
+                    minWidth: "200px",
+                    textShadow: "0 0 10px rgba(255, 255, 255, 0)"
+                  }}
+                />
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="mx-auto mb-8 max-w-lg text-sm font-semibold leading-relaxed text-gray-300 md:text-lg lg:mx-0 lg:text-xl"
-              >
-                Transform your ideas into action. <br /> Accelerating ideas into
-                impactful solution that shapes the future.
-              </motion.p>
-
-              <div className="button-sparkle">
-                <motion.div
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="mb-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start"
+                  transition={{ delay: 0.6 }}
+                  className="mx-auto mb-8 max-w-lg text-sm font-semibold leading-relaxed text-gray-300 md:text-lg lg:mx-0 lg:text-xl"
                 >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="enroll-button flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-medium text-blue-600 md:text-base"
-                    onClick={() => {
-                      const featuresSection = document.getElementById("features");
-                      if (featuresSection) {
-                        featuresSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
+                  Transform your ideas into action. <br /> Accelerating ideas into
+                  impactful solution that shapes the future.
+                </motion.p>
+
+                <div className="button-sparkle">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="mb-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start"
                   >
-                    Explore Courses
-                  </motion.button>
-                </motion.div>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="enroll-button flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-medium text-blue-600 md:text-base"
+                      onClick={() => {
+                        const featuresSection = document.getElementById("features");
+                        if (featuresSection) {
+                          featuresSection.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                    >
+                      Explore Courses
+                    </motion.button>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Right side - Solar System */}
-        <div className="absolute right-0 top-0 z-10 hidden h-full w-1/2 lg:block">
-          {/* This div is intentionally empty as it serves as the container for the right-side solar system */}
-          <div className="absolute inset-0 bg-black/10" />
+          {/* Right side - Solar System */}
+          <div className="absolute right-0 top-0 z-10 hidden h-full w-1/2 lg:block">
+            {/* This div is intentionally empty as it serves as the container for the right-side solar system */}
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
         </div>
       </div>
 

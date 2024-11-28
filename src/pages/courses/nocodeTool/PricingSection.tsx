@@ -70,7 +70,7 @@ export default function PricingSection() {
                   <div className="relative">
                     <div className="flex items-baseline justify-center">
                       <span className="text-6xl font-bold text-blue-400">
-                        ₹6,000
+                        ₹5,999
                       </span>
                       <span className="ml-2 text-sm text-gray-400">
                         lifetime access

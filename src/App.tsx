@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
-import BlackFridaySale from "./components/BlackFridaySale";
 
 // Lazy load components
 const Hero = lazy(() => import("./components/Hero"));
@@ -107,7 +106,6 @@ function HomePage() {
 
   return (
     <Suspense fallback={<Loader />}>
-      <BlackFridaySale />
       <Hero />
       <LogoSlider />
       <Features />
