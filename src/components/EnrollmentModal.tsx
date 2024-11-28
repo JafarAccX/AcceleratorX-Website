@@ -257,6 +257,7 @@ export default function EnrollmentModal({
                       Product Management
                     </option>
                     <option value="Data Analytics">Data Analytics</option>
+                    <option value="No-Code Tool Program">No-Code Tool Program</option>
                   </select>
                 </div>
               )}

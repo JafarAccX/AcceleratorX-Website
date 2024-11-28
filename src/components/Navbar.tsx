@@ -50,6 +50,10 @@ export default function Navbar({
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
+            {/* Sale Badge */}
+            <span className="animate-pulse bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Sale Is Live
+            </span>
             {/* Courses Dropdown */}
             <div
               className="relative"

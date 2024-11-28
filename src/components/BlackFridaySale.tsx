@@ -13,7 +13,7 @@ const BlackFridaySale = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const targetDate = new Date("2024-11-29");
+    const targetDate = new Date("2024-11-30");
 
     const timer = setInterval(() => {
       const now = new Date();
