@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
+import BlackFridaySale from "./components/BlackFridaySale";
 
 // Lazy load components
 const Hero = lazy(() => import("./components/Hero"));
@@ -29,35 +30,67 @@ const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 const LogoSlider = lazy(() => import("./components/LogoSlider"));
 const HireHero = lazy(() => import("./pages/hirewithus/HireHero"));
 const DataHero = lazy(() => import("./pages/courses/dataanalytics/DataHero"));
-const DataProgram = lazy(() => import("./pages/courses/dataanalytics/DataProgram"));
+const DataProgram = lazy(
+  () => import("./pages/courses/dataanalytics/DataProgram")
+);
 const CAPE = lazy(() => import("./pages/courses/dataanalytics/CAPE"));
-const DataPricing = lazy(() => import("./pages/courses/dataanalytics/dataPricing"));
-const DataMentors = lazy(() => import("./pages/courses/dataanalytics/DataMentors"));
-const DataSkillsTools = lazy(() => import("./pages/courses/dataanalytics/DataSkillsTools"));
-const ProgramHighlights = lazy(() => import("./pages/courses/productmanagement/ProgramHighlights"));
-const ProgramHero = lazy(() => import("./pages/courses/productmanagement/ProgamHero"));
+const DataPricing = lazy(
+  () => import("./pages/courses/dataanalytics/dataPricing")
+);
+const DataMentors = lazy(
+  () => import("./pages/courses/dataanalytics/DataMentors")
+);
+const DataSkillsTools = lazy(
+  () => import("./pages/courses/dataanalytics/DataSkillsTools")
+);
+const ProgramHighlights = lazy(
+  () => import("./pages/courses/productmanagement/ProgramHighlights")
+);
+const ProgramHero = lazy(
+  () => import("./pages/courses/productmanagement/ProgamHero")
+);
 const BYDP = lazy(() => import("./pages/courses/productmanagement/BYDP"));
-const BenefitsGrid = lazy(() => import("./pages/courses/productmanagement/BenefitsGrid"));
+const BenefitsGrid = lazy(
+  () => import("./pages/courses/productmanagement/BenefitsGrid")
+);
 const Mentors = lazy(() => import("./pages/courses/productmanagement/Mentors"));
-const SkillsAndTools = lazy(() => import("./pages/courses/productmanagement/SkillsAndTools"));
+const SkillsAndTools = lazy(
+  () => import("./pages/courses/productmanagement/SkillsAndTools")
+);
 const Pricing = lazy(() => import("./pages/courses/productmanagement/Pricing"));
 const EnrollmentModal = lazy(() => import("./components/EnrollmentModal"));
 const Privacy = lazy(() => import("./pages/Privacy/Privacy"));
 const Terms = lazy(() => import("./pages/Terms/Terms"));
-const SkillsAssessment = lazy(() => import("./pages/courses/productmanagement/SkillAssessment"));
-const LearningJourney = lazy(() => import("./pages/courses/productmanagement/LearningJourney"));
-const BecomeAMentorFeatures = lazy(() => import("./components/BecomeAMentorFeatures"));
+const SkillsAssessment = lazy(
+  () => import("./pages/courses/productmanagement/SkillAssessment")
+);
+const LearningJourney = lazy(
+  () => import("./pages/courses/productmanagement/LearningJourney")
+);
+const BecomeAMentorFeatures = lazy(
+  () => import("./components/BecomeAMentorFeatures")
+);
 const ChatWidget = lazy(() => import("./components/ChatWidget"));
 const StickyBookNav = lazy(() => import("./components/StickyBookNav"));
 const Refund = lazy(() => import("./pages/refund/Refund"));
 const NoCodeHero = lazy(() => import("./pages/courses/nocodeTool/NoCodeHero"));
-const NoCodeBenefitsGrid = lazy(() => import("./pages/courses/nocodeTool/NoCodeBenefitsGrid"));
-const NoCodeLearningJourney = lazy(() => import("./pages/courses/nocodeTool/NoCodeLearningJourney"));
-const TargetAudience = lazy(() => import("./pages/courses/nocodeTool/TargetAudience"));
+const NoCodeBenefitsGrid = lazy(
+  () => import("./pages/courses/nocodeTool/NoCodeBenefitsGrid")
+);
+const NoCodeLearningJourney = lazy(
+  () => import("./pages/courses/nocodeTool/NoCodeLearningJourney")
+);
+const TargetAudience = lazy(
+  () => import("./pages/courses/nocodeTool/TargetAudience")
+);
 const Timeline = lazy(() => import("./pages/courses/nocodeTool/Timeline"));
 const NoCodeTool = lazy(() => import("./pages/courses/nocodeTool/NoCodeTool"));
-const ProjectsSection = lazy(() => import("./pages/courses/nocodeTool/ProjectSection"));
-const PricingSection = lazy(() => import("./pages/courses/nocodeTool/PricingSection"));
+const ProjectsSection = lazy(
+  () => import("./pages/courses/nocodeTool/ProjectSection")
+);
+const PricingSection = lazy(
+  () => import("./pages/courses/nocodeTool/PricingSection")
+);
 const NoCodeFAQ = lazy(() => import("./pages/courses/nocodeTool/NoCodeFAQ"));
 
 // Context for managing course selection
@@ -74,6 +107,7 @@ function HomePage() {
 
   return (
     <Suspense fallback={<Loader />}>
+      <BlackFridaySale />
       <Hero />
       <LogoSlider />
       <Features />

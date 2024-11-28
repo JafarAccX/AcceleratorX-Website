@@ -67,15 +67,20 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        <PricingCard
+        {/* <PricingCard
           courseName="Product Management"
           originalPrice={59000}
           discountedPrice={47200}
           features={productManagementFeatures}
           onEnroll={() => setIsModalOpen(true)}
+        /> */}
+        <PricingCard
+          courseName="Product Management"
+          originalPrice={59000}
+          discountedPrice={24999}
+          features={productManagementFeatures}
+          onEnroll={() => setIsModalOpen(true)}
         />
-
-        {/* You can add more PricingCard components here for other courses */}
 
         <EnrollmentModal
           isOpen={isModalOpen}

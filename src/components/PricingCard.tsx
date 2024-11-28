@@ -16,8 +16,11 @@ export default function PricingCard({
         {/* Limited Time Offer Banner */}
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-6 py-2 rounded-full shadow-lg flex items-center space-x-2">
           <Clock className="h-4 w-4" />
-          <span className="font-semibold text-sm md:text-lg">
+          {/* <span className="font-semibold text-sm md:text-lg">
             Limited Time Offer
+          </span> */}
+          <span className="font-semibold text-sm md:text-lg">
+            Black Friday Sale
           </span>
         </div>
 
@@ -39,7 +42,9 @@ export default function PricingCard({
                 <span className="text-gray-400 line-through block">
                   ₹{originalPrice.toLocaleString()}
                 </span>
-                <span className="text-green-500 font-semibold">20% OFF</span>
+                <span className="text-green-500 font-semibold">
+                  Upto 70% OFF
+                </span>
               </div>
             </div>
           </div>
