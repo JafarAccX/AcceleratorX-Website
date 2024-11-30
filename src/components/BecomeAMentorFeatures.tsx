@@ -305,7 +305,7 @@ export default function BecomeAMentorFeatures() {
             className="mt-6 text-4xl md:text-5xl font-bold"
           >
             <span className="text-white">Revolutionizing the Way </span>
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
               You Learn
             </span>
           </motion.h2>
@@ -326,13 +326,13 @@ export default function BecomeAMentorFeatures() {
                       ? "col-span-2 md:col-span-4"
                       : "col-span-2"
                   }
-                  hover:border-indigo-500/50 transition-all duration-300
+                  hover:border-blue-500/50 transition-all duration-300
                   hover:shadow-[0_0_20px_rgba(99,102,241,0.1)]
                 `}
               >
                 <div className="relative z-10 h-full flex flex-col">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="bg-indigo-500/20 p-1.5 rounded-lg text-indigo-400">
+                    <div className="bg-blue-500/20 p-1.5 rounded-lg text-blue-400">
                       {feature.icon}
                     </div>
                     <h3 className="text-base font-semibold text-white line-clamp-1">

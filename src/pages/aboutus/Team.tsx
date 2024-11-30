@@ -155,7 +155,7 @@ const Team = () => {
         </div>
 
         {/* Team Photo Section - Full Width */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -176,6 +176,44 @@ const Team = () => {
               <p className="text-gray-300 text-lg font-semibold">
                 The talented and diverse AcceleratorX Team
               </p>
+            </div>
+          </div>
+        </motion.div> */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-blue-400/30 blur-3xl opacity-30" />
+            <div className="relative flex flex-col">
+              {/* Image Container */}
+              <div className="relative rounded-2xl overflow-hidden border border-blue-500/30">
+                <div className="w-180 h-144 mx-auto">
+                  <img
+                    src="/assets/team.jpg"
+                    alt="AcceleratorX Team"
+                    className="w-full h-full object-cover transform transition-transform duration-700"
+                  />
+                </div>
+              </div>
+
+              {/* Text Container - Separate from image for mobile */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mt-6 text-center px-4"
+              >
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  Our Team
+                </h3>
+                <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  The talented and diverse AcceleratorX Team
+                </p>
+              </motion.div>
             </div>
           </div>
         </motion.div>

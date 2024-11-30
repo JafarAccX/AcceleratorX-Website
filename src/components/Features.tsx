@@ -221,10 +221,7 @@ export default function Features() {
   const navigate = useNavigate();
 
   return (
-    <section
-      id="features"
-      className="relative bg-black px-4 sm:px-8 lg:px-16"
-    >
+    <section id="features" className="relative bg-black px-4 sm:px-8 lg:px-16">
       {/* Background grid effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]" />
 
@@ -242,7 +239,7 @@ export default function Features() {
             className="mt-6 text-4xl md:text-5xl font-bold"
           >
             <span className="text-white">Simplifying </span>
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
               Futuristic Skills
             </span>{" "}
             <span className="text-white">For Everyone</span>
@@ -262,10 +259,10 @@ export default function Features() {
                 type: "spring",
                 stiffness: 50,
               }}
-              className="flex flex-col bg-gray-900/20 backdrop-blur-sm rounded-2xl p-2 border border-gray-800 hover:border-indigo-500/50 transition-colors duration-300"
+              className="flex flex-col bg-gray-900/20 backdrop-blur-sm rounded-2xl p-2 border border-gray-800 hover:border-blue-500/50 transition-colors duration-300"
             >
               <div className="flex flex-col h-full">
-                <div className="bg-gray-900/50 backdrop-blur-sm w-12 h-12 rounded-lg flex items-center justify-center text-indigo-400 mb-6">
+                <div className="bg-gray-900/50 backdrop-blur-sm w-12 h-12 rounded-lg flex items-center justify-center text-blue-400 mb-6">
                   {feature.icon}
                 </div>
 
@@ -279,17 +276,17 @@ export default function Features() {
 
                 <div className="h-60 w-auto mb-6 relative">
                   <div className="absolute inset-0 bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
-                    <div className="w-auto h-60 text-indigo-400">
+                    <div className="w-auto h-60 text-blue-400">
                       {feature.image}
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-xl" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent rounded-xl" />
                   </div>
                 </div>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg text-sm font-medium w-full transition-colors duration-300"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-sm font-medium w-full transition-colors duration-300"
                   onClick={() => navigate(feature.path)}
                 >
                   Learn More

@@ -5,7 +5,6 @@ import { blogService } from '../../services/blogService';
 import RichTextEditor from './RichTextEditor';
 import { Blog } from '../../utils/types';
 
-
 interface BlogFormProps {
   blog?: Blog;
   onClose: () => void;
@@ -62,7 +61,7 @@ export default function BlogForm({ blog, onClose, onSuccess }: BlogFormProps) {
       return;
     }
     if (imageError) {
-      toast.error('Please provide a valid image URL');
+      toast.error('Please provide a valid image file (PNG, JPG, JPEG)');
       return;
     }
 
@@ -86,7 +85,7 @@ export default function BlogForm({ blog, onClose, onSuccess }: BlogFormProps) {
 
   const handleImageError = () => {
     setImageError(true);
-    toast.error('Invalid image URL');
+    toast.error('Invalid image file');
   };
 
   const handleImageLoad = () => {
@@ -107,11 +106,19 @@ export default function BlogForm({ blog, onClose, onSuccess }: BlogFormProps) {
     e.preventDefault();
     setIsDragging(false);
 
-    const url = e.dataTransfer.getData('text');
-    if (url.match(/^https?:\/\/.+\.(jpg|jpeg|png|webp|gif)$/i)) {
-      setFormData(prev => ({ ...prev, cover_image: url }));
-    } else {
-      toast.error('Please drop a valid image URL');
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      if (file.type.match(/^image\/(jpeg|jpg|png)$/i)) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          if (event.target?.result) {
+            setFormData(prev => ({ ...prev, cover_image: event.target.result as string }));
+          }
+        };
+        reader.readAsDataURL(file);
+      } else {
+        toast.error('Please drop a valid image file (PNG, JPG, or JPEG)');
+      }
     }
   }, []);
 
@@ -211,20 +218,27 @@ export default function BlogForm({ blog, onClose, onSuccess }: BlogFormProps) {
                   onDrop={handleDrop}
                 >
                   <input
-                    type="url"
-                    value={formData.cover_image}
-                    onChange={(e) =>
-                      setFormData((prev) => ({ ...prev, cover_image: e.target.value }))
-                    }
+                    type="file"
+                    accept="image/png,image/jpeg,image/jpg"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                          if (event.target?.result) {
+                            setFormData(prev => ({ ...prev, cover_image: event.target.result as string }));
+                          }
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
                     className="w-full px-4 py-2 bg-transparent rounded-lg focus:outline-none"
-                    placeholder="Enter image URL or drag & drop an image link"
                     required
                   />
                   {!formData.cover_image && (
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <div className="text-center text-gray-400">
                         <Upload className="w-8 h-8 mx-auto mb-2" />
-                        <p>Drag & drop an image URL or paste a link</p>
                       </div>
                     </div>
                   )}
