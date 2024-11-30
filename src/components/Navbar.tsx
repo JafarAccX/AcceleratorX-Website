@@ -16,7 +16,7 @@ export default function Navbar({
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Hire With Us", path: "/hire-with-us" },
-    { label: "XSAT", path: "/XSAT" },
+    { label: "XSAT", path: "/xsat" },
     // { label: "Become a Mentor", path: "/become-a-mentor" },
   ];
 
