@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
+import LandingPage from "./pages/XSAT/LandingPage/LandingPage";
 
 // Lazy load components
 const Hero = lazy(() => import("./components/Hero"));
@@ -353,6 +354,14 @@ function App() {
                     element={
                       <Suspense fallback={<Loader />}>
                         <NoCodeToolPage />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/xsat"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <LandingPage />
                       </Suspense>
                     }
                   />

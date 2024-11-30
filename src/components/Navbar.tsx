@@ -16,7 +16,8 @@ export default function Navbar({
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Hire With Us", path: "/hire-with-us" },
-    { label: "Become a Mentor", path: "/become-a-mentor" },
+    { label: "XSAT", path: "/XSAT" },
+    // { label: "Become a Mentor", path: "/become-a-mentor" },
   ];
 
   const courses = [
@@ -51,9 +52,9 @@ export default function Navbar({
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {/* Sale Badge */}
-            <span className="animate-bounce bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
+            {/* <span className="animate-bounce bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
               Sale is Live
-            </span>
+            </span> */}
             {/* Courses Dropdown */}
             <div
               className="relative"
@@ -94,14 +95,24 @@ export default function Navbar({
             {menuItems.map((item) => (
               <motion.div
                 key={item.label}
-                whileHover={{ scale: 1.05, color: "#fff" }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
                   to={item.path}
-                  className="text-gray-300 hover:text-white text-sm font-medium"
+                  className={`text-sm font-medium relative ${
+                    item.label === "XSAT"
+                      ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-2xl flex items-center gap-2 border border-[#FFBB00]/20"
+                      : "text-gray-300 hover:text-white"
+                  }`}
                 >
                   {item.label}
+                  {item.label === "XSAT" && (
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                  )}
                 </Link>
               </motion.div>
             ))}
@@ -179,10 +190,20 @@ export default function Navbar({
                 >
                   <Link
                     to={item.path}
-                    className="block text-gray-300 hover:text-white text-sm font-medium"
+                    className={`block text-sm font-medium relative ${
+                      item.label === "XSAT"
+                        ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-2xl flex items-center gap-2 border border-[#FFBB00]/20"
+                        : "text-gray-300 hover:text-white"
+                    }`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
+                    {item.label === "XSAT" && (
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                    )}
                   </Link>
                 </motion.div>
               ))}
