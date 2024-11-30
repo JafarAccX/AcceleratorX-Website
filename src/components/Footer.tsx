@@ -22,7 +22,7 @@ const footerLinks = {
       { label: "Privacy Policy", url: "/privacy-policy" },
       { label: "Terms & Conditions", url: "/terms-and-conditions" },
       { label: "Refund Policy", url: "/refund-policy" },
-      { label: "XSAT", path: "/xsat" },
+      { label: "XSAT", url: "/xsat" },
     ],
   },
   social: {

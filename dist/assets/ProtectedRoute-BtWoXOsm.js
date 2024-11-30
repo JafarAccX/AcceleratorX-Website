@@ -1,0 +1,1 @@
+import{j as t,N as r}from"./index-DcOu5H9o.js";import{a}from"./authService-BEDTyVBP.js";const i=({children:e})=>a.isAuthenticated()?t.jsx(t.Fragment,{children:e}):t.jsx(r,{to:"/login",replace:!0});export{i as default};
