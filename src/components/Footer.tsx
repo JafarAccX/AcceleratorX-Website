@@ -39,6 +39,14 @@ const footerLinks = {
       },
     ],
   },
+  contact: {
+    title: "Contact Us",
+    links: [
+      { label: "support@acceleratorx.co", url: "mailto:support@acceleratorx.co" },
+      { label: "+91 9916859555", url: "tel:+919916859555" },
+      { label: "L367, 5th Main Road, 6th Sector, HSR Layout, Bangalore, KA 560102, India", url: "https://maps.app.goo.gl/PPSRGZyAgWkqUJ6E8" },
+    ],
+  },
 };
 
 export default function Footer() {
@@ -69,16 +77,16 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0a0a0a] text-gray-400 py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-12">
           {/* Logo and Brand */}
-          <div className="md:col-span-3">
-            <div className="flex items-center">
+          <div className="md:col-span-2">
+            <div className="flex items-start">
               <Link to="/" className="flex items-center space-x-2">
                 <img
                   src={companyLogo}
                   alt="company logo"
-                  className="w-auto h-14"
+                  className="w-auto h-14 object-contain"
                 />
               </Link>
             </div>
@@ -86,14 +94,18 @@ export default function Footer() {
 
           {/* Navigation Links */}
           {Object.entries(footerLinks).map(([key, section]) => (
-            <div key={key} className="md:col-span-3">
-              <h3 className="font-semibold text-white mb-4">{section.title}</h3>
+            <div key={key} className={`${key === 'contact' ? 'md:col-span-4' : 'md:col-span-2'}`}>
+              <h3 className="font-semibold text-white mb-4 text-lg">{section.title}</h3>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.url}
-                      className="hover:text-white transition-colors"
+                      className="hover:text-white transition-colors inline-block"
+                      style={{ 
+                        maxWidth: key === 'contact' ? '300px' : 'none',
+                        lineHeight: '1.5'
+                      }}
                     >
                       {link.label}
                     </a>
