@@ -99,6 +99,8 @@ const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
 
 // Context for managing course selection
 
+import { trackViewContent } from './utils/metaPixel';
+
 function HomePage() {
   const {
     setSelectedCourse,
@@ -223,6 +225,8 @@ function App() {
   };
 
   useEffect(() => {
+    trackViewContent();
+
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
