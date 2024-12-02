@@ -24,12 +24,32 @@ interface EnrollmentData {
   created_at: string;
 }
 
+interface LeadData {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  education: string;
+  course: string;
+  city?: string;
+  state?: string;
+  ip_address?: string;
+  ip_state?: string;
+  ip_postal?: string;
+  ip_city?: string;
+  created_at: string;
+  traffic_source?: string;
+}
+
 const AdminPage: React.FC = () => {
   const [enrollments, setEnrollments] = useState<EnrollmentData[]>([]);
+  const [leads, setLeads] = useState<LeadData[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentLeadsPage, setCurrentLeadsPage] = useState(1);
   const [refreshing, setRefreshing] = useState(false);
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
+  const [activeTab, setActiveTab] = useState<'enrollments' | 'leads'>('enrollments');
   const navigate = useNavigate();
 
   const sortData = (data: EnrollmentData[]) => {
@@ -49,6 +69,15 @@ const AdminPage: React.FC = () => {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const sortedEnrollments = sortData(enrollments);
   const currentEnrollments = sortedEnrollments.slice(startIndex, endIndex);
+
+  const totalLeadsPages = Math.ceil(leads.length / ITEMS_PER_PAGE);
+  const leadsStartIndex = (currentLeadsPage - 1) * ITEMS_PER_PAGE;
+  const leadsEndIndex = leadsStartIndex + ITEMS_PER_PAGE;
+  const sortedLeads = [...leads].sort((a, b) => {
+    const multiplier = sortOrder === 'asc' ? 1 : -1;
+    return multiplier * (new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+  });
+  const currentLeads = sortedLeads.slice(leadsStartIndex, leadsEndIndex);
 
   const fetchEnrollments = async () => {
     try {
@@ -71,13 +100,34 @@ const AdminPage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!authService.isAuthenticated()) {
-      navigate('/login');
-      return;
-    }
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // Fetch enrollments
+        const { data: enrollmentData, error: enrollmentError } = await supabase
+          .from('enrollments')
+          .select('*');
 
-    fetchEnrollments();
-  }, [navigate]);
+        if (enrollmentError) throw enrollmentError;
+        setEnrollments(enrollmentData || []);
+
+        // Fetch leads
+        const { data: leadsData, error: leadsError } = await supabase
+          .from('leads')
+          .select('*');
+
+        if (leadsError) throw leadsError;
+        setLeads(leadsData || []);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        toast.error('Failed to fetch data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleDownloadCSV = () => {
     try {
@@ -163,102 +213,218 @@ const AdminPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    S.No
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Email
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Phone
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Education
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Course
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Date
-                    <button
-                      onClick={handleSort}
-                      className="ml-1 p-1 rounded hover:bg-gray-200 transition-colors inline-flex items-center"
-                    >
-                      <ArrowUpDown className="h-4 w-4 text-blue-500" />
-                    </button>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {currentEnrollments.map((enrollment, index) => (
-                  <tr key={enrollment.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{startIndex + index + 1}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{enrollment.full_name}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{enrollment.email}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{enrollment.phone_number}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{enrollment.education_level}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{enrollment.course}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {new Date(enrollment.created_at).toLocaleDateString()}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <div className="mb-6">
+          <div className="flex space-x-4 mb-4">
+            <button
+              onClick={() => setActiveTab('enrollments')}
+              className={`px-4 py-2 rounded ${
+                activeTab === 'enrollments'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700'
+              }`}
+            >
+              Enrollments
+            </button>
+            <button
+              onClick={() => setActiveTab('leads')}
+              className={`px-4 py-2 rounded ${
+                activeTab === 'leads'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700'
+              }`}
+            >
+              Leads
+            </button>
           </div>
-          {totalPages > 1 && (
-            <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                  disabled={currentPage === 1}
-                  className={`p-2 rounded-lg hover:bg-gray-100 ${
-                    currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <span className="text-sm text-gray-700">
-                  Page {currentPage} of {totalPages}
-                </span>
-                <button
-                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                  disabled={currentPage === totalPages}
-                  className={`p-2 rounded-lg hover:bg-gray-100 ${
-                    currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
+        </div>
+
+        {activeTab === 'enrollments' ? (
+          <>
+            <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        S.No
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Name
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Email
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Phone
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Education
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Course
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Date
+                        <button
+                          onClick={handleSort}
+                          className="ml-1 p-1 rounded hover:bg-gray-200 transition-colors inline-flex items-center"
+                        >
+                          <ArrowUpDown className="h-4 w-4 text-blue-500" />
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {currentEnrollments.map((enrollment, index) => (
+                      <tr key={enrollment.id} className="hover:bg-gray-50">
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{startIndex + index + 1}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm font-medium text-gray-900">{enrollment.full_name}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{enrollment.email}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{enrollment.phone_number}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{enrollment.education_level}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{enrollment.course}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">
+                            {new Date(enrollment.created_at).toLocaleDateString()}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-              <div className="text-sm text-gray-500">
-                Showing {startIndex + 1} to {Math.min(endIndex, enrollments.length)} of {enrollments.length} entries
+              {totalPages > 1 && (
+                <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                      disabled={currentPage === 1}
+                      className={`p-2 rounded-lg hover:bg-gray-100 ${
+                        currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    <span className="text-sm text-gray-700">
+                      Page {currentPage} of {totalPages}
+                    </span>
+                    <button
+                      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                      disabled={currentPage === totalPages}
+                      className={`p-2 rounded-lg hover:bg-gray-100 ${
+                        currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    Showing {startIndex + 1} to {Math.min(endIndex, enrollments.length)} of {enrollments.length} entries
+                  </div>
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="bg-white rounded-lg shadow overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        S.No
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Name
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Email
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Phone
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Course
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        IP Address
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        IP Location
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Source
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={handleSort}>
+                        Date <ArrowUpDown className="inline h-4 w-4" />
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {currentLeads.map((lead, index) => (
+                      <tr key={lead.id}>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                          {leadsStartIndex + index + 1}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{lead.name}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{lead.email}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{lead.phone}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{lead.course}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                          {lead.ip_address || 'N/A'}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                          {lead.ip_city && lead.ip_state && lead.ip_postal 
+                            ? `${lead.ip_city}, ${lead.ip_state} ${lead.ip_postal}`
+                            : 'N/A'}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{lead.traffic_source || 'Direct'}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                          {new Date(lead.created_at).toLocaleDateString()}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
-          )}
-        </div>
+
+            <div className="mt-4 flex justify-between items-center">
+              <button
+                onClick={() => setCurrentLeadsPage(p => Math.max(1, p - 1))}
+                disabled={currentLeadsPage === 1}
+                className="flex items-center px-4 py-2 border rounded-md text-sm disabled:opacity-50"
+              >
+                <ChevronLeft className="h-4 w-4 mr-2" />
+                Previous
+              </button>
+              <span className="text-sm text-gray-700">
+                Page {currentLeadsPage} of {totalLeadsPages}
+              </span>
+              <button
+                onClick={() => setCurrentLeadsPage(p => Math.min(totalLeadsPages, p + 1))}
+                disabled={currentLeadsPage === totalLeadsPages}
+                className="flex items-center px-4 py-2 border rounded-md text-sm disabled:opacity-50"
+              >
+                Next
+                <ChevronRight className="h-4 w-4 ml-2" />
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </motion.div>
   );
