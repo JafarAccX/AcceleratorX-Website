@@ -12,6 +12,7 @@ import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
 import LandingPage from "./pages/XSAT/LandingPage/LandingPage";
 import RoleProtectedRoute from "./components/RoleProtectedRoute";
+import { initializeMetaPixel } from "./utils/metaPixel";
 
 // Lazy load components
 const Hero = lazy(() => import("./components/Hero"));
@@ -23,7 +24,7 @@ const Blogs = lazy(() => import("./pages/blogs/Blogs"));
 const BlogDashboard = lazy(() => import("./pages/blogs/BlogDashboard"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const BlogForm = lazy(() => import("./pages/blogs/BlogForm"));
-const ProtectedRoute = lazy(() => import("./components/ProtectedRoute"));
+// const ProtectedRoute = lazy(() => import("./components/ProtectedRoute"));
 const HeroAbout = lazy(() => import("./pages/aboutus/HeroAbout"));
 const Team = lazy(() => import("./pages/aboutus/Team"));
 const Values = lazy(() => import("./pages/aboutus/Values"));
@@ -93,7 +94,7 @@ const PricingSection = lazy(
   () => import("./pages/courses/nocodeTool/PricingSection")
 );
 const NoCodeFAQ = lazy(() => import("./pages/courses/nocodeTool/NoCodeFAQ"));
-const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
+// const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
 
@@ -223,6 +224,12 @@ function App() {
   };
 
   useEffect(() => {
+    // Initialize Meta Pixel
+    const metaPixelId = import.meta.env.VITE_META_PIXEL_ID;
+    if (metaPixelId) {
+      initializeMetaPixel(metaPixelId);
+    }
+
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);

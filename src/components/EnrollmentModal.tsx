@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import toast from "react-hot-toast";
+import { trackFormSubmission } from "../utils/metaPixel";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -75,6 +76,9 @@ export default function EnrollmentModal({
         console.error("Error submitting form:", error);
         return;
       }
+
+      // Track form submission with Meta Pixel
+      trackFormSubmission(formData);
 
       setIsSubmitted(true);
       if (onSubmit) onSubmit();

@@ -4,6 +4,7 @@ import { MessageCircle, X, Send, MessageCircleHeart } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import { useLocation } from "react-router-dom";
+import { trackFormSubmission } from "../utils/metaPixel";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -65,6 +66,12 @@ export default function ChatWidget() {
       ]);
 
       if (error) throw error;
+
+      // Track form submission with Meta Pixel after successful submission
+      trackFormSubmission({
+        ...formData,
+        course: isHomePage ? formData.course : selectedCourse || "Unknown"
+      });
 
       setIsSubmitted(true);
       setTimeout(() => {
