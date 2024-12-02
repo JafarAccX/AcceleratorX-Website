@@ -12,7 +12,6 @@ import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
 import LandingPage from "./pages/XSAT/LandingPage/LandingPage";
 import RoleProtectedRoute from "./components/RoleProtectedRoute";
-import { initializeMetaPixel } from "./utils/metaPixel";
 
 // Lazy load components
 const Hero = lazy(() => import("./components/Hero"));
@@ -224,12 +223,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Initialize Meta Pixel
-    const metaPixelId = import.meta.env.VITE_META_PIXEL_ID;
-    if (metaPixelId) {
-      initializeMetaPixel(metaPixelId);
-    }
-
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);

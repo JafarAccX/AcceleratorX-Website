@@ -1,46 +1,22 @@
-declare global {
-  interface Window {
-    fbq: any;
-    _fbq: any;
-  }
+// Meta Conversion API endpoint
+const META_CONVERSION_API_URL = 'https://graph.facebook.com/v17.0';
+
+interface ConversionAPIPayload {
+  data: Array<{
+    event_name: string;
+    event_time: number;
+    user_data: {
+      em?: string[];
+      ph?: string[];
+      fn?: string[];
+    };
+    custom_data?: {
+      course_name?: string;
+      education_level?: string;
+    };
+  }>;
+  access_token: string;
 }
-
-export const initializeMetaPixel = (pixelId: string): void => {
-  try {
-    console.log('Initializing Meta Pixel with ID:', pixelId);
-
-    // Enable debug mode in development
-    const isDebugMode = import.meta.env.DEV;
-    if (isDebugMode) {
-      console.log('Meta Pixel Debug Mode: ON');
-    }
-
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-
-    window.fbq('init', pixelId);
-    if (isDebugMode) {
-      window.fbq('set', 'debug', true);
-    }
-    window.fbq('track', 'PageView');
-    
-    console.log('Meta Pixel initialized successfully');
-    
-    // Verify initialization
-    if (window.fbq) {
-      console.log('✅ Meta Pixel fbq function is available');
-      console.log('✅ Current fbq queue length:', window._fbq?.queue?.length || 0);
-    }
-  } catch (error) {
-    console.error('Error initializing Meta Pixel:', error);
-  }
-};
 
 export const trackFormSubmission = (formData: {
   name: string;
@@ -50,29 +26,92 @@ export const trackFormSubmission = (formData: {
   course: string;
 }): void => {
   try {
-    if (typeof window.fbq !== 'function') {
-      console.error('Meta Pixel tracking failed: fbq not available');
+    console.group(' Meta Conversion API - Form Submission Tracking');
+    console.log(' Form Data Received:', {
+      name: formData.name,
+      email: formData.email.substring(0, 3) + '***@***' + formData.email.split('@')[1],
+      phone: '***' + formData.phone.slice(-4),
+      education: formData.education,
+      course: formData.course
+    });
+
+    const pixelId = import.meta.env.VITE_META_PIXEL_ID;
+    const accessToken = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
+
+    console.log(' Checking Configuration:', {
+      pixelId: pixelId ? ' Present' : ' Missing',
+      accessToken: accessToken ? ' Present' : ' Missing'
+    });
+
+    if (!accessToken) {
+      console.error(' Meta Conversion API access token not found');
+      console.groupEnd();
       return;
     }
 
-    const eventData = {
-      content_name: 'Enrollment Form Submission',
-      content_category: 'Education',
-      course_name: formData.course,
-      education_level: formData.education,
-      status: 'submitted'
+    // Hash user data for security
+    const hashData = (data: string): Promise<string> => {
+      console.log(` Hashing data: ${data.substring(0, 3)}***`);
+      return window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(data))
+        .then(hash => Array.from(new Uint8Array(hash))
+          .map(b => b.toString(16).padStart(2, '0'))
+          .join('')
+        );
     };
 
-    console.log('📊 Tracking form submission:', eventData);
+    // Prepare and send data to Conversion API
+    console.log(' Starting data hashing process...');
+    Promise.all([
+      hashData(formData.email.toLowerCase()),
+      hashData(formData.phone.replace(/\D/g, '')),
+      hashData(formData.name.toLowerCase())
+    ]).then(([hashedEmail, hashedPhone, hashedName]) => {
+      console.log(' Data hashing completed');
+      
+      const payload: ConversionAPIPayload = {
+        data: [{
+          event_name: 'CompleteRegistration',
+          event_time: Math.floor(Date.now() / 1000),
+          user_data: {
+            em: [hashedEmail],
+            ph: [hashedPhone],
+            fn: [hashedName]
+          },
+          custom_data: {
+            course_name: formData.course,
+            education_level: formData.education
+          }
+        }],
+        access_token: accessToken
+      };
 
-    // Track the lead event
-    window.fbq('track', 'Lead', eventData);
+      console.log(' Preparing API request to:', `${META_CONVERSION_API_URL}/${pixelId}/events`);
+      
+      fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        console.log(` API Response Status: ${response.status} ${response.statusText}`);
+        return response.json();
+      })
+      .then(data => {
+        console.log(' Meta Conversion API Success:', data);
+        console.log(' Event tracked successfully!');
+      })
+      .catch(error => {
+        console.error(' Meta Conversion API Error:', error);
+      })
+      .finally(() => {
+        console.groupEnd();
+      });
+    });
 
-    // Verify event was queued
-    const queueLength = window._fbq?.queue?.length || 0;
-    console.log(`✅ Event queued successfully. Queue length: ${queueLength}`);
-    console.log('🔍 Check Events Manager Test Events tab for verification');
   } catch (error) {
-    console.error('Error tracking form submission:', error);
+    console.error(' Error in trackFormSubmission:', error);
+    console.groupEnd();
   }
 };
