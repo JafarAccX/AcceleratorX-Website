@@ -52,9 +52,9 @@ export default function BenefitsGrid() {
           >
             <h2 className="text-4xl font-bold mb-4">
               <span className="text-white">Unlock Your </span>
-              <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-transparent bg-clip-text"></span>
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text"></span>
 
-              <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
                 Potential
               </span>
             </h2>
@@ -78,7 +78,7 @@ export default function BenefitsGrid() {
               whileHover={{ scale: 1.02 }}
               className="bg-gray-900/40 backdrop-blur-sm p-6 rounded-xl border border-gray-800"
             >
-              <div className="bg-indigo-500/20 p-3 rounded-lg w-fit text-indigo-400 mb-4">
+              <div className="bg-blue-500/20 p-3 rounded-lg w-fit text-blue-400 mb-4">
                 {benefit.icon}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">

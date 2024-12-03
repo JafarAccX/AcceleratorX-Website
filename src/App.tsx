@@ -99,7 +99,9 @@ const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
 
 // Context for managing course selection
 
-import { trackViewContent } from './utils/metaPixel';
+import { trackViewContent } from "./utils/metaPixel";
+import ProgramCertificate from "./pages/courses/productmanagement/ProgramCertificate";
+import DataCertificate from "./pages/courses/dataanalytics/DataCertificate";
 
 function HomePage() {
   const {
@@ -139,6 +141,8 @@ function ProgramAnalyticsPage() {
       <BYDP />
       <LearningJourney />
       <BenefitsGrid />
+      <ProgramCertificate />
+
       <Mentors />
       <SkillsAndTools />
       <SkillsAssessment />
@@ -164,6 +168,7 @@ function DataAnalyticsPage() {
       <DataHero />
       <DataProgram />
       <CAPE />
+      <DataCertificate />
       <DataMentors />
       <DataSkillsTools />
       <DataPricing />

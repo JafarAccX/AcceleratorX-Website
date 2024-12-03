@@ -51,7 +51,7 @@ const supabaseKey =
   import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
-  console.error("❌ Missing Supabase configuration");
+  // console.error("❌ Missing Supabase configuration");
 }
 
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -107,7 +107,7 @@ const storeLead = async (leadData: LeadData): Promise<void> => {
       throw error;
     }
 
-    console.info("✅ Lead data successfully stored in Supabase");
+    // console.info("✅ Lead data successfully stored in Supabase");
   } catch (error) {
     console.error("❌ Error storing lead in Supabase:", error);
     throw error; // Re-throw to handle in the calling function
@@ -117,8 +117,8 @@ const storeLead = async (leadData: LeadData): Promise<void> => {
 export const trackFormSubmission = async (
   formData: FormData
 ): Promise<void> => {
-  console.group("📊 Form Submission Tracking");
-  console.info("🚀 Starting form submission tracking process");
+  // console.group("📊 Form Submission Tracking");
+  // console.info("🚀 Starting form submission tracking process");
 
   try {
     // 1. Validate environment variables
@@ -136,17 +136,17 @@ export const trackFormSubmission = async (
     });
 
     // 2. Get location data
-    console.info("📍 Fetching location data...");
+    //console.info("📍 Fetching location data...");
     const locationData = await getIpLocation();
-    console.debug("Location Data:", locationData);
+    // console.debug("Location Data:", locationData);
 
     // 3. Get tracking data
-    console.info("🔍 Collecting tracking parameters...");
+    //console.info("🔍 Collecting tracking parameters...");
     const trackingData = getTrackingData();
-    console.debug("Tracking Data:", trackingData);
+    //console.debug("Tracking Data:", trackingData);
 
     // 4. Hash sensitive data
-    console.info("🔒 Hashing sensitive data...");
+    //console.info("🔒 Hashing sensitive data...");
     const [hashedEmail, hashedPhone] = await Promise.all([
       hashData(formData.email.toLowerCase()),
       hashData(formData.phone),
@@ -184,7 +184,7 @@ export const trackFormSubmission = async (
     await storeLead(leadData);
 
     // 7. Prepare Meta Pixel payload
-    console.info("📦 Preparing Meta Pixel payload...");
+    // console.info("📦 Preparing Meta Pixel payload...");
     const payload = {
       data: [
         {
@@ -213,7 +213,7 @@ export const trackFormSubmission = async (
     };
 
     // 8. Send to Meta
-    console.info("📤 Sending data to Meta Conversion API...");
+    // console.info("📤 Sending data to Meta Conversion API...");
     const response = await fetch(
       `${META_CONVERSION_API_URL}/${pixelId}/events`,
       {
@@ -229,7 +229,7 @@ export const trackFormSubmission = async (
       throw new Error(`Meta API error: ${response.status}`);
     }
 
-    console.info("✅ Form submission tracking completed successfully");
+    // console.info("✅ Form submission tracking completed successfully");
   } catch (error) {
     console.error("❌ Error in form submission tracking:", error);
     // Don't throw here to prevent breaking the user flow
@@ -240,8 +240,8 @@ export const trackFormSubmission = async (
 
 export const trackViewContent = (): void => {
   try {
-    console.group("Meta Pixel View Content Tracking");
-    console.info("🚀 Starting view content tracking");
+    // console.group("Meta Pixel View Content Tracking");
+    // console.info("🚀 Starting view content tracking");
     const pixelId = import.meta.env.VITE_META_PIXEL_ID;
     const accessToken = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
 
@@ -292,14 +292,14 @@ export const trackViewContent = (): void => {
       access_token: accessToken,
     };
 
-    console.info("📦 Preparing conversion API payload");
+    // console.info("📦 Preparing conversion API payload");
     console.debug("Full Payload:", {
       eventName: "ViewContent",
       pixelId,
       payload: { ...payload, access_token: "***" }, // Hide access token in logs
     });
 
-    console.info("📤 Sending data to Meta Conversion API");
+    // console.info("📤 Sending data to Meta Conversion API");
     fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
       method: "POST",
       headers: {
@@ -308,7 +308,7 @@ export const trackViewContent = (): void => {
       body: JSON.stringify(payload),
     })
       .then(() => {
-        console.info("✅ View content tracking completed successfully");
+        //console.info("✅ View content tracking completed successfully");
         console.groupEnd();
       })
       .catch((error) => {

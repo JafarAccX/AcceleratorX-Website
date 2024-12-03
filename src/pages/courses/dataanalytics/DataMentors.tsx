@@ -1,135 +1,120 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Users } from "lucide-react";
+import { Users, Linkedin } from "lucide-react";
 
-const companies = [
-  // {
-  //   name: "Accenture",
-  //   logo: "/assets/dataAnalyticsLogo/accenture.png",
-  // },
-  // {
-  //   name: "Deloitte",
-  //   logo: "/assets/dataAnalyticsLogo/Deloitte.png",
-  // },
+const mentors = [
   {
-    name: "EXL Service",
-    logo: "/assets/dataAnalyticsLogo/EXL_Service_logo.svg.png",
+    name: "Ravi Ahlawat",
+    role: "Senior PM at Paytm",
+    experience: "5 years",
+    image: "/assets/mentor/ravi.png",
+    linkedin: "https://www.linkedin.com/in/raviahlawat09/",
+    transitions: "Over 350+",
   },
   {
-    name: "Fractal",
-    logo: "/assets/dataAnalyticsLogo/Fractal.png",
-  },
-  {
-    name: "Genpact",
-    logo: "/assets/dataAnalyticsLogo/genpact.png",
-  },
-  {
-    name: "IBM",
-    logo: "/assets/dataAnalyticsLogo/IBM.png",
-  },
-  {
-    name: "MU",
-    logo: "/assets/dataAnalyticsLogo/Mu_sigma_logo.jpg",
-  },
-  {
-    name: "Oracle",
-    logo: "/assets/dataAnalyticsLogo/Oracle.png",
-  },
-  {
-    name: "Quantiphi",
-    logo: "/assets/dataAnalyticsLogo/Quantiphi.png",
-  },
-  {
-    name: "SAP",
-    logo: "/assets/dataAnalyticsLogo/SAP.png",
+    name: "Aakash Maurya",
+    role: "Sr. ML Engineer at Nagarro",
+    experience: "7 years",
+    image: "/assets/mentor/akash.png",
+    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164/",
+    transitions: "Over 300+",
   },
 ];
 
-const DataMentors: React.FC = () => {
+export default function DataMentors() {
   return (
-    <div className="min-h-screen bg-black">
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
-          {/* Section Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-20"
-          >
-            <div className="inline-block mb-4">
-              <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-blue-500/10 mx-auto backdrop-blur-xl border border-blue-500/20">
-                <Users className="w-10 h-10 text-blue-400" />
-              </div>
-            </div>
-            <h2 className="text-5xl font-bold text-white mb-6 tracking-tight">
-              Trusted by Industry Leaders
-            </h2>
-            <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
-              Join thousands of companies worldwide that trust our platform for
-              their data analytics needs
-            </p>
-          </motion.div>
-
-          {/* Seamless Logo Slider */}
-          <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:w-[100px] before:h-full before:bg-gradient-to-r before:from-black before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:w-[100px] after:h-full after:bg-gradient-to-l after:from-black after:to-transparent">
-            <div className="flex gap-8 logos-slide">
-              {[...companies, ...companies].map((company, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-[150px] h-[80px] bg-white/[0.03] backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center p-4 hover:bg-white/[0.06] transition-all duration-300 border border-white/10 group"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.2 },
-                  }}
-                  style={{
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    transform: "translate3d(0,0,0)",
-                    WebkitTransform: "translate3d(0,0,0)",
-                  }}
-                >
-                  <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="w-full h-full object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-125"
-                    loading="lazy"
-                    style={{
-                      imageRendering: "auto",
-                      WebkitImageRendering: "auto",
-                    }}
-                  />
-                </motion.div>
-              ))}
+    <section className="py-20 bg-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block mb-4">
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-500/10">
+              <Users className="w-8 h-8 text-blue-500" />
             </div>
           </div>
+          <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            Learn from Industry Experts
+          </h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Connect with seasoned professionals who have transformed careers
+          </p>
+        </motion.div>
 
-          <style jsx global>{`
-            @keyframes slide {
-              0% {
-                transform: translateX(0);
-              }
-              100% {
-                transform: translateX(-50%);
-              }
-            }
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {mentors.map((mentor, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group"
+            >
+              <div className="relative h-[380px] xs:h-[400px] sm:h-[450px] rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-500 shadow-lg hover:shadow-blue-500/10 transform hover:-translate-y-1">
+                {/* Image Container */}
+                <div className="h-3/4 overflow-hidden bg-gray-900">
+                  <img
+                    src={mentor.image}
+                    alt={mentor.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
 
-            .logos-slide {
-              animation: slide 20s linear infinite;
-              animation-play-state: running;
-              width: fit-content;
-              will-change: transform;
-            }
+                {/* LinkedIn Link - Always Visible */}
+                <div className="absolute top-4 right-4 z-20 transform transition-transform duration-300 hover:scale-110">
+                  <a
+                    href={mentor.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-500 hover:bg-blue-600 text-white p-2.5 rounded-full transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-blue-500/50"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </div>
 
-            .logos-slide:hover {
-              animation-play-state: paused;
-            }
-          `}</style>
+                {/* Overlay Content - Visible on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
+                    <h3 className="text-2xl font-bold mb-2 tracking-tight">
+                      {mentor.name}
+                    </h3>
+                    <p className="text-blue-400 font-semibold mb-4">
+                      {mentor.role}
+                    </p>
+
+                    <div className="space-y-3 text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                      <div className="flex justify-between items-center bg-black/30 p-2.5 rounded-lg backdrop-blur-sm">
+                        <span className="text-gray-300">Experience</span>
+                        <span className="text-white font-semibold">
+                          {mentor.experience}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center bg-black/30 p-2.5 rounded-lg backdrop-blur-sm">
+                        <span className="text-gray-300">Transitions</span>
+                        <span className="text-white font-semibold">
+                          {mentor.transitions}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Base Content - Visible by Default */}
+                <div className="absolute bottom-0 left-0 right-0 p-7 bg-gradient-to-t from-black via-black/90 to-transparent group-hover:opacity-0 transition-all duration-500">
+                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
+                    {mentor.name}
+                  </h3>
+                  <p className="text-blue-400 font-semibold">{mentor.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
-};
-
-export default DataMentors;
+}
