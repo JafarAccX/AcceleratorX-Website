@@ -1,13 +1,10 @@
 import React from "react";
-import { Download } from "lucide-react";
 import { motion } from "framer-motion";
-import certificate from "/main_certificate.jpg";
-
-const CERTIFICATE_DOWNLOAD_URL = import.meta.env.VITE_DATA_ANALYTICS_CERTIFICATE_URL;
+import dataCertificate from "/assets/programcertificates/da.jpg";
 
 const DataCertificate = () => {
   // Initialize cache mechanism
-  const cacheKey = 'data-analytics-certificate-cache';
+  const cacheKey = "data-analytics-certificate-cache";
   const [cachedImage, setCachedImage] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -20,7 +17,7 @@ const DataCertificate = () => {
     // Fetch and cache new image
     const cacheImage = async () => {
       try {
-        const response = await fetch(certificate);
+        const response = await fetch(dataCertificate);
         const blob = await response.blob();
         const reader = new FileReader();
         reader.onloadend = () => {
@@ -30,7 +27,7 @@ const DataCertificate = () => {
         };
         reader.readAsDataURL(blob);
       } catch (error) {
-        console.error('Error caching certificate image:', error);
+        console.error("Error caching certificate image:", error);
       }
     };
 
@@ -76,16 +73,6 @@ const DataCertificate = () => {
                   expertise and insights to thrive in your industry.
                 </p>
               </div>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 group"
-                onClick={() => window.open(CERTIFICATE_DOWNLOAD_URL, "_blank")}
-              >
-                <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                Download Sample Certificate
-              </motion.button>
             </div>
 
             <div className="relative">
@@ -97,7 +84,7 @@ const DataCertificate = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent" />
                 <img
-                  src={cachedImage || certificate}
+                  src={cachedImage || dataCertificate}
                   alt="Certificate Preview"
                   className="w-full h-full object-cover"
                 />
