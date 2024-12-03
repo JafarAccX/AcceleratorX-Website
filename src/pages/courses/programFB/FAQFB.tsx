@@ -180,6 +180,12 @@ export default function FAQFB() {
             </motion.div>
           ))}
         </div>
+
+        <footer className="bg-black text-white py-4 text-center">
+          <p className="text-sm text-gray-400">
+            &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
+          </p>
+        </footer>
       </div>
     </section>
   );

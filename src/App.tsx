@@ -481,7 +481,7 @@ function App() {
             </>
           )}
 
-          {!isLoading && <Footer />}
+          {!isLoading && !isDummyRoute(window.location.pathname) && <Footer />}
         </div>
       </Router>
     </CourseProvider>

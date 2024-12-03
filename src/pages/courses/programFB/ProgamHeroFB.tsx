@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { avatars } from "../../../utils/constants";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 
 interface CounterProps {
@@ -37,6 +36,16 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
     </span>
   );
 };
+
+const LogoItem = ({ src, alt }) => (
+  <div className="bg-white p-2 rounded shadow-md flex items-center justify-center">
+    <img
+      src={src}
+      alt={alt}
+      className="h-6 w-auto opacity-100 hover:opacity-100 transition-opacity"
+    />
+  </div>
+);
 
 export default function ProgramHeroFB() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -143,30 +152,6 @@ export default function ProgramHeroFB() {
                     <p className="text-sm text-gray-400">Salary</p>
                   </div>
                 </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 }}
-                  className="flex mt-5 items-center gap-4 mb-4"
-                >
-                  <div className="flex -space-x-2">
-                    {avatars.map((avatar, index) => (
-                      <motion.img
-                        key={avatar}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.2 + index * 0.1 }}
-                        src={avatar}
-                        alt="User avatar"
-                        className="w-8 h-8 rounded-full border-2 border-gray-800 object-cover"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-gray-400 text-xs sm:text-sm">
-                    80+ already joined the{" "}
-                    <span className="text-blue-600">Accex Squad</span>
-                  </span>
-                </motion.div>
               </motion.div>
 
               <motion.div
@@ -182,26 +167,13 @@ export default function ProgramHeroFB() {
                 />
                 <div className="flex flex-col items-center">
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
-                    <img
+                    <LogoItem
                       src="/assets/caseStudiesLogo/paytm.webp"
                       alt="Company Logo 1"
-                      className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity justify-self-center"
                     />
-                    <img
-                      src="/assets/ceqeuncs.jpeg"
-                      alt="Company Logo 2"
-                      className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity justify-self-center"
-                    />
-                    <img
-                      src="/assets/paypal.webp"
-                      alt="Company Logo 3"
-                      className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity justify-self-center"
-                    />
-                    <img
-                      src="/assets/walmart.webp"
-                      alt="Company Logo 4"
-                      className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity justify-self-center"
-                    />
+                    <LogoItem src="/assets/cequens.png" alt="Company Logo 2" />
+                    <LogoItem src="/assets/paypal.webp" alt="Company Logo 3" />
+                    <LogoItem src="/assets/walmart.webp" alt="Company Logo 4" />
                   </div>
                 </div>
               </motion.div>
