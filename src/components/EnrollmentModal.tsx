@@ -86,11 +86,11 @@ export default function EnrollmentModal({
 
       setIsSubmitted(true);
       if (onSubmit) onSubmit();
-      
+
       // Navigate after a brief delay
       setTimeout(() => {
         onClose();
-        navigate('/thank-you', { state: { courseName: formData.course } });
+        navigate("/thank-you", { state: { courseName: formData.course } });
       }, 1000);
     } catch (error) {
       toast.error("An unexpected error occurred. Please try again later.");
@@ -143,7 +143,7 @@ export default function EnrollmentModal({
                   id="name"
                   required
                   className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="John Doe"
+                  placeholder="Rohit Ahuja"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -164,7 +164,7 @@ export default function EnrollmentModal({
                   id="email"
                   required
                   className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="john@example.com"
+                  placeholder="rohitahuja@gmail.com"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -189,7 +189,7 @@ export default function EnrollmentModal({
                     id="phone"
                     required
                     className="w-full bg-gray-700 border border-gray-600 rounded-r-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="1234567890"
+                    placeholder="9876543210"
                     value={formData.phone}
                     onChange={(e) => {
                       const sanitizedValue = e.target.value
@@ -299,7 +299,9 @@ export default function EnrollmentModal({
                       Product Management
                     </option>
                     <option value="Data Analytics">Data Analytics</option>
-                    <option value="No-Code Tool Program">No-Code Tool Program</option>
+                    <option value="No-Code Tool Program">
+                      No-Code Tool Program
+                    </option>
                   </select>
                 </div>
               )}
@@ -357,7 +359,8 @@ export default function EnrollmentModal({
               <div className="space-y-3">
                 <h3 className="text-2xl font-bold text-white">Thank You!</h3>
                 <p className="text-gray-300">
-                  Your enrollment has been successfully submitted. Our team will contact you shortly.
+                  Your enrollment has been successfully submitted. Our team will
+                  contact you shortly.
                 </p>
               </div>
 
@@ -365,7 +368,9 @@ export default function EnrollmentModal({
               <div className="bg-gray-700/50 p-4 rounded-lg w-full">
                 <p className="text-gray-300">
                   Enrolled Course:{" "}
-                  <span className="text-white font-semibold">{formData.course}</span>
+                  <span className="text-white font-semibold">
+                    {formData.course}
+                  </span>
                 </p>
               </div>
             </div>
