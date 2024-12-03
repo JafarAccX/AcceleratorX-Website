@@ -89,33 +89,35 @@ export default function Hero() {
           {/* Left side - Text content */}
           <div className="relative z-20 w-full px-4 pt-20 lg:pt-10 lg:w-1/2 lg:px-16 xl:px-24 flex items-center">
             <div className="w-full max-w-xl text-center lg:text-left">
-              <TypeAnimation
-                sequence={[
-                  "Build",
-                  1000,
-                  "",
-                  500,
-                  "Lead",
-                  1000,
-                  "",
-                  500,
-                  "Succeed",
-                  1000,
-                  "",
-                  500,
-                ]}
-                wrapper="h1"
-                speed={50}
-                className="mb-5 bg-clip-text text-3xl font-bold text-blue-600 sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl"
-                repeat={Infinity}
-                cursor={true}
-                style={{
-                  whiteSpace: "pre",
-                  display: "inline-block",
-                  minWidth: "150px",
-                  textShadow: "0 0 10px rgba(255, 255, 255, 0)",
-                }}
-              />
+              <h1>
+                <TypeAnimation
+                  sequence={[
+                    "Build",
+                    1000,
+                    "",
+                    500,
+                    "Lead",
+                    1000,
+                    "",
+                    500,
+                    "Succeed",
+                    1000,
+                    "",
+                    500,
+                  ]}
+                  wrapper="h1"
+                  speed={50}
+                  className="mb-5 bg-clip-text text-3xl font-bold text-blue-600 sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl"
+                  repeat={Infinity}
+                  cursor={true}
+                  style={{
+                    whiteSpace: "pre",
+                    display: "inline-block",
+                    minWidth: "150px",
+                    textShadow: "0 0 10px rgba(255, 255, 255, 0)",
+                  }}
+                />
+              </h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
