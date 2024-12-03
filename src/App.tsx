@@ -12,6 +12,7 @@ import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
 import LandingPage from "./pages/XSAT/LandingPage/LandingPage";
 import RoleProtectedRoute from "./components/RoleProtectedRoute";
+import ThankYouPage from "./components/ThankYouPage";
 
 // Lazy load components
 const Hero = lazy(() => import("./components/Hero"));
@@ -102,6 +103,26 @@ const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
 import { trackViewContent } from "./utils/metaPixel";
 import ProgramCertificate from "./pages/courses/productmanagement/ProgramCertificate";
 import DataCertificate from "./pages/courses/dataanalytics/DataCertificate";
+import ProgramHeroFB from "./pages/courses/programFB/ProgamHeroFB";
+import ProgramHighlightsFB from "./pages/courses/programFB/ProgramHighlightsFB";
+import BYDPFB from "./pages/courses/programFB/BYDPFB";
+import LearningJourneyFB from "./pages/courses/programFB/LearningJourneyFB";
+import BenefitsGridFB from "./pages/courses/programFB/BenefitsGridFB";
+import ProgramCertificateFB from "./pages/courses/programFB/ProgramCertificateFB";
+import MentorsFB from "./pages/courses/programFB/MentorsFB";
+import SkillsAndToolsFB from "./pages/courses/programFB/SkillsAndToolsFB";
+import SkillsAssessmentFB from "./pages/courses/programFB/SkillAssessmentFB";
+import PricingFB from "./pages/courses/programFB/PricingFB";
+import FAQFB from "./pages/courses/programFB/FAQFB";
+import StickyBookNavFB from "./pages/courses/programFB/StickyBookNavFB";
+import WhoIsThisContentForFB from "./pages/courses/programFB/WhoIsThisContentForFB";
+import TestimonialsFB from "./pages/courses/programFB/TestimonialsFB";
+
+// Utility function to check if current route is a dummy route
+function isDummyRoute(pathname: string): boolean {
+  const adRoutes = ["/courses/product-management-program-fb"];
+  return adRoutes.includes(pathname);
+}
 
 function HomePage() {
   const {
@@ -149,6 +170,37 @@ function ProgramAnalyticsPage() {
       <Pricing />
       <FAQ />
       <StickyBookNav />
+    </Suspense>
+  );
+}
+
+// Program Analytics Dummy Page With the Same Content
+function ProgramAnalyticsPageFB() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("Product Management");
+  }, [setSelectedCourse]);
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <ProgramHeroFB />
+      <ProgramHighlightsFB />
+      <WhoIsThisContentForFB />
+      <BYDPFB />
+      <LearningJourneyFB />
+      <BenefitsGridFB />
+      <ProgramCertificateFB />
+      <MentorsFB />
+      <SkillsAndToolsFB />
+      <SkillsAssessmentFB />
+      <PricingFB />
+      <TestimonialsFB />
+      <FAQFB />
+      <StickyBookNavFB />
     </Suspense>
   );
 }
@@ -247,7 +299,10 @@ function App() {
             <Loader />
           ) : (
             <>
-              <Navbar onEnrollClick={handleEnrollClick} />
+              {!isDummyRoute(window.location.pathname) && (
+                <Navbar onEnrollClick={handleEnrollClick} />
+              )}
+
               <EnrollmentModal
                 isOpen={isEnrollmentModalOpen}
                 onClose={handleCloseModal}
@@ -364,6 +419,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/courses/data-analytics"
                     element={
@@ -408,8 +464,19 @@ function App() {
                       </Suspense>
                     }
                   />
+
+                  {/* Dummy Page FOR ADS */}
+                  <Route
+                    path="/courses/product-management-program-fb"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <ProgramAnalyticsPageFB />
+                      </Suspense>
+                    }
+                  />
+                  <Route path="/thank-you" element={<ThankYouPageWrapper />} />
                 </Routes>
-                <ChatWidget />
+                {!isDummyRoute(window.location.pathname) && <ChatWidget />}
               </main>
             </>
           )}
@@ -442,6 +509,13 @@ function RouteLogic({
   }, [location, setSelectedCourse]);
 
   return null;
+}
+
+function ThankYouPageWrapper() {
+  const location = useLocation();
+  return (
+    <ThankYouPage courseName={location.state?.courseName || "our course"} />
+  );
 }
 
 export default App;

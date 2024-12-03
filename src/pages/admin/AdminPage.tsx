@@ -22,6 +22,8 @@ interface EnrollmentData {
   education_level: string;
   course: string;
   created_at: string;
+  work_experience: string;
+  designation: string;
 }
 
 interface LeadData {
@@ -84,8 +86,15 @@ const AdminPage: React.FC = () => {
   const [currentLeadsPage, setCurrentLeadsPage] = useState(1);
   const [refreshing, setRefreshing] = useState(false);
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
-  const [activeTab] = useState<'enrollments' | 'leads'>('leads');
+  const [activeTab, setActiveTab] = useState<'enrollments' | 'leads'>('leads');
   const navigate = useNavigate();
+  const userRole = authService.getRole();
+
+  useEffect(() => {
+    if (userRole === 'enrollment') {
+      setActiveTab('enrollments');
+    }
+  }, [userRole]);
 
   const sortData = (data: EnrollmentData[]) => {
     return [...data].sort((a, b) => {
@@ -166,7 +175,7 @@ const AdminPage: React.FC = () => {
 
   const handleDownloadCSV = () => {
     try {
-      const headers = ['S.No', 'Full Name', 'Email', 'Phone Number', 'Education Level', 'Course', 'Date'];
+      const headers = ['S.No', 'Full Name', 'Email', 'Phone Number', 'Education Level', 'Course', 'Work Experience', 'Designation', 'Date'];
       const csvContent = [
         headers.join(','),
         ...sortedEnrollments.map((enrollment, index) => [
@@ -176,6 +185,8 @@ const AdminPage: React.FC = () => {
           enrollment.phone_number,
           enrollment.education_level,
           enrollment.course,
+          enrollment.work_experience,
+          enrollment.designation,
           new Date(enrollment.created_at).toLocaleDateString()
         ].join(','))
       ].join('\n');
@@ -326,32 +337,32 @@ const AdminPage: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow overflow-hidden">
-          {/* Commenting out the tabs navigation since we're only showing leads for now
-          <div className="border-b border-gray-200">
-            <nav className="-mb-px flex">
-              <button
-                onClick={() => setActiveTab('enrollments')}
-                className={`py-4 px-6 text-sm font-medium ${
-                  activeTab === 'enrollments'
-                    ? 'border-b-2 border-blue-500 text-blue-600'
-                    : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                Enrollments
-              </button>
-              <button
-                onClick={() => setActiveTab('leads')}
-                className={`py-4 px-6 text-sm font-medium ${
-                  activeTab === 'leads'
-                    ? 'border-b-2 border-blue-500 text-blue-600'
-                    : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                Leads
-              </button>
-            </nav>
-          </div>
-          */}
+          {userRole !== 'enrollment' && (
+            <div className="border-b border-gray-200">
+              <nav className="-mb-px flex">
+                <button
+                  onClick={() => setActiveTab('enrollments')}
+                  className={`py-4 px-6 text-sm font-medium ${
+                    activeTab === 'enrollments'
+                      ? 'border-b-2 border-blue-500 text-blue-600'
+                      : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  }`}
+                >
+                  Enrollments
+                </button>
+                <button
+                  onClick={() => setActiveTab('leads')}
+                  className={`py-4 px-6 text-sm font-medium ${
+                    activeTab === 'leads'
+                      ? 'border-b-2 border-blue-500 text-blue-600'
+                      : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  }`}
+                >
+                  Leads
+                </button>
+              </nav>
+            </div>
+          )}
 
           {loading ? (
             <div className="flex justify-center items-center p-8">
@@ -359,8 +370,7 @@ const AdminPage: React.FC = () => {
             </div>
           ) : (
             <>
-              {/* Commenting out the enrollments section while keeping the logic intact
-              {activeTab === 'enrollments' ? (
+              {(activeTab === 'enrollments' || userRole === 'enrollment') ? (
                 <>
                   <div className="flex justify-end mb-4">
                     <button
@@ -394,6 +404,12 @@ const AdminPage: React.FC = () => {
                             Course
                           </th>
                           <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Work Experience
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Designation
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Date
                             <button
                               onClick={handleSort}
@@ -424,6 +440,12 @@ const AdminPage: React.FC = () => {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="text-sm text-gray-900">{enrollment.course}</div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">{enrollment.work_experience}</div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">{enrollment.designation}</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="text-sm text-gray-900">
@@ -466,168 +488,169 @@ const AdminPage: React.FC = () => {
                     </div>
                   )}
                 </>
-              ) : ( */}
-              <div className="overflow-x-auto">
-                <div className="flex justify-between p-4">
-                  <div className="text-sm text-gray-500">
-                    Showing detailed lead information including tracking and location data
+              ) : (
+                <div className="overflow-x-auto">
+                  <div className="flex justify-between p-4">
+                    <div className="text-sm text-gray-500">
+                      Showing detailed lead information including tracking and location data
+                    </div>
+                    <button
+                      onClick={handleDownloadLeadsCSV}
+                      className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download Leads CSV
+                    </button>
                   </div>
-                  <button
-                    onClick={handleDownloadLeadsCSV}
-                    className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download Leads CSV
-                  </button>
-                </div>
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        S.No
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Basic Info
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Course Details
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Location
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Traffic Source
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        UTM Data
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Technical Info
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider flex items-center">
-                        Date
-                        <button
-                          onClick={handleSort}
-                          className="ml-1 p-1 rounded hover:bg-gray-200 transition-colors inline-flex items-center"
-                        >
-                          <ArrowUpDown className="h-4 w-4 text-blue-500" />
-                        </button>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {currentLeads.map((lead, index) => (
-                      <tr key={lead.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-900">{leadsStartIndex + index + 1}</div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm">
-                            <p className="font-medium text-gray-900">{lead.name}</p>
-                            <p className="text-gray-500">{lead.email}</p>
-                            <p className="text-gray-500">{lead.phone}</p>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm">
-                            <p className="text-gray-900">{lead.course}</p>
-                            <p className="text-gray-500">{lead.education}</p>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm">
-                            <p className="text-gray-900">{[lead.city, lead.state].filter(Boolean).join(', ')}</p>
-                            <p className="text-gray-500">{lead.country} {lead.postal_code}</p>
-                            <p className="text-gray-500 text-xs">IP: {lead.ip_address}</p>
-                            <p className="text-gray-500 text-xs">
-                              {lead.latitude && lead.longitude ? `${lead.latitude}, ${lead.longitude}` : ''}
-                            </p>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm">
-                            <p className="text-gray-900">{lead.referrer || 'Direct'}</p>
-                            {lead.fbclid && <p className="text-gray-500 text-xs">FB: {lead.fbclid}</p>}
-                            {lead.gclid && <p className="text-gray-500 text-xs">Google: {lead.gclid}</p>}
-                            {lead.ttclid && <p className="text-gray-500 text-xs">TikTok: {lead.ttclid}</p>}
-                            {lead.msclkid && <p className="text-gray-500 text-xs">MS: {lead.msclkid}</p>}
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm">
-                            {lead.utm_source && (
-                              <p className="text-gray-900">
-                                {lead.utm_source}/{lead.utm_medium}
-                              </p>
-                            )}
-                            {lead.utm_campaign && (
-                              <p className="text-gray-500 text-xs">
-                                Campaign: {lead.utm_campaign}
-                              </p>
-                            )}
-                            {lead.utm_term && (
-                              <p className="text-gray-500 text-xs">
-                                Term: {lead.utm_term}
-                              </p>
-                            )}
-                            {lead.utm_content && (
-                              <p className="text-gray-500 text-xs">
-                                Content: {lead.utm_content}
-                              </p>
-                            )}
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm">
-                            <p className="text-gray-900">{lead.platform}</p>
-                            <p className="text-gray-500 text-xs">{lead.browser_language}</p>
-                            <p className="text-gray-500 text-xs">{lead.screen_resolution}</p>
-                            <p className="text-gray-500 text-xs truncate max-w-xs" title={lead.user_agent}>
-                              {lead.user_agent}
-                            </p>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-900">
-                            {new Date(lead.created_at).toLocaleDateString()}
-                          </div>
-                          <div className="text-xs text-gray-500">
-                            {new Date(lead.created_at).toLocaleTimeString()}
-                          </div>
-                        </td>
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          S.No
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Basic Info
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Course Details
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Location
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Traffic Source
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          UTM Data
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Technical Info
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider flex items-center">
+                          Date
+                          <button
+                            onClick={handleSort}
+                            className="ml-1 p-1 rounded hover:bg-gray-200 transition-colors inline-flex items-center"
+                          >
+                            <ArrowUpDown className="h-4 w-4 text-blue-500" />
+                          </button>
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {totalLeadsPages > 1 && (
-                <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setCurrentLeadsPage(prev => Math.max(prev - 1, 1))}
-                      disabled={currentLeadsPage === 1}
-                      className={`p-2 rounded-lg hover:bg-gray-100 ${
-                        currentLeadsPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
-                    >
-                      <ChevronLeft className="h-5 w-5" />
-                    </button>
-                    <span className="text-sm text-gray-700">
-                      Page {currentLeadsPage} of {totalLeadsPages}
-                    </span>
-                    <button
-                      onClick={() => setCurrentLeadsPage(prev => Math.min(prev + 1, totalLeadsPages))}
-                      disabled={currentLeadsPage === totalLeadsPages}
-                      className={`p-2 rounded-lg hover:bg-gray-100 ${
-                        currentLeadsPage === totalLeadsPages ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
-                    >
-                      <ChevronRight className="h-5 w-5" />
-                    </button>
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    Showing {leadsStartIndex + 1} to {Math.min(leadsEndIndex, leads.length)} of {leads.length} entries
-                  </div>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {currentLeads.map((lead, index) => (
+                        <tr key={lead.id} className="hover:bg-gray-50">
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm text-gray-900">{leadsStartIndex + index + 1}</div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm">
+                              <p className="font-medium text-gray-900">{lead.name}</p>
+                              <p className="text-gray-500">{lead.email}</p>
+                              <p className="text-gray-500">{lead.phone}</p>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm">
+                              <p className="text-gray-900">{lead.course}</p>
+                              <p className="text-gray-500">{lead.education}</p>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm">
+                              <p className="text-gray-900">{[lead.city, lead.state].filter(Boolean).join(', ')}</p>
+                              <p className="text-gray-500">{lead.country} {lead.postal_code}</p>
+                              <p className="text-gray-500 text-xs">IP: {lead.ip_address}</p>
+                              <p className="text-gray-500 text-xs">
+                                {lead.latitude && lead.longitude ? `${lead.latitude}, ${lead.longitude}` : ''}
+                              </p>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm">
+                              <p className="text-gray-900">{lead.referrer || 'Direct'}</p>
+                              {lead.fbclid && <p className="text-gray-500 text-xs">FB: {lead.fbclid}</p>}
+                              {lead.gclid && <p className="text-gray-500 text-xs">Google: {lead.gclid}</p>}
+                              {lead.ttclid && <p className="text-gray-500 text-xs">TikTok: {lead.ttclid}</p>}
+                              {lead.msclkid && <p className="text-gray-500 text-xs">MS: {lead.msclkid}</p>}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm">
+                              {lead.utm_source && (
+                                <p className="text-gray-900">
+                                  {lead.utm_source}/{lead.utm_medium}
+                                </p>
+                              )}
+                              {lead.utm_campaign && (
+                                <p className="text-gray-500 text-xs">
+                                  Campaign: {lead.utm_campaign}
+                                </p>
+                              )}
+                              {lead.utm_term && (
+                                <p className="text-gray-500 text-xs">
+                                  Term: {lead.utm_term}
+                                </p>
+                              )}
+                              {lead.utm_content && (
+                                <p className="text-gray-500 text-xs">
+                                  Content: {lead.utm_content}
+                                </p>
+                              )}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm">
+                              <p className="text-gray-900">{lead.platform}</p>
+                              <p className="text-gray-500 text-xs">{lead.browser_language}</p>
+                              <p className="text-gray-500 text-xs">{lead.screen_resolution}</p>
+                              <p className="text-gray-500 text-xs truncate max-w-xs" title={lead.user_agent}>
+                                {lead.user_agent}
+                              </p>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm text-gray-900">
+                              {new Date(lead.created_at).toLocaleDateString()}
+                            </div>
+                            <div className="text-xs text-gray-500">
+                              {new Date(lead.created_at).toLocaleTimeString()}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {totalLeadsPages > 1 && (
+                    <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setCurrentLeadsPage(prev => Math.max(prev - 1, 1))}
+                          disabled={currentLeadsPage === 1}
+                          className={`p-2 rounded-lg hover:bg-gray-100 ${
+                            currentLeadsPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                          }`}
+                        >
+                          <ChevronLeft className="h-5 w-5" />
+                        </button>
+                        <span className="text-sm text-gray-700">
+                          Page {currentLeadsPage} of {totalLeadsPages}
+                        </span>
+                        <button
+                          onClick={() => setCurrentLeadsPage(prev => Math.min(prev + 1, totalLeadsPages))}
+                          disabled={currentLeadsPage === totalLeadsPages}
+                          className={`p-2 rounded-lg hover:bg-gray-100 ${
+                            currentLeadsPage === totalLeadsPages ? 'opacity-50 cursor-not-allowed' : ''
+                          }`}
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Showing {leadsStartIndex + 1} to {Math.min(leadsEndIndex, leads.length)} of {leads.length} entries
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </>

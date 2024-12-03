@@ -104,7 +104,7 @@ const faqs = [
   },
 ];
 
-export default function FAQ() {
+export default function FAQFB() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
