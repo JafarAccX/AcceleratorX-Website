@@ -100,7 +100,7 @@ const getTrackingData = (): TrackingData => {
 
 const storeLead = async (leadData: LeadData): Promise<void> => {
   try {
-    console.info("💾 Storing lead data in Supabase...");
+    // console.info("💾 Storing lead data in Supabase...");
     const { error } = await supabase.from("leads").insert([leadData]);
 
     if (error) {
@@ -147,9 +147,20 @@ export const trackFormSubmission = async (
 
     // 4. Hash sensitive data
     //console.info("🔒 Hashing sensitive data...");
-    const [hashedEmail, hashedPhone] = await Promise.all([
+    const [
+      hashedEmail,
+      hashedPhone,
+      hashedFirstName,
+      hashedCity,
+      hashedState,
+      hashedPostal,
+    ] = await Promise.all([
       hashData(formData.email.toLowerCase()),
       hashData(formData.phone),
+      hashData(formData.name.split(" ")[0]),
+      hashData(locationData.city),
+      hashData(locationData.region),
+      hashData(locationData.postal),
     ]);
 
     // 5. Prepare lead data for Supabase
@@ -194,6 +205,10 @@ export const trackFormSubmission = async (
           user_data: {
             em: hashedEmail,
             ph: hashedPhone,
+            fn: hashedFirstName,
+            ct: hashedCity,
+            st: hashedState,
+            zp: hashedPostal,
             client_ip_address: locationData.ip,
             client_user_agent: navigator.userAgent,
             fbc: trackingData.fbclid
@@ -205,6 +220,12 @@ export const trackFormSubmission = async (
             content_name: "registration_form",
             status: "complete",
             course: formData.course,
+            browser_id: navigator.userAgent,
+            click_id:
+              trackingData.fbclid ||
+              trackingData.gclid ||
+              trackingData.ttclid ||
+              trackingData.msclkid,
             ...trackingData,
           },
         },
