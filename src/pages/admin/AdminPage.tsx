@@ -153,7 +153,6 @@ const AdminPage: React.FC = () => {
           .select('*');
 
         if (enrollmentError) throw enrollmentError;
-        setEnrollments(enrollmentData || []);
 
         // Fetch leads
         const { data: leadsData, error: leadsError } = await supabase
@@ -162,6 +161,17 @@ const AdminPage: React.FC = () => {
 
         if (leadsError) throw leadsError;
         setLeads(leadsData || []);
+
+        // Cross-verify enrollment data with leads
+        const verifiedEnrollments = enrollmentData?.filter(enrollment => {
+          return leadsData?.some(lead => 
+            lead.email.toLowerCase() === enrollment.email.toLowerCase() &&
+            lead.phone === enrollment.phone_number &&
+            lead.name.toLowerCase() === enrollment.full_name.toLowerCase()
+          );
+        }) || [];
+
+        setEnrollments(verifiedEnrollments);
       } catch (error) {
         console.error('Error fetching data:', error);
         toast.error('Failed to fetch data');
