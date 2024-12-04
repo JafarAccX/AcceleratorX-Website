@@ -1,18 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { createClient } from '@supabase/supabase-js';
-import { authService } from '../../services/authService';
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import { RefreshCw, Download, ChevronLeft, ChevronRight, ArrowUpDown } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { createClient } from "@supabase/supabase-js";
+import { authService } from "../../services/authService";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import {
+  RefreshCw,
+  Download,
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpDown,
+} from "lucide-react";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_SERVICE_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseKey =
+  import.meta.env.VITE_SUPABASE_SERVICE_KEY ||
+  import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 100;
 
-type SortOrder = 'asc' | 'desc';
+type SortOrder = "asc" | "desc";
 
 interface EnrollmentData {
   id: string;
@@ -39,24 +47,24 @@ interface LeadData {
   ip_state?: string;
   ip_postal?: string;
   ip_city?: string;
-  en: string;                    // Event name
-  form_destination: string;      // Form submission URL
-  form_length: number;          // Number of fields in the form
-  event_time: number;           // Event time in milliseconds
-  tfd: number;                  // Time from document load
-  dl: string;                   // Current page URL
-  dr: string;                   // Referrer URL
-  cid: string;                  // Client ID
-  ul: string;                   // User language
-  seg: string;                  // Segment indicator
-  sr: string;                   // Screen resolution
-  uap: string;                  // Platform (Operating System)
-  uafvl: string;               // User Agent Full Version List
-  tag_exp: string;             // Tag Experiment IDs
-  eu: string;                  // EU compliance indicator
-  are: string;                 // Active Resource Engagement
-  pae: string;                 // Passive Active Engagement
-  npa: string;                 // Non-Personalized Ads indicator
+  en: string; // Event name
+  form_destination: string; // Form submission URL
+  form_length: number; // Number of fields in the form
+  event_time: number; // Event time in milliseconds
+  tfd: number; // Time from document load
+  dl: string; // Current page URL
+  dr: string; // Referrer URL
+  cid: string; // Client ID
+  ul: string; // User language
+  seg: string; // Segment indicator
+  sr: string; // Screen resolution
+  uap: string; // Platform (Operating System)
+  uafvl: string; // User Agent Full Version List
+  tag_exp: string; // Tag Experiment IDs
+  eu: string; // EU compliance indicator
+  are: string; // Active Resource Engagement
+  pae: string; // Passive Active Engagement
+  npa: string; // Non-Personalized Ads indicator
   traffic_source?: string;
   created_at: string;
   fbclid?: string;
@@ -85,28 +93,35 @@ const AdminPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentLeadsPage, setCurrentLeadsPage] = useState(1);
   const [refreshing, setRefreshing] = useState(false);
-  const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
-  const [activeTab, setActiveTab] = useState<'enrollments' | 'leads' | 'admin-access' | 'sales-access'>('leads');
-  const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>([]);
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
+  const [activeTab, setActiveTab] = useState<
+    "enrollments" | "leads" | "admin-access" | "sales-access"
+  >("leads");
+  const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>(
+    []
+  );
   const [adminCurrentPage, setAdminCurrentPage] = useState(1);
   const navigate = useNavigate();
   const userRole = authService.getRole();
 
   useEffect(() => {
-    if (userRole === 'enrollment') {
-      setActiveTab('enrollments');
+    if (userRole === "enrollment") {
+      setActiveTab("enrollments");
     }
   }, [userRole]);
 
   const sortData = (data: EnrollmentData[]) => {
     return [...data].sort((a, b) => {
-      const multiplier = sortOrder === 'asc' ? 1 : -1;
-      return multiplier * (new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+      const multiplier = sortOrder === "asc" ? 1 : -1;
+      return (
+        multiplier *
+        (new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+      );
     });
   };
 
   const handleSort = () => {
-    setSortOrder(current => current === 'asc' ? 'desc' : 'asc');
+    setSortOrder((current) => (current === "asc" ? "desc" : "asc"));
     setCurrentPage(1);
   };
 
@@ -120,8 +135,11 @@ const AdminPage: React.FC = () => {
   const leadsStartIndex = (currentLeadsPage - 1) * ITEMS_PER_PAGE;
   const leadsEndIndex = leadsStartIndex + ITEMS_PER_PAGE;
   const sortedLeads = [...leads].sort((a, b) => {
-    const multiplier = sortOrder === 'asc' ? 1 : -1;
-    return multiplier * (new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+    const multiplier = sortOrder === "asc" ? 1 : -1;
+    return (
+      multiplier *
+      (new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+    );
   });
   const currentLeads = sortedLeads.slice(leadsStartIndex, leadsEndIndex);
 
@@ -129,16 +147,16 @@ const AdminPage: React.FC = () => {
     try {
       setRefreshing(true);
       const { data, error } = await supabase
-        .from('enrollments')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .from("enrollments")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (error) throw error;
 
       setEnrollments(data || []);
     } catch (error) {
-      console.error('Error fetching enrollments:', error);
-      toast.error('Failed to fetch enrollment data');
+      console.error("Error fetching enrollments:", error);
+      toast.error("Failed to fetch enrollment data");
     } finally {
       setRefreshing(false);
       setLoading(false);
@@ -150,11 +168,12 @@ const AdminPage: React.FC = () => {
       try {
         setLoading(true);
         // Fetch enrollments for admin view
-        if (userRole === 'admin' || userRole === 'sales') {
-          const { data: adminEnrollmentData, error: adminEnrollmentError } = await supabase
-            .from('enrollments')
-            .select('*')
-            .order('created_at', { ascending: false });
+        if (userRole === "admin" || userRole === "sales") {
+          const { data: adminEnrollmentData, error: adminEnrollmentError } =
+            await supabase
+              .from("enrollments")
+              .select("*")
+              .order("created_at", { ascending: false });
 
           if (adminEnrollmentError) throw adminEnrollmentError;
           setAdminEnrollments(adminEnrollmentData || []);
@@ -162,32 +181,34 @@ const AdminPage: React.FC = () => {
 
         // Fetch enrollments
         const { data: enrollmentData, error: enrollmentError } = await supabase
-          .from('enrollments')
-          .select('*');
+          .from("enrollments")
+          .select("*");
 
         if (enrollmentError) throw enrollmentError;
 
         // Fetch leads
         const { data: leadsData, error: leadsError } = await supabase
-          .from('leads')
-          .select('*');
+          .from("leads")
+          .select("*");
 
         if (leadsError) throw leadsError;
         setLeads(leadsData || []);
 
         // Cross-verify enrollment data with leads
-        const verifiedEnrollments = enrollmentData?.filter(enrollment => {
-          return leadsData?.some(lead => 
-            lead.email.toLowerCase() === enrollment.email.toLowerCase() &&
-            lead.phone === enrollment.phone_number &&
-            lead.name.toLowerCase() === enrollment.full_name.toLowerCase()
-          );
-        }) || [];
+        const verifiedEnrollments =
+          enrollmentData?.filter((enrollment) => {
+            return leadsData?.some(
+              (lead) =>
+                lead.email.toLowerCase() === enrollment.email.toLowerCase() &&
+                lead.phone === enrollment.phone_number &&
+                lead.name.toLowerCase() === enrollment.full_name.toLowerCase()
+            );
+          }) || [];
 
         setEnrollments(verifiedEnrollments);
       } catch (error) {
-        console.error('Error fetching data:', error);
-        toast.error('Failed to fetch data');
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch data");
       } finally {
         setLoading(false);
       }
@@ -198,118 +219,140 @@ const AdminPage: React.FC = () => {
 
   const handleDownloadCSV = () => {
     try {
-      const headers = ['S.No', 'Full Name', 'Email', 'Phone Number', 'Education Level', 'Course', 'Work Experience', 'Designation', 'Date'];
+      const headers = [
+        "S.No",
+        "Full Name",
+        "Email",
+        "Phone Number",
+        "Education Level",
+        "Course",
+        "Work Experience",
+        "Designation",
+        "Date",
+      ];
       const csvContent = [
-        headers.join(','),
-        ...sortedEnrollments.map((enrollment, index) => [
-          index + 1,
-          enrollment.full_name,
-          enrollment.email,
-          enrollment.phone_number,
-          enrollment.education_level,
-          enrollment.course,
-          enrollment.work_experience,
-          enrollment.designation,
-          new Date(enrollment.created_at).toLocaleDateString()
-        ].join(','))
-      ].join('\n');
+        headers.join(","),
+        ...sortedEnrollments.map((enrollment, index) =>
+          [
+            index + 1,
+            enrollment.full_name,
+            enrollment.email,
+            enrollment.phone_number,
+            enrollment.education_level,
+            enrollment.course,
+            enrollment.work_experience,
+            enrollment.designation,
+            new Date(enrollment.created_at).toLocaleDateString(),
+          ].join(",")
+        ),
+      ].join("\n");
 
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement('a');
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
       const url = URL.createObjectURL(blob);
-      link.setAttribute('href', url);
-      link.setAttribute('download', `enrollments_${new Date().toISOString().split('T')[0]}.csv`);
+      link.setAttribute("href", url);
+      link.setAttribute(
+        "download",
+        `enrollments_${new Date().toISOString().split("T")[0]}.csv`
+      );
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      toast.success('CSV downloaded successfully');
+      toast.success("CSV downloaded successfully");
     } catch (error) {
-      console.error('Error downloading CSV:', error);
-      toast.error('Failed to download CSV');
+      console.error("Error downloading CSV:", error);
+      toast.error("Failed to download CSV");
     }
   };
 
   const handleDownloadLeadsCSV = () => {
     try {
       const headers = [
-        'S.No',
-        'Name',
-        'Email',
-        'Phone',
-        'Education',
-        'Course',
-        'IP Address',
-        'City',
-        'State',
-        'Postal Code',
-        'Country',
-        'Latitude',
-        'Longitude',
-        'Facebook Click ID',
-        'Google Click ID',
-        'TikTok Click ID',
-        'Microsoft Click ID',
-        'UTM Source',
-        'UTM Medium',
-        'UTM Campaign',
-        'UTM Term',
-        'UTM Content',
-        'Referrer',
-        'Full URL',
-        'Browser Language',
-        'Screen Resolution',
-        'Platform',
-        'User Agent',
-        'Created At'
+        "S.No",
+        "Name",
+        "Email",
+        "Phone",
+        "Education",
+        "Course",
+        "IP Address",
+        "City",
+        "State",
+        "Postal Code",
+        "Country",
+        "Latitude",
+        "Longitude",
+        "Facebook Click ID",
+        "Google Click ID",
+        "TikTok Click ID",
+        "Microsoft Click ID",
+        "UTM Source",
+        "UTM Medium",
+        "UTM Campaign",
+        "UTM Term",
+        "UTM Content",
+        "Referrer",
+        "Full URL",
+        "Browser Language",
+        "Screen Resolution",
+        "Platform",
+        "User Agent",
+        "Created At",
       ];
-      
-      const csvContent = [
-        headers.join(','),
-        ...sortedLeads.map((lead, index) => [
-          index + 1,
-          lead.name,
-          lead.email,
-          lead.phone,
-          lead.education,
-          lead.course,
-          lead.ip_address,
-          lead.city,
-          lead.state,
-          lead.postal_code,
-          lead.country,
-          lead.latitude,
-          lead.longitude,
-          lead.fbclid,
-          lead.gclid,
-          lead.ttclid,
-          lead.msclkid,
-          lead.utm_source,
-          lead.utm_medium,
-          lead.utm_campaign,
-          lead.utm_term,
-          lead.utm_content,
-          lead.referrer,
-          lead.full_url,
-          lead.browser_language,
-          lead.screen_resolution,
-          lead.platform,
-          lead.user_agent,
-          new Date(lead.created_at).toLocaleString()
-        ].map(field => `"${field || ''}"`).join(','))
-      ].join('\n');
 
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement('a');
+      const csvContent = [
+        headers.join(","),
+        ...sortedLeads.map((lead, index) =>
+          [
+            index + 1,
+            lead.name,
+            lead.email,
+            lead.phone,
+            lead.education,
+            lead.course,
+            lead.ip_address,
+            lead.city,
+            lead.state,
+            lead.postal_code,
+            lead.country,
+            lead.latitude,
+            lead.longitude,
+            lead.fbclid,
+            lead.gclid,
+            lead.ttclid,
+            lead.msclkid,
+            lead.utm_source,
+            lead.utm_medium,
+            lead.utm_campaign,
+            lead.utm_term,
+            lead.utm_content,
+            lead.referrer,
+            lead.full_url,
+            lead.browser_language,
+            lead.screen_resolution,
+            lead.platform,
+            lead.user_agent,
+            new Date(lead.created_at).toLocaleString(),
+          ]
+            .map((field) => `"${field || ""}"`)
+            .join(",")
+        ),
+      ].join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
       const url = URL.createObjectURL(blob);
-      link.setAttribute('href', url);
-      link.setAttribute('download', `leads_${new Date().toISOString().split('T')[0]}.csv`);
+      link.setAttribute("href", url);
+      link.setAttribute(
+        "download",
+        `leads_${new Date().toISOString().split("T")[0]}.csv`
+      );
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      toast.success('Leads CSV downloaded successfully');
+      toast.success("Leads CSV downloaded successfully");
     } catch (error) {
-      console.error('Error downloading leads CSV:', error);
-      toast.error('Failed to download leads CSV');
+      console.error("Error downloading leads CSV:", error);
+      toast.error("Failed to download leads CSV");
     }
   };
 
@@ -322,7 +365,7 @@ const AdminPage: React.FC = () => {
   }
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -341,16 +384,18 @@ const AdminPage: React.FC = () => {
               onClick={fetchEnrollments}
               disabled={refreshing}
               className={`flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors ${
-                refreshing ? 'opacity-50 cursor-not-allowed' : ''
+                refreshing ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
-              <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+              <RefreshCw
+                className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
+              />
               Refresh
             </button>
             <button
               onClick={() => {
                 authService.logout();
-                navigate('/login');
+                navigate("/login");
               }}
               className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
             >
@@ -360,50 +405,50 @@ const AdminPage: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow overflow-hidden">
-          {userRole !== 'enrollment' && (
+          {userRole !== "enrollment" && (
             <div className="border-b border-gray-200">
               <nav className="-mb-px flex">
-                {(userRole !== 'admin' && userRole !== 'sales') && (
+                {userRole !== "admin" && userRole !== "sales" && (
                   <button
-                    onClick={() => setActiveTab('enrollments')}
+                    onClick={() => setActiveTab("enrollments")}
                     className={`py-4 px-6 text-sm font-medium ${
-                      activeTab === 'enrollments'
-                        ? 'border-b-2 border-blue-500 text-blue-600'
-                        : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      activeTab === "enrollments"
+                        ? "border-b-2 border-blue-500 text-blue-600"
+                        : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
                     }`}
                   >
                     Enrollments
                   </button>
                 )}
                 <button
-                  onClick={() => setActiveTab('leads')}
+                  onClick={() => setActiveTab("leads")}
                   className={`py-4 px-6 text-sm font-medium ${
-                    activeTab === 'leads'
-                      ? 'border-b-2 border-blue-500 text-blue-600'
-                      : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    activeTab === "leads"
+                      ? "border-b-2 border-blue-500 text-blue-600"
+                      : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
                   }`}
                 >
                   Leads
                 </button>
-                {userRole === 'admin' && (
+                {userRole === "admin" && (
                   <button
-                    onClick={() => setActiveTab('admin-access')}
+                    onClick={() => setActiveTab("admin-access")}
                     className={`py-4 px-6 text-sm font-medium ${
-                      activeTab === 'admin-access'
-                        ? 'border-b-2 border-blue-500 text-blue-600'
-                        : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      activeTab === "admin-access"
+                        ? "border-b-2 border-blue-500 text-blue-600"
+                        : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
                     }`}
                   >
                     Admin Access
                   </button>
                 )}
-                {userRole === 'sales' && (
+                {userRole === "sales" && (
                   <button
-                    onClick={() => setActiveTab('sales-access')}
+                    onClick={() => setActiveTab("sales-access")}
                     className={`py-4 px-6 text-sm font-medium ${
-                      activeTab === 'sales-access'
-                        ? 'border-b-2 border-blue-500 text-blue-600'
-                        : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      activeTab === "sales-access"
+                        ? "border-b-2 border-blue-500 text-blue-600"
+                        : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
                     }`}
                   >
                     Sales Access
@@ -419,41 +464,64 @@ const AdminPage: React.FC = () => {
             </div>
           ) : (
             <>
-              {activeTab === 'admin-access' && userRole === 'admin' ? (
+              {activeTab === "admin-access" && userRole === "admin" ? (
                 <>
                   <div className="flex justify-between p-4">
-                    <h2 className="text-xl font-semibold text-gray-800">Admin Access - All Enrollment Data</h2>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Admin Access - All Enrollment Data
+                    </h2>
                     <button
                       onClick={() => {
                         try {
-                          const headers = ['S.No', 'Full Name', 'Email', 'Phone Number', 'Education Level', 'Course', 'Work Experience', 'Designation', 'Date'];
+                          const headers = [
+                            "S.No",
+                            "Full Name",
+                            "Email",
+                            "Phone Number",
+                            "Education Level",
+                            "Course",
+                            "Work Experience",
+                            "Designation",
+                            "Date",
+                          ];
                           const csvContent = [
-                            headers.join(','),
-                            ...adminEnrollments.map((enrollment, index) => [
-                              index + 1,
-                              enrollment.full_name,
-                              enrollment.email,
-                              enrollment.phone_number,
-                              enrollment.education_level,
-                              enrollment.course,
-                              enrollment.work_experience,
-                              enrollment.designation,
-                              new Date(enrollment.created_at).toLocaleDateString()
-                            ].join(','))
-                          ].join('\n');
+                            headers.join(","),
+                            ...adminEnrollments.map((enrollment, index) =>
+                              [
+                                index + 1,
+                                enrollment.full_name,
+                                enrollment.email,
+                                enrollment.phone_number,
+                                enrollment.education_level,
+                                enrollment.course,
+                                enrollment.work_experience,
+                                enrollment.designation,
+                                new Date(
+                                  enrollment.created_at
+                                ).toLocaleDateString(),
+                              ].join(",")
+                            ),
+                          ].join("\n");
 
-                          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                          const link = document.createElement('a');
+                          const blob = new Blob([csvContent], {
+                            type: "text/csv;charset=utf-8;",
+                          });
+                          const link = document.createElement("a");
                           const url = URL.createObjectURL(blob);
-                          link.setAttribute('href', url);
-                          link.setAttribute('download', `all_enrollments_${new Date().toISOString().split('T')[0]}.csv`);
+                          link.setAttribute("href", url);
+                          link.setAttribute(
+                            "download",
+                            `all_enrollments_${
+                              new Date().toISOString().split("T")[0]
+                            }.csv`
+                          );
                           document.body.appendChild(link);
                           link.click();
                           document.body.removeChild(link);
-                          toast.success('CSV downloaded successfully');
+                          toast.success("CSV downloaded successfully");
                         } catch (error) {
-                          console.error('Error downloading CSV:', error);
-                          toast.error('Failed to download CSV');
+                          console.error("Error downloading CSV:", error);
+                          toast.error("Failed to download CSV");
                         }
                       }}
                       className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
@@ -466,67 +534,120 @@ const AdminPage: React.FC = () => {
                     <table className="min-w-full divide-y divide-gray-200">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             S.No
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Full Name
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Email
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Phone Number
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Education Level
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Course
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Work Experience
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Designation
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Date
                           </th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
                         {adminEnrollments
-                          .slice((adminCurrentPage - 1) * ITEMS_PER_PAGE, adminCurrentPage * ITEMS_PER_PAGE)
+                          .slice(
+                            (adminCurrentPage - 1) * ITEMS_PER_PAGE,
+                            adminCurrentPage * ITEMS_PER_PAGE
+                          )
                           .map((enrollment, index) => (
-                            <tr key={enrollment.id} className="hover:bg-gray-50">
+                            <tr
+                              key={enrollment.id}
+                              className="hover:bg-gray-50"
+                            >
                               <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{((adminCurrentPage - 1) * ITEMS_PER_PAGE) + index + 1}</div>
+                                <div className="text-sm text-gray-900">
+                                  {(adminCurrentPage - 1) * ITEMS_PER_PAGE +
+                                    index +
+                                    1}
+                                </div>
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm font-medium text-gray-900">{enrollment.full_name}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.email}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.phone_number}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.education_level}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.course}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.work_experience}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.designation}</div>
+                                <div className="text-sm font-medium text-gray-900">
+                                  {enrollment.full_name}
+                                </div>
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap">
                                 <div className="text-sm text-gray-900">
-                                  {new Date(enrollment.created_at).toLocaleDateString()}
+                                  {enrollment.email}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.phone_number}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.education_level}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.course}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.work_experience}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.designation}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {new Date(
+                                    enrollment.created_at
+                                  ).toLocaleDateString()}
                                 </div>
                               </td>
                             </tr>
@@ -538,74 +659,116 @@ const AdminPage: React.FC = () => {
                     <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
                       <div className="flex items-center gap-2">
                         <button
-                          onClick={() => setAdminCurrentPage(prev => Math.max(prev - 1, 1))}
+                          onClick={() =>
+                            setAdminCurrentPage((prev) => Math.max(prev - 1, 1))
+                          }
                           disabled={adminCurrentPage === 1}
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            adminCurrentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                            adminCurrentPage === 1
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronLeft className="h-5 w-5" />
                         </button>
                         <span className="text-sm text-gray-700">
-                          Page {adminCurrentPage} of {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                          Page {adminCurrentPage} of{" "}
+                          {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
                         </span>
                         <button
-                          onClick={() => setAdminCurrentPage(prev => 
-                            Math.min(prev + 1, Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE))
-                          )}
-                          disabled={adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                          onClick={() =>
+                            setAdminCurrentPage((prev) =>
+                              Math.min(
+                                prev + 1,
+                                Math.ceil(
+                                  adminEnrollments.length / ITEMS_PER_PAGE
+                                )
+                              )
+                            )
+                          }
+                          disabled={
+                            adminCurrentPage ===
+                            Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)
+                          }
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE) 
-                              ? 'opacity-50 cursor-not-allowed' 
-                              : ''
+                            adminCurrentPage ===
+                            Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronRight className="h-5 w-5" />
                         </button>
                       </div>
                       <div className="text-sm text-gray-500">
-                        Showing {((adminCurrentPage - 1) * ITEMS_PER_PAGE) + 1} to {
-                          Math.min(adminCurrentPage * ITEMS_PER_PAGE, adminEnrollments.length)
-                        } of {adminEnrollments.length} entries
+                        Showing {(adminCurrentPage - 1) * ITEMS_PER_PAGE + 1} to{" "}
+                        {Math.min(
+                          adminCurrentPage * ITEMS_PER_PAGE,
+                          adminEnrollments.length
+                        )}{" "}
+                        of {adminEnrollments.length} entries
                       </div>
                     </div>
                   )}
                 </>
-              ) : activeTab === 'sales-access' && userRole === 'sales' ? (
+              ) : activeTab === "sales-access" && userRole === "sales" ? (
                 <>
                   <div className="flex justify-between p-4">
-                    <h2 className="text-xl font-semibold text-gray-800">Sales Access - All Enrollment Data</h2>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Sales Access - All Enrollment Data
+                    </h2>
                     <button
                       onClick={() => {
                         try {
-                          const headers = ['S.No', 'Full Name', 'Email', 'Phone Number', 'Education Level', 'Course', 'Work Experience', 'Designation', 'Date'];
+                          const headers = [
+                            "S.No",
+                            "Full Name",
+                            "Email",
+                            "Phone Number",
+                            "Education Level",
+                            "Course",
+                            "Work Experience",
+                            "Designation",
+                            "Date",
+                          ];
                           const csvContent = [
-                            headers.join(','),
-                            ...adminEnrollments.map((enrollment, index) => [
-                              index + 1,
-                              enrollment.full_name,
-                              enrollment.email,
-                              enrollment.phone_number,
-                              enrollment.education_level,
-                              enrollment.course,
-                              enrollment.work_experience,
-                              enrollment.designation,
-                              new Date(enrollment.created_at).toLocaleDateString()
-                            ].join(','))
-                          ].join('\n');
+                            headers.join(","),
+                            ...adminEnrollments.map((enrollment, index) =>
+                              [
+                                index + 1,
+                                enrollment.full_name,
+                                enrollment.email,
+                                enrollment.phone_number,
+                                enrollment.education_level,
+                                enrollment.course,
+                                enrollment.work_experience,
+                                enrollment.designation,
+                                new Date(
+                                  enrollment.created_at
+                                ).toLocaleDateString(),
+                              ].join(",")
+                            ),
+                          ].join("\n");
 
-                          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                          const link = document.createElement('a');
+                          const blob = new Blob([csvContent], {
+                            type: "text/csv;charset=utf-8;",
+                          });
+                          const link = document.createElement("a");
                           const url = URL.createObjectURL(blob);
-                          link.setAttribute('href', url);
-                          link.setAttribute('download', `all_enrollments_${new Date().toISOString().split('T')[0]}.csv`);
+                          link.setAttribute("href", url);
+                          link.setAttribute(
+                            "download",
+                            `all_enrollments_${
+                              new Date().toISOString().split("T")[0]
+                            }.csv`
+                          );
                           document.body.appendChild(link);
                           link.click();
                           document.body.removeChild(link);
-                          toast.success('CSV downloaded successfully');
+                          toast.success("CSV downloaded successfully");
                         } catch (error) {
-                          console.error('Error downloading CSV:', error);
-                          toast.error('Failed to download CSV');
+                          console.error("Error downloading CSV:", error);
+                          toast.error("Failed to download CSV");
                         }
                       }}
                       className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
@@ -618,67 +781,120 @@ const AdminPage: React.FC = () => {
                     <table className="min-w-full divide-y divide-gray-200">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             S.No
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Full Name
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Email
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Phone Number
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Education Level
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Course
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Work Experience
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Designation
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Date
                           </th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
                         {adminEnrollments
-                          .slice((adminCurrentPage - 1) * ITEMS_PER_PAGE, adminCurrentPage * ITEMS_PER_PAGE)
+                          .slice(
+                            (adminCurrentPage - 1) * ITEMS_PER_PAGE,
+                            adminCurrentPage * ITEMS_PER_PAGE
+                          )
                           .map((enrollment, index) => (
-                            <tr key={enrollment.id} className="hover:bg-gray-50">
+                            <tr
+                              key={enrollment.id}
+                              className="hover:bg-gray-50"
+                            >
                               <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{((adminCurrentPage - 1) * ITEMS_PER_PAGE) + index + 1}</div>
+                                <div className="text-sm text-gray-900">
+                                  {(adminCurrentPage - 1) * ITEMS_PER_PAGE +
+                                    index +
+                                    1}
+                                </div>
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm font-medium text-gray-900">{enrollment.full_name}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.email}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.phone_number}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.education_level}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.course}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.work_experience}</div>
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{enrollment.designation}</div>
+                                <div className="text-sm font-medium text-gray-900">
+                                  {enrollment.full_name}
+                                </div>
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap">
                                 <div className="text-sm text-gray-900">
-                                  {new Date(enrollment.created_at).toLocaleDateString()}
+                                  {enrollment.email}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.phone_number}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.education_level}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.course}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.work_experience}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {enrollment.designation}
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {new Date(
+                                    enrollment.created_at
+                                  ).toLocaleDateString()}
                                 </div>
                               </td>
                             </tr>
@@ -690,40 +906,62 @@ const AdminPage: React.FC = () => {
                     <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
                       <div className="flex items-center gap-2">
                         <button
-                          onClick={() => setAdminCurrentPage(prev => Math.max(prev - 1, 1))}
+                          onClick={() =>
+                            setAdminCurrentPage((prev) => Math.max(prev - 1, 1))
+                          }
                           disabled={adminCurrentPage === 1}
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            adminCurrentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                            adminCurrentPage === 1
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronLeft className="h-5 w-5" />
                         </button>
                         <span className="text-sm text-gray-700">
-                          Page {adminCurrentPage} of {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                          Page {adminCurrentPage} of{" "}
+                          {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
                         </span>
                         <button
-                          onClick={() => setAdminCurrentPage(prev => 
-                            Math.min(prev + 1, Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE))
-                          )}
-                          disabled={adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                          onClick={() =>
+                            setAdminCurrentPage((prev) =>
+                              Math.min(
+                                prev + 1,
+                                Math.ceil(
+                                  adminEnrollments.length / ITEMS_PER_PAGE
+                                )
+                              )
+                            )
+                          }
+                          disabled={
+                            adminCurrentPage ===
+                            Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)
+                          }
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE) 
-                              ? 'opacity-50 cursor-not-allowed' 
-                              : ''
+                            adminCurrentPage ===
+                            Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronRight className="h-5 w-5" />
                         </button>
                       </div>
                       <div className="text-sm text-gray-500">
-                        Showing {((adminCurrentPage - 1) * ITEMS_PER_PAGE) + 1} to {
-                          Math.min(adminCurrentPage * ITEMS_PER_PAGE, adminEnrollments.length)
-                        } of {adminEnrollments.length} entries
+                        Showing {(adminCurrentPage - 1) * ITEMS_PER_PAGE + 1} to{" "}
+                        {Math.min(
+                          adminCurrentPage * ITEMS_PER_PAGE,
+                          adminEnrollments.length
+                        )}{" "}
+                        of {adminEnrollments.length} entries
                       </div>
                     </div>
                   )}
                 </>
-              ) : ((activeTab === 'enrollments' && userRole !== 'admin' && userRole !== 'sales') || userRole === 'enrollment') ? (
+              ) : (activeTab === "enrollments" &&
+                  userRole !== "admin" &&
+                  userRole !== "sales") ||
+                userRole === "enrollment" ? (
                 <>
                   <div className="flex justify-end mb-4">
                     <button
@@ -738,31 +976,58 @@ const AdminPage: React.FC = () => {
                     <table className="min-w-full divide-y divide-gray-200">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             S.No
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Full Name
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Email
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Phone Number
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Education Level
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Course
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Work Experience
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Designation
                           </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
                             Date
                             <button
                               onClick={handleSort}
@@ -777,32 +1042,50 @@ const AdminPage: React.FC = () => {
                         {currentEnrollments.map((enrollment, index) => (
                           <tr key={enrollment.id} className="hover:bg-gray-50">
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{startIndex + index + 1}</div>
+                              <div className="text-sm text-gray-900">
+                                {startIndex + index + 1}
+                              </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm font-medium text-gray-900">{enrollment.full_name}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{enrollment.email}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{enrollment.phone_number}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{enrollment.education_level}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{enrollment.course}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{enrollment.work_experience}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{enrollment.designation}</div>
+                              <div className="text-sm font-medium text-gray-900">
+                                {enrollment.full_name}
+                              </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="text-sm text-gray-900">
-                                {new Date(enrollment.created_at).toLocaleDateString()}
+                                {enrollment.email}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">
+                                {enrollment.phone_number}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">
+                                {enrollment.education_level}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">
+                                {enrollment.course}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">
+                                {enrollment.work_experience}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">
+                                {enrollment.designation}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">
+                                {new Date(
+                                  enrollment.created_at
+                                ).toLocaleDateString()}
                               </div>
                             </td>
                           </tr>
@@ -814,10 +1097,14 @@ const AdminPage: React.FC = () => {
                     <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
                       <div className="flex items-center gap-2">
                         <button
-                          onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                          onClick={() =>
+                            setCurrentPage((prev) => Math.max(prev - 1, 1))
+                          }
                           disabled={currentPage === 1}
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                            currentPage === 1
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronLeft className="h-5 w-5" />
@@ -826,17 +1113,25 @@ const AdminPage: React.FC = () => {
                           Page {currentPage} of {totalPages}
                         </span>
                         <button
-                          onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                          onClick={() =>
+                            setCurrentPage((prev) =>
+                              Math.min(prev + 1, totalPages)
+                            )
+                          }
                           disabled={currentPage === totalPages}
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
+                            currentPage === totalPages
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronRight className="h-5 w-5" />
                         </button>
                       </div>
                       <div className="text-sm text-gray-500">
-                        Showing {startIndex + 1} to {Math.min(endIndex, enrollments.length)} of {enrollments.length} entries
+                        Showing {startIndex + 1} to{" "}
+                        {Math.min(endIndex, enrollments.length)} of{" "}
+                        {enrollments.length} entries
                       </div>
                     </div>
                   )}
@@ -845,7 +1140,8 @@ const AdminPage: React.FC = () => {
                 <div className="overflow-x-auto">
                   <div className="flex justify-between p-4">
                     <div className="text-sm text-gray-500">
-                      Showing detailed lead information including tracking and location data
+                      Showing detailed lead information including tracking and
+                      location data
                     </div>
                     <button
                       onClick={handleDownloadLeadsCSV}
@@ -858,28 +1154,52 @@ const AdminPage: React.FC = () => {
                   <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                       <tr>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                           S.No
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                           Basic Info
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                           Course Details
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                           Location
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                           Traffic Source
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                           UTM Data
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                           Technical Info
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider flex items-center">
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider flex items-center"
+                        >
                           Date
                           <button
                             onClick={handleSort}
@@ -894,11 +1214,15 @@ const AdminPage: React.FC = () => {
                       {currentLeads.map((lead, index) => (
                         <tr key={lead.id} className="hover:bg-gray-50">
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm text-gray-900">{leadsStartIndex + index + 1}</div>
+                            <div className="text-sm text-gray-900">
+                              {leadsStartIndex + index + 1}
+                            </div>
                           </td>
                           <td className="px-6 py-4">
                             <div className="text-sm">
-                              <p className="font-medium text-gray-900">{lead.name}</p>
+                              <p className="font-medium text-gray-900">
+                                {lead.name}
+                              </p>
                               <p className="text-gray-500">{lead.email}</p>
                               <p className="text-gray-500">{lead.phone}</p>
                             </div>
@@ -911,21 +1235,49 @@ const AdminPage: React.FC = () => {
                           </td>
                           <td className="px-6 py-4">
                             <div className="text-sm">
-                              <p className="text-gray-900">{[lead.city, lead.state].filter(Boolean).join(', ')}</p>
-                              <p className="text-gray-500">{lead.country} {lead.postal_code}</p>
-                              <p className="text-gray-500 text-xs">IP: {lead.ip_address}</p>
+                              <p className="text-gray-900">
+                                {[lead.city, lead.state]
+                                  .filter(Boolean)
+                                  .join(", ")}
+                              </p>
+                              <p className="text-gray-500">
+                                {lead.country} {lead.postal_code}
+                              </p>
                               <p className="text-gray-500 text-xs">
-                                {lead.latitude && lead.longitude ? `${lead.latitude}, ${lead.longitude}` : ''}
+                                IP: {lead.ip_address}
+                              </p>
+                              <p className="text-gray-500 text-xs">
+                                {lead.latitude && lead.longitude
+                                  ? `${lead.latitude}, ${lead.longitude}`
+                                  : ""}
                               </p>
                             </div>
                           </td>
                           <td className="px-6 py-4">
                             <div className="text-sm">
-                              <p className="text-gray-900">{lead.referrer || 'Direct'}</p>
-                              {lead.fbclid && <p className="text-gray-500 text-xs">FB: {lead.fbclid}</p>}
-                              {lead.gclid && <p className="text-gray-500 text-xs">Google: {lead.gclid}</p>}
-                              {lead.ttclid && <p className="text-gray-500 text-xs">TikTok: {lead.ttclid}</p>}
-                              {lead.msclkid && <p className="text-gray-500 text-xs">MS: {lead.msclkid}</p>}
+                              <p className="text-gray-900">
+                                {lead.referrer || "Direct"}
+                              </p>
+                              {lead.fbclid && (
+                                <p className="text-gray-500 text-xs">
+                                  FB: {lead.fbclid}
+                                </p>
+                              )}
+                              {lead.gclid && (
+                                <p className="text-gray-500 text-xs">
+                                  Google: {lead.gclid}
+                                </p>
+                              )}
+                              {lead.ttclid && (
+                                <p className="text-gray-500 text-xs">
+                                  TikTok: {lead.ttclid}
+                                </p>
+                              )}
+                              {lead.msclkid && (
+                                <p className="text-gray-500 text-xs">
+                                  MS: {lead.msclkid}
+                                </p>
+                              )}
                             </div>
                           </td>
                           <td className="px-6 py-4">
@@ -955,9 +1307,16 @@ const AdminPage: React.FC = () => {
                           <td className="px-6 py-4">
                             <div className="text-sm">
                               <p className="text-gray-900">{lead.platform}</p>
-                              <p className="text-gray-500 text-xs">{lead.browser_language}</p>
-                              <p className="text-gray-500 text-xs">{lead.screen_resolution}</p>
-                              <p className="text-gray-500 text-xs truncate max-w-xs" title={lead.user_agent}>
+                              <p className="text-gray-500 text-xs">
+                                {lead.browser_language}
+                              </p>
+                              <p className="text-gray-500 text-xs">
+                                {lead.screen_resolution}
+                              </p>
+                              <p
+                                className="text-gray-500 text-xs truncate max-w-xs"
+                                title={lead.user_agent}
+                              >
                                 {lead.user_agent}
                               </p>
                             </div>
@@ -978,10 +1337,14 @@ const AdminPage: React.FC = () => {
                     <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
                       <div className="flex items-center gap-2">
                         <button
-                          onClick={() => setCurrentLeadsPage(prev => Math.max(prev - 1, 1))}
+                          onClick={() =>
+                            setCurrentLeadsPage((prev) => Math.max(prev - 1, 1))
+                          }
                           disabled={currentLeadsPage === 1}
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            currentLeadsPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                            currentLeadsPage === 1
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronLeft className="h-5 w-5" />
@@ -990,17 +1353,25 @@ const AdminPage: React.FC = () => {
                           Page {currentLeadsPage} of {totalLeadsPages}
                         </span>
                         <button
-                          onClick={() => setCurrentLeadsPage(prev => Math.min(prev + 1, totalLeadsPages))}
+                          onClick={() =>
+                            setCurrentLeadsPage((prev) =>
+                              Math.min(prev + 1, totalLeadsPages)
+                            )
+                          }
                           disabled={currentLeadsPage === totalLeadsPages}
                           className={`p-2 rounded-lg hover:bg-gray-100 ${
-                            currentLeadsPage === totalLeadsPages ? 'opacity-50 cursor-not-allowed' : ''
+                            currentLeadsPage === totalLeadsPages
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
                           <ChevronRight className="h-5 w-5" />
                         </button>
                       </div>
                       <div className="text-sm text-gray-500">
-                        Showing {leadsStartIndex + 1} to {Math.min(leadsEndIndex, leads.length)} of {leads.length} entries
+                        Showing {leadsStartIndex + 1} to{" "}
+                        {Math.min(leadsEndIndex, leads.length)} of{" "}
+                        {leads.length} entries
                       </div>
                     </div>
                   )}

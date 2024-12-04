@@ -188,8 +188,8 @@ function ProgramAnalyticsPageFB() {
   return (
     <Suspense fallback={<Loader />}>
       <ProgramHeroFB />
-      <ProgramHighlightsFB />
       <WhoIsThisContentForFB />
+      <ProgramHighlightsFB />
       <BYDPFB />
       <LearningJourneyFB />
       <BenefitsGridFB />

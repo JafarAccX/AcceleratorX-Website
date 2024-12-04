@@ -136,7 +136,7 @@ export default function ProgramHeroFB() {
                 </div>
                 <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8">
                   <div>
-                    <Counter end={17} />
+                    <Counter end={16} />
                     <p className="text-sm text-gray-400">Week Program</p>
                   </div>
                   <div>

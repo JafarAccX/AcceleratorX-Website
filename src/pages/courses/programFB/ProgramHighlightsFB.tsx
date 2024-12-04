@@ -44,9 +44,6 @@ export default function ProgramHighlightsFB() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Why Product Management with us ?
           </h2>
-          <p className="text-xl text-gray-400">
-            Everything you need to become a successful Product Manager
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">

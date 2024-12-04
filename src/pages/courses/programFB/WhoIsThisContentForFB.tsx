@@ -26,19 +26,28 @@ const WhoIsThisContentForFB = () => {
   const bulletPoints = [
     {
       emoji: "🎯",
-      text: "Ambitious entrepreneurs looking to scale their business",
-    },
-    { emoji: "💡", text: "Startup founders seeking innovative solutions" },
-    {
-      emoji: "🚀",
-      text: "Business owners ready to transform their digital presence",
+      text: "Ambitious entrepreneurs looking to upskill and scale their business",
     },
     {
-      emoji: "📈",
-      text: "Growth-focused professionals aiming for market expansion",
+      emoji: "🎨",
+      text: "UX professionals looking to transition into Product Management roles",
     },
-    { emoji: "🤝", text: "Teams looking to streamline their operations" },
-    { emoji: "💪", text: "Visionaries who want to make a lasting impact" },
+    {
+      emoji: "💻",
+      text: "Engineers aspiring to crack a PM Role",
+    },
+    {
+      emoji: "🔄",
+      text: "Working professionals looking to transition into Product Management",
+    },
+    {
+      emoji: "🎓",
+      text: "Freshers looking for a Product Internship",
+    },
+    {
+      emoji: "🌟",
+      text: "Anyone who aspires to become a Product Manager",
+    },
   ];
 
   return (

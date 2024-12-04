@@ -81,12 +81,12 @@ const TestimonialsFB = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {testimonials.map((testimonial, index) => (
             <motion.div key={index} variants={itemVariants} className="group">
-              <div className="relative bg-white rounded-2xl p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-gray-200 h-[18rem] flex flex-col">
+              <div className="relative bg-white rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-gray-200 min-h-[24rem] flex flex-col">
                 {/* Quote Icon */}
-                <Quote className="absolute -top-3 -left-3 w-8 h-8 text-blue-500 bg-white rounded-full p-1.5" />
+                <Quote className="absolute -top-3 -left-3 w-8 h-8 text-blue-500 bg-white rounded-full p-1.5 z-10" />
 
                 {/* Rating */}
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
@@ -96,25 +96,25 @@ const TestimonialsFB = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-gray-700 leading-relaxed mb-8 font-light flex-grow">
+                <p className="text-gray-700 leading-relaxed mb-6 font-light flex-grow">
                   "{testimonial.testimonial}"
                 </p>
 
                 {/* Author Info */}
-                <div className="flex items-center mt-auto">
-                  <div className="relative">
+                <div className="flex items-center pt-4 border-t border-gray-100">
+                  <div className="relative flex-shrink-0">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-14 h-14 rounded-full object-cover ring-4 ring-blue-200"
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-blue-100"
                     />
                     <div className="absolute inset-0 rounded-full shadow-inner" />
                   </div>
-                  <div className="ml-4">
-                    <h4 className="font-semibold text-black">
+                  <div className="ml-3 min-w-0">
+                    <h4 className="font-semibold text-gray-900 truncate">
                       {testimonial.name}
                     </h4>
-                    <p className="text-sm text-blue-800">
+                    <p className="text-sm text-blue-600 truncate">
                       {testimonial.role} · {testimonial.company}
                     </p>
                   </div>
