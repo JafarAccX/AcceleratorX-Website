@@ -15,7 +15,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 interface EnrollmentModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit?: () => void; // Optional onSubmit callback
+  onSubmit?: () => void;
 }
 
 export default function EnrollmentModal({
@@ -35,9 +35,6 @@ export default function EnrollmentModal({
     workExperience: "",
     designation: "",
   });
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false);
 
   useEffect(() => {
     if (selectedCourse) {
@@ -59,6 +56,7 @@ export default function EnrollmentModal({
     }
 
     try {
+      // Store enrollment data
       const { error } = await supabase.from("enrollments").insert([
         {
           full_name: formData.name,
@@ -81,10 +79,9 @@ export default function EnrollmentModal({
         return;
       }
 
-      // Track form submission with Meta Pixel
-      trackFormSubmission(formData);
+      // Send to Meta Conversion API
+      await trackFormSubmission(formData);
 
-      setIsSubmitted(true);
       if (onSubmit) onSubmit();
 
       // Navigate after a brief delay
@@ -98,13 +95,8 @@ export default function EnrollmentModal({
     }
   };
 
-  const handleThankYouModalClose = () => {
-    setIsThankYouModalOpen(false);
-  };
-
   return (
     <AnimatePresence>
-      {/* Enrollment Modal */}
       {isOpen && (
         <motion.div
           key="enrollment-modal"
@@ -199,23 +191,18 @@ export default function EnrollmentModal({
                     }}
                   />
                 </div>
-                {formData.phone.length > 0 && formData.phone.length < 10 && (
-                  <p className="text-red-500 text-sm mt-1">
-                    Phone number must be 10 digits.
-                  </p>
-                )}
               </div>
 
               {/* Education Field */}
               <div>
                 <label
-                  htmlFor="educationLevel"
+                  htmlFor="education"
                   className="block text-sm font-medium text-gray-300 mb-1"
                 >
-                  Education Level
+                  Highest Education
                 </label>
                 <select
-                  id="educationLevel"
+                  id="education"
                   required
                   className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   value={formData.education}
@@ -223,13 +210,12 @@ export default function EnrollmentModal({
                     setFormData({ ...formData, education: e.target.value })
                   }
                 >
-                  <option value="" hidden>
-                    Select your education
-                  </option>
-                  <option value="Bachelor's">Bachelor's</option>
-                  <option value="Master's">Master's</option>
+                  <option value="">Select Education Level</option>
+                  <option value="High School">High School</option>
+                  <option value="Bachelors">Bachelor's Degree</option>
+                  <option value="Masters">Master's Degree</option>
                   <option value="PhD">PhD</option>
-                  <option value="Others">Others</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -239,19 +225,24 @@ export default function EnrollmentModal({
                   htmlFor="workExperience"
                   className="block text-sm font-medium text-gray-300 mb-1"
                 >
-                  How many years of work experience do you have?
+                  Work Experience (in years)
                 </label>
-                <input
-                  type="number"
+                <select
                   id="workExperience"
-                  min="0"
+                  required
                   className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter years of experience"
                   value={formData.workExperience}
                   onChange={(e) =>
                     setFormData({ ...formData, workExperience: e.target.value })
                   }
-                />
+                >
+                  <option value="">Select Experience</option>
+                  <option value="0-1">0-1 years</option>
+                  <option value="1-3">1-3 years</option>
+                  <option value="3-5">3-5 years</option>
+                  <option value="5-10">5-10 years</option>
+                  <option value="10+">10+ years</option>
+                </select>
               </div>
 
               {/* Designation Field */}
@@ -260,13 +251,14 @@ export default function EnrollmentModal({
                   htmlFor="designation"
                   className="block text-sm font-medium text-gray-300 mb-1"
                 >
-                  Your current designation
+                  Current Designation
                 </label>
                 <input
                   type="text"
                   id="designation"
+                  required
                   className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Write NA if you are a fresher"
+                  placeholder="Software Engineer"
                   value={formData.designation}
                   onChange={(e) =>
                     setFormData({ ...formData, designation: e.target.value })
@@ -274,106 +266,13 @@ export default function EnrollmentModal({
                 />
               </div>
 
-              {/* Course Selection Field */}
-              {!selectedCourse && (
-                <div>
-                  <label
-                    htmlFor="course"
-                    className="block text-sm font-medium text-gray-300 mb-1"
-                  >
-                    Select Course
-                  </label>
-                  <select
-                    id="course"
-                    required
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    value={formData.course}
-                    onChange={(e) =>
-                      setFormData({ ...formData, course: e.target.value })
-                    }
-                  >
-                    <option value="" hidden>
-                      Choose a course
-                    </option>
-                    <option value="Product Management">
-                      Product Management
-                    </option>
-                    <option value="Data Analytics">Data Analytics</option>
-                    <option value="No-Code Tool Program">
-                      No-Code Tool Program
-                    </option>
-                  </select>
-                </div>
-              )}
-
-              {/* Submit Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 type="submit"
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition mt-6"
+                className="w-full bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"
               >
-                Submit
-              </motion.button>
+                Submit Application
+              </button>
             </form>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Thank You Modal */}
-      {isThankYouModalOpen && (
-        <motion.div
-          key="thank-you-modal"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-black/60"
-        >
-          <div className="relative bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-8 text-center">
-            <button
-              onClick={handleThankYouModalClose}
-              className="absolute right-4 top-4 text-gray-400 hover:text-white"
-            >
-              <X className="h-6 w-6" />
-            </button>
-
-            <div className="flex flex-col items-center gap-6">
-              {/* Success Icon */}
-              <div className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center">
-                <svg
-                  className="w-12 h-12 text-green-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-
-              {/* Thank You Message */}
-              <div className="space-y-3">
-                <h3 className="text-2xl font-bold text-white">Thank You!</h3>
-                <p className="text-gray-300">
-                  Your enrollment has been successfully submitted. Our team will
-                  contact you shortly.
-                </p>
-              </div>
-
-              {/* Course Info */}
-              <div className="bg-gray-700/50 p-4 rounded-lg w-full">
-                <p className="text-gray-300">
-                  Enrolled Course:{" "}
-                  <span className="text-white font-semibold">
-                    {formData.course}
-                  </span>
-                </p>
-              </div>
-            </div>
           </div>
         </motion.div>
       )}

@@ -23,11 +23,6 @@ interface ConversionAPIPayload {
       msclkid?: string;
       campaign_id?: string;
       traffic_source?: string;
-      ip_address?: string;
-      ip_state?: string;
-      ip_city?: string;
-      ip_postal?: string;
-      ip_country?: string;
       browser_id?: string;
       user_agent?: string;
       external_id?: string;
@@ -39,22 +34,6 @@ interface ConversionAPIPayload {
   }>;
   access_token: string;
 }
-
-import { createClient } from "@supabase/supabase-js";
-import { LeadData, TrackingData } from "../types/leads";
-import { getIpLocation } from "./geoLocation";
-
-// Initialize Supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey =
-  import.meta.env.VITE_SUPABASE_SERVICE_KEY ||
-  import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl || !supabaseKey) {
-  // console.error("❌ Missing Supabase configuration");
-}
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const hashData = async (data: string): Promise<string> => {
   try {
@@ -80,7 +59,7 @@ const getCookie = (name: string): string | null => {
   return null;
 };
 
-const getTrackingData = (): TrackingData => {
+const getTrackingData = () => {
   const urlParams = new URLSearchParams(window.location.search);
 
   return {
@@ -98,28 +77,9 @@ const getTrackingData = (): TrackingData => {
   };
 };
 
-const storeLead = async (leadData: LeadData): Promise<void> => {
-  try {
-    // console.info("💾 Storing lead data in Supabase...");
-    const { error } = await supabase.from("leads").insert([leadData]);
-
-    if (error) {
-      throw error;
-    }
-
-    // console.info("✅ Lead data successfully stored in Supabase");
-  } catch (error) {
-    console.error("❌ Error storing lead in Supabase:", error);
-    throw error; // Re-throw to handle in the calling function
-  }
-};
-
 export const trackFormSubmission = async (
   formData: FormData
 ): Promise<void> => {
-  // console.group("📊 Form Submission Tracking");
-  // console.info("🚀 Starting form submission tracking process");
-
   try {
     // 1. Validate environment variables
     const pixelId = import.meta.env.VITE_META_PIXEL_ID;
@@ -129,73 +89,17 @@ export const trackFormSubmission = async (
       throw new Error("Missing Meta Pixel configuration");
     }
 
-    console.debug("Meta Configuration:", {
-      pixelId,
-      hasAccessToken: true,
-      apiEndpoint: META_CONVERSION_API_URL,
-    });
-
-    // 2. Get location data
-    //console.info("📍 Fetching location data...");
-    const locationData = await getIpLocation();
-    // console.debug("Location Data:", locationData);
-
-    // 3. Get tracking data
-    //console.info("🔍 Collecting tracking parameters...");
+    // 2. Get tracking data
     const trackingData = getTrackingData();
-    //console.debug("Tracking Data:", trackingData);
 
-    // 4. Hash sensitive data
-    //console.info("🔒 Hashing sensitive data...");
-    const [
-      hashedEmail,
-      hashedPhone,
-      hashedFirstName,
-      hashedCity,
-      hashedState,
-      hashedPostal,
-    ] = await Promise.all([
+    // 3. Hash sensitive data
+    const [hashedEmail, hashedPhone, hashedFirstName] = await Promise.all([
       hashData(formData.email.toLowerCase()),
       hashData(formData.phone),
-      hashData(formData.name.split(" ")[0]),
-      hashData(locationData.city),
-      hashData(locationData.region),
-      hashData(locationData.postal),
+      hashData(formData.name.split(" ")[0])
     ]);
 
-    // 5. Prepare lead data for Supabase
-    const leadData: LeadData = {
-      // User Details
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      education: formData.education,
-      course: formData.course,
-
-      // Location Data
-      ip_address: locationData.ip,
-      city: locationData.city,
-      state: locationData.region,
-      postal_code: locationData.postal,
-      country: locationData.country_name,
-      latitude: locationData.latitude,
-      longitude: locationData.longitude,
-
-      // Traffic Source & Tracking
-      ...trackingData,
-
-      // Meta Data
-      browser_language: navigator.language,
-      screen_resolution: `${screen.width}x${screen.height}`,
-      platform: navigator.platform,
-      user_agent: navigator.userAgent,
-    };
-
-    // 6. Store in Supabase
-    await storeLead(leadData);
-
-    // 7. Prepare Meta Pixel payload
-    // console.info("📦 Preparing Meta Pixel payload...");
+    // 4. Prepare Meta Pixel payload
     const payload = {
       data: [
         {
@@ -206,10 +110,6 @@ export const trackFormSubmission = async (
             em: hashedEmail,
             ph: hashedPhone,
             fn: hashedFirstName,
-            ct: hashedCity,
-            st: hashedState,
-            zp: hashedPostal,
-            client_ip_address: locationData.ip,
             client_user_agent: navigator.userAgent,
             fbc: trackingData.fbclid
               ? `fb.1.${Date.now()}.${trackingData.fbclid}`
@@ -233,8 +133,7 @@ export const trackFormSubmission = async (
       access_token: accessToken,
     };
 
-    // 8. Send to Meta
-    // console.info("📤 Sending data to Meta Conversion API...");
+    // 5. Send to Meta
     const response = await fetch(
       `${META_CONVERSION_API_URL}/${pixelId}/events`,
       {
@@ -250,12 +149,8 @@ export const trackFormSubmission = async (
       throw new Error(`Meta API error: ${response.status}`);
     }
 
-    // console.info("✅ Form submission tracking completed successfully");
   } catch (error) {
     console.error("❌ Error in form submission tracking:", error);
-    // Don't throw here to prevent breaking the user flow
-  } finally {
-    console.groupEnd();
   }
 };
 
