@@ -86,7 +86,9 @@ const AdminPage: React.FC = () => {
   const [currentLeadsPage, setCurrentLeadsPage] = useState(1);
   const [refreshing, setRefreshing] = useState(false);
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
-  const [activeTab, setActiveTab] = useState<'enrollments' | 'leads'>('leads');
+  const [activeTab, setActiveTab] = useState<'enrollments' | 'leads' | 'admin-access' | 'sales-access'>('leads');
+  const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>([]);
+  const [adminCurrentPage, setAdminCurrentPage] = useState(1);
   const navigate = useNavigate();
   const userRole = authService.getRole();
 
@@ -147,6 +149,17 @@ const AdminPage: React.FC = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        // Fetch enrollments for admin view
+        if (userRole === 'admin' || userRole === 'sales') {
+          const { data: adminEnrollmentData, error: adminEnrollmentError } = await supabase
+            .from('enrollments')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+          if (adminEnrollmentError) throw adminEnrollmentError;
+          setAdminEnrollments(adminEnrollmentData || []);
+        }
+
         // Fetch enrollments
         const { data: enrollmentData, error: enrollmentError } = await supabase
           .from('enrollments')
@@ -181,7 +194,7 @@ const AdminPage: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [userRole]);
 
   const handleDownloadCSV = () => {
     try {
@@ -350,16 +363,18 @@ const AdminPage: React.FC = () => {
           {userRole !== 'enrollment' && (
             <div className="border-b border-gray-200">
               <nav className="-mb-px flex">
-                <button
-                  onClick={() => setActiveTab('enrollments')}
-                  className={`py-4 px-6 text-sm font-medium ${
-                    activeTab === 'enrollments'
-                      ? 'border-b-2 border-blue-500 text-blue-600'
-                      : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  Enrollments
-                </button>
+                {(userRole !== 'admin' && userRole !== 'sales') && (
+                  <button
+                    onClick={() => setActiveTab('enrollments')}
+                    className={`py-4 px-6 text-sm font-medium ${
+                      activeTab === 'enrollments'
+                        ? 'border-b-2 border-blue-500 text-blue-600'
+                        : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    Enrollments
+                  </button>
+                )}
                 <button
                   onClick={() => setActiveTab('leads')}
                   className={`py-4 px-6 text-sm font-medium ${
@@ -370,6 +385,30 @@ const AdminPage: React.FC = () => {
                 >
                   Leads
                 </button>
+                {userRole === 'admin' && (
+                  <button
+                    onClick={() => setActiveTab('admin-access')}
+                    className={`py-4 px-6 text-sm font-medium ${
+                      activeTab === 'admin-access'
+                        ? 'border-b-2 border-blue-500 text-blue-600'
+                        : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    Admin Access
+                  </button>
+                )}
+                {userRole === 'sales' && (
+                  <button
+                    onClick={() => setActiveTab('sales-access')}
+                    className={`py-4 px-6 text-sm font-medium ${
+                      activeTab === 'sales-access'
+                        ? 'border-b-2 border-blue-500 text-blue-600'
+                        : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    Sales Access
+                  </button>
+                )}
               </nav>
             </div>
           )}
@@ -380,7 +419,311 @@ const AdminPage: React.FC = () => {
             </div>
           ) : (
             <>
-              {(activeTab === 'enrollments' || userRole === 'enrollment') ? (
+              {activeTab === 'admin-access' && userRole === 'admin' ? (
+                <>
+                  <div className="flex justify-between p-4">
+                    <h2 className="text-xl font-semibold text-gray-800">Admin Access - All Enrollment Data</h2>
+                    <button
+                      onClick={() => {
+                        try {
+                          const headers = ['S.No', 'Full Name', 'Email', 'Phone Number', 'Education Level', 'Course', 'Work Experience', 'Designation', 'Date'];
+                          const csvContent = [
+                            headers.join(','),
+                            ...adminEnrollments.map((enrollment, index) => [
+                              index + 1,
+                              enrollment.full_name,
+                              enrollment.email,
+                              enrollment.phone_number,
+                              enrollment.education_level,
+                              enrollment.course,
+                              enrollment.work_experience,
+                              enrollment.designation,
+                              new Date(enrollment.created_at).toLocaleDateString()
+                            ].join(','))
+                          ].join('\n');
+
+                          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                          const link = document.createElement('a');
+                          const url = URL.createObjectURL(blob);
+                          link.setAttribute('href', url);
+                          link.setAttribute('download', `all_enrollments_${new Date().toISOString().split('T')[0]}.csv`);
+                          document.body.appendChild(link);
+                          link.click();
+                          document.body.removeChild(link);
+                          toast.success('CSV downloaded successfully');
+                        } catch (error) {
+                          console.error('Error downloading CSV:', error);
+                          toast.error('Failed to download CSV');
+                        }
+                      }}
+                      className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download All Enrollments
+                    </button>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            S.No
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Full Name
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Email
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Phone Number
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Education Level
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Course
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Work Experience
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Designation
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Date
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {adminEnrollments
+                          .slice((adminCurrentPage - 1) * ITEMS_PER_PAGE, adminCurrentPage * ITEMS_PER_PAGE)
+                          .map((enrollment, index) => (
+                            <tr key={enrollment.id} className="hover:bg-gray-50">
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{((adminCurrentPage - 1) * ITEMS_PER_PAGE) + index + 1}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm font-medium text-gray-900">{enrollment.full_name}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.email}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.phone_number}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.education_level}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.course}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.work_experience}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.designation}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {new Date(enrollment.created_at).toLocaleDateString()}
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE) > 1 && (
+                    <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setAdminCurrentPage(prev => Math.max(prev - 1, 1))}
+                          disabled={adminCurrentPage === 1}
+                          className={`p-2 rounded-lg hover:bg-gray-100 ${
+                            adminCurrentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                          }`}
+                        >
+                          <ChevronLeft className="h-5 w-5" />
+                        </button>
+                        <span className="text-sm text-gray-700">
+                          Page {adminCurrentPage} of {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                        </span>
+                        <button
+                          onClick={() => setAdminCurrentPage(prev => 
+                            Math.min(prev + 1, Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE))
+                          )}
+                          disabled={adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                          className={`p-2 rounded-lg hover:bg-gray-100 ${
+                            adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE) 
+                              ? 'opacity-50 cursor-not-allowed' 
+                              : ''
+                          }`}
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Showing {((adminCurrentPage - 1) * ITEMS_PER_PAGE) + 1} to {
+                          Math.min(adminCurrentPage * ITEMS_PER_PAGE, adminEnrollments.length)
+                        } of {adminEnrollments.length} entries
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : activeTab === 'sales-access' && userRole === 'sales' ? (
+                <>
+                  <div className="flex justify-between p-4">
+                    <h2 className="text-xl font-semibold text-gray-800">Sales Access - All Enrollment Data</h2>
+                    <button
+                      onClick={() => {
+                        try {
+                          const headers = ['S.No', 'Full Name', 'Email', 'Phone Number', 'Education Level', 'Course', 'Work Experience', 'Designation', 'Date'];
+                          const csvContent = [
+                            headers.join(','),
+                            ...adminEnrollments.map((enrollment, index) => [
+                              index + 1,
+                              enrollment.full_name,
+                              enrollment.email,
+                              enrollment.phone_number,
+                              enrollment.education_level,
+                              enrollment.course,
+                              enrollment.work_experience,
+                              enrollment.designation,
+                              new Date(enrollment.created_at).toLocaleDateString()
+                            ].join(','))
+                          ].join('\n');
+
+                          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                          const link = document.createElement('a');
+                          const url = URL.createObjectURL(blob);
+                          link.setAttribute('href', url);
+                          link.setAttribute('download', `all_enrollments_${new Date().toISOString().split('T')[0]}.csv`);
+                          document.body.appendChild(link);
+                          link.click();
+                          document.body.removeChild(link);
+                          toast.success('CSV downloaded successfully');
+                        } catch (error) {
+                          console.error('Error downloading CSV:', error);
+                          toast.error('Failed to download CSV');
+                        }
+                      }}
+                      className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download All Enrollments
+                    </button>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            S.No
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Full Name
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Email
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Phone Number
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Education Level
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Course
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Work Experience
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Designation
+                          </th>
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Date
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {adminEnrollments
+                          .slice((adminCurrentPage - 1) * ITEMS_PER_PAGE, adminCurrentPage * ITEMS_PER_PAGE)
+                          .map((enrollment, index) => (
+                            <tr key={enrollment.id} className="hover:bg-gray-50">
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{((adminCurrentPage - 1) * ITEMS_PER_PAGE) + index + 1}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm font-medium text-gray-900">{enrollment.full_name}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.email}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.phone_number}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.education_level}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.course}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.work_experience}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">{enrollment.designation}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="text-sm text-gray-900">
+                                  {new Date(enrollment.created_at).toLocaleDateString()}
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE) > 1 && (
+                    <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setAdminCurrentPage(prev => Math.max(prev - 1, 1))}
+                          disabled={adminCurrentPage === 1}
+                          className={`p-2 rounded-lg hover:bg-gray-100 ${
+                            adminCurrentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                          }`}
+                        >
+                          <ChevronLeft className="h-5 w-5" />
+                        </button>
+                        <span className="text-sm text-gray-700">
+                          Page {adminCurrentPage} of {Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                        </span>
+                        <button
+                          onClick={() => setAdminCurrentPage(prev => 
+                            Math.min(prev + 1, Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE))
+                          )}
+                          disabled={adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE)}
+                          className={`p-2 rounded-lg hover:bg-gray-100 ${
+                            adminCurrentPage === Math.ceil(adminEnrollments.length / ITEMS_PER_PAGE) 
+                              ? 'opacity-50 cursor-not-allowed' 
+                              : ''
+                          }`}
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Showing {((adminCurrentPage - 1) * ITEMS_PER_PAGE) + 1} to {
+                          Math.min(adminCurrentPage * ITEMS_PER_PAGE, adminEnrollments.length)
+                        } of {adminEnrollments.length} entries
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : ((activeTab === 'enrollments' && userRole !== 'admin' && userRole !== 'sales') || userRole === 'enrollment') ? (
                 <>
                   <div className="flex justify-end mb-4">
                     <button
