@@ -163,7 +163,7 @@ export default function ProgramHero() {
             className="relative mt-8 lg:mt-0"
           >
             <img
-              src="/assets/productManagementbanner.jpg"
+              src="/assets/productpagebanner.jpg"
               alt="Product Management Workshop"
               className="w-full rounded-lg shadow-2xl"
             />

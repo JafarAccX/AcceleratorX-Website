@@ -281,7 +281,7 @@ export const mentors = [
     name: "Anurag Goel",
     role: "PM at Cequens",
     experience: "17+ years",
-    image: "/assets/mentor/anurag.png",
+    image: "/assets/mentor/anuragme.png",
     linkedin: "https://www.linkedin.com/in/anurag-goel-li/",
     transitions: "Over 100+",
   },

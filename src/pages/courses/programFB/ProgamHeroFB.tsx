@@ -161,7 +161,7 @@ export default function ProgramHeroFB() {
                 className="relative mt-8 lg:mt-0 flex flex-col gap-6"
               >
                 <img
-                  src="/assets/productManagementbanner.jpg"
+                  src="/assets/productpagebanner.jpg"
                   alt="Product Management Workshop"
                   className="w-full rounded-lg shadow-2xl"
                 />
