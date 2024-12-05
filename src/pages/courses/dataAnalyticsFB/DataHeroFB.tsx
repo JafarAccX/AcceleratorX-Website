@@ -115,10 +115,9 @@ export default function DataHeroFB() {
               Hero
             </h1>
             <p className="mt-6 text-lg text-gray-400">
-              Stop dreaming about a data career and start building one. At
-              AcceleratorX, you jump into real projects from Day 1, using
-              industry-standard tools that employers want. Join us, and start
-              your journey to a high-paying analytics role, fast.
+              With our comprehensive Up-to-Date Curriculum including Python,
+              Generative AI and, hands-on projects - trusted by top MNCs &
+              Startups
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-6 items-start">
               <motion.button
@@ -148,21 +147,27 @@ export default function DataHeroFB() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Counter end={16} suffix="LPA" />
-                <p className="text-xs text-gray-400 mt-1 font-medium">Average Salary</p>
+                <p className="text-xs text-gray-400 mt-1 font-medium">
+                  Average Salary
+                </p>
               </motion.div>
               <motion.div
                 className="flex flex-col items-center"
                 whileHover={{ scale: 1.05 }}
               >
                 <Counter end={40000} suffix="+" />
-                <p className="text-xs text-gray-400 mt-1 font-medium">Job Openings</p>
+                <p className="text-xs text-gray-400 mt-1 font-medium">
+                  Job Openings
+                </p>
               </motion.div>
               <motion.div
                 className="flex flex-col items-center"
                 whileHover={{ scale: 1.05 }}
               >
                 <Counter end={22} suffix=" weeks" />
-                <p className="text-xs text-gray-400 mt-1 font-medium">Duration</p>
+                <p className="text-xs text-gray-400 mt-1 font-medium">
+                  Duration
+                </p>
               </motion.div>
             </div>
           </motion.div>
