@@ -28,9 +28,9 @@ const capeSteps = [
   },
 ];
 
-export default function CAPE() {
+export default function CAPEFB() {
   return (
-    <div className="relative py-20 overflow-hidden bg-[#0B1120]" id="bydp">
+    <div className="relative py-32 overflow-hidden bg-[#0B1120]" id="bydp">
       {/* Background decoration */}
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full filter blur-3xl"></div>
@@ -45,7 +45,7 @@ export default function CAPE() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <motion.span
+          <motion.span 
             className="text-blue-400 text-lg font-semibold mb-4 block"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -81,9 +81,7 @@ export default function CAPE() {
                 {step.title}
               </h3>
               <p className="text-gray-400 mb-4">{step.description}</p>
-              <p className="text-sm text-blue-400 font-medium">
-                {step.duration}
-              </p>
+              <p className="text-sm text-blue-400 font-medium">{step.duration}</p>
             </motion.div>
           ))}
         </div>
@@ -98,7 +96,7 @@ export default function CAPE() {
             What You'll Achieve
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <motion.div
+            <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
@@ -108,7 +106,7 @@ export default function CAPE() {
               </div>
               <p className="text-gray-400">A real product in your portfolio</p>
             </motion.div>
-            <motion.div
+            <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
@@ -120,7 +118,7 @@ export default function CAPE() {
                 Hands-on product development experience
               </p>
             </motion.div>
-            <motion.div
+            <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}

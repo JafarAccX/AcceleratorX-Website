@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, Linkedin } from "lucide-react";
+import { Users } from "lucide-react";
 
 const mentors = [
   {
@@ -8,7 +8,6 @@ const mentors = [
     role: "Senior PM at Paytm",
     experience: "5 years",
     image: "/assets/mentor/ravi.png",
-    linkedin: "https://www.linkedin.com/in/raviahlawat09/",
     transitions: "Over 350+",
   },
   {
@@ -16,12 +15,11 @@ const mentors = [
     role: "Sr. ML Engineer at Nagarro",
     experience: "7 years",
     image: "/assets/mentor/akash.png",
-    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164/",
     transitions: "Over 300+",
   },
 ];
 
-export default function DataMentors() {
+export default function DataMentorsFB() {
   return (
     <section className="relative py-8 bg-[#0B1120] overflow-hidden">
       {/* Background decoration */}
@@ -65,20 +63,8 @@ export default function DataMentors() {
                   <img
                     src={mentor.image}
                     alt={mentor.name}
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
                   />
-                </div>
-
-                {/* LinkedIn Link - Always Visible */}
-                <div className="absolute top-4 right-4 z-20 transform transition-transform duration-300 hover:scale-110">
-                  <a
-                    href={mentor.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-500 hover:bg-blue-600 text-white p-2.5 rounded-full transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-blue-500/50"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
                 </div>
 
                 {/* Overlay Content - Visible on Hover */}

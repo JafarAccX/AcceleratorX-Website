@@ -61,7 +61,7 @@ export const SkillCard = ({ skill, index }: SkillCardProps) => {
   );
 };
 
-export default function DataSkillsTools() {
+export default function DataSkillsToolsFB() {
   const [visibleSkills, setVisibleSkills] = useState<string[]>(
     dataAnalyticsSkills.slice(0, 9)
   );

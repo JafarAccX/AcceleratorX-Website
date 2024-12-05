@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { dataAnalyticsmodules } from "../../../utils/constants";
 
-const DataProgram = () => {
+const DataProgramFB = () => {
   return (
     <section
       id="program"
@@ -20,7 +20,7 @@ const DataProgram = () => {
           viewport={{ once: true }}
           className="text-center mb-20 relative"
         >
-          <motion.span
+          <motion.span 
             className="text-blue-400 text-lg font-semibold mb-4 block relative"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -28,12 +28,11 @@ const DataProgram = () => {
           >
             Your Journey to Success
           </motion.span>
-          <h2 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 text-transparent bg-clip-text mb-10 relative">
+          <h2 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 text-transparent bg-clip-text mb-6 relative">
             Program Highlights
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg relative">
-            Master the essential skills and tools needed to become a successful
-            data analyst
+            Master the essential skills and tools needed to become a successful data analyst
           </p>
         </motion.div>
 
@@ -62,15 +61,13 @@ const DataProgram = () => {
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
                 {module.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {module.description}
-              </p>
+              <p className="text-gray-400 leading-relaxed">{module.description}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Section divider with enhanced styling */}
-        <motion.div
+        <motion.div 
           className="col-span-full mb-16 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -110,15 +107,13 @@ const DataProgram = () => {
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
                 {module.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {module.description}
-              </p>
+              <p className="text-gray-400 leading-relaxed">{module.description}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Section divider with enhanced styling */}
-        <motion.div
+        <motion.div 
           className="col-span-full mb-16 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -158,9 +153,7 @@ const DataProgram = () => {
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
                 {module.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {module.description}
-              </p>
+              <p className="text-gray-400 leading-relaxed">{module.description}</p>
             </motion.div>
           ))}
         </div>
@@ -169,4 +162,4 @@ const DataProgram = () => {
   );
 };
 
-export default DataProgram;
+export default DataProgramFB;

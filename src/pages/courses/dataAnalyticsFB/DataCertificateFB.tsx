@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import dataCertificate from "/assets/programcertificates/da.jpg";
 
-const DataCertificate = () => {
+const DataCertificateFB = () => {
   // Initialize cache mechanism
   const cacheKey = "data-analytics-certificate-cache";
   const [cachedImage, setCachedImage] = React.useState<string | null>(null);
@@ -104,4 +104,4 @@ const DataCertificate = () => {
   );
 };
 
-export default DataCertificate;
+export default DataCertificateFB;

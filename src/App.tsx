@@ -117,10 +117,23 @@ import FAQFB from "./pages/courses/programFB/FAQFB";
 import StickyBookNavFB from "./pages/courses/programFB/StickyBookNavFB";
 import WhoIsThisContentForFB from "./pages/courses/programFB/WhoIsThisContentForFB";
 import TestimonialsFB from "./pages/courses/programFB/TestimonialsFB";
+import DataHeroFB from "./pages/courses/dataAnalyticsFB/DataHeroFB";
+import DataProgramFB from "./pages/courses/dataAnalyticsFB/DataProgramFB";
+import CAPEFB from "./pages/courses/dataAnalyticsFB/CAPEFB";
+import DataCertificateFB from "./pages/courses/dataAnalyticsFB/DataCertificateFB";
+import DataMentorsFB from "./pages/courses/dataAnalyticsFB/DataMentorsFB";
+import DataSkillsToolsFB from "./pages/courses/dataAnalyticsFB/DataSkillsToolsFB";
+import DataPricingFB from "./pages/courses/dataAnalyticsFB/DataPricingFB";
+import DataAnalyticsFAQFB from "./pages/courses/dataAnalyticsFB/DataAnalyticsFAQFB";
+import DataJourneyFB from "./pages/courses/dataAnalyticsFB/DataJourneyFB";
+import DAWhoIsThisContentForFB from "./pages/courses/dataAnalyticsFB/DAWhoIsThisContentForFB";
 
 // Utility function to check if current route is a dummy route
 function isDummyRoute(pathname: string): boolean {
-  const adRoutes = ["/courses/product-management-program-fb"];
+  const adRoutes = [
+    "/courses/product-management-program-fb",
+    "/courses/data-analytics-program-fb",
+  ];
   return adRoutes.includes(pathname);
 }
 
@@ -163,7 +176,6 @@ function ProgramAnalyticsPage() {
       <LearningJourney />
       <BenefitsGrid />
       <ProgramCertificate />
-
       <Mentors />
       <SkillsAndTools />
       <SkillsAssessment />
@@ -218,13 +230,42 @@ function DataAnalyticsPage() {
   return (
     <Suspense fallback={<Loader />}>
       <DataHero />
+      <DAWhoIsThisContentForFB />
       <DataProgram />
       <CAPE />
+      <DataJourneyFB />
       <DataCertificate />
       <DataMentors />
       <DataSkillsTools />
       <DataPricing />
-      {/* <StickyBookNav /> */}
+      <DataAnalyticsFAQFB />
+      <StickyBookNav />
+    </Suspense>
+  );
+}
+function DataAnalyticsPageFB() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("Data Analytics");
+  }, [setSelectedCourse]);
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <DataHeroFB />
+      <DAWhoIsThisContentForFB />
+      <DataProgramFB />
+      <CAPEFB />
+      <DataJourneyFB />
+      <DataCertificateFB />
+      <DataMentorsFB />
+      <DataSkillsToolsFB />
+      <DataPricingFB />
+      <DataAnalyticsFAQFB />
+      <StickyBookNavFB />
     </Suspense>
   );
 }
@@ -471,6 +512,14 @@ function App() {
                     element={
                       <Suspense fallback={<Loader />}>
                         <ProgramAnalyticsPageFB />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/courses/data-analytics-program-fb"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <DataAnalyticsPageFB />
                       </Suspense>
                     }
                   />

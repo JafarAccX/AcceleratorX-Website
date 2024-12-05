@@ -72,7 +72,7 @@ export default function PricingCard({
               onClick={onEnroll}
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
             >
-              Enroll Now
+              Apply Now
             </motion.button>
 
             <p className="text-center text-gray-500 mt-4 text-sm">

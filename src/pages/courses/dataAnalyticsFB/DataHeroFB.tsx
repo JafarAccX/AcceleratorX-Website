@@ -48,7 +48,7 @@ const LogoItem = ({ src, alt }) => (
   </div>
 );
 
-export default function DataHero() {
+export default function DataHeroFB() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setSelectedCourse } = useCourseContext();
   const [isDownload, setIsDownload] = useState(false);
@@ -79,6 +79,15 @@ export default function DataHero() {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-100">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <nav className="bg-[#0B1120] flex flex-row items-center py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-[40]">
+            <div className="max-w-7xl mx-auto ">
+              <img
+                src="/companylogo.png"
+                alt="AcceleratorX Logo"
+                className="w-auto h-20 text-center"
+              />
+            </div>
+          </nav>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -3,7 +3,7 @@ import PricingCard from "../../../components/PricingCard";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 import { Check } from "lucide-react";
 
-export default function DataPricing() {
+export default function DataPricingFB() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const features = [
