@@ -51,7 +51,7 @@ const timerItemVariants = {
 
 export function CountdownTimer() {
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date("2024-12-06T00:00:00");
+    const targetDate = new Date("2024-12-06T23:59:59");
     const difference = targetDate.getTime() - new Date().getTime();
 
     return {
