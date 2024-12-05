@@ -124,7 +124,7 @@ export default function DataHeroFB() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition flex items-center justify-center"
+                className="w-full sm:w-auto bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition flex items-center justify-center"
                 onClick={() => setIsModalOpen(true)}
               >
                 Apply Now <ArrowRight className="ml-2 h-5 w-5" />
@@ -132,7 +132,7 @@ export default function DataHeroFB() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-600/10 transition"
+                className="w-full sm:w-auto border-2 border-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-600/10 transition"
                 onClick={() => {
                   setIsModalOpen(true);
                   setIsDownload(true);
@@ -142,27 +142,27 @@ export default function DataHeroFB() {
               </motion.button>
             </div>
 
-            <div className="mt-8 flex items-center gap-8">
+            <div className="mt-8 flex flex-row justify-between items-center gap-4 px-2">
               <motion.div
-                className="p-6 rounded-lg shadow-lg flex flex-col items-center"
+                className="flex flex-col items-center"
                 whileHover={{ scale: 1.05 }}
               >
                 <Counter end={16} suffix="LPA" />
-                <p className="text-sm text-gray-400 mt-2">Average Salary</p>
+                <p className="text-xs text-gray-400 mt-1 font-medium">Average Salary</p>
               </motion.div>
               <motion.div
-                className="p-6 rounded-lg shadow-lg flex flex-col items-center"
+                className="flex flex-col items-center"
                 whileHover={{ scale: 1.05 }}
               >
                 <Counter end={40000} suffix="+" />
-                <p className="text-sm text-gray-400 mt-2">Job Openings</p>
+                <p className="text-xs text-gray-400 mt-1 font-medium">Job Openings</p>
               </motion.div>
               <motion.div
-                className="p-6 rounded-lg shadow-lg flex flex-col items-center"
+                className="flex flex-col items-center"
                 whileHover={{ scale: 1.05 }}
               >
                 <Counter end={22} suffix=" weeks" />
-                <p className="text-sm text-gray-400 mt-2">Duration</p>
+                <p className="text-xs text-gray-400 mt-1 font-medium">Duration</p>
               </motion.div>
             </div>
           </motion.div>
@@ -171,7 +171,7 @@ export default function DataHeroFB() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative mt-8 lg:mt-0 flex flex-col gap-6"
+            className="relative mt-12 lg:mt-0 flex flex-col gap-6"
           >
             <img
               src="/assets/daProgramBanner.webp"
@@ -179,7 +179,7 @@ export default function DataHeroFB() {
               className="w-full rounded-lg shadow-2xl"
             />
             <div className="flex flex-col items-center">
-              <div className="grid grid-cols-3 gap-4 w-full max-w-md mx-auto">
+              <div className="grid grid-cols-3 gap-4 w-full max-w-md mx-auto px-4">
                 <LogoItem
                   src="/assets/caseStudiesLogo/paytm.webp"
                   alt="Company Logo 1"

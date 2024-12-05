@@ -127,12 +127,24 @@ import DataPricingFB from "./pages/courses/dataAnalyticsFB/DataPricingFB";
 import DataAnalyticsFAQFB from "./pages/courses/dataAnalyticsFB/DataAnalyticsFAQFB";
 import DataJourneyFB from "./pages/courses/dataAnalyticsFB/DataJourneyFB";
 import DAWhoIsThisContentForFB from "./pages/courses/dataAnalyticsFB/DAWhoIsThisContentForFB";
+import NoCodeHeroFB from "./pages/courses/noCodeToolFB/NoCodeHeroFB";
+import NoCodeBenefitsGridFB from "./pages/courses/noCodeToolFB/NoCodeBenefitsGridFB";
+import NoCodeLearningJourneyFB from "./pages/courses/noCodeToolFB/NoCodeLearningJourneyFB";
+import TargetAudienceFB from "./pages/courses/noCodeToolFB/TargetAudienceFB";
+import NoCodeToolFB from "./pages/courses/noCodeToolFB/NoCodeToolFB";
+import ProjectsSectionFB from "./pages/courses/noCodeToolFB/ProjectSectionFB";
+import PricingSectionFB from "./pages/courses/noCodeToolFB/PricingSectionFB";
+import NoCodeFAQFB from "./pages/courses/noCodeToolFB/NoCodeFAQFB";
+import TimelineFB from "./pages/courses/noCodeToolFB/TimelineFB";
+import NoCodeDidYouKnow from "./pages/courses/noCodeToolFB/NoCodeDidYouKnow";
+import NoCodeCertificateFB from "./pages/courses/noCodeToolFB/NoCodeCertificateFB";
 
 // Utility function to check if current route is a dummy route
 function isDummyRoute(pathname: string): boolean {
   const adRoutes = [
     "/courses/product-management-program-fb",
     "/courses/data-analytics-program-fb",
+    "/courses/no-code-tool-program-fb",
   ];
   return adRoutes.includes(pathname);
 }
@@ -243,6 +255,9 @@ function DataAnalyticsPage() {
     </Suspense>
   );
 }
+
+// Data Analytics Dummy Page With the Same Content
+
 function DataAnalyticsPageFB() {
   const {
     setSelectedCourse,
@@ -291,6 +306,34 @@ function NoCodeToolPage() {
       <ProjectsSection />
       <PricingSection />
       <NoCodeFAQ />
+    </Suspense>
+  );
+}
+
+function NoCodeToolPageFB() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("No-Code Development");
+  }, [setSelectedCourse]);
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <NoCodeHeroFB />
+      <NoCodeDidYouKnow />
+      <TargetAudienceFB />
+      <NoCodeBenefitsGridFB />
+      <NoCodeLearningJourneyFB />
+      <TimelineFB />
+      <NoCodeToolFB />
+      <NoCodeCertificateFB />
+      <ProjectsSectionFB />
+      <PricingSectionFB />
+      <NoCodeFAQFB />
+      <StickyBookNavFB />
     </Suspense>
   );
 }
@@ -520,6 +563,14 @@ function App() {
                     element={
                       <Suspense fallback={<Loader />}>
                         <DataAnalyticsPageFB />
+                      </Suspense>
+                    }
+                  />
+                  <Route
+                    path="/courses/no-code-tool-program-fb"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <NoCodeToolPageFB />
                       </Suspense>
                     }
                   />

@@ -16,9 +16,9 @@ const benefits = [
   },
   {
     icon: <Zap className="w-6 h-6" />,
-    title: "1:1 Mock Interviews",
+    title: "Freelancing Guidance",
     description:
-      "Personalized mock interviews to sharpen your skills and boost your confidence.",
+      "Learn how to find and convert high-paying freelancing clients",
   },
   {
     icon: <Globe className="w-6 h-6" />,
@@ -40,7 +40,7 @@ const benefits = [
   },
 ];
 
-export default function NoCodeBenefitsGrid() {
+export default function NoCodeBenefitsGridFB() {
   return (
     <section className="relative bg-black py-24">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
