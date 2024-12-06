@@ -45,7 +45,7 @@ const NoCodeDidYouKnow = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Did You Know? 🤔
+          Facts About No Code 🤔
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
