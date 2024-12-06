@@ -16,11 +16,11 @@ const comparisonData = [
     ourPlatform: true,
     others: false,
   },
-  {
-    feature: "💰 One-time Payment",
-    ourPlatform: true,
-    others: false,
-  },
+  // {
+  //   feature: "💰 One-time Payment",
+  //   ourPlatform: true,
+  //   others: false,
+  // },
   {
     feature: "🛠️ Project-based Learning",
     ourPlatform: true,
@@ -29,7 +29,7 @@ const comparisonData = [
   {
     feature: "💼 Industry-relevant Skills",
     ourPlatform: true,
-    others: true,
+    others: false,
   },
   {
     feature: "👨‍🏫 Personal Mentorship",
