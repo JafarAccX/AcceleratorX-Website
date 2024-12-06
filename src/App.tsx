@@ -298,11 +298,14 @@ function NoCodeToolPage() {
   return (
     <Suspense fallback={<Loader />}>
       <NoCodeHero />
+      <NoCodeDidYouKnow />
+      <TargetAudienceFB />
       <NoCodeBenefitsGrid />
       <NoCodeLearningJourney />
       <TargetAudience />
       <Timeline />
       <NoCodeTool />
+      <NoCodeCertificateFB />
       <ProjectsSection />
       <PricingSection />
       <NoCodeFAQ />

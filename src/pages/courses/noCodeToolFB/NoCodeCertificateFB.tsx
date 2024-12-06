@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import dataCertificate from "/assets/programcertificates/da.jpg";
+import noCodeCertificate from "/assets/programcertificates/na.jpg";
 
 const NoCodeCertificateFB = () => {
   // Initialize cache mechanism
@@ -17,7 +17,7 @@ const NoCodeCertificateFB = () => {
     // Fetch and cache new image
     const cacheImage = async () => {
       try {
-        const response = await fetch(dataCertificate);
+        const response = await fetch(noCodeCertificate);
         const blob = await response.blob();
         const reader = new FileReader();
         reader.onloadend = () => {
@@ -89,7 +89,7 @@ const NoCodeCertificateFB = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent" />
                 <img
-                  src={cachedImage || dataCertificate}
+                  src={cachedImage || noCodeCertificate}
                   alt="Certificate Preview"
                   className="w-full h-full object-cover"
                 />

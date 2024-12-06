@@ -3,8 +3,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, Code } from "lucide-react";
 
 import EnrollmentModal from "../../../components/EnrollmentModal";
-import { NoCodeSVG } from "../nocodeTool/components/NoCodeSVG";
 import { StatsCounter } from "../nocodeTool/components/StatsCounter";
+
+const LogoItem = ({ src, alt }) => (
+  <div className="bg-white p-2 rounded shadow-md flex items-center justify-center">
+    <img
+      src={src}
+      alt={alt}
+      className="h-6 w-auto opacity-100 hover:opacity-100 transition-opacity"
+    />
+  </div>
+);
 
 function NoCodeHeroFB() {
   const [isHovered, setIsHovered] = useState(false);
@@ -15,7 +24,7 @@ function NoCodeHeroFB() {
   };
 
   return (
-    <div className="relative pt-20 pb-32 overflow-hidden">
+    <div className="relative pt-20 pb-0 overflow-hidden">
       {/* Background Glow Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-[100px]" />
@@ -110,20 +119,23 @@ function NoCodeHeroFB() {
             </motion.div>
           </div>
 
-          {/* Right SVG Animation Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative w-full max-w-lg mx-auto lg:mx-0"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative mt-12 lg:mt-8 flex flex-col gap-6"
           >
-            <NoCodeSVG />
+            <img
+              src="/assets/nocode.jpg"
+              alt="Product Management Workshop"
+              className="w-full rounded-lg shadow-2xl"
+            />
           </motion.div>
         </div>
       </div>
 
       {/* Stats Section */}
-      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent">
+      <div className="mt-16 w-full bg-gradient-to-t from-black via-black/80 to-transparent">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
