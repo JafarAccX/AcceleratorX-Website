@@ -1,84 +1,11 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { X, Sparkles, Zap } from "lucide-react";
-import { VintageTV } from "./VintageTV";
 
-// Timer component
-// const Timer = ({
-//   days,
-//   hours,
-//   minutes,
-//   seconds,
-// }: {
-//   days: number;
-//   hours: number;
-//   minutes: number;
-//   seconds: number;
-// }) => {
-//   return (
-//     <div className="flex items-center space-x-2 sm:space-x-3 text-xs sm:text-sm">
-//       <div className="flex items-center">
-//         <span className="font-mono font-bold text-white">
-//           {days.toString().padStart(2, "0")}d
-//         </span>
-//       </div>
-//       <span className="text-white/50">:</span>
-//       <div className="flex items-center">
-//         <span className="font-mono font-bold text-white">
-//           {hours.toString().padStart(2, "0")}h
-//         </span>
-//       </div>
-//       <span className="text-white/50">:</span>
-//       <div className="flex items-center">
-//         <span className="font-mono font-bold text-white">
-//           {minutes.toString().padStart(2, "0")}m
-//         </span>
-//       </div>
-//       <span className="text-white/50">:</span>
-//       <div className="flex items-center">
-//         <span className="font-mono font-bold text-white">
-//           {seconds.toString().padStart(2, "0")}s
-//         </span>
-//       </div>
-//     </div>
-//   );
-// };
+// import { VintageTV } from "./VintageTV";
 
 export default function Hero() {
   const navigate = useNavigate();
-  // const [timeLeft, setTimeLeft] = useState({
-  //   days: 0,
-  //   hours: 0,
-  //   minutes: 0,
-  //   seconds: 0,
-  // });
-
-  // useEffect(() => {
-  //   const targetDate = new Date("2024-11-31"); // Set your target date here
-
-  //   const updateTimer = () => {
-  //     const now = new Date();
-  //     const difference = targetDate.getTime() - now.getTime();
-
-  //     if (difference > 0) {
-  //       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-  //       const hours = Math.floor(
-  //         (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //       );
-  //       const minutes = Math.floor(
-  //         (difference % (1000 * 60 * 60)) / (1000 * 60)
-  //       );
-  //       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-  //       setTimeLeft({ days, hours, minutes, seconds });
-  //     }
-  //   };
-
-  //   const timer = setInterval(updateTimer, 1000);
-  //   return () => clearInterval(timer);
-  // }, []);
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black pb-20 lg:pb-24">
@@ -166,10 +93,22 @@ export default function Hero() {
           </div>
 
           {/* Right side - VintageTV */}
-          <div className="relative w-full lg:w-1/2 flex items-center justify-center px-4 lg:px-8 z-[5]">
-            <div className="w-full max-w-3xl">
-              <VintageTV videoSrc="https://vimeo.com/1034754105/f909e7b129" />
-            </div>
+          <div className="relative w-full lg:w-1/2 flex items-center justify-center px-4 lg:px-8 z-[5] mt-8 lg:mt-0">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="w-full max-w-2xl relative"
+            >
+              <motion.img
+                src="/xsat-a.webp"
+                alt="xsat"
+                className="w-full h-auto lg:h-[400px] object-contain hover:scale-105 transition-transform duration-300 drop-shadow-2xl rounded-3xl"
+                whileHover={{ y: -5 }}
+                drag="y"
+                dragConstraints={{ top: 0, bottom: 0 }}
+              />
+            </motion.div>
           </div>
         </div>
       </div>

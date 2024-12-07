@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
-import LandingPage from "./pages/XSAT/LandingPage/LandingPage";
 import RoleProtectedRoute from "./components/RoleProtectedRoute";
 import ThankYouPage from "./components/ThankYouPage";
 
@@ -138,6 +137,13 @@ import NoCodeFAQFB from "./pages/courses/noCodeToolFB/NoCodeFAQFB";
 import TimelineFB from "./pages/courses/noCodeToolFB/TimelineFB";
 import NoCodeDidYouKnow from "./pages/courses/noCodeToolFB/NoCodeDidYouKnow";
 import NoCodeCertificateFB from "./pages/courses/noCodeToolFB/NoCodeCertificateFB";
+import { XSATHeading } from "./pages/XSAT/LandingPage/xsatHeading";
+import { XSATInfo } from "./pages/XSAT/LandingPage/XSATInfo";
+import { XSATAbout } from "./pages/XSAT/LandingPage/xsatAbout";
+import { XSATKeyDates } from "./pages/XSAT/LandingPage/xsatKeyDates";
+import { XSATExamInfo } from "./pages/XSAT/LandingPage/xsatExamInfo";
+import { XSATFAQ } from "./pages/XSAT/LandingPage/XSATFAQ";
+import { XSATHero } from "./pages/XSAT/LandingPage/xsatHero";
 
 // Utility function to check if current route is a dummy route
 function isDummyRoute(pathname: string): boolean {
@@ -145,6 +151,7 @@ function isDummyRoute(pathname: string): boolean {
     "/courses/product-management-program-fb",
     "/courses/data-analytics-program-fb",
     "/courses/no-code-tool-program-fb",
+    "/xsat",
   ];
   return adRoutes.includes(pathname);
 }
@@ -351,6 +358,21 @@ function AboutPage() {
   );
 }
 
+function XSAT() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <XSATHeading />
+      <XSATHero />
+      <XSATInfo />
+      <XSATAbout />
+      <XSATKeyDates />
+      <XSATExamInfo />
+      <XSATFAQ />
+      <Footer />
+    </Suspense>
+  );
+}
+
 function App() {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -394,7 +416,8 @@ function App() {
                 isOpen={isEnrollmentModalOpen}
                 onClose={handleCloseModal}
               />
-              <main className="bg-black min-h-screen py-10">
+              {/* bg-black, py-10 */}
+              <main className="min-h-screen">
                 <Routes>
                   <Route
                     path="/"
@@ -527,7 +550,7 @@ function App() {
                     path="/xsat"
                     element={
                       <Suspense fallback={<Loader />}>
-                        <LandingPage />
+                        <XSAT />
                       </Suspense>
                     }
                   />
@@ -579,7 +602,12 @@ function App() {
                   />
                   <Route path="/thank-you" element={<ThankYouPageWrapper />} />
                 </Routes>
-                {!isDummyRoute(window.location.pathname) && <ChatWidget />}
+                {!isDummyRoute(window.location.pathname) && (
+                  <>
+                    <Navbar onEnrollClick={handleEnrollClick} />
+                    <ChatWidget />
+                  </>
+                )}
               </main>
             </>
           )}
