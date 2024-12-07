@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { avatars } from "../../../utils/constants";
+// import { avatars } from "../../../utils/constants";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 
 interface CounterProps {
@@ -130,7 +130,7 @@ export default function ProgramHero() {
                 <p className="text-sm text-gray-400">Salary</p>
               </div>
             </div>
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
@@ -153,7 +153,7 @@ export default function ProgramHero() {
                 80+ already joined the{" "}
                 <span className="text-blue-600">Accex Squad</span>
               </span>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           <motion.div
