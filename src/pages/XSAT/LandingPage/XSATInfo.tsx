@@ -15,7 +15,7 @@ import {
 const bentoItems = [
   {
     icon: <Rocket className="w-8 h-8 text-cyan-400" />,
-    title: "What is AX-SAT?",
+    title: "What is X-SAT?",
     description:
       "A pioneering nationwide scholarship aptitude test to identify and support aspiring product management professionals.",
     className:
