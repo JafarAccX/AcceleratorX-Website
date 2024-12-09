@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -45,7 +46,9 @@ export const XSATHeading = () => {
               animate={{ opacity: 1, x: 0 }}
               className="text-2xl mt-2 font-bold text-white"
             >
-              <img src="/xsat-bg.png" alt="xsat" className="w-auto h-10" />
+              <Link to="https://acceleratorx.org/">
+                <img src="/xsat-bg.png" alt="xsat" className="w-auto h-10" />
+              </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
