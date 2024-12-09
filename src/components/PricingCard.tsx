@@ -1,5 +1,6 @@
+import { IconGraph } from "@tabler/icons-react";
 import { motion } from "framer-motion";
-import { Clock } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 
 export default function PricingCard({
   courseName,
@@ -14,11 +15,12 @@ export default function PricingCard({
     <div className="mt-16 max-w-xl mx-auto">
       <div className="relative">
         {/* Limited Time Offer Banner */}
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black px-6 py-2 rounded-full shadow-lg flex items-center space-x-2">
-          <Clock className="h-4 w-4" />
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 via-red-400 to-red-500 text-black px-6 py-2 rounded-full shadow-lg flex items-center space-x-2">
+          <AlertCircle className="h-4 w-4" />
           <span className="font-semibold text-sm md:text-lg">
-            Limited Time Offer
+            Hike Ahead – Act Now!
           </span>
+
           {/* <span className="font-semibold text-sm md:text-lg">
             Black Friday Sale
           </span> */}
@@ -44,6 +46,14 @@ export default function PricingCard({
                 </span>
                 <span className="text-green-500 font-semibold">20% OFF</span>
               </div>
+            </div>
+
+            {/* New Price Hike Warning */}
+            <div className="mt-4 bg-red-500/10 border border-red-500/20 rounded-lg p-3">
+              <p className="text-red-400 text-sm font-medium flex items-center justify-center gap-2">
+                <AlertCircle className="h-4 w-4" />
+                Prices increasing to ₹79,999 from 12th December!
+              </p>
             </div>
           </div>
 
