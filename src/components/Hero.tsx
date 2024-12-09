@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from "react-router-dom";
 
-// import { VintageTV } from "./VintageTV";
+import { VintageTV } from "./VintageTV";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -100,14 +100,7 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="w-full max-w-2xl relative"
             >
-              <motion.img
-                src="/xsat-a.webp"
-                alt="xsat"
-                className="w-full h-auto lg:h-[400px] object-contain hover:scale-105 transition-transform duration-300 drop-shadow-2xl rounded-3xl"
-                whileHover={{ y: -5 }}
-                drag="y"
-                dragConstraints={{ top: 0, bottom: 0 }}
-              />
+              <VintageTV videoSrc="https://vimeo.com/1037475835" />
             </motion.div>
           </div>
         </div>
