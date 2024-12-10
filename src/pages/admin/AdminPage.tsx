@@ -32,6 +32,17 @@ interface EnrollmentData {
   created_at: string;
   work_experience: string;
   designation: string;
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  utm_term: string;
+  utm_content: string;
+  referrer: string;
+  landing_page_url: string;
+  fbclid: string;
+  gclid: string;
+  ttclid: string;
+  msclkid: string;
 }
 
 const AdminPage: React.FC = () => {
@@ -43,10 +54,15 @@ const AdminPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
     "enrollments" | "admin-access" | "sales-access"
   >("enrollments");
-  const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>(
-    []
-  );
+  const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>([]);
   const [adminCurrentPage, setAdminCurrentPage] = useState(1);
+  const [utmFilter, setUtmFilter] = useState({
+    source: "",
+    medium: "",
+    campaign: ""
+  });
+  const [courseFilter, setCourseFilter] = useState("");
+  const [showUtmStats, setShowUtmStats] = useState(false);
   const navigate = useNavigate();
   const userRole = authService.getRole();
 
@@ -71,11 +87,51 @@ const AdminPage: React.FC = () => {
     setCurrentPage(1);
   };
 
-  const totalPages = Math.ceil(enrollments.length / ITEMS_PER_PAGE);
+  const calculateUtmStats = (data: EnrollmentData[]) => {
+    const stats = {
+      sources: {} as Record<string, number>,
+      mediums: {} as Record<string, number>,
+      campaigns: {} as Record<string, number>,
+      referrers: {} as Record<string, number>
+    };
+
+    data.forEach(enrollment => {
+      if (enrollment.utm_source) {
+        stats.sources[enrollment.utm_source] = (stats.sources[enrollment.utm_source] || 0) + 1;
+      }
+      if (enrollment.utm_medium) {
+        stats.mediums[enrollment.utm_medium] = (stats.mediums[enrollment.utm_medium] || 0) + 1;
+      }
+      if (enrollment.utm_campaign) {
+        stats.campaigns[enrollment.utm_campaign] = (stats.campaigns[enrollment.utm_campaign] || 0) + 1;
+      }
+      if (enrollment.referrer) {
+        stats.referrers[enrollment.referrer] = (stats.referrers[enrollment.referrer] || 0) + 1;
+      }
+    });
+
+    return stats;
+  };
+
+  const filteredEnrollments = sortData(enrollments).filter(enrollment => {
+    return (
+      (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
+      (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
+      (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign)) &&
+      (!courseFilter || enrollment.course?.toLowerCase().includes(courseFilter.toLowerCase()))
+    );
+  });
+
+  const totalPages = Math.ceil(filteredEnrollments.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const sortedEnrollments = sortData(enrollments);
-  const currentEnrollments = sortedEnrollments.slice(startIndex, endIndex);
+  const currentEnrollments = filteredEnrollments.slice(startIndex, endIndex);
+  const utmStats = calculateUtmStats(enrollments);
+
+  const getUniqueCourses = () => {
+    const courses = new Set(enrollments.map(e => e.course));
+    return Array.from(courses).filter(Boolean).sort();
+  };
 
   const fetchEnrollments = async () => {
     try {
@@ -87,13 +143,16 @@ const AdminPage: React.FC = () => {
 
       if (error) throw error;
 
+      if (userRole === "admin" || userRole === "sales") {
+        setAdminEnrollments(data || []);
+      }
       setEnrollments(data || []);
+      toast.success("Data refreshed successfully");
     } catch (error) {
       console.error("Error fetching enrollments:", error);
       toast.error("Failed to fetch enrollment data");
     } finally {
       setRefreshing(false);
-      setLoading(false);
     }
   };
 
@@ -144,10 +203,21 @@ const AdminPage: React.FC = () => {
         "Work Experience",
         "Designation",
         "Date",
+        "UTM Source",
+        "UTM Medium",
+        "UTM Campaign",
+        "UTM Term",
+        "UTM Content",
+        "Referrer",
+        "Landing Page URL",
+        "FB Click ID",
+        "Google Click ID",
+        "TikTok Click ID",
+        "MS Click ID"
       ];
       const csvContent = [
         headers.join(","),
-        ...sortedEnrollments.map((enrollment, index) =>
+        ...filteredEnrollments.map((enrollment, index) =>
           [
             index + 1,
             enrollment.full_name,
@@ -157,7 +227,18 @@ const AdminPage: React.FC = () => {
             enrollment.course,
             enrollment.work_experience,
             enrollment.designation,
-            new Date(enrollment.created_at).toLocaleDateString(),
+            formatDateTimeIST(enrollment.created_at),
+            enrollment.utm_source || "",
+            enrollment.utm_medium || "",
+            enrollment.utm_campaign || "",
+            enrollment.utm_term || "",
+            enrollment.utm_content || "",
+            enrollment.referrer || "",
+            enrollment.landing_page_url || "",
+            enrollment.fbclid || "",
+            enrollment.gclid || "",
+            enrollment.ttclid || "",
+            enrollment.msclkid || ""
           ].join(",")
         ),
       ].join("\n");
@@ -180,6 +261,18 @@ const AdminPage: React.FC = () => {
     }
   };
 
+  const formatDateTimeIST = (dateStr: string) => {
+    return new Date(dateStr).toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -195,7 +288,7 @@ const AdminPage: React.FC = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto pt-8 mt-16">
         <div className="mb-8 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Lead Dashboard</h1>
@@ -257,6 +350,125 @@ const AdminPage: React.FC = () => {
                   </button>
                 )}
               </nav>
+            </div>
+          )}
+
+          <div className="p-4 border-b border-gray-200">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-medium text-gray-900">Filters</h3>
+              <button
+                onClick={() => setShowUtmStats(!showUtmStats)}
+                className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-500"
+              >
+                {showUtmStats ? "Hide Stats" : "Show Stats"}
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <select
+                className="border border-gray-300 rounded-md px-3 py-2 bg-white"
+                value={courseFilter}
+                onChange={(e) => setCourseFilter(e.target.value)}
+              >
+                <option value="">All Courses</option>
+                <option value="Data Analytics">Data Analytics</option>
+                <option value="No-Code Development">No-Code Development</option>
+                <option value="Product Management">Product Management</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Filter by UTM Source"
+                className="border border-gray-300 rounded-md px-3 py-2"
+                value={utmFilter.source}
+                onChange={(e) => setUtmFilter(prev => ({ ...prev, source: e.target.value }))}
+              />
+              <input
+                type="text"
+                placeholder="Filter by UTM Medium"
+                className="border border-gray-300 rounded-md px-3 py-2"
+                value={utmFilter.medium}
+                onChange={(e) => setUtmFilter(prev => ({ ...prev, medium: e.target.value }))}
+              />
+              <input
+                type="text"
+                placeholder="Filter by UTM Campaign"
+                className="border border-gray-300 rounded-md px-3 py-2"
+                value={utmFilter.campaign}
+                onChange={(e) => setUtmFilter(prev => ({ ...prev, campaign: e.target.value }))}
+              />
+            </div>
+            {courseFilter && (
+              <div className="mt-2 text-sm text-gray-600">
+                Showing enrollments for: <span className="font-medium">{courseFilter}</span>
+                <button
+                  onClick={() => setCourseFilter("")}
+                  className="ml-2 text-blue-600 hover:text-blue-500"
+                >
+                  Clear
+                </button>
+              </div>
+            )}
+          </div>
+
+          {showUtmStats && (
+            <div className="p-4 border-b border-gray-200 bg-gray-50">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Sources</h4>
+                  <div className="space-y-1">
+                    {Object.entries(utmStats.sources)
+                      .sort(([,a], [,b]) => b - a)
+                      .slice(0, 5)
+                      .map(([source, count]) => (
+                        <div key={source} className="flex justify-between text-sm">
+                          <span className="text-gray-600">{source}</span>
+                          <span className="text-gray-900">{count}</span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Mediums</h4>
+                  <div className="space-y-1">
+                    {Object.entries(utmStats.mediums)
+                      .sort(([,a], [,b]) => b - a)
+                      .slice(0, 5)
+                      .map(([medium, count]) => (
+                        <div key={medium} className="flex justify-between text-sm">
+                          <span className="text-gray-600">{medium}</span>
+                          <span className="text-gray-900">{count}</span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Campaigns</h4>
+                  <div className="space-y-1">
+                    {Object.entries(utmStats.campaigns)
+                      .sort(([,a], [,b]) => b - a)
+                      .slice(0, 5)
+                      .map(([campaign, count]) => (
+                        <div key={campaign} className="flex justify-between text-sm">
+                          <span className="text-gray-600">{campaign}</span>
+                          <span className="text-gray-900">{count}</span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Referrers</h4>
+                  <div className="space-y-1">
+                    {Object.entries(utmStats.referrers)
+                      .sort(([,a], [,b]) => b - a)
+                      .slice(0, 5)
+                      .map(([referrer, count]) => (
+                        <div key={referrer} className="flex justify-between text-sm">
+                          <span className="text-gray-600">{referrer}</span>
+                          <span className="text-gray-900">{count}</span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
@@ -337,6 +549,30 @@ const AdminPage: React.FC = () => {
                           <ArrowUpDown className="h-4 w-4" />
                         </div>
                       </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        UTM Source
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        UTM Medium
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        UTM Campaign
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Referrer
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
@@ -384,7 +620,27 @@ const AdminPage: React.FC = () => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            {new Date(enrollment.created_at).toLocaleDateString()}
+                            {formatDateTimeIST(enrollment.created_at)}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">
+                            {enrollment.utm_source || "-"}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">
+                            {enrollment.utm_medium || "-"}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">
+                            {enrollment.utm_campaign || "-"}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">
+                            {enrollment.referrer || "-"}
                           </div>
                         </td>
                       </tr>
@@ -443,6 +699,17 @@ const AdminPage: React.FC = () => {
                           "Work Experience",
                           "Designation",
                           "Date",
+                          "UTM Source",
+                          "UTM Medium",
+                          "UTM Campaign",
+                          "UTM Term",
+                          "UTM Content",
+                          "Referrer",
+                          "Landing Page URL",
+                          "FB Click ID",
+                          "Google Click ID",
+                          "TikTok Click ID",
+                          "MS Click ID"
                         ];
                         const csvContent = [
                           headers.join(","),
@@ -456,9 +723,18 @@ const AdminPage: React.FC = () => {
                               enrollment.course,
                               enrollment.work_experience,
                               enrollment.designation,
-                              new Date(
-                                enrollment.created_at
-                              ).toLocaleDateString(),
+                              formatDateTimeIST(enrollment.created_at),
+                              enrollment.utm_source || "",
+                              enrollment.utm_medium || "",
+                              enrollment.utm_campaign || "",
+                              enrollment.utm_term || "",
+                              enrollment.utm_content || "",
+                              enrollment.referrer || "",
+                              enrollment.landing_page_url || "",
+                              enrollment.fbclid || "",
+                              enrollment.gclid || "",
+                              enrollment.ttclid || "",
+                              enrollment.msclkid || ""
                             ].join(",")
                           ),
                         ].join("\n");
@@ -511,6 +787,17 @@ const AdminPage: React.FC = () => {
                           "Work Experience",
                           "Designation",
                           "Date",
+                          "UTM Source",
+                          "UTM Medium",
+                          "UTM Campaign",
+                          "UTM Term",
+                          "UTM Content",
+                          "Referrer",
+                          "Landing Page URL",
+                          "FB Click ID",
+                          "Google Click ID",
+                          "TikTok Click ID",
+                          "MS Click ID"
                         ];
                         const csvContent = [
                           headers.join(","),
@@ -524,9 +811,18 @@ const AdminPage: React.FC = () => {
                               enrollment.course,
                               enrollment.work_experience,
                               enrollment.designation,
-                              new Date(
-                                enrollment.created_at
-                              ).toLocaleDateString(),
+                              formatDateTimeIST(enrollment.created_at),
+                              enrollment.utm_source || "",
+                              enrollment.utm_medium || "",
+                              enrollment.utm_campaign || "",
+                              enrollment.utm_term || "",
+                              enrollment.utm_content || "",
+                              enrollment.referrer || "",
+                              enrollment.landing_page_url || "",
+                              enrollment.fbclid || "",
+                              enrollment.gclid || "",
+                              enrollment.ttclid || "",
+                              enrollment.msclkid || ""
                             ].join(",")
                           ),
                         ].join("\n");

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import toast from "react-hot-toast";
-import { trackFormSubmission } from "../utils/metaPixel";
+import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 import { useNavigate } from "react-router-dom";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -56,6 +56,9 @@ export default function EnrollmentModal({
     }
 
     try {
+      // Get UTM data
+      const utmData = getUTMDataForDB();
+
       // Store enrollment data
       const { error } = await supabase.from("enrollments").insert([
         {
@@ -66,6 +69,18 @@ export default function EnrollmentModal({
           course: formData.course,
           work_experience: formData.workExperience,
           designation: formData.designation,
+          // UTM and tracking data
+          utm_source: utmData.utm_source,
+          utm_medium: utmData.utm_medium,
+          utm_campaign: utmData.utm_campaign,
+          utm_term: utmData.utm_term,
+          utm_content: utmData.utm_content,
+          referrer: utmData.referrer,
+          landing_page_url: utmData.full_url,
+          fbclid: utmData.fbclid,
+          gclid: utmData.gclid,
+          ttclid: utmData.ttclid,
+          msclkid: utmData.msclkid
         },
       ]);
 
@@ -264,6 +279,10 @@ export default function EnrollmentModal({
                     setFormData({ ...formData, designation: e.target.value })
                   }
                 />
+              </div>
+
+              <div className="text-xs text-gray-400 mt-2">
+                By submitting this form, you acknowledge that we collect non-personal campaign data for analytics purposes.
               </div>
 
               <button

@@ -45,18 +45,9 @@ const hashData = async (data: string): Promise<string> => {
       .map((b) => b.toString(16).padStart(2, "0"))
       .join("");
   } catch (error) {
-    console.error("Error hashing data:", error);
+    // console.error("Error hashing data:", error);
     throw error;
   }
-};
-
-const getCookie = (name: string): string | null => {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) {
-    return parts.pop()?.split(";").shift() || null;
-  }
-  return null;
 };
 
 const getTrackingData = () => {
@@ -74,6 +65,23 @@ const getTrackingData = () => {
     utm_content: urlParams.get("utm_content") || "",
     referrer: document.referrer || "direct",
     full_url: window.location.href,
+  };
+};
+
+export const getUTMDataForDB = () => {
+  const trackingData = getTrackingData();
+  return {
+    utm_source: trackingData.utm_source,
+    utm_medium: trackingData.utm_medium,
+    utm_campaign: trackingData.utm_campaign,
+    utm_term: trackingData.utm_term,
+    utm_content: trackingData.utm_content,
+    referrer: trackingData.referrer,
+    landing_page_url: trackingData.full_url,
+    fbclid: trackingData.fbclid,
+    gclid: trackingData.gclid,
+    ttclid: trackingData.ttclid,
+    msclkid: trackingData.msclkid
   };
 };
 
@@ -114,7 +122,7 @@ export const trackFormSubmission = async (
             fbc: trackingData.fbclid
               ? `fb.1.${Date.now()}.${trackingData.fbclid}`
               : undefined,
-            fbp: getCookie("_fbp") || undefined,
+            fbp: undefined,
           },
           custom_data: {
             content_name: "registration_form",
@@ -150,7 +158,7 @@ export const trackFormSubmission = async (
     }
 
   } catch (error) {
-    console.error("❌ Error in form submission tracking:", error);
+    // console.error("❌ Error in form submission tracking:", error);
   }
 };
 
@@ -161,15 +169,15 @@ export const trackViewContent = (): void => {
     const pixelId = import.meta.env.VITE_META_PIXEL_ID;
     const accessToken = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
 
-    console.debug("Meta Configuration:", {
-      pixelId,
-      hasAccessToken: !!accessToken,
-      apiEndpoint: META_CONVERSION_API_URL,
-    });
+    // console.debug("Meta Configuration:", {
+    //   pixelId,
+    //   hasAccessToken: !!accessToken,
+    //   apiEndpoint: META_CONVERSION_API_URL,
+    // });
 
     if (!accessToken) {
-      console.warn("⚠️ Meta Pixel access token not found");
-      console.groupEnd();
+      // console.warn("⚠️ Meta Pixel access token not found");
+      // console.groupEnd();
       return;
     }
 
@@ -209,11 +217,11 @@ export const trackViewContent = (): void => {
     };
 
     // console.info("📦 Preparing conversion API payload");
-    console.debug("Full Payload:", {
-      eventName: "ViewContent",
-      pixelId,
-      payload: { ...payload, access_token: "***" }, // Hide access token in logs
-    });
+    // console.debug("Full Payload:", {
+    //   eventName: "ViewContent",
+    //   pixelId,
+    //   payload: { ...payload, access_token: "***" }, // Hide access token in logs
+    // });
 
     // console.info("📤 Sending data to Meta Conversion API");
     fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
@@ -224,15 +232,15 @@ export const trackViewContent = (): void => {
       body: JSON.stringify(payload),
     })
       .then(() => {
-        //console.info("✅ View content tracking completed successfully");
-        console.groupEnd();
+        // console.info("✅ View content tracking completed successfully");
+        // console.groupEnd();
       })
       .catch((error) => {
-        console.error("❌ Error sending view content tracking:", error);
-        console.groupEnd();
+        // console.error("❌ Error sending view content tracking:", error);
+        // console.groupEnd();
       });
   } catch (error) {
-    console.error("❌ Error in trackViewContent:", error);
-    console.groupEnd();
+    // console.error("❌ Error in trackViewContent:", error);
+    // console.groupEnd();
   }
 };
