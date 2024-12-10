@@ -137,13 +137,14 @@ import NoCodeFAQFB from "./pages/courses/noCodeToolFB/NoCodeFAQFB";
 import TimelineFB from "./pages/courses/noCodeToolFB/TimelineFB";
 import NoCodeDidYouKnow from "./pages/courses/noCodeToolFB/NoCodeDidYouKnow";
 import NoCodeCertificateFB from "./pages/courses/noCodeToolFB/NoCodeCertificateFB";
-import { XSATHeading } from "./pages/XSAT/LandingPage/xsatHeading";
 import { XSATInfo } from "./pages/XSAT/LandingPage/XSATInfo";
-import { XSATAbout } from "./pages/XSAT/LandingPage/xsatAbout";
-import { XSATKeyDates } from "./pages/XSAT/LandingPage/xsatKeyDates";
-import { XSATExamInfo } from "./pages/XSAT/LandingPage/xsatExamInfo";
+
+import OtherEnquiries from "./pages/admin/OtherEnquiries";
+import { XSATHero } from "./pages/XSAT/LandingPage/XSATHero";
+import { XSATAbout } from "./pages/XSAT/LandingPage/XSATAbout";
+import { XSATKeyDates } from "./pages/XSAT/LandingPage/XSATKeyDates";
+import { XSATExamInfo } from "./pages/XSAT/LandingPage/XSATExamInfo";
 import { XSATFAQ } from "./pages/XSAT/LandingPage/XSATFAQ";
-import { XSATHero } from "./pages/XSAT/LandingPage/xsatHero";
 
 // Utility function to check if current route is a dummy route
 function isDummyRoute(pathname: string): boolean {
@@ -152,6 +153,7 @@ function isDummyRoute(pathname: string): boolean {
     "/courses/data-analytics-program-fb",
     "/courses/no-code-tool-program-fb",
     "/xsat",
+    "/thank-you",
   ];
   return adRoutes.includes(pathname);
 }
@@ -361,14 +363,13 @@ function AboutPage() {
 function XSAT() {
   return (
     <Suspense fallback={<Loader />}>
-      <XSATHeading />
+      {/* <XSATHeading /> */}
       <XSATHero />
       <XSATInfo />
       <XSATAbout />
       <XSATKeyDates />
       <XSATExamInfo />
       <XSATFAQ />
-      <Footer />
     </Suspense>
   );
 }
@@ -408,9 +409,10 @@ function App() {
             <Loader />
           ) : (
             <>
-              {!isDummyRoute(window.location.pathname) && (
-                <Navbar onEnrollClick={handleEnrollClick} />
-              )}
+              {!isDummyRoute(location.pathname) &&
+                location.pathname !== "/xsat" && (
+                  <Navbar onEnrollClick={handleEnrollClick} />
+                )}
 
               <EnrollmentModal
                 isOpen={isEnrollmentModalOpen}
@@ -573,6 +575,10 @@ function App() {
                         </RoleProtectedRoute>
                       </Suspense>
                     }
+                  />
+                  <Route
+                    path="/admin/other-enquiries"
+                    element={<OtherEnquiries />}
                   />
 
                   {/* Dummy Page FOR ADS */}

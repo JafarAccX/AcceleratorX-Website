@@ -1,8 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { authService } from '../../services/authService';
-import { FileText, Users, LogOut } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { authService } from "../../services/authService";
+import { FileText, Users, LogOut, Inbox } from "lucide-react";
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleLogout = () => {
     authService.logout();
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -20,12 +20,15 @@ const AdminDashboard: React.FC = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto  pt-8 mt-16">
         <div className="mb-8 flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Admin Dashboard
+            </h1>
             <p className="mt-2 text-sm text-gray-600">
-              Welcome, {role === 'admin' ? 'Administrator' : 'Sales Team Member'}
+              Welcome,{" "}
+              {role === "admin" ? "Administrator" : "Sales Team Member"}
             </p>
           </div>
           <button
@@ -38,11 +41,11 @@ const AdminDashboard: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {role === 'admin' && (
+          {role === "admin" && (
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate('/admin/blogs')}
+              onClick={() => navigate("/admin/blogs")}
               className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
             >
               <div className="flex items-center gap-4">
@@ -50,8 +53,12 @@ const AdminDashboard: React.FC = () => {
                   <FileText className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-gray-900">Blog Management</h2>
-                  <p className="text-gray-500 mt-1">Manage and create blog posts</p>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Blog Management
+                  </h2>
+                  <p className="text-gray-500 mt-1">
+                    Manage and create blog posts
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -60,7 +67,7 @@ const AdminDashboard: React.FC = () => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => navigate('/admin/enrollments')}
+            onClick={() => navigate("/admin/enrollments")}
             className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
           >
             <div className="flex items-center gap-4">
@@ -68,11 +75,38 @@ const AdminDashboard: React.FC = () => {
                 <Users className="h-6 w-6 text-green-600" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-gray-900">Enrollment Data</h2>
-                <p className="text-gray-500 mt-1">View and manage enrollment submissions</p>
+                <h2 className="text-xl font-semibold text-gray-900">
+                  Enrollment Data
+                </h2>
+                <p className="text-gray-500 mt-1">
+                  View and manage enrollment submissions
+                </p>
               </div>
             </div>
           </motion.div>
+
+          {role === "admin" && (
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate("/admin/other-enquiries")}
+              className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-purple-100 rounded-lg">
+                  <Inbox className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Other Enquiries
+                  </h2>
+                  <p className="text-gray-500 mt-1">
+                    View and manage other enquiries
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     </motion.div>

@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import companyLogo from "/assets/companylogo.png";
+
+const xsatNavItems = [
+  { label: "About", href: "#about" },
+  { label: "Why Appear", href: "#whyappear" },
+  { label: "Key Dates", href: "#dates" },
+  { label: "Exam Info", href: "#exam" },
+  { label: "FAQ", href: "#faq" },
+];
 
 export default function Navbar({
   onEnrollClick,
@@ -11,13 +19,32 @@ export default function Navbar({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isXSATRoute = location.pathname === '/xsat';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (href: string) => {
+    setIsOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const menuItems = [
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Hire With Us", path: "/hire-with-us" },
     { label: "XSAT", path: "/xsat" },
-    // { label: "Become a Mentor", path: "/become-a-mentor" },
   ];
 
   const courses = [
@@ -25,6 +52,77 @@ export default function Navbar({
     { label: "Data Analytics", path: "/courses/data-analytics" },
     { label: "No-Code Development", path: "/courses/no-code-tool-program" },
   ];
+
+  if (isXSATRoute) {
+    return (
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-black backdrop-blur-sm shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-2xl mt-2 font-bold text-white"
+            >
+              <Link to="https://acceleratorx.org/">
+                <img src="/xsat-bg.png" alt="xsat" className="w-auto h-10" />
+              </Link>
+            </motion.div>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {xsatNavItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-white hover:text-gray-300 transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-white"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.button>
+          </div>
+
+          {/* Mobile Menu */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="md:hidden bg-black/95 py-4"
+              >
+                <div className="flex flex-col space-y-4">
+                  {xsatNavItems.map((item) => (
+                    <button
+                      key={item.label}
+                      onClick={() => scrollToSection(item.href)}
+                      className="text-white hover:text-gray-300 transition-colors px-4"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <motion.nav
