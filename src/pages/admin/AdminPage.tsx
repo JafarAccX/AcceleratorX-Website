@@ -63,6 +63,7 @@ const AdminPage: React.FC = () => {
   });
   const [courseFilter, setCourseFilter] = useState("");
   const [showUtmStats, setShowUtmStats] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const userRole = authService.getRole();
 
@@ -114,12 +115,16 @@ const AdminPage: React.FC = () => {
   };
 
   const filteredEnrollments = sortData(enrollments).filter(enrollment => {
-    return (
+    const searchMatches = searchQuery === "" || 
+      enrollment.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      enrollment.phone_number?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      enrollment.email?.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return searchMatches && 
       (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
       (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
       (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign)) &&
-      (!courseFilter || enrollment.course?.toLowerCase().includes(courseFilter.toLowerCase()))
-    );
+      (!courseFilter || enrollment.course?.toLowerCase().includes(courseFilter.toLowerCase()));
   });
 
   const totalPages = Math.ceil(filteredEnrollments.length / ITEMS_PER_PAGE);
@@ -364,6 +369,13 @@ const AdminPage: React.FC = () => {
               </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <input
+                type="text"
+                placeholder="Search by name, email, or phone"
+                className="border border-gray-300 rounded-md px-3 py-2"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
               <select
                 className="border border-gray-300 rounded-md px-3 py-2 bg-white"
                 value={courseFilter}
