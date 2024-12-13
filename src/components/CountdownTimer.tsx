@@ -4,7 +4,7 @@ import { TimeUnit } from "./TimeUnit";
 
 export const CountdownTimer = () => {
   // Move target date to an environment variable or configuration in a real application
-  const targetDate = new Date("2024-12-14T02:59:59");
+  const targetDate = new Date("2024-12-14T10:59:59");
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isHovered, setIsHovered] = useState(false);
 
