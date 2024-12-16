@@ -193,7 +193,7 @@ const Team = () => {
               <div className="relative rounded-2xl overflow-hidden border border-blue-500/30">
                 <div className="w-180 h-144 mx-auto">
                   <img
-                    src="/assets/team.jpg"
+                    src="/assets/group.jpg"
                     alt="AcceleratorX Team"
                     className="w-full h-full object-cover transform transition-transform duration-700"
                   />
