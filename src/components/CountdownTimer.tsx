@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { TimeUnit } from "./TimeUnit";
 
 export const CountdownTimer = () => {
-  const targetDate = new Date("2024-12-16T17:59:59");
+  const targetDate = new Date("2024-12-16T19:59:59");
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isHovered, setIsHovered] = useState(false);
 
