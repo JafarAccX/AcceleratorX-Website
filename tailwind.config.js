@@ -15,6 +15,8 @@ export default {
         "float-delayed": "float 6s ease-in-out 3s infinite",
         slide: "slide 15s linear infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "scroll": "scroll 30s linear infinite",
+        "scroll-reverse": "scroll-reverse 30s linear infinite"
       },
       keyframes: {
         float: {
@@ -22,9 +24,17 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         slide: {
-          "0%": { backgroundPosition: "0% 0" },
-          "100%": { backgroundPosition: "100% 0" },
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
         },
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" }
+        },
+        "scroll-reverse": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" }
+        }
       },
     },
   },
