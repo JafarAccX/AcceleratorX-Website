@@ -149,9 +149,14 @@ export const XSATHero = () => {
                   alt="AcceleratorX Logo"
                   className="h-16 md:h-20 lg:h-24 object-contain"
                 />
-                <h3 className="text-xl md:text-2xl lg:text-4xl font-bold bg-gradient-to-r from-orange-500 via-white to-green-500 bg-clip-text text-transparent">
-                  Empowered by
-                </h3>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl md:text-2xl lg:text-4xl font-bold bg-gradient-to-r from-orange-500 via-white to-green-500 bg-clip-text text-transparent">
+                    Empowered by
+                  </h3>
+                  <p className="text-sm md:text-base text-gray-300/80">
+                    Backed by a group of more than 140 industry leaders
+                  </p>
+                </div>
               </div>
             </div>
 

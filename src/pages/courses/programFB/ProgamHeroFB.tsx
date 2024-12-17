@@ -98,7 +98,7 @@ export default function ProgramHeroFB() {
                   }}
                 >
                   <span className="text-gray-300 font-semibold text-sm sm:text-base">
-                    Next Cohort Starts on 15 Dec
+                    Next Cohort Starts on 30 Dec
                   </span>
                 </motion.div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
@@ -143,14 +143,14 @@ export default function ProgramHeroFB() {
                     <Counter end={2} />
                     <p className="text-sm text-gray-400">Specialisations</p>
                   </div>
-                  <div>
+                  {/* <div>
                     <Counter end={32000} suffix="+" />
                     <p className="text-sm text-gray-400">Jobs</p>
-                  </div>
-                  <div>
+                  </div> */}
+                  {/* <div>
                     <Counter end={32} suffix="LPA+" />
                     <p className="text-sm text-gray-400">Salary</p>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
 

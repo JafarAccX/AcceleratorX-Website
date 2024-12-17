@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const dates = [
   {
     event: "Registration Opens",
-    date: "11th December 2024",
+    date: "16th December 2024",
     time: "10:00 AM IST",
   },
   {
