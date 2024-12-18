@@ -69,7 +69,7 @@ const StickyBookNavFB = () => {
                   💡
                 </span>
                 Application Deadline is{" "}
-                <span className="font-bold">10th Dec</span>
+                <span className="font-bold">30th Dec</span>
                 <span className="hidden sm:inline-block animate-pulse">🎯</span>
               </p>
             </div>
