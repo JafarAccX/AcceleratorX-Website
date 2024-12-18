@@ -480,7 +480,7 @@ function App() {
                     path="/admin/blogs"
                     element={
                       <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute requiredRole="admin">
+                        <RoleProtectedRoute requiredRole="blog_user">
                           <BlogDashboard />
                         </RoleProtectedRoute>
                       </Suspense>
@@ -490,7 +490,7 @@ function App() {
                     path="/admin/blogs/new"
                     element={
                       <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute requiredRole="admin">
+                        <RoleProtectedRoute requiredRole="blog_user">
                           <BlogForm onClose={() => {}} onSuccess={() => {}} />
                         </RoleProtectedRoute>
                       </Suspense>
@@ -500,7 +500,7 @@ function App() {
                     path="/admin/blogs/edit/:id"
                     element={
                       <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute requiredRole="admin">
+                        <RoleProtectedRoute requiredRole="blog_user">
                           <BlogForm onClose={() => {}} onSuccess={() => {}} />
                         </RoleProtectedRoute>
                       </Suspense>

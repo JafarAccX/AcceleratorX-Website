@@ -24,11 +24,15 @@ const AdminDashboard: React.FC = () => {
         <div className="mb-8 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
-              Admin Dashboard
+              {role === "blog_user" ? "Blog Dashboard" : "Admin Dashboard"}
             </h1>
             <p className="mt-2 text-sm text-gray-600">
               Welcome,{" "}
-              {role === "admin" ? "Administrator" : "Sales Team Member"}
+              {role === "admin" 
+                ? "Administrator" 
+                : role === "blog_user"
+                ? "Blog Manager"
+                : "Sales Team Member"}
             </p>
           </div>
           <button
@@ -41,7 +45,7 @@ const AdminDashboard: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {role === "admin" && (
+          {(role === "admin" || role === "blog_user") && (
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -64,26 +68,28 @@ const AdminDashboard: React.FC = () => {
             </motion.div>
           )}
 
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => navigate("/admin/enrollments")}
-            className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
-          >
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <Users className="h-6 w-6 text-green-600" />
+          {role !== "blog_user" && (
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate("/admin/enrollments")}
+              className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-green-100 rounded-lg">
+                  <Users className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Enrollment Data
+                  </h2>
+                  <p className="text-gray-500 mt-1">
+                    View and manage enrollment submissions
+                  </p>
+                </div>
               </div>
-              <div>
-                <h2 className="text-xl font-semibold text-gray-900">
-                  Enrollment Data
-                </h2>
-                <p className="text-gray-500 mt-1">
-                  View and manage enrollment submissions
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
 
           {role === "admin" && (
             <motion.div
