@@ -13,6 +13,11 @@ import { Toaster } from "react-hot-toast";
 import RoleProtectedRoute from "./components/RoleProtectedRoute";
 import ThankYouPage from "./components/ThankYouPage";
 
+// Meta Pixel
+
+import { HelmetProvider } from "react-helmet-async";
+import { MetaPixel } from "./components/MetaPixel";
+
 // Lazy load components
 const Hero = lazy(() => import("./components/Hero"));
 const Features = lazy(() => import("./components/Features"));
@@ -399,8 +404,10 @@ function App() {
   }, []);
 
   return (
+    <HelmetProvider>
     <CourseProvider>
       <Router basename="/">
+      <MetaPixel/>
         <div className="relative">
           <Toaster position="top-center" />
           <ScrollToTop />
@@ -622,6 +629,7 @@ function App() {
         </div>
       </Router>
     </CourseProvider>
+    </HelmetProvider>
   );
 }
 
