@@ -1,13 +1,3 @@
-export interface LeadLocation {
-  ip: string;
-  city: string;
-  region: string;
-  country: string;
-  postal: string;
-  latitude: string;
-  longitude: string;
-}
-
 export interface TrackingData {
   fbclid: string;
   gclid: string;
