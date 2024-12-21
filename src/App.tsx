@@ -416,6 +416,7 @@ function App() {
             <Loader />
           ) : (
             <>
+
               {!isDummyRoute(location.pathname) &&
                 location.pathname !== "/xsat" && (
                   <Navbar onEnrollClick={handleEnrollClick} />
@@ -617,12 +618,15 @@ function App() {
                 </Routes>
                 {!isDummyRoute(window.location.pathname) && (
                   <>
+
                     <Navbar onEnrollClick={handleEnrollClick} />
                     <ChatWidget />
                   </>
+
                 )}
               </main>
             </>
+
           )}
 
           {!isLoading && !isDummyRoute(window.location.pathname) && <Footer />}
@@ -642,11 +646,20 @@ function RouteLogic({
 
   useEffect(() => {
     // Set default course context based on route
-    if (location.pathname === "/courses/product-management") {
+    if (
+      location.pathname === "/courses/product-management" ||
+      location.pathname === "/courses/product-management-program-fb"
+    ) {
       setSelectedCourse("Product Management");
-    } else if (location.pathname === "/courses/data-analytics") {
+    } else if (
+      location.pathname === "/courses/data-analytics" ||
+      location.pathname === "/courses/data-analytics-program-fb"
+    ) {
       setSelectedCourse("Data Analytics");
-    } else if (location.pathname === "/courses/no-code-tool-program") {
+    } else if (
+      location.pathname === "/courses/no-code-tool-program" ||
+      location.pathname === "/courses/no-code-tool-program-fb"
+    ) {
       setSelectedCourse("No-Code Development");
     } else {
       setSelectedCourse(null); // Reset for non-course pages

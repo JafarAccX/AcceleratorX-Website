@@ -36,11 +36,11 @@ export default function EnrollmentModal({
     designation: "",
   });
 
-  const courseOptions = [
-    "Product Management",
-    "Data Analytics",
-    "No-Code Development",
-  ];
+  // const courseOptions = [
+  //   "Product Management",
+  //   "Data Analytics",
+  //   "No-Code Development",
+  // ];
 
   useEffect(() => {
     if (selectedCourse) {
@@ -140,7 +140,7 @@ export default function EnrollmentModal({
                   <p className="text-xs md:text-sm text-gray-300">
                     {selectedCourse
                       ? `You are enrolling for the ${selectedCourse} course.`
-                      : "Start Your Product Management or Data Analytics Journey"}
+                      : "Start Your Product Management or Data Analytics Journey or No Code Development Journey."}
                   </p>
                 </div>
               </div>
@@ -215,6 +215,25 @@ export default function EnrollmentModal({
                         />
                       </div>
                     </div>
+                    <div>
+                      <label
+                        htmlFor="designation"
+                        className="block text-sm font-medium text-gray-300 mb-1"
+                      >
+                        Designation
+                      </label>
+                      <input
+                        type="text"
+                        id="designation"
+                        required
+                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="Designation"
+                        value={formData.designation}
+                        onChange={(e) =>
+                          setFormData({ ...formData, designation: e.target.value })
+                        }
+                      />
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
@@ -266,7 +285,7 @@ export default function EnrollmentModal({
                       </select>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <label
                         htmlFor="course"
                         className="block text-sm font-medium text-gray-300 mb-1"
@@ -289,27 +308,9 @@ export default function EnrollmentModal({
                           </option>
                         ))}
                       </select>
-                    </div>
+                    </div> */}
 
-                    <div>
-                      <label
-                        htmlFor="designation"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
-                        Designation
-                      </label>
-                      <input
-                        type="text"
-                        id="designation"
-                        required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                        placeholder="Role"
-                        value={formData.designation}
-                        onChange={(e) =>
-                          setFormData({ ...formData, designation: e.target.value })
-                        }
-                      />
-                    </div>
+                    
                   </div>
 
                   <div className="mt-4">
