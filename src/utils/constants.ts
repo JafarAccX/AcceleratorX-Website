@@ -286,11 +286,11 @@ export const mentors = [
     transitions: "Over 100+",
   },
   {
-    name: "Anand Muralidharan",
-    role: "Ex SPM at Paypal",
-    experience: "13 Years",
-    image: "/assets/mentor/anand.png",
-    linkedin: "https://www.linkedin.com/in/anand-m-6518b752/",
+    name: "Subhasis Chandra",
+    role: "SPM at Publicis Sapient",
+    experience: "10+ Years",
+    image: "/assets/mentor/subhasis.png",
+    linkedin: "https://www.linkedin.com/in/subhasis-chandra",
     transitions: "Over 500+",
   },
   {
