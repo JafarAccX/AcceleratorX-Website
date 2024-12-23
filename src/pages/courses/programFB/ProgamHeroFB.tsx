@@ -98,7 +98,7 @@ export default function ProgramHeroFB() {
                   }}
                 >
                   <span className="text-gray-300 font-semibold text-sm sm:text-base">
-                    Next Cohort Starts on 30 Dec
+                    Next Cohort Starts on 19 Jan
                   </span>
                 </motion.div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
