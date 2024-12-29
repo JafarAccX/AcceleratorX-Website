@@ -10,12 +10,12 @@ const dates = [
   },
   {
     event: "Registration Closes",
-    date: "2nd January 2025",
+    date: "30th January 2025",
     time: "11:59 PM IST",
   },
   {
     event: "Exam Date",
-    date: "5 - 7 January 2025",
+    date: "2-5th February 2025",
     time: "9:00 AM - 12:00 PM IST",
   },
 ];
