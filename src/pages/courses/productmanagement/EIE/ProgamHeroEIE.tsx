@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import EnrollmentModal from '../../../../components/EnrollmentModal';
 import { Phone, Users } from 'lucide-react';
+import productPageBannerEIE  from "/assets/productpageBannerEIE.png";
 
 const navLinks = [
   { name: "Highlights", id: "highlights" },
@@ -157,7 +158,7 @@ export default function ProgramHeroEIE() {
           >
             <div className="relative rounded-lg overflow-hidden">
               <img
-                src="/assets/productpageBanner.png"
+                src={productPageBannerEIE}
                 alt="Product Management Workshop"
                 className="w-full rounded-lg shadow-2xl"
               />
