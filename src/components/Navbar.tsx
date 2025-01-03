@@ -56,7 +56,7 @@ export default function Navbar({
   if (isXSATRoute) {
     return (
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
           isScrolled ? "bg-black backdrop-blur-sm shadow-lg" : "bg-transparent"
         }`}
       >
@@ -128,7 +128,7 @@ export default function Navbar({
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed w-full top-0 z-50 bg-black/95 border-b border-white/10"
+      className="fixed w-full top-0 z-[9999] bg-black/95 border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -172,7 +172,7 @@ export default function Navbar({
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute left-0 mt-2 w-48 bg-black border border-white/10 rounded-lg shadow-lg z-50"
+                    className="absolute left-0 mt-2 w-48 bg-black border border-white/10 rounded-lg shadow-lg z-[9999]"
                     style={{ pointerEvents: isDropdownOpen ? "auto" : "none" }}
                   >
                     {courses.map((course) => (

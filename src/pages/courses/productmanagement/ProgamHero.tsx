@@ -55,8 +55,10 @@ export default function ProgramHero() {
     handleModalClose();
   };
 
+
+
   return (
-    <div className="relative pt-24 pb-16 overflow-hidden">
+    <div className="relative pt-10 pb-16 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
@@ -163,7 +165,7 @@ export default function ProgramHero() {
             className="relative mt-8 lg:mt-0"
           >
             <img
-              src="/assets/productpagebanner.png"
+              src="/assets/productpagebanneraccex.png"
               alt="Product Management Workshop"
               className="w-full rounded-lg shadow-2xl"
             />

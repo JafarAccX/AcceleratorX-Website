@@ -1,10 +1,10 @@
-import { useState, useEffect, Suspense, lazy } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { ProgramProvider } from './pages/courses/productmanagement/context/ProgramContext';
+import { ProgramContent } from './pages/courses/productmanagement/components/ProgramContent';
+import { DataAnalyticsProvider } from './pages/courses/dataanalytics/context/DataAnalyticsContext';
+import { DataContent } from './pages/courses/dataanalytics/DataContent';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -12,13 +12,10 @@ import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
 import RoleProtectedRoute from "./components/RoleProtectedRoute";
 import ThankYouPage from "./components/ThankYouPage";
-
-// Meta Pixel
-
-import { HelmetProvider } from "react-helmet-async";
 import { MetaPixel } from "./components/MetaPixel";
+import { trackViewContent } from "./utils/metaPixel";
 
-// Lazy load components
+// Lazy imports
 const Hero = lazy(() => import("./components/Hero"));
 const Features = lazy(() => import("./components/Features"));
 const FAQ = lazy(() => import("./components/FAQ"));
@@ -28,7 +25,6 @@ const Blogs = lazy(() => import("./pages/blogs/Blogs"));
 const BlogDashboard = lazy(() => import("./pages/blogs/BlogDashboard"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const BlogForm = lazy(() => import("./pages/blogs/BlogForm"));
-// const ProtectedRoute = lazy(() => import("./components/ProtectedRoute"));
 const HeroAbout = lazy(() => import("./pages/aboutus/HeroAbout"));
 const Team = lazy(() => import("./pages/aboutus/Team"));
 const Values = lazy(() => import("./pages/aboutus/Values"));
@@ -36,122 +32,93 @@ const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 const LogoSlider = lazy(() => import("./components/LogoSlider"));
 const HireHero = lazy(() => import("./pages/hirewithus/HireHero"));
 const DataHero = lazy(() => import("./pages/courses/dataanalytics/DataHero"));
-const DataProgram = lazy(
-  () => import("./pages/courses/dataanalytics/DataProgram")
-);
+const DataProgram = lazy(() => import("./pages/courses/dataanalytics/DataProgram"));
 const CAPE = lazy(() => import("./pages/courses/dataanalytics/CAPE"));
-const DataPricing = lazy(
-  () => import("./pages/courses/dataanalytics/dataPricing")
-);
-const DataMentors = lazy(
-  () => import("./pages/courses/dataanalytics/DataMentors")
-);
-const DataSkillsTools = lazy(
-  () => import("./pages/courses/dataanalytics/DataSkillsTools")
-);
-const ProgramHighlights = lazy(
-  () => import("./pages/courses/productmanagement/ProgramHighlights")
-);
-const ProgramHero = lazy(
-  () => import("./pages/courses/productmanagement/ProgamHero")
-);
+const DataPricing = lazy(() => import("./pages/courses/dataanalytics/dataPricing"));
+const DataMentors = lazy(() => import("./pages/courses/dataanalytics/DataMentors"));
+const DataSkillsTools = lazy(() => import("./pages/courses/dataanalytics/DataSkillsTools"));
+const ProgramHighlights = lazy(() => import("./pages/courses/productmanagement/ProgramHighlights"));
+const ProgramHero = lazy(() => import("./pages/courses/productmanagement/ProgamHero"));
 const BYDP = lazy(() => import("./pages/courses/productmanagement/BYDP"));
-const BenefitsGrid = lazy(
-  () => import("./pages/courses/productmanagement/BenefitsGrid")
-);
+const BenefitsGrid = lazy(() => import("./pages/courses/productmanagement/BenefitsGrid"));
 const Mentors = lazy(() => import("./pages/courses/productmanagement/Mentors"));
-const SkillsAndTools = lazy(
-  () => import("./pages/courses/productmanagement/SkillsAndTools")
-);
+const SkillsAndTools = lazy(() => import("./pages/courses/productmanagement/SkillsAndTools"));
 const Pricing = lazy(() => import("./pages/courses/productmanagement/Pricing"));
 const EnrollmentModal = lazy(() => import("./components/EnrollmentModal"));
 const Privacy = lazy(() => import("./pages/Privacy/Privacy"));
 const Terms = lazy(() => import("./pages/Terms/Terms"));
-const SkillsAssessment = lazy(
-  () => import("./pages/courses/productmanagement/SkillAssessment")
-);
-const LearningJourney = lazy(
-  () => import("./pages/courses/productmanagement/LearningJourney")
-);
-const BecomeAMentorFeatures = lazy(
-  () => import("./components/BecomeAMentorFeatures")
-);
+const SkillsAssessment = lazy(() => import("./pages/courses/productmanagement/SkillAssessment"));
+const LearningJourney = lazy(() => import("./pages/courses/productmanagement/LearningJourney"));
+const BecomeAMentorFeatures = lazy(() => import("./components/BecomeAMentorFeatures"));
 const ChatWidget = lazy(() => import("./components/ChatWidget"));
 const StickyBookNav = lazy(() => import("./components/StickyBookNav"));
 const Refund = lazy(() => import("./pages/refund/Refund"));
 const NoCodeHero = lazy(() => import("./pages/courses/nocodeTool/NoCodeHero"));
-const NoCodeBenefitsGrid = lazy(
-  () => import("./pages/courses/nocodeTool/NoCodeBenefitsGrid")
-);
-const NoCodeLearningJourney = lazy(
-  () => import("./pages/courses/nocodeTool/NoCodeLearningJourney")
-);
-const TargetAudience = lazy(
-  () => import("./pages/courses/nocodeTool/TargetAudience")
-);
+const NoCodeBenefitsGrid = lazy(() => import("./pages/courses/nocodeTool/NoCodeBenefitsGrid"));
+const NoCodeLearningJourney = lazy(() => import("./pages/courses/nocodeTool/NoCodeLearningJourney"));
+const TargetAudience = lazy(() => import("./pages/courses/nocodeTool/TargetAudience"));
 const Timeline = lazy(() => import("./pages/courses/nocodeTool/Timeline"));
 const NoCodeTool = lazy(() => import("./pages/courses/nocodeTool/NoCodeTool"));
-const ProjectsSection = lazy(
-  () => import("./pages/courses/nocodeTool/ProjectSection")
-);
-const PricingSection = lazy(
-  () => import("./pages/courses/nocodeTool/PricingSection")
-);
+const ProjectsSection = lazy(() => import("./pages/courses/nocodeTool/ProjectSection"));
+const PricingSection = lazy(() => import("./pages/courses/nocodeTool/PricingSection"));
 const NoCodeFAQ = lazy(() => import("./pages/courses/nocodeTool/NoCodeFAQ"));
-// const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
+const ProgramCertificate = lazy(() => import("./pages/courses/productmanagement/ProgramCertificate"));
+const DataCertificate = lazy(() => import("./pages/courses/dataanalytics/DataCertificate"));
 
-// Context for managing course selection
+// FB Components
+const ProgramHeroFB = lazy(() => import("./pages/courses/programFB/ProgamHeroFB"));
+const ProgramHighlightsFB = lazy(() => import("./pages/courses/programFB/ProgramHighlightsFB"));
+const BYDPFB = lazy(() => import("./pages/courses/programFB/BYDPFB"));
+const LearningJourneyFB = lazy(() => import("./pages/courses/programFB/LearningJourneyFB"));
+const BenefitsGridFB = lazy(() => import("./pages/courses/programFB/BenefitsGridFB"));
+const ProgramCertificateFB = lazy(() => import("./pages/courses/programFB/ProgramCertificateFB"));
+const MentorsFB = lazy(() => import("./pages/courses/programFB/MentorsFB"));
+const SkillsAndToolsFB = lazy(() => import("./pages/courses/programFB/SkillsAndToolsFB"));
+const SkillsAssessmentFB = lazy(() => import("./pages/courses/programFB/SkillAssessmentFB"));
+const PricingFB = lazy(() => import("./pages/courses/programFB/PricingFB"));
+const FAQFB = lazy(() => import("./pages/courses/programFB/FAQFB"));
+const StickyBookNavFB = lazy(() => import("./pages/courses/programFB/StickyBookNavFB"));
+const WhoIsThisContentForFB = lazy(() => import("./pages/courses/programFB/WhoIsThisContentForFB"));
+const TestimonialsFB = lazy(() => import("./pages/courses/programFB/TestimonialsFB"));
 
-import { trackViewContent } from "./utils/metaPixel";
-import ProgramCertificate from "./pages/courses/productmanagement/ProgramCertificate";
-import DataCertificate from "./pages/courses/dataanalytics/DataCertificate";
-import ProgramHeroFB from "./pages/courses/programFB/ProgamHeroFB";
-import ProgramHighlightsFB from "./pages/courses/programFB/ProgramHighlightsFB";
-import BYDPFB from "./pages/courses/programFB/BYDPFB";
-import LearningJourneyFB from "./pages/courses/programFB/LearningJourneyFB";
-import BenefitsGridFB from "./pages/courses/programFB/BenefitsGridFB";
-import ProgramCertificateFB from "./pages/courses/programFB/ProgramCertificateFB";
-import MentorsFB from "./pages/courses/programFB/MentorsFB";
-import SkillsAndToolsFB from "./pages/courses/programFB/SkillsAndToolsFB";
-import SkillsAssessmentFB from "./pages/courses/programFB/SkillAssessmentFB";
-import PricingFB from "./pages/courses/programFB/PricingFB";
-import FAQFB from "./pages/courses/programFB/FAQFB";
-import StickyBookNavFB from "./pages/courses/programFB/StickyBookNavFB";
-import WhoIsThisContentForFB from "./pages/courses/programFB/WhoIsThisContentForFB";
-import TestimonialsFB from "./pages/courses/programFB/TestimonialsFB";
-import DataHeroFB from "./pages/courses/dataAnalyticsFB/DataHeroFB";
-import DataProgramFB from "./pages/courses/dataAnalyticsFB/DataProgramFB";
-import CAPEFB from "./pages/courses/dataAnalyticsFB/CAPEFB";
-import DataCertificateFB from "./pages/courses/dataAnalyticsFB/DataCertificateFB";
-import DataMentorsFB from "./pages/courses/dataAnalyticsFB/DataMentorsFB";
-import DataSkillsToolsFB from "./pages/courses/dataAnalyticsFB/DataSkillsToolsFB";
-import DataPricingFB from "./pages/courses/dataAnalyticsFB/DataPricingFB";
-import DataAnalyticsFAQFB from "./pages/courses/dataAnalyticsFB/DataAnalyticsFAQFB";
-import DataJourneyFB from "./pages/courses/dataAnalyticsFB/DataJourneyFB";
-import DAWhoIsThisContentForFB from "./pages/courses/dataAnalyticsFB/DAWhoIsThisContentForFB";
-import NoCodeHeroFB from "./pages/courses/noCodeToolFB/NoCodeHeroFB";
-import NoCodeBenefitsGridFB from "./pages/courses/noCodeToolFB/NoCodeBenefitsGridFB";
-import NoCodeLearningJourneyFB from "./pages/courses/noCodeToolFB/NoCodeLearningJourneyFB";
-import TargetAudienceFB from "./pages/courses/noCodeToolFB/TargetAudienceFB";
-import NoCodeToolFB from "./pages/courses/noCodeToolFB/NoCodeToolFB";
-import ProjectsSectionFB from "./pages/courses/noCodeToolFB/ProjectSectionFB";
-import PricingSectionFB from "./pages/courses/noCodeToolFB/PricingSectionFB";
-import NoCodeFAQFB from "./pages/courses/noCodeToolFB/NoCodeFAQFB";
-import TimelineFB from "./pages/courses/noCodeToolFB/TimelineFB";
-import NoCodeDidYouKnow from "./pages/courses/noCodeToolFB/NoCodeDidYouKnow";
-import NoCodeCertificateFB from "./pages/courses/noCodeToolFB/NoCodeCertificateFB";
-import { XSATInfo } from "./pages/XSAT/LandingPage/XSATInfo";
+// Data Analytics FB Components
+const DataHeroFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataHeroFB"));
+const DataProgramFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataProgramFB"));
+const DataSkillsToolsFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataSkillsToolsFB"));
+const CAPEFB = lazy(() => import("./pages/courses/dataAnalyticsFB/CAPEFB"));
+const DataCertificateFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataCertificateFB"));
+const DataMentorsFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataMentorsFB"));
+const DataPricingFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataPricingFB"));
+const DataAnalyticsFAQFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataAnalyticsFAQFB"));
+const DataJourneyFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataJourneyFB"));
+const DAWhoIsThisContentForFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DAWhoIsThisContentForFB"));
 
-import OtherEnquiries from "./pages/admin/OtherEnquiries";
-import { XSATHero } from "./pages/XSAT/LandingPage/XSATHero";
-import { XSATAbout } from "./pages/XSAT/LandingPage/XSATAbout";
-import { XSATKeyDates } from "./pages/XSAT/LandingPage/XSATKeyDates";
-import { XSATExamInfo } from "./pages/XSAT/LandingPage/XSATExamInfo";
-import { XSATFAQ } from "./pages/XSAT/LandingPage/XSATFAQ";
+// No Code Tool FB Components
+const NoCodeHeroFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeHeroFB"));
+const NoCodeBenefitsGridFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeBenefitsGridFB"));
+const NoCodeLearningJourneyFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeLearningJourneyFB"));
+const TargetAudienceFB = lazy(() => import("./pages/courses/noCodeToolFB/TargetAudienceFB"));
+const NoCodeToolFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeToolFB"));
+const ProjectsSectionFB = lazy(() => import("./pages/courses/noCodeToolFB/ProjectSectionFB"));
+const PricingSectionFB = lazy(() => import("./pages/courses/noCodeToolFB/PricingSectionFB"));
+const NoCodeFAQFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeFAQFB"));
+const TimelineFB = lazy(() => import("./pages/courses/noCodeToolFB/TimelineFB"));
+const NoCodeDidYouKnow = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeDidYouKnow"));
+const NoCodeCertificateFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeCertificateFB"));
 
-// Utility function to check if current route is a dummy route
+// XSAT Components
+const XSATInfo = lazy(() => import("./pages/XSAT/LandingPage/XSATInfo").then(module => ({ default: module.XSATInfo })));
+const OtherEnquiries = lazy(() => import("./pages/admin/OtherEnquiries"));
+const XSATHero = lazy(() => import("./pages/XSAT/LandingPage/XSATHero").then(module => ({ default: module.XSATHero })));
+const XSATAbout = lazy(() => import("./pages/XSAT/LandingPage/XSATAbout").then(module => ({ default: module.XSATAbout })));
+const XSATKeyDates = lazy(() => import("./pages/XSAT/LandingPage/XSATKeyDates").then(module => ({ default: module.XSATKeyDates })));
+const XSATExamInfo = lazy(() => import("./pages/XSAT/LandingPage/XSATExamInfo").then(module => ({ default: module.XSATExamInfo })));
+const XSATFAQ = lazy(() => import("./pages/XSAT/LandingPage/XSATFAQ").then(module => ({ default: module.XSATFAQ })));
+
+// Meta Pixel
+
 function isDummyRoute(pathname: string): boolean {
   const adRoutes = [
     "/courses/product-management-program-fb",
@@ -195,20 +162,12 @@ function ProgramAnalyticsPage() {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<Loader />}>
-      <ProgramHero />
-      <ProgramHighlights />
-      <BYDP />
-      <LearningJourney />
-      <BenefitsGrid />
-      <ProgramCertificate />
-      <Mentors />
-      <SkillsAndTools />
-      <SkillsAssessment />
-      <Pricing />
-      <FAQ />
-      <StickyBookNav />
-    </Suspense>
+    <ProgramProvider>
+      <Suspense fallback={<Loader />}>
+        <ProgramContent />
+        <StickyBookNav />
+      </Suspense>
+    </ProgramProvider>
   );
 }
 
@@ -286,14 +245,13 @@ function DataAnalyticsPageFB() {
     <Suspense fallback={<Loader />}>
       <DataHeroFB />
       <DAWhoIsThisContentForFB />
-      <DataProgramFB />
-      <CAPEFB />
       <DataJourneyFB />
+      <DataProgramFB />
+      <DataSkillsToolsFB />
+      <CAPEFB />
       <DataCertificateFB />
       <DataMentorsFB />
-      <DataSkillsToolsFB />
       <DataPricingFB />
-      <DataAnalyticsFAQFB />
       <StickyBookNavFB />
     </Suspense>
   );

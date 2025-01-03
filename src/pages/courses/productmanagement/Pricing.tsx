@@ -69,8 +69,8 @@ export default function Pricing() {
 
         <PricingCard
           courseName="Product Management"
-          originalPrice={59000}
-          discountedPrice={47200}
+          originalPrice={39999}
+          discountedPrice={34999}
           features={productManagementFeatures}
           onEnroll={() => setIsModalOpen(true)}
         />

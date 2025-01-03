@@ -322,11 +322,7 @@ export const mentors = [
 export const weeklyData = [
   {
     week: 1,
-    topics: [
-      "Product Management Basics",
-      "User Understanding",
-      "Product Critique",
-    ],
+    topics: ["Product Management Basics", "User Understanding", "Product Critique"],
     skills: ["Product Sense", "User Research", "Product Critique"],
     image: "/assets/week1.png",
     caseStudies: ["/assets/caseStudiesLogo/tesla.png"],
@@ -339,12 +335,7 @@ export const weeklyData = [
       "Market Research",
       "Guesstimation",
     ],
-    skills: [
-      "Market Research",
-      "Product Adoption",
-      "User Journey Mapping",
-      "Guesstimation",
-    ],
+    skills: ["Market Research", "Product Adoption", "User Journey Mapping", "Guesstimation"],
     image: "/assets/week2.png",
     caseStudies: [
       "/assets/caseStudiesLogo/uber.png",
@@ -354,11 +345,7 @@ export const weeklyData = [
   },
   {
     week: 3,
-    topics: [
-      "Competitor Analysis",
-      "Product Strategy",
-      "Build Your Dream Product",
-    ],
+    topics: ["Competitor Analysis", "Product Strategy", "Build Your Dream Product"],
     skills: ["Competitor Analysis", "Product Strategy", "Problem Framing"],
     image: "/assets/week3.png",
     caseStudies: ["/assets/caseStudiesLogo/reliance.png"],
@@ -370,11 +357,7 @@ export const weeklyData = [
       "Product Vision and Roadmap",
       "Product Documentation",
     ],
-    skills: [
-      "Product Development Methodologies",
-      "Roadmapping",
-      "PRD Documentation",
-    ],
+    skills: ["Product Development Methodologies", "Roadmapping", "PRD Documentation"],
     image: "/assets/week4.png",
     caseStudies: ["/assets/caseStudiesLogo/netflix.webp"],
   },
@@ -392,12 +375,7 @@ export const weeklyData = [
   },
   {
     week: 6,
-    topics: [
-      "MVP Development",
-      "Defining Metrics",
-      "BYDP ",
-      "Usability Testing",
-    ],
+    topics: ["MVP Development", "Defining Metrics", "BYDP", "Usability Testing"],
     skills: ["MVP Development", "Product Metrics", "Usability Testing"],
     image: "/assets/week6.png",
     caseStudies: ["/assets/caseStudiesLogo/slack.webp"],
@@ -461,12 +439,7 @@ export const weeklyData = [
   },
   {
     week: 12,
-    topics: [
-      "APIs and Postman",
-      "Industry Session",
-      "Databases and SQL",
-      "SQL Practice",
-    ],
+    topics: ["APIs and Postman", "Industry Session", "Databases and SQL", "SQL Practice"],
     skills: ["APIs", "Postman Testing", "SQL for Product Managers"],
     image: "/assets/week12.png",
     caseStudies: ["/assets/caseStudiesLogo/nestle.webp"],
@@ -479,11 +452,7 @@ export const weeklyData = [
       "Growth Management",
       "Acquisition and Activation",
     ],
-    skills: [
-      "Retention Strategies",
-      "Monetization",
-      "Growth (AARRR Framework)",
-    ],
+    skills: ["Retention Strategies", "Monetization", "Growth (AARRR Framework)"],
     image: "/assets/week13.png",
     caseStudies: [
       "/assets/caseStudiesLogo/primevideo.webp",
@@ -493,41 +462,31 @@ export const weeklyData = [
   },
   {
     week: 14,
-    topics: [
-      "Product-Led Growth",
-      "Mock Interview - 2",
-      "Introduction to AI & ML",
-    ],
-    skills: ["Product-Led Growth", "AI & Machine Learning Integration"],
+    topics: ["Product-Led Growth", "Mock Interview - 2"],
+    skills: ["Product-Led Growth", "Presentation Skills"],
     image: "/assets/week14.png",
     caseStudies: ["/assets/caseStudiesLogo/airbnb.webp"],
   },
   {
     week: 15,
-    topics: ["Components of AI Management", "AI Landscape", "Leveraging AI"],
-    skills: [
-      "AI Management",
-      "AI Product Strategy",
-      "Real-World AI Application",
+    topics: [
+      "Advanced Product Strategy",
+      "Cross-Functional Team Collaboration",
+      "Refining Product Vision",
     ],
+    skills: ["Advanced Strategy", "Team Collaboration", "Product Refinement"],
     image: "/assets/week15.png",
     caseStudies: ["/assets/caseStudiesLogo/spotify.webp"],
   },
   {
     week: 16,
-    topics: ["How to Build AI Products?", "AI Ethics", "Industry Session"],
-    skills: ["AI Product Development", "AI Ethics", "Presentation Skills"],
+    topics: ["Scaling Products Globally", "Best Practices in Product Design", "Industry Panel"],
+    skills: ["Global Product Scaling", "Best Design Practices", "Networking"],
     image: "/assets/week16.png",
     caseStudies: ["/assets/caseStudiesLogo/instagram.webp"],
   },
-  {
-    week: 17,
-    topics: ["BYDP Presentation", "Mock Interview - 4", "Q&A Session"],
-    skills: ["AI Product Development", "AI Ethics", "Presentation Skills"],
-    image: "/assets/week17.png",
-    caseStudies: [],
-  },
 ];
+
 
 export const dataAnalyticsmodules = [
   {
