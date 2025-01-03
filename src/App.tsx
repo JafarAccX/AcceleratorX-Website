@@ -15,6 +15,16 @@ import ThankYouPage from "./components/ThankYouPage";
 import { MetaPixel } from "./components/MetaPixel";
 import { trackViewContent } from "./utils/metaPixel";
 import HeaderEIE from "./components/HeaderEIE";
+import ProgramHeroEIE from "./pages/courses/productmanagement/EIE/ProgamHeroEIE";
+import ProgramHighlightsEIE from "./pages/courses/productmanagement/EIE/ProgramHighlightsEIE";
+import LearningJourneyEIE from "./pages/courses/productmanagement/EIE/LearningJourneyEIE";
+import BenefitsGridEIE from "./pages/courses/productmanagement/EIE/BenefitsGridEIE";
+import ProgramCertificateEIE from "./pages/courses/productmanagement/EIE/ProgramCertificateEIE";
+import MentorsEIE from "./pages/courses/productmanagement/EIE/MentorsEIE";
+import SkillsAndToolsEIE from "./pages/courses/productmanagement/EIE/SkillsAndToolsEIE";
+import SkillsAssessmentEIE from "./pages/courses/productmanagement/EIE/SkillsAssessmentEIE";
+import PricingEIE from "./pages/courses/productmanagement/EIE/PricingEIE";
+import FAQEIE from "./pages/courses/productmanagement/EIE/FAQEIE";
 
 // Lazy imports
 const Hero = lazy(() => import("./components/Hero"));
@@ -166,7 +176,16 @@ function ProgramAnalyticsPage() {
   return (
     <ProgramProvider>
       <Suspense fallback={<Loader />}>
-        <ProgramContent />
+        <ProgramHeroEIE />
+        <ProgramHighlightsEIE/>
+        <LearningJourneyEIE />
+        <BenefitsGridEIE />
+        <ProgramCertificateEIE />
+        <MentorsEIE />
+        <SkillsAndToolsEIE />
+        <SkillsAssessmentEIE />
+        <PricingEIE />
+        <FAQEIE />
         <StickyBookNav />
       </Suspense>
     </ProgramProvider>
