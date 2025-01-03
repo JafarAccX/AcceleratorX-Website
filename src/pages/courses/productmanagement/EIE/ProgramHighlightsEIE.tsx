@@ -143,10 +143,10 @@ export default function ProgramHighlightsEIE() {
               className={`group relative p-3 bg-gray-900 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-[#5CB338]/50 transition-all duration-300 flex flex-col h-full ${feature.className}`}
             >
               <div className="mb-3">{feature.image}</div>
-              <h3 className="text-base font-semibold text-white group-hover:text-[#5CB338] transition-colors line-clamp-2">
+              <h3 className="text-base font-semibold text-white group-hover:text-[#5CB338] transition-colors">
                 {feature.title}
               </h3>
-              <p className="mt-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors line-clamp-3">
+              <p className="mt-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
                 {feature.description}
               </p>
             </div>

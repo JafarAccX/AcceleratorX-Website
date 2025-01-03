@@ -14,6 +14,7 @@ import RoleProtectedRoute from "./components/RoleProtectedRoute";
 import ThankYouPage from "./components/ThankYouPage";
 import { MetaPixel } from "./components/MetaPixel";
 import { trackViewContent } from "./utils/metaPixel";
+import HeaderEIE from "./components/HeaderEIE";
 
 // Lazy imports
 const Hero = lazy(() => import("./components/Hero"));
@@ -124,6 +125,7 @@ function isDummyRoute(pathname: string): boolean {
     "/courses/product-management-program-fb",
     "/courses/data-analytics-program-fb",
     "/courses/no-code-tool-program-fb",
+    "/courses/product-management-program-eie",
     "/xsat",
     "/thank-you",
   ];
@@ -199,6 +201,27 @@ function ProgramAnalyticsPageFB() {
       <FAQFB />
       <StickyBookNavFB />
     </Suspense>
+  );
+}
+
+function ProgramAnalyticsPageEIE() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("Product Management");
+  }, [setSelectedCourse]);
+
+  return (
+    <ProgramProvider>
+    <Suspense fallback={<Loader />}>
+      <HeaderEIE/>
+      <ProgramContent />
+      <StickyBookNav />
+    </Suspense>
+  </ProgramProvider>
   );
 }
 
@@ -557,6 +580,14 @@ function App() {
                     }
                   />
                   <Route
+                    path="/courses/product-management-program-eie"
+                    element={
+                      <Suspense fallback={<Loader />}>
+                        <ProgramAnalyticsPageEIE />
+                      </Suspense>
+                    }
+                  />
+                  <Route
                     path="/courses/data-analytics-program-fb"
                     element={
                       <Suspense fallback={<Loader />}>
@@ -606,7 +637,8 @@ function RouteLogic({
     // Set default course context based on route
     if (
       location.pathname === "/courses/product-management" ||
-      location.pathname === "/courses/product-management-program-fb"
+      location.pathname === "/courses/product-management-program-fb" ||
+      location.pathname === "/courses/product-management-program-eie"
     ) {
       setSelectedCourse("Product Management");
     } else if (
