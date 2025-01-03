@@ -6,12 +6,16 @@ const ENROLLMENT_EMAIL = import.meta.env.VITE_ENROLLMENT_EMAIL;
 const ENROLLMENT_PASSWORD = import.meta.env.VITE_ENROLLMENT_PASSWORD;
 const BLOG_USER_EMAIL = import.meta.env.VITE_BLOG_USER_EMAIL;
 const BLOG_USER_PASSWORD = import.meta.env.VITE_BLOG_USER_PASSWORD;
+const AD1_EMAIL = import.meta.env.VITE_AD1_EMAIL;
+const AD1_PASSWORD = import.meta.env.VITE_AD1_PASSWORD;
+const AD2_EMAIL = import.meta.env.VITE_AD2_EMAIL;
+const AD2_PASSWORD = import.meta.env.VITE_AD2_PASSWORD;
 
-if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !SALES_EMAIL || !SALES_PASSWORD || !ENROLLMENT_EMAIL || !ENROLLMENT_PASSWORD || !BLOG_USER_EMAIL || !BLOG_USER_PASSWORD) {
-  throw new Error('Missing admin, sales, enrollment, or blog user credentials in environment variables');
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !SALES_EMAIL || !SALES_PASSWORD || !ENROLLMENT_EMAIL || !ENROLLMENT_PASSWORD || !BLOG_USER_EMAIL || !BLOG_USER_PASSWORD || !AD1_EMAIL || !AD1_PASSWORD || !AD2_EMAIL || !AD2_PASSWORD) {
+  throw new Error('Missing admin, sales, enrollment, blog user, or AD credentials in environment variables');
 }
 
-export type UserRole = 'admin' | 'sales' | 'enrollment' | 'blog_user';
+export type UserRole = 'admin' | 'sales' | 'enrollment' | 'blog_user' | 'ad1' | 'ad2';
 
 interface AuthState {
   token: string;
@@ -39,6 +43,16 @@ export const authService = {
       const authState: AuthState = { token: 'blog_user_authenticated', role: 'blog_user' };
       localStorage.setItem('auth_state', JSON.stringify(authState));
       return { success: true, role: 'blog_user' };
+    }
+    if (email === AD1_EMAIL && password === AD1_PASSWORD) {
+      const authState: AuthState = { token: 'ad1_authenticated', role: 'ad1' };
+      localStorage.setItem('auth_state', JSON.stringify(authState));
+      return { success: true, role: 'ad1' };
+    }
+    if (email === AD2_EMAIL && password === AD2_PASSWORD) {
+      const authState: AuthState = { token: 'ad2_authenticated', role: 'ad2' };
+      localStorage.setItem('auth_state', JSON.stringify(authState));
+      return { success: true, role: 'ad2' };
     }
     return { success: false };
   },

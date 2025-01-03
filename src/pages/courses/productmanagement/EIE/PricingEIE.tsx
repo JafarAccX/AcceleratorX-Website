@@ -4,7 +4,7 @@ import { Check, Star, Crown } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 const acceleratorPricingData = {
-  title: "Accelerator Program",
+  title: "AcceleratorX Program",
   mrp: "39999",
   price: "34999",
   discount: "12",
@@ -28,7 +28,7 @@ const acceleratorPricingData = {
 };
 
 const eiePricingData = {
-  title: "EIE Program",
+  title: "EIE European Business School Program",
   mrp: "69999",
   price: "64999",
   discount: "12",
@@ -79,7 +79,7 @@ export default function PricingEIE() {
                   : 'text-gray-400 hover:text-white'
               } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
-              Accelerator
+              AcceleratorX
             </button>
             <button
               onClick={() => setIsEIE(true)}
@@ -89,7 +89,7 @@ export default function PricingEIE() {
                   : 'text-gray-400 hover:text-white'
               } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
-              EIE
+              EIE European Business School
             </button>
           </div>
         </div>
@@ -115,26 +115,21 @@ export default function PricingEIE() {
 
             {/* Header */}
             <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Crown className={`w-6 h-6 ${isEIE ? 'text-[#5CB338]' : 'text-blue-500'}`} />
-                <h3 className="text-2xl font-bold text-white">
-                  {isEIE ? "Iconic" : "Premium"}
+              <div className="text-center">
+                <h3 className="text-2xl mt-2 font-bold text-white mb-4">
+                  {pricingData.title}
                 </h3>
               </div>
               
-              <div className="flex items-baseline gap-2 mb-2">
+              <div className="flex flex-col items-center gap-2 mb-2">
                 <span className="text-4xl font-bold text-white">₹{pricingData.price}</span>
-                <div>
+                <div className="text-center">
                   <span className="text-gray-400 text-sm line-through">₹{pricingData.mrp}</span>
                   <span className={`ml-2 text-sm ${isEIE ? 'text-[#5CB338]' : 'text-blue-500'}`}>
-                    {pricingData.discount}% OFF
+                    {pricingData.discount}% off
                   </span>
                 </div>
               </div>
-              
-              <p className="text-gray-400">
-                {isEIE ? "For serious product leaders" : "For aspiring product managers"}
-              </p>
             </div>
 
             {/* Enroll Button */}

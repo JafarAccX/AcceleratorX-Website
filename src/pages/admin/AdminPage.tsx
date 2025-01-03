@@ -120,6 +120,13 @@ const AdminPage: React.FC = () => {
       enrollment.phone_number?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       enrollment.email?.toLowerCase().includes(searchQuery.toLowerCase());
 
+    if (userRole === "ad1" || userRole === "ad2") {
+      return searchMatches && 
+        (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
+        (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
+        (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign));
+    }
+
     return searchMatches && 
       (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
       (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
@@ -141,10 +148,15 @@ const AdminPage: React.FC = () => {
   const fetchEnrollments = async () => {
     try {
       setRefreshing(true);
-      const { data, error } = await supabase
-        .from("enrollments")
-        .select("*")
-        .order("created_at", { ascending: false });
+      let query = supabase.from("enrollments").select("*");
+      
+      if (userRole === "ad1") {
+        query = query.eq("course", "Data Analytics");
+      } else if (userRole === "ad2") {
+        query = query.eq("course", "Product Management");
+      }
+      
+      const { data, error } = await query.order("created_at", { ascending: false });
 
       if (error) throw error;
 
@@ -177,10 +189,16 @@ const AdminPage: React.FC = () => {
           setAdminEnrollments(adminEnrollmentData || []);
         }
 
-        // Fetch enrollments
-        const { data: enrollmentData, error: enrollmentError } = await supabase
-          .from("enrollments")
-          .select("*");
+        // Fetch enrollments based on role
+        let query = supabase.from("enrollments").select("*");
+        
+        if (userRole === "ad1") {
+          query = query.eq("course", "Data Analytics");
+        } else if (userRole === "ad2") {
+          query = query.eq("course", "Product Management");
+        }
+
+        const { data: enrollmentData, error: enrollmentError } = await query;
 
         if (enrollmentError) throw enrollmentError;
         setEnrollments(enrollmentData || []);
@@ -376,16 +394,25 @@ const AdminPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <select
-                className="border border-gray-300 rounded-md px-3 py-2 bg-white"
-                value={courseFilter}
-                onChange={(e) => setCourseFilter(e.target.value)}
-              >
-                <option value="">All Courses</option>
-                <option value="Data Analytics">Data Analytics</option>
-                <option value="No-Code Development">No-Code Development</option>
-                <option value="Product Management">Product Management</option>
-              </select>
+              {userRole !== "ad1" && userRole !== "ad2" && (
+                <select
+                  className="border border-gray-300 rounded-md px-3 py-2 bg-white"
+                  value={courseFilter}
+                  onChange={(e) => setCourseFilter(e.target.value)}
+                >
+                  <option value="">All Courses</option>
+                  {getUniqueCourses().map((course) => (
+                    <option key={course} value={course}>
+                      {course}
+                    </option>
+                  ))}
+                </select>
+              )}
+              {(userRole === "ad1" || userRole === "ad2") && (
+                <div className="p-2 border rounded bg-gray-100">
+                  Course: {userRole === "ad1" ? "Data Analytics" : "Product Management"}
+                </div>
+              )}
               <input
                 type="text"
                 placeholder="Filter by UTM Source"
