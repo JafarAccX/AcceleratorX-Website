@@ -9,6 +9,7 @@ const PAGE_VIEW_ROUTES = [
   "/courses/data-analytics-program-fb",
   "/courses/no-code-tool-program-fb",
   "/courses/product-management-program-eie",
+  "/courses/data-analytics-program-eie",
 ];
 
 const LEAD_ROUTES = ["/thank-you"];

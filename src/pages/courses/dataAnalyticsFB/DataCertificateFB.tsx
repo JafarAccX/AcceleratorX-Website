@@ -1,41 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import dataCertificate from "/assets/programcertificates/da.jpg";
+import dataCertificate from "/assets/programcertificates/dawithoutmalta.jpg";
 
 const DataCertificateFB = () => {
-  // Initialize cache mechanism
-  const cacheKey = "data-analytics-certificate-cache";
-  const [cachedImage, setCachedImage] = React.useState<string | null>(null);
-
-  React.useEffect(() => {
-    // Try to get cached image from localStorage
-    const cached = localStorage.getItem(cacheKey);
-    if (cached) {
-      setCachedImage(cached);
-    }
-
-    // Fetch and cache new image
-    const cacheImage = async () => {
-      try {
-        const response = await fetch(dataCertificate);
-        const blob = await response.blob();
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          const base64data = reader.result as string;
-          localStorage.setItem(cacheKey, base64data);
-          setCachedImage(base64data);
-        };
-        reader.readAsDataURL(blob);
-      } catch (error) {
-        console.error("Error caching certificate image:", error);
-      }
-    };
-
-    if (!cached) {
-      cacheImage();
-    }
-  }, []);
-
   return (
     <section className="relative bg-[#0B1120] text-white py-2 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background decoration */}
@@ -89,7 +56,7 @@ const DataCertificateFB = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent" />
                 <img
-                  src={cachedImage || dataCertificate}
+                  src={dataCertificate}
                   alt="Certificate Preview"
                   className="w-full h-full object-cover"
                 />
