@@ -1,0 +1,148 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Users, Linkedin } from "lucide-react";
+
+const mentors = [
+  {
+    name: "Ravi Ahlawat",
+    role: "Senior PM at Paytm",
+    experience: "5 years",
+    image: "/assets/mentor/ravi.png",
+    linkedin: "https://www.linkedin.com/in/raviahlawat09/",
+    transitions: "Over 350+",
+  },
+  {
+    name: "Aakash Maurya",
+    role: "Sr. ML Engineer at Nagarro",
+    experience: "7 years",
+    image: "/assets/mentor/akash.png",
+    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164/",
+    transitions: "Over 300+",
+  },
+];
+
+export default function DataMentorsEIE() {
+  return (
+    <section className="relative py-8 bg-gradient-to-b from-[#0A0F1E] via-[#0D1326] to-[#0A0F1E] overflow-hidden">
+      {/* Premium Background Elements */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] animate-pulse">
+          <div className="absolute inset-0 bg-[#96E072]/10 rounded-full filter blur-[120px] transform rotate-45"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#96E072]/15 to-transparent rounded-full filter blur-[90px] animate-pulse"></div>
+        </div>
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] animate-pulse delay-1000">
+          <div className="absolute inset-0 bg-[#96E072]/10 rounded-full filter blur-[120px] transform -rotate-45"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#96E072]/15 to-transparent rounded-full filter blur-[90px] animate-pulse"></div>
+        </div>
+        {/* Premium grid pattern */}
+        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-20"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-8"
+        >
+          {/* Icon Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative inline-block mb-4"
+          >
+            <div className="absolute -inset-4 bg-[#96E072]/20 rounded-3xl blur-xl"></div>
+            <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#96E072]/20 to-[#96E072]/5 border border-[#96E072]/20">
+              <Users className="w-10 h-10 text-[#96E072]" />
+            </div>
+          </motion.div>
+
+          {/* Title Section */}
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg opacity-50"></div>
+            <h2 className="relative text-4xl font-bold mb-4 bg-gradient-to-r from-[#96E072] to-[#96E072]/80 text-transparent bg-clip-text">
+              Learn from Industry Experts
+            </h2>
+          </div>
+          
+          <p className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto backdrop-blur-sm">
+            Connect with seasoned professionals who have transformed careers
+          </p>
+        </motion.div>
+
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {mentors.map((mentor, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative"
+              >
+                {/* Card Container */}
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#F4F9F4] to-[#E8F3E8] shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                  {/* Top Section with Image and Role */}
+                  <div className="relative">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 bg-[#1A5D1A]/5 pattern-grid-lg opacity-30"></div>
+                    
+                    {/* Profile Image */}
+                    <div className="relative pt-8 px-8 flex justify-center">
+                      <div className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-[#1A5D1A]/20 shadow-lg">
+                        <img
+                          src={mentor.image}
+                          alt={mentor.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Name and Role */}
+                    <div className="text-center mt-4 px-6">
+                      <h3 className="text-2xl font-bold text-[#1A5D1A]">{mentor.name}</h3>
+                      <p className="text-[#2E5D1E] mt-1 font-medium">{mentor.role}</p>
+                    </div>
+                  </div>
+
+                  {/* Stats Section */}
+                  <div className="p-6 mt-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* Experience Stat */}
+                      <div className="bg-white/50 rounded-xl p-4 backdrop-blur-sm border border-[#1A5D1A]/10">
+                        <p className="text-sm text-[#1A5D1A]/70 mb-1">Experience</p>
+                        <p className="text-lg font-semibold text-[#1A5D1A]">{mentor.experience}</p>
+                      </div>
+                      
+                      {/* Transitions Stat */}
+                      <div className="bg-white/50 rounded-xl p-4 backdrop-blur-sm border border-[#1A5D1A]/10">
+                        <p className="text-sm text-[#1A5D1A]/70 mb-1">Transitions</p>
+                        <p className="text-lg font-semibold text-[#1A5D1A]">{mentor.transitions}</p>
+                      </div>
+                    </div>
+
+                    {/* LinkedIn Button */}
+                    <motion.a
+                      href={mentor.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 flex items-center justify-center w-full bg-[#1A5D1A] text-white py-3 rounded-xl font-medium hover:bg-[#1A5D1A]/90 transition-colors duration-200"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Linkedin className="w-5 h-5 mr-2" />
+                      Connect on LinkedIn
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

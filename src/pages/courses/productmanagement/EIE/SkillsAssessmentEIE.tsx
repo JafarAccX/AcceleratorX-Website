@@ -109,17 +109,21 @@ export default function SkillsAssessmentEIE() {
     const currentAverage =
       skills.reduce((acc, skill) => acc + skill.current, 0) / skills.length;
 
-    if (currentAverage >= 85) {
+    const skillsAbove80 = skills.filter((skill) => skill.current >= 80).length;
+
+    if (skillsAbove80 >= 8) {
       toast.success(
         "Outstanding Achievement! You've surpassed 85% overall proficiency! 🏆",
         {
           duration: 4000,
-          position: "top-center",
+          position: "bottom-center",
           style: {
             background: "#0F0F0F",
             color: "#ffffff",
             border: "1px solid #5CB338",
             boxShadow: "0 4px 12px rgba(92, 179, 56, 0.25)",
+            zIndex: 9999,
+            marginBottom: "2rem",
           },
         }
       );
@@ -148,7 +152,16 @@ export default function SkillsAssessmentEIE() {
 
   return (
     <section className="py-32 bg-gradient-to-b from-black via-black/95 to-black text-white relative overflow-hidden">
-      <Toaster />
+      <div className="relative z-50">
+        <Toaster
+          containerStyle={{
+            top: 20,
+            left: 20,
+            bottom: 20,
+            right: 20,
+          }}
+        />
+      </div>
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full opacity-15"

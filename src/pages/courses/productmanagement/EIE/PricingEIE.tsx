@@ -31,7 +31,7 @@ const eiePricingData = {
   title: "EIE European Business School Program",
   mrp: "69999",
   price: "64999",
-  discount: "12",
+  discount: "7",
   features: [
     { name: "BYDP", included: true },
     { name: "EIE European Business School Malta University Certificate", included: true },
@@ -107,11 +107,13 @@ export default function PricingEIE() {
             }`}
           >
             {/* Popular Badge */}
-            <div className="absolute top-4 right-4">
-              <div className={`${isEIE ? 'bg-[#5CB338]' : 'bg-blue-600'} text-white text-xs font-medium px-3 py-1 rounded-lg`}>
-                Most Popular
+            {isEIE && (
+              <div className="absolute top-4 right-4">
+                <div className="bg-[#5CB338] text-white text-xs font-medium px-3 py-1 rounded-lg">
+                  Most Popular
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Header */}
             <div className="mb-6">

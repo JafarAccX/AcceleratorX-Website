@@ -45,8 +45,8 @@ export default function DataPricingFB() {
 
         <PricingCard
           courseName="Data Analytics"
-          originalPrice={35400}
-          discountedPrice={27999}
+          originalPrice={16999}
+          discountedPrice={14999}
           features={features}
           onEnroll={() => setIsModalOpen(true)}
         />

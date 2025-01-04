@@ -44,7 +44,9 @@ export default function PricingCard({
                 <span className="text-gray-400 line-through block">
                   ₹{originalPrice.toLocaleString()}
                 </span>
-                <span className="text-green-500 font-semibold">20% OFF</span>
+                <span className="text-green-500 font-semibold">
+                  {Math.round(((originalPrice - discountedPrice) / originalPrice) * 100)}% OFF
+                </span>
               </div>
             </div>
 

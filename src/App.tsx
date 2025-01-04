@@ -1,10 +1,11 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { ProgramProvider } from './pages/courses/productmanagement/context/ProgramContext';
-import { ProgramContent } from './pages/courses/productmanagement/components/ProgramContent';
-import { DataAnalyticsProvider } from './pages/courses/dataanalytics/context/DataAnalyticsContext';
-import { DataContent } from './pages/courses/dataanalytics/DataContent';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -25,6 +26,15 @@ import SkillsAndToolsEIE from "./pages/courses/productmanagement/EIE/SkillsAndTo
 import SkillsAssessmentEIE from "./pages/courses/productmanagement/EIE/SkillsAssessmentEIE";
 import PricingEIE from "./pages/courses/productmanagement/EIE/PricingEIE";
 import FAQEIE from "./pages/courses/productmanagement/EIE/FAQEIE";
+import DataHeroEIE from "./pages/courses/dataanalytics/EIE/DataHeroEIE";
+import DataProgramEIE from "./pages/courses/dataanalytics/EIE/DataProgramEIE";
+import CAPEEIE from "./pages/courses/dataanalytics/EIE/CAPEEIE";
+import DataCertificateEIE from "./pages/courses/dataanalytics/EIE/DataCertificateEIE";
+import DataMentorsEIE from "./pages/courses/dataanalytics/EIE/DataMentorsEIE";
+import DataSkillsToolsEIE from "./pages/courses/dataanalytics/EIE/DataSkillsToolsEIE";
+import DataPricingEIE from "./pages/courses/dataanalytics/EIE/DataPricingEIE";
+import WhoIsThisContentForEIE from "./pages/courses/dataanalytics/EIE/WhoIsThisContentForEIE";
+import DataJourneyEIE from "./pages/courses/dataanalytics/EIE/DataJourneyEIE";
 
 // Lazy imports
 const Hero = lazy(() => import("./components/Hero"));
@@ -43,90 +53,204 @@ const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 const LogoSlider = lazy(() => import("./components/LogoSlider"));
 const HireHero = lazy(() => import("./pages/hirewithus/HireHero"));
 const DataHero = lazy(() => import("./pages/courses/dataanalytics/DataHero"));
-const DataProgram = lazy(() => import("./pages/courses/dataanalytics/DataProgram"));
+const DataProgram = lazy(
+  () => import("./pages/courses/dataanalytics/DataProgram")
+);
 const CAPE = lazy(() => import("./pages/courses/dataanalytics/CAPE"));
-const DataPricing = lazy(() => import("./pages/courses/dataanalytics/dataPricing"));
-const DataMentors = lazy(() => import("./pages/courses/dataanalytics/DataMentors"));
-const DataSkillsTools = lazy(() => import("./pages/courses/dataanalytics/DataSkillsTools"));
-const ProgramHighlights = lazy(() => import("./pages/courses/productmanagement/ProgramHighlights"));
-const ProgramHero = lazy(() => import("./pages/courses/productmanagement/ProgamHero"));
+const DataPricing = lazy(
+  () => import("./pages/courses/dataanalytics/dataPricing")
+);
+const DataMentors = lazy(
+  () => import("./pages/courses/dataanalytics/DataMentors")
+);
+const DataSkillsTools = lazy(
+  () => import("./pages/courses/dataanalytics/DataSkillsTools")
+);
+const ProgramHighlights = lazy(
+  () => import("./pages/courses/productmanagement/ProgramHighlights")
+);
+const ProgramHero = lazy(
+  () => import("./pages/courses/productmanagement/ProgamHero")
+);
 const BYDP = lazy(() => import("./pages/courses/productmanagement/BYDP"));
-const BenefitsGrid = lazy(() => import("./pages/courses/productmanagement/BenefitsGrid"));
+const BenefitsGrid = lazy(
+  () => import("./pages/courses/productmanagement/BenefitsGrid")
+);
 const Mentors = lazy(() => import("./pages/courses/productmanagement/Mentors"));
-const SkillsAndTools = lazy(() => import("./pages/courses/productmanagement/SkillsAndTools"));
+const SkillsAndTools = lazy(
+  () => import("./pages/courses/productmanagement/SkillsAndTools")
+);
 const Pricing = lazy(() => import("./pages/courses/productmanagement/Pricing"));
 const EnrollmentModal = lazy(() => import("./components/EnrollmentModal"));
 const Privacy = lazy(() => import("./pages/Privacy/Privacy"));
 const Terms = lazy(() => import("./pages/Terms/Terms"));
-const SkillsAssessment = lazy(() => import("./pages/courses/productmanagement/SkillAssessment"));
-const LearningJourney = lazy(() => import("./pages/courses/productmanagement/LearningJourney"));
-const BecomeAMentorFeatures = lazy(() => import("./components/BecomeAMentorFeatures"));
+const SkillsAssessment = lazy(
+  () => import("./pages/courses/productmanagement/SkillAssessment")
+);
+const LearningJourney = lazy(
+  () => import("./pages/courses/productmanagement/LearningJourney")
+);
+const BecomeAMentorFeatures = lazy(
+  () => import("./components/BecomeAMentorFeatures")
+);
 const ChatWidget = lazy(() => import("./components/ChatWidget"));
 const StickyBookNav = lazy(() => import("./components/StickyBookNav"));
 const Refund = lazy(() => import("./pages/refund/Refund"));
 const NoCodeHero = lazy(() => import("./pages/courses/nocodeTool/NoCodeHero"));
-const NoCodeBenefitsGrid = lazy(() => import("./pages/courses/nocodeTool/NoCodeBenefitsGrid"));
-const NoCodeLearningJourney = lazy(() => import("./pages/courses/nocodeTool/NoCodeLearningJourney"));
-const TargetAudience = lazy(() => import("./pages/courses/nocodeTool/TargetAudience"));
+const NoCodeBenefitsGrid = lazy(
+  () => import("./pages/courses/nocodeTool/NoCodeBenefitsGrid")
+);
+const NoCodeLearningJourney = lazy(
+  () => import("./pages/courses/nocodeTool/NoCodeLearningJourney")
+);
+const TargetAudience = lazy(
+  () => import("./pages/courses/nocodeTool/TargetAudience")
+);
 const Timeline = lazy(() => import("./pages/courses/nocodeTool/Timeline"));
 const NoCodeTool = lazy(() => import("./pages/courses/nocodeTool/NoCodeTool"));
-const ProjectsSection = lazy(() => import("./pages/courses/nocodeTool/ProjectSection"));
-const PricingSection = lazy(() => import("./pages/courses/nocodeTool/PricingSection"));
+const ProjectsSection = lazy(
+  () => import("./pages/courses/nocodeTool/ProjectSection")
+);
+const PricingSection = lazy(
+  () => import("./pages/courses/nocodeTool/PricingSection")
+);
 const NoCodeFAQ = lazy(() => import("./pages/courses/nocodeTool/NoCodeFAQ"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
-const ProgramCertificate = lazy(() => import("./pages/courses/productmanagement/ProgramCertificate"));
-const DataCertificate = lazy(() => import("./pages/courses/dataanalytics/DataCertificate"));
 
 // FB Components
-const ProgramHeroFB = lazy(() => import("./pages/courses/programFB/ProgamHeroFB"));
-const ProgramHighlightsFB = lazy(() => import("./pages/courses/programFB/ProgramHighlightsFB"));
+const ProgramHeroFB = lazy(
+  () => import("./pages/courses/programFB/ProgamHeroFB")
+);
+const ProgramHighlightsFB = lazy(
+  () => import("./pages/courses/programFB/ProgramHighlightsFB")
+);
 const BYDPFB = lazy(() => import("./pages/courses/programFB/BYDPFB"));
-const LearningJourneyFB = lazy(() => import("./pages/courses/programFB/LearningJourneyFB"));
-const BenefitsGridFB = lazy(() => import("./pages/courses/programFB/BenefitsGridFB"));
-const ProgramCertificateFB = lazy(() => import("./pages/courses/programFB/ProgramCertificateFB"));
+const LearningJourneyFB = lazy(
+  () => import("./pages/courses/programFB/LearningJourneyFB")
+);
+const BenefitsGridFB = lazy(
+  () => import("./pages/courses/programFB/BenefitsGridFB")
+);
+const ProgramCertificateFB = lazy(
+  () => import("./pages/courses/programFB/ProgramCertificateFB")
+);
 const MentorsFB = lazy(() => import("./pages/courses/programFB/MentorsFB"));
-const SkillsAndToolsFB = lazy(() => import("./pages/courses/programFB/SkillsAndToolsFB"));
-const SkillsAssessmentFB = lazy(() => import("./pages/courses/programFB/SkillAssessmentFB"));
+const SkillsAndToolsFB = lazy(
+  () => import("./pages/courses/programFB/SkillsAndToolsFB")
+);
+const SkillsAssessmentFB = lazy(
+  () => import("./pages/courses/programFB/SkillAssessmentFB")
+);
 const PricingFB = lazy(() => import("./pages/courses/programFB/PricingFB"));
 const FAQFB = lazy(() => import("./pages/courses/programFB/FAQFB"));
-const StickyBookNavFB = lazy(() => import("./pages/courses/programFB/StickyBookNavFB"));
-const WhoIsThisContentForFB = lazy(() => import("./pages/courses/programFB/WhoIsThisContentForFB"));
-const TestimonialsFB = lazy(() => import("./pages/courses/programFB/TestimonialsFB"));
+const StickyBookNavFB = lazy(
+  () => import("./pages/courses/programFB/StickyBookNavFB")
+);
+const WhoIsThisContentForFB = lazy(
+  () => import("./pages/courses/programFB/WhoIsThisContentForFB")
+);
+const TestimonialsFB = lazy(
+  () => import("./pages/courses/programFB/TestimonialsFB")
+);
 
 // Data Analytics FB Components
-const DataHeroFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataHeroFB"));
-const DataProgramFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataProgramFB"));
-const DataSkillsToolsFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataSkillsToolsFB"));
+const DataHeroFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataHeroFB")
+);
+const DataProgramFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataProgramFB")
+);
+const DataSkillsToolsFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataSkillsToolsFB")
+);
 const CAPEFB = lazy(() => import("./pages/courses/dataAnalyticsFB/CAPEFB"));
-const DataCertificateFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataCertificateFB"));
-const DataMentorsFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataMentorsFB"));
-const DataPricingFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataPricingFB"));
-const DataAnalyticsFAQFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataAnalyticsFAQFB"));
-const DataJourneyFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DataJourneyFB"));
-const DAWhoIsThisContentForFB = lazy(() => import("./pages/courses/dataAnalyticsFB/DAWhoIsThisContentForFB"));
+const DataCertificateFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataCertificateFB")
+);
+const DataMentorsFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataMentorsFB")
+);
+const DataPricingFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataPricingFB")
+);
+const DataAnalyticsFAQFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataAnalyticsFAQFB")
+);
+const DataJourneyFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DataJourneyFB")
+);
+const DAWhoIsThisContentForFB = lazy(
+  () => import("./pages/courses/dataAnalyticsFB/DAWhoIsThisContentForFB")
+);
 
 // No Code Tool FB Components
-const NoCodeHeroFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeHeroFB"));
-const NoCodeBenefitsGridFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeBenefitsGridFB"));
-const NoCodeLearningJourneyFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeLearningJourneyFB"));
-const TargetAudienceFB = lazy(() => import("./pages/courses/noCodeToolFB/TargetAudienceFB"));
-const NoCodeToolFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeToolFB"));
-const ProjectsSectionFB = lazy(() => import("./pages/courses/noCodeToolFB/ProjectSectionFB"));
-const PricingSectionFB = lazy(() => import("./pages/courses/noCodeToolFB/PricingSectionFB"));
-const NoCodeFAQFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeFAQFB"));
-const TimelineFB = lazy(() => import("./pages/courses/noCodeToolFB/TimelineFB"));
-const NoCodeDidYouKnow = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeDidYouKnow"));
-const NoCodeCertificateFB = lazy(() => import("./pages/courses/noCodeToolFB/NoCodeCertificateFB"));
+const NoCodeHeroFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/NoCodeHeroFB")
+);
+const NoCodeBenefitsGridFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/NoCodeBenefitsGridFB")
+);
+const NoCodeLearningJourneyFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/NoCodeLearningJourneyFB")
+);
+const TargetAudienceFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/TargetAudienceFB")
+);
+const NoCodeToolFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/NoCodeToolFB")
+);
+const ProjectsSectionFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/ProjectSectionFB")
+);
+const PricingSectionFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/PricingSectionFB")
+);
+const NoCodeFAQFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/NoCodeFAQFB")
+);
+const TimelineFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/TimelineFB")
+);
+const NoCodeDidYouKnow = lazy(
+  () => import("./pages/courses/noCodeToolFB/NoCodeDidYouKnow")
+);
+const NoCodeCertificateFB = lazy(
+  () => import("./pages/courses/noCodeToolFB/NoCodeCertificateFB")
+);
 
 // XSAT Components
-const XSATInfo = lazy(() => import("./pages/XSAT/LandingPage/XSATInfo").then(module => ({ default: module.XSATInfo })));
+const XSATInfo = lazy(() =>
+  import("./pages/XSAT/LandingPage/XSATInfo").then((module) => ({
+    default: module.XSATInfo,
+  }))
+);
 const OtherEnquiries = lazy(() => import("./pages/admin/OtherEnquiries"));
-const XSATHero = lazy(() => import("./pages/XSAT/LandingPage/XSATHero").then(module => ({ default: module.XSATHero })));
-const XSATAbout = lazy(() => import("./pages/XSAT/LandingPage/XSATAbout").then(module => ({ default: module.XSATAbout })));
-const XSATKeyDates = lazy(() => import("./pages/XSAT/LandingPage/XSATKeyDates").then(module => ({ default: module.XSATKeyDates })));
-const XSATExamInfo = lazy(() => import("./pages/XSAT/LandingPage/XSATExamInfo").then(module => ({ default: module.XSATExamInfo })));
-const XSATFAQ = lazy(() => import("./pages/XSAT/LandingPage/XSATFAQ").then(module => ({ default: module.XSATFAQ })));
+const XSATHero = lazy(() =>
+  import("./pages/XSAT/LandingPage/XSATHero").then((module) => ({
+    default: module.XSATHero,
+  }))
+);
+const XSATAbout = lazy(() =>
+  import("./pages/XSAT/LandingPage/XSATAbout").then((module) => ({
+    default: module.XSATAbout,
+  }))
+);
+const XSATKeyDates = lazy(() =>
+  import("./pages/XSAT/LandingPage/XSATKeyDates").then((module) => ({
+    default: module.XSATKeyDates,
+  }))
+);
+const XSATExamInfo = lazy(() =>
+  import("./pages/XSAT/LandingPage/XSATExamInfo").then((module) => ({
+    default: module.XSATExamInfo,
+  }))
+);
+const XSATFAQ = lazy(() =>
+  import("./pages/XSAT/LandingPage/XSATFAQ").then((module) => ({
+    default: module.XSATFAQ,
+  }))
+);
 
 // Meta Pixel
 
@@ -136,6 +260,7 @@ function isDummyRoute(pathname: string): boolean {
     "/courses/data-analytics-program-fb",
     "/courses/no-code-tool-program-fb",
     "/courses/product-management-program-eie",
+    "/courses/data-analytics-program-eie",
     "/xsat",
     "/thank-you",
   ];
@@ -174,21 +299,19 @@ function ProgramAnalyticsPage() {
   }, [setSelectedCourse]);
 
   return (
-    <ProgramProvider>
-      <Suspense fallback={<Loader />}>
-        <ProgramHeroEIE />
-        <ProgramHighlightsEIE/>
-        <LearningJourneyEIE />
-        <BenefitsGridEIE />
-        <ProgramCertificateEIE />
-        <MentorsEIE />
-        <SkillsAndToolsEIE />
-        <SkillsAssessmentEIE />
-        <PricingEIE />
-        <FAQEIE />
-        <StickyBookNav />
-      </Suspense>
-    </ProgramProvider>
+    <Suspense fallback={<Loader />}>
+      <ProgramHeroEIE />
+      <ProgramHighlightsEIE />
+      <LearningJourneyEIE />
+      <BenefitsGridEIE />
+      <ProgramCertificateEIE />
+      <MentorsEIE />
+      <SkillsAndToolsEIE />
+      <SkillsAssessmentEIE />
+      <PricingEIE />
+      <FAQEIE />
+      <StickyBookNav />
+    </Suspense>
   );
 }
 
@@ -234,13 +357,21 @@ function ProgramAnalyticsPageEIE() {
   }, [setSelectedCourse]);
 
   return (
-    <ProgramProvider>
     <Suspense fallback={<Loader />}>
-      <HeaderEIE/>
-      <ProgramContent />
+      <HeaderEIE />
+      <ProgramHeroEIE />
+      <ProgramHighlightsEIE />
+      <LearningJourneyEIE />
+      <BenefitsGridEIE />
+      <ProgramCertificateEIE />
+      <MentorsEIE />
+      <SkillsAndToolsEIE />
+      <SkillsAssessmentEIE />
+      <PricingEIE />
+
+      <FAQEIE />
       <StickyBookNav />
     </Suspense>
-  </ProgramProvider>
   );
 }
 
@@ -256,15 +387,43 @@ function DataAnalyticsPage() {
 
   return (
     <Suspense fallback={<Loader />}>
-      <DataHero />
-      <DAWhoIsThisContentForFB />
-      <DataProgram />
-      <CAPE />
-      <DataJourneyFB />
-      <DataCertificate />
-      <DataMentors />
-      <DataSkillsTools />
-      <DataPricing />
+      <DataHeroEIE />
+      <WhoIsThisContentForEIE />
+      <DataProgramEIE />
+      <CAPEEIE />
+      <DataJourneyEIE />
+      <DataCertificateEIE />
+      <DataMentorsEIE />
+      <DataSkillsToolsEIE />
+      <DataPricingEIE />
+      <DataAnalyticsFAQFB />
+      <StickyBookNav />
+    </Suspense>
+  );
+}
+
+function DataAnalyticsPageEIE() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("Data Analytics");
+  }, [setSelectedCourse]);
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <HeaderEIE />
+      <DataHeroEIE />
+      <WhoIsThisContentForEIE />
+      <DataProgramEIE />
+      <CAPEEIE />
+      <DataJourneyEIE />
+      <DataCertificateEIE />
+      <DataMentorsEIE />
+      <DataSkillsToolsEIE />
+      <DataPricingEIE />
       <DataAnalyticsFAQFB />
       <StickyBookNav />
     </Suspense>
@@ -286,14 +445,16 @@ function DataAnalyticsPageFB() {
   return (
     <Suspense fallback={<Loader />}>
       <DataHeroFB />
-      <DAWhoIsThisContentForFB />
-      <DataJourneyFB />
+      <WhoIsThisContentForFB />
       <DataProgramFB />
-      <DataSkillsToolsFB />
       <CAPEFB />
+      <DataJourneyFB />
       <DataCertificateFB />
       <DataMentorsFB />
+      <DataSkillsToolsFB />
       <DataPricingFB />
+      <TestimonialsFB />
+      <DataAnalyticsFAQFB />
       <StickyBookNavFB />
     </Suspense>
   );
@@ -405,242 +566,251 @@ function App() {
 
   return (
     <HelmetProvider>
-    <CourseProvider>
-      <Router basename="/">
-      <MetaPixel/>
-        <div className="relative">
-          <Toaster position="top-center" />
-          <ScrollToTop />
-          <RouteLogic setSelectedCourse={setSelectedCourse} />
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <>
-
-              {!isDummyRoute(location.pathname) &&
-                location.pathname !== "/xsat" && (
-                  <Navbar onEnrollClick={handleEnrollClick} />
-                )}
-
-              <EnrollmentModal
-                isOpen={isEnrollmentModalOpen}
-                onClose={handleCloseModal}
-              />
-              {/* bg-black, py-10 */}
-              <main className="min-h-screen">
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <HomePage />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/hire-with-us"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <HireHero />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/become-a-mentor"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <BecomeAMentor />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/about-us"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <AboutPage />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/blogs"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <Blogs />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/login"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <Login />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/admin/blogs"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute requiredRole="blog_user">
-                          <BlogDashboard />
-                        </RoleProtectedRoute>
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/admin/blogs/new"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute requiredRole="blog_user">
-                          <BlogForm onClose={() => {}} onSuccess={() => {}} />
-                        </RoleProtectedRoute>
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/admin/blogs/edit/:id"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute requiredRole="blog_user">
-                          <BlogForm onClose={() => {}} onSuccess={() => {}} />
-                        </RoleProtectedRoute>
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/privacy-policy"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <Privacy />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/terms-and-conditions"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <Terms />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/refund-policy"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <Refund />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/courses/product-management"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <ProgramAnalyticsPage />
-                      </Suspense>
-                    }
-                  />
-
-                  <Route
-                    path="/courses/data-analytics"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <DataAnalyticsPage />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/courses/no-code-tool-program"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <NoCodeToolPage />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/xsat"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <XSAT />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/admin"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute>
-                          <AdminDashboard />
-                        </RoleProtectedRoute>
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/admin/enrollments"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <RoleProtectedRoute>
-                          <EnrollmentDashboard />
-                        </RoleProtectedRoute>
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/admin/other-enquiries"
-                    element={<OtherEnquiries />}
-                  />
-
-                  {/* Dummy Page FOR ADS */}
-                  <Route
-                    path="/courses/product-management-program-fb"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <ProgramAnalyticsPageFB />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/courses/product-management-program-eie"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <ProgramAnalyticsPageEIE />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/courses/data-analytics-program-fb"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <DataAnalyticsPageFB />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/courses/no-code-tool-program-fb"
-                    element={
-                      <Suspense fallback={<Loader />}>
-                        <NoCodeToolPageFB />
-                      </Suspense>
-                    }
-                  />
-                  <Route path="/thank-you" element={<ThankYouPageWrapper />} />
-                </Routes>
-                {!isDummyRoute(window.location.pathname) && (
-                  <>
-
+      <CourseProvider>
+        <Router basename="/">
+          <MetaPixel />
+          <div className="relative">
+            <Toaster position="top-center" />
+            <ScrollToTop />
+            <RouteLogic setSelectedCourse={setSelectedCourse} />
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <>
+                {!isDummyRoute(location.pathname) &&
+                  location.pathname !== "/xsat" && (
                     <Navbar onEnrollClick={handleEnrollClick} />
-                    <ChatWidget />
-                  </>
+                  )}
 
-                )}
-              </main>
-            </>
+                <EnrollmentModal
+                  isOpen={isEnrollmentModalOpen}
+                  onClose={handleCloseModal}
+                />
+                {/* bg-black, py-10 */}
+                <main className="min-h-screen">
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <HomePage />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/hire-with-us"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <HireHero />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/become-a-mentor"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <BecomeAMentor />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/about-us"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <AboutPage />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/blogs"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <Blogs />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/login"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <Login />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/blogs"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute requiredRole="blog_user">
+                            <BlogDashboard />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/blogs/new"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute requiredRole="blog_user">
+                            <BlogForm onClose={() => {}} onSuccess={() => {}} />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/blogs/edit/:id"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute requiredRole="blog_user">
+                            <BlogForm onClose={() => {}} onSuccess={() => {}} />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/privacy-policy"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <Privacy />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/terms-and-conditions"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <Terms />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/refund-policy"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <Refund />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/product-management"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <ProgramAnalyticsPage />
+                        </Suspense>
+                      }
+                    />
 
-          )}
+                    <Route
+                      path="/courses/data-analytics"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <DataAnalyticsPage />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/no-code-tool-program"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <NoCodeToolPage />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/xsat"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <XSAT />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute>
+                            <AdminDashboard />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/enrollments"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute>
+                            <EnrollmentDashboard />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/other-enquiries"
+                      element={<OtherEnquiries />}
+                    />
 
-          {!isLoading && !isDummyRoute(window.location.pathname) && <Footer />}
-        </div>
-      </Router>
-    </CourseProvider>
+                    {/* Dummy Page FOR ADS */}
+                    <Route
+                      path="/courses/product-management-program-fb"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <ProgramAnalyticsPageFB />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/product-management-program-eie"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <ProgramAnalyticsPageEIE />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/data-analytics-program-fb"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <DataAnalyticsPageFB />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/data-analytics-program-eie"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <DataAnalyticsPageEIE />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/no-code-tool-program-fb"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <NoCodeToolPageFB />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/thank-you"
+                      element={<ThankYouPageWrapper />}
+                    />
+                  </Routes>
+                  {!isDummyRoute(window.location.pathname) && (
+                    <>
+                      <Navbar onEnrollClick={handleEnrollClick} />
+                      <ChatWidget />
+                    </>
+                  )}
+                </main>
+              </>
+            )}
+
+            {!isLoading && !isDummyRoute(window.location.pathname) && (
+              <Footer />
+            )}
+          </div>
+        </Router>
+      </CourseProvider>
     </HelmetProvider>
   );
 }

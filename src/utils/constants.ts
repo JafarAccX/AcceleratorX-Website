@@ -322,7 +322,11 @@ export const mentors = [
 export const weeklyData = [
   {
     week: 1,
-    topics: ["Product Management Basics", "User Understanding", "Product Critique"],
+    topics: [
+      "Product Management Basics",
+      "User Understanding",
+      "Product Critique",
+    ],
     skills: ["Product Sense", "User Research", "Product Critique"],
     image: "/assets/week1.png",
     caseStudies: ["/assets/caseStudiesLogo/tesla.png"],
@@ -335,7 +339,12 @@ export const weeklyData = [
       "Market Research",
       "Guesstimation",
     ],
-    skills: ["Market Research", "Product Adoption", "User Journey Mapping", "Guesstimation"],
+    skills: [
+      "Market Research",
+      "Product Adoption",
+      "User Journey Mapping",
+      "Guesstimation",
+    ],
     image: "/assets/week2.png",
     caseStudies: [
       "/assets/caseStudiesLogo/uber.png",
@@ -345,7 +354,11 @@ export const weeklyData = [
   },
   {
     week: 3,
-    topics: ["Competitor Analysis", "Product Strategy", "Build Your Dream Product"],
+    topics: [
+      "Competitor Analysis",
+      "Product Strategy",
+      "Build Your Dream Product",
+    ],
     skills: ["Competitor Analysis", "Product Strategy", "Problem Framing"],
     image: "/assets/week3.png",
     caseStudies: ["/assets/caseStudiesLogo/reliance.png"],
@@ -357,7 +370,11 @@ export const weeklyData = [
       "Product Vision and Roadmap",
       "Product Documentation",
     ],
-    skills: ["Product Development Methodologies", "Roadmapping", "PRD Documentation"],
+    skills: [
+      "Product Development Methodologies",
+      "Roadmapping",
+      "PRD Documentation",
+    ],
     image: "/assets/week4.png",
     caseStudies: ["/assets/caseStudiesLogo/netflix.webp"],
   },
@@ -375,7 +392,12 @@ export const weeklyData = [
   },
   {
     week: 6,
-    topics: ["MVP Development", "Defining Metrics", "BYDP", "Usability Testing"],
+    topics: [
+      "MVP Development",
+      "Defining Metrics",
+      "BYDP",
+      "Usability Testing",
+    ],
     skills: ["MVP Development", "Product Metrics", "Usability Testing"],
     image: "/assets/week6.png",
     caseStudies: ["/assets/caseStudiesLogo/slack.webp"],
@@ -439,7 +461,12 @@ export const weeklyData = [
   },
   {
     week: 12,
-    topics: ["APIs and Postman", "Industry Session", "Databases and SQL", "SQL Practice"],
+    topics: [
+      "APIs and Postman",
+      "Industry Session",
+      "Databases and SQL",
+      "SQL Practice",
+    ],
     skills: ["APIs", "Postman Testing", "SQL for Product Managers"],
     image: "/assets/week12.png",
     caseStudies: ["/assets/caseStudiesLogo/nestle.webp"],
@@ -452,7 +479,11 @@ export const weeklyData = [
       "Growth Management",
       "Acquisition and Activation",
     ],
-    skills: ["Retention Strategies", "Monetization", "Growth (AARRR Framework)"],
+    skills: [
+      "Retention Strategies",
+      "Monetization",
+      "Growth (AARRR Framework)",
+    ],
     image: "/assets/week13.png",
     caseStudies: [
       "/assets/caseStudiesLogo/primevideo.webp",
@@ -480,17 +511,20 @@ export const weeklyData = [
   },
   {
     week: 16,
-    topics: ["Scaling Products Globally", "Best Practices in Product Design", "Industry Panel"],
+    topics: [
+      "Scaling Products Globally",
+      "Best Practices in Product Design",
+      "Industry Panel",
+    ],
     skills: ["Global Product Scaling", "Best Design Practices", "Networking"],
     image: "/assets/week16.png",
     caseStudies: ["/assets/caseStudiesLogo/instagram.webp"],
   },
 ];
 
-
 export const dataAnalyticsmodules = [
   {
-    title: "Industry-Recognized Certification",
+    title: "University-Recognized Professional Certification",
     description:
       "Earn certifications that validate your skills, making you stand out to top employers.",
     image: "/assets/program/security.png",
@@ -520,7 +554,7 @@ export const dataAnalyticsmodules = [
     image: "/assets/program/meeting.png",
   },
   {
-    title: "Exclusive Job Portal Access",
+    title: "Priority Access to Job Opportunities",
     description:
       "Discover exclusive job opportunities and connect with top employers to launch your career.",
     image: "/assets/program/job-portal.png",
@@ -532,13 +566,13 @@ export const dataAnalyticsmodules = [
     image: "/assets/program/networking.png",
   },
   {
-    title: "Showcase Your Product Vision",
+    title: "Bi-weekly Career Review Calls",
     description:
-      "Present your product ideas to potential employers and gain recognition for your innovation.",
+      "Get personalized career advice and insights from seasoned leaders.",
     image: "/assets/program/state.png",
   },
   {
-    title: "Lifetime Access to All Content",
+    title: "Chance to win Industry Internship",
     description:
       "Enjoy lifetime access to all course materials, with updates to stay ahead in your career.",
     image: "/assets/program/exclusive.png",
