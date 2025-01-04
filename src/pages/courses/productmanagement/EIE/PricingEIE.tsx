@@ -16,7 +16,7 @@ const acceleratorPricingData = {
     },
     { name: "PM Toolbox & Templates", included: true },
     { name: "Assignment Feedback", included: true },
-    { name: "Growth Product Management Specialization", included: false },
+    { name: "Growth Product Management Specialization", included: true },
     { name: "Mock Interviews", included: true, detail: "Group" },
     { name: "Personalized Skill Report", included: false },
     { name: "AcceleratorX Job Priority Access", included: false },
