@@ -15,6 +15,11 @@ const eiePricingData = {
     },
     { name: "Data Analytics Toolbox & Templates", included: true },
     { name: "Assignment Feedback", included: true },
+    {
+      name: "Product Analytics Specialization",
+      included: true,
+      highlight: true
+    },
     { name: "Mock Interviews", included: true, detail: "1:1 + Group" },
     { name: "Personalized Skill Report", included: true },
     { name: "AcceleratorX Job Priority Access", included: true },
@@ -37,6 +42,11 @@ const dataAnalyticsPricingData = {
   features: [
     { name: "Full Data Analytics Curriculum", included: true },
     { name: "Personalized CAPE Project", included: true },
+    {
+      name: "Product Analytics Specialization",
+      included: false,
+      highlight: false
+    },
     { name: "Real-world, hands-on project experiences", included: true },
     { name: "Access to industry-leading tools and datasets", included: true },
     { name: "Mock Interviews with Industry Leaders", included: true },
@@ -70,21 +80,19 @@ export default function DataPricingEIE() {
           <div className="flex justify-center mt-8 p-1 space-x-1 bg-gray-800/50 rounded-xl max-w-xs mx-auto">
             <button
               onClick={() => setIsEIE(false)}
-              className={`${
-                !isEIE
-                  ? "bg-blue-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
+              className={`${!isEIE
+                ? "bg-blue-600 text-white"
+                : "text-gray-400 hover:text-white"
+                } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
               AcceleratorX
             </button>
             <button
               onClick={() => setIsEIE(true)}
-              className={`${
-                isEIE
-                  ? "bg-green-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
+              className={`${isEIE
+                ? "bg-green-600 text-white"
+                : "text-gray-400 hover:text-white"
+                } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
               EIE European Business School
             </button>
@@ -97,16 +105,14 @@ export default function DataPricingEIE() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`relative rounded-3xl p-8 ${
-              isEIE ? "bg-[#0A2615]" : "bg-[#1a365d]"
-            }`}
+            className={`relative rounded-3xl p-8 ${isEIE ? "bg-[#0A2615]" : "bg-[#1a365d]"
+              }`}
           >
             {/* Popular Badge */}
             <div className="absolute top-4 right-4">
               <div
-                className={`${
-                  isEIE ? "bg-[#5CB338]" : "bg-blue-600"
-                } text-white text-xs font-medium px-3 py-1 rounded-lg`}
+                className={`${isEIE ? "bg-[#5CB338]" : "bg-blue-600"
+                  } text-white text-xs font-medium px-3 py-1 rounded-lg`}
               >
                 Most Popular
               </div>
@@ -129,9 +135,8 @@ export default function DataPricingEIE() {
                     ₹{pricingData.mrp}
                   </span>
                   <span
-                    className={`ml-2 text-sm ${
-                      isEIE ? "text-[#5CB338]" : "text-blue-500"
-                    }`}
+                    className={`ml-2 text-sm ${isEIE ? "text-[#5CB338]" : "text-blue-500"
+                      }`}
                   >
                     {pricingData.discount}% off
                   </span>
@@ -145,10 +150,21 @@ export default function DataPricingEIE() {
                 setIsModalOpen(true);
                 setSelectedPlan(pricingData.title);
               }}
-              className="w-full py-3 px-6 rounded-xl bg-white text-black font-semibold mb-8 hover:bg-gray-100 transition-colors"
+              className="w-full py-3 px-6 rounded-xl bg-white text-black font-semibold mb-2 hover:bg-gray-100 transition-colors"
             >
               Enroll Now
             </button>
+
+            {/* Money Back Guarantee */}
+            {isEIE && (
+              <div className="text-center mb-8">
+                <p className="text-xs text-amber-400 flex items-center justify-center gap-1">
+                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
+                  *15 Days Money Back Guarantee
+                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
+                </p>
+              </div>
+            )}
 
             {/* Features List */}
             <div className="space-y-4">
@@ -156,9 +172,12 @@ export default function DataPricingEIE() {
                 <div key={index} className="flex items-start gap-3">
                   {feature.included ? (
                     <Check
-                      className={`w-5 h-5 ${
-                        isEIE ? "text-[#5CB338]" : "text-blue-500"
-                      } mt-1 flex-shrink-0`}
+                      className={`w-5 h-5 ${isEIE
+                        ? feature.highlight
+                          ? "text-amber-400"
+                          : "text-[#5CB338]"
+                        : "text-blue-500"
+                        } mt-1 flex-shrink-0`}
                     />
                   ) : (
                     <div className="w-5 h-5 mt-1 flex-shrink-0">
@@ -167,17 +186,19 @@ export default function DataPricingEIE() {
                   )}
                   <div>
                     <p
-                      className={`${
-                        feature.included ? "text-white" : "text-gray-500"
-                      }`}
+                      className={`${feature.included
+                        ? feature.highlight
+                          ? "text-amber-400"
+                          : "text-white"
+                        : "text-gray-500"
+                        }`}
                     >
                       {feature.name}
                     </p>
                     {feature.detail && feature.included && (
                       <p
-                        className={`text-sm ${
-                          isEIE ? "text-[#5CB338]" : "text-blue-500"
-                        }`}
+                        className={`text-sm ${isEIE ? "text-[#5CB338]" : "text-blue-500"
+                          }`}
                       >
                         {feature.detail}
                       </p>

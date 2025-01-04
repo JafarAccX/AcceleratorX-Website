@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Crown } from 'lucide-react';
 
 const weeklyContent = [
   {
@@ -144,6 +144,7 @@ const weeklyContent = [
       "Understanding the AI Landscape",
       "Leveraging AI in Products",
     ],
+    highlight: true
   },
   {
     week: 16,
@@ -153,6 +154,7 @@ const weeklyContent = [
       "Exploring AI Ethics",
       "Participating in Industry Sessions",
     ],
+    highlight: true
   },
   {
     week: 17,
@@ -165,7 +167,6 @@ const weeklyContent = [
     ],
   },
 ];
-
 
 export default function WeeklyContent() {
   const [activeWeek, setActiveWeek] = useState<number | null>(null);
@@ -185,8 +186,11 @@ export default function WeeklyContent() {
           >
             <div>
               <h3 className="text-lg font-semibold group-hover:text-[#5CB338] text-left flex items-center gap-2">
-                <span className="text-sm font-medium text-[#5CB338] bg-[#5CB338]/10 px-2 py-0.5 rounded">
+                <span className={`text-sm font-medium ${week.highlight ? 'text-amber-400 bg-amber-400/10' : 'text-[#5CB338] bg-[#5CB338]/10'} px-2 py-0.5 rounded flex items-center gap-1`}>
                   Week {week.week}
+                  {week.highlight && (
+                    <Crown className="w-4 h-4 text-amber-400 drop-shadow-[0_0_3px_rgba(251,191,36,0.5)] animate-pulse" />
+                  )}
                 </span>
                 {week.title}
               </h3>

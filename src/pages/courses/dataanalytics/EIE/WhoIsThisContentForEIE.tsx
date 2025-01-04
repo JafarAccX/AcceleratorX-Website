@@ -49,6 +49,11 @@ const WhoIsThisContentForEIE = () => {
       title: "Students",
       description: "Looking forward to start a career in data analytics",
     },
+    {
+      title: "Product Analysts",
+      description: "Looking to specialize in advanced product metrics and user behavior analysis",
+      highlight: true
+    },
   ];
 
   return (
@@ -65,7 +70,8 @@ const WhoIsThisContentForEIE = () => {
             Who Is This Program For?
           </h2>
           <p className="text-lg text-[#1F441E] max-w-3xl mx-auto">
-            Our EIE Data Analytics program is designed for ambitious professionals ready to master data-driven decision making
+            Our EIE Data Analytics program is designed for ambitious professionals ready to master data-driven decision making, 
+            now featuring specialized tracks in Product Analytics
           </p>
         </motion.div>
 
@@ -80,16 +86,32 @@ const WhoIsThisContentForEIE = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-[#C7DCA7]"
+              className={`bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border ${
+                item.highlight 
+                  ? 'border-amber-400 shadow-amber-100'
+                  : 'border-[#C7DCA7]'
+              }`}
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 bg-[#E4EFE7] rounded-full flex items-center justify-center">
-                    <Check className="w-5 h-5 text-[#1A5D1A]" />
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    item.highlight
+                      ? 'bg-amber-100'
+                      : 'bg-[#E4EFE7]'
+                  }`}>
+                    <Check className={`w-5 h-5 ${
+                      item.highlight
+                        ? 'text-amber-600'
+                        : 'text-[#1A5D1A]'
+                    }`} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1A5D1A] mb-2">
+                  <h3 className={`text-xl font-semibold mb-2 ${
+                    item.highlight
+                      ? 'text-amber-600'
+                      : 'text-[#1A5D1A]'
+                  }`}>
                     {item.title}
                   </h3>
                   <p className="text-[#1F441E]">

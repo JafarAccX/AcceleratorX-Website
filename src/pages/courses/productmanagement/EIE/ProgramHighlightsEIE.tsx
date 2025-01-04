@@ -50,6 +50,8 @@ const sections = {
       "Assignment Feedback",
       "Build Your Dream Product (BYDP)",
       "Mock Interviews",
+      "AI Product Management Specialization",
+      "Growth Product Management Specialization",
       "AcceleratorX Job Priority Access",
       "Personalized Skill Report",
       "Project-Based Mini Challenges",

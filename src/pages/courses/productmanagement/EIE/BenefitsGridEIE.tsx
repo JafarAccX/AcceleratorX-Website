@@ -8,7 +8,9 @@ import {
   BookOpen,
   LineChart,
   Network,
-  Star
+  Star,
+  Brain,
+  TrendingUp
 } from 'lucide-react';
 
 const benefits = [
@@ -59,7 +61,20 @@ const benefits = [
     description: "Get a detailed analysis of your skills and areas of improvement.",
     icon: Star,
     highlight: "Skill Report"
-  }
+},
+{
+    title: "AI Product Management",
+    description: "Master the skills to build, manage, and scale AI-driven products while understanding the nuances of AI ethics, deployment, and innovation.",
+    icon: Brain,
+    highlight: "AI Product Management"
+},
+{
+    title: "Growth Product Management",
+    description: "Learn to identify growth opportunities, execute data-driven experiments, and scale products to achieve exponential growth.",
+    icon: TrendingUp,
+    highlight: "Growth Product Management"
+}
+
 ];
 
 export default function BenefitsGridEIE() {

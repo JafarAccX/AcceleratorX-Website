@@ -10,9 +10,13 @@ const acceleratorPricingData = {
   discount: "12",
   features: [
     { name: "BYDP", included: true },
-    { name: "EIE European Business School Malta University Certificate", included: false },
+    {
+      name: "EIE European Business School Malta University Certificate",
+      included: false,
+    },
     { name: "PM Toolbox & Templates", included: true },
     { name: "Assignment Feedback", included: true },
+    { name: "Growth Product Management Specialization", included: false },
     { name: "Mock Interviews", included: true, detail: "Group" },
     { name: "Personalized Skill Report", included: false },
     { name: "AcceleratorX Job Priority Access", included: false },
@@ -23,8 +27,8 @@ const acceleratorPricingData = {
     { name: "Chance to win Industry Internship", included: false },
     { name: "Business Pitch & Investor Workshop", included: false },
     { name: "Product Showcase on Wall of Product", included: true },
-    { name: "Ask Doubt (1:1 with Mentor on demand)", included: false }
-  ]
+    { name: "Ask Doubt (1:1 with Mentor on demand)", included: false },
+  ],
 };
 
 const eiePricingData = {
@@ -34,7 +38,12 @@ const eiePricingData = {
   discount: "7",
   features: [
     { name: "BYDP", included: true },
-    { name: "EIE European Business School Malta University Certificate", included: true },
+    {
+      name: "EIE European Business School Malta University Certificate",
+      included: true,
+    },
+    { name: "AI Product Management Specialization", included: true },
+    { name: "Growth Product Management Specialization", included: true },
     { name: "PM Toolbox & Templates", included: true },
     { name: "Assignment Feedback", included: true },
     { name: "Mock Interviews", included: true, detail: "1:1 + Group" },
@@ -47,8 +56,8 @@ const eiePricingData = {
     { name: "Chance to win Industry Internship", included: true },
     { name: "Business Pitch & Investor Workshop", included: true },
     { name: "Product Showcase on Wall of Product", included: true },
-    { name: "Ask Doubt (1:1 with Mentor on demand)", included: true }
-  ]
+    { name: "Ask Doubt (1:1 with Mentor on demand)", included: true },
+  ],
 };
 
 export default function PricingEIE() {
@@ -66,17 +75,18 @@ export default function PricingEIE() {
             Choose Your Learning Path
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Select the plan that best fits your learning goals and career aspirations
+            Select the plan that best fits your learning goals and career
+            aspirations
           </p>
-          
+
           {/* Tab Switch */}
           <div className="flex justify-center mt-8 p-1 space-x-1 bg-gray-800/50 rounded-xl max-w-xs mx-auto">
             <button
               onClick={() => setIsEIE(false)}
               className={`${
                 !isEIE
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-400 hover:text-white'
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-400 hover:text-white"
               } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
               AcceleratorX
@@ -85,8 +95,8 @@ export default function PricingEIE() {
               onClick={() => setIsEIE(true)}
               className={`${
                 isEIE
-                  ? 'bg-green-600 text-white'
-                  : 'text-gray-400 hover:text-white'
+                  ? "bg-green-600 text-white"
+                  : "text-gray-400 hover:text-white"
               } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
               EIE European Business School
@@ -101,9 +111,7 @@ export default function PricingEIE() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             className={`relative rounded-3xl p-8 ${
-              isEIE 
-                ? 'bg-[#0A2615]' 
-                : 'bg-[#1a365d]'
+              isEIE ? "bg-[#0A2615]" : "bg-[#1a365d]"
             }`}
           >
             {/* Popular Badge */}
@@ -122,12 +130,20 @@ export default function PricingEIE() {
                   {pricingData.title}
                 </h3>
               </div>
-              
+
               <div className="flex flex-col items-center gap-2 mb-2">
-                <span className="text-4xl font-bold text-white">₹{pricingData.price}</span>
+                <span className="text-4xl font-bold text-white">
+                  ₹{pricingData.price}
+                </span>
                 <div className="text-center">
-                  <span className="text-gray-400 text-sm line-through">₹{pricingData.mrp}</span>
-                  <span className={`ml-2 text-sm ${isEIE ? 'text-[#5CB338]' : 'text-blue-500'}`}>
+                  <span className="text-gray-400 text-sm line-through">
+                    ₹{pricingData.mrp}
+                  </span>
+                  <span
+                    className={`ml-2 text-sm ${
+                      isEIE ? "text-[#5CB338]" : "text-blue-500"
+                    }`}
+                  >
                     {pricingData.discount}% off
                   </span>
                 </div>
@@ -140,28 +156,51 @@ export default function PricingEIE() {
                 setIsModalOpen(true);
                 setSelectedPlan(pricingData.title);
               }}
-              className="w-full py-3 px-6 rounded-xl bg-white text-black font-semibold mb-8 hover:bg-gray-100 transition-colors"
+              className="w-full py-3 px-6 rounded-xl bg-white text-black font-semibold mb-2 hover:bg-gray-100 transition-colors"
             >
               Enroll Now
             </button>
+
+            {/* Money Back Guarantee */}
+            {isEIE && (
+              <div className="text-center mb-8">
+                <p className="text-xs text-amber-400 flex items-center justify-center gap-1">
+                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
+                  *15 Days Money Back Guarantee
+                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
+                </p>
+              </div>
+            )}
 
             {/* Features List */}
             <div className="space-y-4">
               {pricingData.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
                   {feature.included ? (
-                    <Check className={`w-5 h-5 ${isEIE ? 'text-[#5CB338]' : 'text-blue-500'} mt-1 flex-shrink-0`} />
+                    <Check
+                      className={`w-5 h-5 ${
+                        isEIE ? "text-[#5CB338]" : "text-blue-500"
+                      } mt-1 flex-shrink-0`}
+                    />
                   ) : (
                     <div className="w-5 h-5 mt-1 flex-shrink-0">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-600 mx-auto mt-1.5" />
                     </div>
                   )}
                   <div>
-                    <p className={`${feature.included ? 'text-white' : 'text-gray-500'}`}>
+                    <p
+                      className={`${
+                        feature.included ? "text-white" : "text-gray-500"
+                      }`}
+                    >
                       {feature.name}
                     </p>
                     {feature.detail && feature.included && (
-                      <p className={`text-sm ${isEIE ? 'text-[#5CB338]' : 'text-blue-500'}`}>
+                      <p
+                        className={`text-sm ${
+                          isEIE ? "text-[#5CB338]" : "text-blue-500"
+                        }`}
+                      >
                         {feature.detail}
                       </p>
                     )}
