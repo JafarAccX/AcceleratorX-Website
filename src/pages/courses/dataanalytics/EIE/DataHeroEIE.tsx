@@ -38,7 +38,6 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
   );
 };
 
-
 export default function DataHeroEIE() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setSelectedCourse } = useCourseContext();
@@ -101,7 +100,7 @@ export default function DataHeroEIE() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072] to-[#96E072]/70 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
                 <div className="relative bg-[#0A0F1E] px-6 py-3 rounded-full">
                   <span className="text-white font-semibold text-sm sm:text-base">
-                    Next Cohort: 19 Jan
+                    Next Cohort: 25th Jan
                   </span>
                 </div>
               </div>
@@ -112,8 +111,16 @@ export default function DataHeroEIE() {
                   <span className="text-white font-semibold text-sm sm:text-base">
                     University Backed
                   </span>
-                  <svg className="w-5 h-5 text-[#96E072]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 text-[#96E072]"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
               </div>
@@ -123,18 +130,23 @@ export default function DataHeroEIE() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg opacity-50"></div>
               <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Master 
+                Master
                 <span className="relative">
                   <span className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg"></span>
                   <span className="relative bg-gradient-to-r from-[#96E072] to-[#96E072]/90 bg-clip-text text-transparent">
-                    {" "}Data Analytics{" "}
+                    {" "}
+                    Data Analytics{" "}
                   </span>
                 </span>
-               with EIE European Business School Malta
+                with EIE European Business School Malta
               </h1>
             </div>
             <p className="mt-8 text-lg text-gray-300 leading-relaxed backdrop-blur-sm">
-            Unlock your potential with a prestigious, world-class program designed for ambitious professionals. Backed by the renowned EIE European Business School Malta, this iconic course offers unparalleled opportunities to master the art and science of data analytics.
+              Unlock your potential with a prestigious, world-class program
+              designed for ambitious professionals. Backed by the renowned EIE
+              European Business School Malta, this iconic course offers
+              unparalleled opportunities to master the art and science of data
+              analytics.
             </p>
 
             {/* CTA Buttons */}
@@ -145,10 +157,13 @@ export default function DataHeroEIE() {
                 className="relative group"
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072] to-[#96E072]/70 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                <div className="relative px-8 py-3 bg-[#96E072] rounded-full flex items-center justify-center group cursor-pointer"
+                <div
+                  className="relative px-8 py-3 bg-[#96E072] rounded-full flex items-center justify-center group cursor-pointer"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  <span className="text-[#0A0F1E] font-semibold">Apply Now</span>
+                  <span className="text-[#0A0F1E] font-semibold">
+                    Apply Now
+                  </span>
                   <ArrowRight className="ml-2 h-5 w-5 text-[#0A0F1E] group-hover:translate-x-1 transition-transform" />
                 </div>
               </motion.button>
@@ -163,7 +178,9 @@ export default function DataHeroEIE() {
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/50 to-[#96E072]/30 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative px-8 py-3 bg-[#0A0F1E] border border-[#96E072]/50 rounded-full">
-                  <span className="text-white font-semibold">Download Curriculum</span>
+                  <span className="text-white font-semibold">
+                    Download Curriculum
+                  </span>
                 </div>
               </motion.button>
             </div>
@@ -173,7 +190,7 @@ export default function DataHeroEIE() {
               {[
                 { value: 16, suffix: "LPA", label: "Average Salary" },
                 { value: 40000, suffix: "+", label: "Job Openings" },
-                { value: 22, suffix: " weeks", label: "Duration" }
+                { value: 22, suffix: " weeks", label: "Duration" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -208,7 +225,9 @@ export default function DataHeroEIE() {
             <div className="flex justify-center mt-4">
               <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                <p className="text-sm font-medium text-amber-400">*15 Days Money Back Guarantee Program</p>
+                <p className="text-sm font-medium text-amber-400">
+                  *15 Days Money Back Guarantee Program
+                </p>
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
               </div>
             </div>

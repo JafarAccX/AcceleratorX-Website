@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import EnrollmentModal from '../../../../components/EnrollmentModal';
-import { Phone, Users } from 'lucide-react';
-import productPageBannerEIE  from "/assets/productpageBannerEIE.png";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import EnrollmentModal from "../../../../components/EnrollmentModal";
+import { Phone, Users } from "lucide-react";
+import productPageBannerEIE from "/assets/productpageBannerEIE.png";
 
 const navLinks = [
   { name: "Highlights", id: "highlights" },
@@ -43,7 +43,7 @@ export default function ProgramHeroEIE() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
       setActiveLink(id);
     }
@@ -61,9 +61,10 @@ export default function ProgramHeroEIE() {
                   <button
                     onClick={() => handleScroll(link.id)}
                     className={`text-sm font-medium px-3 py-2 rounded-full transition-all duration-300
-                              ${activeLink === link.id 
-                                ? 'text-black bg-[#5CB338]' 
-                                : 'text-gray-400 hover:text-white hover:bg-white/10'
+                              ${
+                                activeLink === link.id
+                                  ? "text-black bg-[#5CB338]"
+                                  : "text-gray-400 hover:text-white hover:bg-white/10"
                               }`}
                   >
                     {link.name}
@@ -102,8 +103,9 @@ export default function ProgramHeroEIE() {
               </span>
             </h1>
             <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-300">
-             Get Certified and Master the fundamentals of product management with the most hands-on product management program. 
-              Build Your Dream Product (BYDP) as part of the program.
+              Get Certified and Master the fundamentals of product management
+              with the most hands-on product management program. Build Your
+              Dream Product (BYDP) as part of the program.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-6 mb-8">
               <div className="border-r border-[#5CB338]/30">
@@ -112,7 +114,7 @@ export default function ProgramHeroEIE() {
               </div>
               <div className="border-r border-[#5CB338]/30">
                 <h3 className="text-[#5CB338] font-bold">Start Date</h3>
-                <p className="text-gray-300">Jan 25, 2024</p>
+                <p className="text-gray-300">Jan 25, 2025</p>
               </div>
               <div>
                 <h3 className="text-[#5CB338] font-bold">Duration</h3>
@@ -166,7 +168,9 @@ export default function ProgramHeroEIE() {
             <div className="flex justify-center mt-4">
               <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                <p className="text-sm font-medium text-amber-400">*15 Days Money Back Guarantee Program</p>
+                <p className="text-sm font-medium text-amber-400">
+                  *15 Days Money Back Guarantee Program
+                </p>
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
               </div>
             </div>
