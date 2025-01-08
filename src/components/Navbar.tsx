@@ -21,7 +21,7 @@ export default function Navbar({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const isXSATRoute = location.pathname === '/xsat';
+  const isXSATRoute = location.pathname === "/xsat";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +45,7 @@ export default function Navbar({
     { label: "Blog", path: "/blogs" },
     { label: "Hire With Us", path: "/hire-with-us" },
     { label: "XSAT", path: "/xsat" },
-    { label: "Workshop", path: "/workshop/da-masterclass-with-ai" },
+    // { label: "Workshop", path: "/workshop/da-masterclass-with-ai" },
   ];
 
   const courses = [

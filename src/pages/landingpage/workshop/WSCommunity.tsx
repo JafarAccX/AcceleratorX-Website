@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaDiscord, FaWhatsapp, FaTelegram } from 'react-icons/fa';
+import { FaLinkedin, FaDiscord, FaWhatsapp, FaTelegram, FaInstagram } from 'react-icons/fa';
 
 const WSCommunity = () => {
   const socialLinks = [
@@ -20,7 +20,13 @@ const WSCommunity = () => {
       label: "WhatsApp", 
       color: "hover:text-green-400",
       href: "https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ" 
-    }
+    },
+    { 
+      icon: <FaInstagram className="w-5 h-5" />, 
+      label: "Instagram", 
+      color: "hover:text-pink-400",
+      href: "https://www.instagram.com/acceleratorxorg/" 
+    },
   ];
 
   return (
