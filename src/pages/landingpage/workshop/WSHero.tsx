@@ -26,7 +26,7 @@ const WSHero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
               <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
                 <img
-                  src="/WebinarCover.png"
+                  src="/assets/WebinarCover.png"
                   alt="DA Masterclass"
                   className="w-full h-[200px] md:h-[250px] object-contain object-left px-4 hover:scale-105 transition-transform duration-700"
                 />

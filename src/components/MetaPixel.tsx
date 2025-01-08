@@ -10,6 +10,7 @@ const PAGE_VIEW_ROUTES = [
   "/courses/no-code-tool-program-fb",
   "/courses/product-management-program-eie",
   "/courses/data-analytics-program-eie",
+  "/workshop/da-masterclass-with-ai",
 ];
 
 const LEAD_ROUTES = ["/thank-you"];
