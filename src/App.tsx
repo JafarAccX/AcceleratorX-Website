@@ -35,6 +35,10 @@ import DataSkillsToolsEIE from "./pages/courses/dataanalytics/EIE/DataSkillsTool
 import DataPricingEIE from "./pages/courses/dataanalytics/EIE/DataPricingEIE";
 import WhoIsThisContentForEIE from "./pages/courses/dataanalytics/EIE/WhoIsThisContentForEIE";
 import DataJourneyEIE from "./pages/courses/dataanalytics/EIE/DataJourneyEIE";
+import WSHero from "./pages/landingpage/workshop/WSHero";
+import WSAbout from "./pages/landingpage/workshop/WSAbout";
+import WSTestimonial from "./pages/landingpage/workshop/WSTestimonial";
+import WSCommunity from "./pages/landingpage/workshop/WSCommunity";
 
 // Lazy imports
 const Hero = lazy(() => import("./components/Hero"));
@@ -263,6 +267,7 @@ function isDummyRoute(pathname: string): boolean {
     "/courses/data-analytics-program-eie",
     "/xsat",
     "/thank-you",
+    "/workshop/da-masterclass-with-ai",
   ];
   return adRoutes.includes(pathname);
 }
@@ -286,6 +291,17 @@ function HomePage() {
       <CTA />
     </Suspense>
   );
+}
+
+function WorkshopPage() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <WSHero/>
+      <WSAbout/>
+      <WSTestimonial/>
+      <WSCommunity/>
+    </Suspense>
+  )
 }
 
 function ProgramAnalyticsPage() {
@@ -713,6 +729,14 @@ function App() {
                       element={
                         <Suspense fallback={<Loader />}>
                           <NoCodeToolPage />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/workshop/da-masterclass-with-ai"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <WorkshopPage />
                         </Suspense>
                       }
                     />

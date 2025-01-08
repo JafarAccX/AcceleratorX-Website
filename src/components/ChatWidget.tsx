@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import { useLocation } from "react-router-dom";
 import { trackFormSubmission } from "../utils/metaPixel";
+import { shouldShowChatWidget } from "../utils/chatWidgetUtils";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -25,6 +26,11 @@ export default function ChatWidget() {
     education: "",
     course: "",
   });
+
+  // Check if chat widget should be shown
+  if (!shouldShowChatWidget(location.pathname)) {
+    return null;
+  }
 
   useEffect(() => {
     // Show chat widget after 3 seconds on course pages

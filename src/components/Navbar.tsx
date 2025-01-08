@@ -45,6 +45,7 @@ export default function Navbar({
     { label: "Blog", path: "/blogs" },
     { label: "Hire With Us", path: "/hire-with-us" },
     { label: "XSAT", path: "/xsat" },
+    { label: "Workshop", path: "/workshop/da-masterclass-with-ai" },
   ];
 
   const courses = [
