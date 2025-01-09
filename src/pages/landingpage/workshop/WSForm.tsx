@@ -32,9 +32,8 @@ const WSForm = () => {
   const [showModal, setShowModal] = useState(false);
 
   const zoomMeetingDetails = {
-    link: "https://zoom.us/j/97233861779?pwd=GaLNovHkwtcEDEJSQWUqjhiLBTfZ2G.1",
-    meetingId: "972 3386 1779",
-    passcode: "138611",
+    link: "https://zoom.us/meeting/tJcqf--trDgrH9RuX7KD2I5NfCz8uPqufM0O/calendar/google/add?meetingMasterEventId=uB-iF_r3SfiQ3rr0FefvGg",
+    meetingId: "tJcqf--trDgrH9RuX7KD2I5NfCz8uPqufM0O",
     time: "Jan 12, 2025 11:00 PM India"
   };
 
@@ -227,18 +226,17 @@ const WSForm = () => {
               <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
                 <h4 className="font-semibold text-gray-800 mb-2">Zoom Meeting Details:</h4>
                 <p className="text-sm text-gray-600 mb-2">Meeting ID: {zoomMeetingDetails.meetingId}</p>
-                <p className="text-sm text-gray-600 mb-4">Passcode: {zoomMeetingDetails.passcode}</p>
                 <a
                   href={zoomMeetingDetails.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors"
                 >
-                  Join Zoom Meeting
+                  Add to Calendar
                 </a>
               </div>
               <p className="text-sm text-gray-500">
-                We've also sent these details to your email. See you in the workshop!
+                See you in the workshop!
               </p>
             </div>
           </div>
