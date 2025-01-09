@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/authService";
-import { FileText, Users, LogOut, Inbox } from "lucide-react";
+import { FileText, Users, LogOut, Inbox, BookOpen } from "lucide-react";
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -108,6 +108,29 @@ const AdminDashboard: React.FC = () => {
                   </h2>
                   <p className="text-gray-500 mt-1">
                     View and manage other enquiries
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {role === "admin" && (
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate("/admin/workshop-details")}
+              className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-purple-100 rounded-lg">
+                  <BookOpen className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Workshop Details
+                  </h2>
+                  <p className="text-gray-500 mt-1">
+                    View and manage workshop registrations
                   </p>
                 </div>
               </div>

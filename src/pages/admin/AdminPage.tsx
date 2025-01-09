@@ -45,21 +45,33 @@ interface EnrollmentData {
   msclkid: string;
 }
 
+interface WorkshopData {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  education: string;
+  designation: string;
+  yearsOfExperience: string;
+  created_at: string;
+}
+
 const AdminPage: React.FC = () => {
   const [enrollments, setEnrollments] = useState<EnrollmentData[]>([]);
+  const [workshopData, setWorkshopData] = useState<WorkshopData[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [refreshing, setRefreshing] = useState(false);
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
   const [activeTab, setActiveTab] = useState<
-    "enrollments" | "admin-access" | "sales-access"
+    "enrollments" | "admin-access" | "sales-access" | "workshop-details"
   >("enrollments");
   const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>([]);
   const [adminCurrentPage, setAdminCurrentPage] = useState(1);
   const [utmFilter, setUtmFilter] = useState({
     source: "",
     medium: "",
-    campaign: ""
+    campaign: "",
   });
   const [courseFilter, setCourseFilter] = useState("");
   const [showUtmStats, setShowUtmStats] = useState(false);
@@ -70,6 +82,10 @@ const AdminPage: React.FC = () => {
   useEffect(() => {
     if (userRole === "enrollment") {
       setActiveTab("enrollments");
+    }
+    if (window.location.pathname === "/admin/workshop-details") {
+      setActiveTab("workshop-details");
+      fetchWorkshopData();
     }
   }, [userRole]);
 
@@ -93,10 +109,10 @@ const AdminPage: React.FC = () => {
       sources: {} as Record<string, number>,
       mediums: {} as Record<string, number>,
       campaigns: {} as Record<string, number>,
-      referrers: {} as Record<string, number>
+      referrers: {} as Record<string, number>,
     };
 
-    data.forEach(enrollment => {
+    data.forEach((enrollment) => {
       if (enrollment.utm_source) {
         stats.sources[enrollment.utm_source] = (stats.sources[enrollment.utm_source] || 0) + 1;
       }
@@ -114,24 +130,29 @@ const AdminPage: React.FC = () => {
     return stats;
   };
 
-  const filteredEnrollments = sortData(enrollments).filter(enrollment => {
-    const searchMatches = searchQuery === "" || 
+  const filteredEnrollments = sortData(enrollments).filter((enrollment) => {
+    const searchMatches =
+      searchQuery === "" ||
       enrollment.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       enrollment.phone_number?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       enrollment.email?.toLowerCase().includes(searchQuery.toLowerCase());
 
     if (userRole === "ad1" || userRole === "ad2") {
-      return searchMatches && 
+      return (
+        searchMatches &&
         (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
         (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
-        (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign));
+        (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign))
+      );
     }
 
-    return searchMatches && 
+    return (
+      searchMatches &&
       (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
       (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
       (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign)) &&
-      (!courseFilter || enrollment.course?.toLowerCase().includes(courseFilter.toLowerCase()));
+      (!courseFilter || enrollment.course?.toLowerCase().includes(courseFilter.toLowerCase()))
+    );
   });
 
   const totalPages = Math.ceil(filteredEnrollments.length / ITEMS_PER_PAGE);
@@ -141,7 +162,7 @@ const AdminPage: React.FC = () => {
   const utmStats = calculateUtmStats(enrollments);
 
   const getUniqueCourses = () => {
-    const courses = new Set(enrollments.map(e => e.course));
+    const courses = new Set(enrollments.map((e) => e.course));
     return Array.from(courses).filter(Boolean).sort();
   };
 
@@ -149,13 +170,13 @@ const AdminPage: React.FC = () => {
     try {
       setRefreshing(true);
       let query = supabase.from("enrollments").select("*");
-      
+
       if (userRole === "ad1") {
         query = query.eq("course", "Data Analytics");
       } else if (userRole === "ad2") {
         query = query.eq("course", "Product Management");
       }
-      
+
       const { data, error } = await query.order("created_at", { ascending: false });
 
       if (error) throw error;
@@ -170,6 +191,25 @@ const AdminPage: React.FC = () => {
       toast.error("Failed to fetch enrollment data");
     } finally {
       setRefreshing(false);
+    }
+  };
+
+  const fetchWorkshopData = async () => {
+    try {
+      setRefreshing(true);
+      const { data, error } = await supabase
+        .from("workshop_registrations")
+        .select("*")
+        .order("created_at", { ascending: sortOrder === "asc" });
+
+      if (error) throw error;
+      setWorkshopData(data || []);
+    } catch (error) {
+      console.error("Error fetching workshop data:", error);
+      toast.error("Failed to fetch workshop data");
+    } finally {
+      setRefreshing(false);
+      setLoading(false);
     }
   };
 
@@ -191,7 +231,7 @@ const AdminPage: React.FC = () => {
 
         // Fetch enrollments based on role
         let query = supabase.from("enrollments").select("*");
-        
+
         if (userRole === "ad1") {
           query = query.eq("course", "Data Analytics");
         } else if (userRole === "ad2") {
@@ -202,7 +242,6 @@ const AdminPage: React.FC = () => {
 
         if (enrollmentError) throw enrollmentError;
         setEnrollments(enrollmentData || []);
-
       } catch (error) {
         console.error("Error fetching data:", error);
         toast.error("Failed to fetch data");
@@ -236,34 +275,32 @@ const AdminPage: React.FC = () => {
         "FB Click ID",
         "Google Click ID",
         "TikTok Click ID",
-        "MS Click ID"
+        "MS Click ID",
       ];
       const csvContent = [
         headers.join(","),
-        ...filteredEnrollments.map((enrollment, index) =>
-          [
-            index + 1,
-            enrollment.full_name,
-            enrollment.email,
-            enrollment.phone_number,
-            enrollment.education_level,
-            enrollment.course,
-            enrollment.work_experience,
-            enrollment.designation,
-            formatDateTimeIST(enrollment.created_at),
-            enrollment.utm_source || "",
-            enrollment.utm_medium || "",
-            enrollment.utm_campaign || "",
-            enrollment.utm_term || "",
-            enrollment.utm_content || "",
-            enrollment.referrer || "",
-            enrollment.landing_page_url || "",
-            enrollment.fbclid || "",
-            enrollment.gclid || "",
-            enrollment.ttclid || "",
-            enrollment.msclkid || ""
-          ].join(",")
-        ),
+        ...filteredEnrollments.map((enrollment, index) => [
+          index + 1,
+          enrollment.full_name,
+          enrollment.email,
+          enrollment.phone_number,
+          enrollment.education_level,
+          enrollment.course,
+          enrollment.work_experience,
+          enrollment.designation,
+          new Date(enrollment.created_at).toLocaleDateString(),
+          enrollment.utm_source || "",
+          enrollment.utm_medium || "",
+          enrollment.utm_campaign || "",
+          enrollment.utm_term || "",
+          enrollment.utm_content || "",
+          enrollment.referrer || "",
+          enrollment.landing_page_url || "",
+          enrollment.fbclid || "",
+          enrollment.gclid || "",
+          enrollment.ttclid || "",
+          enrollment.msclkid || "",
+        ].join(",")),
       ].join("\n");
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
@@ -285,14 +322,14 @@ const AdminPage: React.FC = () => {
   };
 
   const formatDateTimeIST = (dateStr: string) => {
-    return new Date(dateStr).toLocaleString('en-IN', {
-      timeZone: 'Asia/Kolkata',
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
+    return new Date(dateStr).toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
     });
   };
 
@@ -372,6 +409,18 @@ const AdminPage: React.FC = () => {
                     Sales Access
                   </button>
                 )}
+                {userRole === "admin" && (
+                  <button
+                    onClick={() => setActiveTab("workshop-details")}
+                    className={`py-4 px-6 text-sm font-medium ${
+                      activeTab === "workshop-details"
+                        ? "border-b-2 border-blue-500 text-blue-600"
+                        : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                    }`}
+                  >
+                    Workshop Details
+                  </button>
+                )}
               </nav>
             </div>
           )}
@@ -418,21 +467,21 @@ const AdminPage: React.FC = () => {
                 placeholder="Filter by UTM Source"
                 className="border border-gray-300 rounded-md px-3 py-2"
                 value={utmFilter.source}
-                onChange={(e) => setUtmFilter(prev => ({ ...prev, source: e.target.value }))}
+                onChange={(e) => setUtmFilter((prev) => ({ ...prev, source: e.target.value }))}
               />
               <input
                 type="text"
                 placeholder="Filter by UTM Medium"
                 className="border border-gray-300 rounded-md px-3 py-2"
                 value={utmFilter.medium}
-                onChange={(e) => setUtmFilter(prev => ({ ...prev, medium: e.target.value }))}
+                onChange={(e) => setUtmFilter((prev) => ({ ...prev, medium: e.target.value }))}
               />
               <input
                 type="text"
                 placeholder="Filter by UTM Campaign"
                 className="border border-gray-300 rounded-md px-3 py-2"
                 value={utmFilter.campaign}
-                onChange={(e) => setUtmFilter(prev => ({ ...prev, campaign: e.target.value }))}
+                onChange={(e) => setUtmFilter((prev) => ({ ...prev, campaign: e.target.value }))}
               />
             </div>
             {courseFilter && (
@@ -455,7 +504,7 @@ const AdminPage: React.FC = () => {
                   <h4 className="text-sm font-medium text-gray-900 mb-2">Top Sources</h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.sources)
-                      .sort(([,a], [,b]) => b - a)
+                      .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([source, count]) => (
                         <div key={source} className="flex justify-between text-sm">
@@ -469,7 +518,7 @@ const AdminPage: React.FC = () => {
                   <h4 className="text-sm font-medium text-gray-900 mb-2">Top Mediums</h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.mediums)
-                      .sort(([,a], [,b]) => b - a)
+                      .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([medium, count]) => (
                         <div key={medium} className="flex justify-between text-sm">
@@ -483,7 +532,7 @@ const AdminPage: React.FC = () => {
                   <h4 className="text-sm font-medium text-gray-900 mb-2">Top Campaigns</h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.campaigns)
-                      .sort(([,a], [,b]) => b - a)
+                      .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([campaign, count]) => (
                         <div key={campaign} className="flex justify-between text-sm">
@@ -497,7 +546,7 @@ const AdminPage: React.FC = () => {
                   <h4 className="text-sm font-medium text-gray-900 mb-2">Top Referrers</h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.referrers)
-                      .sort(([,a], [,b]) => b - a)
+                      .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([referrer, count]) => (
                         <div key={referrer} className="flex justify-between text-sm">
@@ -748,34 +797,32 @@ const AdminPage: React.FC = () => {
                           "FB Click ID",
                           "Google Click ID",
                           "TikTok Click ID",
-                          "MS Click ID"
+                          "MS Click ID",
                         ];
                         const csvContent = [
                           headers.join(","),
-                          ...adminEnrollments.map((enrollment, index) =>
-                            [
-                              index + 1,
-                              enrollment.full_name,
-                              enrollment.email,
-                              enrollment.phone_number,
-                              enrollment.education_level,
-                              enrollment.course,
-                              enrollment.work_experience,
-                              enrollment.designation,
-                              formatDateTimeIST(enrollment.created_at),
-                              enrollment.utm_source || "",
-                              enrollment.utm_medium || "",
-                              enrollment.utm_campaign || "",
-                              enrollment.utm_term || "",
-                              enrollment.utm_content || "",
-                              enrollment.referrer || "",
-                              enrollment.landing_page_url || "",
-                              enrollment.fbclid || "",
-                              enrollment.gclid || "",
-                              enrollment.ttclid || "",
-                              enrollment.msclkid || ""
-                            ].join(",")
-                          ),
+                          ...adminEnrollments.map((enrollment, index) => [
+                            index + 1,
+                            enrollment.full_name,
+                            enrollment.email,
+                            enrollment.phone_number,
+                            enrollment.education_level,
+                            enrollment.course,
+                            enrollment.work_experience,
+                            enrollment.designation,
+                            formatDateTimeIST(enrollment.created_at),
+                            enrollment.utm_source || "",
+                            enrollment.utm_medium || "",
+                            enrollment.utm_campaign || "",
+                            enrollment.utm_term || "",
+                            enrollment.utm_content || "",
+                            enrollment.referrer || "",
+                            enrollment.landing_page_url || "",
+                            enrollment.fbclid || "",
+                            enrollment.gclid || "",
+                            enrollment.ttclid || "",
+                            enrollment.msclkid || "",
+                          ].join(",")),
                         ].join("\n");
 
                         const blob = new Blob([csvContent], {
@@ -836,34 +883,32 @@ const AdminPage: React.FC = () => {
                           "FB Click ID",
                           "Google Click ID",
                           "TikTok Click ID",
-                          "MS Click ID"
+                          "MS Click ID",
                         ];
                         const csvContent = [
                           headers.join(","),
-                          ...adminEnrollments.map((enrollment, index) =>
-                            [
-                              index + 1,
-                              enrollment.full_name,
-                              enrollment.email,
-                              enrollment.phone_number,
-                              enrollment.education_level,
-                              enrollment.course,
-                              enrollment.work_experience,
-                              enrollment.designation,
-                              formatDateTimeIST(enrollment.created_at),
-                              enrollment.utm_source || "",
-                              enrollment.utm_medium || "",
-                              enrollment.utm_campaign || "",
-                              enrollment.utm_term || "",
-                              enrollment.utm_content || "",
-                              enrollment.referrer || "",
-                              enrollment.landing_page_url || "",
-                              enrollment.fbclid || "",
-                              enrollment.gclid || "",
-                              enrollment.ttclid || "",
-                              enrollment.msclkid || ""
-                            ].join(",")
-                          ),
+                          ...adminEnrollments.map((enrollment, index) => [
+                            index + 1,
+                            enrollment.full_name,
+                            enrollment.email,
+                            enrollment.phone_number,
+                            enrollment.education_level,
+                            enrollment.course,
+                            enrollment.work_experience,
+                            enrollment.designation,
+                            formatDateTimeIST(enrollment.created_at),
+                            enrollment.utm_source || "",
+                            enrollment.utm_medium || "",
+                            enrollment.utm_campaign || "",
+                            enrollment.utm_term || "",
+                            enrollment.utm_content || "",
+                            enrollment.referrer || "",
+                            enrollment.landing_page_url || "",
+                            enrollment.fbclid || "",
+                            enrollment.gclid || "",
+                            enrollment.ttclid || "",
+                            enrollment.msclkid || "",
+                          ].join(",")),
                         ].join("\n");
 
                         const blob = new Blob([csvContent], {
@@ -892,6 +937,111 @@ const AdminPage: React.FC = () => {
                     <Download className="h-4 w-4" />
                     Download All Enrollments
                   </button>
+                </div>
+              )}
+
+              {/* Show Workshop Details table if in workshop tab */}
+              {activeTab === "workshop-details" && userRole === "admin" && (
+                <div className="mt-8">
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-2xl font-bold text-gray-900">Workshop Registrations</h2>
+                    <button
+                      onClick={fetchWorkshopData}
+                      className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                      disabled={refreshing}
+                    >
+                      <RefreshCw
+                        className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
+                      />
+                      Refresh
+                    </button>
+                  </div>
+
+                  <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              Name
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              Email
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              Phone
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              Education
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              Designation
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              Experience
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              <button
+                                onClick={handleSort}
+                                className="flex items-center gap-1 text-gray-500 hover:text-gray-700"
+                              >
+                                Date
+                                <ArrowUpDown className="h-4 w-4" />
+                              </button>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                          {workshopData.map((registration) => (
+                            <tr key={registration.id}>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {registration.name}
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {registration.email}
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {registration.phone}
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {registration.education}
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {registration.designation}
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {registration.yearsOfExperience}
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {new Date(registration.created_at).toLocaleDateString()}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               )}
             </>

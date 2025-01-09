@@ -256,6 +256,8 @@ const XSATFAQ = lazy(() =>
   }))
 );
 
+const WorkshopDetails = lazy(() => import("./pages/admin/WorkshopDetails"));
+
 // Meta Pixel
 
 function isDummyRoute(pathname: string): boolean {
@@ -296,12 +298,12 @@ function HomePage() {
 function WorkshopPage() {
   return (
     <Suspense fallback={<Loader />}>
-      <WSHero/>
-      <WSAbout/>
-      <WSTestimonial/>
-      <WSCommunity/>
+      <WSHero />
+      <WSAbout />
+      <WSTestimonial />
+      <WSCommunity />
     </Suspense>
-  )
+  );
 }
 
 function ProgramAnalyticsPage() {
@@ -545,7 +547,6 @@ function AboutPage() {
 function XSAT() {
   return (
     <Suspense fallback={<Loader />}>
-      {/* <XSATHeading /> */}
       <XSATHero />
       <XSATInfo />
       <XSATAbout />
@@ -771,6 +772,17 @@ function App() {
                     <Route
                       path="/admin/other-enquiries"
                       element={<OtherEnquiries />}
+                    />
+
+                    <Route
+                      path="/admin/workshop-details"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute requiredRole="admin">
+                            <WorkshopDetails />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
                     />
 
                     {/* Dummy Page FOR ADS */}
