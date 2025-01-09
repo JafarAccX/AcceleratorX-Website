@@ -38,7 +38,7 @@ export const MetaPixel = () => {
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '${PIXEL_ID}');
-          console.log('Meta Pixel - Initialized with ID:', '${PIXEL_ID}');
+          
         `}
       </script>
       <noscript>

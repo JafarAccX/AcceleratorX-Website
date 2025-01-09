@@ -12,7 +12,10 @@ const RoleProtectedRoute: React.FC<RoleProtectedRouteProps> = ({
   requiredRole 
 }) => {
   const isAuthenticated = authService.isAuthenticated();
-  const hasAccess = requiredRole ? authService.hasAccess(requiredRole) : true;
+  const userRole = authService.getRole();
+  const hasAccess = requiredRole 
+    ? userRole === 'admin' || userRole === requiredRole 
+    : true;
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;

@@ -27,11 +27,6 @@ export default function ChatWidget() {
     course: "",
   });
 
-  // Check if chat widget should be shown
-  if (!shouldShowChatWidget(location.pathname)) {
-    return null;
-  }
-
   useEffect(() => {
     // Show chat widget after 3 seconds on course pages
     if (location.pathname.includes("/courses/")) {
@@ -50,6 +45,11 @@ export default function ChatWidget() {
       setFormData((prev) => ({ ...prev, course: selectedCourse }));
     }
   }, [selectedCourse, isHomePage]);
+
+  // Check if chat widget should be shown
+  if (!shouldShowChatWidget(location.pathname)) {
+    return null;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
