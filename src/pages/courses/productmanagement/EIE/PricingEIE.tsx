@@ -5,8 +5,8 @@ import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 const acceleratorPricingData = {
   title: "AcceleratorX Program",
-  mrp: "39999",
-  price: "34999",
+  mrp: "39,999",
+  // price: "34999",
   discount: "12",
   features: [
     { name: "BYDP", included: true },
@@ -33,8 +33,8 @@ const acceleratorPricingData = {
 
 const eiePricingData = {
   title: "EIE European Business School Program",
-  mrp: "69999",
-  price: "64999",
+  mrp: "69,999",
+  // price: "64999",
   discount: "7",
   features: [
     { name: "BYDP", included: true },
@@ -132,20 +132,20 @@ export default function PricingEIE() {
               </div>
 
               <div className="flex flex-col items-center gap-2 mb-2">
-                <span className="text-4xl font-bold text-white">
-                  ₹{pricingData.price}
-                </span>
+                {/* <span className="text-4xl font-bold text-white">
+                  ₹{pricingData.price} text-gray-400 text-sm line-through 
+                </span> */}
                 <div className="text-center">
-                  <span className="text-gray-400 text-sm line-through">
+                  <span className="text-4xl font-bold text-white">
                     ₹{pricingData.mrp}
                   </span>
-                  <span
+                  {/* <span
                     className={`ml-2 text-sm ${
                       isEIE ? "text-[#5CB338]" : "text-blue-500"
                     }`}
                   >
                     {pricingData.discount}% off
-                  </span>
+                  </span> */}
                 </div>
               </div>
             </div>

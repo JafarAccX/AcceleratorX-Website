@@ -37,16 +37,19 @@ export default function PricingCard({
             <p className="text-gray-400 mb-6">Complete Career Transformation</p>
 
             <div className="flex items-center justify-center space-x-4">
-              <span className="text-6xl font-bold text-white">
-                ₹{discountedPrice.toLocaleString()}
-              </span>
+              {/* <span className="text-6xl font-bold text-white">
+                ₹{discountedPrice.toLocaleString()} text-gray-400 line-through block
+              </span> */}
               <div className="text-left">
-                <span className="text-gray-400 line-through block">
+                <span className=" text-6xl font-bold text-white">
                   ₹{originalPrice.toLocaleString()}
                 </span>
-                <span className="text-green-500 font-semibold">
-                  {Math.round(((originalPrice - discountedPrice) / originalPrice) * 100)}% OFF
-                </span>
+                {/* <span className="text-green-500 font-semibold">
+                  {Math.round(
+                    ((originalPrice - discountedPrice) / originalPrice) * 100
+                  )}
+                  % OFF
+                </span> */}
               </div>
             </div>
 
@@ -54,7 +57,7 @@ export default function PricingCard({
             <div className="mt-4 bg-red-500/10 border border-red-500/20 rounded-lg p-3">
               <p className="text-red-400 text-sm font-medium flex items-center justify-center gap-2">
                 <AlertCircle className="h-4 w-4" />
-                Prices increasing from 10th Jan!
+                Prices increasing from 20th Jan!
               </p>
             </div>
           </div>

@@ -386,7 +386,6 @@ function ProgramAnalyticsPageEIE() {
       <SkillsAndToolsEIE />
       <SkillsAssessmentEIE />
       <PricingEIE />
-
       <FAQEIE />
       <StickyBookNav />
     </Suspense>
