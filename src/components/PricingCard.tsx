@@ -5,11 +5,11 @@ import { AlertCircle } from "lucide-react";
 export default function PricingCard({
   courseName,
   originalPrice,
-  discountedPrice,
+  // discountedPrice,
   features,
   onEnroll,
 }) {
-  const savingsAmount = originalPrice - discountedPrice;
+  // const savingsAmount = originalPrice - discountedPrice;
 
   return (
     <div className="mt-16 max-w-xl mx-auto">
@@ -29,9 +29,9 @@ export default function PricingCard({
         <div className="bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-3xl shadow-2xl overflow-hidden border border-gray-700">
           <div className="p-8 text-center relative">
             {/* Savings Badge */}
-            <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold animate-pulse">
+            {/* <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold animate-pulse">
               Save ₹{savingsAmount.toLocaleString()}
-            </div>
+            </div> */}
 
             <h3 className="text-3xl font-bold text-white mb-2">{courseName}</h3>
             <p className="text-gray-400 mb-6">Complete Career Transformation</p>
