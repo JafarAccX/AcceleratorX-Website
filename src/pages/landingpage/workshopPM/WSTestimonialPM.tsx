@@ -4,28 +4,28 @@ import { FaStar, FaQuoteLeft } from "react-icons/fa";
 const WSTestimonialPM = () => {
   const testimonials = [
     {
-      name: "Rohan Mehta",
+      name: "Sameer Khan",
       role: "Product Manager",
       company: "Tech Solutions",
-      image: "/assets/testimonialsLogo/testimonial1.webp",
+      image: "/assets/testimonialsLogo/testimonial4.jpeg",
       content:
         "This workshop was a game-changer! It perfectly blended product management fundamentals with AI integration. The real-world case studies and actionable insights were invaluable.",
       rating: 5,
     },
     {
-      name: "Gautham Sharma",
-      role: "Senior Product Manager",
+      name: "G Thulasi",
+      role: "Learners",
       company: "Innovative Products Inc.",
-      image: "/assets/testimonialsLogo/testimonial2.webp",
+      image: "/assets/testimonialsLogo/testimonial6.jpeg",
       content:
         "A fantastic experience! The workshop gave me a clear understanding of how to incorporate AI into product strategy, from ideation to execution. The tools and frameworks presented were highly practical.",
       rating: 5,
     },
     {
-      name: "Kunal Verma",
+      name: "Ipshita Pathak",
       role: "Tech Lead",
       company: "FutureTech Solutions",
-      image: "/assets/testimonialsLogo/testimonial3.webp",
+      image: "/assets/testimonialsLogo/testimonial5.jpeg",
       content:
         "This workshop helped me bridge the gap between AI and product management. The focus on building AI-driven products and scaling them was especially useful for my current projects.",
       rating: 5,
@@ -90,9 +90,9 @@ const WSTestimonialPM = () => {
                   <h4 className="font-semibold text-white group-hover:text-blue-400 transition-colors">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-gray-400">
+                  {/* <p className="text-sm text-gray-400">
                     {testimonial.role} · {testimonial.company}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>

@@ -317,7 +317,7 @@ function WorkshopPagePM() {
       <WSHeroPM />
       <WSAboutPM />
       <WSTestimonialPM />
-      <WSCommunityPM />
+      {/* <WSCommunityPM /> */}
     </Suspense>
   );
 }
