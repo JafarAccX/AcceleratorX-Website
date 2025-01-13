@@ -44,7 +44,7 @@ const WSAboutPM = () => {
                 with industry expert{" "}
                 <span className="font-bold">Subhasis Chandra</span> on{" "}
                 <span className="font-bold">
-                  Saturday, 16th January, 08:00 PM onwards
+                  Thrusday, 16th January, 08:00 PM onwards
                 </span>{" "}
                 and unlock the secrets to:
               </p>

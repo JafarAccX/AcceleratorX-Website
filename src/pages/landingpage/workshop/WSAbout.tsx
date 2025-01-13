@@ -224,11 +224,31 @@ const WSAbout = () => {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-xl font-bold mb-3">Tools You will learn</h3>
               <div className="grid grid-cols-3 gap-6 p-4">
-                <img src="/assets/dataTools/python.webp" alt="Python" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
-                <img src="/assets/dataTools/Tensorflow_logo.webp" alt="TensorFlow" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
-                <img src="/assets/dataTools/pandas.webp" alt="Pandas" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
-                <img src="/assets/dataTools/scikit-learn-logo.webp" alt="Scikit-learn" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
-                <img src="/assets/dataTools/tableu.webp" alt="Tableau" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
+                <img
+                  src="/assets/dataTools/python.webp"
+                  alt="Python"
+                  className="w-20 h-20 object-contain hover:scale-110 transition-transform"
+                />
+                <img
+                  src="/assets/dataTools/Tensorflow_logo.webp"
+                  alt="TensorFlow"
+                  className="w-20 h-20 object-contain hover:scale-110 transition-transform"
+                />
+                <img
+                  src="/assets/dataTools/pandas.webp"
+                  alt="Pandas"
+                  className="w-20 h-20 object-contain hover:scale-110 transition-transform"
+                />
+                <img
+                  src="/assets/dataTools/scikit-learn-logo.webp"
+                  alt="Scikit-learn"
+                  className="w-20 h-20 object-contain hover:scale-110 transition-transform"
+                />
+                <img
+                  src="/assets/dataTools/tableu.webp"
+                  alt="Tableau"
+                  className="w-20 h-20 object-contain hover:scale-110 transition-transform"
+                />
               </div>
             </div>
           </div>
