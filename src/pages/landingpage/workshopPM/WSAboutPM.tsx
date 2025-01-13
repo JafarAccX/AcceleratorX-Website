@@ -2,12 +2,6 @@ import React from "react";
 import { FaCheck, FaUser, FaCertificate } from "react-icons/fa";
 
 const WSAboutPM = () => {
-  // const requirements = [
-  //   "Strong interest in Data Analytics and Machine Learning",
-  //   "Want to enhance your familiarity with data analysis and visualization tools (e.g., Excel, Tableau, or Matplotlib)",
-  //   "Interest in AI, analytics, and problem-solving",
-  // ];
-
   const instructorDetails = {
     name: "Subhasis Chandra",
     title: "Senior PM, Publicis Sapient",
@@ -230,38 +224,40 @@ const WSAboutPM = () => {
               <h3 className="text-2xl font-bold mb-6 text-center">
                 Tools You Will Learn
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="flex flex-col items-center gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
                   <img
-                    src="/assets/toolLogo/Asana.png"
+                    src="/assets/toolLogo/asanaa.webp"
                     alt="Asana"
-                    className="w-20 h-20 object-contain hover:scale-110 transition-transform duration-300"
+                    className="w-20 h-20 object-contain"
                   />
-                  <p className="font-medium text-gray-700">Asana</p>
+                  <p className="font-medium text-gray-700 text-center">Asana</p>
                 </div>
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
                   <img
-                    src="/assets/toolLogo/Jira.png"
+                    src="/assets/toolLogo/jiraa.webp"
                     alt="Jira"
-                    className="w-20 h-20 object-contain hover:scale-110 transition-transform duration-300"
+                    className="w-20 h-20 object-contain"
                   />
-                  <p className="font-medium text-gray-700">Jira</p>
+                  <p className="font-medium text-gray-700 text-center">Jira</p>
                 </div>
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
                   <img
                     src="/assets/toolLogo/Amplitude.png"
                     alt="Amplitude"
-                    className="w-20 h-20 object-contain hover:scale-110 transition-transform duration-300"
+                    className="w-20 h-20 object-contain"
                   />
-                  <p className="font-medium text-gray-700">Amplitude</p>
+                  <p className="font-medium text-gray-700 text-center">
+                    Amplitude
+                  </p>
                 </div>
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
                   <img
-                    src="/assets/toolLogo/Miro.png"
+                    src="/assets/toolLogo/miroo.webp"
                     alt="Miro"
-                    className="w-20 h-20 object-contain hover:scale-110 transition-transform duration-300"
+                    className="w-20 h-20 object-contain"
                   />
-                  <p className="font-medium text-gray-700">Miro</p>
+                  <p className="font-medium text-gray-700 text-center">Miro</p>
                 </div>
               </div>
             </div>

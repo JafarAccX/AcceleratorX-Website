@@ -7,7 +7,7 @@ const WSHeroPM = () => {
       {/* Logo Section */}
       <div className="absolute top-0 left-0 w-full z-20 bg-gradient-to-b from-gray-900/80 to-transparent">
         <div className="container mx-auto px-4 py-4 flex justify-center">
-          <div className="w-32 md:w-48">
+          <div className="w-44 md:w-52 lg:w-64">
             <img
               src="/assets/logo/logo.png"
               alt="AcceleratorX Logo"
@@ -20,21 +20,23 @@ const WSHeroPM = () => {
       <div className="container mx-auto px-4">
         <div className="relative flex flex-col mt-24 mb-8 md:mt-28 lg:flex-row items-start">
           {/* Content Section with Image Banner */}
-          <div className="w-full lg:max-w-2xl">
+          <div className="w-full lg:max-w-3xl">
             {/* Hero Image as Banner */}
-            <div className="relative mb-8 lg:mb-12">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
-              <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
-                <img
-                  src="/assets/DAProgramWorkshop.png"
-                  alt="PM Masterclass"
-                  className="w-full h-[200px] md:h-[250px] object-contain object-left px-4 hover:scale-105 transition-transform duration-700"
-                />
+            <div className="relative mb-8 lg:mb-10">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
+                <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
+                  <img
+                    src="/assets/DAProgramWorkshop.png"
+                    alt="PM Masterclass"
+                    className="w-full h-[250px] object-contain object-left px-4"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Heading Section */}
-            <div className="relative z-10 text-center lg:text-left">
+            <div className="relative z-10 text-left">
               <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 Product Management Masterclass
               </h1>
@@ -42,7 +44,7 @@ const WSHeroPM = () => {
                 Topic: Leveraging AI in Product Management
               </h2>
 
-              <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0">
+              <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl">
                 In today’s fast-paced tech world, staying ahead means embracing
                 innovation. For product managers, mastering Artificial
                 Intelligence (AI) is no longer optional—it’s essential. This
@@ -55,7 +57,7 @@ const WSHeroPM = () => {
             </div>
 
             {/* Company Logo */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 mb-12">
+            <div className="flex items-center justify-start gap-6 mb-12">
               <div className="flex items-center gap-4 px-6 py-3 bg-white/5 rounded-2xl backdrop-blur-sm">
                 <img
                   src="/companylogo.png"
