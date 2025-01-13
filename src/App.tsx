@@ -39,6 +39,10 @@ import WSHero from "./pages/landingpage/workshop/WSHero";
 import WSAbout from "./pages/landingpage/workshop/WSAbout";
 import WSTestimonial from "./pages/landingpage/workshop/WSTestimonial";
 import WSCommunity from "./pages/landingpage/workshop/WSCommunity";
+import WSHeroPM from "./pages/landingpage/workshopPM/WSHeroPM";
+import WSAboutPM from "./pages/landingpage/workshopPM/WSAboutPM";
+import WSTestimonialPM from "./pages/landingpage/workshopPM/WSTestimonialPM";
+import WSCommunityPM from "./pages/landingpage/workshopPM/WSCommunityPM";
 
 // Lazy imports
 const Hero = lazy(() => import("./components/Hero"));
@@ -269,7 +273,8 @@ function isDummyRoute(pathname: string): boolean {
     "/courses/data-analytics-program-eie",
     "/xsat",
     "/thank-you",
-    "/workshop/da-masterclass-with-ai",
+    "/workshop/da-masterclass",
+    "/workshop/pm-masterclass",
   ];
   return adRoutes.includes(pathname);
 }
@@ -295,13 +300,24 @@ function HomePage() {
   );
 }
 
-function WorkshopPage() {
+function WorkshopPageDA() {
   return (
     <Suspense fallback={<Loader />}>
       <WSHero />
       <WSAbout />
       <WSTestimonial />
       <WSCommunity />
+    </Suspense>
+  );
+}
+
+function WorkshopPagePM() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <WSHeroPM />
+      <WSAboutPM />
+      <WSTestimonialPM />
+      <WSCommunityPM />
     </Suspense>
   );
 }
@@ -733,10 +749,18 @@ function App() {
                       }
                     />
                     <Route
-                      path="/workshop/da-masterclass-with-ai"
+                      path="/workshop/da-masterclass"
                       element={
                         <Suspense fallback={<Loader />}>
-                          <WorkshopPage />
+                          <WorkshopPageDA />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/workshop/pm-masterclass"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <WorkshopPagePM />
                         </Suspense>
                       }
                     />
