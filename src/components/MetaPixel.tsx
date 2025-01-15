@@ -52,7 +52,7 @@ export const MetaPixel = () => {
         <script>
           {`
             fbq('track', 'PageView');
-            console.log('Meta Pixel - Tracked PageView');
+            
           `}
         </script>
       )}
@@ -62,7 +62,6 @@ export const MetaPixel = () => {
         <script>
           {`
             fbq('track', 'Lead');
-            console.log('Meta Pixel - Tracked Lead');
           `}
         </script>
       )}

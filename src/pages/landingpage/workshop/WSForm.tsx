@@ -22,7 +22,7 @@ interface FormData {
 
 const WSForm = () => {
   const { workshopType } = useWorkshop();
-  console.log('WSForm - Current workshop type:', workshopType);
+  // console.log('WSForm - Current workshop type:', workshopType);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -51,7 +51,7 @@ const WSForm = () => {
     e.preventDefault();
     if (isSubmitting) return;
 
-    console.log('Form submission - workshop type:', workshopType);
+    // console.log('Form submission - workshop type:', workshopType);
 
     // Validation
     if (!formData.email.includes('@') || !formData.email.includes('.')) {
@@ -79,7 +79,7 @@ const WSForm = () => {
         created_at: new Date().toISOString(),
       };
       
-      console.log('Submitting to database:', submissionData);
+      // console.log('Submitting to database:', submissionData);
 
       const { error } = await supabase
         .from('workshop_registrations')
@@ -90,7 +90,7 @@ const WSForm = () => {
         throw error;
       }
 
-      console.log('Submission successful');
+      // console.log('Submission successful');
 
       // Show success toast and modal
       toast.success('Registration successful!');

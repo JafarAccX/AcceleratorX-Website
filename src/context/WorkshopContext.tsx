@@ -15,17 +15,17 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
   const location = useLocation();
 
   useEffect(() => {
-    console.log('Current path:', location.pathname);
+    // console.log('Current path:', location.pathname);
     if (location.pathname.includes('/pm-masterclass')) {
-      console.log('Setting workshop type to PMWorkshop');
+      // console.log('Setting workshop type to PMWorkshop');
       setWorkshopType('PMWorkshop');
     } else if (location.pathname.includes('/da-masterclass')) {
-      console.log('Setting workshop type to DAWorkshop');
+      // console.log('Setting workshop type to DAWorkshop');
       setWorkshopType('DAWorkshop');
     }
   }, [location.pathname]);
 
-  console.log('WorkshopProvider current type:', workshopType);
+  // console.log('WorkshopProvider current type:', workshopType);
 
   return (
     <WorkshopContext.Provider value={{ workshopType, setWorkshopType }}>
