@@ -31,6 +31,7 @@ interface WorkshopData {
   designation: string;
   years_of_experience: string;
   created_at: string;
+  workshop_type: string;
 }
 
 const WorkshopDetails: React.FC = () => {
@@ -43,6 +44,7 @@ const WorkshopDetails: React.FC = () => {
   const [sortField, setSortField] = useState<keyof WorkshopData>("created_at");
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
   const [searchQuery, setSearchQuery] = useState("");
+  const [workshopTypeFilter, setWorkshopTypeFilter] = useState<string>("all");
   const navigate = useNavigate();
 
   const fetchWorkshops = useCallback(async (isRefreshing = false) => {
@@ -52,7 +54,7 @@ const WorkshopDetails: React.FC = () => {
       } else {
         setLoading(true);
       }
-      
+
       const { data: workshopData, error, count } = await supabase
         .from("workshop_registrations")
         .select("*", { count: "exact" })
@@ -65,7 +67,7 @@ const WorkshopDetails: React.FC = () => {
       const sortedData = workshopData || [];
       setWorkshops(sortedData);
       setFilteredWorkshops(sortedData);
-      
+
       if (count) {
         setTotalPages(Math.ceil(count / ITEMS_PER_PAGE));
       }
@@ -111,31 +113,79 @@ const WorkshopDetails: React.FC = () => {
     }
   }, [sortField, sortOrder, workshops]);
 
-  // Handle search
   useEffect(() => {
-    if (searchQuery.trim() === "") {
-      setFilteredWorkshops(workshops);
-    } else {
+    if (workshops.length > 0) {
       const lowercaseQuery = searchQuery.toLowerCase();
       const filtered = workshops.filter((workshop) => {
-        return (
+        const matchesSearch =
           workshop.name.toLowerCase().includes(lowercaseQuery) ||
           workshop.email.toLowerCase().includes(lowercaseQuery) ||
           workshop.phone.toLowerCase().includes(lowercaseQuery) ||
           workshop.education.toLowerCase().includes(lowercaseQuery) ||
           workshop.designation.toLowerCase().includes(lowercaseQuery) ||
-          workshop.years_of_experience.toLowerCase().includes(lowercaseQuery)
-        );
+          workshop.years_of_experience.toLowerCase().includes(lowercaseQuery) ||
+          (workshop.workshop_type?.toLowerCase() || '').includes(lowercaseQuery);
+
+        const matchesType =
+          workshopTypeFilter === "all" || workshop.workshop_type === workshopTypeFilter;
+
+        return matchesSearch && matchesType;
       });
       setFilteredWorkshops(filtered);
     }
-    setCurrentPage(1);
-  }, [searchQuery, workshops]);
+  }, [workshops, searchQuery, workshopTypeFilter]);
 
   const getCurrentPageData = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     return filteredWorkshops.slice(startIndex, endIndex);
+  };
+
+  const handleDownloadCSV = () => {
+    try {
+      const headers = [
+        "Name",
+        "Email",
+        "Phone",
+        "Education",
+        "Designation",
+        "Years of Experience",
+        "Workshop Type",
+        "Registration Date",
+      ];
+
+      const csvContent = [
+        headers.join(","),
+        ...filteredWorkshops.map((workshop) => [
+          workshop.name,
+          workshop.email,
+          workshop.phone,
+          workshop.education,
+          workshop.designation,
+          workshop.years_of_experience,
+          workshop.workshop_type ? 
+            (workshop.workshop_type === 'DAWorkshop' ? 'Data Analytics Workshop' : 'Product Management Workshop') 
+            : 'Not specified',
+          new Date(workshop.created_at).toLocaleString(),
+        ].join(",")),
+      ].join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute(
+        "download",
+        `workshop_registrations_${new Date().toISOString().split("T")[0]}.csv`
+      );
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      toast.success("CSV downloaded successfully");
+    } catch (error) {
+      console.error("Error downloading CSV:", error);
+      toast.error("Failed to download CSV");
+    }
   };
 
   if (loading) {
@@ -148,54 +198,6 @@ const WorkshopDetails: React.FC = () => {
       </div>
     );
   }
-
-  const handleSort = (field: keyof WorkshopData) => {
-    if (field === sortField) {
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-    } else {
-      setSortField(field);
-      setSortOrder("asc");
-    }
-  };
-
-  // const exportToCSV = () => {
-  //   if (!workshops.length) return;
-
-  //   const headers = [
-  //     "Name",
-  //     "Email",
-  //     "Phone",
-  //     "Education",
-  //     "Designation",
-  //     "Years of Experience",
-  //     "Registration Date",
-  //   ];
-
-  //   const csvData = workshops.map((workshop) => [
-  //     workshop.name,
-  //     workshop.email,
-  //     workshop.phone,
-  //     workshop.education,
-  //     workshop.designation,
-  //     workshop.years_of_experience,
-  //     new Date(workshop.created_at).toLocaleString(),
-  //   ]);
-
-  //   const csvContent =
-  //     "data:text/csv;charset=utf-8," +
-  //     [headers.join(","), ...csvData.map((row) => row.join(","))].join("\n");
-
-  //   const encodedUri = encodeURI(csvContent);
-  //   const link = document.createElement("a");
-  //   link.setAttribute("href", encodedUri);
-  //   link.setAttribute(
-  //     "download",
-  //     `workshop_registrations_${new Date().toISOString()}.csv`
-  //   );
-  //   document.body.appendChild(link);
-  //   link.click();
-  //   document.body.removeChild(link);
-  // };
 
   return (
     <motion.div
@@ -210,54 +212,53 @@ const WorkshopDetails: React.FC = () => {
             <h1 className="text-2xl font-semibold text-gray-900">
               Workshop Registrations
             </h1>
-            <p className="mt-2 text-sm text-gray-700">
-              A list of all workshop registrations with their details
-            </p>
           </div>
-          <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none space-x-4">
+          <div className="flex items-center gap-4 mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+            <select
+              value={workshopTypeFilter}
+              onChange={(e) => setWorkshopTypeFilter(e.target.value)}
+              className="block w-48 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+            >
+              <option value="all">All Workshops</option>
+              <option value="DAWorkshop">DA Workshop</option>
+              <option value="PMWorkshop">PM Workshop</option>
+            </select>
+            <div className="relative flex-grow sm:max-w-xs">
+              <input
+                type="text"
+                placeholder="Search registrations..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+              />
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              </div>
+            </div>
+            <button
+              onClick={handleDownloadCSV}
+              className="inline-flex items-center gap-x-1.5 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              <Download className="-ml-0.5 h-5 w-5" aria-hidden="true" />
+              Download CSV
+            </button>
             <button
               onClick={() => fetchWorkshops(true)}
               disabled={refreshing}
-              className={`inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:w-auto ${
-                refreshing ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className="inline-flex items-center gap-x-1.5 rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
             >
-              <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`} />
+              <RefreshCw className={`h-5 w-5 ${refreshing ? "animate-spin" : ""}`} aria-hidden="true" />
               {refreshing ? "Refreshing..." : "Refresh"}
             </button>
-            {/* <button
-              onClick={exportToCSV}
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:w-auto"
-            >
-              <Download className="h-4 w-4 mr-2" />
-              Export CSV
-            </button> */}
-
             <button
               onClick={() => {
                 authService.logout();
                 navigate("/login");
               }}
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:w-auto"
+              className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
             >
               Logout
             </button>
-          </div>
-        </div>
-
-        {/* Search Box */}
-        <div className="mt-4 relative">
-          <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-              <Search className="h-5 w-5 text-gray-400" />
-            </div>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by name, email, phone..."
-              className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-            />
           </div>
         </div>
 
@@ -268,33 +269,40 @@ const WorkshopDetails: React.FC = () => {
                 <table className="min-w-full divide-y divide-gray-300">
                   <thead className="bg-gray-50">
                     <tr>
-                      {[
-                        { key: "name", label: "Name" },
-                        { key: "email", label: "Email" },
-                        { key: "phone", label: "Phone" },
-                        { key: "education", label: "Education" },
-                        { key: "designation", label: "Designation" },
-                        {
-                          key: "years_of_experience",
-                          label: "Years of Experience",
-                        },
-                        { key: "created_at", label: "Registration Date" },
-                      ].map(({ key, label }) => (
-                        <th
-                          key={key}
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                        >
-                          {label}
-                        </th>
-                      ))}
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Sr. No.
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Name
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Email
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Phone
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Education
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Designation
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Years of Experience
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Registration Date
+                      </th>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Workshop Type
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
                     {loading ? (
                       <tr>
                         <td
-                          colSpan={7}
+                          colSpan={8}
                           className="px-3 py-4 text-sm text-gray-500 text-center"
                         >
                           Loading...
@@ -303,37 +311,47 @@ const WorkshopDetails: React.FC = () => {
                     ) : getCurrentPageData().length === 0 ? (
                       <tr>
                         <td
-                          colSpan={7}
+                          colSpan={8}
                           className="px-3 py-4 text-sm text-gray-500 text-center"
                         >
-                          {searchQuery.trim() !== "" 
-                            ? "No matching workshop registrations found" 
+                          {searchQuery.trim() !== ""
+                            ? "No matching workshop registrations found"
                             : "No workshop registrations found"}
                         </td>
                       </tr>
                     ) : (
-                      getCurrentPageData().map((workshop) => (
-                        <tr key={workshop.id}>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      getCurrentPageData().map((workshop, index) => (
+                        <tr key={workshop.id} className={index % 2 === 0 ? undefined : "bg-gray-50"}>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {(currentPage - 1) * ITEMS_PER_PAGE + index + 1}
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                             {workshop.name}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {workshop.email}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {workshop.phone}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {workshop.education}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {workshop.designation}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {workshop.years_of_experience}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {new Date(workshop.created_at).toLocaleString()}
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {workshop.workshop_type ? (
+                              workshop.workshop_type === 'DAWorkshop' ? 'DA Workshop' : 'PM Workshop'
+                            ) : (
+                              'Not specified'
+                            )}
                           </td>
                         </tr>
                       ))

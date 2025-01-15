@@ -42,7 +42,6 @@ import WSCommunity from "./pages/landingpage/workshop/WSCommunity";
 import WSHeroPM from "./pages/landingpage/workshopPM/WSHeroPM";
 import WSAboutPM from "./pages/landingpage/workshopPM/WSAboutPM";
 import WSTestimonialPM from "./pages/landingpage/workshopPM/WSTestimonialPM";
-import WSCommunityPM from "./pages/landingpage/workshopPM/WSCommunityPM";
 
 // Lazy imports
 const Hero = lazy(() => import("./components/Hero"));
@@ -317,7 +316,7 @@ function WorkshopPagePM() {
       <WSHeroPM />
       <WSAboutPM />
       <WSTestimonialPM />
-      {/* <WSCommunityPM /> */}
+
     </Suspense>
   );
 }

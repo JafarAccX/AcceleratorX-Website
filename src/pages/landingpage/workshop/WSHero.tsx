@@ -1,5 +1,6 @@
 import React from "react";
 import WSForm from "./WSForm";
+import { WorkshopProvider } from "../../../context/WorkshopContext";
 
 const WSHero = () => {
   return (
@@ -67,8 +68,10 @@ const WSHero = () => {
           </div>
 
           {/* Form Section */}
-          <div className="lg:fixed lg:top-1/2 lg:right-8 lg:transform lg:-translate-y-1/2 lg:z-50 w-full lg:w-auto lg:max-w-md">
-            <WSForm />
+          <div className="w-full lg:w-[500px] lg:ml-8 mt-8 lg:mt-0">
+            <WorkshopProvider>
+              <WSForm />
+            </WorkshopProvider>
           </div>
         </div>
       </div>

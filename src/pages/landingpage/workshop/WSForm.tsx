@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import toast from 'react-hot-toast';
+import { useWorkshop } from '../../../context/WorkshopContext';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -20,6 +21,8 @@ interface FormData {
 }
 
 const WSForm = () => {
+  const { workshopType } = useWorkshop();
+  console.log('WSForm - Current workshop type:', workshopType);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -32,9 +35,9 @@ const WSForm = () => {
   const [showModal, setShowModal] = useState(false);
 
   const zoomMeetingDetails = {
-    link: "https://zoom.us/meeting/tJcqf--trDgrH9RuX7KD2I5NfCz8uPqufM0O/calendar/google/add?meetingMasterEventId=uB-iF_r3SfiQ3rr0FefvGg",
-    meetingId: "tJcqf--trDgrH9RuX7KD2I5NfCz8uPqufM0O",
-    time: "Jan 12, 2025 11:00 PM India"
+    link: "https://zoom.us/meeting/register/_mrs6jLxR66IPjS6SZIs8g",
+    meetingId: "_mrs6jLxR66IPjS6SZIs8g",
+    time: "Jan 16, 2025 08:00 PM India"
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -47,6 +50,8 @@ const WSForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
+
+    console.log('Form submission - workshop type:', workshopType);
 
     // Validation
     if (!formData.email.includes('@') || !formData.email.includes('.')) {
@@ -62,31 +67,30 @@ const WSForm = () => {
     setIsSubmitting(true);
 
     try {
+      // Convert camelCase to snake_case for database
+      const submissionData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        education: formData.education,
+        designation: formData.designation,
+        years_of_experience: formData.yearsOfExperience,
+        workshop_type: workshopType,
+        created_at: new Date().toISOString(),
+      };
+      
+      console.log('Submitting to database:', submissionData);
+
       const { error } = await supabase
         .from('workshop_registrations')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            education: formData.education,
-            designation: formData.designation,
-            years_of_experience: formData.yearsOfExperience,
-            created_at: new Date().toISOString()
-          }
-        ]);
+        .insert([submissionData]);
 
       if (error) {
-        console.error('Registration error:', error);
-        if (error.code === '23505') {
-          toast.error('You have already registered with this email or phone number');
-        } else if (error.code === '42501') {
-          toast.error('Unable to register. Please try again later.');
-        } else {
-          toast.error('Registration failed. Please try again.');
-        }
-        return;
+        console.error('Supabase error:', error);
+        throw error;
       }
+
+      console.log('Submission successful');
 
       // Show success toast and modal
       toast.success('Registration successful!');
@@ -103,7 +107,7 @@ const WSForm = () => {
       });
     } catch (error) {
       console.error('Submission error:', error);
-      toast.error('Something went wrong. Please try again.');
+      toast.error('Registration failed. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -226,14 +230,15 @@ const WSForm = () => {
               <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
                 <h4 className="font-semibold text-gray-800 mb-2">Zoom Meeting Details:</h4>
                 <p className="text-sm text-gray-600 mb-2">Meeting ID: {zoomMeetingDetails.meetingId}</p>
-                {/* <a
+                <p className="text-sm text-gray-600 mb-2">Time: {zoomMeetingDetails.time}</p>
+                <a
                   href={zoomMeetingDetails.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors"
                 >
                   Add to Calendar
-                </a> */}
+                </a>
               </div>
               <p className="text-sm text-gray-500">
                 See you in the workshop!
