@@ -32,9 +32,9 @@ const WSForm = () => {
   const [showModal, setShowModal] = useState(false);
 
   const zoomMeetingDetails = {
-    link: "https://zoom.us/meeting/tJcqf--trDgrH9RuX7KD2I5NfCz8uPqufM0O/calendar/google/add?meetingMasterEventId=uB-iF_r3SfiQ3rr0FefvGg",
-    meetingId: "tJcqf--trDgrH9RuX7KD2I5NfCz8uPqufM0O",
-    time: "Jan 12, 2025 11:00 PM India"
+    link: "https://zoom.us/meeting/register/_mrs6jLxR66IPjS6SZIs8g",
+    meetingId: "_mrs6jLxR66IPjS6SZIs8g",
+    time: "Jan 16, 2025 08:00 PM India"
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -226,14 +226,15 @@ const WSForm = () => {
               <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
                 <h4 className="font-semibold text-gray-800 mb-2">Zoom Meeting Details:</h4>
                 <p className="text-sm text-gray-600 mb-2">Meeting ID: {zoomMeetingDetails.meetingId}</p>
-                {/* <a
+                <p className="text-sm text-gray-600 mb-2">Date: {zoomMeetingDetails.time}</p>
+                <a
                   href={zoomMeetingDetails.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors"
                 >
                   Add to Calendar
-                </a> */}
+                </a>
               </div>
               <p className="text-sm text-gray-500">
                 See you in the workshop!
