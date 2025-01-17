@@ -28,7 +28,7 @@ const WSHeroPM = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
                 <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
                   <img
-                    src="/assets/DAProgramWorkshop.png"
+                    src="/assets/pmworkshopcover.png"
                     alt="PM Masterclass"
                     className="w-full h-[250px] object-contain object-left px-4"
                   />
@@ -42,18 +42,35 @@ const WSHeroPM = () => {
                 Product Management Masterclass
               </h1>
               <h2 className="text-white text-2xl font-semibold mb-6">
-                Topic: Leveraging AI in Product Management
+                Topic: How to transit in Product Management Role in 2025?
               </h2>
 
               <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl">
-                In today’s fast-paced tech world, staying ahead means embracing
-                innovation. For product managers, mastering Artificial
-                Intelligence (AI) is no longer optional—it’s essential. This
-                exclusive masterclass unlocks the secrets to leveraging AI for
-                smarter product development, seamless user experiences, and
-                sharper, data-driven strategies. Discover how to turn
-                cutting-edge AI tools into real-world solutions and create
-                market-leading products that truly make an impact.
+                In the rapidly evolving landscape of technology,{" "}
+                <span className="font-bold text-white ">Product Managers</span>{" "}
+                must not only keep pace but also lead the charge in innovation.
+                This
+                <span className="font-bold text-white">
+                  exclusive masterclass
+                </span>{" "}
+                is designed for those looking to transition into product
+                management roles in 2025, with a strong focus on the integration
+                of{" "}
+                <span className="font-bold text-white">
+                  Artificial Intelligence (AI)
+                </span>{" "}
+                into product development. Participants will gain invaluable
+                insights into harnessing AI to enhance product strategies,
+                optimize user experiences, and drive data-informed
+                decision-making. <br />
+                Learn how to effectively utilize state-of-the-art AI tools to
+                transform theoretical concepts into practical solutions that
+                resonate in the marketplace. Join us to unlock the potential of
+                AI in creating{" "}
+                <span className="font-bold text-white">market-leading</span>
+                products that not only meet but exceed customer expectations,
+                ensuring your success in the competitive field of product
+                management.
               </p>
             </div>
 

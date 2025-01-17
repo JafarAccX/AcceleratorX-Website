@@ -8,10 +8,33 @@ const WSAboutPM = () => {
   };
 
   const targetAudience = [
-    "Aspiring product managers looking to leverage AI in product development",
-    "Professionals transitioning into product management roles with an AI focus",
-    "Tech professionals seeking to integrate AI tools into product strategies",
-    "Students and professionals keen on enhancing product management skills with AI-driven insights",
+    "Aspiring product managers aiming to transition into PM roles in 2025",
+    "Professionals seeking a career shift into product management",
+    "Tech experts interested in applying strategic product management skills",
+    "Students and early-career professionals pursuing product management roles",
+  ];
+
+  const whatWillYouGain = [
+    {
+      title: "Build a Strong Product Management Foundation",
+      description:
+        "Learn core product management principles, including market research, product lifecycle, and agile methodologies, to confidently step into a PM role in 2025.",
+    },
+    {
+      title: "Master Essential Product Management Tools",
+      description:
+        "Gain hands-on experience with industry-standard tools like JIRA, Trello, Figma, and data analytics platforms to effectively manage product development and teams.",
+    },
+    {
+      title: "Develop Strategic Thinking for Product Success",
+      description:
+        "Understand how to define product vision, craft go-to-market strategies, and align product goals with business objectives to drive growth.",
+    },
+    {
+      title: "Ace Product Management Interviews",
+      description:
+        "Prepare for PM interviews with expert guidance on case studies, product design questions, and behavioral interviews to secure your first PM role in 2025.",
+    },
   ];
 
   return (
@@ -25,43 +48,57 @@ const WSAboutPM = () => {
             </h2>
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <p className="text-gray-700 leading-relaxed mb-4">
-                In today’s fast-paced market, product managers must stay ahead
-                by embracing innovation. Artificial Intelligence (AI) is no
-                longer a futuristic concept—it’s a critical tool for creating
-                smarter, more impactful products. But how do you bridge the gap
-                between AI theory and real-world product strategies? This
-                masterclass will show you how.
+                As we approach 2025, the landscape of product management is
+                evolving at an unprecedented pace. In this dynamic environment,
+                product managers must not only adapt but also lead through
+                innovation. Artificial Intelligence (AI) has transitioned from a
+                futuristic concept to an essential tool for crafting impactful
+                products. This masterclass is designed to bridge the gap between
+                AI theory and practical product strategies, equipping you with
+                the skills needed for success.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Join{" "}
                 <span className="font-bold">AcceleratorX's Masterclass</span>{" "}
-                with industry expert{" "}
+                for an insightful session led by industry expert{" "}
                 <span className="font-bold">Subhasis Chandra</span> on{" "}
                 <span className="font-bold">
-                  Thursday, 16th January, 08:00 PM onwards
+                  Tuesday, 21th January, 08:00 PM onwards
                 </span>{" "}
                 and unlock the secrets to:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
                 <li>
-                  Integrating AI into product development for smarter
-                  decision-making
+                  <span className="font-semibold">
+                    Mastering Core Product Management Skills:
+                  </span>{" "}
+                  Learn essential PM skills like market research, roadmap
+                  planning, and stakeholder management to build a strong
+                  foundation.
                 </li>
                 <li>
-                  Leveraging real-world AI applications to drive product
-                  innovation
+                  <span className="font-semibold">
+                    Leveraging Emerging Trends in 2025:
+                  </span>{" "}
+                  Understand how evolving technologies like AI, Web3, and
+                  sustainability initiatives are reshaping product management.
                 </li>
                 <li>
-                  Mastering AI tools and technologies to build market-leading
-                  products
+                  <span className="font-semibold">
+                    Building a Strategic Transition Plan:
+                  </span>{" "}
+                  Gain actionable strategies to transition smoothly into a
+                  product management role, including networking, certifications,
+                  and hands-on project experience.
                 </li>
               </ul>
               <div className="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-500">
                 <p className="text-blue-800 font-medium text-sm">
-                  <span className="font-bold">Pro Tip:</span> The future of
-                  product management is AI-driven. Don’t miss this chance to
-                  gain a competitive edge. Seats are filling fast—register now
-                  and start leading with innovation.
+                  <span className="font-bold"> Pro Tip:</span> The future of
+                  product management is undeniably AI-driven. Seize this
+                  opportunity to gain a competitive edge in your career. Seats
+                  are limited—register now and start your journey towards
+                  leading with innovation.
                 </p>
               </div>
             </div>
@@ -72,71 +109,24 @@ const WSAboutPM = () => {
             <h2 className="text-2xl font-bold mb-4 lg:text-left text-center">
               What You Will Gain From This Masterclass
             </h2>
+
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex-shrink-0">
-                  <FaCheck className="text-green-500 mt-1 w-4 h-4" />
+              {whatWillYouGain.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm"
+                >
+                  <div className="flex-shrink-0">
+                    <FaCheck className="text-green-500 mt-1 w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm">{item.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Master AI-Driven Product Strategies
-                  </h3>
-                  <p className="text-gray-700 text-sm">
-                    Build a strong foundation in integrating AI into product
-                    management. Learn how to align AI capabilities with business
-                    goals to create impactful, market-ready products.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex-shrink-0">
-                  <FaCheck className="text-green-500 mt-1 w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Navigate Cutting-Edge Tools with Confidence
-                  </h3>
-                  <p className="text-gray-700 text-sm">
-                    Explore industry-leading AI tools like TensorFlow, PyTorch,
-                    and AWS SageMaker. Learn how to apply these technologies to
-                    streamline product workflows and drive innovation.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex-shrink-0">
-                  <FaCheck className="text-green-500 mt-1 w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Real-World Product Innovations
-                  </h3>
-                  <p className="text-gray-700 text-sm">
-                    Gain actionable insights from real-world case studies where
-                    AI has transformed products across industries like
-                    healthcare, retail, and logistics. See how you can apply
-                    these lessons to your own projects.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex-shrink-0">
-                  <FaCheck className="text-green-500 mt-1 w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Scale Products with AI Efficiency
-                  </h3>
-                  <p className="text-gray-700 text-sm">
-                    Learn how to design AI-powered products that scale
-                    effortlessly. Discover strategies to handle growing datasets
-                    and complex user needs without sacrificing performance.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 

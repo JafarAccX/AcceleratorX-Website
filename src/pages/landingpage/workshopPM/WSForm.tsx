@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+import toast from "react-hot-toast";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey, {
   auth: {
-    persistSession: false
-  }
+    persistSession: false,
+  },
 });
 
 interface FormData {
@@ -21,26 +21,28 @@ interface FormData {
 
 const WSForm = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    education: '',
-    designation: '',
-    yearsOfExperience: '',
+    name: "",
+    email: "",
+    phone: "",
+    education: "",
+    designation: "",
+    yearsOfExperience: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const zoomMeetingDetails = {
-    link: "https://zoom.us/meeting/register/_mrs6jLxR66IPjS6SZIs8g",
-    meetingId: "_mrs6jLxR66IPjS6SZIs8g",
-    time: "Jan 16, 2025 08:00 PM India"
+    link: "https://zoom.us/meeting/register/vALNSDrBTgCwL-PM4HSAAg",
+    meetingId: "vALNSDrBTgCwL-PM4HSAAg",
+    time: "Jan 21, 2025 08:00 PM India",
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -49,61 +51,61 @@ const WSForm = () => {
     if (isSubmitting) return;
 
     // Validation
-    if (!formData.email.includes('@') || !formData.email.includes('.')) {
-      toast.error('Please enter a valid email address');
+    if (!formData.email.includes("@") || !formData.email.includes(".")) {
+      toast.error("Please enter a valid email address");
       return;
     }
 
     if (formData.phone.length !== 10 || !/^\d+$/.test(formData.phone)) {
-      toast.error('Please enter a valid 10-digit phone number');
+      toast.error("Please enter a valid 10-digit phone number");
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('workshop_registrations')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            education: formData.education,
-            designation: formData.designation,
-            years_of_experience: formData.yearsOfExperience,
-            created_at: new Date().toISOString()
-          }
-        ]);
+      const { error } = await supabase.from("workshop_registrations").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          education: formData.education,
+          designation: formData.designation,
+          years_of_experience: formData.yearsOfExperience,
+          created_at: new Date().toISOString(),
+        },
+      ]);
 
       if (error) {
-        console.error('Registration error:', error);
-        if (error.code === '23505') {
-          toast.error('You have already registered with this email or phone number');
-        } else if (error.code === '42501') {
-          toast.error('Unable to register. Please try again later.');
+        console.error("Registration error:", error);
+        if (error.code === "23505") {
+          toast.error(
+            "You have already registered with this email or phone number"
+          );
+        } else if (error.code === "42501") {
+          toast.error("Unable to register. Please try again later.");
         } else {
-          toast.error('Registration failed. Please try again.');
+          toast.error("Registration failed. Please try again.");
         }
         return;
       }
 
       // Show success toast and modal
-      toast.success('Registration successful!');
+      toast.success("Registration successful!");
       setShowModal(true);
-      
+
       // Reset form data after successful submission
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        education: '',
-        designation: '',
-        yearsOfExperience: '',
+        name: "",
+        email: "",
+        phone: "",
+        education: "",
+        designation: "",
+        yearsOfExperience: "",
       });
     } catch (error) {
-      console.error('Submission error:', error);
-      toast.error('Something went wrong. Please try again.');
+      console.error("Submission error:", error);
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -193,9 +195,13 @@ const WSForm = () => {
           type="submit"
           disabled={isSubmitting}
           className={`w-full bg-blue-600 text-white py-2.5 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all
-            ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-700 hover:shadow-lg'}`}
+            ${
+              isSubmitting
+                ? "opacity-70 cursor-not-allowed"
+                : "hover:bg-blue-700 hover:shadow-lg"
+            }`}
         >
-          {isSubmitting ? 'Registering...' : 'REGISTER FOR FREE'}
+          {isSubmitting ? "Registering..." : "REGISTER FOR FREE"}
         </button>
 
         <p className="text-xs md:text-sm text-gray-500 text-center">
@@ -215,18 +221,37 @@ const WSForm = () => {
             </button>
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  className="w-8 h-8 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank You for Registering!</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Thank You for Registering!
+              </h3>
               <p className="text-gray-600 mb-6">
-                We're excited to have you join us for the workshop on {zoomMeetingDetails.time}
+                We're excited to have you join us for the workshop on{" "}
+                {zoomMeetingDetails.time}
               </p>
               <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
-                <h4 className="font-semibold text-gray-800 mb-2">Zoom Meeting Details:</h4>
-                <p className="text-sm text-gray-600 mb-2">Meeting ID: {zoomMeetingDetails.meetingId}</p>
-                <p className="text-sm text-gray-600 mb-2">Date: {zoomMeetingDetails.time}</p>
+                <h4 className="font-semibold text-gray-800 mb-2">
+                  Zoom Meeting Details:
+                </h4>
+                <p className="text-sm text-gray-600 mb-2">
+                  Meeting ID: {zoomMeetingDetails.meetingId}
+                </p>
+                <p className="text-sm text-gray-600 mb-2">
+                  Date: {zoomMeetingDetails.time}
+                </p>
                 <a
                   href={zoomMeetingDetails.link}
                   target="_blank"
@@ -236,9 +261,7 @@ const WSForm = () => {
                   Add to Calendar
                 </a>
               </div>
-              <p className="text-sm text-gray-500">
-                See you in the workshop!
-              </p>
+              <p className="text-sm text-gray-500">See you in the workshop!</p>
             </div>
           </div>
         </div>
