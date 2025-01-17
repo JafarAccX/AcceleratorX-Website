@@ -16,26 +16,27 @@ const WSAboutPM = () => {
 
   const whatWillYouGain = [
     {
-      title: "Build a Strong Product Management Foundation",
+      title: "Establish a Solid Product Management Foundation",
       description:
-        "Learn core product management principles, including market research, product lifecycle, and agile methodologies, to confidently step into a PM role in 2025.",
+        "Understand the evolving role of Product Managers in 2025 by mastering market research, product lifecycle management, and agile methodologies to confidently transition into a PM role.",
     },
     {
-      title: "Master Essential Product Management Tools",
+      title: "Gain Proficiency in Modern PM Tools",
       description:
-        "Gain hands-on experience with industry-standard tools like JIRA, Trello, Figma, and data analytics platforms to effectively manage product development and teams.",
+        "Get hands-on experience with cutting-edge tools like JIRA, Figma, Notion, and product analytics platforms to efficiently manage product development and cross-functional teams.",
     },
     {
-      title: "Develop Strategic Thinking for Product Success",
+      title: "Enhance Strategic and Analytical Thinking",
       description:
-        "Understand how to define product vision, craft go-to-market strategies, and align product goals with business objectives to drive growth.",
+        "Learn to craft data-driven product strategies, define clear product visions, and align business objectives to successfully drive product innovation and market growth.",
     },
     {
-      title: "Ace Product Management Interviews",
+      title: "Crack Product Management Interviews with Confidence",
       description:
-        "Prepare for PM interviews with expert guidance on case studies, product design questions, and behavioral interviews to secure your first PM role in 2025.",
+        "Receive expert guidance on tackling product case studies, solving product design challenges, and mastering behavioral interview techniques to secure a PM role in 2025.",
     },
   ];
+  
 
   return (
     <div className="bg-gray-50 py-12">
@@ -43,66 +44,35 @@ const WSAboutPM = () => {
         <div className="lg:max-w-none lg:mr-auto space-y-10">
           {/* About Masterclass Section */}
           <div>
-            <h2 className="text-2xl font-bold mb-4 lg:text-left text-center text-gray-900">
-              About this Masterclass
-            </h2>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <p className="text-gray-700 leading-relaxed mb-4">
-                As we approach 2025, the landscape of product management is
-                evolving at an unprecedented pace. In this dynamic environment,
-                product managers must not only adapt but also lead through
-                innovation. Artificial Intelligence (AI) has transitioned from a
-                futuristic concept to an essential tool for crafting impactful
-                products. This masterclass is designed to bridge the gap between
-                AI theory and practical product strategies, equipping you with
-                the skills needed for success.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Join{" "}
-                <span className="font-bold">AcceleratorX's Masterclass</span>{" "}
-                for an insightful session led by industry expert{" "}
-                <span className="font-bold">Subhasis Chandra</span> on{" "}
-                <span className="font-bold">
-                  Tuesday, 21th January, 08:00 PM onwards
-                </span>{" "}
-                and unlock the secrets to:
-              </p>
-              <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
-                <li>
-                  <span className="font-semibold">
-                    Mastering Core Product Management Skills:
-                  </span>{" "}
-                  Learn essential PM skills like market research, roadmap
-                  planning, and stakeholder management to build a strong
-                  foundation.
-                </li>
-                <li>
-                  <span className="font-semibold">
-                    Leveraging Emerging Trends in 2025:
-                  </span>{" "}
-                  Understand how evolving technologies like AI, Web3, and
-                  sustainability initiatives are reshaping product management.
-                </li>
-                <li>
-                  <span className="font-semibold">
-                    Building a Strategic Transition Plan:
-                  </span>{" "}
-                  Gain actionable strategies to transition smoothly into a
-                  product management role, including networking, certifications,
-                  and hands-on project experience.
-                </li>
-              </ul>
-              <div className="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-500">
-                <p className="text-blue-800 font-medium text-sm">
-                  <span className="font-bold"> Pro Tip:</span> The future of
-                  product management is undeniably AI-driven. Seize this
-                  opportunity to gain a competitive edge in your career. Seats
-                  are limited—register now and start your journey towards
-                  leading with innovation.
-                </p>
-              </div>
-            </div>
-          </div>
+  <h2 className="text-2xl font-bold mb-4 lg:text-left text-center text-gray-900">
+    About this Masterclass
+  </h2>
+  <div className="bg-white rounded-xl p-6 shadow-lg">
+    <p className="text-gray-700 leading-relaxed mb-4">
+      Transitioning into a Product Management role in 2025 requires more than traditional skills. The industry is evolving rapidly, driven by technological advancements, shifting market demands, and innovative product strategies. This masterclass is crafted to provide you with the practical knowledge and tools necessary to successfully step into and thrive in a product management role.
+    </p>
+    <p className="text-gray-700 leading-relaxed mb-4">
+      Join <span className="font-bold">AcceleratorX's Masterclass</span> led by seasoned product manager <span className="font-bold">Subhasis Chandra</span> on <span className="font-bold">Tuesday, 21st January, 08:00 PM onwards</span> to discover how to:
+    </p>
+    <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+      <li>
+        <span className="font-semibold">Develop Essential Product Management Skills:</span> Learn core competencies like market analysis, product lifecycle management, and stakeholder collaboration to build a strong PM foundation.
+      </li>
+      <li>
+        <span className="font-semibold">Adapt to Emerging Industry Trends:</span> Stay ahead by understanding how technologies like AI, data analytics, and sustainable solutions are shaping the future of product management.
+      </li>
+      <li>
+        <span className="font-semibold">Create a Clear Transition Strategy:</span> Gain actionable steps for transitioning into a PM role, including leveraging professional networks, earning relevant certifications, and building practical experience through projects.
+      </li>
+    </ul>
+    <div className="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-500">
+      <p className="text-blue-800 font-medium text-sm">
+        <span className="font-bold">Pro Tip:</span> The demand for skilled product managers is rising in 2025. Take this opportunity to equip yourself with the right skills and strategies to stand out. Seats are limited—register now to kick-start your product management career!
+      </p>
+    </div>
+  </div>
+</div>
+
 
           {/* What You'll Gain Section */}
           <div>

@@ -46,31 +46,15 @@ const WSHeroPM = () => {
               </h2>
 
               <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl">
-                In the rapidly evolving landscape of technology,{" "}
-                <span className="font-bold text-white ">Product Managers</span>{" "}
-                must not only keep pace but also lead the charge in innovation.
-                This
-                <span className="font-bold text-white">
-                  exclusive masterclass
-                </span>{" "}
-                is designed for those looking to transition into product
-                management roles in 2025, with a strong focus on the integration
-                of{" "}
-                <span className="font-bold text-white">
-                  Artificial Intelligence (AI)
-                </span>{" "}
-                into product development. Participants will gain invaluable
-                insights into harnessing AI to enhance product strategies,
-                optimize user experiences, and drive data-informed
-                decision-making. <br />
-                Learn how to effectively utilize state-of-the-art AI tools to
-                transform theoretical concepts into practical solutions that
-                resonate in the marketplace. Join us to unlock the potential of
-                AI in creating{" "}
-                <span className="font-bold text-white">market-leading</span>
-                products that not only meet but exceed customer expectations,
-                ensuring your success in the competitive field of product
-                management.
+                Transitioning into a Product Management role in 2025 requires a
+                blend of strategic thinking, technical knowledge, and market
+                awareness. Aspiring PMs should focus on mastering core product
+                management principles, learning industry-standard tools, and
+                developing strong communication and leadership skills. Staying
+                updated with emerging technologies like AI and data analytics,
+                gaining hands-on experience through real-world projects, and
+                preparing for product management interviews will be essential
+                for a successful career shift.
               </p>
             </div>
 
