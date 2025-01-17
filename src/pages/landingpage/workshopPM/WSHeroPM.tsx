@@ -23,14 +23,19 @@ const WSHeroPM = () => {
           {/* Content Section with Image Banner */}
           <div className="w-full lg:max-w-3xl">
             {/* Hero Image as Banner */}
-            <div className="relative mb-8 lg:mb-10">
+            <div className="relative mb-4 lg:mb-10">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
                 <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
                   <img
+                    src="/assets/pmworkshopcovermobile.png"
+                    alt="PM Masterclass"
+                    className="w-full h-[250px] object-contain object-center px-4 block lg:hidden"
+                  />
+                  <img
                     src="/assets/pmworkshopcover.png"
                     alt="PM Masterclass"
-                    className="w-full h-[250px] object-contain object-left px-4"
+                    className="w-full h-[250px] object-contain object-left px-4 hidden lg:block"
                   />
                 </div>
               </div>
