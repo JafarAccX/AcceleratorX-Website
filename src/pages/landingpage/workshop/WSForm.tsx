@@ -35,9 +35,9 @@ const WSForm = () => {
   const [showModal, setShowModal] = useState(false);
 
   const zoomMeetingDetails = {
-    link: "https://zoom.us/meeting/register/_mrs6jLxR66IPjS6SZIs8g",
-    meetingId: "_mrs6jLxR66IPjS6SZIs8g",
-    time: "Jan 16, 2025 08:00 PM India"
+    link: "https://zoom.us/meeting/register/vALNSDrBTgCwL-PM4HSAAg",
+    meetingId: "vALNSDrBTgCwL-PM4HSAAg",
+    time: "Jan 21, 2025 08:00 PM India"
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
