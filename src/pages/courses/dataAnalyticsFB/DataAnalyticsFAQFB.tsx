@@ -32,7 +32,7 @@ const faqData: FAQItem[] = [
     question:
       "How long is the course, and how much time will I need to dedicate weekly?",
     answer:
-      "The course is 12 weeks long. You’ll need to dedicate 6–10 hours per week for live sessions, assignments, and projects.",
+      "The course is 22 weeks long. You’ll need to dedicate 6–10 hours per week for live sessions, assignments, and projects.",
   },
   {
     question: "Are there any live sessions, or is it self-paced?",
