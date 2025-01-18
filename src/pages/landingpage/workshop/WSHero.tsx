@@ -33,7 +33,7 @@ const WSHero = () => {
                     className="w-full h-[250px] object-contain object-center px-4 block lg:hidden"
                   />
                   <img
-                    src="/assets/daWorkshopBanner.png"
+                    src="/assets\lp.png"
                     alt="DA Masterclass"
                     className="w-full h-[260px] object-contain object-left px-4 hidden lg:block"
                   />
