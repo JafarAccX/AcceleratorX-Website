@@ -23,14 +23,21 @@ const WSHero = () => {
           {/* Content Section with Image Banner */}
           <div className="w-full lg:max-w-2xl">
             {/* Hero Image as Banner */}
-            <div className="relative mb-8 lg:mb-12">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
-              <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
-                <img
-                  src="/assets/WebinarCover.png"
-                  alt="DA Masterclass"
-                  className="w-full h-[200px] md:h-[250px] object-contain object-left px-4 hover:scale-105 transition-transform duration-700"
-                />
+            <div className="relative mb-4 lg:mb-10">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
+                <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
+                  <img
+                    src="/assets/daWorkShopMobile.png"
+                    alt="DA Masterclass"
+                    className="w-full h-[250px] object-contain object-center px-4 block lg:hidden"
+                  />
+                  <img
+                    src="/assets/daWorkshopBanner.png"
+                    alt="DA Masterclass"
+                    className="w-full h-[260px] object-contain object-left px-4 hidden lg:block"
+                  />
+                </div>
               </div>
             </div>
 
@@ -39,14 +46,20 @@ const WSHero = () => {
               <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 Data Analytics Masterclass
               </h1>
+              <h2 className="text-white text-2xl font-semibold mb-6">
+                Topic: Masterclass in Advance Machine Learning with Python
+              </h2>
 
               <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0">
-                Artificial Intelligence (AI) is no longer a futuristic concept;
-                it's a present-day game-changer. Yet, many professionals
-                struggle to connect the dots between AI's immense potential and
-                its practical implementation. How do you move from understanding
-                AI theory to solving real-world challenges with cutting-edge
-                tools and technologies?
+                Unlock the full potential of Python for cutting-edge machine
+                learning applications in this expert-led masterclass. Designed
+                for professionals and enthusiasts with a solid foundation in
+                Python and ML, this course dives deep into advanced algorithms,
+                optimization techniques, and real-world implementation
+                strategies. From mastering neural networks and ensemble methods
+                to deploying scalable models, you'll gain hands-on experience
+                with state-of-the-art tools and libraries like TensorFlow,
+                PyTorch, and Scikit-learn.
               </p>
             </div>
 

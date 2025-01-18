@@ -305,7 +305,7 @@ function WorkshopPageDA() {
       <WSHero />
       <WSAbout />
       <WSTestimonial />
-      <WSCommunity />
+      {/* <WSCommunity /> */}
     </Suspense>
   );
 }
@@ -316,7 +316,6 @@ function WorkshopPagePM() {
       <WSHeroPM />
       <WSAboutPM />
       <WSTestimonialPM />
-
     </Suspense>
   );
 }

@@ -21,7 +21,7 @@ interface FormData {
 }
 
 const WSForm = () => {
-  const { workshopType } = useWorkshop();
+  const { workshopType, zoomMeetingDetails } = useWorkshop();
   // console.log('WSForm - Current workshop type:', workshopType);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -33,12 +33,6 @@ const WSForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  const zoomMeetingDetails = {
-    link: "https://zoom.us/meeting/register/vALNSDrBTgCwL-PM4HSAAg",
-    meetingId: "vALNSDrBTgCwL-PM4HSAAg",
-    time: "Jan 21, 2025 08:00 PM India"
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData(prev => ({

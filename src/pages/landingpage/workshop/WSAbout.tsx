@@ -11,22 +11,16 @@ import {
 } from "react-icons/fa";
 
 const WSAbout = () => {
-  const requirements = [
-    "Strong interest in Data Analytics and Machine Learning",
-    "Want to enhance your familiarity with data analysis and visualization tools (e.g., Excel, Tableau, or Matplotlib)",
-    "Interest in AI, analytics, and problem-solving",
-  ];
-
   const instructorDetails = {
     name: "Akash Maurya",
     title: "Senior ML Engineer, Nagarro, Ex-Deloitte ",
   };
 
   const targetAudience = [
-    "Aspiring data scientists and machine learning engineers",
-    "Students and Professionals interested in transitioning to AI roles",
-    "Tech professionals looking to integrate AI into their projects",
-    "Students and professionals keen on exploring AI applications across industries",
+    "Aspiring data scientists and machine learning engineers seeking advanced knowledge",
+    "Students and professionals aiming to transition to AI roles with practical expertise",
+    "Tech professionals eager to integrate machine learning solutions into real-world projects",
+    "Individuals keen on mastering AI applications across industries within a focused two-hour session",
   ];
 
   return (
@@ -40,37 +34,43 @@ const WSAbout = () => {
             </h2>
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <p className="text-gray-700 leading-relaxed mb-4">
-                Ever wondered what makes AI solutions so powerful? AI is
-                revolutionizing industries, from diagnosing illnesses faster to
-                optimizing business processes. But behind every successful AI
-                solution is a blend of tools, technologies, and strategies you
-                too can master.
+                Ever wondered what makes machine learning solutions so powerful?
+                Machine learning is transforming industries, from predicting
+                customer behavior to optimizing complex systems. Behind every
+                successful ML solution is a blend of advanced algorithms,
+                Python-powered tools, and cutting-edge techniques you can
+                master.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Join{" "}
                 <span className="font-bold">AcceleratorX's Masterclass</span>{" "}
                 with expert <span className="font-bold">Aakash Maurya</span> on{" "}
                 <span className="font-bold">
-                  Saturday, 12th January, 11:00 AM - 1:00 PM
+                  Tuesday, 21st January, 07:30 PM
                 </span>
                 , and discover:
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
                 <li>
-                  How to design AI solutions that are scalable and reliable
+                  Master advanced machine learning techniques to build scalable
+                  and efficient models
                 </li>
                 <li>
-                  Lessons from real-world case studies that inspire innovation
+                  Insights from real-world projects to enhance problem-solving
+                  and innovation
                 </li>
                 <li>
-                  The latest tools and technologies to kickstart your AI journey
+                  Explore cutting-edge Python libraries like TensorFlow,
+                  PyTorch, and Scikit-learn
                 </li>
               </ul>
+
               <div className="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-500">
                 <p className="text-blue-800 font-medium text-sm">
-                  <span className="font-bold">Pro tip:</span> Your first step
-                  into AI mastery starts here. Register now—spots are filling
-                  fast! Let's build the future, one solution at a time.
+                  <span className="font-bold">Pro tip:</span> Take the leap into
+                  advanced machine learning expertise. Enroll today—limited
+                  seats available! Start building smarter, scalable solutions
+                  for tomorrow.
                 </p>
               </div>
             </div>
@@ -79,7 +79,7 @@ const WSAbout = () => {
           {/* What You'll Gain Section */}
           <div>
             <h2 className="text-2xl font-bold mb-4 lg:text-left text-center">
-              What You Will Gain From This Masterclass
+              What You Will Gain From This 2-Hour Masterclass
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm">
@@ -88,12 +88,12 @@ const WSAbout = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">
-                    Master the Fundamentals
+                    Essential Advanced Techniques
                   </h3>
                   <p className="text-gray-700 text-sm">
-                    Gain a solid understanding of the foundational components of
-                    building AI solutions, from data preparation to deploying
-                    machine learning models.
+                    Quickly grasp key advanced machine learning concepts,
+                    including neural networks and model optimization, to elevate
+                    your expertise.
                   </p>
                 </div>
               </div>
@@ -104,12 +104,12 @@ const WSAbout = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">
-                    Tools and Technologies Demystified
+                    Hands-On Python Tools Overview
                   </h3>
                   <p className="text-gray-700 text-sm">
-                    Learn about cutting-edge tools and technologies like
-                    TensorFlow, PyTorch, and AWS SageMaker that simplify the
-                    process of building and deploying AI solutions at scale.
+                    Get a focused introduction to essential Python libraries
+                    like TensorFlow, PyTorch, and Scikit-learn to start building
+                    impactful models right away.
                   </p>
                 </div>
               </div>
@@ -120,12 +120,12 @@ const WSAbout = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">
-                    Real-World Applications
+                    Real-World Applications in Action
                   </h3>
                   <p className="text-gray-700 text-sm">
-                    Discover how AI is solving real-world challenges through
-                    case studies in industries like healthcare, retail, and
-                    logistics, providing actionable insights you can implement.
+                    Discover how machine learning is solving real-world problems
+                    through concise case studies in industries like retail and
+                    logistics.
                   </p>
                 </div>
               </div>
@@ -136,12 +136,12 @@ const WSAbout = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">
-                    Scalability and Efficiency
+                    Build Scalable Solutions Quickly
                   </h3>
                   <p className="text-gray-700 text-sm">
-                    Understand how to design AI solutions that are scalable and
-                    efficient, capable of handling large datasets and complex
-                    workflows.
+                    Learn to design AI models that are efficient and scalable,
+                    tailored for large datasets and rapid deployment within just
+                    two hours.
                   </p>
                 </div>
               </div>
