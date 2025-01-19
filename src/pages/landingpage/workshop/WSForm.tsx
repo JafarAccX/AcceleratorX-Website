@@ -108,14 +108,14 @@ const WSForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-xl p-4 md:p-6 w-full">
-      <div className="text-center mb-4 md:mb-6">
-        <h3 className="text-xl md:text-2xl font-bold">Register NOW!</h3>
-        <p className="text-sm text-gray-500 mt-2">Limited seats available</p>
+    <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl shadow-2xl p-6 md:p-8 w-full border border-gray-800">
+      <div className="text-center mb-6 md:mb-8">
+        <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Register NOW!</h3>
+        <p className="text-sm text-gray-400 mt-2">Limited seats available</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
-        <div className="space-y-3 md:space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
+        <div className="space-y-4 md:space-y-5">
           <input
             type="text"
             name="name"
@@ -123,7 +123,7 @@ const WSForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
           />
 
           <input
@@ -133,11 +133,11 @@ const WSForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
           />
 
-          <div className="flex gap-2">
-            <div className="px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base border rounded-lg bg-gray-50 text-gray-700 w-20 md:w-24 flex items-center justify-center">
+          <div className="flex gap-3">
+            <div className="px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800 border border-gray-700 rounded-xl text-gray-300 w-20 md:w-24 flex items-center justify-center">
               +91
             </div>
             <input
@@ -147,7 +147,7 @@ const WSForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
             />
           </div>
 
@@ -158,7 +158,7 @@ const WSForm = () => {
             value={formData.education}
             onChange={handleChange}
             required
-            className="w-full px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
           />
 
           <input
@@ -168,7 +168,7 @@ const WSForm = () => {
             value={formData.designation}
             onChange={handleChange}
             required
-            className="w-full px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
           />
 
           <select
@@ -176,27 +176,27 @@ const WSForm = () => {
             value={formData.yearsOfExperience}
             onChange={handleChange}
             required
-            className="w-full px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
           >
-            <option value="">Years of Experience</option>
-            <option value="0-1">0-1 years</option>
-            <option value="1-3">1-3 years</option>
-            <option value="3-5">3-5 years</option>
-            <option value="5-10">5-10 years</option>
-            <option value="10+">10+ years</option>
+            <option value="" className="bg-gray-900">Years of Experience</option>
+            <option value="0-1" className="bg-gray-900">0-1 years</option>
+            <option value="1-3" className="bg-gray-900">1-3 years</option>
+            <option value="3-5" className="bg-gray-900">3-5 years</option>
+            <option value="5-10" className="bg-gray-900">5-10 years</option>
+            <option value="10+" className="bg-gray-900">10+ years</option>
           </select>
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full bg-blue-600 text-white py-2.5 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all
-            ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-700 hover:shadow-lg'}`}
+          className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 md:py-4 rounded-xl font-semibold text-sm md:text-base transition-all
+            ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-0.5'}`}
         >
           {isSubmitting ? 'Registering...' : 'REGISTER FOR FREE'}
         </button>
 
-        <p className="text-xs md:text-sm text-gray-500 text-center">
+        <p className="text-xs md:text-sm text-gray-400 text-center">
           By continuing, you agree to our Terms and Privacy Policy
         </p>
       </form>
