@@ -45,8 +45,7 @@ const LogoSlider: React.FC = () => {
               Trusted by Industry Leaders
             </h2>
             <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
-              Join thousands of companies worldwide that trust our platform for
-              their data analytics needs
+              Join hands with companies worldwide that trust our resources.
             </p>
           </motion.div>
 
