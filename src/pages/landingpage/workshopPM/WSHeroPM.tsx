@@ -28,13 +28,13 @@ const WSHeroPM = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl"></div>
                 <div className="relative w-full rounded-2xl overflow-hidden bg-[#1A1F2B]">
                   <img
-                    src="/assets/pmworkshopcovermobile.png"
-                    alt="PM Masterclass"
+                    src="/assets/workshopCover/pmMobile.webp"
+                    alt="PM Masterclass Mobile"
                     className="w-full h-[250px] object-contain object-center px-4 block lg:hidden"
                   />
                   <img
-                    src="/assets/pmworkshopcover.png"
-                    alt="PM Masterclass"
+                    src="/assets/workshopCover/pmDesktop.webp"
+                    alt="PM Masterclass Desktop"
                     className="w-full h-[250px] object-contain object-left px-4 hidden lg:block"
                   />
                 </div>

@@ -1,7 +1,7 @@
-import React, { createContext, useContext, ReactNode, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { createContext, useContext, ReactNode, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-type WorkshopType = 'DAWorkshop' | 'PMWorkshop';
+type WorkshopType = "DAWorkshop" | "PMWorkshop";
 
 interface ZoomMeetingDetails {
   link: string;
@@ -18,33 +18,41 @@ interface WorkshopContextType {
 const PMZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/vALNSDrBTgCwL-PM4HSAAg",
   meetingId: "vALNSDrBTgCwL-PM4HSAAg",
-  time: "Jan 21, 2025 08:00 PM India"
+  time: "Jan 22, 2025 08:00 PM India",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/TE5-Li8qTwGocSVE5eIYvQ",
   meetingId: "TE5-Li8qTwGocSVE5eIYvQ",
-  time: "Jan 21, 2025 07:30 PM India"
+  time: "Jan 22, 2025 08:00 PM India",
 };
 
-const WorkshopContext = createContext<WorkshopContextType | undefined>(undefined);
+const WorkshopContext = createContext<WorkshopContextType | undefined>(
+  undefined
+);
 
-export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [workshopType, setWorkshopType] = React.useState<WorkshopType>('DAWorkshop');
+export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
+  const [workshopType, setWorkshopType] =
+    React.useState<WorkshopType>("DAWorkshop");
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.includes('/pm-masterclass')) {
-      setWorkshopType('PMWorkshop');
-    } else if (location.pathname.includes('/da-masterclass')) {
-      setWorkshopType('DAWorkshop');
+    if (location.pathname.includes("/pm-masterclass")) {
+      setWorkshopType("PMWorkshop");
+    } else if (location.pathname.includes("/da-masterclass")) {
+      setWorkshopType("DAWorkshop");
     }
   }, [location.pathname]);
 
-  const zoomMeetingDetails = workshopType === 'PMWorkshop' ? PMZoomDetails : DAZoomDetails;
+  const zoomMeetingDetails =
+    workshopType === "PMWorkshop" ? PMZoomDetails : DAZoomDetails;
 
   return (
-    <WorkshopContext.Provider value={{ workshopType, setWorkshopType, zoomMeetingDetails }}>
+    <WorkshopContext.Provider
+      value={{ workshopType, setWorkshopType, zoomMeetingDetails }}
+    >
       {children}
     </WorkshopContext.Provider>
   );
@@ -53,7 +61,7 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
 export const useWorkshop = () => {
   const context = useContext(WorkshopContext);
   if (context === undefined) {
-    throw new Error('useWorkshop must be used within a WorkshopProvider');
+    throw new Error("useWorkshop must be used within a WorkshopProvider");
   }
   return context;
 };

@@ -46,7 +46,7 @@ const WSAbout = () => {
                 <span className="font-bold">AcceleratorX's Masterclass</span>{" "}
                 with expert <span className="font-bold">Aakash Maurya</span> on{" "}
                 <span className="font-bold">
-                  Tuesday, 21st January, 07:30 PM
+                  Wednesday, 22nd January, 08:00 PM
                 </span>
                 , and discover:
               </p>
