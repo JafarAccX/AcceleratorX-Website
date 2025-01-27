@@ -45,26 +45,14 @@ interface EnrollmentData {
   msclkid: string;
 }
 
-interface WorkshopData {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  education: string;
-  designation: string;
-  yearsOfExperience: string;
-  created_at: string;
-}
-
 const AdminPage: React.FC = () => {
   const [enrollments, setEnrollments] = useState<EnrollmentData[]>([]);
-  const [workshopData, setWorkshopData] = useState<WorkshopData[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [refreshing, setRefreshing] = useState(false);
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
   const [activeTab, setActiveTab] = useState<
-    "enrollments" | "admin-access" | "sales-access" | "workshop-details"
+    "enrollments" | "admin-access" | "sales-access"
   >("enrollments");
   const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>([]);
   const [adminCurrentPage, setAdminCurrentPage] = useState(1);
@@ -82,10 +70,6 @@ const AdminPage: React.FC = () => {
   useEffect(() => {
     if (userRole === "enrollment") {
       setActiveTab("enrollments");
-    }
-    if (window.location.pathname === "/admin/workshop-details") {
-      setActiveTab("workshop-details");
-      fetchWorkshopData();
     }
   }, [userRole]);
 
@@ -191,25 +175,6 @@ const AdminPage: React.FC = () => {
       toast.error("Failed to fetch enrollment data");
     } finally {
       setRefreshing(false);
-    }
-  };
-
-  const fetchWorkshopData = async () => {
-    try {
-      setRefreshing(true);
-      const { data, error } = await supabase
-        .from("workshop_registrations")
-        .select("*")
-        .order("created_at", { ascending: sortOrder === "asc" });
-
-      if (error) throw error;
-      setWorkshopData(data || []);
-    } catch (error) {
-      console.error("Error fetching workshop data:", error);
-      toast.error("Failed to fetch workshop data");
-    } finally {
-      setRefreshing(false);
-      setLoading(false);
     }
   };
 
@@ -407,18 +372,6 @@ const AdminPage: React.FC = () => {
                     }`}
                   >
                     Sales Access
-                  </button>
-                )}
-                {userRole === "admin" && (
-                  <button
-                    onClick={() => setActiveTab("workshop-details")}
-                    className={`py-4 px-6 text-sm font-medium ${
-                      activeTab === "workshop-details"
-                        ? "border-b-2 border-blue-500 text-blue-600"
-                        : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    Workshop Details
                   </button>
                 )}
               </nav>
@@ -937,111 +890,6 @@ const AdminPage: React.FC = () => {
                     <Download className="h-4 w-4" />
                     Download All Enrollments
                   </button>
-                </div>
-              )}
-
-              {/* Show Workshop Details table if in workshop tab */}
-              {activeTab === "workshop-details" && userRole === "admin" && (
-                <div className="mt-8">
-                  <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-2xl font-bold text-gray-900">Workshop Registrations</h2>
-                    <button
-                      onClick={fetchWorkshopData}
-                      className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-                      disabled={refreshing}
-                    >
-                      <RefreshCw
-                        className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
-                      />
-                      Refresh
-                    </button>
-                  </div>
-
-                  <div className="bg-white shadow-md rounded-lg overflow-hidden">
-                    <div className="overflow-x-auto">
-                      <table className="min-w-full divide-y divide-gray-200">
-                        <thead className="bg-gray-50">
-                          <tr>
-                            <th
-                              scope="col"
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Name
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Email
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Phone
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Education
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Designation
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Experience
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              <button
-                                onClick={handleSort}
-                                className="flex items-center gap-1 text-gray-500 hover:text-gray-700"
-                              >
-                                Date
-                                <ArrowUpDown className="h-4 w-4" />
-                              </button>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="bg-white divide-y divide-gray-200">
-                          {workshopData.map((registration) => (
-                            <tr key={registration.id}>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {registration.name}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {registration.email}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {registration.phone}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {registration.education}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {registration.designation}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {registration.yearsOfExperience}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {new Date(registration.created_at).toLocaleDateString()}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
                 </div>
               )}
             </>

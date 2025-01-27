@@ -59,6 +59,7 @@ const Values = lazy(() => import("./pages/aboutus/Values"));
 const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 const LogoSlider = lazy(() => import("./components/LogoSlider"));
 const HireHero = lazy(() => import("./pages/hirewithus/HireHero"));
+const HiringLeads = lazy(() => import("./pages/admin/HiringLeads"));
 const DataHero = lazy(() => import("./pages/courses/dataanalytics/DataHero"));
 const DataProgram = lazy(
   () => import("./pages/courses/dataanalytics/DataProgram")
@@ -124,6 +125,9 @@ const PricingSection = lazy(
 const NoCodeFAQ = lazy(() => import("./pages/courses/nocodeTool/NoCodeFAQ"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
+const EnrollmentAnalytics = lazy(() => import("./pages/admin/EnrollmentAnalytics"));
+import AdAnalysis from './pages/admin/AdAnalysis';
+import CareersHero from "./components/CareersHero";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -627,11 +631,20 @@ function App() {
                         </Suspense>
                       }
                     />
+
                     <Route
                       path="/hire-with-us"
                       element={
                         <Suspense fallback={<Loader />}>
                           <HireHero />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/careers"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <CareersHero />
                         </Suspense>
                       }
                     />
@@ -693,6 +706,16 @@ function App() {
                         <Suspense fallback={<Loader />}>
                           <RoleProtectedRoute requiredRole="blog_user">
                             <BlogForm onClose={() => {}} onSuccess={() => {}} />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/hiring"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute requiredRole="admin">
+                            <HiringLeads />
                           </RoleProtectedRoute>
                         </Suspense>
                       }
@@ -803,6 +826,25 @@ function App() {
                             <WorkshopDetails />
                           </RoleProtectedRoute>
                         </Suspense>
+                      }
+                    />
+
+                    <Route
+                      path="/admin/analytics"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <RoleProtectedRoute allowedRoles={["admin"]}>
+                            <EnrollmentAnalytics />
+                          </RoleProtectedRoute>
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/analytics/adanalysis"
+                      element={
+                        <RoleProtectedRoute>
+                          <AdAnalysis />
+                        </RoleProtectedRoute>
                       }
                     />
 

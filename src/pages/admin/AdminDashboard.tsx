@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/authService";
-import { FileText, Users, LogOut, Inbox, BookOpen } from "lucide-react";
+import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase } from "lucide-react";
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -71,22 +71,68 @@ const AdminDashboard: React.FC = () => {
           )}
 
           {role !== "blog_user" && (
+            <>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/enrollments")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-green-100 rounded-lg">
+                    <Users className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      Enrollment Data
+                    </h2>
+                    <p className="text-gray-500 mt-1">
+                      View and manage enrollment submissions
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/hiring")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-indigo-100 rounded-lg">
+                    <Briefcase className="h-6 w-6 text-indigo-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      Hiring Leads
+                    </h2>
+                    <p className="text-gray-500 mt-1">
+                      View and manage job applications
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
+
+          {role === "admin" && (
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate("/admin/enrollments")}
+              onClick={() => navigate("/admin/analytics")}
               className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
             >
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-green-100 rounded-lg">
-                  <Users className="h-6 w-6 text-green-600" />
+                <div className="p-3 bg-purple-100 rounded-lg">
+                  <BarChart2 className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900">
-                    Enrollment Data
+                    Course Analytics
                   </h2>
                   <p className="text-gray-500 mt-1">
-                    View and manage enrollment submissions
+                    View detailed enrollment analytics and trends
                   </p>
                 </div>
               </div>

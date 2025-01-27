@@ -43,7 +43,8 @@ export default function Navbar({
   const menuItems = [
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
-    { label: "Hire With Us", path: "/hire-with-us" },
+    { label: "Careers", path: "/careers" },
+    // { label: "Hire With Us", path: "/hire-with-us" },
     { label: "XSAT", path: "/xsat" },
     // { label: "Workshop", path: "/workshop/da-masterclass-with-ai" },
   ];
