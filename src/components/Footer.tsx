@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import companyLogo from "/logoWhite.png";
+import companyLogo from "/assets/companylogo.png";
 import { Link, useLocation } from "react-router-dom";
 import {
   Linkedin,
