@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import companyLogo from "/assets/companylogo.png";
+import companyLogo from "/logoWhite.png";
 import { Link, useLocation } from "react-router-dom";
 import {
   Linkedin,
@@ -138,7 +138,7 @@ export default function Footer() {
               <img
                 src={companyLogo}
                 alt="AcceleratorX logo"
-                className="w-auto h-16 object-contain"
+                className="w-auto h-14 object-contain text-left"
               />
             </Link>
             <p className="text-gray-400 max-w-md">

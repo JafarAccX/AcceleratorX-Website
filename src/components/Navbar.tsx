@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import companyLogo from "/assets/companylogo.png";
+import companyLogo from "/logoWhite.png";
 
 const xsatNavItems = [
   { label: "About", href: "#about" },
@@ -133,7 +133,7 @@ export default function Navbar({
       className="fixed w-full top-0 z-[9999] bg-black/95 border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex ml-4 items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <motion.a
@@ -144,7 +144,7 @@ export default function Navbar({
               <img
                 src={companyLogo}
                 alt="company logo"
-                className="w-auto h-14"
+                className="w-auto h-12 object-contain"
               />
             </motion.a>
           </div>
