@@ -1,3 +1,5 @@
+import typography from "@tailwindcss/typography";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -16,7 +18,7 @@ export default {
         slide: "slide 15s linear infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "scroll": "scroll 30s linear infinite",
-        "scroll-reverse": "scroll-reverse 30s linear infinite"
+        "scroll-reverse": "scroll-reverse 30s linear infinite",
       },
       keyframes: {
         float: {
@@ -29,16 +31,14 @@ export default {
         },
         scroll: {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-100%)" }
+          "100%": { transform: "translateX(-100%)" },
         },
         "scroll-reverse": {
           "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(0)" }
-        }
+          "100%": { transform: "translateX(0)" },
+        },
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-  ],
+  plugins: [typography],
 };

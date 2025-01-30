@@ -567,8 +567,8 @@ function XSAT() {
       <XSATHero />
       <XSATInfo />
       <XSATAbout />
-      <XSATKeyDates />
-      <XSATExamInfo />
+      {/* <XSATKeyDates /> */}
+      {/* <XSATExamInfo /> */}
       <XSATFAQ />
     </Suspense>
   );
