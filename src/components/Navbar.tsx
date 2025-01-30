@@ -7,8 +7,8 @@ import companyLogo from "/assets/companylogo.png";
 const xsatNavItems = [
   { label: "About", href: "#about" },
   { label: "Why Appear", href: "#whyappear" },
-  { label: "Key Dates", href: "#dates" },
-  { label: "Exam Info", href: "#exam" },
+  // { label: "Key Dates", href: "#dates" },
+  // { label: "Exam Info", href: "#exam" },
   { label: "FAQ", href: "#faq" },
 ];
 
