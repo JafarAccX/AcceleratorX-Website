@@ -8,11 +8,11 @@ const GENIntroduction = () => {
       label: "AI Industry by 2032",
     },
     {
-      value: "400%",
+      value: "423%",
       label: "Demand Increase",
     },
     {
-      value: "90%",
+      value: "92%",
       label: "Business Adoption",
     },
   ];
@@ -36,19 +36,19 @@ const GENIntroduction = () => {
     <section className="relative py-8 bg-black min-h-screen flex items-center overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"
           style={{ opacity: 0.3 }}
         />
-        <div 
+        <div
           className="absolute inset-0 bg-[linear-gradient(to_right,#2a2a2a_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] bg-[size:8rem_8rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"
           style={{ opacity: 0.2 }}
         />
       </div>
-      
+
       {/* Radial Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black pointer-events-none" />
-      
+
       {/* Glow Effects */}
       <div className="absolute top-0 -left-48 w-96 h-96 bg-blue-500/10 rounded-full blur-[128px] animate-pulse-slow" />
       <div className="absolute bottom-0 -right-48 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px] animate-pulse-slow" />
@@ -65,9 +65,8 @@ const GENIntroduction = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Launch Your{" "}
-            <span className="text-blue-500">AI Career</span>{" "}
-            Without Coding
+            Launch Your <span className="text-blue-500">AI Career</span> Without
+            Coding
           </h1>
 
           {/* Subtitle */}
@@ -106,9 +105,7 @@ const GENIntroduction = () => {
                   <h3 className="text-lg font-semibold text-white mb-1">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-gray-400">
-                    {feature.description}
-                  </p>
+                  <p className="text-sm text-gray-400">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -118,8 +115,13 @@ const GENIntroduction = () => {
 
       <style jsx global>{`
         @keyframes pulse-slow {
-          0%, 100% { opacity: 0.4; }
-          50% { opacity: 0.5; }
+          0%,
+          100% {
+            opacity: 0.4;
+          }
+          50% {
+            opacity: 0.5;
+          }
         }
         .animate-pulse-slow {
           animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
