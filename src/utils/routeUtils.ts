@@ -1,8 +1,8 @@
 // List of routes where navbar and footer should be hidden
 const hiddenNavbarRoutes: string[] = [
-  '/admin/ad-analysis',
-  '/admin/dashboard',
-  // Add more routes here as needed
+  "/admin/ad-analysis",
+  "/admin/dashboard",
+  "/thank-you"
 ];
 
 /**

@@ -52,7 +52,8 @@ export default function Navbar({
   const courses = [
     { label: "Product Management", path: "/courses/product-management" },
     { label: "Data Analytics", path: "/courses/data-analytics" },
-    { label: "No-Code Development", path: "/courses/no-code-tool-program" },
+    // { label: "No-Code Development", path: "/courses/no-code-tool-program" },
+    { label: "GenAI", path: "/courses/generative-ai" },
   ];
 
   if (isXSATRoute) {

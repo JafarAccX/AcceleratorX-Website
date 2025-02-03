@@ -125,9 +125,24 @@ const PricingSection = lazy(
 const NoCodeFAQ = lazy(() => import("./pages/courses/nocodeTool/NoCodeFAQ"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const EnrollmentDashboard = lazy(() => import("./pages/admin/AdminPage"));
-const EnrollmentAnalytics = lazy(() => import("./pages/admin/EnrollmentAnalytics"));
-import AdAnalysis from './pages/admin/AdAnalysis';
+const EnrollmentAnalytics = lazy(
+  () => import("./pages/admin/EnrollmentAnalytics")
+);
+import AdAnalysis from "./pages/admin/AdAnalysis";
 import CareersHero from "./components/CareersHero";
+import XSATHomePage from "./pages/XSAT/LandingPage/XSATHomePage";
+import GENHero from "./pages/courses/genAI/GENHero";
+import GENPricing from "./pages/courses/genAI/GENPricing";
+import GENCourseSyllabus from "./pages/courses/genAI/GENCourseSyllabus";
+import GENFAQ from "./pages/courses/genAI/GENFAQ";
+import GENIntroduction from "./pages/courses/genAI/GENIntroduction";
+import GENLearningJourney from "./pages/courses/genAI/GENLearningJourney";
+import GENMarketScope from "./pages/courses/genAI/GENMarketScope";
+import GENProjectsAndOutcomes from "./pages/courses/genAI/GENProjectsAndOutcomes";
+import GENWhoShouldEnroll from "./pages/courses/genAI/GENWhoShouldEnroll";
+import GENWhyLearnAI from "./pages/courses/genAI/GENWhyLearnAI";
+import HeroWithAbouv from "./components/HeroWithAbouv";
+import GENToolsYouWillLearn from "./pages/courses/genAI/GENToolsYouWillLearn";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -289,7 +304,7 @@ function HomePage() {
     useCourseContext();
 
   useEffect(() => {
-    setSelectedCourse(null); // Reset course selection on homepage
+    setSelectedCourse(null);
   }, [setSelectedCourse]);
 
   return (
@@ -297,6 +312,7 @@ function HomePage() {
       <Hero />
       <LogoSlider />
       <Features />
+      <HeroWithAbouv imageUrl="/hireBanner.png" />
       <BecomeAMentorFeatures />
       <CTA />
     </Suspense>
@@ -495,58 +511,88 @@ function DataAnalyticsPageFB() {
   );
 }
 
-function NoCodeToolPage() {
+// No Code Tool Page
+
+// function NoCodeToolPage() {
+//   const {
+//     setSelectedCourse,
+//   }: { setSelectedCourse: (course: string | null) => void } =
+//     useCourseContext();
+
+//   useEffect(() => {
+//     setSelectedCourse("No-Code Development");
+//   }, [setSelectedCourse]);
+
+//   return (
+//     <Suspense fallback={<Loader />}>
+//       <NoCodeHero />
+//       <NoCodeDidYouKnow />
+//       <TargetAudienceFB />
+//       <NoCodeBenefitsGrid />
+//       <NoCodeLearningJourney />
+//       <TargetAudience />
+//       <Timeline />
+//       <NoCodeTool />
+//       <NoCodeCertificateFB />
+//       <ProjectsSection />
+//       <PricingSection />
+//       <NoCodeFAQ />
+//     </Suspense>
+//   );
+// }
+
+// function NoCodeToolPageFB() {
+//   const {
+//     setSelectedCourse,
+//   }: { setSelectedCourse: (course: string | null) => void } =
+//     useCourseContext();
+
+//   useEffect(() => {
+//     setSelectedCourse("No-Code Development");
+//   }, [setSelectedCourse]);
+
+//   return (
+//     <Suspense fallback={<Loader />}>
+//       <NoCodeHeroFB />
+//       <NoCodeDidYouKnow />
+//       <TargetAudienceFB />
+//       <NoCodeBenefitsGridFB />
+//       <NoCodeLearningJourneyFB />
+//       <TimelineFB />
+//       <NoCodeToolFB />
+//       <NoCodeCertificateFB />
+//       <ProjectsSectionFB />
+//       <PricingSectionFB />
+//       <NoCodeFAQFB />
+//       <StickyBookNavFB />
+//     </Suspense>
+//   );
+// }
+
+// Gen AI Course
+
+function GenAICourse() {
   const {
     setSelectedCourse,
   }: { setSelectedCourse: (course: string | null) => void } =
     useCourseContext();
 
   useEffect(() => {
-    setSelectedCourse("No-Code Development");
+    setSelectedCourse("Generative AI");
   }, [setSelectedCourse]);
 
   return (
     <Suspense fallback={<Loader />}>
-      <NoCodeHero />
-      <NoCodeDidYouKnow />
-      <TargetAudienceFB />
-      <NoCodeBenefitsGrid />
-      <NoCodeLearningJourney />
-      <TargetAudience />
-      <Timeline />
-      <NoCodeTool />
-      <NoCodeCertificateFB />
-      <ProjectsSection />
-      <PricingSection />
-      <NoCodeFAQ />
-    </Suspense>
-  );
-}
-
-function NoCodeToolPageFB() {
-  const {
-    setSelectedCourse,
-  }: { setSelectedCourse: (course: string | null) => void } =
-    useCourseContext();
-
-  useEffect(() => {
-    setSelectedCourse("No-Code Development");
-  }, [setSelectedCourse]);
-
-  return (
-    <Suspense fallback={<Loader />}>
-      <NoCodeHeroFB />
-      <NoCodeDidYouKnow />
-      <TargetAudienceFB />
-      <NoCodeBenefitsGridFB />
-      <NoCodeLearningJourneyFB />
-      <TimelineFB />
-      <NoCodeToolFB />
-      <NoCodeCertificateFB />
-      <ProjectsSectionFB />
-      <PricingSectionFB />
-      <NoCodeFAQFB />
-      <StickyBookNavFB />
+      <GENHero />
+      <GENIntroduction />
+      <GENWhoShouldEnroll />
+      <GENMarketScope />
+      <GENWhyLearnAI />
+      <GENLearningJourney />
+      <GENToolsYouWillLearn />
+      <GENProjectsAndOutcomes />
+      <GENPricing />
+      <GENFAQ />
     </Suspense>
   );
 }
@@ -564,11 +610,10 @@ function AboutPage() {
 function XSAT() {
   return (
     <Suspense fallback={<Loader />}>
+      {/* <XSATHomePage /> */}
       <XSATHero />
       <XSATInfo />
       <XSATAbout />
-      <XSATKeyDates />
-      <XSATExamInfo />
       <XSATFAQ />
     </Suspense>
   );
@@ -761,11 +806,19 @@ function App() {
                         </Suspense>
                       }
                     />
-                    <Route
+                    {/* <Route
                       path="/courses/no-code-tool-program"
                       element={
                         <Suspense fallback={<Loader />}>
                           <NoCodeToolPage />
+                        </Suspense>
+                      }
+                    /> */}
+                    <Route
+                      path="/courses/generative-ai"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <GenAICourse />
                         </Suspense>
                       }
                     />
@@ -881,14 +934,14 @@ function App() {
                         </Suspense>
                       }
                     />
-                    <Route
+                    {/* <Route
                       path="/courses/no-code-tool-program-fb"
                       element={
                         <Suspense fallback={<Loader />}>
                           <NoCodeToolPageFB />
                         </Suspense>
                       }
-                    />
+                    /> */}
                     <Route
                       path="/thank-you"
                       element={<ThankYouPageWrapper />}
@@ -935,10 +988,10 @@ function RouteLogic({
     ) {
       setSelectedCourse("Data Analytics");
     } else if (
-      location.pathname === "/courses/no-code-tool-program" ||
-      location.pathname === "/courses/no-code-tool-program-fb"
+      location.pathname === "/courses/generative-ai" ||
+      location.pathname === "/courses/generative-ai-fb"
     ) {
-      setSelectedCourse("No-Code Development");
+      setSelectedCourse("Generative AI");
     } else {
       setSelectedCourse(null); // Reset for non-course pages
     }

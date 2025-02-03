@@ -30,7 +30,8 @@ const footerLinks: {
         url: "/courses/product-management",
       },
       { label: "Data Analytics Program", url: "/courses/data-analytics" },
-      { label: "No-Code Development", url: "/courses/no-code-tool-program" },
+      // { label: "No-Code Development", url: "/courses/no-code-tool-program" },
+      { label: "Gen AI", url: "/courses/generative-ai" },
     ],
   },
   company: {
@@ -143,8 +144,8 @@ export default function Footer() {
             </Link>
             <p className="text-gray-400 max-w-md">
               Empowering professionals with industry-relevant skills through
-              expert-led programs in Product Management, Data Analytics, and
-              No-Code Development.
+              expert-led programs in Product Management, Data Analytics &
+              Generative AI.
             </p>
             {/* Social Media Icons */}
             <div className="pt-4">
