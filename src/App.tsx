@@ -143,6 +143,9 @@ import GENWhoShouldEnroll from "./pages/courses/genAI/GENWhoShouldEnroll";
 import GENWhyLearnAI from "./pages/courses/genAI/GENWhyLearnAI";
 import HeroWithAbouv from "./components/HeroWithAbouv";
 import GENToolsYouWillLearn from "./pages/courses/genAI/GENToolsYouWillLearn";
+import { WSHeroGEN } from "./pages/landingpage/workshopGEN/WSHeroGEN";
+import { WSAboutGEN } from "./pages/landingpage/workshopGEN/WSAboutGEN";
+import { WSTestimonialGEN } from "./pages/landingpage/workshopGEN/WSTestimonialGEN";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -293,6 +296,7 @@ function isDummyRoute(pathname: string): boolean {
     "/thank-you",
     "/workshop/da-masterclass",
     "/workshop/pm-masterclass",
+    "/workshop/gen-ai-masterclass",
   ];
   return adRoutes.includes(pathname);
 }
@@ -312,7 +316,7 @@ function HomePage() {
       <Hero />
       <LogoSlider />
       <Features />
-      <HeroWithAbouv imageUrl="/hireBanner.png" />
+      {/* <HeroWithAbouv imageUrl="/hireBanner.png" /> */}
       <BecomeAMentorFeatures />
       <CTA />
     </Suspense>
@@ -336,6 +340,16 @@ function WorkshopPagePM() {
       <WSHeroPM />
       <WSAboutPM />
       <WSTestimonialPM />
+    </Suspense>
+  );
+}
+
+function WorkshopPageGEN() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <WSHeroGEN />
+      <WSAboutGEN />
+      <WSTestimonialGEN />
     </Suspense>
   );
 }
@@ -835,6 +849,14 @@ function App() {
                       element={
                         <Suspense fallback={<Loader />}>
                           <WorkshopPagePM />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/workshop/gen-ai-masterclass"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <WorkshopPageGEN />
                         </Suspense>
                       }
                     />

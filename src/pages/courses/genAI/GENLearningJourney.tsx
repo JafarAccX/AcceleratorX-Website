@@ -26,7 +26,6 @@ const GENLearningJourney = () => {
             "Hands-on with ChatGPT, DeepSeek, Midjourney, DALL·E",
             "Setting up development environment and tools"
           ],
-          assignments: ["Research AI tools", "Create AI-generated content"]
         },
         {
           title: "Week 2: Large Language Models (LLMs) & Text Generation",
@@ -35,7 +34,6 @@ const GENLearningJourney = () => {
             "Mastering prompt engineering techniques",
             "API integration and fine-tuning"
           ],
-          assignments: ["Build AI chatbot", "Fine-tune custom model"]
         },
         {
           title: "Week 3: Image & Video Generation",
@@ -44,7 +42,6 @@ const GENLearningJourney = () => {
             "Creating with Midjourney, DALL·E, Stable Diffusion",
             "Video generation with Runway ML"
           ],
-          assignments: ["Generate AI art portfolio", "Create AI video content"]
         },
         {
           title: "Week 4: Speech & Audio Generation",
@@ -53,7 +50,6 @@ const GENLearningJourney = () => {
             "AI music generation and audio synthesis",
             "Building audio applications"
           ],
-          assignments: ["Create AI voiceovers", "Generate AI music"]
         }
       ]
     },
@@ -76,7 +72,6 @@ const GENLearningJourney = () => {
             "Model optimization and monitoring",
             "Building scalable AI solutions"
           ],
-          assignments: ["Deploy AI model to cloud", "Build AI SaaS prototype"]
         },
         {
           title: "Week 7: Introduction to AI Agent Building",
@@ -85,7 +80,6 @@ const GENLearningJourney = () => {
             "LangChain, AutoGen, and CrewAI development",
             "Building autonomous AI systems"
           ],
-          assignments: ["Create AI agent", "Automate workflows"]
         }
       ]
     },
@@ -100,7 +94,6 @@ const GENLearningJourney = () => {
             "Real-world AI agent applications",
             "Integration with external systems"
           ],
-          assignments: ["Build multi-agent system", "Create industry solution"]
         },
         {
           title: "Weeks 9-10: Capstone Project Development",
@@ -215,19 +208,6 @@ const GENLearningJourney = () => {
                       </li>
                     ))}
                   </ul>
-                  {week.assignments && (
-                    <div className="mt-3 pt-3 border-t border-gray-700">
-                      <h5 className="text-sm font-medium text-green-400 mb-2">Assignments</h5>
-                      <ul className="space-y-1">
-                        {week.assignments.map((assignment, assignmentIndex) => (
-                          <li key={assignmentIndex} className="text-gray-300 text-sm flex items-start gap-2">
-                            <div className="w-1 h-1 rounded-full bg-green-400 flex-shrink-0 mt-2"></div>
-                            <span>{assignment}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>

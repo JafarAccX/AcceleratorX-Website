@@ -33,22 +33,22 @@ const GENMarketScope = () => {
     {
       title: "AI Consultants & Strategists",
       description: "Help businesses integrate AI solutions and develop AI strategies",
-      salary: "$150K - $300K"
+      salary: "₹ 12L - 25L"
     },
     {
       title: "Prompt Engineers",
       description: "Design and optimize prompts for AI models and applications",
-      salary: "$120K - $200K"
+      salary: "₹ 10L - 16L"
     },
     {
       title: "AI Application Developers",
       description: "Build and deploy AI-powered applications and tools",
-      salary: "$130K - $250K"
+      salary: "₹ 11L - 20L"
     },
     {
       title: "AI Automation Specialists",
       description: "Create automated workflows using AI and other tools",
-      salary: "$100K - $180K"
+      salary: "₹ 8L - 15L"
     }
   ];
 

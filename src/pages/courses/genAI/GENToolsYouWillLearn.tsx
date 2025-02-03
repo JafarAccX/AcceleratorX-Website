@@ -15,7 +15,7 @@ interface CategoryInfo {
 }
 
 const GENToolsYouWillLearn = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("Language Models");
+  const [activeCategory, setActiveCategory] = useState<string>("Text & Language Models");
 
   const projects = [
     {
@@ -37,93 +37,177 @@ const GENToolsYouWillLearn = () => {
   ];
 
   const categoryInfo: Record<string, CategoryInfo> = {
-    "Language Models": {
-      name: "Language Models",
+    "Text & Language Models": {
+      name: "Text & Language Models",
       icon: Brain,
-      description: "Text generation and understanding"
+      description: "Advanced text generation and understanding"
     },
-    "Image Generation": {
-      name: "Image Generation",
-      icon: Image,
-      description: "Create visuals with AI"
-    },
-    "Video Creation": {
-      name: "Video Creation",
+    "Image & Video AI": {
+      name: "Image & Video AI",
       icon: Video,
-      description: "Video editing and generation"
+      description: "Visual content creation and editing"
     },
-    "Development": {
-      name: "Development",
+    "Speech & Audio AI": {
+      name: "Speech & Audio AI",
       icon: Code,
-      description: "Build AI applications"
+      description: "Voice and music generation"
     },
-    "Cloud Platform": {
-      name: "Cloud Platform",
+    "AI Agent Building": {
+      name: "AI Agent Building",
+      icon: Wrench,
+      description: "Build intelligent AI agents"
+    },
+    "AI Deployment & Integration": {
+      name: "AI Deployment & Integration",
       icon: Cloud,
-      description: "Deploy and scale AI"
+      description: "Deploy and integrate AI solutions"
     }
   };
 
   const tools: Tool[] = [
     {
       name: "GPT-4",
-      description: "Latest large language model from OpenAI for advanced text generation and understanding",
+      description: "Advanced language model from OpenAI for sophisticated text generation",
       image: "/assets/genAITools/gpt4.webp",
-      category: "Language Models"
+      category: "Text & Language Models"
     },
     {
       name: "DeepSeek",
-      description: "Advanced AI model for code generation and technical problem-solving",
+      description: "Powerful language model for code and technical tasks",
       image: "/assets/genAITools/deepseek.webp",
-      category: "Language Models"
+      category: "Text & Language Models"
+    },
+    {
+      name: "LLaMA",
+      description: "Open-source language model for diverse AI applications",
+      image: "/assets/genAITools/ollama.png",
+      category: "Text & Language Models"
+    },
+    {
+      name: "Falcon",
+      description: "High-performance language model for various text tasks",
+      image: "/assets/genAITools/falcon.png",
+      category: "Text & Language Models"
+    },
+    {
+      name: "Claude",
+      description: "Anthropic's AI assistant for complex reasoning and analysis",
+      image: "/assets/genAITools/claude.webp",
+      category: "Text & Language Models"
+    },
+    {
+      name: "Gemini",
+      description: "Google's multimodal AI model for text and visual tasks",
+      image: "/assets/genAITools/gemini.webp",
+      category: "Text & Language Models"
     },
     {
       name: "Midjourney",
-      description: "AI art and image generation platform for creating stunning visuals",
+      description: "AI art generation platform for high-quality visuals",
       image: "/assets/genAITools/midjourney.webp",
-      category: "Image Generation"
+      category: "Image & Video AI"
+    },
+    {
+      name: "Stable Diffusion",
+      description: "Open-source image generation model for diverse visual content",
+      image: "/assets/genAITools/stability-ai.png",
+      category: "Image & Video AI"
     },
     {
       name: "DALL·E",
-      description: "OpenAI's image generation model for creating diverse artistic content",
+      description: "OpenAI's image creation model for artistic and commercial use",
       image: "/assets/genAITools/dalle.webp",
-      category: "Image Generation"
+      category: "Image & Video AI"
     },
     {
-      name: "Runway",
+      name: "Runway ML",
       description: "AI-powered creative suite for video editing and generation",
       image: "/assets/genAITools/runway.webp",
-      category: "Video Creation"
+      category: "Image & Video AI"
+    },
+    {
+      name: "Pika Labs",
+      description: "Advanced AI platform for video generation and editing",
+      image: "/assets/genAITools/pika.webp",
+      category: "Image & Video AI"
+    },
+    {
+      name: "ElevenLabs",
+      description: "AI voice generation and cloning platform",
+      image: "/assets/genAITools/elevenlabs.webp",
+      category: "Speech & Audio AI"
+    },
+    {
+      name: "OpenAI Whisper",
+      description: "Advanced speech recognition and transcription model",
+      image: "/assets/genAITools/openaiwhisper.webp",
+      category: "Speech & Audio AI"
+    },
+    {
+      name: "MusicGen",
+      description: "AI-powered music generation and composition tool",
+      image: "/assets/genAITools/musicgen.webp",
+      category: "Speech & Audio AI"
+    },
+    {
+      name: "Magenta",
+      description: "Google's creative tool for music and art generation",
+      image: "/assets/genAITools/magenta.png",
+      category: "Speech & Audio AI"
     },
     {
       name: "LangChain",
-      description: "Framework for developing applications powered by language models",
+      description: "Framework for building LLM-powered applications",
       image: "/assets/genAITools/langchain.png",
-      category: "Development"
-    },
-    {
-      name: "AutoGen",
-      description: "Framework for building AI agents and automated workflows",
-      image: "/assets/genAITools/autogen.png",
-      category: "Development"
+      category: "AI Agent Building"
     },
     {
       name: "CrewAI",
-      description: "Multi-agent framework for complex AI task automation",
+      description: "Framework for creating multi-agent AI systems",
       image: "/assets/genAITools/crewai.webp",
-      category: "Development"
+      category: "AI Agent Building"
     },
     {
-      name: "Hugging Face",
-      description: "Platform for sharing and deploying machine learning models",
-      image: "/assets/genAITools/huggingface.webp",
-      category: "Development"
+      name: "AutoGen",
+      description: "Tool for building autonomous AI agents",
+      image: "/assets/genAITools/autogen.jpeg",
+      category: "AI Agent Building"
+    },
+    {
+      name: "RAG",
+      description: "Retrieval-Augmented Generation for enhanced AI responses",
+      image: "/assets/genAITools/rag.webp",
+      category: "AI Agent Building"
+    },
+    {
+      name: "AWS",
+      description: "Cloud platform for AI deployment and scaling",
+      image: "/assets/genAITools/aws.png",
+      category: "AI Deployment & Integration"
     },
     {
       name: "Google Cloud",
-      description: "Cloud platform for deploying and scaling AI applications",
+      description: "Comprehensive platform for AI service deployment",
       image: "/assets/genAITools/google cloud.webp",
-      category: "Cloud Platform"
+      category: "AI Deployment & Integration"
+    },
+    {
+      name: "OpenAI API",
+      description: "API access to OpenAI's powerful AI models",
+      image: "/assets/genAITools/openai-logomark.svg",
+      category: "AI Deployment & Integration"
+    },
+    {
+      name: "Hugging Face",
+      description: "Platform for sharing and deploying AI models",
+      image: "/assets/genAITools/huggingface.svg",
+      category: "AI Deployment & Integration"
+    },
+    {
+      name: "Zapier",
+      description: "Automation platform for integrating AI services",
+      image: "/assets/genAITools/zapier.webp",
+      category: "AI Deployment & Integration"
     }
   ];
 
@@ -209,7 +293,7 @@ const GENToolsYouWillLearn = () => {
                   key={index}
                   className="group p-2.5 rounded-lg bg-white border border-gray-200 hover:border-blue-200 hover:shadow-sm transition-all duration-300"
                 >
-                  <div className={`aspect-[3/2] mb-2 rounded-md overflow-hidden ${tool.name === "DALL·E" ? 'bg-black' : 'bg-gray-50'} p-2 flex items-center justify-center`}>
+                  <div className={`aspect-[3/2] mb-2 rounded-md overflow-hidden ${tool.name === "DALL·E" || tool.name === "Stable Diffusion"  ? 'bg-black' : 'bg-gray-50'} p-2 flex items-center justify-center`}>
                     <img
                       src={tool.image}
                       alt={tool.name}
