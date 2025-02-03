@@ -143,9 +143,10 @@ import GENWhoShouldEnroll from "./pages/courses/genAI/GENWhoShouldEnroll";
 import GENWhyLearnAI from "./pages/courses/genAI/GENWhyLearnAI";
 import HeroWithAbouv from "./components/HeroWithAbouv";
 import GENToolsYouWillLearn from "./pages/courses/genAI/GENToolsYouWillLearn";
-import { WSHeroGEN } from "./pages/landingpage/workshopGEN/WSHeroGEN";
-import { WSAboutGEN } from "./pages/landingpage/workshopGEN/WSAboutGEN";
 import { WSTestimonialGEN } from "./pages/landingpage/workshopGEN/WSTestimonialGEN";
+import WSHeroGEN from "./pages/landingpage/workshopGEN/WSHeroGEN";
+import WSAboutGEN from "./pages/landingpage/workshopGEN/WSAboutGEN";
+import GENCTA from "./pages/landingpage/workshopGEN/GENCTA";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -349,11 +350,14 @@ function WorkshopPageGEN() {
     <Suspense fallback={<Loader />}>
       <WSHeroGEN />
       <WSAboutGEN />
-      <WSTestimonialGEN />
+      <GENIntroduction />
+      <GENWhoShouldEnroll />
+      <GENCTA />
     </Suspense>
   );
 }
 
+// Program Analytics Page
 function ProgramAnalyticsPage() {
   const {
     setSelectedCourse,

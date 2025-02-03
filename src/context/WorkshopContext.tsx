@@ -1,7 +1,7 @@
 import React, { createContext, useContext, ReactNode, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-type WorkshopType = "DAWorkshop" | "PMWorkshop";
+type WorkshopType = "DAWorkshop" | "PMWorkshop" | "GENAIWorkshop";
 
 interface ZoomMeetingDetails {
   link: string;
@@ -27,6 +27,12 @@ const DAZoomDetails: ZoomMeetingDetails = {
   time: "Jan 22, 2025 08:00 PM India",
 };
 
+const GENAIZoomDetails: ZoomMeetingDetails = {
+  link: "https://zoom.us/meeting/register/H_4QGnFhQmGqE9uZYndaYA",
+  meetingId: "H_4QGnFhQmGqE9uZYndaYA",
+  time: "Feb 6, 2025 07:30 PM India",
+};
+
 const WorkshopContext = createContext<WorkshopContextType | undefined>(
   undefined
 );
@@ -43,11 +49,17 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
       setWorkshopType("PMWorkshop");
     } else if (location.pathname.includes("/da-masterclass")) {
       setWorkshopType("DAWorkshop");
+    } else if (location.pathname.includes("/gen-ai-masterclass")) {
+      setWorkshopType("GENAIWorkshop");
     }
   }, [location.pathname]);
 
   const zoomMeetingDetails =
-    workshopType === "PMWorkshop" ? PMZoomDetails : DAZoomDetails;
+    workshopType === "PMWorkshop"
+      ? PMZoomDetails
+      : workshopType === "GENAIWorkshop"
+      ? GENAIZoomDetails
+      : DAZoomDetails;
 
   return (
     <WorkshopContext.Provider

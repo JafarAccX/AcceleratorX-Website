@@ -7,25 +7,21 @@ const GENWhoShouldEnroll = () => {
       icon: Users,
       title: "Beginners & Business Professionals",
       description: "No prior technical background required",
-      highlight: "Start from scratch",
     },
     {
       icon: Briefcase,
       title: "Entrepreneurs & Freelancers",
       description: "Learn to build and monetize AI-powered solutions",
-      highlight: "Up to $10K per project",
     },
     {
       icon: Megaphone,
       title: "Marketing & Content Creators",
       description: "Automate content workflows with AI",
-      highlight: "Boost productivity",
     },
     {
       icon: Brain,
       title: "AI Enthusiasts & Job Seekers",
       description: "Gain skills to stand out in the AI job market",
-      highlight: "High demand",
     },
   ];
 
@@ -77,11 +73,6 @@ const GENWhoShouldEnroll = () => {
                         <p className="text-sm text-blue-700 mb-2">
                           {audience.description}
                         </p>
-                        <div className="inline-flex items-center gap-1.5 bg-blue-50 rounded-full px-2.5 py-1">
-                          <span className="text-blue-700 text-xs font-medium">
-                            {audience.highlight}
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </div>

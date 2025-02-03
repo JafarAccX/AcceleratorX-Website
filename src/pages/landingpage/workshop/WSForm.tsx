@@ -81,6 +81,17 @@ const WSForm = () => {
 
       if (error) {
         console.error('Supabase error:', error);
+        if (error.code === '23505') {
+          if (error.message.includes('workshop_registrations_phone_key')) {
+            toast.error('This phone number is already registered for a workshop. Please use a different number or contact support if you need to update your registration.');
+          } else if (error.message.includes('workshop_registrations_email_key')) {
+            toast.error('This email is already registered for a workshop. Please use a different email or contact support if you need to update your registration.');
+          } else {
+            toast.error('This registration already exists. Please contact support if you need to update your registration.');
+          }
+        } else {
+          toast.error('Registration failed. Please try again later.');
+        }
         throw error;
       }
 
@@ -108,92 +119,107 @@ const WSForm = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl shadow-2xl p-6 md:p-8 w-full border border-gray-800">
-      <div className="text-center mb-6 md:mb-8">
-        <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Register NOW!</h3>
-        <p className="text-sm text-gray-400 mt-2">Limited seats available</p>
-      </div>
+    <div className="bg-[#111] rounded-2xl shadow-2xl p-6 w-full border border-gray-800/30 backdrop-blur-xl">
+      
 
-      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
-        <div className="space-y-4 md:space-y-5">
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
-          />
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email ID"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
-          />
-
-          <div className="flex gap-3">
-            <div className="px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800 border border-gray-700 rounded-xl text-gray-300 w-20 md:w-24 flex items-center justify-center">
-              +91
-            </div>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-4">
+          <div className="relative">
             <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
+              type="text"
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
+              className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-gray-500 text-sm"
+              placeholder="Full Name"
             />
           </div>
 
-          <input
-            type="text"
-            name="education"
-            placeholder="Education (Highest Qualification)"
-            value={formData.education}
-            onChange={handleChange}
-            required
-            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
-          />
+          <div className="relative">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-gray-500 text-sm"
+              placeholder="Email Address"
+            />
+          </div>
 
-          <input
-            type="text"
-            name="designation"
-            placeholder="Current Designation"
-            value={formData.designation}
-            onChange={handleChange}
-            required
-            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
-          />
+          <div className="relative">
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-gray-500 text-sm"
+              placeholder="Phone Number"
+            />
+          </div>
 
-          <select
-            name="yearsOfExperience"
-            value={formData.yearsOfExperience}
-            onChange={handleChange}
-            required
-            className="w-full px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base bg-gray-800/50 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all hover:bg-gray-800"
-          >
-            <option value="" className="bg-gray-900">Years of Experience</option>
-            <option value="0-1" className="bg-gray-900">0-1 years</option>
-            <option value="1-3" className="bg-gray-900">1-3 years</option>
-            <option value="3-5" className="bg-gray-900">3-5 years</option>
-            <option value="5-10" className="bg-gray-900">5-10 years</option>
-            <option value="10+" className="bg-gray-900">10+ years</option>
-          </select>
+          <div className="relative">
+            <input
+              type="text"
+              name="education"
+              value={formData.education}
+              onChange={handleChange}
+              required
+              className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-gray-500 text-sm"
+              placeholder="Education (Highest Qualification)"
+            />
+          </div>
+
+          <div className="relative">
+            <input
+              type="text"
+              name="designation"
+              value={formData.designation}
+              onChange={handleChange}
+              required
+              className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-gray-500 text-sm"
+              placeholder="Current Designation"
+            />
+          </div>
+
+          <div className="relative">
+            <select
+              name="yearsOfExperience"
+              value={formData.yearsOfExperience}
+              onChange={handleChange}
+              required
+              className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all text-sm appearance-none cursor-pointer"
+            >
+              <option value="" disabled className="text-gray-500">Years of Experience</option>
+              <option value="0-1">0-1 years</option>
+              <option value="1-3">1-3 years</option>
+              <option value="3-5">3-5 years</option>
+              <option value="5-10">5-10 years</option>
+              <option value="10+">10+ years</option>
+            </select>
+            <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 md:py-4 rounded-xl font-semibold text-sm md:text-base transition-all
-            ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-0.5'}`}
+          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2.5 rounded-lg transition-all duration-300 transform hover:translate-y-[-1px] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 text-sm flex items-center justify-center gap-2"
         >
-          {isSubmitting ? 'Registering...' : 'REGISTER FOR FREE'}
+          {isSubmitting ? (
+            <>
+              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <span>Registering...</span>
+            </>
+          ) : (
+            'Register for Free'
+          )}
         </button>
 
         <p className="text-xs md:text-sm text-gray-400 text-center">

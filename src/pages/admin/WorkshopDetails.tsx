@@ -164,7 +164,9 @@ const WorkshopDetails: React.FC = () => {
           workshop.designation,
           workshop.years_of_experience,
           workshop.workshop_type ? 
-            (workshop.workshop_type === 'DAWorkshop' ? 'Data Analytics Workshop' : 'Product Management Workshop') 
+            (workshop.workshop_type === 'DAWorkshop' ? 'Data Analytics Workshop' : 
+             workshop.workshop_type === 'PMWorkshop' ? 'Product Management Workshop' :
+             workshop.workshop_type === 'GENAIWorkshop' ? 'GenAI Workshop' : 'Not specified') 
             : 'Not specified',
           new Date(workshop.created_at).toLocaleString(),
         ].join(",")),
@@ -222,6 +224,7 @@ const WorkshopDetails: React.FC = () => {
               <option value="all">All Workshops</option>
               <option value="DAWorkshop">DA Workshop</option>
               <option value="PMWorkshop">PM Workshop</option>
+              <option value="GENAIWorkshop">GenAI Workshop</option>
             </select>
             <div className="relative flex-grow sm:max-w-xs">
               <input
@@ -348,7 +351,10 @@ const WorkshopDetails: React.FC = () => {
                           </td>
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {workshop.workshop_type ? (
-                              workshop.workshop_type === 'DAWorkshop' ? 'DA Workshop' : 'PM Workshop'
+                              workshop.workshop_type === 'DAWorkshop' ? 'DA Workshop' : 
+                              workshop.workshop_type === 'PMWorkshop' ? 'PM Workshop' :
+                              workshop.workshop_type === 'GENAIWorkshop' ? 'GenAI Workshop' : 
+                              'Not specified'
                             ) : (
                               'Not specified'
                             )}
