@@ -1,5 +1,7 @@
 import React from "react";
-import { FaCheck, FaUser, FaCertificate } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
+import { Star, Award, Target, Sparkles } from "lucide-react";
+import { FaUser, FaCertificate } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const WSAboutPM = () => {
@@ -9,345 +11,260 @@ const WSAboutPM = () => {
   };
 
   const targetAudience = [
-    "Aspiring product managers aiming to transition into PM roles in 2025",
-    "Professionals seeking a career shift into product management",
-    "Tech experts interested in applying strategic product management skills",
-    "Students and early-career professionals pursuing product management roles",
+    "Aspiring Product Managers looking to transition into PM roles with AI-powered skills",
+    "Professionals seeking a career shift into high-impact product management positions",
+    "Tech Experts & Engineers eager to integrate AI-driven strategic decision-making",
+    "Students & Early-Career Professionals preparing for AI-driven PM roles",
   ];
 
   const whatWillYouGain = [
     {
-      title: "Establish a Solid Product Management Foundation",
-      description:
-        "Understand the evolving role of Product Managers in 2025 by mastering market research, product lifecycle management, and agile methodologies to confidently transition into a PM role.",
+      icon: <Star className="w-5 h-5" />,
+      title: "Master AI-driven product management frameworks",
+      description: "Learn cutting-edge frameworks that combine traditional PM methodologies with AI capabilities"
     },
     {
-      title: "Gain Proficiency in Modern PM Tools",
-      description:
-        "Get hands-on experience with cutting-edge tools like JIRA, Figma, Notion, and product analytics platforms to efficiently manage product development and cross-functional teams.",
+      icon: <Award className="w-5 h-5" />,
+      title: "Transform product strategy with AI",
+      description: "Discover how AI enhances market research, user insights, and strategic decision-making"
     },
     {
-      title: "Enhance Strategic and Analytical Thinking",
-      description:
-        "Learn to craft data-driven product strategies, define clear product visions, and align business objectives to successfully drive product innovation and market growth.",
+      icon: <Target className="w-5 h-5" />,
+      title: "Hands-on AI applications",
+      description: "Get practical experience with real-world AI implementations in product management"
     },
     {
-      title: "Crack Product Management Interviews with Confidence",
-      description:
-        "Receive expert guidance on tackling product case studies, solving product design challenges, and mastering behavioral interview techniques to secure a PM role in 2025.",
+      icon: <Sparkles className="w-5 h-5" />,
+      title: "Future-proof your career",
+      description: "Develop the in-demand AI skills that will set you apart in the product management field"
     },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto space-y-16">
+    <div className="bg-[#0A0F1D] py-16">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="space-y-16">
           {/* About Masterclass Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">
-              About this Masterclass
-            </h2>
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                Transitioning into a Product Management role in 2025 requires
-                more than traditional skills. The industry is evolving rapidly,
-                driven by technological advancements, shifting market demands,
-                and innovative product strategies. This masterclass is crafted
-                to provide you with the practical knowledge and tools necessary
-                to successfully step into and thrive in a product management
-                role.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                Join{" "}
-                <span className="font-bold text-blue-600">AcceleratorX's Masterclass</span>{" "}
-                led by seasoned product manager{" "}
-                <span className="font-bold text-blue-600">{instructorDetails.name}</span> on{" "}
-                <span className="font-bold text-blue-600">
-                  Saturday, 8th February, 07:00 PM onwards
-                </span>{" "}
-                to discover how to:
-              </p>
-              <ul className="list-none mb-6 text-gray-700 space-y-4">
-                {[
-                  {
-                    title: "Develop Essential Product Management Skills",
-                    desc: "Learn core competencies like market analysis, product lifecycle management, and stakeholder collaboration to build a strong PM foundation."
-                  },
-                  {
-                    title: "Adapt to Emerging Industry Trends",
-                    desc: "Stay ahead by understanding how technologies like AI, data analytics, and sustainable solutions are shaping the future of product management."
-                  },
-                  {
-                    title: "Create a Clear Transition Strategy",
-                    desc: "Gain actionable steps for transitioning into a PM role, including leveraging professional networks, earning relevant certifications, and building practical experience through projects."
-                  }
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <FaCheck className="text-green-500 mt-1.5 w-4 h-4 flex-shrink-0" />
+          <section className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-2xl"></div>
+            <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-2xl p-8 border border-indigo-500/20">
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                About this Masterclass
+              </h2>
+              <div className="space-y-6">
+                <p className="text-gray-300 leading-relaxed">
+                  Unlock the future of product innovation with our Masterclass in
+                  AI for Product Management – a cutting-edge program designed to
+                  equip you with the AI skills that top product managers are
+                  leveraging in 2025 and beyond.
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  Join <span className="text-indigo-400 font-medium">AcceleratorX's Masterclass</span> led 
+                  by seasoned product manager <span className="text-indigo-400 font-medium">{instructorDetails.name}</span> on{" "}
+                  <span className="text-indigo-400 font-medium">Saturday, 8th February, 07:00 PM onwards</span> to discover:
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    {
+                      title: "Master AI-Driven Product Management Skills",
+                      desc: "Learn how AI is transforming product management by automating workflows, enhancing decision-making, and driving data-driven strategies.",
+                    },
+                    {
+                      title: "Stay Ahead with AI & Industry Trends",
+                      desc: "Understand the latest AI applications in product management, including predictive analytics, user personalization, and intelligent automation.",
+                    },
+                    {
+                      title: "Build a Clear AI-Powered Career Path",
+                      desc: "Gain actionable insights to transition into AI-driven product management, from leveraging AI tools to applying real-world case studies and best practices.",
+                    },
+                  ].map((item, index) => (
+                    <li key={index} className="flex gap-4 items-start">
+                      <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center flex-shrink-0 border border-indigo-500/20">
+                        <FaCheck className="text-indigo-400 w-3 h-3" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium text-white mb-1">{item.title}</h3>
+                        <p className="text-gray-400">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-xl p-6 border border-indigo-500/20">
+                  <div className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-indigo-400 mt-1" />
                     <div>
-                      <span className="font-semibold block text-gray-900">{item.title}:</span>
-                      <span className="text-gray-600">{item.desc}</span>
+                      <p className="font-medium text-white mb-1">Pro Tip</p>
+                      <p className="text-gray-300">
+                        Stay ahead of the curve and become the AI-driven product leader companies are
+                        searching for. Limited Spots Available! Secure yours now! 🚀
+                      </p>
                     </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
-                <p className="text-blue-800 font-medium">
-                  <span className="font-bold">Pro Tip:</span> The demand for
-                  skilled product managers is rising in 2025. Take this
-                  opportunity to equip yourself with the right skills and
-                  strategies to stand out. Seats are limited—register now to
-                  kick-start your product management career!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* What You'll Gain Section */}
+          <section>
+            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              What You Will Gain
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {whatWillYouGain.map((item, index) => (
+                <div key={index} className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-xl transition-all duration-300 group-hover:from-indigo-500/10 group-hover:to-violet-500/10"></div>
+                  <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20 transition-all duration-300 group-hover:border-indigo-400/30">
+                    <div className="flex gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 text-indigo-400 group-hover:scale-110 transition-transform duration-300">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-white font-medium mb-2">{item.title}</h3>
+                        <p className="text-gray-400 text-sm">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Instructor Section */}
+          <section className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">Meet {instructorDetails.name}</h2>
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="md:w-40 w-full aspect-square rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 p-0.5">
+                <div className="w-full h-full bg-white rounded-lg p-1">
+                  <img
+                    src="/assets/mentor/subhasis.png"
+                    alt={instructorDetails.name}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="text-xl font-bold text-gray-900">{instructorDetails.name}</h3>
+                  <span className="text-gray-400">|</span>
+                  <p className="text-blue-600 font-medium">{instructorDetails.title}</p>
+                </div>
+                <p className="text-gray-600">
+                  Subhasis Chandra is an experienced Product Manager with
+                  over 8 years in the US healthcare sector, specializing in
+                  market assessment and growth strategy. Skilled in Agile
+                  methodologies, he has led successful agile transitions for
+                  top healthcare clients, optimizing efficiency and
+                  outcomes. Certified CSPO, POPM, and SAFe® 5.0 Scrum
+                  Master, Subhasis excels in crafting product roadmaps, use
+                  cases, and user stories, ensuring alignment and clarity
+                  across teams. He is driven by data insights, constantly
+                  innovating and improving products to exceed customer and
+                  business goals. Passionate about improving patient
+                  outcomes, Subhasis navigates complex healthcare
+                  regulations to deliver compliant, impactful products. His
+                  expertise and commitment make him an invaluable asset to
+                  any healthcare organization aiming to drive growth and
+                  enhance patient care.
                 </p>
               </div>
             </div>
-          </motion.div>
+          </section>
 
-          {/* What You'll Gain Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
-              What You Will Gain From This Masterclass
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {whatWillYouGain.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group hover:transform hover:scale-105 transition-all duration-300"
-                >
-                  <div className="h-full bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                          <FaCheck className="text-green-500 w-5 h-5" />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Instructor Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
-              Meet {instructorDetails.name}
-            </h2>
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:w-48 w-full aspect-square rounded-2xl bg-gradient-to-br from-blue-500 to-green-500 p-1">
-                  <div className="w-full h-full bg-white rounded-xl p-1">
-                    <img
-                      src="/assets/mentor/subhasis.png"
-                      alt={instructorDetails.name}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      {instructorDetails.name}
-                    </h3>
-                    <div className="h-6 w-0.5 bg-gray-300"></div>
-                    <p className="text-blue-600 font-semibold">
-                      {instructorDetails.title}
-                    </p>
-                  </div>
-                  <div className="prose prose-lg max-w-none">
-                    <p className="text-gray-700 leading-relaxed">
-                      Subhasis Chandra is an experienced Product Manager with
-                      over 8 years in the US healthcare sector, specializing in
-                      market assessment and growth strategy. Skilled in Agile
-                      methodologies, he has led successful agile transitions for
-                      top healthcare clients, optimizing efficiency and
-                      outcomes. Certified CSPO, POPM, and SAFe® 5.0 Scrum
-                      Master, Subhasis excels in crafting product roadmaps, use
-                      cases, and user stories, ensuring alignment and clarity
-                      across teams. He is driven by data insights, constantly
-                      innovating and improving products to exceed customer and
-                      business goals. Passionate about improving patient
-                      outcomes, Subhasis navigates complex healthcare
-                      regulations to deliver compliant, impactful products. His
-                      expertise and commitment make him an invaluable asset to
-                      any healthcare organization aiming to drive growth and
-                      enhance patient care.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {/* Certificate Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl p-8 text-white"
-            >
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-5 text-white">
               <div className="flex items-center gap-3 mb-3">
-                <FaCertificate className="w-6 h-6" />
-                <h3 className="text-xl font-bold">Certificates</h3>
+                <FaCertificate className="w-5 h-5" />
+                <h3 className="text-lg font-bold">Certificates</h3>
               </div>
-              <p className="text-sm mb-3">
-                All attendees will receive an official certificate from
-                AcceleratorX!
+              <p className="text-sm mb-2 text-blue-50">
+                All attendees will receive an official certificate from AcceleratorX!
               </p>
-              <p className="text-xs bg-white/10 p-3 rounded-lg">
-                Please be careful while entering your details during
-                registration as they will appear on your certificate
+              <p className="text-xs bg-white/10 p-3 rounded">
+                Please be careful while entering your details during registration as they will appear on your certificate
               </p>
-            </motion.div>
+            </div>
 
-            {/* Prerequisites Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg p-8"
-            >
-              <h3 className="text-2xl font-bold mb-6 text-center">
-                Tools You Will Learn
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
-                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
-                  <img
-                    src="/assets/toolLogo/asanaa.webp"
-                    alt="Asana"
-                    className="w-20 h-20 object-contain"
-                  />
-                  <p className="font-medium text-gray-700 text-center">Asana</p>
-                </div>
-                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
-                  <img
-                    src="/assets/toolLogo/jiraa.webp"
-                    alt="Jira"
-                    className="w-20 h-20 object-contain"
-                  />
-                  <p className="font-medium text-gray-700 text-center">Jira</p>
-                </div>
-                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
-                  <img
-                    src="/assets/toolLogo/Amplitude.png"
-                    alt="Amplitude"
-                    className="w-20 h-20 object-contain"
-                  />
-                  <p className="font-medium text-gray-700 text-center">
-                    Amplitude
-                  </p>
-                </div>
-                <div className="flex flex-col items-center justify-center text-center gap-2 w-full">
-                  <img
-                    src="/assets/toolLogo/miroo.webp"
-                    alt="Miro"
-                    className="w-20 h-20 object-contain"
-                  />
-                  <p className="font-medium text-gray-700 text-center">Miro</p>
-                </div>
+            {/* Tools Section */}
+            <div className="bg-white rounded-lg shadow-sm p-5">
+              <h3 className="text-lg font-bold mb-4 text-gray-900">Tools You Will Learn</h3>
+              <div className="grid grid-cols-4 gap-4">
+                {["asanaa", "jiraa", "Amplitude", "miroo"].map((tool, index) => (
+                  <div key={index} className="flex flex-col items-center gap-2">
+                    <img
+                      src={`/assets/toolLogo/${tool}.${tool === "Amplitude" ? "png" : "webp"}`}
+                      alt={tool}
+                      className="w-12 h-12 object-contain"
+                    />
+                    <p className="text-xs text-gray-600 text-center">{tool.replace(/aa$/, "")}</p>
+                  </div>
+                ))}
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Target Audience Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
-              This Masterclass is for
+          <section>
+            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              Who Should Attend
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {targetAudience.map((audience, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                      <FaUser className="w-5 h-5 text-blue-500" />
+            <div className="grid sm:grid-cols-2 gap-6">
+              {targetAudience.map((item, index) => (
+                <div key={index} className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-xl"></div>
+                  <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20">
+                    <div className="flex gap-4">
+                      <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0">
+                        <FaCheck className="text-indigo-400 w-4 h-4" />
+                      </div>
+                      <p className="text-gray-300">{item}</p>
                     </div>
-                    <p className="text-gray-700 text-sm">{audience}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </motion.div>
+          </section>
 
           {/* Company Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
-              About AcceleratorX
-            </h2>
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed">
-                  AcceleratorX, where innovation meets education. We're dedicated
-                  to transforming ambitious individuals into industry leaders
-                  through cutting-edge technology and personalized mentorship.
-                  <br />
-                  <br />
-                  At AcceleratorX, we are on a mission to shape visionary leaders
-                  who dare to redefine the future. We believe in harnessing
-                  ambition and transforming it into unstoppable momentum,
-                  turning ideas into action and dreams into impactful careers.
-                  Our commitment is to empower individuals with immersive,
-                  hands-on learning experiences that challenge limits, unlock
-                  potential, and open doors to a world of opportunity.
-                  <br />
-                  <br />
-                  Our programs are meticulously crafted for those who strive not
-                  just to learn but to lead, with a focus on real-world
-                  application, mentorship from top industry experts, and a
-                  powerful support network. Through a curriculum that bridges
-                  theory and practice, we guide our students in mastering
-                  high-impact skills, building their personal brand, and
-                  navigating competitive markets with confidence and purpose.
-                  With access to elite mentors from companies like Tata, Walmart,
-                  and PayPal, and an unmatched placement support system, we
-                  create a seamless path from ambition to achievement.
-                  <br />
-                  <br />
-                  At AcceleratorX, we don't just prepare you for a career; we
-                  equip you to make waves. Join us to build, lead, and succeed in
-                  the arena of tomorrow's leaders. The future starts with you.
-                </p>
-              </div>
+          <section className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">About AcceleratorX</h2>
+            <div className="text-gray-600 space-y-4">
+              <p>
+                AcceleratorX, where innovation meets education. We're dedicated
+                to transforming ambitious individuals into industry leaders
+                through cutting-edge technology and personalized mentorship.
+              </p>
+              <p>
+                At AcceleratorX, we are on a mission to shape visionary leaders
+                who dare to redefine the future. We believe in harnessing
+                ambition and transforming it into unstoppable momentum, turning
+                ideas into action and dreams into impactful careers. Our
+                commitment is to empower individuals with immersive, hands-on
+                learning experiences that challenge limits, unlock potential,
+                and open doors to a world of opportunity.
+              </p>
+              <p>
+                Our programs are meticulously crafted for those who strive not
+                just to learn but to lead, with a focus on real-world
+                application, mentorship from top industry experts, and a
+                powerful support network. Through a curriculum that bridges
+                theory and practice, we guide our students in mastering
+                high-impact skills, building their personal brand, and
+                navigating competitive markets with confidence and purpose.
+                With access to elite mentors from companies like Tata,
+                Walmart, and PayPal, and an unmatched placement support
+                system, we create a seamless path from ambition to
+                achievement.
+              </p>
+              <p>
+                At AcceleratorX, we don't just prepare you for a career; we
+                equip you to make waves. Join us to build, lead, and succeed
+                in the arena of tomorrow's leaders. The future starts with
+                you.
+              </p>
             </div>
-          </motion.div>
+          </section>
         </div>
       </div>
     </div>

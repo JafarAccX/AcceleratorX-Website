@@ -16,9 +16,9 @@ interface WorkshopContextType {
 }
 
 const PMZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/vALNSDrBTgCwL-PM4HSAAg",
-  meetingId: "vALNSDrBTgCwL-PM4HSAAg",
-  time: "Jan 22, 2025 08:00 PM India",
+  link: "https://zoom.us/meeting/register/yJQj-GidSU-B8N1MGqw6lg",
+  meetingId: "yJQj-GidSU-B8N1MGqw6lg",
+  time: "Feb 8, 2025 07:00 PM India",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {

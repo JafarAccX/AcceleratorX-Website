@@ -1,4 +1,5 @@
 import React from "react";
+import { Star, Quote } from "lucide-react";
 
 const WSTestimonialPM = () => {
   const testimonialImages = [
@@ -10,19 +11,28 @@ const WSTestimonialPM = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-20 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOGMzLjE4IDAgNi4xNzUtLjgyNyA4Ljc3MS0yLjI4bDkuMjI5IDIuMjgtNC4yOTItOC4xMjFjMi42ODgtMy4xMjcgNC4yOTItNy4yMjEgNC4yOTItMTEuODc5IDAtOS45NDEtOC4wNTktMTgtMTgtMTh6IiBmaWxsPSIjZmZmIi8+PC9nPjwvc3ZnPg==')] bg-repeat opacity-10"></div>
-      </div>
+    <div className="bg-[#0A0F1D] py-24 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/10 via-violet-500/5 to-transparent rounded-bl-full pointer-events-none blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-violet-500/10 via-indigo-500/5 to-transparent rounded-tr-full pointer-events-none blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-16 space-y-4">
+          {/* Premium Badge */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-2">
+              <Quote className="w-4 h-4 text-indigo-400" />
+              <span className="text-sm font-medium bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+                Success Stories
+              </span>
+            </div>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
             What Our Participants Say
           </h2>
-          <p className="text-gray-400 text-lg">
-            Don't just take our word for it - hear from our workshop alumni
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Join the ranks of successful professionals who have transformed their product management careers through our workshop
           </p>
         </div>
 
@@ -30,23 +40,42 @@ const WSTestimonialPM = () => {
           {testimonialImages.map((image, index) => (
             <div
               key={index}
-              className="group relative rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg h-[400px]"
+              className="group relative rounded-2xl overflow-hidden transition-all duration-500"
             >
-              <img
-                src={image}
-                alt={`Testimonial ${index + 1}`}
-                className="w-full h-full object-fill transform transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-1 h-full bg-blue-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              {/* Gradient Border */}
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-violet-500/20 rounded-2xl p-[1px]">
+                <div className="absolute inset-0 bg-[#0A0F1D] rounded-2xl"></div>
+              </div>
+              
+              {/* Content */}
+              <div className="relative h-[400px] rounded-2xl overflow-hidden">
+                <img
+                  src={image}
+                  alt={`Testimonial ${index + 1}`}
+                  className="w-full h-full object-fill transform transition-all duration-500 group-hover:scale-105"
+                />
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1D]/90 via-[#0A0F1D]/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-indigo-400 text-indigo-400" />
+                      ))}
+                    </div>
+                    <div className="h-1 w-12 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full mb-3"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-4 pt-8 border-t border-gray-800/50">
+
+      {/* Footer */}
+      <div className="mt-16 pt-8 border-t border-indigo-500/10">
         <div className="container mx-auto px-4">
-          <p className="text-sm text-gray-500 text-center">
+          <p className="text-gray-500 text-sm text-center">
             &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
           </p>
         </div>
