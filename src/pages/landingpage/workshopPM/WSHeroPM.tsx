@@ -33,7 +33,7 @@ const WSHeroPM = () => {
                     className="w-full h-[250px] object-contain object-center px-4 block lg:hidden"
                   />
                   <img
-                    src="/assets/workshopCover/pmDesktop.webp"
+                    src="/assets/workshopCover/pmDesktop.png"
                     alt="PM Masterclass Desktop"
                     className="w-full h-[250px] object-contain object-left px-4 hidden lg:block"
                   />

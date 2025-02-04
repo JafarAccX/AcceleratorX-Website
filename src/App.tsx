@@ -147,6 +147,16 @@ import { WSTestimonialGEN } from "./pages/landingpage/workshopGEN/WSTestimonialG
 import WSHeroGEN from "./pages/landingpage/workshopGEN/WSHeroGEN";
 import WSAboutGEN from "./pages/landingpage/workshopGEN/WSAboutGEN";
 import GENCTA from "./pages/landingpage/workshopGEN/GENCTA";
+import { DMHero } from "./pages/courses/dmAI/DMHero";
+import DMMarketInsights from "./pages/courses/dmAI/dmMarketInsights";
+import DMWhoShouldEnroll from "./pages/courses/dmAI/dmWhoShouldEnroll";
+import DMCourseOverview from "./pages/courses/dmAI/dmCourseOverview";
+import DMHandsOnProjects from "./pages/courses/dmAI/dmHandsOnProjects";
+import DMMarketingTools from "./pages/courses/dmAI/dmMarketingTools";
+import DMCourseSyllabus from "./pages/courses/dmAI/dmCourseSyllabus";
+import DMPricing from "./pages/courses/dmAI/dmPricing";
+import DMCourseBenefits from "./pages/courses/dmAI/dmCourseBenefits";
+import DMFAQs from "./pages/courses/dmAI/dmFAQs";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -614,6 +624,31 @@ function GenAICourse() {
     </Suspense>
   );
 }
+function DMAICourse() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("AI Digital Marketing");
+  }, [setSelectedCourse]);
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <DMHero />
+      <DMMarketInsights />
+      <DMWhoShouldEnroll />
+      <DMCourseOverview />
+      <DMHandsOnProjects />
+      <DMMarketingTools />
+      <DMCourseSyllabus />
+      <DMCourseBenefits />
+      <DMPricing />
+      <DMFAQs />
+    </Suspense>
+  );
+}
 
 function AboutPage() {
   return (
@@ -837,6 +872,14 @@ function App() {
                       element={
                         <Suspense fallback={<Loader />}>
                           <GenAICourse />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/digital-marketing-with-ai"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <DMAICourse />
                         </Suspense>
                       }
                     />

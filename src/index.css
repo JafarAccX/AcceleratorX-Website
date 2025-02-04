@@ -346,9 +346,6 @@ html {
   @apply bg-white/10 rounded-full;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
@@ -536,4 +533,56 @@ html {
   background-color: #5CB338;
   border-radius: 20px;
   border: 2px solid transparent;
+}
+
+
+
+@layer base {
+  body {
+    @apply bg-neutral-900 text-neutral-100;
+  }
+
+  h1 {
+    @apply text-4xl md:text-7xl font-display font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl font-display font-bold;
+  }
+
+  h3 {
+    @apply text-2xl font-display font-bold;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .neon-button {
+    @apply bg-neon-yellow text-neutral-900 font-mono font-bold px-6 py-3 rounded-lg hover:shadow-neon transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .card {
+    @apply bg-neutral-800/90 border border-neon-yellow/20 rounded-lg p-6 hover:border-neon-yellow/50 transition-all duration-300;
+  }
+
+  .highlight-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-yellow to-neon-blue relative z-10 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-r after:from-neon-yellow/20 after:to-neon-blue/20 after:blur-2xl after:-z-10;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-5xl font-bold text-center mb-16 highlight-text;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .border-glow {
+    box-shadow: 0 0 10px theme('colors.neon.yellow');
+  }
 }

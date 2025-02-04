@@ -12,6 +12,7 @@ const PAGE_VIEW_ROUTES = [
   "/courses/data-analytics-program-eie",
   "/workshop/da-masterclass",
   "/workshop/pm-masterclass",
+  "/workshop/gen-ai-masterclass",
 ];
 
 const LEAD_ROUTES = ["/thank-you"];

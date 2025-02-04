@@ -62,7 +62,7 @@ const WSAboutPM = () => {
                 led by seasoned product manager{" "}
                 <span className="font-bold">Subhasis Chandra</span> on{" "}
                 <span className="font-bold">
-                  Wednesday, 22nd January, 08:00 PM onwards
+                  Saturday, 8th February, 07:00 PM onwards
                 </span>{" "}
                 to discover how to:
               </p>
