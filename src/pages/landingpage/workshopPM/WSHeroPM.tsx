@@ -33,7 +33,7 @@ const WSHeroPM = () => {
                     className="w-full h-[250px] object-contain object-center px-4 block lg:hidden"
                   />
                   <img
-                    src="/assets/workshopCover/pmDesktop.png"
+                    src="/assets/workshopCover/pmCover.webp"
                     alt="PM Masterclass Desktop"
                     className="w-full h-[250px] object-contain object-left px-4 hidden lg:block"
                   />
@@ -47,7 +47,7 @@ const WSHeroPM = () => {
                 Product Management Masterclass
               </h1>
               <h2 className="text-white text-2xl font-semibold mb-6">
-                Topic: How to transit in Product Management Role in 2025?
+                Topic: Masterclass in AI in Product Management
               </h2>
 
               <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl">
@@ -74,14 +74,25 @@ const WSHeroPM = () => {
                 <div className="h-8 w-px bg-gray-700"></div>
                 <div className="text-white">
                   <p className="text-sm font-medium">Powered by</p>
-                  <p className="font-semibold">A2M Technologies PVT. LTD.</p>
+                  <p className="font-semibold text-sm">
+                    A2M Technologies PVT. LTD.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Form Section */}
-          <div className="w-full lg:w-[500px] mt-8 lg:mt-0">
+          <div className="relative">
+            <div className="mb-6 text-center">
+              <h3 className="text-xl font-bold text-white mb-2">
+                Reserve Your Spot Now!
+              </h3>
+              <p className="text-sm text-gray-400">
+                Limited seats available for the next session
+              </p>
+            </div>
+
             <WorkshopProvider>
               <WSForm />
             </WorkshopProvider>

@@ -33,22 +33,22 @@ const GENMarketScope = () => {
     {
       title: "AI Consultants & Strategists",
       description: "Help businesses integrate AI solutions and develop AI strategies",
-      salary: "₹ 12L - 25L"
+      salary: "₹12L - 25L"
     },
     {
       title: "Prompt Engineers",
       description: "Design and optimize prompts for AI models and applications",
-      salary: "₹ 10L - 16L"
+      salary: "₹10L - 16L"
     },
     {
       title: "AI Application Developers",
       description: "Build and deploy AI-powered applications and tools",
-      salary: "₹ 11L - 20L"
+      salary: "₹11L - 20L"
     },
     {
       title: "AI Automation Specialists",
       description: "Create automated workflows using AI and other tools",
-      salary: "₹ 8L - 15L"
+      salary: "₹8L - 15L"
     }
   ];
 
@@ -128,7 +128,7 @@ const GENMarketScope = () => {
                         {job.description}
                       </p>
                     </div>
-                    <div className="text-sm font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full">
+                    <div className="text-sm font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full whitespace-nowrap">
                       {job.salary}
                     </div>
                   </div>

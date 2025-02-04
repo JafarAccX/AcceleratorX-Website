@@ -157,6 +157,7 @@ import DMCourseSyllabus from "./pages/courses/dmAI/dmCourseSyllabus";
 import DMPricing from "./pages/courses/dmAI/dmPricing";
 import DMCourseBenefits from "./pages/courses/dmAI/dmCourseBenefits";
 import DMFAQs from "./pages/courses/dmAI/dmFAQs";
+import GENBYOA from "./pages/courses/genAI/GENBYOA";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -614,6 +615,7 @@ function GenAICourse() {
       <GENHero />
       <GENIntroduction />
       <GENWhoShouldEnroll />
+      <GENBYOA/>
       <GENMarketScope />
       <GENWhyLearnAI />
       <GENLearningJourney />

@@ -80,13 +80,7 @@ const GENLearningJourney = () => {
             "LangChain, AutoGen, and CrewAI development",
             "Building autonomous AI systems"
           ],
-        }
-      ]
-    },
-    {
-      title: "Month 3: Building AI-Powered Applications & Capstone Project",
-      goal: "Apply AI skills to build full-fledged applications using Generative AI and AI agents.",
-      weeks: [
+        },
         {
           title: "Week 8: Advanced AI Agent Development",
           content: [
@@ -95,6 +89,12 @@ const GENLearningJourney = () => {
             "Integration with external systems"
           ],
         },
+      ]
+    },
+    {
+      title: "Month 3: Building AI-Powered Applications & Capstone Project",
+      goal: "Apply AI skills to build full-fledged applications using Generative AI and AI agents.",
+      weeks: [
         {
           title: "Weeks 9-10: Capstone Project Development",
           content: [

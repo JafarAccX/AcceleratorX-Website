@@ -81,7 +81,7 @@ const GENIntroduction = () => {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-[#0A1B33] p-6 rounded-lg backdrop-blur-sm border border-white/5"
+                className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/5"
               >
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">
                   {stat.value}
