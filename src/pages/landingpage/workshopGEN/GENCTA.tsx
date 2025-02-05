@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import DMTimer from "../../../pages/courses/dmAI/DMTimer";
 
 const GENCTA = () => {
   const currentYear = new Date().getFullYear();
@@ -19,6 +20,19 @@ const GENCTA = () => {
       <div className="relative py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col items-center justify-center space-y-10">
+            {/* Timer Badge */}
+            <motion.div
+              className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 py-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="text-white text-sm font-medium">
+                Workshop starts in:
+              </span>
+              <DMTimer initialHours={120} className="text-white font-semibold" />
+            </motion.div>
+
             {/* Heading */}
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center text-white max-w-3xl leading-tight"

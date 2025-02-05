@@ -14,7 +14,7 @@ const DMPricing = () => {
   const plans = [
     {
       name: "Early Bird",
-      price: 35000,
+      price: 34999,
       description: "Limited time offer",
       features: [
         "Full Course Access",
@@ -31,7 +31,7 @@ const DMPricing = () => {
     },
     {
       name: "Regular",
-      price: 45000,
+      price: 44999,
       description: "Standard pricing",
       features: [
         "Full Course Access",

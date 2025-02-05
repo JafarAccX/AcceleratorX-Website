@@ -8,11 +8,11 @@ const GENIntroduction = () => {
       label: "AI Industry by 2032",
     },
     {
-      value: "423%",
+      value: "400%",
       label: "Demand Increase",
     },
     {
-      value: "92%",
+      value: "90%",
       label: "Business Adoption",
     },
   ];

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DollarSign, Check, Gift } from "lucide-react";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 import ScholarshipForm from "../../../components/ScholarshipForm";
+import DMTimer from "../dmAI/DMTimer";
 
 const GENPricing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,6 +42,16 @@ const GENPricing = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Timer Banner */}
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 py-2">
+            <span className="text-white text-sm font-medium">
+              Early Bird Offer ends in:
+            </span>
+            <DMTimer initialHours={120} className="text-white font-semibold" />
+          </div>
+        </div>
+
         {/* Scholarship Banner */}
         <div className="max-w-3xl mx-auto mb-12">
           <div className="bg-gradient-to-r from-blue-600/30 to-cyan-600/30 border-2 border-blue-500/50 rounded-lg p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg shadow-blue-500/10">

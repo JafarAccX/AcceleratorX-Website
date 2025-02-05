@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import EnrollmentModal from "../../../components/EnrollmentModal";
+import DMTimer from "../dmAI/DMTimer";
 
 const GENHero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,20 +18,20 @@ const GENHero = () => {
         const response = await fetch(
           "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Gen%20AI%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBHZW4gQUkgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzM4NzM1MTI1LCJleHAiOjE3NzAyNzExMjV9.t6cs2LulI_9QaZmYub0mjJL8Yqelj8hDnR6ESIh_8Jc"
         );
-        
+
         if (response.ok) {
           const blob = await response.blob();
           const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
+          const a = document.createElement("a");
           a.href = url;
-          a.download = 'AcceleratorX-GenAI-Brochure.pdf';
+          a.download = "AcceleratorX-GenAI-Brochure.pdf";
           document.body.appendChild(a);
           a.click();
           window.URL.revokeObjectURL(url);
           document.body.removeChild(a);
         }
       } catch (error) {
-        console.error('Error downloading brochure:', error);
+        console.error("Error downloading brochure:", error);
       }
     }
     handleModalClose();
@@ -55,11 +56,15 @@ const GENHero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-blue-500/10 rounded-full px-3 py-1.5 mb-6">
-            <span className="text-blue-400 text-sm">
-              3-Month Professional Course
+          {/* Badge with Timer */}
+          <div className="inline-flex mt-16 items-center gap-2 bg-blue-500/10 rounded-full px-4 py-2 mb-6">
+            <span className="text-white text-sm font-medium">
+              Early Bird Offer ends in:
             </span>
+            <DMTimer
+              targetDate="2025-02-10T23:59:59"
+              className="text-white font-semibold"
+            />
           </div>
 
           {/* Title */}
