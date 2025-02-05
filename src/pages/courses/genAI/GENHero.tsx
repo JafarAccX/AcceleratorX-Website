@@ -4,6 +4,37 @@ import EnrollmentModal from "../../../components/EnrollmentModal";
 
 const GENHero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDownload, setIsDownload] = useState(false);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setIsDownload(false);
+  };
+
+  const handleModalSubmit = async () => {
+    if (isDownload) {
+      try {
+        const response = await fetch(
+          "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Gen%20AI%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBHZW4gQUkgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzM4NzM1MTI1LCJleHAiOjE3NzAyNzExMjV9.t6cs2LulI_9QaZmYub0mjJL8Yqelj8hDnR6ESIh_8Jc"
+        );
+        
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'AcceleratorX-GenAI-Brochure.pdf';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+        }
+      } catch (error) {
+        console.error('Error downloading brochure:', error);
+      }
+    }
+    handleModalClose();
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
@@ -51,19 +82,32 @@ const GENHero = () => {
             requiring coding skills.
           </p>
 
-          {/* CTA Button */}
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:opacity-90 transition-opacity"
-          >
-            Enroll Now
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:opacity-90 transition-opacity"
+            >
+              Enroll Now
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => {
+                setIsModalOpen(true);
+                setIsDownload(true);
+              }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-blue-500 text-white hover:bg-blue-500/10 transition-all"
+            >
+              Download Brochure
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
 
           {/* Enrollment Modal */}
           <EnrollmentModal
             isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
+            onClose={handleModalClose}
+            onSubmit={handleModalSubmit}
           />
         </div>
       </div>

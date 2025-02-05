@@ -585,7 +585,10 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="relative min-h-screen bg-black py-20 overflow-hidden">
+    <section
+      id="features"
+      className="relative min-h-screen bg-black py-20 overflow-hidden"
+    >
       {/* Background Grid Effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]" />
 
@@ -598,8 +601,11 @@ export default function Features() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold bg-blue-600 text-transparent bg-clip-text pb-2">
-            Explore Our Courses
+          <h2 className="text-3xl md:text-4xl font-bold text-white pb-2">
+            Explore Our{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
+              Courses
+            </span>
           </h2>
           <p className="text-gray-400 text-lg">
             Master the skills that shape tomorrow's technology landscape
