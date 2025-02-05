@@ -632,7 +632,7 @@ function DMAICourse() {
     useCourseContext();
 
   useEffect(() => {
-    setSelectedCourse("AI Digital Marketing");
+    setSelectedCourse("Advance Performance Marketing With AI");
   }, [setSelectedCourse]);
 
   return (
