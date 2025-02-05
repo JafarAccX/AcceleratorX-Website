@@ -12,7 +12,7 @@ function Blogs() {
   }>({
     selectedBlog: null,
     blogs: [],
-    loading: true
+    loading: true,
   });
 
   useEffect(() => {
@@ -22,16 +22,16 @@ function Blogs() {
   const fetchBlogs = async () => {
     try {
       const blogs = await blogService.getBlogs();
-      setState(prev => ({ ...prev, blogs, loading: false }));
+      setState((prev) => ({ ...prev, blogs, loading: false }));
     } catch (error) {
-      console.error('Error fetching blogs:', error);
-      toast.error('Failed to fetch blogs');
-      setState(prev => ({ ...prev, loading: false }));
+      console.error("Error fetching blogs:", error);
+      toast.error("Failed to fetch blogs");
+      setState((prev) => ({ ...prev, loading: false }));
     }
   };
 
   const handleBlogClick = useCallback((blog: Blog | null) => {
-    setState(prev => ({ ...prev, selectedBlog: blog }));
+    setState((prev) => ({ ...prev, selectedBlog: blog }));
   }, []);
 
   const BlogPost = ({ blog, onBack }: { blog: Blog; onBack: () => void }) => (
@@ -96,14 +96,18 @@ function Blogs() {
     <div className="min-h-screen bg-black">
       {state.selectedBlog ? (
         <div className="py-8 px-4">
-          <BlogPost blog={state.selectedBlog} onBack={() => handleBlogClick(null)} />
+          <BlogPost
+            blog={state.selectedBlog}
+            onBack={() => handleBlogClick(null)}
+          />
         </div>
       ) : (
-        <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="max-w-7xl mx-auto px-4 py-12 mt-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-white mb-4">Our Blog</h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Discover thought-provoking articles and stay updated with the latest insights from our team
+              Discover thought-provoking articles and stay updated with the
+              latest insights from our team
             </p>
           </div>
 
@@ -145,7 +149,9 @@ function Blogs() {
                   <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
                     {blog.title}
                   </h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3">{blog.excerpt}</p>
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {blog.excerpt}
+                  </p>
                   {blog.author && (
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <User className="w-4 h-4" />

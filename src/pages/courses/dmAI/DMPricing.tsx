@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaCheck } from "react-icons/fa";
+import EnrollmentModal from "../../../components/EnrollmentModal";
 
 const DMPricing = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -12,7 +14,7 @@ const DMPricing = () => {
   const plans = [
     {
       name: "Early Bird",
-      price: 999,
+      price: 35000,
       description: "Limited time offer",
       features: [
         "Full Course Access",
@@ -21,12 +23,15 @@ const DMPricing = () => {
         "Project Reviews",
         "Certification",
         "Community Access",
+        "Priority Placement Support",
+        "Internship Opportunities",
+        "Hackathons & Competitions",
       ],
       highlighted: true,
     },
     {
       name: "Regular",
-      price: 1499,
+      price: 45000,
       description: "Standard pricing",
       features: [
         "Full Course Access",
@@ -41,7 +46,7 @@ const DMPricing = () => {
   ];
 
   return (
-    <section className="py-20 bg-neutral-800">
+    <section className="py-10 bg-neutral-800">
       <div className="container">
         <motion.div
           ref={ref}
@@ -50,7 +55,7 @@ const DMPricing = () => {
           transition={{ duration: 0.8 }}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 highlight-text">
+          <h2 className="text-3xl pb-2 md:text-5xl font-bold text-center mb-16 highlight-text">
             Pricing & Enrollment
           </h2>
 
@@ -74,7 +79,7 @@ const DMPricing = () => {
                     {plan.description}
                   </p>
                   <div className="text-4xl font-mono font-bold text-neon-pink mb-2">
-                    ${plan.price}
+                    ₹{plan.price}
                   </div>
                 </div>
 
@@ -91,14 +96,18 @@ const DMPricing = () => {
                 </ul>
 
                 <button
+                  onClick={
+                    plan.highlighted ? () => setIsModalOpen(true) : undefined
+                  }
                   className={`
-                  w-full py-4 rounded-lg font-mono font-bold text-lg transition-all duration-300 transform hover:-translate-y-1
+                  w-full py-4 rounded-lg font-mono font-bold text-lg transition-all duration-300 transform
                   ${
                     plan.highlighted
-                      ? "neon-button"
-                      : "bg-neutral-900 text-neutral-100 hover:bg-neutral-700"
+                      ? "neon-button hover:-translate-y-1"
+                      : "bg-neutral-700 text-neutral-400 cursor-not-allowed opacity-70"
                   }
                 `}
+                  disabled={!plan.highlighted}
                 >
                   Enroll Now
                 </button>
@@ -107,6 +116,12 @@ const DMPricing = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };

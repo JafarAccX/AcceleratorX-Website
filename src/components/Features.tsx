@@ -505,6 +505,82 @@ const features = [
     ),
     path: "/courses/generative-ai",
   },
+  {
+    icon: <Wand2 className="w-8 h-8" />,
+    title: "Advance Performance Marketing With AI",
+    description:
+      "Explore how AI transforms digital marketing by automating analytics, personalizing campaigns, and optimizing customer engagement through data-driven insights.",
+    image: (
+      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+        <defs>
+          <pattern
+            id="grid4"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M 20 0 L 0 0 0 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              strokeOpacity="0.1"
+            />
+          </pattern>
+        </defs>
+        <rect width="200" height="200" fill="url(#grid4)" />
+
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {/* Animated Bar Chart Representing Digital Marketing Metrics */}
+          {[
+            { x: 20, initialHeight: 20, targetHeight: 60, delay: 0 },
+            { x: 50, initialHeight: 30, targetHeight: 70, delay: 0.1 },
+            { x: 80, initialHeight: 25, targetHeight: 55, delay: 0.2 },
+            { x: 110, initialHeight: 35, targetHeight: 65, delay: 0.3 },
+            { x: 140, initialHeight: 20, targetHeight: 50, delay: 0.4 },
+          ].map(({ x, initialHeight, targetHeight, delay }, index) => (
+            <motion.rect
+              key={`bar-${index}`}
+              x={x}
+              width="10"
+              initial={{ height: initialHeight, y: 170 - initialHeight }}
+              animate={{ height: targetHeight, y: 170 - targetHeight }}
+              transition={{
+                duration: 1,
+                delay,
+                repeat: Infinity,
+                repeatType: "reverse",
+                repeatDelay: 0.5,
+              }}
+              fill="currentColor"
+            />
+          ))}
+
+          {/* Animated Polyline Connecting the Top Centers of the Bars */}
+          <motion.polyline
+            points="25,110 55,100 85,115 115,105 145,120"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: 2,
+              delay: 0.5,
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 0.5,
+            }}
+            stroke="currentColor"
+            fill="none"
+            strokeWidth="1.5"
+          />
+        </motion.g>
+      </motion.svg>
+    ),
+    path: "/courses/advance-performance-marketing-with-ai",
+  },
 ];
 
 export default function Features() {

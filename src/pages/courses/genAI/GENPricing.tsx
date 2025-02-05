@@ -19,6 +19,23 @@ const GENPricing = () => {
     "Interview preparation",
   ];
 
+  const plans = [
+    {
+      name: "Early Bird",
+      price: "34,999",
+      description: "Limited time offer",
+      features: features,
+      highlighted: true,
+    },
+    {
+      name: "Regular",
+      price: "44,999",
+      description: "Standard pricing",
+      features: features,
+      highlighted: false,
+    },
+  ];
+
   return (
     <section className="relative py-12 bg-black">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 to-transparent" />
@@ -45,53 +62,65 @@ const GENPricing = () => {
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-8">
-            
+          <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
               Invest in Your AI Future
             </h2>
             <p className="text-gray-400 text-sm">
-              Join our comprehensive AI program and master the future of
-              technology
+              Join our comprehensive AI program and master the future of technology
             </p>
           </div>
 
-          {/* Pricing Card */}
-          <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-xl p-6 shadow-xl">
-            <div className="flex items-baseline justify-center gap-1 mb-4">
-              <span className="text-3xl font-bold text-white">₹</span>
-              <span className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">
-                34,999
-              </span>
-              <span className="text-gray-400 text-sm ml-1">(including GST)</span>
-            </div>
-
-            {/* EMI Option */}
-            <div className="inline-block bg-blue-500/10 rounded-full px-3 py-1.5 mb-6">
-              <p className="text-xs text-blue-400">
-                EMI options available from ₹3,888/month
-              </p>
-            </div>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-3 mb-6 text-left">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                  <span className="text-sm text-gray-300">{feature}</span>
+          {/* Pricing Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className={`bg-gradient-to-b from-gray-900 to-black border rounded-xl p-8 shadow-xl ${
+                  plan.highlighted ? 'border-blue-500' : 'border-gray-800'
+                }`}
+              >
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {plan.name}
+                  </h3>
+                  <p className="text-gray-400 mb-4">{plan.description}</p>
+                  <div className="flex items-baseline justify-center gap-1 mb-4">
+                    <span className="text-3xl font-bold text-white">₹</span>
+                    <span className={`text-4xl font-bold ${
+                      plan.highlighted ? 'bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text' : 'text-gray-400'
+                    }`}>
+                      {plan.price}
+                    </span>
+                  </div>
                 </div>
-              ))}
-            </div>
 
-            {/* CTA Button */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg py-3 px-6 font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300"
-            >
-              Enroll Now
-            </button>
+                {/* Features */}
+                <div className="space-y-4 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                      <span className="text-sm text-gray-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <button
+                  onClick={plan.highlighted ? () => setIsModalOpen(true) : undefined}
+                  disabled={!plan.highlighted}
+                  className={`w-full rounded-lg py-3 px-6 font-semibold transition-all duration-300 ${
+                    plan.highlighted
+                      ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600'
+                      : 'bg-gray-700 text-gray-400 cursor-not-allowed opacity-70'
+                  }`}
+                >
+                  Enroll Now
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>

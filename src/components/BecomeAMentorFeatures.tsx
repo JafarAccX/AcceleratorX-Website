@@ -288,7 +288,7 @@ const features = [
 
 export default function BecomeAMentorFeatures() {
   return (
-    <section className="relative bg-black py-24">
+    <section className="relative bg-black py-8">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

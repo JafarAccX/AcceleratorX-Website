@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Wrench, Code, Image, Video, Cloud, Brain, Rocket } from 'lucide-react';
+import React, { useState } from "react";
+import { Wrench, Code, Video, Cloud, Brain, Rocket } from "lucide-react";
 
 interface Tool {
   name: string;
@@ -15,200 +15,209 @@ interface CategoryInfo {
 }
 
 const GENToolsYouWillLearn = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("Text & Language Models");
+  const [activeCategory, setActiveCategory] = useState<string>(
+    "Text & Language Models"
+  );
 
   const projects = [
     {
       title: "AI-powered content automation tool",
-      description: "Build a tool that automates content creation using LLMs and prompt engineering"
+      description:
+        "Build a tool that automates content creation using LLMs and prompt engineering",
     },
     {
       title: "AI-driven chatbots and virtual assistants",
-      description: "Develop intelligent chatbots using advanced language models and conversation design"
+      description:
+        "Develop intelligent chatbots using advanced language models and conversation design",
     },
     {
       title: "Multi-agent AI automation workflows",
-      description: "Create automated workflows using multiple AI agents working together"
+      description:
+        "Create automated workflows using multiple AI agents working together",
     },
     {
       title: "Capstone Project: AI-powered SaaS tool",
-      description: "Develop and launch your own AI-powered SaaS solution"
-    }
+      description: "Develop and launch your own AI-powered SaaS solution",
+    },
   ];
 
   const categoryInfo: Record<string, CategoryInfo> = {
     "Text & Language Models": {
       name: "Text & Language Models",
       icon: Brain,
-      description: "Advanced text generation and understanding"
+      description: "Advanced text generation and understanding",
     },
     "Image & Video AI": {
       name: "Image & Video AI",
       icon: Video,
-      description: "Visual content creation and editing"
+      description: "Visual content creation and editing",
     },
     "Speech & Audio AI": {
       name: "Speech & Audio AI",
       icon: Code,
-      description: "Voice and music generation"
+      description: "Voice and music generation",
     },
     "AI Agent Building": {
       name: "AI Agent Building",
       icon: Wrench,
-      description: "Build intelligent AI agents"
+      description: "Build intelligent AI agents",
     },
     "AI Deployment & Integration": {
       name: "AI Deployment & Integration",
       icon: Cloud,
-      description: "Deploy and integrate AI solutions"
-    }
+      description: "Deploy and integrate AI solutions",
+    },
   };
 
   const tools: Tool[] = [
     {
       name: "GPT-4",
-      description: "Advanced language model from OpenAI for sophisticated text generation",
+      description:
+        "Advanced language model from OpenAI for sophisticated text generation",
       image: "/assets/genAITools/gpt4.webp",
-      category: "Text & Language Models"
+      category: "Text & Language Models",
     },
     {
       name: "DeepSeek",
       description: "Powerful language model for code and technical tasks",
       image: "/assets/genAITools/deepseek.webp",
-      category: "Text & Language Models"
+      category: "Text & Language Models",
     },
     {
       name: "LLaMA",
       description: "Open-source language model for diverse AI applications",
       image: "/assets/genAITools/ollama.png",
-      category: "Text & Language Models"
+      category: "Text & Language Models",
     },
     {
       name: "Falcon",
       description: "High-performance language model for various text tasks",
       image: "/assets/genAITools/falcon.png",
-      category: "Text & Language Models"
+      category: "Text & Language Models",
     },
     {
       name: "Claude",
-      description: "Anthropic's AI assistant for complex reasoning and analysis",
+      description:
+        "Anthropic's AI assistant for complex reasoning and analysis",
       image: "/assets/genAITools/claude.webp",
-      category: "Text & Language Models"
+      category: "Text & Language Models",
     },
     {
       name: "Gemini",
       description: "Google's multimodal AI model for text and visual tasks",
       image: "/assets/genAITools/gemini.webp",
-      category: "Text & Language Models"
+      category: "Text & Language Models",
     },
     {
       name: "Midjourney",
       description: "AI art generation platform for high-quality visuals",
       image: "/assets/genAITools/midjourney.webp",
-      category: "Image & Video AI"
+      category: "Image & Video AI",
     },
     {
       name: "Stable Diffusion",
-      description: "Open-source image generation model for diverse visual content",
+      description:
+        "Open-source image generation model for diverse visual content",
       image: "/assets/genAITools/stability-ai.png",
-      category: "Image & Video AI"
+      category: "Image & Video AI",
     },
     {
       name: "DALL·E",
-      description: "OpenAI's image creation model for artistic and commercial use",
+      description:
+        "OpenAI's image creation model for artistic and commercial use",
       image: "/assets/genAITools/dalle.webp",
-      category: "Image & Video AI"
+      category: "Image & Video AI",
     },
     {
       name: "Runway ML",
       description: "AI-powered creative suite for video editing and generation",
       image: "/assets/genAITools/runway.webp",
-      category: "Image & Video AI"
+      category: "Image & Video AI",
     },
     {
       name: "Pika Labs",
       description: "Advanced AI platform for video generation and editing",
       image: "/assets/genAITools/pika.webp",
-      category: "Image & Video AI"
+      category: "Image & Video AI",
     },
     {
       name: "ElevenLabs",
       description: "AI voice generation and cloning platform",
       image: "/assets/genAITools/elevenlabs.webp",
-      category: "Speech & Audio AI"
+      category: "Speech & Audio AI",
     },
     {
       name: "OpenAI Whisper",
       description: "Advanced speech recognition and transcription model",
       image: "/assets/genAITools/openaiwhisper.webp",
-      category: "Speech & Audio AI"
+      category: "Speech & Audio AI",
     },
     {
       name: "MusicGen",
       description: "AI-powered music generation and composition tool",
       image: "/assets/genAITools/musicgen.webp",
-      category: "Speech & Audio AI"
+      category: "Speech & Audio AI",
     },
     {
       name: "Magenta",
       description: "Google's creative tool for music and art generation",
       image: "/assets/genAITools/magenta.png",
-      category: "Speech & Audio AI"
+      category: "Speech & Audio AI",
     },
     {
       name: "LangChain",
       description: "Framework for building LLM-powered applications",
       image: "/assets/genAITools/langchain.png",
-      category: "AI Agent Building"
+      category: "AI Agent Building",
     },
     {
       name: "CrewAI",
       description: "Framework for creating multi-agent AI systems",
       image: "/assets/genAITools/crewai.webp",
-      category: "AI Agent Building"
+      category: "AI Agent Building",
     },
     {
       name: "AutoGen",
       description: "Tool for building autonomous AI agents",
       image: "/assets/genAITools/autogen.jpeg",
-      category: "AI Agent Building"
+      category: "AI Agent Building",
     },
     {
       name: "RAG",
       description: "Retrieval-Augmented Generation for enhanced AI responses",
       image: "/assets/genAITools/rag.webp",
-      category: "AI Agent Building"
+      category: "AI Agent Building",
     },
     {
       name: "AWS",
       description: "Cloud platform for AI deployment and scaling",
       image: "/assets/genAITools/aws.png",
-      category: "AI Deployment & Integration"
+      category: "AI Deployment & Integration",
     },
     {
       name: "Google Cloud",
       description: "Comprehensive platform for AI service deployment",
       image: "/assets/genAITools/google cloud.webp",
-      category: "AI Deployment & Integration"
+      category: "AI Deployment & Integration",
     },
     {
       name: "OpenAI API",
       description: "API access to OpenAI's powerful AI models",
       image: "/assets/genAITools/openai-logomark.svg",
-      category: "AI Deployment & Integration"
+      category: "AI Deployment & Integration",
     },
     {
       name: "Hugging Face",
       description: "Platform for sharing and deploying AI models",
       image: "/assets/genAITools/huggingface.svg",
-      category: "AI Deployment & Integration"
+      category: "AI Deployment & Integration",
     },
     {
       name: "Zapier",
       description: "Automation platform for integrating AI services",
       image: "/assets/genAITools/zapier.webp",
-      category: "AI Deployment & Integration"
-    }
+      category: "AI Deployment & Integration",
+    },
   ];
 
   return (
@@ -220,13 +229,16 @@ const GENToolsYouWillLearn = () => {
             <div className="text-center mb-6">
               <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-3 py-1.5 mb-2">
                 <Rocket className="w-3.5 h-3.5 text-blue-600" />
-                <span className="text-blue-600 text-xs font-medium">Hands-on Projects</span>
+                <span className="text-blue-600 text-xs font-medium">
+                  Hands-on Projects
+                </span>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                 Learn by Building Real AI Applications
               </h2>
               <p className="text-gray-600 text-base max-w-2xl mx-auto">
-                Apply your skills through practical projects that solve real-world problems
+                Apply your skills through practical projects that solve
+                real-world problems
               </p>
             </div>
 
@@ -238,9 +250,13 @@ const GENToolsYouWillLearn = () => {
                 >
                   <div className="flex items-start gap-2 mb-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                    <h3 className="text-sm font-semibold text-gray-900">{project.title}</h3>
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      {project.title}
+                    </h3>
                   </div>
-                  <p className="text-xs text-gray-600 pl-3.5">{project.description}</p>
+                  <p className="text-xs text-gray-600 pl-3.5">
+                    {project.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -250,7 +266,9 @@ const GENToolsYouWillLearn = () => {
           <div className="mb-6 text-center">
             <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-3 py-1.5 mb-2">
               <Wrench className="w-3.5 h-3.5 text-blue-600" />
-              <span className="text-blue-600 text-xs font-medium">Tools & Technologies</span>
+              <span className="text-blue-600 text-xs font-medium">
+                Tools & Technologies
+              </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               Master Industry-Leading AI Tools
@@ -271,13 +289,15 @@ const GENToolsYouWillLearn = () => {
                   onClick={() => setActiveCategory(category)}
                   className={`px-3 py-2 rounded-lg border transition-all duration-300 ${
                     isActive
-                      ? 'bg-blue-50 border-blue-200 text-blue-600'
-                      : 'bg-white border-gray-200 text-gray-600 hover:border-blue-200 hover:text-blue-600'
+                      ? "bg-blue-50 border-blue-200 text-blue-600"
+                      : "bg-white border-gray-200 text-gray-600 hover:border-blue-200 hover:text-blue-600"
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     <Icon className="w-4 h-4" />
-                    <span className="text-sm font-medium whitespace-nowrap">{info.name}</span>
+                    <span className="text-sm font-medium whitespace-nowrap">
+                      {info.name}
+                    </span>
                   </div>
                 </button>
               );
@@ -287,13 +307,19 @@ const GENToolsYouWillLearn = () => {
           {/* Tools Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {tools
-              .filter(tool => tool.category === activeCategory)
+              .filter((tool) => tool.category === activeCategory)
               .map((tool, index) => (
                 <div
                   key={index}
                   className="group p-2.5 rounded-lg bg-white border border-gray-200 hover:border-blue-200 hover:shadow-sm transition-all duration-300"
                 >
-                  <div className={`aspect-[3/2] mb-2 rounded-md overflow-hidden ${tool.name === "DALL·E" || tool.name === "Stable Diffusion"  ? 'bg-black' : 'bg-gray-50'} p-2 flex items-center justify-center`}>
+                  <div
+                    className={`aspect-[3/2] mb-2 rounded-md overflow-hidden ${
+                      tool.name === "DALL·E" || tool.name === "Stable Diffusion"
+                        ? "bg-black"
+                        : "bg-gray-50"
+                    } p-2 flex items-center justify-center`}
+                  >
                     <img
                       src={tool.image}
                       alt={tool.name}
@@ -301,8 +327,12 @@ const GENToolsYouWillLearn = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-1">{tool.name}</h4>
-                    <p className="text-xs text-gray-600 line-clamp-2">{tool.description}</p>
+                    <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                      {tool.name}
+                    </h4>
+                    <p className="text-xs text-gray-600 line-clamp-2">
+                      {tool.description}
+                    </p>
                   </div>
                 </div>
               ))}

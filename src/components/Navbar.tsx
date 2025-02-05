@@ -54,6 +54,10 @@ export default function Navbar({
     { label: "Data Analytics", path: "/courses/data-analytics" },
     // { label: "No-Code Development", path: "/courses/no-code-tool-program" },
     { label: "GenAI", path: "/courses/generative-ai" },
+    {
+      label: "Advance Performance Marketing With AI",
+      path: "/courses/advance-performance-marketing-with-ai",
+    },
   ];
 
   if (isXSATRoute) {

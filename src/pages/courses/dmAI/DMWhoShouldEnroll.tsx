@@ -39,7 +39,7 @@ const DMWhoShouldEnroll = () => {
   ];
 
   return (
-    <section className="py-20 bg-neutral-800">
+    <section className="py-10 bg-neutral-800">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -48,7 +48,7 @@ const DMWhoShouldEnroll = () => {
           transition={{ duration: 0.8 }}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 highlight-text">
+          <h2 className="text-3xl pb-2 md:text-5xl font-bold text-center mb-8 highlight-text">
             Who Should Enroll?
           </h2>
 

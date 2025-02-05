@@ -41,7 +41,7 @@ const DMMarketInsights = () => {
           transition={{ duration: 0.8 }}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 highlight-text font-display">
+          <h2 className="text-3xl pb-2 md:text-5xl font-bold text-center mb-16 highlight-text font-display">
             The Future is Now
           </h2>
 

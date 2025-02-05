@@ -51,7 +51,7 @@ const DMHandsOnProjects = () => {
   ];
 
   return (
-    <section className="py-20 bg-neutral-900">
+    <section className="py-10 bg-neutral-900">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -60,7 +60,7 @@ const DMHandsOnProjects = () => {
           transition={{ duration: 0.8 }}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 highlight-text">
+          <h2 className="text-3xl md:text-5xl pb-2 font-bold text-center mb-8 highlight-text">
             Hands-On Projects
           </h2>
 

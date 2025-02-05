@@ -10,7 +10,7 @@ export default function CTA() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-black py-24">
+    <section className="relative bg-black py-8">
       {/* Background Effects */}
       {/* <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#4338ca25,transparent_50%)]"></div>

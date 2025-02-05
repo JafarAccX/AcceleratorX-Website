@@ -32,6 +32,10 @@ const footerLinks: {
       { label: "Data Analytics Program", url: "/courses/data-analytics" },
       // { label: "No-Code Development", url: "/courses/no-code-tool-program" },
       { label: "Gen AI", url: "/courses/generative-ai" },
+      {
+        label: "Advance Performance Marketing With AI",
+        url: "/courses/advance-performance-marketing-with-ai",
+      },
     ],
   },
   company: {

@@ -143,21 +143,20 @@ import GENWhoShouldEnroll from "./pages/courses/genAI/GENWhoShouldEnroll";
 import GENWhyLearnAI from "./pages/courses/genAI/GENWhyLearnAI";
 import HeroWithAbouv from "./components/HeroWithAbouv";
 import GENToolsYouWillLearn from "./pages/courses/genAI/GENToolsYouWillLearn";
-import { WSTestimonialGEN } from "./pages/landingpage/workshopGEN/WSTestimonialGEN";
 import WSHeroGEN from "./pages/landingpage/workshopGEN/WSHeroGEN";
 import WSAboutGEN from "./pages/landingpage/workshopGEN/WSAboutGEN";
 import GENCTA from "./pages/landingpage/workshopGEN/GENCTA";
 import { DMHero } from "./pages/courses/dmAI/DMHero";
-import DMMarketInsights from "./pages/courses/dmAI/dmMarketInsights";
-import DMWhoShouldEnroll from "./pages/courses/dmAI/dmWhoShouldEnroll";
-import DMCourseOverview from "./pages/courses/dmAI/dmCourseOverview";
-import DMHandsOnProjects from "./pages/courses/dmAI/dmHandsOnProjects";
-import DMMarketingTools from "./pages/courses/dmAI/dmMarketingTools";
-import DMCourseSyllabus from "./pages/courses/dmAI/dmCourseSyllabus";
-import DMPricing from "./pages/courses/dmAI/dmPricing";
-import DMCourseBenefits from "./pages/courses/dmAI/dmCourseBenefits";
-import DMFAQs from "./pages/courses/dmAI/dmFAQs";
 import GENBYOA from "./pages/courses/genAI/GENBYOA";
+import DMMarketInsights from "./pages/courses/dmAI/DMMarketInsights";
+import DMWhoShouldEnroll from "./pages/courses/dmAI/DMWhoShouldEnroll";
+import DMCourseOverview from "./pages/courses/dmAI/DMCourseOverview";
+import DMHandsOnProjects from "./pages/courses/dmAI/DMHandsOnProjects";
+import DMMarketingTools from "./pages/courses/dmAI/DMMarketingTools";
+import DMCourseSyllabus from "./pages/courses/dmAI/DMCourseSyllabus";
+import DMCourseBenefits from "./pages/courses/dmAI/DMCourseBenefits";
+import DMPricing from "./pages/courses/dmAI/DMPricing";
+import DMFAQs from "./pages/courses/dmAI/DMFAQs";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -328,7 +327,7 @@ function HomePage() {
       <Hero />
       <LogoSlider />
       <Features />
-      {/* <HeroWithAbouv imageUrl="/hireBanner.png" /> */}
+      {/* <HeroWithAbouv /> */}
       <BecomeAMentorFeatures />
       <CTA />
     </Suspense>
@@ -615,7 +614,7 @@ function GenAICourse() {
       <GENHero />
       <GENIntroduction />
       <GENWhoShouldEnroll />
-      <GENBYOA/>
+      <GENBYOA />
       <GENMarketScope />
       <GENWhyLearnAI />
       <GENLearningJourney />
@@ -878,7 +877,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/courses/digital-marketing-with-ai"
+                      path="/courses/advance-performance-marketing-with-ai"
                       element={
                         <Suspense fallback={<Loader />}>
                           <DMAICourse />
