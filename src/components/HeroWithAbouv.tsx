@@ -44,33 +44,38 @@ const HeroWithAbouv = ({
         <div 
           className="text-center transform transition-all duration-300 ease-out"
         >
-          <h1 className="text-xl md:text-3xl font-semibold text-white/90 flex items-center justify-center gap-3 animate-fadeIn">
-            <span className="transform transition-all duration-300 hover:text-neon-blue">
-              Accelerate your career with
-            </span>
-            <a 
-              href={abouv_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`
-                inline-flex items-center 
-                transition-all duration-500
-                hover:scale-110
-                bg-white rounded-lg p-2
-                ${isHovered ? 'translate-y-[-2px] filter brightness-110 shadow-[0_0_20px_rgba(255,255,255,0.2)]' : ''}
-              `}
-            >
-              <img
-                src={abouv_logo}
-                alt="Abouv"
+          <h1 className="text-xl md:text-3xl font-semibold text-white/90 flex flex-col items-center justify-center gap-3 animate-fadeIn">
+            <div className="flex items-center gap-3">
+              <span className="transform transition-all duration-300 hover:text-neon-blue">
+                Accelerate your career with
+              </span>
+              <a 
+                href={abouv_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`
-                  h-8 md:h-10 
-                  transition-all duration-300
-                  filter
-                  ${isHovered ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' : ''}
+                  inline-flex items-center 
+                  transition-all duration-500
+                  hover:scale-110
+                  bg-white rounded-lg p-2
+                  ${isHovered ? 'translate-y-[-2px] filter brightness-110 shadow-[0_0_20px_rgba(255,255,255,0.2)]' : ''}
                 `}
-              />
-            </a>
+              >
+                <img
+                  src={abouv_logo}
+                  alt="Abouv"
+                  className={`
+                    h-8 md:h-10 
+                    transition-all duration-300
+                    filter
+                    ${isHovered ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' : ''}
+                  `}
+                />
+              </a>
+            </div>
+            <span className="text-lg md:text-2xl text-white/80 font-normal">
+              we take care of your placements
+            </span>
           </h1>
         </div>
       </div>

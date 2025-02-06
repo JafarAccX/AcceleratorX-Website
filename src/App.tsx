@@ -327,7 +327,7 @@ function HomePage() {
       <Hero />
       <LogoSlider />
       <Features />
-      {/* <HeroWithAbouv /> */}
+      <HeroWithAbouv />
       <BecomeAMentorFeatures />
       <CTA />
     </Suspense>
@@ -382,6 +382,7 @@ function ProgramAnalyticsPage() {
     <Suspense fallback={<Loader />}>
       <ProgramHeroEIE />
       <ProgramHighlightsEIE />
+      <HeroWithAbouv/>
       <LearningJourneyEIE />
       <BenefitsGridEIE />
       <ProgramCertificateEIE />
@@ -440,6 +441,7 @@ function ProgramAnalyticsPageEIE() {
     <Suspense fallback={<Loader />}>
       <HeaderEIE />
       <ProgramHeroEIE />
+      <HeroWithAbouv/>
       <ProgramHighlightsEIE />
       <LearningJourneyEIE />
       <BenefitsGridEIE />
@@ -468,6 +470,7 @@ function DataAnalyticsPage() {
     <Suspense fallback={<Loader />}>
       <DataHeroEIE />
       <WhoIsThisContentForEIE />
+      <HeroWithAbouv/>
       <DataProgramEIE />
       <CAPEEIE />
       <DataJourneyEIE />
@@ -495,6 +498,7 @@ function DataAnalyticsPageEIE() {
     <Suspense fallback={<Loader />}>
       <HeaderEIE />
       <DataHeroEIE />
+      <HeroWithAbouv/>
       <WhoIsThisContentForEIE />
       <DataProgramEIE />
       <CAPEEIE />
@@ -525,6 +529,7 @@ function DataAnalyticsPageFB() {
     <Suspense fallback={<Loader />}>
       <DataHeroFB />
       <WhoIsThisContentForFB />
+      <HeroWithAbouv/>
       <DataProgramFB />
       <CAPEFB />
       <DataJourneyFB />
@@ -614,6 +619,7 @@ function GenAICourse() {
       <GENHero />
       <GENIntroduction />
       <GENWhoShouldEnroll />
+      <HeroWithAbouv/>
       <GENBYOA />
       <GENMarketScope />
       <GENWhyLearnAI />
@@ -640,6 +646,7 @@ function DMAICourse() {
       <DMHero />
       <DMMarketInsights />
       <DMWhoShouldEnroll />
+      <HeroWithAbouv/>
       <DMCourseOverview />
       <DMHandsOnProjects />
       <DMMarketingTools />
