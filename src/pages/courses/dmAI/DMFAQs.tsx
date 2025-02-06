@@ -35,7 +35,7 @@ const DMFAQs = () => {
     {
       question: "Can I get a refund if I'm not satisfied?",
       answer:
-        "Yes, we offer a 30-day money-back guarantee if you're not satisfied with the course content or experience.",
+        "Yes, We offer a 15 days refund policy if you're not satisfied and made full payment with the course content or experience depending on the terms and conditions.",
     },
   ];
 

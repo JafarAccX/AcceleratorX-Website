@@ -34,9 +34,14 @@ const GENFAQ = () => {
     },
     {
       question:
-        "WWill I get support during the course if I have questions or get stuck?",
+        "Will I get support during the course if I have questions or get stuck?",
       answer:
         "Yes, you’ll have access to live sessions, Q&A support, and a learning community to assist you. Even after completing the course, you’ll retain lifetime access to materials and updates, keeping you up to date with AI advancements.",
+    },
+    {
+      question: "Can I get a refund if I'm not satisfied?",
+      answer:
+        "Yes, We offer a 15 days refund policy if you're not satisfied and made full payment with the course content or experience depending on the terms and conditions.",
     },
   ];
 
