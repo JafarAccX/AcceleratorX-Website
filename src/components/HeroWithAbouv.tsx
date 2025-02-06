@@ -12,94 +12,96 @@ const HeroWithAbouv = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section 
-      className={`
-        w-full bg-black py-8 relative overflow-hidden
-        before:content-[''] before:absolute before:left-0 before:right-0 before:h-[2px] before:top-0
-        after:content-[''] after:absolute after:left-0 after:right-0 after:h-[2px] after:bottom-0
-        ${isHovered 
-          ? 'before:bg-gradient-to-r before:from-blue-500 before:via-purple-500 before:to-pink-500 before:animate-borderFlow ' +
-            'after:bg-gradient-to-r after:from-pink-500 after:via-purple-500 after:to-blue-500 after:animate-borderFlowReverse'
-          : 'before:bg-white/10 after:bg-white/10'
-        }
-      `}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div 
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:20px_20px]"
-        style={{
-          opacity: isHovered ? 0.15 : 0.08,
-          transition: 'opacity 0.5s ease'
-        }}
-      />
-      <div 
-        className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5"
-        style={{
-          opacity: isHovered ? 0.2 : 0.1,
-          transition: 'opacity 0.5s ease'
-        }}
-      />
-      <div className="max-w-7xl mx-auto px-4 relative">
-        <div 
-          className="text-center transform transition-all duration-300 ease-out"
-        >
-          <h1 className="text-xl md:text-3xl font-semibold text-white/90 flex flex-col items-center justify-center gap-3 animate-fadeIn">
-            <div className="flex items-center gap-3">
-              <span className="transform transition-all duration-300 hover:text-neon-blue">
-                Accelerate your career with
-              </span>
+    <section className="w-full py-4 flex justify-center items-center relative">
+      {/* Background glow effect */}
+      <div className="absolute inset-0" />
+      
+      <div className="card-container relative w-full max-w-5xl mx-4 h-[90px] rounded-[12px] overflow-hidden shadow-[0_0_30px_rgba(0,183,255,0.3)]">
+        {/* Animated gradient border - enhanced */}
+        <div className="absolute w-[150%] h-[150%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-rotBGimg">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00b7ff] via-[#ff30ff] to-[#00b7ff] blur-[15px] opacity-70" />
+        </div>
+
+        {/* Inner content */}
+        <div className="card-content relative bg-[#07182E] m-[3px] h-[calc(100%-6px)] rounded-[10px] z-10 px-6 flex items-center justify-between backdrop-blur-sm">
+          <div className="flex items-center gap-6 animate-fadeIn">
+            {/* Logos */}
+            <div className="flex items-center gap-4">
+              <img
+                src="/assets/companylogo.png"
+                alt="AcceleratorX"
+                className="h-8 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+              />
+              <span className="text-white text-xl font-light animate-pulse">×</span>
               <a 
                 href={abouv_link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`
-                  inline-flex items-center 
-                  transition-all duration-500
-                  hover:scale-110
-                  bg-white rounded-lg p-2
-                  ${isHovered ? 'translate-y-[-2px] filter brightness-110 shadow-[0_0_20px_rgba(255,255,255,0.2)]' : ''}
-                `}
+                className="bg-white p-2 rounded-lg hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
               >
                 <img
                   src={abouv_logo}
                   alt="Abouv"
-                  className={`
-                    h-8 md:h-10 
-                    transition-all duration-300
-                    filter
-                    ${isHovered ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' : ''}
-                  `}
+                  className="h-6"
                 />
               </a>
             </div>
-            <span className="text-lg md:text-2xl text-white/80 font-normal">
-              we take care of your placements
-            </span>
-          </h1>
+
+            {/* Text content */}
+            <div className="flex items-center gap-3 md:gap-4">
+              <p className="text-sm md:text-base font-medium bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text animate-gradient">
+                Accelerate your career with us
+              </p>
+              <span className="text-white/50 animate-pulse">|</span>
+              <p className="text-sm font-semibold md:text-base text-white/90 font-light drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                We take care of your <span className="text-yellow-400 text-xl">Placements</span> 
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
       <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes rotBGimg {
+          from {
+            transform: rotate(0deg) scale(2);
+          }
+          to {
+            transform: rotate(360deg) scale(2);
+          }
         }
+
+        .animate-rotBGimg {
+          animation: rotBGimg 12s linear infinite;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateX(-20px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-out forwards;
         }
-        @keyframes borderFlow {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
-        @keyframes borderFlowReverse {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(-100%); }
+
+        .animate-gradient {
+          background-size: 200% auto;
+          animation: gradient 3s linear infinite;
         }
-        .animate-borderFlow {
-          animation: borderFlow 3s linear infinite;
+
+        .animate-pulse {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
-        .animate-borderFlowReverse {
-          animation: borderFlowReverse 3s linear infinite;
+
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: .7; }
         }
       `}</style>
     </section>

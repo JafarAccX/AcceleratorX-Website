@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/authService";
-import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase } from "lucide-react";
+import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase, GraduationCap } from "lucide-react";
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -109,6 +109,27 @@ const AdminDashboard: React.FC = () => {
                     </h2>
                     <p className="text-gray-500 mt-1">
                       View and manage job applications
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/scholarships")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-yellow-100 rounded-lg">
+                    <GraduationCap className="h-6 w-6 text-yellow-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      Scholarship Details
+                    </h2>
+                    <p className="text-gray-500 mt-1">
+                      View and manage scholarship applications
                     </p>
                   </div>
                 </div>

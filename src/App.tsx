@@ -292,6 +292,8 @@ const XSATFAQ = lazy(() =>
   }))
 );
 
+const ScholarshipDetails = lazy(() => import("./pages/admin/ScholarshipDetails"));
+
 const WorkshopDetails = lazy(() => import("./pages/admin/WorkshopDetails"));
 
 // Meta Pixel
@@ -619,7 +621,6 @@ function GenAICourse() {
       <GENHero />
       <GENIntroduction />
       <GENWhoShouldEnroll />
-      <HeroWithAbouv/>
       <GENBYOA />
       <GENMarketScope />
       <GENWhyLearnAI />
@@ -646,7 +647,6 @@ function DMAICourse() {
       <DMHero />
       <DMMarketInsights />
       <DMWhoShouldEnroll />
-      <HeroWithAbouv/>
       <DMCourseOverview />
       <DMHandsOnProjects />
       <DMMarketingTools />
@@ -945,7 +945,9 @@ function App() {
                     />
                     <Route
                       path="/admin/other-enquiries"
-                      element={<OtherEnquiries />}
+                      element={
+                        <OtherEnquiries />
+                      }
                     />
 
                     <Route
@@ -974,6 +976,14 @@ function App() {
                       element={
                         <RoleProtectedRoute>
                           <AdAnalysis />
+                        </RoleProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/admin/scholarships"
+                      element={
+                        <RoleProtectedRoute>
+                          <ScholarshipDetails />
                         </RoleProtectedRoute>
                       }
                     />

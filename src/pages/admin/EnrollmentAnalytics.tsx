@@ -181,7 +181,7 @@ const EnrollmentAnalytics: React.FC = () => {
         throw countError;
       }
 
-      console.log('Total enrollments in database:', totalCount);
+      // console.log('Total enrollments in database:', totalCount);
 
       // Get distribution of courses with case-insensitive matching
       const { data: courseDistribution, error: distributionError } = await supabase
@@ -206,7 +206,7 @@ const EnrollmentAnalytics: React.FC = () => {
         return acc;
       }, {});
 
-      console.log('Course distribution (all):', courseGroups);
+      // console.log('Course distribution (all):', courseGroups);
 
       // Get sample of entries to analyze data quality
       const { data: sampleData, error: sampleError } = await supabase
@@ -220,7 +220,7 @@ const EnrollmentAnalytics: React.FC = () => {
         throw sampleError;
       }
 
-      console.log('Recent entries sample:', sampleData);
+      // console.log('Recent entries sample:', sampleData);
 
       // Determine date range based on selected period or custom dates
       let queryStartDate: Date;
@@ -235,10 +235,10 @@ const EnrollmentAnalytics: React.FC = () => {
         queryEndDate = dateRange.end;
       }
 
-      console.log('Fetching analytics with date range:', {
-        startDate: queryStartDate.toISOString(),
-        endDate: queryEndDate.toISOString()
-      });
+      // console.log('Fetching analytics with date range:', {
+      //   startDate: queryStartDate.toISOString(),
+      //   endDate: queryEndDate.toISOString()
+      // });
 
       // Fetch all enrollments within date range using pagination
       let allCourseData: any[] = [];
@@ -267,7 +267,7 @@ const EnrollmentAnalytics: React.FC = () => {
         }
       }
 
-      console.log(`Total records fetched after pagination: ${allCourseData.length}`);
+      // console.log(`Total records fetched after pagination: ${allCourseData.length}`);
 
       // Normalize course names in the fetched data
       const normalizedCourseData = allCourseData.map(item => ({
@@ -291,7 +291,7 @@ const EnrollmentAnalytics: React.FC = () => {
         uniqueEmails: new Set(normalizedCourseData.map(e => e.email)).size,
       };
 
-      console.log('Data Analysis:', dataAnalysis);
+      // console.log('Data Analysis:', dataAnalysis);
 
       // Get previous period data with pagination
       let allPreviousPeriodData: any[] = [];
@@ -404,12 +404,12 @@ const EnrollmentAnalytics: React.FC = () => {
         }))
         .sort((a, b) => b.count - a.count); // Sort by count in descending order
 
-      console.log('Processed statistics:', {
-        totalEnrollments: normalizedCourseData.length,
-        courseStats: courseStatsData,
-        monthlyStats: monthlyStatsData,
-        trendData: newTrendData
-      });
+      // console.log('Processed statistics:', {
+      //   totalEnrollments: normalizedCourseData.length,
+      //   courseStats: courseStatsData,
+      //   monthlyStats: monthlyStatsData,
+      //   trendData: newTrendData
+      // });
 
       setCourseStats(courseStatsData);
       setMonthlyStats(monthlyStatsData);
