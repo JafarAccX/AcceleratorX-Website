@@ -22,9 +22,9 @@ const PMZoomDetails: ZoomMeetingDetails = {
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/TE5-Li8qTwGocSVE5eIYvQ",
-  meetingId: "TE5-Li8qTwGocSVE5eIYvQ",
-  time: "Jan 22, 2025 08:00 PM India",
+  link: "https://zoom.us/meeting/register/G1EFKRzfTGyD3KmZ9nW14A",
+  meetingId: "G1EFKRzfTGyD3KmZ9nW14A",
+  time: "Feb 10, 2025 07:30 PM India",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
