@@ -24,93 +24,139 @@ const WSAbout = () => {
   ];
 
   return (
-    <div className="relative bg-gradient-to-b from-white via-gray-50 to-white py-16">
+    <div className="relative bg-gradient-to-b from-white via-gray-50 to-white py-16 lg:py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-green-50/50 mix-blend-overlay"></div>
-      <div className="container mx-auto px-4 lg:pr-[450px]">
-        <div className="lg:max-w-none lg:mr-auto space-y-12">
-          {/* About Masterclass Section */}
-          <div>
-            <h2 className="text-3xl font-bold mb-6 text-left text-black">
-              About this Masterclass
-            </h2>
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
-              <p className="text-black text-left leading-relaxed mb-6">
-                Ever wondered how businesses turn raw data into actionable insights? 
-                Power BI is revolutionizing the way professionals analyze, visualize, 
-                and present data. A well-designed dashboard can drive smarter decisions, 
-                improve efficiency, and unlock hidden opportunities.
-              </p>
-              <p className="text-black text-left leading-relaxed mb-6">
-                Join{" "}
-                <span className="font-bold text-black">AcceleratorX's Masterclass</span>{" "}
-                with expert <span className="font-bold text-black">Aakash Maurya</span> on{" "}
-                <span className="font-bold text-black">
-                  Monday, 10th February, 7:30 PM
-                </span>
-                , and learn:
-              </p>
-              <ul className="list-none pl-0 mb-8 space-y-4">
-                {[
-                  "How to build interactive, data-driven dashboards for impactful decision-making",
-                  "Advanced techniques in data modeling, DAX, and visualization best practices",
-                  "Hands-on experience with real-world datasets and Power BI tools"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <FaCheck className="text-blue-500 mt-1.5 flex-shrink-0" />
-                    <span className="text-black">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6 border-l-4 border-blue-500">
-                <p className="text-black font-medium">
-                  <span className="font-bold text-blue-700">Pro tip:</span> Take the leap into 
-                  data visualization mastery. Enroll today—limited seats available! 
-                  Start creating dashboards that drive results.
+      <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto space-y-16 lg:space-y-24">
+          {/* About and Features Section */}
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* About Masterclass Section */}
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left text-black">
+                About this Masterclass
+              </h2>
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 h-full">
+                <p className="text-black text-left leading-relaxed mb-6 lg:text-lg">
+                  Ever wondered how businesses turn raw data into actionable insights? 
+                  Power BI is revolutionizing the way professionals analyze, visualize, 
+                  and present data. A well-designed dashboard can drive smarter decisions, 
+                  improve efficiency, and unlock hidden opportunities.
                 </p>
+                <p className="text-black text-left leading-relaxed mb-6 lg:text-lg">
+                  Join{" "}
+                  <span className="font-bold text-black">AcceleratorX's Masterclass</span>{" "}
+                  with expert <span className="font-bold text-black">Aakash Maurya</span> on{" "}
+                  <span className="font-bold text-black">
+                    Monday, 10th February, 7:30 PM
+                  </span>
+                  , and learn:
+                </p>
+                <ul className="list-none pl-0 mb-8 space-y-4">
+                  {[
+                    "How to build interactive, data-driven dashboards for impactful decision-making",
+                    "Advanced techniques in data modeling, DAX, and visualization best practices",
+                    "Hands-on experience with real-world datasets and Power BI tools"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start space-x-3 lg:text-lg">
+                      <FaCheck className="text-blue-500 mt-1.5 flex-shrink-0" />
+                      <span className="text-black">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6 border-l-4 border-blue-500">
+                  <p className="text-black font-medium lg:text-lg">
+                    <span className="font-bold text-blue-700">Pro tip:</span> Take the leap into 
+                    data visualization mastery. Enroll today—limited seats available! 
+                    Start creating dashboards that drive results.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Features Grid Section */}
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left text-black">
+                Workshop Features
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  {
+                    icon: <FaLaptopCode className="text-3xl text-blue-500" />,
+                    title: "Hands-on Learning",
+                    description: "Practice with real-world datasets and scenarios"
+                  },
+                  {
+                    icon: <FaCertificate className="text-3xl text-green-500" />,
+                    title: "Certificate",
+                    description: "Earn a certificate of completion"
+                  },
+                  {
+                    icon: <FaClock className="text-3xl text-blue-500" />,
+                    title: "2-Hour Session",
+                    description: "Focused, intensive learning experience"
+                  },
+                  {
+                    icon: <FaRocket className="text-3xl text-green-500" />,
+                    title: "Career Growth",
+                    description: "Boost your data analytics skills"
+                  }
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                  >
+                    <div className="mb-4">{feature.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="flex justify-center pb-8">
-                  <div className="relative inline-flex group/btn">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                    <button 
-                      onClick={() => {
-                        const form = document.getElementById('workshop-form');
-                        if (form) {
-                          form.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
-                    >
-                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                        Register Now
-                      </span>
-                      <svg
-                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+          {/* Register Now Button */}
+          <div className="flex justify-center">
+            <div className="relative inline-flex group/btn">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+              <button 
+                onClick={() => {
+                  const form = document.getElementById('workshop-form');
+                  if (form) {
+                    form.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
+              >
+                <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                  Register Now
+                </span>
+                <svg
+                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
 
           {/* What You'll Gain Section */}
           <div>
-            <h2 className="text-3xl font-bold mb-6 lg:text-left text-left text-black">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left text-black">
               What You Will Gain From This 2-Hour Masterclass
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
                   icon: FaLaptopCode,
@@ -140,7 +186,7 @@ const WSAbout = () => {
                       <h3 className="font-semibold text-black mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-black text-sm">
+                      <p className="text-gray-600 text-sm">
                         {item.description}
                       </p>
                     </div>
@@ -150,47 +196,14 @@ const WSAbout = () => {
             </div>
           </div>
 
-          <div className="flex justify-center pb-8">
-                  <div className="relative inline-flex group/btn">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                    <button 
-                      onClick={() => {
-                        const form = document.getElementById('workshop-form');
-                        if (form) {
-                          form.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
-                    >
-                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                        Register Now
-                      </span>
-                      <svg
-                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
           {/* Instructor Section */}
           <div>
-            <h2 className="text-3xl font-bold mb-6 lg:text-left text-left text-black">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left text-black">
               Meet {instructorDetails.name}
             </h2>
             <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
               <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className=" md:block w-48 h-48 rounded-lg bg-gradient-to-br from-blue-500 to-green-500 p-0.5">
+                <div className="md:block w-48 h-48 rounded-lg bg-gradient-to-br from-blue-500 to-green-500 p-0.5">
                   <div className="w-full h-full bg-white rounded-lg p-1">
                     <img
                       src="/assets/mentor/akash.png"
@@ -207,22 +220,22 @@ const WSAbout = () => {
                     {instructorDetails.title}
                   </p>
                   <div className="space-y-4">
-                    <p className="text-black text-sm leading-relaxed">
+                    <p className="text-gray-600 text-lg leading-relaxed">
                       With 7 years of experience in Machine Learning and AI,
                       Akash Maurya, Senior ML Engineer at Nagarro, has delivered
                       impactful projects in computer vision, NLP, and predictive
                       analytics. His passion for data science extends to
                       education.
                     </p>
-                    <div className="grid grid-cols-2 gap-4 mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                       <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="text-sm text-gray-600">
+                        <p className="text-gray-600">
                           <span className="font-semibold text-black">Expertise:</span>{" "}
                           Machine Learning, Deep Learning, Computer Vision, NLP
                         </p>
                       </div>
                       <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="text-sm text-gray-600">
+                        <p className="text-gray-600">
                           <span className="font-semibold text-black">Previous:</span>{" "}
                           Microsoft, Intel, Research Papers in ML
                         </p>
@@ -234,42 +247,9 @@ const WSAbout = () => {
             </div>
           </div>
 
-          <div className="flex justify-center pb-8">
-                  <div className="relative inline-flex group/btn">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                    <button 
-                      onClick={() => {
-                        const form = document.getElementById('workshop-form');
-                        if (form) {
-                          form.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
-                    >
-                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                        Register Now
-                      </span>
-                      <svg
-                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
           {/* Target Audience Section */}
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-left text-black">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left text-black">
               This Masterclass is for
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -279,45 +259,46 @@ const WSAbout = () => {
                     <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                       <FaUser className="w-5 h-5 text-blue-500" />
                     </div>
-                    <p className="text-black text-sm">{audience}</p>
+                    <p className="text-gray-600 text-lg">{audience}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex justify-center pb-8">
-                  <div className="relative inline-flex group/btn">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                    <button 
-                      onClick={() => {
-                        const form = document.getElementById('workshop-form');
-                        if (form) {
-                          form.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
-                    >
-                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                        Register Now
-                      </span>
-                      <svg
-                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+          {/* Final CTA Button */}
+          <div className="flex justify-center">
+            <div className="relative inline-flex group/btn">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+              <button 
+                onClick={() => {
+                  const form = document.getElementById('workshop-form');
+                  if (form) {
+                    form.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
+              >
+                <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                  Register Now
+                </span>
+                <svg
+                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
