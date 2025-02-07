@@ -119,7 +119,7 @@ const WSForm = () => {
   };
 
   return (
-    <div className="bg-[#111] rounded-2xl shadow-2xl p-6 w-full border border-gray-800/30 backdrop-blur-xl">
+    <div className="bg-[#111] rounded-2xl shadow-2xl p-6 w-full border border-gray-800/30 " id='workshop-form'>
       
 
       <form onSubmit={handleSubmit} className="space-y-4">

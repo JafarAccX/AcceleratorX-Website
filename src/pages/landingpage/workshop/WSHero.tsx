@@ -31,7 +31,7 @@ const WSHero = () => {
             {/* Hero Image as Banner */}
             <div className="relative mb-8 lg:mb-12 group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-green-500/20 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl"></div>
-              <div className="relative rounded-2xl overflow-hidden backdrop-blur-sm border border-gray-200 bg-white shadow-lg">
+              <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-lg">
                 {/* Mobile Image */}
                 <div className="relative block lg:hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-100/30 to-green-100/30 mix-blend-overlay"></div>
@@ -50,8 +50,39 @@ const WSHero = () => {
                     className="w-full h-[600px] xl:h-[700px] object-contain object-center py-10 px-8"
                   />
                 </div>
-                {/* Shine Effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Button Section */}
+                <div className="flex justify-center pb-8">
+                  <div className="relative inline-flex group/btn">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                    <button 
+                      onClick={() => {
+                        const form = document.getElementById('workshop-form');
+                        if (form) {
+                          form.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
+                    >
+                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                        Register Now
+                      </span>
+                      <svg
+                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -72,36 +103,7 @@ const WSHero = () => {
                 </div>
                 
                 {/* Button */}
-                <div className="relative inline-flex group/btn">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                  <button 
-                    onClick={() => {
-                      const form = document.getElementById('workshop-form');
-                      if (form) {
-                        form.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
-                  >
-                    <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                      Register Now
-                    </span>
-                    <svg
-                      className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </button>
-                </div>
+               
               </div>
             </div>
 

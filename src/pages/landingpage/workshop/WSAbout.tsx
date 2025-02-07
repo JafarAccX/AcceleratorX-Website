@@ -72,6 +72,39 @@ const WSAbout = () => {
             </div>
           </div>
 
+          <div className="flex justify-center pb-8">
+                  <div className="relative inline-flex group/btn">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                    <button 
+                      onClick={() => {
+                        const form = document.getElementById('workshop-form');
+                        if (form) {
+                          form.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
+                    >
+                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                        Register Now
+                      </span>
+                      <svg
+                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
           {/* What You'll Gain Section */}
           <div>
             <h2 className="text-3xl font-bold mb-6 lg:text-left text-left text-black">
@@ -116,6 +149,39 @@ const WSAbout = () => {
               ))}
             </div>
           </div>
+
+          <div className="flex justify-center pb-8">
+                  <div className="relative inline-flex group/btn">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                    <button 
+                      onClick={() => {
+                        const form = document.getElementById('workshop-form');
+                        if (form) {
+                          form.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
+                    >
+                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                        Register Now
+                      </span>
+                      <svg
+                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
 
           {/* Instructor Section */}
           <div>
@@ -168,6 +234,39 @@ const WSAbout = () => {
             </div>
           </div>
 
+          <div className="flex justify-center pb-8">
+                  <div className="relative inline-flex group/btn">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                    <button 
+                      onClick={() => {
+                        const form = document.getElementById('workshop-form');
+                        if (form) {
+                          form.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
+                    >
+                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                        Register Now
+                      </span>
+                      <svg
+                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
           {/* Target Audience Section */}
           <div>
             <h2 className="text-3xl font-bold mb-6 text-left text-black">
@@ -186,6 +285,39 @@ const WSAbout = () => {
               ))}
             </div>
           </div>
+
+          <div className="flex justify-center pb-8">
+                  <div className="relative inline-flex group/btn">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                    <button 
+                      onClick={() => {
+                        const form = document.getElementById('workshop-form');
+                        if (form) {
+                          form.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gray-800 rounded-lg leading-none border border-gray-200 shadow-md hover:shadow-lg transition-all"
+                    >
+                      <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                        Register Now
+                      </span>
+                      <svg
+                        className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
         </div>
       </div>
     </div>
