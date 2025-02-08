@@ -2,7 +2,7 @@
 const hiddenNavbarRoutes: string[] = [
   "/admin/ad-analysis",
   "/admin/dashboard",
-  "/thank-you"
+  "/thank-you",
 ];
 
 /**
@@ -11,7 +11,7 @@ const hiddenNavbarRoutes: string[] = [
  * @returns boolean - True if navbar/footer should be hidden
  */
 export const shouldHideNavbar = (pathname: string): boolean => {
-  return hiddenNavbarRoutes.some(route => pathname.startsWith(route));
+  return hiddenNavbarRoutes.some((route) => pathname.startsWith(route));
 };
 
 /**

@@ -157,6 +157,7 @@ import DMCourseSyllabus from "./pages/courses/dmAI/DMCourseSyllabus";
 import DMCourseBenefits from "./pages/courses/dmAI/DMCourseBenefits";
 import DMPricing from "./pages/courses/dmAI/DMPricing";
 import DMFAQs from "./pages/courses/dmAI/DMFAQs";
+import Flyers from "./components/Flyers";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -292,7 +293,9 @@ const XSATFAQ = lazy(() =>
   }))
 );
 
-const ScholarshipDetails = lazy(() => import("./pages/admin/ScholarshipDetails"));
+const ScholarshipDetails = lazy(
+  () => import("./pages/admin/ScholarshipDetails")
+);
 
 const WorkshopDetails = lazy(() => import("./pages/admin/WorkshopDetails"));
 
@@ -310,6 +313,10 @@ function isDummyRoute(pathname: string): boolean {
     "/workshop/da-masterclass",
     "/workshop/pm-masterclass",
     "/workshop/gen-ai-masterclass",
+    "/fa-register/gen-ai",
+    "/fa-register/pm",
+    "/fa-register/dm",
+    "/fa-register/da",
   ];
   return adRoutes.includes(pathname);
 }
@@ -384,7 +391,7 @@ function ProgramAnalyticsPage() {
     <Suspense fallback={<Loader />}>
       <ProgramHeroEIE />
       <ProgramHighlightsEIE />
-      <HeroWithAbouv/>
+      <HeroWithAbouv />
       <LearningJourneyEIE />
       <BenefitsGridEIE />
       <ProgramCertificateEIE />
@@ -443,7 +450,7 @@ function ProgramAnalyticsPageEIE() {
     <Suspense fallback={<Loader />}>
       <HeaderEIE />
       <ProgramHeroEIE />
-      <HeroWithAbouv/>
+      <HeroWithAbouv />
       <ProgramHighlightsEIE />
       <LearningJourneyEIE />
       <BenefitsGridEIE />
@@ -472,7 +479,7 @@ function DataAnalyticsPage() {
     <Suspense fallback={<Loader />}>
       <DataHeroEIE />
       <WhoIsThisContentForEIE />
-      <HeroWithAbouv/>
+      <HeroWithAbouv />
       <DataProgramEIE />
       <CAPEEIE />
       <DataJourneyEIE />
@@ -500,7 +507,7 @@ function DataAnalyticsPageEIE() {
     <Suspense fallback={<Loader />}>
       <HeaderEIE />
       <DataHeroEIE />
-      <HeroWithAbouv/>
+      <HeroWithAbouv />
       <WhoIsThisContentForEIE />
       <DataProgramEIE />
       <CAPEEIE />
@@ -531,7 +538,7 @@ function DataAnalyticsPageFB() {
     <Suspense fallback={<Loader />}>
       <DataHeroFB />
       <WhoIsThisContentForFB />
-      <HeroWithAbouv/>
+      <HeroWithAbouv />
       <DataProgramFB />
       <CAPEFB />
       <DataJourneyFB />
@@ -632,6 +639,7 @@ function GenAICourse() {
     </Suspense>
   );
 }
+
 function DMAICourse() {
   const {
     setSelectedCourse,
@@ -654,6 +662,38 @@ function DMAICourse() {
       <DMCourseBenefits />
       <DMPricing />
       <DMFAQs />
+    </Suspense>
+  );
+}
+
+function GEN_Flyers() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Flyers />
+    </Suspense>
+  );
+}
+
+function DM_Flyers() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Flyers />
+    </Suspense>
+  );
+}
+
+function PM_Flyers() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Flyers />
+    </Suspense>
+  );
+}
+
+function DA_Flyers() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Flyers />
     </Suspense>
   );
 }
@@ -916,6 +956,38 @@ function App() {
                       }
                     />
                     <Route
+                      path="/fa-register/gen-ai"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <GEN_Flyers />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/fa-register/pm"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <PM_Flyers />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/fa-register/dm"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <DM_Flyers />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/fa-register/da"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <DA_Flyers />
+                        </Suspense>
+                      }
+                    />
+                    <Route
                       path="/xsat"
                       element={
                         <Suspense fallback={<Loader />}>
@@ -945,9 +1017,7 @@ function App() {
                     />
                     <Route
                       path="/admin/other-enquiries"
-                      element={
-                        <OtherEnquiries />
-                      }
+                      element={<OtherEnquiries />}
                     />
 
                     <Route
