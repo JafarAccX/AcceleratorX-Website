@@ -28,9 +28,9 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/H_4QGnFhQmGqE9uZYndaYA",
-  meetingId: "H_4QGnFhQmGqE9uZYndaYA",
-  time: "Feb 6, 2025 07:30 PM India",
+  link: "https://zoom.us/meeting/register/rDmS0ScBTCGEEgDzTDibug",
+  meetingId: "rDmS0ScBTCGEEgDzTDibug",
+  time: "Feb 11, 2025 07:30 PM India",
 };
 
 const WorkshopContext = createContext<WorkshopContextType | undefined>(

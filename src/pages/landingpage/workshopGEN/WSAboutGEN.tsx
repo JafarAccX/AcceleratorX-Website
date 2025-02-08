@@ -9,23 +9,11 @@ const WSAboutGEN = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.6 },
   };
 
   const allTools = [
-    { name: "GPT-4", img: "/assets/genAITools/gpt4.webp" },
     { name: "DeepSeek", img: "/assets/genAITools/deepseek.webp" },
-    { name: "LLaMA", img: "/assets/genAITools/ollama.png" },
-    { name: "Falcon", img: "/assets/genAITools/falcon.png" },
-    { name: "Claude", img: "/assets/genAITools/claude.webp" },
-    { name: "Gemini", img: "/assets/genAITools/gemini.webp" },
-    { name: "Midjourney", img: "/assets/genAITools/midjourney.webp" },
-    { name: "Runway ML", img: "/assets/genAITools/runway.webp" },
-    { name: "Pika Labs", img: "/assets/genAITools/pika.webp" },
-    { name: "ElevenLabs", img: "/assets/genAITools/elevenlabs.webp" },
-    { name: "Whisper", img: "/assets/genAITools/openaiwhisper.webp" },
-    { name: "MusicGen", img: "/assets/genAITools/musicgen.webp" },
-    { name: "Magenta", img: "/assets/genAITools/magenta.png" },
     { name: "LangChain", img: "/assets/genAITools/langchain.png" },
     { name: "CrewAI", img: "/assets/genAITools/crewai.webp" },
     { name: "AutoGen", img: "/assets/genAITools/autogen.jpeg" },
@@ -38,7 +26,7 @@ const WSAboutGEN = () => {
   ];
 
   return (
-    <div className="relative bg-[#000] py-16 overflow-hidden">
+    <div className="relative bg-[#000] py-2 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full mix-blend-overlay blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-900/20 rounded-full mix-blend-overlay blur-3xl"></div>
@@ -47,14 +35,14 @@ const WSAboutGEN = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Content Section */}
-          <motion.div 
+          <motion.div
             className="w-full lg:w-3/5 space-y-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
             {/* About Section */}
-            <motion.div 
+            <motion.div
               className="bg-[#111111] rounded-2xl shadow-lg border border-gray-800"
               {...fadeInUp}
             >
@@ -66,22 +54,34 @@ const WSAboutGEN = () => {
                   <p className="text-gray-300 leading-relaxed">
                     Join us for an exclusive online workshop,{" "}
                     <span className="font-semibold text-blue-400">
-                      "How to Work Efficiently with GenAI"
+                      "How to Build Your Own AI Agent"
                     </span>
-                    , on February 6, 2025, at 7:30 PM. This immersive session will transform your understanding of AI-driven productivity and automation.
+                    on February 11, 2025, at 7:30 PM. This immersive session
+                    will guide you through building and deploying AI Agents for
+                    real-world applications—without coding.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-[#1A1A1A] p-4 rounded-xl border border-blue-900/30">
-                      <h3 className="font-semibold text-blue-400 mb-2">What You'll Learn</h3>
+                      <h3 className="font-semibold text-blue-400 mb-2">
+                        What You'll Learn
+                      </h3>
                       <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• AI-driven workflow optimization</li>
-                        <li>• Content creation automation</li>
-                        <li>• Decision-making enhancement</li>
-                        <li>• No-code AI implementation</li>
+                        <li>• AI Agent Frameworks & Workflows</li>
+                        <li>• How to Automate Business Processes with AI</li>
+                        <li>• No-Code & Low-Code AI Development</li>
+                        <li>
+                          • Integrating AI Agents with APIs & Third-Party Tools
+                        </li>
+                        <li>
+                          • AI Agents for Content Creation, Research &
+                          Decision-Making
+                        </li>
                       </ul>
                     </div>
                     <div className="bg-[#1A1A1A] p-4 rounded-xl border border-green-900/30">
-                      <h3 className="font-semibold text-green-400 mb-2">Who Should Attend</h3>
+                      <h3 className="font-semibold text-green-400 mb-2">
+                        Who Should Attend
+                      </h3>
                       <ul className="space-y-2 text-sm text-gray-300">
                         <li>• Business Professionals</li>
                         <li>• Entrepreneurs</li>
@@ -95,14 +95,16 @@ const WSAboutGEN = () => {
             </motion.div>
 
             {/* Tools Section */}
-            <motion.div 
+            <motion.div
               ref={toolsRef}
               className="bg-[#111111] rounded-2xl shadow-lg p-6 border border-gray-800"
               {...fadeInUp}
             >
-              <h2 className="text-2xl font-bold text-white mb-6">Tools You'll Learn</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">
+                Tools You'll Learn
+              </h2>
               <div className="relative overflow-hidden">
-                <motion.div 
+                <motion.div
                   className="flex overflow-hidden"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: isInView ? 1 : 0 }}
@@ -117,7 +119,7 @@ const WSAboutGEN = () => {
                       x: {
                         repeat: Infinity,
                         repeatType: "loop",
-                        duration: allTools.length * 2, 
+                        duration: allTools.length * 2,
                         ease: "linear",
                       },
                     }}
@@ -146,7 +148,7 @@ const WSAboutGEN = () => {
             </motion.div>
 
             {/* Certificate Section */}
-            <motion.div 
+            <motion.div
               className="relative overflow-hidden rounded-2xl"
               {...fadeInUp}
             >
@@ -157,11 +159,13 @@ const WSAboutGEN = () => {
                   <h3 className="text-2xl font-bold">Certification Included</h3>
                 </div>
                 <p className="text-gray-200 mb-4">
-                  Earn an industry-recognized certificate upon completion of the masterclass!
+                  Earn an industry-recognized certificate upon completion of the
+                  masterclass!
                 </p>
                 <div className="bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
                   <p className="text-sm text-gray-300">
-                    ⚠️ Please ensure accurate registration details as they will appear on your certificate
+                    ⚠️ Please ensure accurate registration details as they will
+                    appear on your certificate
                   </p>
                 </div>
               </div>
@@ -169,7 +173,7 @@ const WSAboutGEN = () => {
           </motion.div>
 
           {/* Right Image Section */}
-          <motion.div 
+          <motion.div
             className="w-full lg:w-2/5 sticky top-8 h-fit"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -181,12 +185,12 @@ const WSAboutGEN = () => {
                 alt="AI Workshop"
                 className="w-full rounded-2xl shadow-2xl"
               />
-              
+
               {/* Stats Cards */}
               <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-[90%]">
                 <div className="bg-[#111111] backdrop-blur-md rounded-xl p-6 shadow-lg grid grid-cols-3 gap-4 border border-gray-800/30">
                   <div className="text-center">
-                    <p className="text-3xl font-bold text-blue-400">2.5hr</p>
+                    <p className="text-3xl font-bold text-blue-400">2hr</p>
                     <p className="text-sm text-gray-300">Duration</p>
                   </div>
                   <div className="text-center border-x border-gray-800/30">
@@ -202,14 +206,25 @@ const WSAboutGEN = () => {
             </div>
 
             {/* Company Info Card */}
-            <motion.div 
+            <motion.div
               className="mt-16 bg-[#111111] rounded-2xl shadow-lg p-6 border border-gray-800/30"
               {...fadeInUp}
             >
-              <h3 className="text-xl font-bold text-white mb-4">About AcceleratorX</h3>
+              <h3 className="text-xl font-bold text-white mb-4">
+                About AcceleratorX
+              </h3>
               <p className="text-gray-300 text-sm leading-relaxed">
-              AcceleratorX, where innovation meets education. We're dedicated to transforming ambitious individuals into industry leaders through cutting-edge technology and personalized mentorship. At AcceleratorX, we are on a mission to shape visionary leaders who dare to redefine the future. We believe in harnessing ambition and transforming it into unstoppable momentum, turning ideas into action and dreams into impactful careers. Our commitment is to empower individuals with immersive, hands-on learning experiences that challenge limits, unlock potential, and open doors to a world of opportunity.
- </p>
+                AcceleratorX, where innovation meets education. We're dedicated
+                to transforming ambitious individuals into industry leaders
+                through cutting-edge technology and personalized mentorship. At
+                AcceleratorX, we are on a mission to shape visionary leaders who
+                dare to redefine the future. We believe in harnessing ambition
+                and transforming it into unstoppable momentum, turning ideas
+                into action and dreams into impactful careers. Our commitment is
+                to empower individuals with immersive, hands-on learning
+                experiences that challenge limits, unlock potential, and open
+                doors to a world of opportunity.
+              </p>
               <div className="mt-6 flex items-center gap-4">
                 <img
                   src="/assets/companylogo.png"
@@ -217,7 +232,9 @@ const WSAboutGEN = () => {
                   className="h-8"
                 />
                 <div className="h-8 w-px bg-gray-800/30"></div>
-                <p className="text-sm text-gray-300">A2M Technologies PVT. LTD.</p>
+                <p className="text-sm text-gray-300">
+                  A2M Technologies PVT. LTD.
+                </p>
               </div>
             </motion.div>
           </motion.div>

@@ -75,7 +75,7 @@ const WSHeroGEN = () => {
                 </span>
                 <br />
                 <span className="text-xl md:text-4xl lg:text-2xl text-gray-400">
-                  Topic: How to work efficiently with GenAI{" "}
+                  Topic: How to Build Your Own AI Agent{" "}
                 </span>
               </motion.h1>
 
@@ -87,7 +87,7 @@ const WSHeroGEN = () => {
                 className="grid grid-cols-2 gap-4 mt-8"
               >
                 {[
-                  { icon: FiClock, text: "2.5-Hour Intensive Workshop" },
+                  { icon: FiClock, text: "2 Hour Intensive Workshop" },
                   { icon: FiCalendar, text: "Live Interactive Sessions" },
                   { icon: FiUsers, text: "Limited Seats Available" },
                   { icon: FiAward, text: "Certificate of Completion" },
@@ -113,20 +113,20 @@ const WSHeroGEN = () => {
                 to:
                 <ul className="mt-4 space-y-2">
                   <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Automate
-                    repetitive tasks and save hours
+                    <span className="text-green-400">✓</span> Build and Deploy
+                    Your Own AI Agent without coding
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Create
-                    high-quality content in minutes
+                    <span className="text-green-400">✓</span> Automate complex
+                    workflows with AI-powered agents
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Enhance
-                    decision-making with AI insights
+                    <span className="text-green-400">✓</span> Integrate AI tools
+                    seamlessly into your business or projects
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Stay ahead of
-                    industry trends
+                    <span className="text-green-400">✓</span> Leverage AI Agents
+                    for Productivity, Automation & Decision-Making
                   </li>
                 </ul>
               </motion.p>
@@ -151,7 +151,7 @@ const WSHeroGEN = () => {
                     Trusted by
                   </p>
                   <p className="font-semibold text-sm text-white">
-                    525+ Professionals
+                    567+ Professionals
                   </p>
                 </div>
               </div>

@@ -321,6 +321,7 @@ function isDummyRoute(pathname: string): boolean {
     "/fa-register/pm",
     "/fa-register/dm",
     "/fa-register/da",
+    "/courses/generative-ai-fb",
   ];
   return adRoutes.includes(pathname);
 }
@@ -629,6 +630,36 @@ function GenAICourse() {
 
   return (
     <Suspense fallback={<Loader />}>
+      <GENHero />
+      <GENIntroduction />
+      <GENWhoShouldEnroll />
+      <GENBYOA />
+      <GENMarketScope />
+      <GENWhyLearnAI />
+      <GENLearningJourney />
+      <GENToolsYouWillLearn />
+      <GENProjectsAndOutcomes />
+      <GENPricing />
+      <GENFAQ />
+    </Suspense>
+  );
+}
+
+// GEN AI Ad Course Landing Page
+
+function GenAICourseAD() {
+  const {
+    setSelectedCourse,
+  }: { setSelectedCourse: (course: string | null) => void } =
+    useCourseContext();
+
+  useEffect(() => {
+    setSelectedCourse("Generative AI");
+  }, [setSelectedCourse]);
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <HeaderEIE />
       <GENHero />
       <GENIntroduction />
       <GENWhoShouldEnroll />
@@ -1092,6 +1123,14 @@ function App() {
                       element={
                         <Suspense fallback={<Loader />}>
                           <DataAnalyticsPageEIE />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/courses/generative-ai-fb"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <GenAICourseAD />
                         </Suspense>
                       }
                     />

@@ -3,6 +3,7 @@ const hiddenNavbarRoutes: string[] = [
   "/admin/ad-analysis",
   "/admin/dashboard",
   "/thank-you",
+  "/courses/generative-ai-fb",
 ];
 
 /**
