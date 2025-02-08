@@ -157,7 +157,11 @@ import DMCourseSyllabus from "./pages/courses/dmAI/DMCourseSyllabus";
 import DMCourseBenefits from "./pages/courses/dmAI/DMCourseBenefits";
 import DMPricing from "./pages/courses/dmAI/DMPricing";
 import DMFAQs from "./pages/courses/dmAI/DMFAQs";
-import Flyers from "./components/Flyers";
+import Flyers from "./components/DAFlyers";
+import GENAIFlyers from "./components/GENAIFlyers";
+import DMFlyers from "./components/DMFlyers";
+import PMFlyers from "./components/PMFlyers";
+import DAFlyers from "./components/DAFlyers";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -669,7 +673,7 @@ function DMAICourse() {
 function GEN_Flyers() {
   return (
     <Suspense fallback={<Loader />}>
-      <Flyers />
+      <GENAIFlyers />
     </Suspense>
   );
 }
@@ -677,7 +681,7 @@ function GEN_Flyers() {
 function DM_Flyers() {
   return (
     <Suspense fallback={<Loader />}>
-      <Flyers />
+      <DMFlyers />
     </Suspense>
   );
 }
@@ -685,7 +689,7 @@ function DM_Flyers() {
 function PM_Flyers() {
   return (
     <Suspense fallback={<Loader />}>
-      <Flyers />
+      <PMFlyers />
     </Suspense>
   );
 }
@@ -693,7 +697,7 @@ function PM_Flyers() {
 function DA_Flyers() {
   return (
     <Suspense fallback={<Loader />}>
-      <Flyers />
+      <DAFlyers />
     </Suspense>
   );
 }
