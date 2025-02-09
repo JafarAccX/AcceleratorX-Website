@@ -162,6 +162,7 @@ import GENAIFlyers from "./components/GENAIFlyers";
 import DMFlyers from "./components/DMFlyers";
 import PMFlyers from "./components/PMFlyers";
 import DAFlyers from "./components/DAFlyers";
+import GENHeroAd from "./pages/courses/genAIAD/GENHeroAd";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -660,16 +661,13 @@ function GenAICourseAD() {
   return (
     <Suspense fallback={<Loader />}>
       <HeaderEIE />
-      <GENHero />
+      <GENHeroAd />
       <GENIntroduction />
       <GENWhoShouldEnroll />
       <GENBYOA />
       <GENMarketScope />
-      <GENWhyLearnAI />
-      <GENLearningJourney />
       <GENToolsYouWillLearn />
-      <GENProjectsAndOutcomes />
-      <GENPricing />
+      <GENLearningJourney/>
       <GENFAQ />
     </Suspense>
   );
