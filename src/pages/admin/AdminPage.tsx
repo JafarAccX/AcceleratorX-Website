@@ -11,6 +11,7 @@ import {
   ChevronRight,
   ArrowUpDown,
 } from "lucide-react";
+import BackButton from "../../components/common/BackButton";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey =
@@ -311,15 +312,17 @@ const AdminPage: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen bg-gray-50 p-8"
     >
-      <div className="max-w-7xl mx-auto pt-8 mt-16">
+      <div className="max-w-7xl mx-auto">
         <div className="mb-8 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Lead Dashboard</h1>
             <p className="mt-2 text-sm text-gray-600">
               View and manage all enrollment submissions
             </p>
+            <BackButton />
+
           </div>
           <div className="flex gap-4">
             <button

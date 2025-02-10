@@ -1,0 +1,166 @@
+import React, { useState } from "react";
+import { TrendingUp, Briefcase, Target, BarChart } from "lucide-react";
+import EnrollmentModal from "../../../components/EnrollmentModal";
+
+const GENMarketScopeAd = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => setIsModalOpen(true);
+  const handleModalClose = () => setIsModalOpen(false);
+
+  const marketStats = [
+    {
+      icon: <TrendingUp className="w-5 h-5 text-emerald-500" />,
+      value: "$1.3T",
+      label: "Market Size by 2032",
+      description: "The global AI market is projected to reach $1.3 trillion by 2032"
+    },
+    {
+      icon: <Briefcase className="w-5 h-5 text-blue-500" />,
+      value: "97M",
+      label: "New Jobs by 2025",
+      description: "AI will create 97 million new jobs across industries by 2025"
+    },
+    {
+      icon: <Target className="w-5 h-5 text-purple-500" />,
+      value: "40%",
+      label: "Productivity Boost",
+      description: "Companies report up to 40% increase in productivity with AI"
+    },
+    {
+      icon: <BarChart className="w-5 h-5 text-rose-500" />,
+      value: "35%",
+      label: "CAGR Growth",
+      description: "The AI industry is growing at 35% compound annual growth rate"
+    }
+  ];
+
+  const opportunities = [
+    {
+      title: "AI Consultants & Strategists",
+      description: "Help businesses integrate AI solutions and develop AI strategies",
+      salary: "₹12L - 25L"
+    },
+    {
+      title: "Prompt Engineers",
+      description: "Design and optimize prompts for AI models and applications",
+      salary: "₹10L - 16L"
+    },
+    {
+      title: "AI Application Developers",
+      description: "Build and deploy AI-powered applications and tools",
+      salary: "₹11L - 20L"
+    },
+    {
+      title: "AI Automation Specialists",
+      description: "Create automated workflows using AI and other tools",
+      salary: "₹8L - 15L"
+    }
+  ];
+
+  return (
+    <section className="relative py-16 bg-black overflow-hidden">
+      {/* Background Grid */}
+      <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+          style={{ opacity: 0.3 }}
+        />
+      </div>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
+
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <TrendingUp className="w-4 h-4 text-blue-400" />
+              <span className="text-blue-400 text-sm font-medium">Market Scope</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              The Growing AI Industry
+            </h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+              The AI revolution is creating unprecedented opportunities across industries. 
+              Discover the massive potential in the rapidly expanding AI market.
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {marketStats.map((stat, index) => (
+              <div
+                key={index}
+                className="relative group p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="p-2 rounded-lg bg-white/10">
+                    {stat.icon}
+                  </div>
+                  <div className="text-2xl font-bold text-white">
+                    {stat.value}
+                  </div>
+                </div>
+                <h3 className="text-sm font-semibold text-gray-300 mb-2">
+                  {stat.label}
+                </h3>
+                <p className="text-sm text-gray-400">
+                  {stat.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Career Opportunities */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">
+              High-Paying Career Opportunities
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {opportunities.map((job, index) => (
+                <div
+                  key={index}
+                  className="group p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        {job.title}
+                      </h4>
+                      <p className="text-sm text-gray-400 mb-3">
+                        {job.description}
+                      </p>
+                    </div>
+                    <div className="text-sm font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full whitespace-nowrap">
+                      {job.salary}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-300 text-lg mb-6">
+              Don't miss out on the AI revolution. Start your journey today!
+            </p>
+            <button
+              onClick={handleModalOpen}
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 transform hover:scale-105"
+            >
+              <TrendingUp className="w-5 h-5 mr-2" />
+              Start Your Career in AI
+            </button>
+          </div>
+        </div>
+      </div>
+      <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} />
+    </section>
+  );
+};
+
+export default GENMarketScopeAd;

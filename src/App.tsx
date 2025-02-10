@@ -163,6 +163,13 @@ import DMFlyers from "./components/DMFlyers";
 import PMFlyers from "./components/PMFlyers";
 import DAFlyers from "./components/DAFlyers";
 import GENHeroAd from "./pages/courses/genAIAD/GENHeroAd";
+import GENIntroductionAd from "./pages/courses/genAIAD/GENIntroductionAd";
+import GENWhoShouldEnrollAd from "./pages/courses/genAIAD/GENWhoShouldEnrollAd";
+import GENBYOAAd from "./pages/courses/genAIAD/GENBYOAAd";
+import GENMarketScopeAd from "./pages/courses/genAIAD/GENMarketScopeAd";
+import GENLearningJourneyAd from "./pages/courses/genAIAD/GENLearningJourneyAd";
+import GENFAQAd from "./pages/courses/genAIAD/GENFAQAd";
+import GENToolsYouWillLearnAd from "./pages/courses/genAIAD/GENToolsYouWillLearnAd";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -662,13 +669,13 @@ function GenAICourseAD() {
     <Suspense fallback={<Loader />}>
       <HeaderEIE />
       <GENHeroAd />
-      <GENIntroduction />
-      <GENWhoShouldEnroll />
-      <GENBYOA />
-      <GENMarketScope />
-      <GENToolsYouWillLearn />
-      <GENLearningJourney/>
-      <GENFAQ />
+      <GENIntroductionAd />
+      <GENWhoShouldEnrollAd />
+      <GENBYOAAd />
+      <GENMarketScopeAd />
+      <GENToolsYouWillLearnAd />
+      <GENLearningJourneyAd/>
+      <GENFAQAd />
     </Suspense>
   );
 }

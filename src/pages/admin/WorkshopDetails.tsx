@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Search,
 } from "lucide-react";
+import BackButton from "../../components/common/BackButton";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey =
@@ -232,6 +233,7 @@ const WorkshopDetails: React.FC = () => {
             <h1 className="text-2xl font-semibold text-gray-900">
               Workshop Registrations
             </h1>
+            <BackButton/>
           </div>
           <div className="flex items-center gap-4 mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <select
