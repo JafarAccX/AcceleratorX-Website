@@ -75,9 +75,9 @@ export default function ProgramHero() {
                   "0 0 10px rgba(144, 205, 244, 0.5), 0 0 20px rgba(144, 205, 244, 0.3)",
               }}
             >
-              <span className="text-gray-300 font-semibold text-sm sm:text-base">
-                Next Cohort Starts on 19 Jan
-              </span>
+              {/* <span className="text-gray-300 font-semibold text-sm sm:text-base">
+                Next Cohort Starts on 
+              </span> */}
             </motion.div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
               Launch Your Career in

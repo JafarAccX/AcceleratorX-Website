@@ -114,7 +114,7 @@ export default function ProgramHeroEIE() {
               </div>
               <div className="border-r border-[#5CB338]/30">
                 <h3 className="text-[#5CB338] font-bold">Start Date</h3>
-                <p className="text-gray-300">Jan 25, 2025</p>
+                <p className="text-gray-300">Feb 20, 2025</p>
               </div>
               <div>
                 <h3 className="text-[#5CB338] font-bold">Duration</h3>
