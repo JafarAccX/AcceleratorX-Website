@@ -55,22 +55,40 @@ const WorkshopDetails: React.FC = () => {
         setLoading(true);
       }
 
-      const { data: workshopData, error, count } = await supabase
-        .from("workshop_registrations")
-        .select("*", { count: "exact" })
-        .order("created_at", { ascending: false });
+      let allWorkshops: any[] = [];
+      let hasMore = true;
+      let page = 0;
+      const pageSize = 1000; // Increased page size
 
-      if (error) {
-        throw error;
+      while (hasMore) {
+        const start = page * pageSize;
+        const end = start + pageSize - 1;
+
+        const { data: workshopData, error, count } = await supabase
+          .from("workshop_registrations")
+          .select("*", { count: "exact" })
+          .order("created_at", { ascending: false })
+          .range(start, end);
+
+        if (error) {
+          throw error;
+        }
+
+        if (workshopData && workshopData.length > 0) {
+          allWorkshops = [...allWorkshops, ...workshopData];
+          if (workshopData.length < pageSize) {
+            hasMore = false;
+          }
+        } else {
+          hasMore = false;
+        }
+
+        page++;
       }
 
-      const sortedData = workshopData || [];
-      setWorkshops(sortedData);
-      setFilteredWorkshops(sortedData);
-
-      if (count) {
-        setTotalPages(Math.ceil(count / ITEMS_PER_PAGE));
-      }
+      setWorkshops(allWorkshops);
+      setFilteredWorkshops(allWorkshops);
+      setTotalPages(Math.ceil(allWorkshops.length / ITEMS_PER_PAGE));
 
       if (isRefreshing) {
         toast.success("Data refreshed successfully");
