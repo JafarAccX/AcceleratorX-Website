@@ -75,7 +75,7 @@ const WSHeroGEN = () => {
                 </span>
                 <br />
                 <span className="text-xl md:text-4xl lg:text-2xl text-gray-400">
-                  Topic: How to Build Your Own AI Agent{" "}
+                  Topic: Micro-certification in Prompt Engineering{" "}
                 </span>
               </motion.h1>
 
@@ -112,23 +112,20 @@ const WSHeroGEN = () => {
                 Join our exclusive masterclass and learn how to leverage GenAI
                 to:
                 <ul className="mt-4 space-y-2">
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Build and Deploy
-                    Your Own AI Agent without coding
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Automate complex
-                    workflows with AI-powered agents
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Integrate AI tools
-                    seamlessly into your business or projects
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span> Leverage AI Agents
-                    for Productivity, Automation & Decision-Making
-                  </li>
-                </ul>
+  <li className="flex items-center gap-2">
+    <span className="text-green-400">✓</span> Earn a recognized Micro-Certification in Prompt Engineering  
+  </li>
+  <li className="flex items-center gap-2">
+    <span className="text-green-400">✓</span> Master the art of crafting effective AI prompts for optimal results  
+  </li>
+  <li className="flex items-center gap-2">
+    <span className="text-green-400">✓</span> Learn advanced techniques to enhance AI response accuracy and efficiency  
+  </li>
+  <li className="flex items-center gap-2">
+    <span className="text-green-400">✓</span> Apply prompt engineering skills to automation, business, and content generation  
+  </li>
+</ul>
+
               </motion.p>
             </div>
 

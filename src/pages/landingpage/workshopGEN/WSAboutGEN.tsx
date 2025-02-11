@@ -13,16 +13,15 @@ const WSAboutGEN = () => {
   };
 
   const allTools = [
-    { name: "DeepSeek", img: "/assets/genAITools/deepseek.webp" },
+    { name: "Claude", img: "/assets/genAITools/claude.webp" },
+    { name: "Gemini", img: "/assets/genAITools/gemini.webp" },
+    { name: "GPT-4", img: "/assets/genAITools/gpt4.webp" },
     { name: "LangChain", img: "/assets/genAITools/langchain.png" },
-    { name: "CrewAI", img: "/assets/genAITools/crewai.webp" },
-    { name: "AutoGen", img: "/assets/genAITools/autogen.jpeg" },
-    { name: "RAG", img: "/assets/genAITools/rag.webp" },
-    { name: "AWS", img: "/assets/genAITools/aws.png" },
-    { name: "Google Cloud", img: "/assets/genAITools/google cloud.webp" },
+    { name: "Midjourney", img: "/assets/genAITools/midjourney.webp" },
+    { name: "Pika", img: "/assets/genAITools/pika.webp" },
     { name: "OpenAI API", img: "/assets/genAITools/openai-logomark.svg" },
     { name: "Hugging Face", img: "/assets/genAITools/huggingface.webp" },
-    { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
+    { name: "RAG (Retrieval-Augmented Generation)", img: "/assets/genAITools/rag.webp" },
   ];
 
   return (
@@ -51,46 +50,38 @@ const WSAboutGEN = () => {
                   About this Masterclass
                 </h2>
                 <div className="space-y-6">
-                  <p className="text-gray-300 leading-relaxed">
-                    Join us for an exclusive online workshop,{" "}
-                    <span className="font-semibold text-blue-400">
-                      "How to Build Your Own AI Agent"
-                    </span>
-                    on February 11, 2025, at 7:30 PM. This immersive session
-                    will guide you through building and deploying AI Agents for
-                    real-world applications—without coding.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-[#1A1A1A] p-4 rounded-xl border border-blue-900/30">
-                      <h3 className="font-semibold text-blue-400 mb-2">
-                        What You'll Learn
-                      </h3>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• AI Agent Frameworks & Workflows</li>
-                        <li>• How to Automate Business Processes with AI</li>
-                        <li>• No-Code & Low-Code AI Development</li>
-                        <li>
-                          • Integrating AI Agents with APIs & Third-Party Tools
-                        </li>
-                        <li>
-                          • AI Agents for Content Creation, Research &
-                          Decision-Making
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-[#1A1A1A] p-4 rounded-xl border border-green-900/30">
-                      <h3 className="font-semibold text-green-400 mb-2">
-                        Who Should Attend
-                      </h3>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• Business Professionals</li>
-                        <li>• Entrepreneurs</li>
-                        <li>• Content Creators</li>
-                        <li>• AI Enthusiasts</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+  <p className="text-gray-300 leading-relaxed">
+    Join us for an exclusive online workshop,{" "}
+    <span className="font-semibold text-blue-400">
+      "Micro-Certification in Prompt Engineering"
+    </span>
+    on <span className="font-semibold text-blue-400">February 16, 2025</span> at <span>01:00 PM</span>. This immersive session will equip you with 
+    the skills to craft effective AI prompts for various applications, enhancing AI-driven 
+    automation, content creation, and decision-making.
+  </p>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="bg-[#1A1A1A] p-4 rounded-xl border border-blue-900/30">
+      <h3 className="font-semibold text-blue-400 mb-2">What You'll Learn</h3>
+      <ul className="space-y-2 text-sm text-gray-300">
+        <li>• Fundamentals of Prompt Engineering</li>
+        <li>• Techniques to Optimize AI Responses</li>
+        <li>• Crafting Prompts for Various AI Models</li>
+        <li>• Enhancing Automation with AI-Generated Content</li>
+        <li>• Practical Applications in Business, Marketing, and Productivity</li>
+      </ul>
+    </div>
+    <div className="bg-[#1A1A1A] p-4 rounded-xl border border-green-900/30">
+      <h3 className="font-semibold text-green-400 mb-2">Who Should Attend</h3>
+      <ul className="space-y-2 text-sm text-gray-300">
+        <li>• AI Enthusiasts & Developers</li>
+        <li>• Content Creators & Marketers</li>
+        <li>• Business Professionals & Entrepreneurs</li>
+        <li>• Anyone Looking to Leverage AI for Productivity</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
               </div>
             </motion.div>
 

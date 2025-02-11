@@ -28,14 +28,14 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/rDmS0ScBTCGEEgDzTDibug",
-  meetingId: "rDmS0ScBTCGEEgDzTDibug",
-  time: "Feb 11, 2025 07:30 PM India",
+  link: "https://zoom.us/meeting/register/Bj2qmonsTNuXEOXaQLdZgQ",
+  meetingId: "Bj2qmonsTNuXEOXaQLdZgQ",
+  time: "Feb 16, 2025 01:00 PM India",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
-  meetingId: "EeXRY1GQFmxc9eHG73nnQ",
+  meetingId: "-EeXRY1GQFmxc9eHG73nnQ",
   time: "Feb 16, 2025 04:00 PM India",
 };
 
