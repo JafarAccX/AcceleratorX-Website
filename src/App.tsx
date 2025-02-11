@@ -170,6 +170,8 @@ import GENMarketScopeAd from "./pages/courses/genAIAD/GENMarketScopeAd";
 import GENLearningJourneyAd from "./pages/courses/genAIAD/GENLearningJourneyAd";
 import GENFAQAd from "./pages/courses/genAIAD/GENFAQAd";
 import GENToolsYouWillLearnAd from "./pages/courses/genAIAD/GENToolsYouWillLearnAd";
+import WSHeroDM from "./pages/landingpage/workshopDM/WSHeroDM";
+import WSAboutDM from "./pages/landingpage/workshopDM/WSAboutDM";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -330,6 +332,7 @@ function isDummyRoute(pathname: string): boolean {
     "/fa-register/dm",
     "/fa-register/da",
     "/courses/generative-ai-fb",
+    "/workshop/dm-masterclass"
   ];
   return adRoutes.includes(pathname);
 }
@@ -385,6 +388,15 @@ function WorkshopPageGEN() {
       <GENIntroduction />
       <GENWhoShouldEnroll />
       <GENCTA />
+    </Suspense>
+  );
+}
+
+function WorkshopPageDM() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <WSHeroDM />
+      <WSAboutDM />
     </Suspense>
   );
 }
@@ -992,6 +1004,14 @@ function App() {
                       element={
                         <Suspense fallback={<Loader />}>
                           <WorkshopPageGEN />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/workshop/dm-masterclass"
+                      element={
+                        <Suspense fallback={<Loader />}>
+                          <WorkshopPageDM />
                         </Suspense>
                       }
                     />

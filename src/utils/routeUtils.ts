@@ -4,6 +4,7 @@ const hiddenNavbarRoutes: string[] = [
   "/admin/dashboard",
   "/thank-you",
   "/courses/generative-ai-fb",
+  "/workshop/dm-masterclass",
 ];
 
 /**
