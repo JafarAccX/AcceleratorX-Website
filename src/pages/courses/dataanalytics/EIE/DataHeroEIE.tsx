@@ -100,7 +100,7 @@ export default function DataHeroEIE() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072] to-[#96E072]/70 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
                 <div className="relative bg-[#0A0F1E] px-6 py-3 rounded-full">
                   <span className="text-white font-semibold text-sm sm:text-base">
-                    Next Cohort: 25th Jan
+                    Next Cohort: 7th March
                   </span>
                 </div>
               </div>

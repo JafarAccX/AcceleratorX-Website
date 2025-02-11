@@ -104,7 +104,7 @@ export default function DataHeroFB() {
               }}
             >
               <span className="text-gray-300 font-semibold text-sm sm:text-base">
-                Next Cohort Starts on 25th Jan
+                Next Cohort Starts on 7th March
               </span>
             </motion.div>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
