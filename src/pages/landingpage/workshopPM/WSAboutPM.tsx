@@ -11,32 +11,32 @@ const WSAboutPM = () => {
   };
 
   const targetAudience = [
-    "Aspiring Product Managers looking to transition into PM roles with AI-powered skills",
-    "Professionals seeking a career shift into high-impact product management positions",
-    "Tech Experts & Engineers eager to integrate AI-driven strategic decision-making",
-    "Students & Early-Career Professionals preparing for AI-driven PM roles",
+    "Product Managers seeking to enhance their lifecycle management skills",
+    "Business Analysts and Product Owners looking to master product strategy",
+    "Startup Founders and Entrepreneurs building sustainable products",
+    "Professionals transitioning into Product Management roles",
   ];
 
   const whatWillYouGain = [
     {
       icon: <Star className="w-5 h-5" />,
-      title: "Master AI-driven product management frameworks",
-      description: "Learn cutting-edge frameworks that combine traditional PM methodologies with AI capabilities"
+      title: "Master PLM Fundamentals",
+      description: "Learn essential frameworks and methodologies for effective product lifecycle management"
     },
     {
       icon: <Award className="w-5 h-5" />,
-      title: "Transform product strategy with AI",
-      description: "Discover how AI enhances market research, user insights, and strategic decision-making"
+      title: "Strategic Decision Making",
+      description: "Develop skills to make data-driven decisions at each stage of your product's lifecycle"
     },
     {
       icon: <Target className="w-5 h-5" />,
-      title: "Hands-on AI applications",
-      description: "Get practical experience with real-world AI implementations in product management"
+      title: "Practical Applications",
+      description: "Get hands-on experience with real-world product lifecycle scenarios and solutions"
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
-      title: "Future-proof your career",
-      description: "Develop the in-demand AI skills that will set you apart in the product management field"
+      title: "Growth Strategies",
+      description: "Learn techniques to extend product life and maximize market potential"
     },
   ];
 
@@ -53,29 +53,26 @@ const WSAboutPM = () => {
               </h2>
               <div className="space-y-6">
                 <p className="text-gray-300 leading-relaxed">
-                  Unlock the future of product innovation with our Masterclass in
-                  AI for Product Management – a cutting-edge program designed to
-                  equip you with the AI skills that top product managers are
-                  leveraging in 2025 and beyond.
+                  Master the art of Product Lifecycle Management (PLM) with our comprehensive masterclass – designed to equip you with the essential skills and strategies needed to successfully manage products from conception to retirement.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
                   Join <span className="text-indigo-400 font-medium">AcceleratorX's Masterclass</span> led 
                   by seasoned product manager <span className="text-indigo-400 font-medium">{instructorDetails.name}</span> on{" "}
-                  <span className="text-indigo-400 font-medium">Saturday, 8th February, 07:00 PM onwards</span> to discover:
+                  <span className="text-indigo-400 font-medium">Thursday, 15th February, 07:30 PM IST onwards</span> to discover:
                 </p>
                 <ul className="space-y-4">
                   {[
                     {
-                      title: "Master AI-Driven Product Management Skills",
-                      desc: "Learn how AI is transforming product management by automating workflows, enhancing decision-making, and driving data-driven strategies.",
+                      title: "Comprehensive Lifecycle Strategy",
+                      desc: "Learn to effectively manage each phase of your product's lifecycle - from ideation and planning to launch, growth, maturity, and evolution.",
                     },
                     {
-                      title: "Stay Ahead with AI & Industry Trends",
-                      desc: "Understand the latest AI applications in product management, including predictive analytics, user personalization, and intelligent automation.",
+                      title: "Data-Driven Decision Making",
+                      desc: "Master the art of using metrics and analytics to make informed decisions throughout your product's journey in the market.",
                     },
                     {
-                      title: "Build a Clear AI-Powered Career Path",
-                      desc: "Gain actionable insights to transition into AI-driven product management, from leveraging AI tools to applying real-world case studies and best practices.",
+                      title: "Sustainable Growth Techniques",
+                      desc: "Discover strategies to extend product life, identify new opportunities, and maintain competitive advantage in evolving markets.",
                     },
                   ].map((item, index) => (
                     <li key={index} className="flex gap-4 items-start">
@@ -95,8 +92,7 @@ const WSAboutPM = () => {
                     <div>
                       <p className="font-medium text-white mb-1">Pro Tip</p>
                       <p className="text-gray-300">
-                        Stay ahead of the curve and become the AI-driven product leader companies are
-                        searching for. Limited Spots Available! Secure yours now! 🚀
+                        Transform your product management approach with proven lifecycle strategies. Limited seats available - Register now to secure your spot! 🚀
                       </p>
                     </div>
                   </div>
@@ -182,7 +178,7 @@ const WSAboutPM = () => {
                 All attendees will receive an official certificate from AcceleratorX!
               </p>
               <p className="text-xs bg-white/10 p-3 rounded">
-                Please be careful while entering your details during registration as they will appear on your certificate
+                Please be sure to attend the entire session to qualify for the certificate.
               </p>
             </div>
 
@@ -197,7 +193,7 @@ const WSAboutPM = () => {
                       alt={tool}
                       className="w-12 h-12 object-contain"
                     />
-                    <p className="text-xs text-gray-600 text-center">{tool.replace(/aa$/, "")}</p>
+                    <p className="text-xs text-gray-600 text-center">{tool.replace(/a$/, "")}</p>
                   </div>
                 ))}
               </div>
