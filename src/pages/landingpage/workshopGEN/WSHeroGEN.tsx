@@ -5,6 +5,19 @@ import { motion } from "framer-motion";
 import { FiClock, FiCalendar, FiUsers, FiAward } from "react-icons/fi";
 
 const WSHeroGEN = () => {
+
+  const scrollToForm = () => {
+    const form = document.getElementById('workshop-registration-form');
+    if (form) {
+      form.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#0A0F1F] to-black">
       {/* Animated Background Elements */}
@@ -41,15 +54,37 @@ const WSHeroGEN = () => {
         </div>
       </motion.div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-0 sm:px-4">
         <div className="relative flex flex-col lg:flex-row items-start gap-12 pt-32 lg:pt-36">
           {/* Content Section */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-[55%] space-y-8"
+            className="w-full lg:w-[57%] space-y-8 px-4 sm:px-0"
           >
+            {/* Speaker Image - Mobile Only */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="block lg:hidden w-full max-w-[370px] mx-auto mb-8 px-0"
+            >
+              <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-blue-500/10 to-green-500/10 border border-white/10">
+                <img
+                  src="/assets/workshopCover/genAI.png"
+                  alt="Workshop Speaker"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <button
+                onClick={scrollToForm}
+                className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+              >
+                Register Now
+              </button>
+            </motion.div>
+
             {/* Pre-title */}
             <motion.div
               initial={{ y: 20, opacity: 0 }}
@@ -188,10 +223,11 @@ const WSHeroGEN = () => {
                       Limited seats available for the next session
                     </p>
                   </div>
-
-                  <WorkshopProvider>
-                    <WSForm />
-                  </WorkshopProvider>
+                  <div id="workshop-registration-form">
+                    <WorkshopProvider>
+                      <WSForm />
+                    </WorkshopProvider>
+                  </div>
                 </div>
               </div>
             </div>

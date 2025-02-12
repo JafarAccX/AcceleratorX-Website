@@ -26,6 +26,18 @@ const WSAbout = () => {
     "AI Learners – Master cutting-edge AI applications across industries—all in just 2 hours!",
   ];
 
+  const scrollToForm = () => {
+    const form = document.getElementById('workshop-registration-form');
+    if (form) {
+      form.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
+
   return (
     <div className="relative bg-gradient-to-b from-[#0A0F1C] via-[#0A0F1C]/95 to-[#0A0F1C] py-16 lg:py-24">
       <div className="absolute inset-0">
@@ -83,6 +95,33 @@ const WSAbout = () => {
                   </p>
                 </div>
               </div>
+              <div className="flex justify-center mt-4">
+              <div className="relative inline-flex group/btn">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                <button 
+                  onClick={scrollToForm}
+                  className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                    Register Now
+                  </span>
+                  <svg
+                    className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
             </div>
 
             {/* Features Grid Section */}
@@ -233,6 +272,33 @@ const WSAbout = () => {
                 </div>
               ))}
             </div>
+            <div className="flex justify-center mt-4">
+              <div className="relative inline-flex group/btn">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                <button 
+                  onClick={scrollToForm}
+                  className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                    Register Now
+                  </span>
+                  <svg
+                    className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Instructor Section */}
@@ -286,6 +352,33 @@ const WSAbout = () => {
                 </div>
               </div>
             </div>
+            <div className="flex justify-center mt-4">
+              <div className="relative inline-flex group/btn">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+                <button 
+                  onClick={scrollToForm}
+                  className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                    Register Now
+                  </span>
+                  <svg
+                    className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Target Audience Section */}
@@ -307,6 +400,7 @@ const WSAbout = () => {
                 </div>
               ))}
             </div>
+            
           </div>
 
           {/* Final CTA Button */}

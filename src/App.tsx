@@ -172,6 +172,8 @@ import GENFAQAd from "./pages/courses/genAIAD/GENFAQAd";
 import GENToolsYouWillLearnAd from "./pages/courses/genAIAD/GENToolsYouWillLearnAd";
 import WSHeroDM from "./pages/landingpage/workshopDM/WSHeroDM";
 import WSAboutDM from "./pages/landingpage/workshopDM/WSAboutDM";
+import WSGENWhoShouldEnroll from "./pages/landingpage/workshopGEN/WSGENWhoShouldEnroll";
+import WSGENIntroduction from "./pages/landingpage/workshopGEN/WSGENIntroduction";
 
 // FB Components
 const ProgramHeroFB = lazy(
@@ -385,8 +387,8 @@ function WorkshopPageGEN() {
     <Suspense fallback={<Loader />}>
       <WSHeroGEN />
       <WSAboutGEN />
-      <GENIntroduction />
-      <GENWhoShouldEnroll />
+      <WSGENIntroduction />
+      <WSGENWhoShouldEnroll />
       <GENCTA />
     </Suspense>
   );

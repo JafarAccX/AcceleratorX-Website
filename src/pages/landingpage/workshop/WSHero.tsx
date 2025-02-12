@@ -3,6 +3,17 @@ import WSForm from "./WSForm";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 
 const WSHero = () => {
+  const scrollToForm = () => {
+    const form = document.getElementById('workshop-registration-form');
+    if (form) {
+      form.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#0A0F1C]">
       {/* Enhanced Background Effects */}
@@ -36,7 +47,7 @@ const WSHero = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 via-purple-500/30 to-green-500/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
               <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-sm group-hover:border-white/20 transition-all duration-300">
                 <img
-                  src="/assets/workshopCover/daDesktop.webp"
+                  src="/assets/workshopCover/daMobile.png"
                   alt="DA Masterclass Mobile Version"
                   className="w-full object-contain p-4 transform group-hover:scale-105 transition-transform duration-300"
                 />
@@ -47,21 +58,7 @@ const WSHero = () => {
               <div className="relative inline-flex group/btn">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
                 <button 
-                  onClick={() => {
-                    // console.log('WSHero: Register button clicked');
-                    const form = document.getElementById('workshop-registration-form');
-                    // console.log('WSHero: Form element found:', form);
-                    if (form) {
-                      // console.log('WSHero: Attempting to scroll to form');
-                      form.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'center'
-                      });
-                      // console.log('WSHero: Scroll command executed');
-                    } else {
-                      console.error('WSHero: Form element not found with ID "workshop-registration-form"');
-                    }
-                  }}
+                  onClick={scrollToForm}
                   className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
                 >
                   <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
@@ -128,7 +125,7 @@ const WSHero = () => {
             </div>
 
             {/* Form Section - Mobile */}
-            <div className="relative z-10 lg:hidden">
+            <div className="relative z-10 lg:hidden" id="workshop-registration-form">
               <div className="bg-black/60 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 <WorkshopProvider>
                   <WSForm />

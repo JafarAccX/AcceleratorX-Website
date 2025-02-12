@@ -1,8 +1,20 @@
 import React, { useRef } from "react";
 import { FaCertificate } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const WSAboutGEN = () => {
+  const scrollToForm = () => {
+    const form = document.getElementById('workshop-registration-form');
+    if (form) {
+      form.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
   const toolsRef = useRef(null);
   const isInView = useInView(toolsRef, { once: false, margin: "-100px" });
 
@@ -79,6 +91,12 @@ const WSAboutGEN = () => {
         <li>• Anyone Looking to Leverage AI for Productivity</li>
       </ul>
     </div>
+    <button
+                onClick={scrollToForm}
+                className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+              >
+                Register Now
+              </button>
   </div>
 </div>
 
@@ -226,6 +244,14 @@ const WSAboutGEN = () => {
                 <p className="text-sm text-gray-300">
                   A2M Technologies PVT. LTD.
                 </p>
+              </div>
+              <div>
+              <button
+                onClick={scrollToForm}
+                className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+              >
+                Register Now
+              </button>
               </div>
             </motion.div>
           </motion.div>
