@@ -111,16 +111,13 @@ const WSHeroPM = () => {
             </div>
 
             {/* Company Section */}
-            <div className="inline-flex items-center gap-6 px-6 py-4 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-2xl backdrop-blur-sm border border-indigo-500/10">
-              <img
-                src="/assets/companylogo.png"
-                alt="AcceleratorX"
-                className="h-12"
-              />
-              <div className="h-12 w-px bg-indigo-500/20"></div>
-              <div>
-                <p className="text-gray-400 text-sm">Powered by</p>
-                <p className="text-white font-medium">A2M Technologies PVT. LTD.</p>
+            <div className="flex justify-center w-full">
+              <div className="inline-flex items-center gap-6 px-6 py-4 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-2xl backdrop-blur-sm border border-indigo-500/10">
+                <img
+                  src="/assets/companylogo.png"
+                  alt="AcceleratorX"
+                  className="h-12"
+                />
               </div>
             </div>
 
