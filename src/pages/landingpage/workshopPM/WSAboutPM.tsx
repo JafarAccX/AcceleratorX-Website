@@ -1,10 +1,23 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import { Star, Award, Target, Sparkles } from "lucide-react";
+import { Star, Award, Target, Sparkles, ArrowRight } from "lucide-react";
 import { FaUser, FaCertificate } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const WSAboutPM = () => {
+
+  const scrollToForm = () => {
+    const form = document.getElementById('workshop-registration-form');
+    if (form) {
+      form.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
+
   const instructorDetails = {
     name: "Subhasis Chandra",
     title: "Senior PM, Publicis Sapient",
@@ -97,6 +110,16 @@ const WSAboutPM = () => {
                     </div>
                   </div>
                 </div>
+                <div className="block lg:hidden pt-4">
+                <button
+                  onClick={scrollToForm}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+                >
+                  Reserve Your Spot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </button>
+              </div>
               </div>
             </div>
           </section>
@@ -124,6 +147,16 @@ const WSAboutPM = () => {
                 </div>
               ))}
             </div>
+            <div className="block lg:hidden pt-4">
+                <button
+                  onClick={scrollToForm}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+                >
+                  Reserve Your Spot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </button>
+              </div>
           </section>
 
           {/* Instructor Section */}
@@ -164,6 +197,16 @@ const WSAboutPM = () => {
                   enhance patient care.
                 </p>
               </div>
+              <div className="block lg:hidden pt-4">
+                <button
+                  onClick={scrollToForm}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+                >
+                  Reserve Your Spot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </button>
+              </div>
             </div>
           </section>
 
@@ -181,6 +224,16 @@ const WSAboutPM = () => {
                 Please be sure to attend the entire session to qualify for the certificate.
               </p>
             </div>
+            <div className="block lg:hidden pt-4">
+                <button
+                  onClick={scrollToForm}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+                >
+                  Reserve Your Spot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </button>
+              </div>
 
             {/* Tools Section */}
             <div className="bg-white rounded-lg shadow-sm p-5">
@@ -220,6 +273,17 @@ const WSAboutPM = () => {
                 </div>
               ))}
             </div>
+
+            <div className="block lg:hidden pt-4">
+                <button
+                  onClick={scrollToForm}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+                >
+                  Reserve Your Spot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </button>
+              </div>
           </section>
 
           {/* Company Section */}
@@ -260,6 +324,16 @@ const WSAboutPM = () => {
                 you.
               </p>
             </div>
+            <div className="block lg:hidden pt-4">
+                <button
+                  onClick={scrollToForm}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+                >
+                  Reserve Your Spot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </button>
+              </div>
           </section>
         </div>
       </div>

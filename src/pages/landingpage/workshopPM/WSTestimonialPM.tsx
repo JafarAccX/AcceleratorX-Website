@@ -1,7 +1,21 @@
 import React from "react";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ArrowRight } from "lucide-react";
 
 const WSTestimonialPM = () => {
+
+  const scrollToForm = () => {
+    const form = document.getElementById('workshop-registration-form');
+    if (form) {
+      form.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
+
+
   const testimonialImages = [
     "/assets/testimonialsLogo/feedback1.png",
     "/assets/testimonialsLogo/feedback2.png",
@@ -70,6 +84,16 @@ const WSTestimonialPM = () => {
             </div>
           ))}
         </div>
+        <div className="block lg:hidden pt-4">
+                <button
+                  onClick={scrollToForm}
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+                >
+                  Reserve Your Spot
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </button>
+              </div>
       </div>
 
       {/* Footer */}
