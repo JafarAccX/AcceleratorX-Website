@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Sparkles, Send, Cpu, Clock, Users, Award, CalendarDays } from "lucide-react";
+import {
+  Sparkles,
+  Send,
+  Cpu,
+  Clock,
+  Users,
+  Award,
+  CalendarDays,
+} from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useCourseContext } from "../context/courseContext";
@@ -17,7 +25,7 @@ function GENAIFlyers() {
     education: "",
     designation: "",
     workExperience: "",
-    course: selectedCourse || "GenAI-Flyers" 
+    course: selectedCourse || "GenAI-Flyers",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +42,6 @@ function GENAIFlyers() {
     }
 
     try {
-
       const { error } = await supabase.from("enrollments").insert([
         {
           full_name: formData.name,
@@ -56,7 +63,7 @@ function GENAIFlyers() {
         console.error("Error submitting form:", error);
         return;
       }
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -65,7 +72,7 @@ function GENAIFlyers() {
         education: "",
         designation: "",
         workExperience: "",
-        course: selectedCourse || "GenAI-Flyers"
+        course: selectedCourse || "GenAI-Flyers",
       });
 
       toast.success("Thank you for enrolling! We'll contact you soon.");
@@ -134,33 +141,55 @@ function GENAIFlyers() {
               {/* Added Benefits Section */}
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="bg-cyan-900/20 p-3 rounded-lg border border-cyan-800/30">
-                  <h3 className="text-cyan-300 font-semibold mb-1">Industry-Led Curriculum</h3>
-                  <p className="text-xs text-gray-400">Designed by AI experts from top tech companies</p>
+                  <h3 className="text-cyan-300 font-semibold mb-1">
+                    Industry-Led Curriculum
+                  </h3>
+                  <p className="text-xs text-gray-400">
+                    Designed by AI experts from top tech companies
+                  </p>
                 </div>
                 <div className="bg-cyan-900/20 p-3 rounded-lg border border-cyan-800/30">
-                  <h3 className="text-cyan-300 font-semibold mb-1">Hands-on Projects</h3>
-                  <p className="text-xs text-gray-400">Build real-world AI applications</p>
+                  <h3 className="text-cyan-300 font-semibold mb-1">
+                    Hands-on Projects
+                  </h3>
+                  <p className="text-xs text-gray-400">
+                    Build real-world AI applications
+                  </p>
                 </div>
                 <div className="bg-cyan-900/20 p-3 rounded-lg border border-cyan-800/30">
-                  <h3 className="text-cyan-300 font-semibold mb-1">1:1 Mentorship</h3>
-                  <p className="text-xs text-gray-400">Personal guidance from industry experts</p>
+                  <h3 className="text-cyan-300 font-semibold mb-1">
+                    1:1 Mentorship
+                  </h3>
+                  <p className="text-xs text-gray-400">
+                    Personal guidance from industry experts
+                  </p>
                 </div>
                 <div className="bg-cyan-900/20 p-3 rounded-lg border border-cyan-800/30">
-                  <h3 className="text-cyan-300 font-semibold mb-1">Job-Ready Skills</h3>
-                  <p className="text-xs text-gray-400">Learn the most in-demand AI tools</p>
+                  <h3 className="text-cyan-300 font-semibold mb-1">
+                    Job-Ready Skills
+                  </h3>
+                  <p className="text-xs text-gray-400">
+                    Learn the most in-demand AI tools
+                  </p>
                 </div>
               </div>
 
               {/* Tools & Technologies */}
               <div className="mt-4">
-                <h3 className="text-sm font-semibold text-white mb-2">Master These Tools</h3>
+                <h3 className="text-sm font-semibold text-white mb-2">
+                  Master These Tools
+                </h3>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="bg-cyan-900/20 p-2.5 rounded-lg border border-cyan-800/30">
-                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">LLM & Foundation</h4>
+                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">
+                      LLM & Foundation
+                    </h4>
                     <div className="space-y-1">
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">GPT-4 & Claude 2</span>
+                        <span className="text-xs text-gray-400">
+                          GPT-4 & Claude 2
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
@@ -168,39 +197,55 @@ function GENAIFlyers() {
                       </div>
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">Hugging Face</span>
+                        <span className="text-xs text-gray-400">
+                          Hugging Face
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-cyan-900/20 p-2.5 rounded-lg border border-cyan-800/30">
-                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">Image & Vision</h4>
+                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">
+                      Image & Vision
+                    </h4>
                     <div className="space-y-1">
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">DALL-E & Midjourney</span>
+                        <span className="text-xs text-gray-400">
+                          DALL-E & Midjourney
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">Stable Diffusion</span>
+                        <span className="text-xs text-gray-400">
+                          Stable Diffusion
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">Vision APIs</span>
+                        <span className="text-xs text-gray-400">
+                          Vision APIs
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-cyan-900/20 p-2.5 rounded-lg border border-cyan-800/30">
-                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">Development</h4>
+                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">
+                      Development
+                    </h4>
                     <div className="space-y-1">
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">Python & FastAPI</span>
+                        <span className="text-xs text-gray-400">
+                          Python & FastAPI
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">Vector DBs</span>
+                        <span className="text-xs text-gray-400">
+                          Vector DBs
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
@@ -210,11 +255,15 @@ function GENAIFlyers() {
                   </div>
 
                   <div className="bg-cyan-900/20 p-2.5 rounded-lg border border-cyan-800/30">
-                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">Deployment</h4>
+                    <h4 className="text-cyan-300 text-xs font-medium mb-1.5">
+                      Deployment
+                    </h4>
                     <div className="space-y-1">
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
-                        <span className="text-xs text-gray-400">AWS & Azure AI</span>
+                        <span className="text-xs text-gray-400">
+                          AWS & Azure AI
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1.5">
                         <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
@@ -234,13 +283,23 @@ function GENAIFlyers() {
           {/* Right Column - Form */}
           <div className="lg:col-span-5 bg-[#012a36]/50 backdrop-blur-sm p-6 rounded-xl retro-shadow border border-cyan-900/50 sticky top-4">
             <div className="mb-4">
-              <h2 className="text-xl font-semibold text-white mb-2">Start Your AI Journey Today</h2>
-              <p className="text-gray-400 text-sm">Fill out the form below to secure your spot</p>
+              <h2 className="text-xl font-semibold text-white mb-2">
+                Start Your AI Journey Today
+              </h2>
+              <p className="text-gray-400 text-sm">
+                Fill out the form below to secure your spot
+              </p>
             </div>
-            
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <div className="md:col-span-2">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Full Name
                 </label>
                 <input
@@ -256,7 +315,10 @@ function GENAIFlyers() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Email Address
                 </label>
                 <input
@@ -272,7 +334,10 @@ function GENAIFlyers() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Phone Number
                 </label>
                 <input
@@ -289,7 +354,10 @@ function GENAIFlyers() {
               </div>
 
               <div>
-                <label htmlFor="education" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="education"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Education Level
                 </label>
                 <input
@@ -305,7 +373,10 @@ function GENAIFlyers() {
               </div>
 
               <div>
-                <label htmlFor="designation" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="designation"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Current Role
                 </label>
                 <input
@@ -321,7 +392,10 @@ function GENAIFlyers() {
               </div>
 
               <div className="md:col-span-2">
-                <label htmlFor="workExperience" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="workExperience"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Work Experience (in years)
                 </label>
                 <input
@@ -340,61 +414,9 @@ function GENAIFlyers() {
                 type="submit"
                 className="w-full bg-cyan-500 text-white rounded-lg py-2.5 font-medium hover:bg-cyan-600 transition-colors"
               >
-                Secure Your Spot Now <Send className="w-4 h-4 inline-block ml-1" />
+                Secure Your Spot Now{" "}
+                <Send className="w-4 h-4 inline-block ml-1" />
               </button>
-
-              <div className="flex items-center justify-center gap-6 mt-3 text-xs text-gray-400">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-cyan-400/20 flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
-                  </div>
-                  100% Secure
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-cyan-400/20 flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
-                  </div>
-                  Money Back Guarantee
-                </div>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                <div className="bg-cyan-900/20 p-2 rounded-lg border border-cyan-800/30">
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-cyan-400" />
-                    <div>
-                      <p className="text-xs font-medium text-cyan-300">Next Batch Size</p>
-                      <p className="text-xs text-gray-400">Limited to 30 seats</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-cyan-900/20 p-2 rounded-lg border border-cyan-800/30">
-                  <div className="flex items-center gap-2">
-                    <CalendarDays className="w-4 h-4 text-cyan-400" />
-                    <div>
-                      <p className="text-xs font-medium text-cyan-300">Batch Starts</p>
-                      <p className="text-xs text-gray-400">Feb 25, 2025</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Early Access Banner */}
-              <div className="mt-2 bg-cyan-900/20 p-2 rounded-lg border border-cyan-800/30">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-cyan-400" />
-                    <div>
-                      <p className="text-xs font-medium text-cyan-300">Early Access Discount</p>
-                      <p className="text-xs text-gray-400">Save 20% on enrollment</p>
-                    </div>
-                  </div>
-                  <div className="text-xs text-cyan-400 font-medium">
-                    Limited Time
-                  </div>
-                </div>
-              </div>
             </form>
           </div>
         </div>

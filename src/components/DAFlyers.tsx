@@ -1,5 +1,20 @@
 import React, { useState } from "react";
-import { Sparkles, Send, Briefcase, Trophy, Users, Calendar, Clock, Star, Building, DollarSign, GraduationCap, Award, Target, Building2 } from "lucide-react";
+import {
+  Sparkles,
+  Send,
+  Briefcase,
+  Trophy,
+  Users,
+  Calendar,
+  Clock,
+  Star,
+  Building,
+  DollarSign,
+  GraduationCap,
+  Award,
+  Target,
+  Building2,
+} from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useCourseContext } from "../context/courseContext";
@@ -17,7 +32,7 @@ function DAFlyers() {
     education: "",
     designation: "",
     workExperience: "",
-    course: selectedCourse || "DA_Flyers"
+    course: selectedCourse || "DA_Flyers",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,7 +78,7 @@ function DAFlyers() {
         education: "",
         designation: "",
         workExperience: "",
-        course: selectedCourse || "DA_Flyers"
+        course: selectedCourse || "DA_Flyers",
       });
 
       toast.success("Thank you for enrolling! We'll contact you soon.");
@@ -117,60 +132,88 @@ function DAFlyers() {
             <div className="space-y-4">
               <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
                 Master Data Analytics with{" "}
-                <span className="text-yellow-300">EIE European Business School Malta</span>
+                <span className="text-yellow-300">
+                  EIE European Business School Malta
+                </span>
               </h1>
 
               <p className="text-lg text-purple-100 max-w-xl">
-                Unlock your potential with a world-class program designed for ambitious professionals. 
-                Backed by the renowned EIE European Business School Malta.
+                Unlock your potential with a world-class program designed for
+                ambitious professionals. Backed by the renowned EIE European
+                Business School Malta.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-4">
                 <div className="bg-white/5 p-3 sm:p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm hover:border-yellow-500/30 transition-all">
                   <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 mb-1 sm:mb-2" />
-                  <h3 className="text-white text-sm sm:text-base font-semibold">Avg. Salary</h3>
+                  <h3 className="text-white text-sm sm:text-base font-semibold">
+                    Avg. Salary
+                  </h3>
                   <p className="text-purple-200 text-sm sm:text-base">12 LPA</p>
                 </div>
                 <div className="bg-white/5 p-3 sm:p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm hover:border-yellow-500/30 transition-all">
                   <Users className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 mb-1 sm:mb-2" />
-                  <h3 className="text-white text-sm sm:text-base font-semibold">Job Openings</h3>
-                  <p className="text-purple-200 text-sm sm:text-base">29,120+</p>
+                  <h3 className="text-white text-sm sm:text-base font-semibold">
+                    Job Openings
+                  </h3>
+                  <p className="text-purple-200 text-sm sm:text-base">
+                    29,120+
+                  </p>
                 </div>
                 <div className="bg-white/5 p-3 sm:p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm hover:border-yellow-500/30 transition-all">
                   <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 mb-1 sm:mb-2" />
-                  <h3 className="text-white text-sm sm:text-base font-semibold">Duration</h3>
-                  <p className="text-purple-200 text-sm sm:text-base">16 Weeks</p>
-                </div>
-                <div className="bg-white/5 p-3 sm:p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm hover:border-yellow-500/30 transition-all">
-                  <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 mb-1 sm:mb-2" />
-                  <h3 className="text-white text-sm sm:text-base font-semibold">Next Cohort</h3>
-                  <p className="text-purple-200 text-sm sm:text-base">25th Jan</p>
+                  <h3 className="text-white text-sm sm:text-base font-semibold">
+                    Duration
+                  </h3>
+                  <p className="text-purple-200 text-sm sm:text-base">
+                    22 Weeks
+                  </p>
                 </div>
               </div>
 
               {/* Tools & Skills */}
               <div className="mt-4 sm:mt-6">
-                <h3 className="text-base sm:text-lg font-semibold text-white mb-2">Tools You'll Master</h3>
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
+                  Tools You'll Master
+                </h3>
                 <div className="flex flex-wrap gap-1.5">
-                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">Excel</div>
-                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">SQL</div>
-                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">Tableau</div>
-                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">Power BI</div>
-                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">Python</div>
-                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">Google Analytics</div>
+                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">
+                    Excel
+                  </div>
+                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">
+                    SQL
+                  </div>
+                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">
+                    Tableau
+                  </div>
+                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">
+                    Power BI
+                  </div>
+                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">
+                    Python
+                  </div>
+                  <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">
+                    Google Analytics
+                  </div>
                 </div>
 
                 {/* Program Benefits */}
                 <div className="mt-4 space-y-2">
                   <div>
-                    <h3 className="text-xs font-semibold text-yellow-400 mb-1.5">Program Benefits</h3>
+                    <h3 className="text-xs font-semibold text-yellow-400 mb-1.5">
+                      Program Benefits
+                    </h3>
                     <div className="grid grid-cols-2 gap-1.5">
                       <div className="bg-purple-900/30 p-2 rounded border border-purple-800/30">
                         <div className="flex items-center gap-1.5">
                           <Award className="w-3.5 h-3.5 text-yellow-400" />
                           <div>
-                            <p className="text-xs font-medium text-purple-300">EIE Malta Certificate</p>
-                            <p className="text-[10px] text-gray-400">Industry-recognized</p>
+                            <p className="text-xs font-medium text-purple-300">
+                              EIE Malta Certificate
+                            </p>
+                            <p className="text-[10px] text-gray-400">
+                              Industry-recognized
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -178,8 +221,12 @@ function DAFlyers() {
                         <div className="flex items-center gap-1.5">
                           <Users className="w-3.5 h-3.5 text-yellow-400" />
                           <div>
-                            <p className="text-xs font-medium text-purple-300">1:1 Mentorship</p>
-                            <p className="text-[10px] text-gray-400">Expert guidance</p>
+                            <p className="text-xs font-medium text-purple-300">
+                              1:1 Mentorship
+                            </p>
+                            <p className="text-[10px] text-gray-400">
+                              Expert guidance
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -187,8 +234,12 @@ function DAFlyers() {
                         <div className="flex items-center gap-1.5">
                           <Target className="w-3.5 h-3.5 text-yellow-400" />
                           <div>
-                            <p className="text-xs font-medium text-purple-300">Real Projects</p>
-                            <p className="text-[10px] text-gray-400">Industry case studies</p>
+                            <p className="text-xs font-medium text-purple-300">
+                              Real Projects
+                            </p>
+                            <p className="text-[10px] text-gray-400">
+                              Industry case studies
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -196,8 +247,12 @@ function DAFlyers() {
                         <div className="flex items-center gap-1.5">
                           <Briefcase className="w-3.5 h-3.5 text-yellow-400" />
                           <div>
-                            <p className="text-xs font-medium text-purple-300">Job Support</p>
-                            <p className="text-[10px] text-gray-400">Career assistance</p>
+                            <p className="text-xs font-medium text-purple-300">
+                              Job Support
+                            </p>
+                            <p className="text-[10px] text-gray-400">
+                              Career assistance
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -211,15 +266,23 @@ function DAFlyers() {
           {/* Right Column - Form */}
           <div className="lg:col-span-5 bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-purple-500/20 sticky top-4">
             <div className="mb-6">
-              <h2 className="text-xl font-semibold text-white mb-2">Begin Your Data Analytics Journey</h2>
+              <h2 className="text-xl font-semibold text-white mb-2">
+                Begin Your Data Analytics Journey
+              </h2>
               <p className="text-purple-200 text-sm">
                 Limited seats available for next cohort
               </p>
             </div>
-            
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <div className="md:col-span-2">
-                <label htmlFor="name" className="block text-sm font-medium text-purple-200 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-purple-200 mb-2"
+                >
                   Full Name
                 </label>
                 <input
@@ -235,7 +298,10 @@ function DAFlyers() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-purple-200 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-purple-200 mb-2"
+                >
                   Email Address
                 </label>
                 <input
@@ -251,7 +317,10 @@ function DAFlyers() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-purple-200 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-purple-200 mb-2"
+                >
                   Phone Number
                 </label>
                 <input
@@ -268,7 +337,10 @@ function DAFlyers() {
               </div>
 
               <div>
-                <label htmlFor="education" className="block text-sm font-medium text-purple-200 mb-2">
+                <label
+                  htmlFor="education"
+                  className="block text-sm font-medium text-purple-200 mb-2"
+                >
                   Education Level
                 </label>
                 <input
@@ -284,7 +356,10 @@ function DAFlyers() {
               </div>
 
               <div>
-                <label htmlFor="designation" className="block text-sm font-medium text-purple-200 mb-2">
+                <label
+                  htmlFor="designation"
+                  className="block text-sm font-medium text-purple-200 mb-2"
+                >
                   Current Role
                 </label>
                 <input
@@ -300,7 +375,10 @@ function DAFlyers() {
               </div>
 
               <div className="md:col-span-2">
-                <label htmlFor="workExperience" className="block text-sm font-medium text-purple-200 mb-2">
+                <label
+                  htmlFor="workExperience"
+                  className="block text-sm font-medium text-purple-200 mb-2"
+                >
                   Work Experience (in years)
                 </label>
                 <input
@@ -326,7 +404,8 @@ function DAFlyers() {
               {/* Contact Information */}
               <div className="md:col-span-2 mt-4 space-y-3">
                 <div className="text-center text-sm text-purple-200">
-                  For enquiries call: <span className="text-yellow-300">9916859555</span>
+                  For enquiries call:{" "}
+                  <span className="text-yellow-300">9916859555</span>
                 </div>
               </div>
             </form>

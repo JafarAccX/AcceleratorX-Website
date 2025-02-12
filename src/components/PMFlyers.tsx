@@ -1,5 +1,19 @@
 import React, { useState } from "react";
-import { Sparkles, Send, Briefcase, Trophy, Users, Calendar, Clock, Star, Award, Code, Target, CalendarDays, Users2 } from "lucide-react";
+import {
+  Sparkles,
+  Send,
+  Briefcase,
+  Trophy,
+  Users,
+  Calendar,
+  Clock,
+  Star,
+  Award,
+  Code,
+  Target,
+  CalendarDays,
+  Users2,
+} from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useCourseContext } from "../context/courseContext";
@@ -17,7 +31,7 @@ function PMFlyers() {
     education: "",
     designation: "",
     workExperience: "",
-    course: selectedCourse || "PM_Flyers"
+    course: selectedCourse || "PM_Flyers",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,7 +77,7 @@ function PMFlyers() {
         education: "",
         designation: "",
         workExperience: "",
-        course: selectedCourse || "PM_Flyers"
+        course: selectedCourse || "PM_Flyers",
       });
 
       toast.success("Thank you for enrolling! We'll contact you soon.");
@@ -121,16 +135,12 @@ function PMFlyers() {
               </h1>
 
               <p className="text-lg text-gray-300 max-w-xl">
-                Get Certified and Master the fundamentals of product management with the most hands-on 
-                product management program. Build Your Dream Product (BYDP) as part of the program.
+                Get Certified and Master the fundamentals of product management
+                with the most hands-on product management program. Build Your
+                Dream Product (BYDP) as part of the program.
               </p>
 
               <div className="grid grid-cols-3 gap-4 mt-8">
-                <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">
-                  <Calendar className="w-6 h-6 text-purple-400 mb-2" />
-                  <h3 className="text-white font-semibold">Start Date</h3>
-                  <p className="text-purple-200">Jan 25, 2025</p>
-                </div>
                 <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">
                   <Clock className="w-6 h-6 text-purple-400 mb-2" />
                   <h3 className="text-white font-semibold">Duration</h3>
@@ -146,20 +156,36 @@ function PMFlyers() {
               {/* Key Highlights */}
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">
-                  <h3 className="text-purple-300 font-semibold mb-2">EIE Malta Certificate</h3>
-                  <p className="text-sm text-gray-400">Globally recognized certification</p>
+                  <h3 className="text-purple-300 font-semibold mb-2">
+                    EIE Malta Certificate
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    Globally recognized certification
+                  </p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">
-                  <h3 className="text-purple-300 font-semibold mb-2">Build Your Dream Product</h3>
-                  <p className="text-sm text-gray-400">Hands-on product development</p>
+                  <h3 className="text-purple-300 font-semibold mb-2">
+                    Build Your Dream Product
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    Hands-on product development
+                  </p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">
-                  <h3 className="text-purple-300 font-semibold mb-2">1:1 Mentorship</h3>
-                  <p className="text-sm text-gray-400">Personal guidance from experts</p>
+                  <h3 className="text-purple-300 font-semibold mb-2">
+                    1:1 Mentorship
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    Personal guidance from experts
+                  </p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">
-                  <h3 className="text-purple-300 font-semibold mb-2">Job Priority Access</h3>
-                  <p className="text-sm text-gray-400">Exclusive career opportunities</p>
+                  <h3 className="text-purple-300 font-semibold mb-2">
+                    Job Priority Access
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    Exclusive career opportunities
+                  </p>
                 </div>
               </div>
             </div>
@@ -168,15 +194,21 @@ function PMFlyers() {
           {/* Right Column - Form */}
           <div className="lg:col-span-5 bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20 sticky top-4">
             <div className="mb-4">
-              <h2 className="text-xl font-semibold text-white mb-2">Begin Your PM Journey</h2>
-              <p className="text-gray-400 text-sm">
-                Limited seats available 
-              </p>
+              <h2 className="text-xl font-semibold text-white mb-2">
+                Begin Your PM Journey
+              </h2>
+              <p className="text-gray-400 text-sm">Limited seats available</p>
             </div>
-            
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <div className="md:col-span-2">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Full Name
                 </label>
                 <input
@@ -192,7 +224,10 @@ function PMFlyers() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Email Address
                 </label>
                 <input
@@ -208,7 +243,10 @@ function PMFlyers() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Phone Number
                 </label>
                 <input
@@ -225,7 +263,10 @@ function PMFlyers() {
               </div>
 
               <div>
-                <label htmlFor="education" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="education"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Education Level
                 </label>
                 <input
@@ -241,7 +282,10 @@ function PMFlyers() {
               </div>
 
               <div>
-                <label htmlFor="designation" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="designation"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Current Role
                 </label>
                 <input
@@ -257,7 +301,10 @@ function PMFlyers() {
               </div>
 
               <div className="md:col-span-2">
-                <label htmlFor="workExperience" className="block text-sm font-medium text-gray-300 mb-1">
+                <label
+                  htmlFor="workExperience"
+                  className="block text-sm font-medium text-gray-300 mb-1"
+                >
                   Work Experience (in years)
                 </label>
                 <input
@@ -283,7 +330,8 @@ function PMFlyers() {
               {/* Contact and Trust Indicators */}
               <div className="md:col-span-2 mt-4 space-y-3">
                 <div className="text-center text-sm text-blue-200">
-                  For enquiries call: <span className="text-orange-300">9916859555</span>
+                  For enquiries call:{" "}
+                  <span className="text-orange-300">9916859555</span>
                 </div>
               </div>
             </form>
@@ -291,23 +339,33 @@ function PMFlyers() {
             {/* Key Features Section */}
             <div className="mt-4 space-y-3">
               <div className="border-t border-blue-500/20 pt-3">
-                <h3 className="text-xs font-medium text-orange-300 mb-2">Program Benefits</h3>
+                <h3 className="text-xs font-medium text-orange-300 mb-2">
+                  Program Benefits
+                </h3>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="flex items-center space-x-2">
                     <Award className="w-3.5 h-3.5 text-orange-400" />
-                    <p className="text-blue-200 text-xs">EIE Malta Certificate</p>
+                    <p className="text-blue-200 text-xs">
+                      EIE Malta Certificate
+                    </p>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Code className="w-3.5 h-3.5 text-orange-400" />
-                    <p className="text-blue-200 text-xs">Build Your Dream Product</p>
+                    <p className="text-blue-200 text-xs">
+                      Build Your Dream Product
+                    </p>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Briefcase className="w-3.5 h-3.5 text-orange-400" />
-                    <p className="text-blue-200 text-xs">AI PM Specialization</p>
+                    <p className="text-blue-200 text-xs">
+                      AI PM Specialization
+                    </p>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Target className="w-3.5 h-3.5 text-orange-400" />
-                    <p className="text-blue-200 text-xs">Growth PM Specialization</p>
+                    <p className="text-blue-200 text-xs">
+                      Growth PM Specialization
+                    </p>
                   </div>
                 </div>
               </div>
@@ -315,12 +373,10 @@ function PMFlyers() {
               <div className="border-t border-blue-500/20 pt-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <CalendarDays className="w-3.5 h-3.5 text-orange-400" />
-                    <p className="text-blue-200 text-xs">15 Days Money Back Guarantee</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
                     <Users2 className="w-3.5 h-3.5 text-orange-400" />
-                    <p className="text-blue-200 text-xs">50+ Enrolled this month</p>
+                    <p className="text-blue-200 text-xs">
+                      50+ Enrolled this month
+                    </p>
                   </div>
                 </div>
               </div>
