@@ -88,8 +88,8 @@ const WSHeroGEN = () => {
               >
                 {[
                   { icon: FiClock, text: "2 Hour Intensive Workshop" },
-                  { icon: FiCalendar, text: "Live Interactive Sessions" },
-                  { icon: FiUsers, text: "Limited Seats Available" },
+                  { icon: FiCalendar, text: "16 Feb 01:00 PM" },
+                  { icon: FiUsers, text: "Live Interactive Sessions" },
                   { icon: FiAward, text: "Certificate of Completion" },
                 ].map((item, index) => (
                   <div
@@ -112,20 +112,24 @@ const WSHeroGEN = () => {
                 Join our exclusive masterclass and learn how to leverage GenAI
                 to:
                 <ul className="mt-4 space-y-2">
-  <li className="flex items-center gap-2">
-    <span className="text-green-400">✓</span> Earn a recognized Micro-Certification in Prompt Engineering  
-  </li>
-  <li className="flex items-center gap-2">
-    <span className="text-green-400">✓</span> Master the art of crafting effective AI prompts for optimal results  
-  </li>
-  <li className="flex items-center gap-2">
-    <span className="text-green-400">✓</span> Learn advanced techniques to enhance AI response accuracy and efficiency  
-  </li>
-  <li className="flex items-center gap-2">
-    <span className="text-green-400">✓</span> Apply prompt engineering skills to automation, business, and content generation  
-  </li>
-</ul>
-
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-400">✓</span> Earn a recognized
+                    Micro-Certification in Prompt Engineering
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-400">✓</span> Master the art of
+                    crafting effective AI prompts for optimal results
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-400">✓</span> Learn advanced
+                    techniques to enhance AI response accuracy and efficiency
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-400">✓</span> Apply prompt
+                    engineering skills to automation, business, and content
+                    generation
+                  </li>
+                </ul>
               </motion.p>
             </div>
 

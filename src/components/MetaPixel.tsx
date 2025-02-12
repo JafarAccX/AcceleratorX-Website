@@ -12,6 +12,7 @@ const PAGE_VIEW_ROUTES = [
   "/courses/data-analytics-program-eie",
   "/workshop/da-masterclass",
   "/workshop/pm-masterclass",
+  "/workshop/dm-masterclass",
   "/workshop/gen-ai-masterclass",
   "/courses/generative-ai-fb",
 ];

@@ -88,18 +88,17 @@ const WSHero = () => {
                   Data Analytics Masterclass
                 </h1>
                 <h2 className="text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">
-                  Topic: Masterclass in Dashboarding in Power BI
+                  <span className="text-white">Topic: {" "}</span> Leveraging AI in Data Analytics
                 </h2>
                 <p className="text-gray-400 text-lg lg:text-xl leading-relaxed max-w-2xl">
-                  Transform raw data into powerful insights with our comprehensive Power BI masterclass. 
-                  Learn to create impactful dashboards that drive business decisions.
+                Unlock the power of AI in data analytics! 🚀 Join our exclusive workshop to learn how to leverage AI-driven insights, automate data processing, and build intelligent dashboards that transform decision-making. Don't just analyze—predict, optimize, and lead with AI-powered analytics!
                 </p>
 
                 {/* Key Features */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                   {[
                     { label: "Duration", value: "2 Hours" },
-                    { label: "Date", value: "Feb 10" },
+                    { label: "Date", value: "Feb 19" },
                     { label: "Time", value: "7:30 PM" },
                     { label: "Level", value: "All Levels" }
                   ].map((item, index) => (

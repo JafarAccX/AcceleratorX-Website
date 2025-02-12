@@ -17,10 +17,10 @@ const WSAbout = () => {
   };
 
   const targetAudience = [
-    "Aspiring data scientists and machine learning engineers seeking advanced knowledge",
-    "Students and professionals aiming to transition to AI roles with practical expertise",
-    "Tech professionals eager to integrate machine learning solutions into real-world projects",
-    "Individuals keen on mastering AI applications across industries within a focused two-hour session",
+    "Aspiring Data Scientists & ML Engineers – Gain hands-on expertise in AI-driven analytics.",
+    "Students & Professionals – Transition into AI roles with practical, industry-ready skills.",
+    "Tech Enthusiasts – Learn to integrate machine learning solutions into real-world projects.",
+    "AI Learners – Master cutting-edge AI applications across industries—all in just 2 hours!",
   ];
 
   return (
@@ -36,42 +36,41 @@ const WSAbout = () => {
                 About this Masterclass
               </h2>
               <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 h-full">
-                <p className="text-black text-left leading-relaxed mb-6 lg:text-lg">
-                  Ever wondered how businesses turn raw data into actionable insights? 
-                  Power BI is revolutionizing the way professionals analyze, visualize, 
-                  and present data. A well-designed dashboard can drive smarter decisions, 
-                  improve efficiency, and unlock hidden opportunities.
-                </p>
-                <p className="text-black text-left leading-relaxed mb-6 lg:text-lg">
-                  Join{" "}
-                  <span className="font-bold text-black">AcceleratorX's Masterclass</span>{" "}
-                  with expert <span className="font-bold text-black">Aakash Maurya</span> on{" "}
-                  <span className="font-bold text-black">
-                    Monday, 10th February, 7:30 PM
-                  </span>
-                  , and learn:
-                </p>
-                <ul className="list-none pl-0 mb-8 space-y-4">
-                  {[
-                    "How to build interactive, data-driven dashboards for impactful decision-making",
-                    "Advanced techniques in data modeling, DAX, and visualization best practices",
-                    "Hands-on experience with real-world datasets and Power BI tools"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3 lg:text-lg">
-                      <FaCheck className="text-blue-500 mt-1.5 flex-shrink-0" />
-                      <span className="text-black">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+  <p className="text-black text-left leading-relaxed mb-6 lg:text-lg">
+    Ever wondered how businesses harness AI to transform raw data into <span className="font-bold text-black">powerful, predictive insights ?</span> {" "} 
+    AI-driven analytics is revolutionizing how professionals <span className="font-bold text-black">analyze, automate, and visualize data</span>.  
+    Unlock the potential of AI to make <span className="font-bold text-black">smarter, data-backed decisions faster than ever!</span>
+  </p>
+  <p className="text-black text-left leading-relaxed mb-6 lg:text-lg">
+    Join{" "}
+    <span className="font-bold text-black">AcceleratorX’s Exclusive AI Masterclass</span>{" "}
+    with expert <span className="font-bold text-black">Aakash Maurya</span> on{" "}
+    <span className="font-bold text-black">
+      Monday, 10th February, 7:30 PM
+    </span>
+    , and master:
+  </p>
+  <ul className="list-none pl-0 mb-8 space-y-4">
+    {[
+      "How AI automates data analysis for real-time decision-making",
+      "Building AI-powered dashboards that predict trends & insights",
+      "Hands-on experience with top AI analytics tools & frameworks"
+    ].map((item, index) => (
+      <li key={index} className="flex items-start space-x-3 lg:text-lg">
+        <FaCheck className="text-blue-500 mt-1.5 flex-shrink-0" />
+        <span className="text-black">{item}</span>
+      </li>
+    ))}
+  </ul>
 
-                <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6 border-l-4 border-blue-500">
-                  <p className="text-black font-medium lg:text-lg">
-                    <span className="font-bold text-blue-700">Pro tip:</span> Take the leap into 
-                    data visualization mastery. Enroll today—limited seats available! 
-                    Start creating dashboards that drive results.
-                  </p>
-                </div>
-              </div>
+  <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6 border-l-4 border-blue-500">
+    <p className="text-black font-medium lg:text-lg">
+      <span className="font-bold text-blue-700">Pro tip:</span> AI is the future of data analytics.  
+      Secure your spot now— limited seats available! Elevate your data skills with AI today. 🚀
+    </p>
+  </div>
+</div>
+
             </div>
 
             {/* Features Grid Section */}
