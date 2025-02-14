@@ -67,7 +67,7 @@ const WSAboutGEN = () => {
     <span className="font-semibold text-blue-400">
       "Micro-Certification in Prompt Engineering"
     </span>
-    on <span className="font-semibold text-blue-400">February 16, 2025</span> at <span>01:00 PM</span>. This immersive session will equip you with 
+    on <span className="font-semibold text-blue-400">February 17, 2025</span> at <span>07:30 PM</span>. This immersive session will equip you with 
     the skills to craft effective AI prompts for various applications, enhancing AI-driven 
     automation, content creation, and decision-making.
   </p>

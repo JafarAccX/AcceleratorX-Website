@@ -30,7 +30,7 @@ const DAZoomDetails: ZoomMeetingDetails = {
 const GENAIZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/Bj2qmonsTNuXEOXaQLdZgQ",
   meetingId: "Bj2qmonsTNuXEOXaQLdZgQ",
-  time: "Feb 16, 2025 01:00 PM India",
+  time: "Feb 17, 2025 07:30 PM India",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

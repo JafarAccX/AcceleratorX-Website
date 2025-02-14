@@ -72,8 +72,8 @@ const WSHeroGEN = () => {
             >
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-blue-500/10 to-green-500/10 border border-white/10">
                 <img
-                  src="/assets/workshopCover/genAI.png"
-                  alt="Workshop Speaker"
+                  src="/assets/workshopCover/daMobile.webp"
+                  alt="Workshop Cover"
                   className="absolute inset-0 w-full h-full object-contain"
                 />
               </div>
@@ -123,7 +123,7 @@ const WSHeroGEN = () => {
               >
                 {[
                   { icon: FiClock, text: "2 Hour Intensive Workshop" },
-                  { icon: FiCalendar, text: "16 Feb 01:00 PM" },
+                  { icon: FiCalendar, text: "17 Feb 07:30 PM" },
                   { icon: FiUsers, text: "Live Interactive Sessions" },
                   { icon: FiAward, text: "Certificate of Completion" },
                 ].map((item, index) => (
