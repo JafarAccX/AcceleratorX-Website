@@ -1086,7 +1086,7 @@ function App() {
                       path="/admin/workshop-details"
                       element={
                         <Suspense fallback={<Loader />}>
-                          <RoleProtectedRoute requiredRole="workshop_viewer">
+                          <RoleProtectedRoute requiredRole="sales">
                             <WorkshopDetails />
                           </RoleProtectedRoute>
                         </Suspense>

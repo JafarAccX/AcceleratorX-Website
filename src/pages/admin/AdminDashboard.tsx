@@ -160,7 +160,7 @@ const AdminDashboard: React.FC = () => {
             </motion.div>
           )}
 
-          {(role === "admin" || role === "workshop_viewer") && (
+          {(role === "admin" || role === "sales") && (
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
