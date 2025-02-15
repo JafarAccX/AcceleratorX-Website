@@ -145,7 +145,7 @@ const WSHero = () => {
                 <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-sm group-hover:border-white/20 transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-purple-500/10 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <img
-                    src="/assets/workshopCover/daMobile.webp"
+                    src="/assets/workshopCover/daMobile.png"
                     alt="DA Masterclass"
                     className="w-full object-contain p-6 transform group-hover:scale-105 transition-transform duration-300"
                   />
