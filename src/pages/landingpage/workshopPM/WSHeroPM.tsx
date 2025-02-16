@@ -62,7 +62,7 @@ const WSHeroPM = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/30 to-violet-500/30 rounded-xl blur-xl"></div>
                   <div className="relative overflow-hidden rounded-xl border border-white/10 shadow-2xl">
                     <img
-                      src="/assets/workshopCover/pmDesktop.png"
+                      src="/assets/workshopCover/pmWebinar.png"
                       alt="Product Management Masterclass"
                       className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
                     />
@@ -72,13 +72,13 @@ const WSHeroPM = () => {
 
                 <h2 className="text-2xl lg:text-3xl font-semibold">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
-                    How to manage Product life cycle
+                  UX Designing for Product Management
                   </span>
                 </h2>
               </div>
 
               <p className="text-gray-400 text-lg lg:text-xl leading-relaxed">
-              Master the art of product lifecycle management with our expert-led Masterclass. Gain actionable insights into each stage—from ideation to growth and beyond—to drive innovation and long-term success.
+              Unlock the secrets to successful product management with our hands-on masterclass! Learn to navigate every stage—ideation, development, launch, and growth—with proven strategies. Gain expert insights, practical frameworks, and real-world applications to drive innovation, maximize impact, and ensure long-term success. Enroll now and take your product skills to the next level!
               </p>
 
 

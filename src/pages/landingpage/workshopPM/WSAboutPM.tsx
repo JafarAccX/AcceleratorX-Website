@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import { Star, Award, Target, Sparkles, ArrowRight } from "lucide-react";
+import { Star, Award, Target, Sparkles, ArrowRight, UserIcon, PenTool, CheckCircle, BarChart } from "lucide-react";
 import { FaUser, FaCertificate } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -19,39 +19,41 @@ const WSAboutPM = () => {
   };
 
   const instructorDetails = {
-    name: "Subhasis Chandra",
-    title: "Senior PM, Publicis Sapient",
+    name: "Ravi Ahlawat",
+    title: "Senior PM, Paytm",
   };
 
   const targetAudience = [
-    "Product Managers seeking to enhance their lifecycle management skills",
-    "Business Analysts and Product Owners looking to master product strategy",
-    "Startup Founders and Entrepreneurs building sustainable products",
-    "Professionals transitioning into Product Management roles",
+    "Product Managers looking to enhance their UX design skills for better product adoption." ,
+    "Business Analysts and Product Owners** aiming to integrate user-centric design into their product strategy. ",
+    "Startup Founders and Entrepreneurs** focused on building intuitive and engaging products. ",
+    "Professionals transitioning into Product Management** who want to master UX principles for product success.",
   ];
+
 
   const whatWillYouGain = [
     {
       icon: <Star className="w-5 h-5" />,
-      title: "Master PLM Fundamentals",
-      description: "Learn essential frameworks and methodologies for effective product lifecycle management"
+      title: "Master UX Fundamentals",
+      description: "Learn core UX principles and methodologies to enhance product design and usability."
     },
     {
       icon: <Award className="w-5 h-5" />,
-      title: "Strategic Decision Making",
-      description: "Develop skills to make data-driven decisions at each stage of your product's lifecycle"
+      title: "User-Centered Design",
+      description: "Develop skills to create intuitive, user-friendly experiences that drive engagement."
     },
     {
       icon: <Target className="w-5 h-5" />,
-      title: "Practical Applications",
-      description: "Get hands-on experience with real-world product lifecycle scenarios and solutions"
+      title: "Hands-On UX Techniques",
+      description: "Gain practical experience with wireframing, prototyping, and usability testing."
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
-      title: "Growth Strategies",
-      description: "Learn techniques to extend product life and maximize market potential"
+      title: "Optimizing Product Success",
+      description: "Learn how UX impacts product strategy, customer retention, and business growth."
     },
   ];
+  
 
   return (
     <div className="bg-[#0A0F1D] py-16">
@@ -59,156 +61,175 @@ const WSAboutPM = () => {
         <div className="space-y-16">
           {/* About Masterclass Section */}
           <section className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-2xl"></div>
-            <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-2xl p-8 border border-indigo-500/20">
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-                About this Masterclass
-              </h2>
-              <div className="space-y-6">
-                <p className="text-gray-300 leading-relaxed">
-                  Master the art of Product Lifecycle Management (PLM) with our comprehensive masterclass – designed to equip you with the essential skills and strategies needed to successfully manage products from conception to retirement.
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  Join <span className="text-indigo-400 font-medium">AcceleratorX's Masterclass</span> led 
-                  by seasoned product manager <span className="text-indigo-400 font-medium">{instructorDetails.name}</span> on{" "}
-                  <span className="text-indigo-400 font-medium">Thursday, 15th February, 07:30 PM IST onwards</span> to discover:
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    {
-                      title: "Comprehensive Lifecycle Strategy",
-                      desc: "Learn to effectively manage each phase of your product's lifecycle - from ideation and planning to launch, growth, maturity, and evolution.",
-                    },
-                    {
-                      title: "Data-Driven Decision Making",
-                      desc: "Master the art of using metrics and analytics to make informed decisions throughout your product's journey in the market.",
-                    },
-                    {
-                      title: "Sustainable Growth Techniques",
-                      desc: "Discover strategies to extend product life, identify new opportunities, and maintain competitive advantage in evolving markets.",
-                    },
-                  ].map((item, index) => (
-                    <li key={index} className="flex gap-4 items-start">
-                      <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center flex-shrink-0 border border-indigo-500/20">
-                        <FaCheck className="text-indigo-400 w-3 h-3" />
-                      </div>
-                      <div>
-                        <h3 className="font-medium text-white mb-1">{item.title}</h3>
-                        <p className="text-gray-400">{item.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-xl p-6 border border-indigo-500/20">
-                  <div className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-indigo-400 mt-1" />
-                    <div>
-                      <p className="font-medium text-white mb-1">Pro Tip</p>
-                      <p className="text-gray-300">
-                        Transform your product management approach with proven lifecycle strategies. Limited seats available - Register now to secure your spot! 🚀
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="block lg:hidden pt-4">
-                <button
-                  onClick={scrollToForm}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-                >
-                  Reserve Your Spot
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-                </button>
-              </div>
-              </div>
+  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-2xl"></div>
+  <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-2xl p-8 border border-indigo-500/20">
+    <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+      About this Masterclass
+    </h2>
+    <div className="space-y-6">
+      <p className="text-gray-300 leading-relaxed">
+        Master the art of UX Designing for Product Management with our expert-led masterclass – designed to equip you with the essential skills and frameworks to create user-centric, high-impact products.
+      </p>
+      <p className="text-gray-300 leading-relaxed">
+        Join <span className="text-indigo-400 font-medium">AcceleratorX's Masterclass</span> led 
+        by seasoned UX and product expert <span className="text-indigo-400 font-medium">{instructorDetails.name}</span> on{" "}
+        <span className="text-indigo-400 font-medium">Thursday, 20th February, 07:00 PM IST onwards</span> to discover:
+      </p>
+      <ul className="space-y-4">
+        {[
+          {
+            title: "User-Centered Product Strategy",
+            desc: "Learn how to integrate UX principles into product management for enhanced user engagement and retention.",
+          },
+          {
+            title: "Practical UX Design Techniques",
+            desc: "Master wireframing, prototyping, and usability testing to create seamless user experiences.",
+          },
+          {
+            title: "Data-Driven UX Optimization",
+            desc: "Leverage analytics and user feedback to refine and optimize product design for maximum impact.",
+          },
+        ].map((item, index) => (
+          <li key={index} className="flex gap-4 items-start">
+            <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center flex-shrink-0 border border-indigo-500/20">
+              <FaCheck className="text-indigo-400 w-3 h-3" />
             </div>
-          </section>
+            <div>
+              <h3 className="font-medium text-white mb-1">{item.title}</h3>
+              <p className="text-gray-400">{item.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-xl p-6 border border-indigo-500/20">
+        <div className="flex items-start gap-3">
+          <Star className="w-5 h-5 text-indigo-400 mt-1" />
+          <div>
+            <p className="font-medium text-white mb-1">Pro Tip</p>
+            <p className="text-gray-300">
+              Elevate your product management skills with UX-focused strategies. Limited seats available – Register now to transform your product’s user experience! 🚀
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="block lg:hidden pt-4">
+        <button
+          onClick={scrollToForm}
+          className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+        >
+          Reserve Your Spot
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
           {/* What You'll Gain Section */}
           <section>
-            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-              What You Will Gain
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {whatWillYouGain.map((item, index) => (
-                <div key={index} className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-xl transition-all duration-300 group-hover:from-indigo-500/10 group-hover:to-violet-500/10"></div>
-                  <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20 transition-all duration-300 group-hover:border-indigo-400/30">
-                    <div className="flex gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 text-indigo-400 group-hover:scale-110 transition-transform duration-300">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-white font-medium mb-2">{item.title}</h3>
-                        <p className="text-gray-400 text-sm">{item.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+  <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+    What You Will Gain
+  </h2>
+  <div className="grid sm:grid-cols-2 gap-6">
+    {[
+      {
+        title: "User-Centric Mindset",
+        description: "Develop a deep understanding of user behavior and needs to create intuitive and impactful product experiences.",
+        icon: <UserIcon className="w-6 h-6" />,
+      },
+      {
+        title: "Wireframing & Prototyping",
+        description: "Learn industry-standard tools and techniques for designing high-fidelity wireframes and interactive prototypes.",
+        icon: <PenTool className="w-6 h-6" />,
+      },
+      {
+        title: "Effective Usability Testing",
+        description: "Master the art of testing user experiences, gathering feedback, and iterating designs for optimal product success.",
+        icon: <CheckCircle className="w-6 h-6" />,
+      },
+      {
+        title: "Data-Driven UX Optimization",
+        description: "Leverage analytics and A/B testing to refine product interfaces and enhance overall user satisfaction.",
+        icon: <BarChart className="w-6 h-6" />,
+      },
+    ].map((item, index) => (
+      <div key={index} className="relative group">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-xl transition-all duration-300 group-hover:from-indigo-500/10 group-hover:to-violet-500/10"></div>
+        <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20 transition-all duration-300 group-hover:border-indigo-400/30">
+          <div className="flex gap-4">
+            <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 text-indigo-400 group-hover:scale-110 transition-transform duration-300">
+              {item.icon}
             </div>
-            <div className="block lg:hidden pt-4">
-                <button
-                  onClick={scrollToForm}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-                >
-                  Reserve Your Spot
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-                </button>
-              </div>
-          </section>
+            <div>
+              <h3 className="text-white font-medium mb-2">{item.title}</h3>
+              <p className="text-gray-400 text-sm">{item.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div className="block lg:hidden pt-4">
+    <button
+      onClick={scrollToForm}
+      className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+    >
+      Reserve Your Spot
+      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+    </button>
+  </div>
+</section>
+
 
           {/* Instructor Section */}
           <section className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">Meet {instructorDetails.name}</h2>
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="md:w-40 w-full aspect-square rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 p-0.5">
-                <div className="w-full h-full bg-white rounded-lg p-1">
-                  <img
-                    src="/assets/mentor/subhasis.png"
-                    alt={instructorDetails.name}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <h3 className="text-xl font-bold text-gray-900">{instructorDetails.name}</h3>
-                  <span className="text-gray-400">|</span>
-                  <p className="text-blue-600 font-medium">{instructorDetails.title}</p>
-                </div>
-                <p className="text-gray-600">
-                  Subhasis Chandra is an experienced Product Manager with
-                  over 8 years in the US healthcare sector, specializing in
-                  market assessment and growth strategy. Skilled in Agile
-                  methodologies, he has led successful agile transitions for
-                  top healthcare clients, optimizing efficiency and
-                  outcomes. Certified CSPO, POPM, and SAFe® 5.0 Scrum
-                  Master, Subhasis excels in crafting product roadmaps, use
-                  cases, and user stories, ensuring alignment and clarity
-                  across teams. He is driven by data insights, constantly
-                  innovating and improving products to exceed customer and
-                  business goals. Passionate about improving patient
-                  outcomes, Subhasis navigates complex healthcare
-                  regulations to deliver compliant, impactful products. His
-                  expertise and commitment make him an invaluable asset to
-                  any healthcare organization aiming to drive growth and
-                  enhance patient care.
-                </p>
-              </div>
-              <div className="block lg:hidden pt-4">
-                <button
-                  onClick={scrollToForm}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-                >
-                  Reserve Your Spot
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-                </button>
-              </div>
-            </div>
-          </section>
+  <h2 className="text-2xl font-bold mb-4 text-gray-900">Meet {instructorDetails.name}</h2>
+  <div className="flex flex-col md:flex-row gap-6">
+    <div className="md:w-40 w-full aspect-square rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 p-0.5">
+      <div className="w-full h-full bg-white rounded-lg p-1">
+        <img
+          src="/assets/mentor/ravi.png"
+          alt={instructorDetails.name}
+          className="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+    </div>
+    <div className="flex-1">
+      <div className="flex items-center gap-3 mb-3">
+        <h3 className="text-xl font-bold text-gray-900">{instructorDetails.name}</h3>
+        <span className="text-gray-400">|</span>
+        <p className="text-blue-600 font-medium">{instructorDetails.title}</p>
+      </div>
+      <p className="text-gray-600">
+        Ravi Ahlawat is a dynamic product leader with a track record of driving innovation 
+        across multiple industries, from edtech to SaaS. With experience at the intersection 
+        of business strategy, product development, and user experience, Ravi has helped 
+        build and scale impactful solutions in fast-paced environments.
+      </p>
+      <p className="text-gray-600 mt-3">
+        Following Robert Heinlein’s belief that "specialization is for insects," Ravi 
+        embodies versatility—leading teams, optimizing growth strategies, crafting 
+        compelling narratives, and developing solutions that bridge the gap between 
+        technology and user needs. He is passionate about continuous learning, cross-domain 
+        expertise, and pushing boundaries to create meaningful impact.
+      </p>
+    </div>
+    <div className="block lg:hidden pt-4">
+      <button
+        onClick={scrollToForm}
+        className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+      >
+        Reserve Your Spot
+        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+      </button>
+    </div>
+  </div>
+</section>
+
 
           <div className="grid md:grid-cols-2 gap-4">
             {/* Certificate Section */}
@@ -227,10 +248,10 @@ const WSAboutPM = () => {
            
 
             {/* Tools Section */}
-            <div className="bg-white rounded-lg shadow-sm p-5">
+            {/* <div className="bg-white rounded-lg shadow-sm p-5">
               <h3 className="text-lg font-bold mb-4 text-gray-900">Tools You Will Learn</h3>
               <div className="grid grid-cols-4 gap-4">
-                {["asanaa", "jiraa", "Amplitude", "miroo"].map((tool, index) => (
+                {["asanaa", "Figma", "Amplitude", "miroo"].map((tool, index) => (
                   <div key={index} className="flex flex-col items-center gap-2">
                     <img
                       src={`/assets/toolLogo/${tool}.${tool === "Amplitude" ? "png" : "webp"}`}
@@ -241,7 +262,7 @@ const WSAboutPM = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Target Audience Section */}

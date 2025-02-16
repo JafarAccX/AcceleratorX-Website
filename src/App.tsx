@@ -377,7 +377,7 @@ function WorkshopPagePM() {
     <Suspense fallback={<Loader />}>
       <WSHeroPM />
       <WSAboutPM />
-      <WSTestimonialPM />
+      {/* <WSTestimonialPM /> */}
     </Suspense>
   );
 }
