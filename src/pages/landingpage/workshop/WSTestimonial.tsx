@@ -14,7 +14,6 @@ const WSTestimonial = () => {
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 via-purple-500/5 to-green-500/5 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-10"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,119,242,0.05),rgba(0,0,0,0))]"></div>
       </div>
 

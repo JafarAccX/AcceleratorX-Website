@@ -78,7 +78,6 @@ export default function DataHeroEIE() {
           <div className="w-[1000px] h-[1000px] bg-gradient-radial from-[#96E072]/10 via-[#96E072]/5 to-transparent rounded-full filter blur-[150px] animate-pulse-slow"></div>
         </div>
         {/* Premium grid pattern */}
-        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 pb-12 relative z-10">

@@ -19,7 +19,6 @@ const WSHero = () => {
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-purple-500/10 to-green-500/20"></div>
-        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,119,242,0.1),rgba(0,0,0,0))]"></div>
       </div>
 

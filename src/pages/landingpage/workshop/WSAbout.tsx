@@ -42,7 +42,6 @@ const WSAbout = () => {
     <div className="relative bg-gradient-to-b from-[#0A0F1C] via-[#0A0F1C]/95 to-[#0A0F1C] py-16 lg:py-24">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-600/5 via-purple-500/5 to-green-500/5 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-10"></div>
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16 lg:space-y-24">

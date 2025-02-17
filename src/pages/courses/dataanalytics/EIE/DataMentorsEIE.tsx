@@ -36,7 +36,6 @@ export default function DataMentorsEIE() {
           <div className="absolute inset-0 bg-gradient-to-l from-[#96E072]/15 to-transparent rounded-full filter blur-[90px] animate-pulse"></div>
         </div>
         {/* Premium grid pattern */}
-        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">

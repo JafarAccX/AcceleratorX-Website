@@ -108,7 +108,6 @@ export default function DataSkillsToolsEIE() {
       {/* Animated background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-[#0A0F1E]"></div>
-        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#96E072]/5 via-transparent to-[#96E072]/5"></div>
       </div>
       
