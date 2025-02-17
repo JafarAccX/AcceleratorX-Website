@@ -302,14 +302,6 @@ export const mentors = [
     transitions: "Over 350+",
   },
   {
-    name: "Udit Bhatia",
-    role: "Senior PM at M3 Inc",
-    experience: "9 years",
-    image: "/assets/mentor/udit.png",
-    linkedin: "https://www.linkedin.com/in/uditiift/",
-    transitions: "Over 650+",
-  },
-  {
     name: "Ruchir Rana",
     role: "PM at AcceleratorX",
     experience: "3 years",

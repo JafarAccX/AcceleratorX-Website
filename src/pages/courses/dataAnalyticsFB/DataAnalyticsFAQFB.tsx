@@ -75,11 +75,6 @@ const faqData: FAQItem[] = [
       "You’ll have access to a dedicated support team, peer community discussions, and live Q&A sessions to address your questions.",
   },
   {
-    question: "How much does the course cost?",
-    answer:
-      "The course costs ₹10,000, which includes lifetime access to all materials, recorded sessions, and templates.",
-  },
-  {
     question: "Can I access the course material after completion?",
     answer:
       "Yes, you’ll have lifetime access to the course content, so you can revisit any topic whenever needed.",
