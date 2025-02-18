@@ -1,0 +1,52 @@
+import { lazy } from "react";
+import { Route } from "react-router-dom";
+import ProductManagementEntry from "../pages/courses/EntryPoint/ProductManagementEntry";
+import DataAnalyticsEntry from "../pages/courses/EntryPoint/DataAnalyticsEntry";
+import DataAnalyticsAd from "../pages/courses/EntryPoint/DataAnalyticsAd";
+
+// Course Pages
+const GenAICourse = lazy(
+  () => import("../pages/courses/EntryPoint/GenAIEntry")
+);
+const GenAICourseAD = lazy(() => import("../pages/courses/EntryPoint/GenAIAd"));
+const DMAICourse = lazy(
+  () => import("../pages/courses/EntryPoint/DigitalMarketingEntry")
+);
+const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
+
+const ProductManagementPageEIE = lazy(
+  () => import("../pages/courses/EntryPoint/ProductManagementEIE")
+);
+
+export const courseRoutes = [
+  // Main Course Routes
+  <Route
+    path="/courses/product-management"
+    element={<ProductManagementEntry />}
+  />,
+  <Route path="/courses/data-analytics" element={<DataAnalyticsEntry />} />,
+  <Route path="/courses/generative-ai" element={<GenAICourse />} />,
+  <Route
+    path="/courses/advance-performance-marketing-with-ai"
+    element={<DMAICourse />}
+  />,
+
+  // Ad Course Routes
+  <Route
+    path="/courses/product-management-program-fb"
+    element={<ProductManagementPageEIE />}
+  />,
+  <Route
+    path="/courses/data-analytics-program-fb"
+    element={<DataAnalyticsPage />}
+  />,
+  <Route
+    path="/courses/product-management-program-eie"
+    element={<ProductManagementPageEIE />}
+  />,
+  <Route
+    path="/courses/data-analytics-program-eie"
+    element={<DataAnalyticsAd />}
+  />,
+  <Route path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
+];

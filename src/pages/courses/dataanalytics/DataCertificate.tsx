@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import dataCertificate from "/assets/programcertificates/da.jpg";
+import dataCertificate from "/assets/programcertificates/DACertificate.png";
 
 const DataCertificate = () => {
   // Initialize cache mechanism
@@ -8,7 +8,6 @@ const DataCertificate = () => {
   const [cachedImage, setCachedImage] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    // Try to get cached image from localStorage
     const cached = localStorage.getItem(cacheKey);
     if (cached) {
       setCachedImage(cached);

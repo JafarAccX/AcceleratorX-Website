@@ -7,107 +7,151 @@ import { VintageTV } from "./VintageTV";
 export default function Hero() {
   const navigate = useNavigate();
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 },
+  };
+
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black pb-20 lg:pb-24">
-      {/* Main content container */}
-      <div className="relative z-10 flex h-screen w-full flex-col items-center lg:items-stretch lg:-mt-16">
-        {/* Content Wrapper */}
-        <div className="flex w-full h-full flex-col lg:flex-row items-center">
-          {/* Left side - Text content */}
-          <div className="relative z-20 w-full px-4 pt-20 lg:pt-10 lg:w-1/2 lg:px-16 xl:px-24 flex items-center">
-            <div className="w-full max-w-xl text-center lg:text-left">
-              <h1>
-                <TypeAnimation
-                  sequence={[
-                    "Build",
-                    1000,
-                    "",
-                    500,
-                    "Lead",
-                    1000,
-                    "",
-                    500,
-                    "Succeed",
-                    1000,
-                    "",
-                    500,
-                  ]}
-                  wrapper="h1"
-                  speed={50}
-                  className="mb-5 bg-clip-text text-3xl font-bold text-blue-600 sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl"
-                  repeat={Infinity}
-                  cursor={true}
-                  style={{
-                    whiteSpace: "pre",
-                    display: "inline-block",
-                    minWidth: "150px",
-                    textShadow: "0 0 10px rgba(255, 255, 255, 0)",
-                  }}
-                />
-              </h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="mx-auto mb-8 max-w-lg text-sm font-semibold leading-relaxed text-gray-300 md:text-lg lg:mx-0 lg:text-xl px-4 lg:px-0"
-              >
-                Transform your ideas into action. <br /> Accelerating ideas into
-                impactful solution that shapes the future.
-              </motion.p>
-
-              <div className="button-sparkle px-4 lg:px-0">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="enroll-button flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-medium text-blue-600 md:text-base"
-                    onClick={() => {
-                      const featuresSection =
-                        document.getElementById("features");
-                      if (featuresSection) {
-                        featuresSection.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                      }
-                    }}
-                  >
-                    Explore Courses
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="enroll-button flex items-center justify-center gap-2 rounded-lg bg-black border px-5 py-3 text-sm font-medium text-yellow-400 md:text-base"
-                    onClick={() => navigate("/xsat")}
-                  >
-                    More About XSAT
-                  </motion.button>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right side - VintageTV */}
-          <div className="relative w-full lg:w-1/2 flex items-center justify-center px-4 lg:px-8 z-[5] mt-8 lg:mt-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="w-full max-w-2xl relative"
-            >
-              <VintageTV videoSrc="https://vimeo.com/1037475835" />
-            </motion.div>
-          </div>
-        </div>
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url("/hero-bg.jpg")' }}
+      >
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      {/* Overlay with reduced opacity */}
-      <div className="absolute inset-0 bg-black/5" />
+      {/* Background Elements - Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,119,242,0.08),rgba(0,0,0,0))]" />
+        <div className="absolute h-full w-full bg-[linear-gradient(to_right,#000_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-10" />
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex min-h-screen flex-col-reverse items-center justify-center gap-12 py-12 lg:flex-row lg:justify-between lg:py-20">
+          {/* Left Content */}
+          <motion.div
+            className="w-full lg:w-1/2 space-y-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Heading with Type Animation */}
+            <div className="relative">
+              <motion.div
+                className="absolute -left-4 -top-4 h-20 w-20 rounded-full bg-blue-500/10 blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+              />
+              <TypeAnimation
+                sequence={["Build", 1000, "Lead", 1000, "Succeed", 1000]}
+                wrapper="h1"
+                speed={50}
+                className="relative bg-gradient-to-r from-white via-blue-400 to-blue-600 bg-clip-text text-6xl font-bold tracking-tight text-transparent sm:text-7xl"
+                repeat={Infinity}
+                cursor={true}
+              />
+            </div>
+
+            {/* Subtitle */}
+            <motion.p
+              {...fadeInUp}
+              className="max-w-xl text-lg text-gray-100 leading-relaxed"
+            >
+              Transform your ideas into action. Accelerating ideas into
+              impactful solutions that shape the future.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+              {...fadeInUp}
+            >
+              <button
+                onClick={() => {
+                  const featuresSection = document.getElementById("features");
+                  featuresSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-white transition duration-300 hover:scale-105"
+              >
+                <span className="relative flex items-center gap-2 font-medium">
+                  Explore Courses
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <button
+                onClick={() => navigate("/xsat")}
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg border border-yellow-400/30 bg-black/50 px-8 py-3 text-yellow-400 backdrop-blur-sm transition duration-300 hover:border-yellow-400/50 hover:scale-105"
+              >
+                <span className="relative flex items-center gap-2 font-medium">
+                  More About XSAT
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Content - VintageTV */}
+          <motion.div
+            className="relative w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="relative">
+              <motion.div
+                className="absolute -right-4 -top-4 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+              />
+              <VintageTV videoSrc="https://vimeo.com/1037475835" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
