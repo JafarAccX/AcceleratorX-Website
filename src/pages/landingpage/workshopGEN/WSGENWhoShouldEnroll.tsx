@@ -5,35 +5,37 @@ const WSGENWhoShouldEnroll = () => {
   const targetAudience = [
     {
       icon: Users,
-      title: "Beginners & Business Professionals",
-      description: "No prior technical background required",
+      title: "Students & Professionals",
+      description: "Save time on assignments and work tasks",
     },
     {
       icon: Briefcase,
-      title: "Entrepreneurs & Freelancers",
-      description: "Learn to build and monetize AI-powered solutions",
+      title: "Content Creators",
+      description: "Create content faster with AI assistance",
     },
     {
       icon: Megaphone,
-      title: "Marketing & Content Creators",
-      description: "Automate content workflows with AI",
+      title: "Business Owners",
+      description: "Automate repetitive business tasks",
     },
     {
       icon: Brain,
-      title: "AI Enthusiasts & Job Seekers",
-      description: "Gain skills to stand out in the AI job market",
+      title: "Anyone whose job's can be replaced by AI",
+      description: "Learn to work smarter with AI tools",
     },
   ];
 
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
+      console.error(
+        'Form element not found with ID "workshop-registration-form"'
+      );
     }
   };
 
@@ -54,16 +56,18 @@ const WSGENWhoShouldEnroll = () => {
               <div className="mb-8">
                 <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-3 transform hover:scale-105 transition-all">
                   <Users className="w-4 h-4 text-blue-600" />
-                  <span className="text-blue-600 text-sm font-medium">Perfect For You</span>
+                  <span className="text-blue-600 text-sm font-medium">
+                    For Everyone
+                  </span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                  <span className="text-white">Who Should Take </span>
-                  <span className="text-blue-500">This Course</span>
+                  <span className="text-white">Who Can </span>
+                  <span className="text-blue-500">Benefit</span>
                   <span className="text-white">?</span>
                 </h2>
                 <p className="text-lg text-blue-100">
-                  Designed for professionals and beginners looking to master AI
-                  without coding
+                  If you want to save time and work more efficiently, this
+                  workshop is for you
                 </p>
               </div>
 
@@ -96,16 +100,22 @@ const WSGENWhoShouldEnroll = () => {
             <div className="flex-1 relative">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
                 <img
-                  src="/bggpt.webp"
+                  src="/genaiimage.jpg"
                   alt="Students learning together"
                   className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Overlay elements */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
-                  <p className="text-blue-900 font-medium">
-                    "Join a community of learners and build your AI career together!"
-                  </p>
+                  <div className="flex justify-between items-center">
+                    <p className="text-blue-900 font-medium">
+                      "Join now and transform the way you work!"
+                    </p>
+                    <div className="text-right">
+                      <p className="text-2xl font-bold text-blue-600">₹9</p>
+                      <p className="text-sm text-gray-600">Limited Time</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

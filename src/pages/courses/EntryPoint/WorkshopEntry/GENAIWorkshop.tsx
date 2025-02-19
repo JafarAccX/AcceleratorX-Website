@@ -1,4 +1,3 @@
-import React from "react";
 import GENCTA from "../../../landingpage/workshopGEN/GENCTA";
 import WSAboutGEN from "../../../landingpage/workshopGEN/WSAboutGEN";
 import WSGENIntroduction from "../../../landingpage/workshopGEN/WSGENIntroduction";

@@ -13,11 +13,16 @@ const PAGE_VIEW_ROUTES = [
   "/workshop/da-masterclass",
   "/workshop/pm-masterclass",
   "/workshop/dm-masterclass",
-  "/workshop/gen-ai-masterclass",
   "/courses/generative-ai-fb",
+  "/workshop/gen-ai-masterclass-bxwcy",
+  "/workshop/gen-ai-masterclass",
 ];
 
-const LEAD_ROUTES = ["/thank-you"];
+const LEAD_ROUTES = [
+  "/thank-you",
+  "/workshop-registration/success",
+  "/workshop-payment/success/",
+];
 
 export const MetaPixel = () => {
   const location = useLocation();

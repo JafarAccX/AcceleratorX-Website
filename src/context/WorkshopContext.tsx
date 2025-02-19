@@ -1,7 +1,11 @@
 import React, { createContext, useContext, ReactNode, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-type WorkshopType = "DAWorkshop" | "PMWorkshop" | "GENAIWorkshop" | "DMWorkshop";
+type WorkshopType =
+  | "DAWorkshop"
+  | "PMWorkshop"
+  | "GENAIWorkshop"
+  | "DMWorkshop";
 
 interface ZoomMeetingDetails {
   link: string;
@@ -28,9 +32,9 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/Bj2qmonsTNuXEOXaQLdZgQ",
-  meetingId: "Bj2qmonsTNuXEOXaQLdZgQ",
-  time: "Feb 17, 2025 07:30 PM India",
+  link: "https://zoom.us/meeting/register/X1TlVVNhTdKlqwNN4FXtfg",
+  meetingId: "X1TlVVNhTdKlqwNN4FXtfg",
+  time: "Feb 23, 2025 10:30 AM India",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {
@@ -38,8 +42,6 @@ const DMZoomDetails: ZoomMeetingDetails = {
   meetingId: "-EeXRY1GQFmxc9eHG73nnQ",
   time: "Feb 16, 2025 04:00 PM India",
 };
-
-
 
 const WorkshopContext = createContext<WorkshopContextType | undefined>(
   undefined

@@ -33,11 +33,17 @@ interface WorkshopData {
   years_of_experience: string;
   created_at: string;
   workshop_type: string;
+  payment_status: "pending" | "completed" | "failed";
+  razorpay_order_id?: string;
+  razorpay_payment_id?: string;
+  is_free: boolean;
 }
 
 const WorkshopDetails: React.FC = () => {
   const [workshops, setWorkshops] = useState<WorkshopData[]>([]);
-  const [filteredWorkshops, setFilteredWorkshops] = useState<WorkshopData[]>([]);
+  const [filteredWorkshops, setFilteredWorkshops] = useState<WorkshopData[]>(
+    []
+  );
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,7 +71,11 @@ const WorkshopDetails: React.FC = () => {
         const start = page * pageSize;
         const end = start + pageSize - 1;
 
-        const { data: workshopData, error, count } = await supabase
+        const {
+          data: workshopData,
+          error,
+          count,
+        } = await supabase
           .from("workshop_registrations")
           .select("*", { count: "exact" })
           .order("created_at", { ascending: false })
@@ -115,6 +125,14 @@ const WorkshopDetails: React.FC = () => {
     };
 
     checkAuthAndFetchData();
+
+    // Set up polling every 30 seconds
+    const pollInterval = setInterval(() => {
+      fetchWorkshops(true);
+    }, 30000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(pollInterval);
   }, [fetchWorkshops, navigate]);
 
   // Handle sorting changes
@@ -123,8 +141,10 @@ const WorkshopDetails: React.FC = () => {
       const sortedData = [...workshops].sort((a, b) => {
         if (sortField === "created_at") {
           return sortOrder === "asc"
-            ? new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
-            : new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+            ? new Date(a.created_at).getTime() -
+                new Date(b.created_at).getTime()
+            : new Date(b.created_at).getTime() -
+                new Date(a.created_at).getTime();
         }
         return 0;
       });
@@ -143,10 +163,13 @@ const WorkshopDetails: React.FC = () => {
           workshop.education.toLowerCase().includes(lowercaseQuery) ||
           workshop.designation.toLowerCase().includes(lowercaseQuery) ||
           workshop.years_of_experience.toLowerCase().includes(lowercaseQuery) ||
-          (workshop.workshop_type?.toLowerCase() || '').includes(lowercaseQuery);
+          (workshop.workshop_type?.toLowerCase() || "").includes(
+            lowercaseQuery
+          );
 
         const matchesType =
-          workshopTypeFilter === "all" || workshop.workshop_type === workshopTypeFilter;
+          workshopTypeFilter === "all" ||
+          workshop.workshop_type === workshopTypeFilter;
 
         return matchesSearch && matchesType;
       });
@@ -162,6 +185,30 @@ const WorkshopDetails: React.FC = () => {
 
   const handleDownloadCSV = () => {
     try {
+      const formatDate = (dateStr: string) => {
+        const date = new Date(dateStr);
+        const formattedDate = date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        });
+        const formattedTime = date.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        });
+        return `${formattedDate} ${formattedTime}`;
+      };
+
+      const escapeCSV = (str: string) => {
+        if (!str) return "";
+        str = str.toString();
+        if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+          return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+      };
+
       const headers = [
         "Name",
         "Email",
@@ -171,25 +218,50 @@ const WorkshopDetails: React.FC = () => {
         "Years of Experience",
         "Workshop Type",
         "Registration Date",
+        "Registration Type",
+        "Payment Status",
+        "Order ID",
+        "Payment ID",
       ];
 
       const csvContent = [
         headers.join(","),
-        ...filteredWorkshops.map((workshop) => [
-          workshop.name,
-          workshop.email,
-          workshop.phone,
-          workshop.education,
-          workshop.designation,
-          workshop.years_of_experience,
-          workshop.workshop_type ? 
-            (workshop.workshop_type === 'DAWorkshop' ? 'Data Analytics Workshop' : 
-             workshop.workshop_type === 'PMWorkshop' ? 'Product Management Workshop' :
-             workshop.workshop_type === 'GENAIWorkshop' ? 'GenAI Workshop' : 
-             workshop.workshop_type === 'DMWorkshop' ? 'Digital Marketing Workshop' : 'Not specified') 
-            : 'Not specified',
-          new Date(workshop.created_at).toLocaleString(),
-        ].join(",")),
+        ...filteredWorkshops.map((workshop) =>
+          [
+            escapeCSV(workshop.name),
+            escapeCSV(workshop.email),
+            escapeCSV(workshop.phone),
+            escapeCSV(workshop.education),
+            escapeCSV(workshop.designation),
+            escapeCSV(workshop.years_of_experience),
+            escapeCSV(
+              workshop.workshop_type
+                ? workshop.workshop_type === "DAWorkshop"
+                  ? "Data Analytics Workshop"
+                  : workshop.workshop_type === "PMWorkshop"
+                  ? "Product Management Workshop"
+                  : workshop.workshop_type === "GENAIWorkshop"
+                  ? "GenAI Workshop"
+                  : workshop.workshop_type === "DMWorkshop"
+                  ? "Digital Marketing Workshop"
+                  : "Not specified"
+                : "Not specified"
+            ),
+            escapeCSV(formatDate(workshop.created_at)),
+            escapeCSV(
+              workshop.is_free ? "Free Registration" : "Paid Registration"
+            ),
+            escapeCSV(
+              workshop.payment_status === "completed"
+                ? "Paid"
+                : workshop.payment_status === "pending"
+                ? "Pending"
+                : "Failed"
+            ),
+            escapeCSV(workshop.razorpay_order_id || "N/A"),
+            escapeCSV(workshop.razorpay_payment_id || "N/A"),
+          ].join(",")
+        ),
       ].join("\n");
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
@@ -234,7 +306,7 @@ const WorkshopDetails: React.FC = () => {
             <h1 className="text-2xl font-semibold text-gray-900">
               Workshop Registrations
             </h1>
-            <BackButton/>
+            <BackButton />
           </div>
           <div className="flex items-center gap-4 mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <select
@@ -272,7 +344,10 @@ const WorkshopDetails: React.FC = () => {
               disabled={refreshing}
               className="inline-flex items-center gap-x-1.5 rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
             >
-              <RefreshCw className={`h-5 w-5 ${refreshing ? "animate-spin" : ""}`} aria-hidden="true" />
+              <RefreshCw
+                className={`h-5 w-5 ${refreshing ? "animate-spin" : ""}`}
+                aria-hidden="true"
+              />
               {refreshing ? "Refreshing..." : "Refresh"}
             </button>
             <button
@@ -294,32 +369,77 @@ const WorkshopDetails: React.FC = () => {
                 <table className="min-w-full divide-y divide-gray-300">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Sr. No.
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Name
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Email
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Phone
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Education
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Designation
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Years of Experience
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Registration Date
                       </th>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Workshop Type
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
+                        Registration Type
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
+                        Payment Status
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
+                        Payment Details
                       </th>
                     </tr>
                   </thead>
@@ -346,7 +466,10 @@ const WorkshopDetails: React.FC = () => {
                       </tr>
                     ) : (
                       getCurrentPageData().map((workshop, index) => (
-                        <tr key={workshop.id} className={index % 2 === 0 ? undefined : "bg-gray-50"}>
+                        <tr
+                          key={workshop.id}
+                          className={index % 2 === 0 ? undefined : "bg-gray-50"}
+                        >
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {(currentPage - 1) * ITEMS_PER_PAGE + index + 1}
                           </td>
@@ -372,13 +495,58 @@ const WorkshopDetails: React.FC = () => {
                             {new Date(workshop.created_at).toLocaleString()}
                           </td>
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
-                            {workshop.workshop_type ? (
-                              workshop.workshop_type === 'DAWorkshop' ? 'DA Workshop' : 
-                              workshop.workshop_type === 'PMWorkshop' ? 'PM Workshop' :
-                              workshop.workshop_type === 'GENAIWorkshop' ? 'GenAI Workshop' : 
-                              workshop.workshop_type === 'DMWorkshop' ? 'Digital Marketing Workshop' : 'Not specified'
+                            {workshop.workshop_type
+                              ? workshop.workshop_type === "DAWorkshop"
+                                ? "DA Workshop"
+                                : workshop.workshop_type === "PMWorkshop"
+                                ? "PM Workshop"
+                                : workshop.workshop_type === "GENAIWorkshop"
+                                ? "GenAI Workshop"
+                                : workshop.workshop_type === "DMWorkshop"
+                                ? "Digital Marketing Workshop"
+                                : "Not specified"
+                              : "Not specified"}
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            <span
+                              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                                workshop.is_free
+                                  ? "bg-blue-100 text-blue-800"
+                                  : "bg-purple-100 text-purple-800"
+                              }`}
+                            >
+                              {workshop.is_free
+                                ? "Free Registration"
+                                : "Paid Registration"}
+                            </span>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            <span
+                              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                                workshop.payment_status === "completed"
+                                  ? "bg-green-100 text-green-800"
+                                  : workshop.payment_status === "pending"
+                                  ? "bg-yellow-100 text-yellow-800"
+                                  : "bg-red-100 text-red-800"
+                              }`}
+                            >
+                              {workshop.payment_status === "completed"
+                                ? "Paid"
+                                : workshop.payment_status === "pending"
+                                ? "Pending"
+                                : "Failed"}
+                            </span>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {workshop.razorpay_payment_id ? (
+                              <div>
+                                <p>Order ID: {workshop.razorpay_order_id}</p>
+                                <p>
+                                  Payment ID: {workshop.razorpay_payment_id}
+                                </p>
+                              </div>
                             ) : (
-                              'Not specified'
+                              "No payment initiated"
                             )}
                           </td>
                         </tr>
@@ -414,8 +582,8 @@ const WorkshopDetails: React.FC = () => {
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700">
-                Showing page <span className="font-medium">{currentPage}</span> of{" "}
-                <span className="font-medium">{totalPages}</span>
+                Showing page <span className="font-medium">{currentPage}</span>{" "}
+                of <span className="font-medium">{totalPages}</span>
               </p>
             </div>
             <div>
@@ -424,7 +592,9 @@ const WorkshopDetails: React.FC = () => {
                 aria-label="Pagination"
               >
                 <button
-                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.max(prev - 1, 1))
+                  }
                   disabled={currentPage === 1}
                   className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                 >

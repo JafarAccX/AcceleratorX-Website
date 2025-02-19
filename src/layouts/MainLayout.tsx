@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import ChatWidget from "../components/ChatWidget";
 import EnrollmentModal from "../components/EnrollmentModal";
 import Loader from "../components/Loader";
-import { isDummyRoute } from "../routes/utils/routeUtils";
+import { getRouteLayout } from "../utils/layoutUtils";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -33,11 +33,11 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
     return <Loader />;
   }
 
-  const showNavbarAndFooter = !isDummyRoute(location.pathname);
+  const { showNavbar, showFooter } = getRouteLayout(location.pathname);
 
   return (
     <div className="relative">
-      {showNavbarAndFooter && <Navbar onEnrollClick={handleEnrollClick} />}
+      {showNavbar && <Navbar onEnrollClick={handleEnrollClick} />}
 
       <EnrollmentModal
         isOpen={isEnrollmentModalOpen}
@@ -46,9 +46,8 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
       <main className="min-h-screen">{children}</main>
 
-      {showNavbarAndFooter && (
+      {showFooter && (
         <>
-          <Navbar onEnrollClick={handleEnrollClick} />
           <ChatWidget />
           <Footer />
         </>

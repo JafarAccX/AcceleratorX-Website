@@ -4,43 +4,45 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroduction = () => {
   const stats = [
     {
-      value: "$1.3T",
-      label: "AI Industry by 2032",
+      value: "60%",
+      label: "Time Saved with AI",
     },
     {
-      value: "400%",
-      label: "Demand Increase",
+      value: "10X",
+      label: "Productivity Boost",
     },
     {
-      value: "90%",
-      label: "Business Adoption",
+      value: "₹9",
+      label: "Special Price",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "100% Hands-on Learning",
+      title: "Practical AI Skills",
       description:
-        "Work on real-world AI projects with 25+ industry-standard AI tools and frameworks",
+        "Learn how to use AI tools for real-world tasks and boost your productivity",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "No Coding Required",
+      title: "Zero Technical Skills Needed",
       description:
-        "Designed for absolute beginners - focus on practical AI skills without programming",
+        "Simple, step-by-step guidance to master AI tools - no coding required",
     },
   ];
 
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
+      console.error(
+        'Form element not found with ID "workshop-registration-form"'
+      );
     }
   };
 
@@ -71,21 +73,21 @@ const WSGENIntroduction = () => {
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
             <span className="text-sm text-blue-400 font-medium">
-              Master GenAI & AI Agents
+              Automate Your Work with AI
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Launch Your <span className="text-blue-500">AI Career</span> Without
-            Coding
+            Complete Your <span className="text-blue-500">Daily Tasks</span> in
+            Minutes
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Accelerate your career in the AI-driven future. Master Generative
-            AI, AI Agents, and Automation through hands-on, project-based
-            learning. Gain real-world skills and lead the AI revolution.
+            Learn how to leverage AI tools to automate your work, create content
+            faster, and boost your productivity. Master practical AI skills that
+            will save you hours every day - all for just ₹9!
           </p>
 
           {/* Stats Grid */}
@@ -123,12 +125,12 @@ const WSGENIntroduction = () => {
             ))}
           </div>
           <div className="flex justify-center items-center">
-          <button
-                onClick={scrollToForm}
-                className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
-              >
-                Register Now
-              </button>
+            <button
+              onClick={scrollToForm}
+              className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+            >
+              Register Now
+            </button>
           </div>
         </div>
       </div>

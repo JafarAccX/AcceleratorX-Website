@@ -2,17 +2,20 @@ import React, { useRef } from "react";
 import { FaCertificate } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Brain, Target } from "lucide-react";
 
 const WSAboutGEN = () => {
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
+      console.error(
+        'Form element not found with ID "workshop-registration-form"'
+      );
     }
   };
   const toolsRef = useRef(null);
@@ -25,15 +28,16 @@ const WSAboutGEN = () => {
   };
 
   const allTools = [
-    { name: "Claude", img: "/assets/genAITools/claude.webp" },
-    { name: "Gemini", img: "/assets/genAITools/gemini.webp" },
     { name: "GPT-4", img: "/assets/genAITools/gpt4.webp" },
+    { name: "DeepSeek", img: "/assets/genAITools/deepseek.webp" },
+    { name: "LLaMA", img: "/assets/genAITools/ollama.png" },
+    { name: "Falcon", img: "/assets/genAITools/falcon.png" },
     { name: "LangChain", img: "/assets/genAITools/langchain.png" },
-    { name: "Midjourney", img: "/assets/genAITools/midjourney.webp" },
-    { name: "Pika", img: "/assets/genAITools/pika.webp" },
-    { name: "OpenAI API", img: "/assets/genAITools/openai-logomark.svg" },
-    { name: "Hugging Face", img: "/assets/genAITools/huggingface.webp" },
-    { name: "RAG (Retrieval-Augmented Generation)", img: "/assets/genAITools/rag.webp" },
+    { name: "CrewAI", img: "/assets/genAITools/crewai.webp" },
+    { name: "AutoGen", img: "/assets/genAITools/autogen.jpeg" },
+    { name: "RAG", img: "/assets/genAITools/rag.webp" },
+    { name: "Hugging Face", img: "/assets/genAITools/huggingface.svg" },
+    { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
   ];
 
   return (
@@ -58,48 +62,204 @@ const WSAboutGEN = () => {
               {...fadeInUp}
             >
               <div className="p-6">
-                <h2 className="text-2xl font-bold text-white mb-4">
-                  About this Masterclass
-                </h2>
-                <div className="space-y-6">
-  <p className="text-gray-300 leading-relaxed">
-    Join us for an exclusive online workshop,{" "}
-    <span className="font-semibold text-blue-400">
-      "Micro-Certification in Prompt Engineering"
-    </span>
-    on <span className="font-semibold text-blue-400">February 17, 2025</span> at <span>07:30 PM</span>. This immersive session will equip you with 
-    the skills to craft effective AI prompts for various applications, enhancing AI-driven 
-    automation, content creation, and decision-making.
-  </p>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div className="bg-[#1A1A1A] p-4 rounded-xl border border-blue-900/30">
-      <h3 className="font-semibold text-blue-400 mb-2">What You'll Learn</h3>
-      <ul className="space-y-2 text-sm text-gray-300">
-        <li>• Fundamentals of Prompt Engineering</li>
-        <li>• Techniques to Optimize AI Responses</li>
-        <li>• Crafting Prompts for Various AI Models</li>
-        <li>• Enhancing Automation with AI-Generated Content</li>
-        <li>• Practical Applications in Business, Marketing, and Productivity</li>
-      </ul>
-    </div>
-    <div className="bg-[#1A1A1A] p-4 rounded-xl border border-green-900/30">
-      <h3 className="font-semibold text-green-400 mb-2">Who Should Attend</h3>
-      <ul className="space-y-2 text-sm text-gray-300">
-        <li>• AI Enthusiasts & Developers</li>
-        <li>• Content Creators & Marketers</li>
-        <li>• Business Professionals & Entrepreneurs</li>
-        <li>• Anyone Looking to Leverage AI for Productivity</li>
-      </ul>
-    </div>
-    <button
-                onClick={scrollToForm}
-                className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
-              >
-                Register Now
-              </button>
-  </div>
-</div>
+                <motion.div
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 to-green-500/20 rounded-lg px-4 py-2 mb-4"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.span
+                    className="text-blue-400 font-medium flex items-center gap-2"
+                    animate={{ opacity: [0.8, 1, 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <motion.span
+                      animate={{ rotate: [0, -10, 10, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        repeatDelay: 3,
+                      }}
+                    >
+                      ⚡
+                    </motion.span>
+                    Live Workshop
+                  </motion.span>
+                </motion.div>
 
+                <motion.h2
+                  className="text-3xl font-bold text-white mb-6"
+                  whileInView={{ opacity: [0, 1], y: [20, 0] }}
+                  transition={{ duration: 0.5 }}
+                >
+                  Master AI Tools in Just 2 Hours
+                </motion.h2>
+
+                <div className="space-y-6">
+                  <motion.div
+                    className="bg-gradient-to-r from-white/[0.05] to-transparent backdrop-blur-sm rounded-xl p-6 border border-white/10"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <p className="text-gray-300 leading-relaxed">
+                      Join our hands-on workshop on{" "}
+                      <motion.span
+                        className="font-semibold text-blue-400"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        February 23, 2025
+                      </motion.span>{" "}
+                      at{" "}
+                      <motion.span
+                        className="text-blue-400"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        10:30 AM
+                      </motion.span>
+                      . Learn how to use AI to complete your daily tasks in
+                      minutes instead of hours.
+                    </p>
+                  </motion.div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <motion.div
+                      className="bg-gradient-to-r from-blue-500/5 to-transparent p-6 rounded-xl border border-blue-900/20"
+                      whileHover={{
+                        scale: 1.02,
+                        borderColor: "rgba(59, 130, 246, 0.3)",
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div
+                        className="flex items-center gap-3 mb-4"
+                        whileHover={{ gap: "0.875rem" }}
+                      >
+                        <motion.div
+                          className="p-2 bg-blue-500/10 rounded-lg"
+                          whileHover={{ rotate: [0, -5, 5, 0] }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Brain className="w-5 h-5 text-blue-400" />
+                        </motion.div>
+                        <h3 className="font-semibold text-white">
+                          Workshop Highlights
+                        </h3>
+                      </motion.div>
+                      <ul className="space-y-3">
+                        {[
+                          "Live AI Tool Demonstrations",
+                          "Step-by-Step Guidance",
+                          "Interactive Q&A Session",
+                          "Practice Exercises",
+                        ].map((item, index) => (
+                          <motion.li
+                            key={index}
+                            className="flex items-center gap-2 text-gray-300"
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <motion.span
+                              className="text-xs bg-blue-500/20 p-1 rounded"
+                              whileHover={{ scale: 1.1 }}
+                            >
+                              {String(index + 1).padStart(2, "0")}
+                            </motion.span>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+
+                    <motion.div
+                      className="bg-gradient-to-r from-green-500/5 to-transparent p-6 rounded-xl border border-green-900/20"
+                      whileHover={{
+                        scale: 1.02,
+                        borderColor: "rgba(34, 197, 94, 0.3)",
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div
+                        className="flex items-center gap-3 mb-4"
+                        whileHover={{ gap: "0.875rem" }}
+                      >
+                        <motion.div
+                          className="p-2 bg-green-500/10 rounded-lg"
+                          whileHover={{ rotate: [0, -5, 5, 0] }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Target className="w-5 h-5 text-green-400" />
+                        </motion.div>
+                        <h3 className="font-semibold text-white">
+                          What You'll Learn
+                        </h3>
+                      </motion.div>
+                      <ul className="space-y-3">
+                        {[
+                          "Smart Content Creation",
+                          "Email & Document Writing",
+                          "Research & Analysis",
+                          "Task Automation",
+                        ].map((item, index) => (
+                          <motion.li
+                            key={index}
+                            className="flex items-center gap-2 text-gray-300"
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <motion.span
+                              className="text-xs bg-green-500/20 p-1 rounded"
+                              whileHover={{ scale: 1.1 }}
+                            >
+                              {String(index + 1).padStart(2, "0")}
+                            </motion.span>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  </div>
+
+                  {/* Price Card */}
+                  <motion.div
+                    className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-green-500/10 p-6 rounded-xl border border-white/10"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="flex justify-between items-center mb-4">
+                      <div>
+                        <motion.h3
+                          className="text-xl font-bold text-white mb-1"
+                          animate={{ opacity: [0.8, 1, 0.8] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
+                          Special Launch Price
+                        </motion.h3>
+                        <p className="text-sm text-gray-400">
+                          Avail now to get the offer
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <motion.p
+                          className="text-3xl font-bold text-white"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          ₹9
+                        </motion.p>
+                        <p className="text-sm text-gray-400 line-through">
+                          Regular Price ₹499
+                        </p>
+                      </div>
+                    </div>
+                    <motion.button
+                      onClick={scrollToForm}
+                      className="w-full py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Register Now
+                    </motion.button>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
 
@@ -165,7 +325,9 @@ const WSAboutGEN = () => {
               <div className="relative p-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <FaCertificate className="w-8 h-8" />
-                  <h3 className="text-2xl font-bold">Certification Included</h3>
+                  <h3 className="text-2xl font-bold">
+                    Certification Included*
+                  </h3>
                 </div>
                 <p className="text-gray-200 mb-4">
                   Earn an industry-recognized certificate upon completion of the
@@ -190,7 +352,7 @@ const WSAboutGEN = () => {
           >
             <div className="relative">
               <img
-                src="/assets/workshopCover/ai-chatbot.webp"
+                src="/assets/ai.jpg"
                 alt="AI Workshop"
                 className="w-full rounded-2xl shadow-2xl"
               />
@@ -246,12 +408,12 @@ const WSAboutGEN = () => {
                 </p>
               </div>
               <div>
-              <button
-                onClick={scrollToForm}
-                className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
-              >
-                Register Now
-              </button>
+                <button
+                  onClick={scrollToForm}
+                  className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+                >
+                  Register Now
+                </button>
               </div>
             </motion.div>
           </motion.div>

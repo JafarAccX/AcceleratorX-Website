@@ -40,8 +40,45 @@ const GENCTA = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Transform Your Career with AI-Powered Skills
+              Start Saving Time with AI Today
             </motion.h2>
+
+            {/* Price Badge */}
+            <motion.div
+              className="flex flex-col items-center space-y-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="bg-blue-500/10 rounded-full px-6 py-2">
+                <span className="text-3xl font-bold text-white">₹9</span>
+                <span className="text-gray-400 text-sm ml-2">Only</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Limited Time Special Price
+              </p>
+            </motion.div>
+
+            {/* Value Props */}
+            <motion.div
+              className="flex flex-col items-center space-y-4 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="grid grid-cols-2 gap-4 w-full">
+                <div className="bg-white/5 p-4 rounded-lg text-center">
+                  <p className="text-2xl font-bold text-blue-400">2 Hours</p>
+                  <p className="text-sm text-gray-400">Live Workshop</p>
+                </div>
+                <div className="bg-white/5 p-4 rounded-lg text-center">
+                  <p className="text-2xl font-bold text-green-400">
+                    Interactive
+                  </p>
+                  <p className="text-sm text-gray-400">Q&A Session</p>
+                </div>
+              </div>
+            </motion.div>
 
             {/* Button Section */}
             <motion.div

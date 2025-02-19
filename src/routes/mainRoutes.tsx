@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { Route } from "react-router-dom";
 import RoleProtectedRoute from "../components/RoleProtectedRoute";
 import { ThankYouPageWrapper } from "./utils/routeUtils";
+import WorkshopPaymentSuccess from "../pages/workshop-payment/Success";
 
 // Lazy imports for main routes
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
@@ -144,4 +145,10 @@ export const mainRoutes = [
 
   // Thank You Page
   <Route path="/thank-you" element={<ThankYouPageWrapper />} />,
+
+  // Workshop Payment Success
+  <Route
+    path="/workshop-payment/success/:orderId"
+    element={<WorkshopPaymentSuccess />}
+  />,
 ];
