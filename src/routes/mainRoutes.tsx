@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import RoleProtectedRoute from "../components/RoleProtectedRoute";
 import { ThankYouPageWrapper } from "./utils/routeUtils";
 import WorkshopPaymentSuccess from "../pages/workshop-payment/Success";
+import XSATEntry from "../pages/courses/EntryPoint/XSATEntry";
 
 // Lazy imports for main routes
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
@@ -56,6 +57,7 @@ export const mainRoutes = [
   <Route path="/privacy-policy" element={<Privacy />} />,
   <Route path="/terms-and-conditions" element={<Terms />} />,
   <Route path="/refund-policy" element={<Refund />} />,
+  <Route path="/xsat" element={<XSATEntry />} />,
 
   // Course Routes
   <Route path="/courses/generative-ai" element={<GenAICourse />} />,

@@ -1,1 +1,0 @@
-import{u as e,j as t}from"./index-C8P6ngtQ.js";import{A as r}from"./arrow-left-W672uK6c.js";const n=()=>{const s=e();return t.jsxs("button",{onClick:()=>s(-1),className:"flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-4",children:[t.jsx(r,{size:20}),t.jsx("span",{children:"Back"})]})};export{n as B};
