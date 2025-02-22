@@ -2,7 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/authService";
-import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase, GraduationCap } from "lucide-react";
+import {
+  FileText,
+  Users,
+  LogOut,
+  Inbox,
+  BookOpen,
+  BarChart2,
+  Briefcase,
+  GraduationCap,
+} from "lucide-react";
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -24,12 +33,16 @@ const AdminDashboard: React.FC = () => {
         <div className="mb-8 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
-              {role === "blog_user" ? "Blog Dashboard" : role === "workshop_viewer" ? "Workshop Dashboard" : "Admin Dashboard"}
+              {role === "blog_user"
+                ? "Blog Dashboard"
+                : role === "workshop_viewer"
+                ? "Workshop Dashboard"
+                : "Admin Dashboard"}
             </h1>
             <p className="mt-2 text-sm text-gray-600">
               Welcome,{" "}
-              {role === "admin" 
-                ? "Administrator" 
+              {role === "admin"
+                ? "Administrator"
                 : role === "blog_user"
                 ? "Blog Manager"
                 : role === "workshop_viewer"
@@ -72,6 +85,27 @@ const AdminDashboard: React.FC = () => {
 
           {role !== "blog_user" && (
             <>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/analytics")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-purple-100 rounded-lg">
+                    <BarChart2 className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      Performance Analytics
+                    </h2>
+                    <p className="text-gray-500 mt-1">
+                      View detailed analytics for enrollments and workshops
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -135,29 +169,6 @@ const AdminDashboard: React.FC = () => {
                 </div>
               </motion.div>
             </>
-          )}
-
-          {role === "admin" && (
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => navigate("/admin/analytics")}
-              className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
-            >
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-purple-100 rounded-lg">
-                  <BarChart2 className="h-6 w-6 text-purple-600" />
-                </div>
-                <div>
-                  <h2 className="text-xl font-semibold text-gray-900">
-                    Course Analytics
-                  </h2>
-                  <p className="text-gray-500 mt-1">
-                    View detailed enrollment analytics and trends
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           )}
 
           {(role === "admin" || role === "sales") && (

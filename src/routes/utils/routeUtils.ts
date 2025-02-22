@@ -27,6 +27,8 @@ export const adRoutes = [
   "/workshop/dm-masterclass",
   "/workshop/gen-ai-masterclass-bxwcy",
   "/workshop-payment/success/",
+  "/admin/analytics",
+  "/admin/analytics/adanalysis",
   
 
 ] as const;

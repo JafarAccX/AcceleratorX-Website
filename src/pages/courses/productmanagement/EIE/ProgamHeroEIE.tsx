@@ -112,10 +112,10 @@ export default function ProgramHeroEIE() {
                 <h3 className="text-[#5CB338] font-bold">Type</h3>
                 <p className="text-gray-300">Professional Certificate</p>
               </div>
-              <div className="border-r border-[#5CB338]/30">
+              {/* <div className="border-r border-[#5CB338]/30">
                 <h3 className="text-[#5CB338] font-bold">Start Date</h3>
                 <p className="text-gray-300">Feb 20, 2025</p>
-              </div>
+              </div> */}
               <div>
                 <h3 className="text-[#5CB338] font-bold">Duration</h3>
                 <p className="text-gray-300">4 Months</p>

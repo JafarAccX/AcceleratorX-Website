@@ -79,10 +79,13 @@ export const authService = {
     return JSON.parse(authState).role;
   },
 
-  hasAccess(requiredRole: UserRole): boolean {
+  hasAccess(requiredRole: UserRole | UserRole[]): boolean {
     const role = this.getRole();
     if (!role) return false;
     if (role === 'admin') return true; // Admin has access to everything
+    if (Array.isArray(requiredRole)) {
+      return requiredRole.includes(role);
+    }
     if (role === 'workshop_viewer' && requiredRole === 'workshop_viewer') return true; // Workshop viewers can only access workshop details
     if (role === 'blog_user' && requiredRole === 'blog_user') return true; // Blog users can only access blog features
     return role === requiredRole; // Other roles only have access to their specific areas

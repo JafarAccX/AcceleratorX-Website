@@ -20,6 +20,9 @@ import { workshopRoutes } from "./routes/workshopRoutes";
 import { flyerRoutes } from "./routes/flyerRoutes";
 import { courseRoutes } from "./routes/courseRoutes";
 import ThankYouPage from "./components/ThankYouPage";
+import AdminPage from "./pages/admin/AdminPage";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdAnalysis from "./pages/admin/AdAnalysis";
 
 function App() {
   const { setSelectedCourse } = useCourseContext();
@@ -45,6 +48,11 @@ function App() {
                 {workshopRoutes}
                 {flyerRoutes}
                 {courseRoutes}
+                {/* Admin Routes */}
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                <Route path="/admin/enrollments" element={<AdminPage />} />
+                <Route path="/admin/ads" element={<AdAnalysis />} />
               </Routes>
             </Suspense>
           </MainLayout>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { createClient } from "@supabase/supabase-js";
 import { authService } from "../../services/authService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import {
   RefreshCw,
@@ -10,6 +10,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowUpDown,
+  BarChart,
 } from "lucide-react";
 import BackButton from "../../components/common/BackButton";
 
@@ -55,7 +56,9 @@ const AdminPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
     "enrollments" | "admin-access" | "sales-access"
   >("enrollments");
-  const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>([]);
+  const [adminEnrollments, setAdminEnrollments] = useState<EnrollmentData[]>(
+    []
+  );
   const [adminCurrentPage, setAdminCurrentPage] = useState(1);
   const [utmFilter, setUtmFilter] = useState({
     source: "",
@@ -99,16 +102,20 @@ const AdminPage: React.FC = () => {
 
     data.forEach((enrollment) => {
       if (enrollment.utm_source) {
-        stats.sources[enrollment.utm_source] = (stats.sources[enrollment.utm_source] || 0) + 1;
+        stats.sources[enrollment.utm_source] =
+          (stats.sources[enrollment.utm_source] || 0) + 1;
       }
       if (enrollment.utm_medium) {
-        stats.mediums[enrollment.utm_medium] = (stats.mediums[enrollment.utm_medium] || 0) + 1;
+        stats.mediums[enrollment.utm_medium] =
+          (stats.mediums[enrollment.utm_medium] || 0) + 1;
       }
       if (enrollment.utm_campaign) {
-        stats.campaigns[enrollment.utm_campaign] = (stats.campaigns[enrollment.utm_campaign] || 0) + 1;
+        stats.campaigns[enrollment.utm_campaign] =
+          (stats.campaigns[enrollment.utm_campaign] || 0) + 1;
       }
       if (enrollment.referrer) {
-        stats.referrers[enrollment.referrer] = (stats.referrers[enrollment.referrer] || 0) + 1;
+        stats.referrers[enrollment.referrer] =
+          (stats.referrers[enrollment.referrer] || 0) + 1;
       }
     });
 
@@ -119,24 +126,33 @@ const AdminPage: React.FC = () => {
     const searchMatches =
       searchQuery === "" ||
       enrollment.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      enrollment.phone_number?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      enrollment.phone_number
+        ?.toLowerCase()
+        .includes(searchQuery.toLowerCase()) ||
       enrollment.email?.toLowerCase().includes(searchQuery.toLowerCase());
 
     if (userRole === "ad1" || userRole === "ad2") {
       return (
         searchMatches &&
-        (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
-        (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
-        (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign))
+        (!utmFilter.source ||
+          enrollment.utm_source?.includes(utmFilter.source)) &&
+        (!utmFilter.medium ||
+          enrollment.utm_medium?.includes(utmFilter.medium)) &&
+        (!utmFilter.campaign ||
+          enrollment.utm_campaign?.includes(utmFilter.campaign))
       );
     }
 
     return (
       searchMatches &&
-      (!utmFilter.source || enrollment.utm_source?.includes(utmFilter.source)) &&
-      (!utmFilter.medium || enrollment.utm_medium?.includes(utmFilter.medium)) &&
-      (!utmFilter.campaign || enrollment.utm_campaign?.includes(utmFilter.campaign)) &&
-      (!courseFilter || enrollment.course?.toLowerCase().includes(courseFilter.toLowerCase()))
+      (!utmFilter.source ||
+        enrollment.utm_source?.includes(utmFilter.source)) &&
+      (!utmFilter.medium ||
+        enrollment.utm_medium?.includes(utmFilter.medium)) &&
+      (!utmFilter.campaign ||
+        enrollment.utm_campaign?.includes(utmFilter.campaign)) &&
+      (!courseFilter ||
+        enrollment.course?.toLowerCase().includes(courseFilter.toLowerCase()))
     );
   });
 
@@ -162,7 +178,9 @@ const AdminPage: React.FC = () => {
         query = query.eq("course", "Product Management");
       }
 
-      const { data, error } = await query.order("created_at", { ascending: false });
+      const { data, error } = await query.order("created_at", {
+        ascending: false,
+      });
 
       if (error) throw error;
 
@@ -245,28 +263,30 @@ const AdminPage: React.FC = () => {
       ];
       const csvContent = [
         headers.join(","),
-        ...filteredEnrollments.map((enrollment, index) => [
-          index + 1,
-          enrollment.full_name,
-          enrollment.email,
-          enrollment.phone_number,
-          enrollment.education_level,
-          enrollment.course,
-          enrollment.work_experience,
-          enrollment.designation,
-          new Date(enrollment.created_at).toLocaleDateString(),
-          enrollment.utm_source || "",
-          enrollment.utm_medium || "",
-          enrollment.utm_campaign || "",
-          enrollment.utm_term || "",
-          enrollment.utm_content || "",
-          enrollment.referrer || "",
-          enrollment.landing_page_url || "",
-          enrollment.fbclid || "",
-          enrollment.gclid || "",
-          enrollment.ttclid || "",
-          enrollment.msclkid || "",
-        ].join(",")),
+        ...filteredEnrollments.map((enrollment, index) =>
+          [
+            index + 1,
+            enrollment.full_name,
+            enrollment.email,
+            enrollment.phone_number,
+            enrollment.education_level,
+            enrollment.course,
+            enrollment.work_experience,
+            enrollment.designation,
+            new Date(enrollment.created_at).toLocaleDateString(),
+            enrollment.utm_source || "",
+            enrollment.utm_medium || "",
+            enrollment.utm_campaign || "",
+            enrollment.utm_term || "",
+            enrollment.utm_content || "",
+            enrollment.referrer || "",
+            enrollment.landing_page_url || "",
+            enrollment.fbclid || "",
+            enrollment.gclid || "",
+            enrollment.ttclid || "",
+            enrollment.msclkid || "",
+          ].join(",")
+        ),
       ].join("\n");
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
@@ -322,7 +342,6 @@ const AdminPage: React.FC = () => {
               View and manage all enrollment submissions
             </p>
             <BackButton />
-
           </div>
           <div className="flex gap-4">
             <button
@@ -350,36 +369,44 @@ const AdminPage: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow overflow-hidden">
-          {userRole !== "enrollment" && (
-            <div className="border-b border-gray-200">
-              <nav className="-mb-px flex">
-                {userRole === "admin" && (
-                  <button
-                    onClick={() => setActiveTab("admin-access")}
-                    className={`py-4 px-6 text-sm font-medium ${
-                      activeTab === "admin-access"
-                        ? "border-b-2 border-blue-500 text-blue-600"
-                        : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    Admin Access
-                  </button>
-                )}
-                {userRole === "sales" && (
-                  <button
-                    onClick={() => setActiveTab("sales-access")}
-                    className={`py-4 px-6 text-sm font-medium ${
-                      activeTab === "sales-access"
-                        ? "border-b-2 border-blue-500 text-blue-600"
-                        : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    Sales Access
-                  </button>
-                )}
-              </nav>
-            </div>
-          )}
+          <div className="border-b border-gray-200">
+            <nav className="flex">
+              <button
+                onClick={() => setActiveTab("enrollments")}
+                className={`py-4 px-6 text-sm font-medium ${
+                  activeTab === "enrollments"
+                    ? "border-b-2 border-blue-500 text-blue-600"
+                    : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                }`}
+              >
+                Enrollment Data
+              </button>
+              {userRole === "admin" && (
+                <button
+                  onClick={() => setActiveTab("admin-access")}
+                  className={`py-4 px-6 text-sm font-medium ${
+                    activeTab === "admin-access"
+                      ? "border-b-2 border-blue-500 text-blue-600"
+                      : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  }`}
+                >
+                  Admin Access
+                </button>
+              )}
+              {userRole === "sales" && (
+                <button
+                  onClick={() => setActiveTab("sales-access")}
+                  className={`py-4 px-6 text-sm font-medium ${
+                    activeTab === "sales-access"
+                      ? "border-b-2 border-blue-500 text-blue-600"
+                      : "text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  }`}
+                >
+                  Sales Access
+                </button>
+              )}
+            </nav>
+          </div>
 
           <div className="p-4 border-b border-gray-200">
             <div className="flex items-center justify-between mb-4">
@@ -415,7 +442,8 @@ const AdminPage: React.FC = () => {
               )}
               {(userRole === "ad1" || userRole === "ad2") && (
                 <div className="p-2 border rounded bg-gray-100">
-                  Course: {userRole === "ad1" ? "Data Analytics" : "Product Management"}
+                  Course:{" "}
+                  {userRole === "ad1" ? "Data Analytics" : "Product Management"}
                 </div>
               )}
               <input
@@ -423,26 +451,36 @@ const AdminPage: React.FC = () => {
                 placeholder="Filter by UTM Source"
                 className="border border-gray-300 rounded-md px-3 py-2"
                 value={utmFilter.source}
-                onChange={(e) => setUtmFilter((prev) => ({ ...prev, source: e.target.value }))}
+                onChange={(e) =>
+                  setUtmFilter((prev) => ({ ...prev, source: e.target.value }))
+                }
               />
               <input
                 type="text"
                 placeholder="Filter by UTM Medium"
                 className="border border-gray-300 rounded-md px-3 py-2"
                 value={utmFilter.medium}
-                onChange={(e) => setUtmFilter((prev) => ({ ...prev, medium: e.target.value }))}
+                onChange={(e) =>
+                  setUtmFilter((prev) => ({ ...prev, medium: e.target.value }))
+                }
               />
               <input
                 type="text"
                 placeholder="Filter by UTM Campaign"
                 className="border border-gray-300 rounded-md px-3 py-2"
                 value={utmFilter.campaign}
-                onChange={(e) => setUtmFilter((prev) => ({ ...prev, campaign: e.target.value }))}
+                onChange={(e) =>
+                  setUtmFilter((prev) => ({
+                    ...prev,
+                    campaign: e.target.value,
+                  }))
+                }
               />
             </div>
             {courseFilter && (
               <div className="mt-2 text-sm text-gray-600">
-                Showing enrollments for: <span className="font-medium">{courseFilter}</span>
+                Showing enrollments for:{" "}
+                <span className="font-medium">{courseFilter}</span>
                 <button
                   onClick={() => setCourseFilter("")}
                   className="ml-2 text-blue-600 hover:text-blue-500"
@@ -457,13 +495,18 @@ const AdminPage: React.FC = () => {
             <div className="p-4 border-b border-gray-200 bg-gray-50">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Sources</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">
+                    Top Sources
+                  </h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.sources)
                       .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([source, count]) => (
-                        <div key={source} className="flex justify-between text-sm">
+                        <div
+                          key={source}
+                          className="flex justify-between text-sm"
+                        >
                           <span className="text-gray-600">{source}</span>
                           <span className="text-gray-900">{count}</span>
                         </div>
@@ -471,13 +514,18 @@ const AdminPage: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Mediums</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">
+                    Top Mediums
+                  </h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.mediums)
                       .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([medium, count]) => (
-                        <div key={medium} className="flex justify-between text-sm">
+                        <div
+                          key={medium}
+                          className="flex justify-between text-sm"
+                        >
                           <span className="text-gray-600">{medium}</span>
                           <span className="text-gray-900">{count}</span>
                         </div>
@@ -485,13 +533,18 @@ const AdminPage: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Campaigns</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">
+                    Top Campaigns
+                  </h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.campaigns)
                       .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([campaign, count]) => (
-                        <div key={campaign} className="flex justify-between text-sm">
+                        <div
+                          key={campaign}
+                          className="flex justify-between text-sm"
+                        >
                           <span className="text-gray-600">{campaign}</span>
                           <span className="text-gray-900">{count}</span>
                         </div>
@@ -499,13 +552,18 @@ const AdminPage: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900 mb-2">Top Referrers</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">
+                    Top Referrers
+                  </h4>
                   <div className="space-y-1">
                     {Object.entries(utmStats.referrers)
                       .sort(([, a], [, b]) => b - a)
                       .slice(0, 5)
                       .map(([referrer, count]) => (
-                        <div key={referrer} className="flex justify-between text-sm">
+                        <div
+                          key={referrer}
+                          className="flex justify-between text-sm"
+                        >
                           <span className="text-gray-600">{referrer}</span>
                           <span className="text-gray-900">{count}</span>
                         </div>
@@ -516,11 +574,8 @@ const AdminPage: React.FC = () => {
             </div>
           )}
 
-          {loading ? (
-            <div className="flex justify-center items-center p-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-            </div>
-          ) : (
+          {/* Enrollment Data Tab Content */}
+          {activeTab === "enrollments" && (
             <>
               <div className="flex justify-end mb-4">
                 <button
@@ -696,7 +751,9 @@ const AdminPage: React.FC = () => {
                 <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                      onClick={() =>
+                        setCurrentPage((prev) => Math.max(prev - 1, 1))
+                      }
                       disabled={currentPage === 1}
                       className={`p-2 rounded-lg hover:bg-gray-100 ${
                         currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
@@ -723,41 +780,45 @@ const AdminPage: React.FC = () => {
                   </div>
                 </div>
               )}
+            </>
+          )}
 
-              {/* Show Admin Access table if in admin tab */}
-              {activeTab === "admin-access" && userRole === "admin" && (
-                <div className="flex justify-between p-4">
-                  <h2 className="text-xl font-semibold text-gray-800">
-                    Admin Access - All Enrollment Data
-                  </h2>
-                  <button
-                    onClick={() => {
-                      try {
-                        const headers = [
-                          "S.No",
-                          "Full Name",
-                          "Email",
-                          "Phone Number",
-                          "Education Level",
-                          "Course",
-                          "Work Experience",
-                          "Designation",
-                          "Date",
-                          "UTM Source",
-                          "UTM Medium",
-                          "UTM Campaign",
-                          "UTM Term",
-                          "UTM Content",
-                          "Referrer",
-                          "Landing Page URL",
-                          "FB Click ID",
-                          "Google Click ID",
-                          "TikTok Click ID",
-                          "MS Click ID",
-                        ];
-                        const csvContent = [
-                          headers.join(","),
-                          ...adminEnrollments.map((enrollment, index) => [
+          {/* Admin Access Tab Content */}
+          {activeTab === "admin-access" && userRole === "admin" && (
+            <>
+              <div className="flex justify-between p-4">
+                <h2 className="text-xl font-semibold text-gray-800">
+                  Admin Access - All Enrollment Data
+                </h2>
+                <button
+                  onClick={() => {
+                    try {
+                      const headers = [
+                        "S.No",
+                        "Full Name",
+                        "Email",
+                        "Phone Number",
+                        "Education Level",
+                        "Course",
+                        "Work Experience",
+                        "Designation",
+                        "Date",
+                        "UTM Source",
+                        "UTM Medium",
+                        "UTM Campaign",
+                        "UTM Term",
+                        "UTM Content",
+                        "Referrer",
+                        "Landing Page URL",
+                        "FB Click ID",
+                        "Google Click ID",
+                        "TikTok Click ID",
+                        "MS Click ID",
+                      ];
+                      const csvContent = [
+                        headers.join(","),
+                        ...adminEnrollments.map((enrollment, index) =>
+                          [
                             index + 1,
                             enrollment.full_name,
                             enrollment.email,
@@ -778,72 +839,76 @@ const AdminPage: React.FC = () => {
                             enrollment.gclid || "",
                             enrollment.ttclid || "",
                             enrollment.msclkid || "",
-                          ].join(",")),
-                        ].join("\n");
+                          ].join(",")
+                        ),
+                      ].join("\n");
 
-                        const blob = new Blob([csvContent], {
-                          type: "text/csv;charset=utf-8;",
-                        });
-                        const link = document.createElement("a");
-                        const url = URL.createObjectURL(blob);
-                        link.setAttribute("href", url);
-                        link.setAttribute(
-                          "download",
-                          `all_enrollments_${
-                            new Date().toISOString().split("T")[0]
-                          }.csv`
-                        );
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        toast.success("CSV downloaded successfully");
-                      } catch (error) {
-                        console.error("Error downloading CSV:", error);
-                        toast.error("Failed to download CSV");
-                      }
-                    }}
-                    className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download All Enrollments
-                  </button>
-                </div>
-              )}
+                      const blob = new Blob([csvContent], {
+                        type: "text/csv;charset=utf-8;",
+                      });
+                      const link = document.createElement("a");
+                      const url = URL.createObjectURL(blob);
+                      link.setAttribute("href", url);
+                      link.setAttribute(
+                        "download",
+                        `all_enrollments_${
+                          new Date().toISOString().split("T")[0]
+                        }.csv`
+                      );
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      toast.success("CSV downloaded successfully");
+                    } catch (error) {
+                      console.error("Error downloading CSV:", error);
+                      toast.error("Failed to download CSV");
+                    }
+                  }}
+                  className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                >
+                  <Download className="h-4 w-4" />
+                  Download All Enrollments
+                </button>
+              </div>
+            </>
+          )}
 
-              {/* Show Sales Access table if in sales tab */}
-              {activeTab === "sales-access" && userRole === "sales" && (
-                <div className="flex justify-between p-4">
-                  <h2 className="text-xl font-semibold text-gray-800">
-                    Sales Access - All Enrollment Data
-                  </h2>
-                  <button
-                    onClick={() => {
-                      try {
-                        const headers = [
-                          "S.No",
-                          "Full Name",
-                          "Email",
-                          "Phone Number",
-                          "Education Level",
-                          "Course",
-                          "Work Experience",
-                          "Designation",
-                          "Date",
-                          "UTM Source",
-                          "UTM Medium",
-                          "UTM Campaign",
-                          "UTM Term",
-                          "UTM Content",
-                          "Referrer",
-                          "Landing Page URL",
-                          "FB Click ID",
-                          "Google Click ID",
-                          "TikTok Click ID",
-                          "MS Click ID",
-                        ];
-                        const csvContent = [
-                          headers.join(","),
-                          ...adminEnrollments.map((enrollment, index) => [
+          {/* Sales Access Tab Content */}
+          {activeTab === "sales-access" && userRole === "sales" && (
+            <>
+              <div className="flex justify-between p-4">
+                <h2 className="text-xl font-semibold text-gray-800">
+                  Sales Access - All Enrollment Data
+                </h2>
+                <button
+                  onClick={() => {
+                    try {
+                      const headers = [
+                        "S.No",
+                        "Full Name",
+                        "Email",
+                        "Phone Number",
+                        "Education Level",
+                        "Course",
+                        "Work Experience",
+                        "Designation",
+                        "Date",
+                        "UTM Source",
+                        "UTM Medium",
+                        "UTM Campaign",
+                        "UTM Term",
+                        "UTM Content",
+                        "Referrer",
+                        "Landing Page URL",
+                        "FB Click ID",
+                        "Google Click ID",
+                        "TikTok Click ID",
+                        "MS Click ID",
+                      ];
+                      const csvContent = [
+                        headers.join(","),
+                        ...adminEnrollments.map((enrollment, index) =>
+                          [
                             index + 1,
                             enrollment.full_name,
                             enrollment.email,
@@ -864,37 +929,37 @@ const AdminPage: React.FC = () => {
                             enrollment.gclid || "",
                             enrollment.ttclid || "",
                             enrollment.msclkid || "",
-                          ].join(",")),
-                        ].join("\n");
+                          ].join(",")
+                        ),
+                      ].join("\n");
 
-                        const blob = new Blob([csvContent], {
-                          type: "text/csv;charset=utf-8;",
-                        });
-                        const link = document.createElement("a");
-                        const url = URL.createObjectURL(blob);
-                        link.setAttribute("href", url);
-                        link.setAttribute(
-                          "download",
-                          `all_enrollments_${
-                            new Date().toISOString().split("T")[0]
-                          }.csv`
-                        );
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        toast.success("CSV downloaded successfully");
-                      } catch (error) {
-                        console.error("Error downloading CSV:", error);
-                        toast.error("Failed to download CSV");
-                      }
-                    }}
-                    className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download All Enrollments
-                  </button>
-                </div>
-              )}
+                      const blob = new Blob([csvContent], {
+                        type: "text/csv;charset=utf-8;",
+                      });
+                      const link = document.createElement("a");
+                      const url = URL.createObjectURL(blob);
+                      link.setAttribute("href", url);
+                      link.setAttribute(
+                        "download",
+                        `all_enrollments_${
+                          new Date().toISOString().split("T")[0]
+                        }.csv`
+                      );
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      toast.success("CSV downloaded successfully");
+                    } catch (error) {
+                      console.error("Error downloading CSV:", error);
+                      toast.error("Failed to download CSV");
+                    }
+                  }}
+                  className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                >
+                  <Download className="h-4 w-4" />
+                  Download All Enrollments
+                </button>
+              </div>
             </>
           )}
         </div>

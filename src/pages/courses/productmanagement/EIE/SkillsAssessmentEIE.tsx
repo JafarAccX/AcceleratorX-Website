@@ -277,12 +277,21 @@ export default function SkillsAssessmentEIE() {
           >
             <div className="h-[600px] -mx-12">
               <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="60%" data={chartData}>
-                  <PolarGrid stroke="#5CB338" strokeOpacity={0.1} strokeWidth={1} />
+                <RadarChart
+                  cx="50%"
+                  cy="50%"
+                  outerRadius="60%"
+                  data={chartData}
+                >
+                  <PolarGrid
+                    stroke="#5CB338"
+                    strokeOpacity={0.1}
+                    strokeWidth={1}
+                  />
                   <PolarAngleAxis
                     dataKey="subject"
-                    tick={{ 
-                      fill: "#fff", 
+                    tick={{
+                      fill: "#fff",
                       fontSize: 11,
                       fontWeight: 500,
                       dy: 5,

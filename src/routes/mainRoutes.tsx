@@ -4,6 +4,7 @@ import RoleProtectedRoute from "../components/RoleProtectedRoute";
 import { ThankYouPageWrapper } from "./utils/routeUtils";
 import WorkshopPaymentSuccess from "../pages/workshop-payment/Success";
 import XSATEntry from "../pages/courses/EntryPoint/XSATEntry";
+import PerformanceAnalytics from "../pages/admin/PerformanceAnalytics";
 
 // Lazy imports for main routes
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
@@ -33,9 +34,6 @@ const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 const AdminDashboard = lazy(() => import("../pages/admin/AdminDashboard"));
 const EnrollmentDashboard = lazy(() => import("../pages/admin/AdminPage"));
 const OtherEnquiries = lazy(() => import("../pages/admin/OtherEnquiries"));
-const EnrollmentAnalytics = lazy(
-  () => import("../pages/admin/EnrollmentAnalytics")
-);
 const AdAnalysis = lazy(() => import("../pages/admin/AdAnalysis"));
 const ScholarshipDetails = lazy(
   () => import("../pages/admin/ScholarshipDetails")
@@ -89,8 +87,8 @@ export const mainRoutes = [
   <Route
     path="/admin/analytics"
     element={
-      <RoleProtectedRoute requiredRole="admin">
-        <EnrollmentAnalytics />
+      <RoleProtectedRoute requiredRole={["admin", "sales"]}>
+        <PerformanceAnalytics />
       </RoleProtectedRoute>
     }
   />,
