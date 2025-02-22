@@ -47,6 +47,8 @@ const WSForm = () => {
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [showCancellationModal, setShowCancellationModal] = useState(false);
 
+  console.log("API URL:", import.meta.env.VITE_BACKEND_URL);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
