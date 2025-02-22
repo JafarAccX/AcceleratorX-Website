@@ -47,7 +47,9 @@ const WSForm = () => {
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [showCancellationModal, setShowCancellationModal] = useState(false);
 
-  console.log("API URL:", import.meta.env.VITE_BACKEND_URL);
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
+  console.log("API URL:", apiUrl);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -90,19 +92,16 @@ const WSForm = () => {
 
     try {
       console.log("Creating order with backend...");
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/workshop/create-workshop-order`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            amount: WORKSHOP_PRICE.amount,
-            registrationId,
-          }),
-        }
-      );
+      const response = await fetch(`${apiUrl}/workshop/create-workshop-order`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount: WORKSHOP_PRICE.amount,
+          registrationId,
+        }),
+      });
 
       const responseData = await response.json();
       console.log("Backend response:", responseData);
@@ -129,9 +128,7 @@ const WSForm = () => {
             console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
-                `${
-                  import.meta.env.VITE_BACKEND_URL
-                }/workshop/verify-workshop-payment`,
+                `${apiUrl}/workshop/verify-workshop-payment`,
                 {
                   method: "POST",
                   headers: {
@@ -212,7 +209,7 @@ const WSForm = () => {
   const handlePaymentCancellation = async (tempId: string) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/workshop/cancel-workshop-payment`,
+        `${apiUrl}/workshop/cancel-workshop-payment`,
         {
           method: "POST",
           headers: {
@@ -273,19 +270,16 @@ const WSForm = () => {
       };
 
       console.log("Registration data:", registrationData);
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/workshop/create-workshop-order`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            amount: WORKSHOP_PRICE.amount,
-            registrationData,
-          }),
-        }
-      );
+      const response = await fetch(`${apiUrl}/workshop/create-workshop-order`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount: WORKSHOP_PRICE.amount,
+          registrationData,
+        }),
+      });
 
       const responseData = await response.json();
       console.log("Order creation response:", responseData);
@@ -318,9 +312,7 @@ const WSForm = () => {
             console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
-                `${
-                  import.meta.env.VITE_BACKEND_URL
-                }/workshop/verify-workshop-payment`,
+                `${apiUrl}/workshop/verify-workshop-payment`,
                 {
                   method: "POST",
                   headers: {
