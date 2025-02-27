@@ -114,7 +114,7 @@ const WSAboutGENB = () => {
                         className="text-blue-400"
                         whileHover={{ scale: 1.05 }}
                       >
-                        10:30 AM
+                        07:30 PM
                       </motion.span>
                       . Learn how to create intelligent chatbots that can transform communication and automate complex interactions.
                     </p>
