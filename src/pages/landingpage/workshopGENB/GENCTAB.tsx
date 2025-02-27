@@ -40,7 +40,7 @@ const GENCTAB = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Start Saving Time with AI Today
+              Transform Communication with AI Chatbots
             </motion.h2>
 
             {/* Price Badge */}
@@ -66,14 +66,14 @@ const GENCTAB = () => {
             >
               <div className="grid grid-cols-2 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-blue-400">2 Hours</p>
-                  <p className="text-sm text-gray-400">Live Workshop</p>
+                  <p className="text-2xl font-bold text-blue-400">AI-Powered</p>
+                  <p className="text-sm text-gray-400">Chatbot Design</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <p className="text-2xl font-bold text-green-400">
-                    Interactive
+                    Conversational
                   </p>
-                  <p className="text-sm text-gray-400">Q&A Session</p>
+                  <p className="text-sm text-gray-400">AI Strategies</p>
                 </div>
               </div>
             </motion.div>
@@ -91,7 +91,7 @@ const GENCTAB = () => {
                 className="group relative inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-200 overflow-hidden"
               >
                 <span className="relative z-10 text-lg font-semibold">
-                  Join Workshop
+                  Build Your Chatbot
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out origin-left"></div>
               </button>

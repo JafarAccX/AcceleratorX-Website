@@ -5,23 +5,23 @@ const WSGENWhoShouldEnrollB = () => {
   const targetAudience = [
     {
       icon: Users,
-      title: "Students & Professionals",
-      description: "Save time on assignments and work tasks",
+      title: "Software Developers",
+      description: "Learn to build intelligent conversational AI solutions",
     },
     {
       icon: Briefcase,
-      title: "Content Creators",
-      description: "Create content faster with AI assistance",
+      title: "Product Managers",
+      description: "Design cutting-edge AI-powered communication strategies",
     },
     {
       icon: Megaphone,
-      title: "Business Owners",
-      description: "Automate repetitive business tasks",
+      title: "Customer Service Professionals",
+      description: "Transform customer interactions with advanced chatbots",
     },
     {
       icon: Brain,
-      title: "Anyone whose job's can be replaced by AI",
-      description: "Learn to work smarter with AI tools",
+      title: "AI Enthusiasts & Entrepreneurs",
+      description: "Explore the future of automated communication technologies",
     },
   ];
 
@@ -100,7 +100,7 @@ const WSGENWhoShouldEnrollB = () => {
             <div className="flex-1 relative">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
                 <img
-                  src="/genaiimage.jpg"
+                  src="/workshopChat.webp"
                   alt="Students learning together"
                   className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -109,7 +109,7 @@ const WSGENWhoShouldEnrollB = () => {
                 <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
                   <div className="flex justify-between items-center">
                     <p className="text-blue-900 font-medium">
-                      "Join now and transform the way you work!"
+                      Revolutionize Communication with AI-Powered Chatbots!
                     </p>
                     <div className="text-right">
                       <p className="text-2xl font-bold text-blue-600">Free</p>

@@ -4,12 +4,12 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionB = () => {
   const stats = [
     {
-      value: "60%",
-      label: "Time Saved with AI",
+      value: "90%",
+      label: "Customer Engagement Boost",
     },
     {
-      value: "10X",
-      label: "Productivity Boost",
+      value: "24/7",
+      label: "Automated Support",
     },
     {
       value: "Free",
@@ -73,21 +73,18 @@ const WSGENIntroductionB = () => {
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
             <span className="text-sm text-blue-400 font-medium">
-              Automate Your Work with AI
+              Build Intelligent Chatbots
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Complete Your <span className="text-blue-500">Daily Tasks</span> in
-            Minutes
+            Create <span className="text-blue-500">AI-Powered</span> Chatbots
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Learn how to leverage AI tools to automate your work, create content
-            faster, and boost your productivity. Master practical AI skills that
-            will save you hours every day - completely free!
+            Learn to design and develop intelligent chatbots using cutting-edge AI technologies. Transform communication strategies, enhance customer engagement, and unlock the power of conversational AI - completely free!
           </p>
 
           {/* Stats Grid */}

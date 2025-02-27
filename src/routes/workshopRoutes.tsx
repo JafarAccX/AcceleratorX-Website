@@ -82,7 +82,6 @@ const WorkshopPageGENBTest = () => (
     <WSGENWhoShouldEnrollB />
     <WSGENMentor />
     <WSGENIntroductionB />
-
     <GENCTAB />
   </>
 );

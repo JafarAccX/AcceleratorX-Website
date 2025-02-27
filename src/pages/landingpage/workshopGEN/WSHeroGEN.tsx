@@ -109,11 +109,11 @@ const WSHeroGEN = () => {
                 className="text-4xl md:text-7xl lg:text-6xl font-bold leading-tight"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-200">
-                  Complete Your Tasks
+                How to create chatbots 
                 </span>
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-                  10x Faster with AI
+                   with AI
                 </span>
               </motion.h1>
 

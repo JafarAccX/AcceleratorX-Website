@@ -114,11 +114,7 @@ const WSHeroGENB = () => {
                 className="text-4xl md:text-7xl lg:text-6xl font-bold leading-tight"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-200">
-                  Complete Your Tasks
-                </span>
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-                  10x Faster with AI
+                  How to create chatbots with AI
                 </span>
               </motion.h1>
 
@@ -129,8 +125,7 @@ const WSHeroGENB = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
-                Master the art of automating your daily work with AI tools in
-                just 2 hours
+                Learn to build intelligent chatbots using cutting-edge AI technologies and transform your communication strategies
               </motion.p>
 
               {/* Price Tag - Enhanced */}
@@ -165,7 +160,7 @@ const WSHeroGENB = () => {
                   {
                     icon: FiClock,
                     text: "2 Hour Live Workshop",
-                    highlight: "23rd Feb, 10:30 AM",
+                    highlight: "6th March, 10:30 AM",
                   },
                   {
                     icon: FiAward,

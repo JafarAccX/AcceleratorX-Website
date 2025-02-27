@@ -40,20 +40,6 @@ const WSAboutGENB = () => {
     { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
   ];
 
-  const stats = [
-    {
-      value: "60%",
-      label: "Time Saved with AI",
-    },
-    {
-      value: "10X",
-      label: "Productivity Boost",
-    },
-    {
-      value: "Free",
-      label: "Workshop",
-    },
-  ];
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden">
@@ -106,7 +92,7 @@ const WSAboutGENB = () => {
                   whileInView={{ opacity: [0, 1], y: [20, 0] }}
                   transition={{ duration: 0.5 }}
                 >
-                  Master AI Tools in Just 2 Hours
+                  Build Intelligent Chatbots with AI Technologies
                 </motion.h2>
 
                 <div className="space-y-6">
@@ -121,7 +107,7 @@ const WSAboutGENB = () => {
                         className="font-semibold text-blue-400"
                         whileHover={{ scale: 1.05 }}
                       >
-                        February 23, 2025
+                        6th March, 2025
                       </motion.span>{" "}
                       at{" "}
                       <motion.span
@@ -130,8 +116,7 @@ const WSAboutGENB = () => {
                       >
                         10:30 AM
                       </motion.span>
-                      . Learn how to use AI to complete your daily tasks in
-                      minutes instead of hours.
+                      . Learn how to create intelligent chatbots that can transform communication and automate complex interactions.
                     </p>
                   </motion.div>
 
@@ -209,10 +194,10 @@ const WSAboutGENB = () => {
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "Smart Content Creation",
-                          "Email & Document Writing",
-                          "Research & Analysis",
-                          "Task Automation",
+                          "Conversational AI Design",
+                          "Prompt Engineering Techniques",
+                          "Integrating Large Language Models",
+                          "Building Contextual Chatbots",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -359,7 +344,7 @@ const WSAboutGENB = () => {
               <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
                 <div className="flex justify-between items-center">
                   <p className="text-blue-900 font-medium">
-                    "Join now and transform the way you work!"
+                  "Revolutionize Communication with AI-Powered Chatbots!"
                   </p>
                   <div className="text-right">
                     <p className="text-2xl font-bold text-blue-600">
