@@ -52,7 +52,6 @@ const GENCTAB = () => {
             >
               <div className="bg-blue-500/10 rounded-full px-6 py-2">
                 <span className="text-lg font-bold text-white">Limited Seats Available</span>
-                <span className="text-gray-400 text-sm ml-2">Register Now</span>
               </div>
             </motion.div>
 
