@@ -318,8 +318,7 @@ const WSAboutGENB = () => {
                 </p>
                 <div className="bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
                   <p className="text-sm text-gray-300">
-                    ⚠️ Please ensure accurate registration details as they will
-                    appear on your certificate
+                    ⚠️ Only those who attend the workshop till the end will be eligible for the completion certificate.
                   </p>
                 </div>
               </div>

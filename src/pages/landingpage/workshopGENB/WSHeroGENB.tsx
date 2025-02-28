@@ -2,7 +2,12 @@ import React from "react";
 import WSFormFree from "./WSFormFree";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { motion } from "framer-motion";
-import { FiClock, FiCalendar, FiUsers, FiAward } from "react-icons/fi";
+import {
+  FiClock,
+  FiAward,
+  FiMessageCircle,
+} from "react-icons/fi";
+import { RiRobot2Line } from "react-icons/ri";
 
 const WSHeroGENB = () => {
   const scrollToForm = () => {
@@ -46,10 +51,6 @@ const WSHeroGENB = () => {
           className="absolute bottom-20 left-20 w-96 h-96 bg-green-600/10 rounded-full blur-3xl"
         />
 
-        {/* AI Circuit Pattern */}
-        <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay">
-          <div className="absolute inset-0 bg-[url('/assets/circuit-pattern.svg')] bg-repeat opacity-20"></div>
-        </div>
       </div>
 
       {/* Header Logo */}
@@ -113,9 +114,23 @@ const WSHeroGENB = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-4xl md:text-7xl lg:text-6xl font-bold leading-tight"
               >
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-200">
-                  How to create chatbots with AI
-                </span>
+                <div className="flex items-center gap-4">
+                  <motion.div
+                    animate={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-blue-400"
+                  >
+                    <RiRobot2Line className="w-12 h-12 animate animate-bounce" />
+                  </motion.div>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-200">
+                    How to create chatbots with AI
+                  </span>
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="flex gap-2"
+                  >                  </motion.div>
+                </div>
               </motion.h1>
 
               {/* Subtitle */}
@@ -125,7 +140,8 @@ const WSHeroGENB = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
-                Learn to build intelligent chatbots using cutting-edge AI technologies and transform your communication strategies
+                Learn to build intelligent chatbots using cutting-edge AI
+                technologies and transform your communication strategies
               </motion.p>
 
               {/* Price Tag - Enhanced */}
@@ -135,21 +151,12 @@ const WSHeroGENB = () => {
                 transition={{ duration: 0.2 }}
               >
                 <div className="flex items-center gap-3">
-                  <div>
-                    <span className="text-sm text-gray-400">Free Workshop</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-2xl font-bold text-white">
-                        Free
-                      </span>
-                    </div>
-                  </div>
-                  <div className="h-10 w-px bg-gray-700"></div>
                   <motion.div
                     animate={{ opacity: [1, 0.7, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                     className="text-yellow-500 text-sm font-medium"
                   >
-                    Limited Seats Available
+                    Limited Workshop Slots
                   </motion.div>
                 </div>
               </motion.div>
@@ -160,7 +167,7 @@ const WSHeroGENB = () => {
                   {
                     icon: FiClock,
                     text: "2 Hour Live Workshop",
-                    highlight: "6th March, 10:30 AM",
+                    highlight: "6th March, 07:30 PM",
                   },
                   {
                     icon: FiAward,

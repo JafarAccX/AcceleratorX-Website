@@ -66,8 +66,7 @@ const WSGENWhoShouldEnrollB = () => {
                   <span className="text-white">?</span>
                 </h2>
                 <p className="text-lg text-blue-100">
-                  If you want to save time and work more efficiently, this
-                  workshop is for you
+                  If you want to build custom chat bot with custom data then this workshop is for you
                 </p>
               </div>
 
@@ -111,10 +110,6 @@ const WSGENWhoShouldEnrollB = () => {
                     <p className="text-blue-900 font-medium">
                       Revolutionize Communication with AI-Powered Chatbots!
                     </p>
-                    <div className="text-right">
-                      <p className="text-2xl font-bold text-blue-600">Free</p>
-                      <p className="text-sm text-gray-600">Limited Seats</p>
-                    </div>
                   </div>
                 </div>
               </div>

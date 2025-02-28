@@ -1,12 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Linkedin,
-  Award,
-  Sparkles,
-  GraduationCap,
-  Palette,
-} from "lucide-react";
+import { Linkedin, Award, Sparkles, GraduationCap } from "lucide-react";
 
 const WSGENMentor = () => {
   return (
@@ -62,7 +56,7 @@ const WSGENMentor = () => {
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-4">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-400 border border-blue-500/20">
                     <Award className="w-4 h-4" />
-                    Ph.D. in Computer Science
+                    Ph.D. in Computer Science at Parul University (2020-2024){" "}
                   </span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-400 border border-purple-500/20">
                     <GraduationCap className="w-4 h-4" />
@@ -71,6 +65,10 @@ const WSGENMentor = () => {
                 </div>
 
                 <div className="space-y-3 text-gray-300">
+                  <div className="flex items-start gap-2">
+                    <GraduationCap className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                    <p></p>
+                  </div>
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                     <p>Assistant Professor at Parul University</p>
