@@ -95,7 +95,7 @@ const WSForm = () => {
 
     try {
       console.log("Creating order with backend...");
-      const response = await fetch(`${apiUrl}/workshop/create-workshop-order`, {
+      const response = await fetch(`${apiUrl.replace('/api', '')}/workshop/create-workshop-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -131,7 +131,7 @@ const WSForm = () => {
             console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
-                `${apiUrl}/workshop/verify-workshop-payment`,
+                `${apiUrl.replace('/api', '')}/workshop/verify-workshop-payment`,
                 {
                   method: "POST",
                   headers: {
@@ -212,7 +212,7 @@ const WSForm = () => {
   const handlePaymentCancellation = async (tempId: string) => {
     try {
       const response = await fetch(
-        `${apiUrl}/workshop/cancel-workshop-payment`,
+        `${apiUrl.replace('/api', '')}/workshop/cancel-workshop-payment`,
         {
           method: "POST",
           headers: {
@@ -273,7 +273,7 @@ const WSForm = () => {
       };
 
       console.log("Registration data:", registrationData);
-      const response = await fetch(`${apiUrl}/workshop/create-workshop-order`, {
+      const response = await fetch(`${apiUrl.replace('/api', '')}/workshop/create-workshop-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -315,7 +315,7 @@ const WSForm = () => {
             console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
-                `${apiUrl}/workshop/verify-workshop-payment`,
+                `${apiUrl.replace('/api', '')}/workshop/verify-workshop-payment`,
                 {
                   method: "POST",
                   headers: {
