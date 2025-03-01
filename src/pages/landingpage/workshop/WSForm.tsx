@@ -66,17 +66,23 @@ const WSForm = () => {
   const initializeRazorpay = () => {
     return new Promise((resolve) => {
       if (window.Razorpay) {
+        console.log("Razorpay already loaded");
         resolve(true);
         return;
       }
 
+      console.log("Loading Razorpay script...");
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      script.defer = true;
 
       script.onload = () => {
+        console.log("Razorpay script loaded successfully");
         resolve(true);
       };
       script.onerror = () => {
+        console.error("Failed to load Razorpay script");
         resolve(false);
       };
 
@@ -128,6 +134,10 @@ const WSForm = () => {
           name: "AcceleratorX",
           description: `${workshopType} Registration`,
           order_id: responseData.data.orderId,
+          notes: {
+            workshop_type: workshopType,
+            tempId: responseData.data.tempId
+          },
           handler: async function (response: any) {
             console.log("Payment successful, verifying...", response);
             try {
@@ -193,9 +203,16 @@ const WSForm = () => {
         console.log("Opening Razorpay modal with options:", options);
         try {
           if (!window.Razorpay) {
+            console.error("Razorpay SDK not loaded");
             throw new Error("Razorpay SDK not loaded");
           }
           const paymentObject = new window.Razorpay(options);
+          console.log("Razorpay instance created successfully");
+          paymentObject.on('payment.failed', function (response: any){
+            console.error('Payment failed:', response.error);
+            toast.error(`Payment failed: ${response.error.description}`);
+            reject(new Error(response.error.description));
+          });
           paymentObject.open();
         } catch (error) {
           console.error("Error creating Razorpay instance:", error);
@@ -316,6 +333,10 @@ const WSForm = () => {
           name: "AcceleratorX",
           description: `${workshopType} Registration`,
           order_id: responseData.data.orderId,
+          notes: {
+            workshop_type: workshopType,
+            tempId: tempId
+          },
           handler: async function (response: any) {
             console.log("Payment successful, verifying...", response);
             try {
@@ -382,9 +403,16 @@ const WSForm = () => {
         console.log("Opening Razorpay modal with options:", options);
         try {
           if (typeof window.Razorpay !== "function") {
+            console.error("Razorpay SDK not initialized properly");
             throw new Error("Razorpay SDK not initialized properly");
           }
           const paymentObject = new window.Razorpay(options);
+          console.log("Razorpay instance created successfully");
+          paymentObject.on('payment.failed', function (response: any){
+            console.error('Payment failed:', response.error);
+            toast.error(`Payment failed: ${response.error.description}`);
+            reject(new Error(response.error.description));
+          });
           paymentObject.open();
         } catch (error) {
           console.error("Error creating Razorpay instance:", error);
