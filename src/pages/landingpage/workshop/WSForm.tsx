@@ -1,3 +1,5 @@
+//Working Form File
+
 import React, { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
@@ -18,6 +20,7 @@ const supabase = createClient(supabaseUrl, supabaseKey, {
     persistSession: false,
   },
 });
+
 
 interface FormData {
   name: string;
