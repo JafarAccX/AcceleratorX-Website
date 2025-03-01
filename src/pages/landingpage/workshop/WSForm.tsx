@@ -95,7 +95,8 @@ const WSForm = () => {
 
     try {
       console.log("Creating order with backend...");
-      const response = await fetch(`${apiUrl.replace('/api', '')}/workshop/create-workshop-order`, {
+      const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+      const response = await fetch(`${baseUrl}/workshop/create-workshop-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -131,7 +132,7 @@ const WSForm = () => {
             console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
-                `${apiUrl.replace('/api', '')}/workshop/verify-workshop-payment`,
+                `${baseUrl}/workshop/verify-workshop-payment`,
                 {
                   method: "POST",
                   headers: {
@@ -211,8 +212,10 @@ const WSForm = () => {
 
   const handlePaymentCancellation = async (tempId: string) => {
     try {
+      // Extract base URL without '/api' suffix if it exists
+      const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
       const response = await fetch(
-        `${apiUrl.replace('/api', '')}/workshop/cancel-workshop-payment`,
+        `${baseUrl}/workshop/cancel-workshop-payment`,
         {
           method: "POST",
           headers: {
@@ -273,7 +276,9 @@ const WSForm = () => {
       };
 
       console.log("Registration data:", registrationData);
-      const response = await fetch(`${apiUrl.replace('/api', '')}/workshop/create-workshop-order`, {
+      // Extract base URL without '/api' suffix if it exists
+      const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+      const response = await fetch(`${baseUrl}/workshop/create-workshop-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -315,7 +320,7 @@ const WSForm = () => {
             console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
-                `${apiUrl.replace('/api', '')}/workshop/verify-workshop-payment`,
+                `${baseUrl}/workshop/verify-workshop-payment`,
                 {
                   method: "POST",
                   headers: {
