@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle, Calendar, Video, Copy } from "lucide-react";
+import { FaLinkedin, FaTwitter, FaInstagram, FaYoutube, FaDiscord, FaWhatsapp } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useLocation, Link } from "react-router-dom";
 
@@ -46,6 +47,40 @@ const WSRegistrationSuccess = () => {
     navigator.clipboard.writeText(text);
     toast.success("Copied to clipboard!");
   };
+
+  // Social media links
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      icon: <FaLinkedin className="w-5 h-5" />,
+      url: "https://www.linkedin.com/company/acceleratorxorg",
+      color: "bg-[#0077B5]"
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram className="w-5 h-5" />,
+      url: "https://www.instagram.com/acceleratorxorg/",
+      color: "bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]"
+    },
+    {
+      name: "Whatsapp",
+      icon: <FaWhatsapp className="w-5 h-5" />,
+      url: "https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ",
+      color: "bg-[#0077B5]"
+    },
+    {
+      name: "YouTube",
+      icon: <FaYoutube className="w-5 h-5" />,
+      url: "https://youtube.com/@acceleratorxorg",
+      color: "bg-[#FF0000]"
+    },
+    {
+      name: "Discord",
+      icon: <FaDiscord className="w-5 h-5" />,
+      url: "https://discord.gg/WKAdQuuv",
+      color: "bg-[#5865F2]"
+    }
+  ];
 
   return (
     <motion.div
@@ -142,14 +177,33 @@ const WSRegistrationSuccess = () => {
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="px-8 py-6 bg-gray-50 border-t border-gray-200">
-            <Link
-              to="/workshop/gen-ai-masterclass-bxwcy"
-              className="text-blue-600 hover:text-blue-700 font-medium"
-            >
-              Return to Workshop Page
-            </Link>
+          {/* Social Media Links */}
+          <div className="px-8 py-8 border-t border-gray-200">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">Connect With Us</h3>
+            <p className="text-gray-600 mb-6">
+              Follow us on social media to stay updated with our latest workshops and AI content
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${social.color} text-white p-3 rounded-full hover:opacity-90 transition-opacity flex items-center justify-center group`}
+                  aria-label={`Follow us on ${social.name}`}
+                >
+                  <span className="transform group-hover:scale-110 transition-transform">
+                    {social.icon}
+                  </span>
+                </a>
+              ))}
+            </div>
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-500">
+                &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>

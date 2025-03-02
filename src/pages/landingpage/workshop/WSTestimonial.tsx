@@ -1,56 +1,69 @@
 import React from "react";
+import { FaStar } from "react-icons/fa";
 
 const WSTestimonial = () => {
-  const testimonialImages = [
+  // Testimonial logo images
+  const testimonialLogos = [
     "/assets/testimonialsLogo/feedback1.png",
     "/assets/testimonialsLogo/feedback2.png",
     "/assets/testimonialsLogo/feedback4.png",
     "/assets/testimonialsLogo/feedback5.png",
-    "/assets/testimonialsLogo/feedback6.png",
+    "/assets/testimonialsLogo/feedback6.png"
   ];
 
+  const scrollToForm = () => {
+    const form = document.getElementById('workshop-registration-form');
+    if (form) {
+      form.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
+
   return (
-    <div className="relative bg-gradient-to-b from-[#0A0F1C] via-[#0A0F1C]/95 to-[#0A0F1C] py-20 lg:py-32 overflow-hidden">
+    <div className="relative bg-gradient-to-b from-[#0A0F1C] via-[#0A0F1C]/95 to-[#0A0F1C] py-20 lg:py-24 overflow-hidden">
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/assets/patterns/grid.svg')] bg-repeat opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 via-purple-500/5 to-green-500/5 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,119,242,0.05),rgba(0,0,0,0))]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(24,119,242,0.05),rgba(0,0,0,0))]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(76,29,149,0.05),rgba(0,0,0,0))]"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 backdrop-blur-sm mb-4">
+            <span className="text-blue-400 text-sm font-medium">Success Stories</span>
+          </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-center">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-              What Our Participants Say
+              Words from attendees
             </span>
           </h2>
           <p className="text-gray-400 text-lg lg:text-xl max-w-2xl mx-auto">
-            Don't just take our word for it - hear from our workshop alumni
+            See what professionals achieved after attending our Data Analytics Masterclass
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {testimonialImages.map((image, index) => (
-            <div
-              key={index}
-              className="group relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl h-[400px] lg:h-[500px] transform hover:-translate-y-2"
-            >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 via-purple-500/30 to-green-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
-              <div className="relative h-full bg-black/40 backdrop-blur-sm">
-                <img
-                  src={image}
-                  alt={`Testimonial ${index + 1}`}
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.02] opacity-90"
+        {/* Testimonial Logos Section - Only Images with Enhanced Visibility */}
+        <div className="py-8">
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {testimonialLogos.map((logo, index) => (
+              <div 
+                key={index} 
+                className="w-[300px] h-[300px] md:w-[350px] md:h-[350px] p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all duration-300 flex items-center justify-center group hover:transform hover:scale-105 hover:shadow-xl"
+              >
+                <img 
+                  src={logo} 
+                  alt={`Workshop Attendee Feedback ${index + 1}`} 
+                  className="max-w-full max-h-full object-contain filter brightness-110 contrast-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/90 via-[#0A0F1C]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0F1C] to-transparent"></div>
-                
-                {/* Enhanced Decorative Elements */}
-                <div className="absolute bottom-0 right-0 w-1 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-green-400 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"></div>
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Enhanced Testimonial Stats */}
@@ -58,15 +71,15 @@ const WSTestimonial = () => {
           {[
             {
               value: "500+",
-              label: "Happy Participants"
+              label: "Workshop Attendees"
             },
             {
               value: "4.9",
-              label: "Average Rating"
+              label: "Satisfaction Score"
             },
             {
               value: "98%",
-              label: "Success Rate"
+              label: "Applied Skills at Work"
             }
           ].map((stat, index) => (
             <div key={index} className="group text-center transform hover:-translate-y-2 transition-all duration-300">
@@ -86,21 +99,7 @@ const WSTestimonial = () => {
         <div className="relative inline-flex group/btn">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
           <button 
-            onClick={() => {
-              // console.log('WSTestimonial: Register button clicked');
-              const form = document.getElementById('workshop-registration-form');
-              // console.log('WSTestimonial: Form element found:', form);
-              if (form) {
-                // console.log('WSTestimonial: Attempting to scroll to form');
-                form.scrollIntoView({ 
-                  behavior: 'smooth',
-                  block: 'center'
-                });
-                // console.log('WSTestimonial: Scroll command executed');
-              } else {
-                console.error('WSTestimonial: Form element not found with ID "workshop-registration-form"');
-              }
-            }}
+            onClick={scrollToForm}
             className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
           >
             <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">

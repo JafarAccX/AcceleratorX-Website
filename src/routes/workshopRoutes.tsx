@@ -52,7 +52,6 @@ const WorkshopPageDA = () => (
     <WSHeroDA />
     <WSAboutDA />
     <WSTestimonialDA />
-    <WSCommunityDA />
   </>
 );
 

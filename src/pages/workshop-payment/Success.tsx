@@ -312,7 +312,7 @@ const Success = () => {
           </div>
 
           {/* Actions */}
-          <div className="px-8 py-6 bg-gray-50 flex justify-between items-center">
+          {/* <div className="px-8 py-6 bg-gray-50 flex justify-between items-center">
             <button
               onClick={downloadInvoice}
               className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
@@ -326,7 +326,7 @@ const Success = () => {
             >
               Return to Home
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.div>
