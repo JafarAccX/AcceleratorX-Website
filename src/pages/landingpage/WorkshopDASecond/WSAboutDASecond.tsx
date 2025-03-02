@@ -15,17 +15,17 @@ import {
   FaChartBar,
 } from "react-icons/fa";
 
-const WSAbout = () => {
+const WSAboutDASecond = () => {
   const instructorDetails = {
     name: "Akash Maurya",
     title: "Senior ML Engineer, Nagarro, Ex-Deloitte ",
   };
 
   const targetAudience = [
-    "Business Analysts & Data Professionals – Leverage Generative AI for smarter decision-making and insights.",
-    "Aspiring AI & ML Practitioners – Build real-world expertise in AI-driven business analytics.",
-    "Executives & Managers – Understand how Generative AI enhances efficiency and drives innovation.",
-    "Tech Enthusiasts – Explore cutting-edge AI applications transforming business intelligence.",
+    "Data Analysts & Visualization Professionals – Leverage AI for creating compelling data stories and visualizations.",
+    "Aspiring Data Scientists & Storytellers – Build expertise in AI-driven data visualization techniques.",
+    "Executives & Managers – Understand how AI enhances data communication and drives better decision-making.",
+    "Tech Enthusiasts – Explore cutting-edge AI applications transforming data visualization and storytelling.",
   ];
   
 
@@ -59,31 +59,31 @@ const WSAbout = () => {
   </h2>
   <div className="bg-white/5 backdrop-blur-xl rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
     <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      Data analytics is evolving fast—and{" "}
-      <span className="font-bold text-white">Generative AI</span> is at the forefront of this transformation. 
-      Businesses are now using AI to{" "}
-      <span className="font-bold text-white">automate reporting, generate insights, and make data-driven decisions</span>{" "}
-      with unprecedented speed and accuracy.  
+      Data visualization is evolving rapidly—and{" "}
+      <span className="font-bold text-white">AI</span> is at the forefront of this transformation. 
+      Organizations are now using AI to{" "}
+      <span className="font-bold text-white">create compelling visual narratives, automate visualization, and communicate insights</span>{" "}
+      with unprecedented clarity and impact.  
     </p>
     <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      In this hands-on workshop, you’ll explore how{" "}
-      <span className="font-bold text-white">Generative AI is reshaping Business Analytics</span>, 
+      In this hands-on workshop, you'll explore how{" "}
+      <span className="font-bold text-white">AI is reshaping Data Visualization and Storytelling</span>, 
       equipping professionals with powerful tools to{" "}
-      <span className="font-bold text-white">enhance decision-making and predictive analysis</span>.
+      <span className="font-bold text-white">create impactful data stories and enhance decision-making</span>.
     </p>
     <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
       Join{" "}
       <span className="font-bold text-white">AcceleratorX's Exclusive Masterclass</span>{" "}
       with expert{" "}
       <span className="font-bold text-white">Aakash Maurya</span> on{" "}
-      <span className="font-bold text-white">Monday, 10th March, 7:30 PM</span>, and gain hands-on expertise in:
+      <span className="font-bold text-white">Friday, 8th March, 7:30 PM</span>, and gain hands-on expertise in:
     </p>
     <ul className="list-none pl-0 mb-8 space-y-4">
       {[
-        "How Generative AI enhances business intelligence and analytics",
-        "Automating data processing and reporting using AI-driven tools",
-        "Generating predictive insights for real-time decision-making",
-        "Hands-on experience with AI-powered analytics frameworks",
+        "How AI enhances data visualization and storytelling techniques",
+        "Creating interactive and dynamic visualizations using AI-driven tools",
+        "Transforming complex data into compelling visual narratives",
+        "Hands-on experience with AI-powered visualization frameworks",
       ].map((item, index) => (
         <li key={index} className="flex items-start space-x-3 lg:text-lg group">
           <FaCheck className="text-blue-400 mt-1.5 flex-shrink-0 group-hover:text-blue-300 transition-colors" />
@@ -96,7 +96,7 @@ const WSAbout = () => {
 
     <div className="bg-gradient-to-r from-blue-950/50 to-green-950/50 rounded-lg p-6 border-l-4 border-blue-400">
       <p className="text-gray-300 font-medium lg:text-lg">
-        <span className="font-bold text-blue-400">Pro tip:</span> Generative AI is the next big leap in data analytics.  
+        <span className="font-bold text-blue-400">Pro tip:</span> AI is the next big leap in data visualization.  
         Secure your spot now—limited seats available! Elevate your data skills and stay ahead in the AI-powered future.
       </p>
     </div>
@@ -116,27 +116,27 @@ const WSAbout = () => {
     {[
       {
         icon: <FaChartLine className="text-3xl text-blue-400" />,
-        title: "AI-Driven Business Insights",
+        title: "AI-Driven Data Visualization",
         description:
-          "Discover how Generative AI enhances data analytics for smarter decision-making.",
+          "Discover how AI enhances data visualization for more impactful storytelling.",
       },
       {
         icon: <FaDatabase className="text-3xl text-green-400" />,
-        title: "Hands-on with AI-Powered Tools",
+        title: "Hands-on with AI Visualization Tools",
         description:
-          "Work with real-world datasets using AI-driven analytics frameworks.",
+          "Work with real-world datasets using AI-driven visualization frameworks.",
       },
       {
         icon: <FaLightbulb className="text-3xl text-blue-400" />,
-        title: "Real-World AI Applications",
+        title: "Data Storytelling Techniques",
         description:
-          "Learn how top companies use Generative AI to automate data processing and reporting.",
+          "Learn how top companies use AI to create compelling data narratives that drive decisions.",
       },
       {
         icon: <FaRocket className="text-3xl text-green-400" />,
         title: "Accelerate Your Data Career",
         description:
-          "Gain industry-relevant skills in AI-powered business analytics and predictive modeling.",
+          "Gain industry-relevant skills in AI-powered data visualization and storytelling.",
       },
     ].map((feature, index) => (
       <div
@@ -206,16 +206,16 @@ const WSAbout = () => {
           <div>
   <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
     <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-      What You Will Gain From This 2-Hour Generative AI & Business Analytics Masterclass
+      What You Will Gain From This 2-Hour AI Powered Data Visualization & Story Telling Masterclass
     </span>
   </h2>
   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
     {[
       {
         icon: FaBrain,
-        title: "Generative AI in Business Analytics",
+        title: "AI in Data Visualization",
         description:
-          "Discover how Generative AI transforms raw data into business intelligence, predictive models, and automated reports.",
+          "Discover how AI transforms raw data into business intelligence, predictive models, and automated reports.",
       },
       {
         icon: FaDatabase,
@@ -434,4 +434,4 @@ const WSAbout = () => {
   );
 };
 
-export default WSAbout;
+export default WSAboutDASecond;

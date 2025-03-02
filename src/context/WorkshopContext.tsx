@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 type WorkshopType =
   | "DAWorkshop"
+  | "DASecondWorkshop"
   | "PMWorkshop"
   | "GENAIWorkshop"
   | "DMWorkshop";
@@ -31,6 +32,12 @@ const DAZoomDetails: ZoomMeetingDetails = {
   time: "March 10, 2025 07:30 PM India",
 };
 
+const DASecondZoomDetails: ZoomMeetingDetails = {
+  link: "https://zoom.us/meeting/register/6qShwfkERXWlbubPQwwIJg",
+  meetingId: "6qShwfkERXWlbubPQwwIJg",
+  time: "March 8, 2025 07:30 PM India",
+};
+
 const GENAIZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/p6pqoyzIREeUnyVxhSWEVA",
   meetingId: "p6pqoyzIREeUnyVxhSWEVA",
@@ -57,6 +64,8 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
   useEffect(() => {
     if (location.pathname.includes("/pm-masterclass")) {
       setWorkshopType("PMWorkshop");
+    } else if (location.pathname.includes("/da-masterclass-bxwxy")) {
+      setWorkshopType("DASecondWorkshop");
     } else if (location.pathname.includes("/da-masterclass")) {
       setWorkshopType("DAWorkshop");
     } else if (location.pathname.includes("/gen-ai-masterclass")) {
@@ -73,6 +82,8 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
       ? GENAIZoomDetails
       : workshopType === "DMWorkshop"
       ? DMZoomDetails
+      : workshopType === "DASecondWorkshop"
+      ? DASecondZoomDetails
       : DAZoomDetails;
 
   return (
