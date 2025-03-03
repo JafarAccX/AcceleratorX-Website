@@ -5,17 +5,19 @@ import WSFormFree from "../workshopGENB/WSFormFree";
 
 const WSHeroDASecond = () => {
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
+      console.error(
+        'Form element not found with ID "workshop-registration-form"'
+      );
     }
   };
-  
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#0A0F1C] to-[#121a2e]">
       {/* Enhanced Background Effects */}
@@ -23,11 +25,11 @@ const WSHeroDASecond = () => {
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-purple-500/5 to-green-500/10"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(24,119,242,0.15),rgba(0,0,0,0))]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(76,29,149,0.1),rgba(0,0,0,0))]"></div>
-        
+
         {/* Animated particles */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(20)].map((_, i) => (
-            <div 
+            <div
               key={i}
               className="absolute rounded-full bg-blue-500/20"
               style={{
@@ -36,12 +38,12 @@ const WSHeroDASecond = () => {
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
                 animation: `float ${Math.random() * 10 + 10}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`
+                animationDelay: `${Math.random() * 5}s`,
               }}
             ></div>
           ))}
         </div>
-        
+
         {/* Decorative geometric shapes */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/5 to-green-500/5 rounded-full blur-3xl"></div>
@@ -71,30 +73,33 @@ const WSHeroDASecond = () => {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/40 transition-all duration-300">
                 <span className="animate-ping absolute h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500 mr-2"></span>
-                <span className="text-blue-400 text-sm font-medium">Live Masterclass</span>
+                <span className="text-blue-400 text-sm font-medium">
+                  Live Masterclass
+                </span>
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-300">
-                  Data Analytics Masterclass Workshop
+                  Data Analytics Masterclass
                 </span>
               </h1>
-              
-              <h2 className="text-2xl lg:text-3xl font-semibold">
+
+              <h2 className="text-2xl font-semibold">
                 <span className="text-white">Topic: </span>
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 text-transparent bg-clip-text">
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 text-transparent bg-clip-text text-3xl">
                   AI Powered Data Visualization & Story Telling MasterClass
                 </span>
               </h2>
-              
+
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Join us for an exclusive masterclass on how AI is revolutionizing data visualization and storytelling! 🚀 Learn how to leverage cutting-edge AI models to transform your data into compelling visual narratives, generate actionable insights, and create impactful stories that drive strategic decision-making.
+                Join us for an exclusive masterclass on how AI is
+                revolutionizing data visualization and storytelling!
               </p>
 
               <div className="mt-8 flex justify-center lg:justify-start">
                 <div className="relative inline-flex group/btn">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                  <button 
+                  <button
                     onClick={scrollToForm}
                     className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
                   >
@@ -122,25 +127,48 @@ const WSHeroDASecond = () => {
               {/* Enhanced Key Features */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 {[
-                  { icon: <FaClock className="text-blue-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                  { icon: <FaCalendarAlt className="text-purple-400 mb-1" />, label: "Date", value: "March 8" },
-                  { icon: <FaClock className="text-green-400 mb-1" />, label: "Time", value: "7:30 PM" },
-                  { icon: <FaUserGraduate className="text-yellow-400 mb-1" />, label: "Level", value: "Beginner to Intermediate" }
+                  {
+                    icon: <FaClock className="text-blue-400 mb-1" />,
+                    label: "Duration",
+                    value: "2 Hours",
+                  },
+                  {
+                    icon: <FaCalendarAlt className="text-purple-400 mb-1" />,
+                    label: "Date",
+                    value: "March 8",
+                  },
+                  {
+                    icon: <FaClock className="text-green-400 mb-1" />,
+                    label: "Time",
+                    value: "7:30 PM",
+                  },
+                  {
+                    icon: <FaUserGraduate className="text-yellow-400 mb-1" />,
+                    label: "Level",
+                    value: "Beginner to Intermediate",
+                  },
                 ].map((item, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-xl rounded-lg p-4 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-center lg:items-start">
+                  <div
+                    key={index}
+                    className="group bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-xl rounded-lg p-4 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-center lg:items-start"
+                  >
                     {item.icon}
-                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">{item.label}</p>
-                    <p className="text-white font-semibold mt-1 group-hover:text-blue-300 transition-colors">{item.value}</p>
+                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
+                      {item.label}
+                    </p>
+                    <p className="text-white font-semibold mt-1 group-hover:text-blue-300 transition-colors">
+                      {item.value}
+                    </p>
                   </div>
                 ))}
               </div>
-              
+
               {/* Mentor Badge - Enhanced */}
               <div className="mt-8 flex items-center justify-center lg:justify-start space-x-3 bg-gradient-to-r from-blue-900/30 to-purple-900/30 px-5 py-3 rounded-lg border border-blue-500/20 w-fit mx-auto lg:mx-0">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-400 flex-shrink-0">
-                  <img 
-                    src="/assets/mentor/akash.png" 
-                    alt="Aakash Maurya" 
+                  <img
+                    src="/assets/mentor/akash.png"
+                    alt="Aakash Maurya"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -151,7 +179,9 @@ const WSHeroDASecond = () => {
                       <p className="text-blue-300 text-xs">Mentor</p>
                     </div>
                   </div>
-                  <p className="text-blue-400 text-sm">Senior ML Engineer, Nagarro</p>
+                  <p className="text-blue-400 text-sm">
+                    Senior ML Engineer, Nagarro
+                  </p>
                 </div>
               </div>
             </div>
@@ -163,9 +193,12 @@ const WSHeroDASecond = () => {
               {/* Decorative elements */}
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
               <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
-              
+
               {/* Form container with enhanced styling */}
-              <div className="relative z-10 bg-black/60 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-2xl" id="workshop-registration-form">
+              <div
+                className="relative z-10 bg-black/60 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-2xl"
+                id="workshop-registration-form"
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 rounded-2xl"></div>
                 <div className="relative z-10">
                   <WorkshopProvider>
@@ -177,7 +210,7 @@ const WSHeroDASecond = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Animated CSS */}
       <style jsx>{`
         @keyframes float {
@@ -193,9 +226,10 @@ const WSHeroDASecond = () => {
             opacity: 0;
           }
         }
-        
+
         @keyframes tilt {
-          0%, 100% {
+          0%,
+          100% {
             transform: rotate(-1deg);
           }
           50% {
