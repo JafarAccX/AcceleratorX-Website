@@ -10,12 +10,13 @@ const PAGE_VIEW_ROUTES = [
   "/courses/no-code-tool-program-fb",
   "/courses/product-management-program-eie",
   "/courses/data-analytics-program-eie",
-  "/workshop/da-masterclass",
   "/workshop/pm-masterclass",
   "/workshop/dm-masterclass",
   "/courses/generative-ai-fb",
   "/workshop/gen-ai-masterclass-bxwcy",
   "/workshop/gen-ai-masterclass",
+  "/workshop/da-masterclass",
+  "/workshop/da-masterclass-bxwxy",
 ];
 
 const LEAD_ROUTES = [
