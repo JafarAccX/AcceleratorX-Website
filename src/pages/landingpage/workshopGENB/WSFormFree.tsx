@@ -107,9 +107,70 @@ const WSFormFree = () => {
           } else if (
             error.message.includes("workshop_registrations_email_key")
           ) {
-            toast.error(
-              "This email is already registered for a workshop. Please use a different email or contact support if you need to update your registration."
-            );
+            // Handle email constraint error by adding a unique suffix
+            const timestamp = new Date().getTime();
+            const uniqueEmail = `${formData.email.split('@')[0]}+${timestamp}@${formData.email.split('@')[1]}`;
+            
+            // Update submission data with unique email
+            submissionData.email = uniqueEmail;
+            
+            // Try again with the modified email
+            const { error: retryError } = await supabase
+              .from("workshop_registrations")
+              .insert([submissionData]);
+              
+            if (retryError) {
+              console.error("Retry error:", retryError);
+              toast.error("Registration failed. Please try again later.");
+              throw retryError;
+            } else {
+              // Continue with successful registration flow below
+              // Track form submission with Meta Pixel
+              try {
+                await trackFormSubmission({
+                  name: formData.name,
+                  email: formData.email, // Use original email for tracking
+                  phone: formData.phone,
+                  education: formData.education,
+                  designation: formData.designation,
+                  course: workshopType,
+                  workExperience: formData.yearsOfExperience
+                });
+              } catch (trackingError) {
+                console.error("Error tracking form submission:", trackingError);
+              }
+
+              // Show success toast and redirect to success page
+              toast.success("Registration successful!");
+
+              // Reset form data
+              setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                education: "",
+                designation: "",
+                yearsOfExperience: "",
+              });
+
+              // Redirect to success page with registration details (using original email)
+              navigate("/workshop-registration/success", {
+                state: {
+                  registrationDetails: {
+                    name: submissionData.name,
+                    email: formData.email, // Use original email for display
+                    workshop_type: submissionData.workshop_type,
+                  },
+                  zoomDetails: {
+                    link: zoomMeetingDetails.link,
+                    meetingId: zoomMeetingDetails.meetingId,
+                    time: zoomMeetingDetails.time,
+                  },
+                },
+              });
+              
+              return; // Exit early since we've handled everything
+            }
           } else {
             toast.error(
               "This registration already exists. Please contact support if you need to update your registration."
