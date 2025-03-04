@@ -12,12 +12,14 @@ const AD2_EMAIL = import.meta.env.VITE_AD2_EMAIL;
 const AD2_PASSWORD = import.meta.env.VITE_AD2_PASSWORD;
 const WORKSHOP_VIEWER_EMAIL = import.meta.env.VITE_WORKSHOP_VIEWER_EMAIL;
 const WORKSHOP_VIEWER_PASSWORD = import.meta.env.VITE_WORKSHOP_VIEWER_PASSWORD;
+const PERFORMANCE_MARKETER_EMAIL = import.meta.env.VITE_PERFORMANCE_MARKETER_EMAIL;
+const PERFORMANCE_MARKETER_PASSWORD = import.meta.env.VITE_PERFORMANCE_MARKETER_PASSWORD;
 
-if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !SALES_EMAIL || !SALES_PASSWORD || !ENROLLMENT_EMAIL || !ENROLLMENT_PASSWORD || !BLOG_USER_EMAIL || !BLOG_USER_PASSWORD || !AD1_EMAIL || !AD1_PASSWORD || !AD2_EMAIL || !AD2_PASSWORD || !WORKSHOP_VIEWER_EMAIL || !WORKSHOP_VIEWER_PASSWORD) {
-  throw new Error('Missing admin, sales, enrollment, blog user, AD, or workshop viewer credentials in environment variables');
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !SALES_EMAIL || !SALES_PASSWORD || !ENROLLMENT_EMAIL || !ENROLLMENT_PASSWORD || !BLOG_USER_EMAIL || !BLOG_USER_PASSWORD || !AD1_EMAIL || !AD1_PASSWORD || !AD2_EMAIL || !AD2_PASSWORD || !WORKSHOP_VIEWER_EMAIL || !WORKSHOP_VIEWER_PASSWORD || !PERFORMANCE_MARKETER_EMAIL || !PERFORMANCE_MARKETER_PASSWORD) {
+  throw new Error('Missing admin, sales, enrollment, blog user, AD, workshop viewer, or performance marketer credentials in environment variables');
 }
 
-export type UserRole = 'admin' | 'sales' | 'enrollment' | 'blog_user' | 'ad1' | 'ad2' | 'workshop_viewer';
+export type UserRole = 'admin' | 'sales' | 'enrollment' | 'blog_user' | 'ad1' | 'ad2' | 'workshop_viewer' | 'performance_marketer';
 
 interface AuthState {
   token: string;
@@ -61,6 +63,11 @@ export const authService = {
       localStorage.setItem('auth_state', JSON.stringify(authState));
       return { success: true, role: 'workshop_viewer' };
     }
+    if (email === PERFORMANCE_MARKETER_EMAIL && password === PERFORMANCE_MARKETER_PASSWORD) {
+      const authState: AuthState = { token: 'performance_marketer_authenticated', role: 'performance_marketer' };
+      localStorage.setItem('auth_state', JSON.stringify(authState));
+      return { success: true, role: 'performance_marketer' };
+    }
     return { success: false };
   },
 
@@ -88,6 +95,7 @@ export const authService = {
     }
     if (role === 'workshop_viewer' && requiredRole === 'workshop_viewer') return true; // Workshop viewers can only access workshop details
     if (role === 'blog_user' && requiredRole === 'blog_user') return true; // Blog users can only access blog features
+    if (role === 'performance_marketer' && requiredRole === 'performance_marketer') return true; // Performance marketers can only access workshop details
     return role === requiredRole; // Other roles only have access to their specific areas
   }
 };

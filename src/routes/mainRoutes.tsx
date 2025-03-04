@@ -111,7 +111,7 @@ export const mainRoutes = [
   <Route
     path="/admin/workshop-details"
     element={
-      <RoleProtectedRoute requiredRole="sales">
+      <RoleProtectedRoute requiredRole={["sales", "performance_marketer"]}>
         <WorkshopDetails />
       </RoleProtectedRoute>
     }

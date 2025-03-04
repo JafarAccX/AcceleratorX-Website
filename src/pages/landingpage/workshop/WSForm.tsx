@@ -52,7 +52,7 @@ const WSForm = () => {
 
   const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
-  console.log("API URL:", apiUrl);
+  // console.log("API URL:", apiUrl);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -66,19 +66,19 @@ const WSForm = () => {
   const initializeRazorpay = () => {
     return new Promise((resolve) => {
       if (window.Razorpay) {
-        console.log("Razorpay already loaded");
+        // console.log("Razorpay already loaded");
         resolve(true);
         return;
       }
 
-      console.log("Loading Razorpay script...");
+      // console.log("Loading Razorpay script...");
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.async = true;
       script.defer = true;
 
       script.onload = () => {
-        console.log("Razorpay script loaded successfully");
+        // console.log("Razorpay script loaded successfully");
         resolve(true);
       };
       script.onerror = () => {
@@ -100,7 +100,7 @@ const WSForm = () => {
     }
 
     try {
-      console.log("Creating order with backend...");
+      // console.log("Creating order with backend...");
       const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
       const response = await fetch(`${baseUrl}/workshop/create-workshop-order`, {
         method: "POST",
@@ -114,7 +114,7 @@ const WSForm = () => {
       });
 
       const responseData = await response.json();
-      console.log("Backend response:", responseData);
+      // console.log("Backend response:", responseData);
 
       if (!response.ok) {
         throw new Error(responseData.error || "Failed to create order");
@@ -124,7 +124,7 @@ const WSForm = () => {
         throw new Error(responseData.error || "Failed to create order");
       }
 
-      console.log("Order created successfully:", responseData.data);
+      // console.log("Order created successfully:", responseData.data);
 
       return new Promise((resolve, reject) => {
         const options = {
@@ -139,7 +139,7 @@ const WSForm = () => {
             tempId: responseData.data.tempId
           },
           handler: async function (response: any) {
-            console.log("Payment successful, verifying...", response);
+            // console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
                 `${baseUrl}/workshop/verify-workshop-payment`,
@@ -158,7 +158,7 @@ const WSForm = () => {
               );
 
               const verificationData = await verificationResponse.json();
-              console.log("Payment verification response:", verificationData);
+              // console.log("Payment verification response:", verificationData);
 
               if (!verificationResponse.ok) {
                 throw new Error(
@@ -167,7 +167,7 @@ const WSForm = () => {
               }
 
               if (verificationData.success) {
-                console.log("Payment verified successfully");
+                // console.log("Payment verified successfully");
                 setPaymentVerified(true);
                 // Redirect to success page
                 navigate(
@@ -185,7 +185,7 @@ const WSForm = () => {
           },
           modal: {
             ondismiss: function () {
-              console.log("Payment modal dismissed");
+              // console.log("Payment modal dismissed");
               handlePaymentCancellation(responseData.data.tempId);
               reject(new Error("Payment cancelled"));
             },
@@ -200,14 +200,14 @@ const WSForm = () => {
           },
         };
 
-        console.log("Opening Razorpay modal with options:", options);
+        // console.log("Opening Razorpay modal with options:", options);
         try {
           if (!window.Razorpay) {
             console.error("Razorpay SDK not loaded");
             throw new Error("Razorpay SDK not loaded");
           }
           const paymentObject = new window.Razorpay(options);
-          console.log("Razorpay instance created successfully");
+          // console.log("Razorpay instance created successfully");
           paymentObject.on('payment.failed', function (response: any){
             console.error('Payment failed:', response.error);
             toast.error(`Payment failed: ${response.error.description}`);
@@ -275,13 +275,13 @@ const WSForm = () => {
 
     try {
       // Initialize Razorpay first
-      console.log("Initializing Razorpay...");
+      // console.log("Initializing Razorpay...");
       const razorpayLoaded = await initializeRazorpay();
       if (!razorpayLoaded) {
         throw new Error("Failed to load Razorpay SDK");
       }
 
-      console.log("Creating order...");
+      // console.log("Creating order...");
       const registrationData = {
         name: formData.name,
         email: formData.email,
@@ -292,7 +292,7 @@ const WSForm = () => {
         workshop_type: workshopType,
       };
 
-      console.log("Registration data:", registrationData);
+      // console.log("Registration data:", registrationData);
       // Extract base URL without '/api' suffix if it exists
       const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
       const response = await fetch(`${baseUrl}/workshop/create-workshop-order`, {
@@ -307,7 +307,7 @@ const WSForm = () => {
       });
 
       const responseData = await response.json();
-      console.log("Order creation response:", responseData);
+      // console.log("Order creation response:", responseData);
 
       if (!response.ok) {
         throw new Error(responseData.error || "Failed to create order");
@@ -317,7 +317,7 @@ const WSForm = () => {
         throw new Error(responseData.error || "Failed to create order");
       }
 
-      console.log("Order created successfully:", responseData.data);
+      // console.log("Order created successfully:", responseData.data);
 
       // Store tempId for payment verification
       const tempId = responseData.data.tempId;
@@ -338,7 +338,7 @@ const WSForm = () => {
             tempId: tempId
           },
           handler: async function (response: any) {
-            console.log("Payment successful, verifying...", response);
+            // console.log("Payment successful, verifying...", response);
             try {
               const verificationResponse = await fetch(
                 `${baseUrl}/workshop/verify-workshop-payment`,
@@ -358,7 +358,7 @@ const WSForm = () => {
               );
 
               const verificationData = await verificationResponse.json();
-              console.log("Payment verification response:", verificationData);
+              // console.log("Payment verification response:", verificationData);
 
               if (!verificationResponse.ok) {
                 throw new Error(
@@ -367,7 +367,7 @@ const WSForm = () => {
               }
 
               if (verificationData.success) {
-                console.log("Payment verified successfully");
+                // console.log("Payment verified successfully");
                 setPaymentVerified(true);
                 // Redirect to success page
                 navigate(
@@ -385,7 +385,7 @@ const WSForm = () => {
           },
           modal: {
             ondismiss: function () {
-              console.log("Payment modal dismissed");
+              // console.log("Payment modal dismissed");
               handlePaymentCancellation(tempId);
               reject(new Error("Payment cancelled"));
             },
@@ -400,14 +400,14 @@ const WSForm = () => {
           },
         };
 
-        console.log("Opening Razorpay modal with options:", options);
+        // console.log("Opening Razorpay modal with options:", options);
         try {
           if (typeof window.Razorpay !== "function") {
             console.error("Razorpay SDK not initialized properly");
             throw new Error("Razorpay SDK not initialized properly");
           }
           const paymentObject = new window.Razorpay(options);
-          console.log("Razorpay instance created successfully");
+          // console.log("Razorpay instance created successfully");
           paymentObject.on('payment.failed', function (response: any){
             console.error('Payment failed:', response.error);
             toast.error(`Payment failed: ${response.error.description}`);

@@ -134,7 +134,7 @@ const WorkshopDetails: React.FC = () => {
   useEffect(() => {
     const checkAuthAndFetchData = async () => {
       const role = authService.getRole();
-      if (!role || (role !== "admin" && role !== "sales")) {
+      if (!role || (role !== "admin" && role !== "sales" && role !== "performance_marketer")) {
         navigate("/login");
         return;
       }

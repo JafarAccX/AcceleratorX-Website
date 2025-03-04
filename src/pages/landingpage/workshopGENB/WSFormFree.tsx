@@ -64,7 +64,7 @@ const WSFormFree = () => {
     try {
       // Get UTM data for tracking
       const utmData = getUTMDataForDB();
-      console.log("UTM Data captured:", utmData);
+      // console.log("UTM Data captured:", utmData);
 
       // Convert camelCase to snake_case for database
       const submissionData = {
@@ -91,7 +91,7 @@ const WSFormFree = () => {
         msclkid: utmData.msclkid
       };
 
-      console.log("Submitting workshop registration with UTM data:", submissionData);
+      // console.log("Submitting workshop registration with UTM data:", submissionData);
 
       const { error } = await supabase
         .from("workshop_registrations")
@@ -132,7 +132,7 @@ const WSFormFree = () => {
           course: workshopType, // Use workshop type as course
           workExperience: formData.yearsOfExperience
         });
-        console.log("Form submission tracked successfully");
+        // console.log("Form submission tracked successfully");
       } catch (trackingError) {
         console.error("Error tracking form submission:", trackingError);
         // Continue with registration process even if tracking fails
