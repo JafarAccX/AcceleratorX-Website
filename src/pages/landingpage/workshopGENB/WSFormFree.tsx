@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate } from "react-router-dom";
+import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -61,6 +62,10 @@ const WSFormFree = () => {
     setIsSubmitting(true);
 
     try {
+      // Get UTM data for tracking
+      const utmData = getUTMDataForDB();
+      console.log("UTM Data captured:", utmData);
+
       // Convert camelCase to snake_case for database
       const submissionData = {
         name: formData.name,
@@ -72,7 +77,21 @@ const WSFormFree = () => {
         workshop_type: workshopType,
         created_at: new Date().toISOString(),
         is_free: true,
+        // Add UTM data
+        utm_source: utmData.utm_source,
+        utm_medium: utmData.utm_medium,
+        utm_campaign: utmData.utm_campaign,
+        utm_term: utmData.utm_term,
+        utm_content: utmData.utm_content,
+        referrer: utmData.referrer,
+        landing_page_url: utmData.landing_page_url,
+        fbclid: utmData.fbclid,
+        gclid: utmData.gclid,
+        ttclid: utmData.ttclid,
+        msclkid: utmData.msclkid
       };
+
+      console.log("Submitting workshop registration with UTM data:", submissionData);
 
       const { error } = await supabase
         .from("workshop_registrations")
@@ -100,6 +119,23 @@ const WSFormFree = () => {
           toast.error("Registration failed. Please try again later.");
         }
         throw error;
+      }
+
+      // Track form submission with Meta Pixel
+      try {
+        await trackFormSubmission({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          education: formData.education,
+          designation: formData.designation,
+          course: workshopType, // Use workshop type as course
+          workExperience: formData.yearsOfExperience
+        });
+        console.log("Form submission tracked successfully");
+      } catch (trackingError) {
+        console.error("Error tracking form submission:", trackingError);
+        // Continue with registration process even if tracking fails
       }
 
       // Show success toast and redirect to success page

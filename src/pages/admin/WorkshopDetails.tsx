@@ -37,6 +37,17 @@ interface WorkshopData {
   razorpay_order_id?: string;
   razorpay_payment_id?: string;
   is_free: boolean;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+  referrer?: string;
+  landing_page_url?: string;
+  fbclid?: string;
+  gclid?: string;
+  ttclid?: string;
+  msclkid?: string;
 }
 
 const WorkshopDetails: React.FC = () => {
@@ -52,6 +63,12 @@ const WorkshopDetails: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
   const [searchQuery, setSearchQuery] = useState("");
   const [workshopTypeFilter, setWorkshopTypeFilter] = useState<string>("all");
+  const [utmFilter, setUtmFilter] = useState({
+    source: "",
+    medium: "",
+    campaign: "",
+  });
+  const [showUtmStats, setShowUtmStats] = useState(false);
   const navigate = useNavigate();
 
   const fetchWorkshops = useCallback(async (isRefreshing = false) => {
@@ -171,11 +188,19 @@ const WorkshopDetails: React.FC = () => {
           workshopTypeFilter === "all" ||
           workshop.workshop_type === workshopTypeFilter;
 
-        return matchesSearch && matchesType;
+        const matchesUtm =
+          (utmFilter.source === "" ||
+            workshop.utm_source?.toLowerCase() === utmFilter.source.toLowerCase()) &&
+          (utmFilter.medium === "" ||
+            workshop.utm_medium?.toLowerCase() === utmFilter.medium.toLowerCase()) &&
+          (utmFilter.campaign === "" ||
+            workshop.utm_campaign?.toLowerCase() === utmFilter.campaign.toLowerCase());
+
+        return matchesSearch && matchesType && matchesUtm;
       });
       setFilteredWorkshops(filtered);
     }
-  }, [workshops, searchQuery, workshopTypeFilter]);
+  }, [workshops, searchQuery, workshopTypeFilter, utmFilter]);
 
   const getCurrentPageData = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -222,6 +247,10 @@ const WorkshopDetails: React.FC = () => {
         "Payment Status",
         "Order ID",
         "Payment ID",
+        "UTM Source",
+        "UTM Medium",
+        "UTM Campaign",
+        "Referrer",
       ];
 
       const csvContent = [
@@ -262,6 +291,10 @@ const WorkshopDetails: React.FC = () => {
             ),
             escapeCSV(workshop.razorpay_order_id || "N/A"),
             escapeCSV(workshop.razorpay_payment_id || "N/A"),
+            escapeCSV(workshop.utm_source || "N/A"),
+            escapeCSV(workshop.utm_medium || "N/A"),
+            escapeCSV(workshop.utm_campaign || "N/A"),
+            escapeCSV(workshop.referrer || "N/A"),
           ].join(",")
         ),
       ].join("\n");
@@ -284,6 +317,36 @@ const WorkshopDetails: React.FC = () => {
     }
   };
 
+  const calculateUtmStats = (data: WorkshopData[]) => {
+    const stats = {
+      sources: {} as Record<string, number>,
+      mediums: {} as Record<string, number>,
+      campaigns: {} as Record<string, number>,
+      referrers: {} as Record<string, number>,
+    };
+
+    data.forEach((workshop) => {
+      if (workshop.utm_source) {
+        stats.sources[workshop.utm_source] =
+          (stats.sources[workshop.utm_source] || 0) + 1;
+      }
+      if (workshop.utm_medium) {
+        stats.mediums[workshop.utm_medium] =
+          (stats.mediums[workshop.utm_medium] || 0) + 1;
+      }
+      if (workshop.utm_campaign) {
+        stats.campaigns[workshop.utm_campaign] =
+          (stats.campaigns[workshop.utm_campaign] || 0) + 1;
+      }
+      if (workshop.referrer) {
+        stats.referrers[workshop.referrer] =
+          (stats.referrers[workshop.referrer] || 0) + 1;
+      }
+    });
+
+    return stats;
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-16">
@@ -303,65 +366,155 @@ const WorkshopDetails: React.FC = () => {
       className="min-h-screen bg-gray-50 py-8 mt-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="sm:flex sm:items-center">
-          <div className="sm:flex-auto">
-            <h1 className="text-2xl font-semibold text-gray-900">
+        <div className="mb-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">
               Workshop Registrations
             </h1>
+            <p className="mt-2 text-sm text-gray-600">
+              View and manage all workshop registrations
+            </p>
             <BackButton />
           </div>
-          <div className="flex items-center gap-4 mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <select
-              value={workshopTypeFilter}
-              onChange={(e) => setWorkshopTypeFilter(e.target.value)}
-              className="block w-48 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+          <div className="flex gap-2">
+            <button
+              onClick={fetchWorkshops}
+              disabled={refreshing}
+              className={`inline-flex items-center gap-x-1.5 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${
+                refreshing ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
-              <option value="all">All Workshops</option>
-              <option value="DAWorkshop">DA Workshop</option>
-              <option value="DASecondWorkshop">DA Second Workshop</option>
-              <option value="PMWorkshop">PM Workshop</option>
-              <option value="GENAIWorkshop">GenAI Workshop</option>
-              <option value="DMWorkshop">Digital Marketing Workshop</option>
-            </select>
-            <div className="relative flex-grow sm:max-w-xs">
-              <input
-                type="text"
-                placeholder="Search registrations..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+              <RefreshCw
+                className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
               />
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              </div>
-            </div>
+              Refresh
+            </button>
             <button
               onClick={handleDownloadCSV}
               className="inline-flex items-center gap-x-1.5 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
-              <Download className="-ml-0.5 h-5 w-5" aria-hidden="true" />
+              <Download className="h-4 w-4" aria-hidden="true" />
               Download CSV
             </button>
-            <button
-              onClick={() => fetchWorkshops(true)}
-              disabled={refreshing}
-              className="inline-flex items-center gap-x-1.5 rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-            >
-              <RefreshCw
-                className={`h-5 w-5 ${refreshing ? "animate-spin" : ""}`}
-                aria-hidden="true"
-              />
-              {refreshing ? "Refreshing..." : "Refresh"}
-            </button>
-            <button
-              onClick={() => {
-                authService.logout();
-                navigate("/login");
-              }}
-              className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
-            >
-              Logout
-            </button>
+          </div>
+        </div>
+
+        {/* Filters Section */}
+        <div className="bg-white p-4 rounded-lg shadow mb-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
+              {/* Workshop Type Filter */}
+              <div>
+                <label
+                  htmlFor="workshop-type"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Workshop Type
+                </label>
+                <select
+                  id="workshop-type"
+                  value={workshopTypeFilter}
+                  onChange={(e) => setWorkshopTypeFilter(e.target.value)}
+                  className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+                >
+                  <option value="all">All Workshops</option>
+                  <option value="DAWorkshop">DA Workshop</option>
+                  <option value="DASecondWorkshop">DA Workshop (Second)</option>
+                  <option value="PMWorkshop">PM Workshop</option>
+                  <option value="GENAIWorkshop">GenAI Workshop</option>
+                  <option value="DMWorkshop">Digital Marketing Workshop</option>
+                </select>
+              </div>
+
+              {/* Search */}
+              <div>
+                <label
+                  htmlFor="search-query"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Search
+                </label>
+                <div className="relative rounded-md shadow-sm">
+                  <input
+                    type="text"
+                    id="search-query"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search by name, email, or phone"
+                    className="block w-full rounded-md border-0 py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  />
+                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* UTM Filters */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <div>
+                <label
+                  htmlFor="utm-source"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  UTM Source
+                </label>
+                <input
+                  id="utm-source"
+                  type="text"
+                  placeholder="Filter by source"
+                  value={utmFilter.source}
+                  onChange={(e) =>
+                    setUtmFilter((prev) => ({ ...prev, source: e.target.value }))
+                  }
+                  className="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="utm-medium"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  UTM Medium
+                </label>
+                <input
+                  id="utm-medium"
+                  type="text"
+                  placeholder="Filter by medium"
+                  value={utmFilter.medium}
+                  onChange={(e) =>
+                    setUtmFilter((prev) => ({ ...prev, medium: e.target.value }))
+                  }
+                  className="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="utm-campaign"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  UTM Campaign
+                </label>
+                <input
+                  id="utm-campaign"
+                  type="text"
+                  placeholder="Filter by campaign"
+                  value={utmFilter.campaign}
+                  onChange={(e) =>
+                    setUtmFilter((prev) => ({ ...prev, campaign: e.target.value }))
+                  }
+                  className="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div className="flex items-end">
+                <button
+                  onClick={() => setShowUtmStats(!showUtmStats)}
+                  className="inline-flex items-center gap-x-1.5 rounded-md bg-gray-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                >
+                  {showUtmStats ? "Hide UTM Stats" : "Show UTM Stats"}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -443,6 +596,30 @@ const WorkshopDetails: React.FC = () => {
                         className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                       >
                         Payment Details
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
+                        UTM Source
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
+                        UTM Medium
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
+                        UTM Campaign
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
+                        Referrer
                       </th>
                     </tr>
                   </thead>
@@ -554,6 +731,18 @@ const WorkshopDetails: React.FC = () => {
                               "No payment initiated"
                             )}
                           </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {workshop.utm_source || "N/A"}
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {workshop.utm_medium || "N/A"}
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {workshop.utm_campaign || "N/A"}
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {workshop.referrer || "N/A"}
+                          </td>
                         </tr>
                       ))
                     )}
@@ -563,6 +752,128 @@ const WorkshopDetails: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* UTM Statistics */}
+        {showUtmStats && (
+          <div className="mt-8 bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              UTM Statistics
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {/* Sources */}
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="text-md font-semibold text-gray-900 mb-3 flex items-center">
+                  <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                  UTM Sources
+                </h3>
+                <div className="max-h-60 overflow-y-auto">
+                  {Object.keys(calculateUtmStats(filteredWorkshops).sources).length > 0 ? (
+                    <ul className="space-y-2">
+                      {Object.entries(calculateUtmStats(filteredWorkshops).sources)
+                        .sort(([, countA], [, countB]) => countB - countA)
+                        .map(([source, count]) => (
+                          <li key={source} className="flex justify-between items-center text-sm">
+                            <span className="text-gray-700 truncate mr-2" title={source}>
+                              {source || "(empty)"}
+                            </span>
+                            <span className="text-gray-900 font-medium bg-blue-100 px-2 py-0.5 rounded-full">
+                              {count}
+                            </span>
+                          </li>
+                        ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-500 italic">No source data available</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Mediums */}
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="text-md font-semibold text-gray-900 mb-3 flex items-center">
+                  <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                  UTM Mediums
+                </h3>
+                <div className="max-h-60 overflow-y-auto">
+                  {Object.keys(calculateUtmStats(filteredWorkshops).mediums).length > 0 ? (
+                    <ul className="space-y-2">
+                      {Object.entries(calculateUtmStats(filteredWorkshops).mediums)
+                        .sort(([, countA], [, countB]) => countB - countA)
+                        .map(([medium, count]) => (
+                          <li key={medium} className="flex justify-between items-center text-sm">
+                            <span className="text-gray-700 truncate mr-2" title={medium}>
+                              {medium || "(empty)"}
+                            </span>
+                            <span className="text-gray-900 font-medium bg-green-100 px-2 py-0.5 rounded-full">
+                              {count}
+                            </span>
+                          </li>
+                        ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-500 italic">No medium data available</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Campaigns */}
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="text-md font-semibold text-gray-900 mb-3 flex items-center">
+                  <span className="inline-block w-3 h-3 bg-purple-500 rounded-full mr-2"></span>
+                  UTM Campaigns
+                </h3>
+                <div className="max-h-60 overflow-y-auto">
+                  {Object.keys(calculateUtmStats(filteredWorkshops).campaigns).length > 0 ? (
+                    <ul className="space-y-2">
+                      {Object.entries(calculateUtmStats(filteredWorkshops).campaigns)
+                        .sort(([, countA], [, countB]) => countB - countA)
+                        .map(([campaign, count]) => (
+                          <li key={campaign} className="flex justify-between items-center text-sm">
+                            <span className="text-gray-700 truncate mr-2" title={campaign}>
+                              {campaign || "(empty)"}
+                            </span>
+                            <span className="text-gray-900 font-medium bg-purple-100 px-2 py-0.5 rounded-full">
+                              {count}
+                            </span>
+                          </li>
+                        ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-500 italic">No campaign data available</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Referrers */}
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="text-md font-semibold text-gray-900 mb-3 flex items-center">
+                  <span className="inline-block w-3 h-3 bg-amber-500 rounded-full mr-2"></span>
+                  Referrers
+                </h3>
+                <div className="max-h-60 overflow-y-auto">
+                  {Object.keys(calculateUtmStats(filteredWorkshops).referrers).length > 0 ? (
+                    <ul className="space-y-2">
+                      {Object.entries(calculateUtmStats(filteredWorkshops).referrers)
+                        .sort(([, countA], [, countB]) => countB - countA)
+                        .map(([referrer, count]) => (
+                          <li key={referrer} className="flex justify-between items-center text-sm">
+                            <span className="text-gray-700 truncate mr-2" title={referrer}>
+                              {referrer || "(empty)"}
+                            </span>
+                            <span className="text-gray-900 font-medium bg-amber-100 px-2 py-0.5 rounded-full">
+                              {count}
+                            </span>
+                          </li>
+                        ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-500 italic">No referrer data available</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Pagination */}
         <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 mt-4">
