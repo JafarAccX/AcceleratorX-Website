@@ -238,6 +238,8 @@ const WorkshopDetails: React.FC = () => {
               workshop.workshop_type
                 ? workshop.workshop_type === "DAWorkshop"
                   ? "Data Analytics Workshop"
+                  : workshop.workshop_type === "DASecondWorkshop"
+                  ? "DA Second Workshop"
                   : workshop.workshop_type === "PMWorkshop"
                   ? "Product Management Workshop"
                   : workshop.workshop_type === "GENAIWorkshop"
@@ -316,6 +318,7 @@ const WorkshopDetails: React.FC = () => {
             >
               <option value="all">All Workshops</option>
               <option value="DAWorkshop">DA Workshop</option>
+              <option value="DASecondWorkshop">DA Second Workshop</option>
               <option value="PMWorkshop">PM Workshop</option>
               <option value="GENAIWorkshop">GenAI Workshop</option>
               <option value="DMWorkshop">Digital Marketing Workshop</option>
@@ -498,6 +501,8 @@ const WorkshopDetails: React.FC = () => {
                             {workshop.workshop_type
                               ? workshop.workshop_type === "DAWorkshop"
                                 ? "DA Workshop"
+                                : workshop.workshop_type === "DASecondWorkshop"
+                                ? "DA Second Workshop"
                                 : workshop.workshop_type === "PMWorkshop"
                                 ? "PM Workshop"
                                 : workshop.workshop_type === "GENAIWorkshop"

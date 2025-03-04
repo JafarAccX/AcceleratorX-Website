@@ -69,7 +69,7 @@ const WSFormFree = () => {
         education: formData.education,
         designation: formData.designation,
         years_of_experience: formData.yearsOfExperience,
-        workshop_type: workshopType === "DASecondWorkshop" ? "DAWorkshop" : workshopType,
+        workshop_type: workshopType,
         created_at: new Date().toISOString(),
         is_free: true,
       };

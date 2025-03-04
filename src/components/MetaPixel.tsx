@@ -30,9 +30,9 @@ export const MetaPixel = () => {
   const isPageViewRoute = PAGE_VIEW_ROUTES.includes(location.pathname);
   const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
 
-  console.log('Meta Pixel - Current Path:', location.pathname);
-  console.log('Is PageView Route:', isPageViewRoute);
-  console.log('Is Lead Route:', isLeadRoute);
+  // console.log('Meta Pixel - Current Path:', location.pathname);
+  // console.log('Is PageView Route:', isPageViewRoute);
+  // console.log('Is Lead Route:', isLeadRoute);
 
   return (
     <Helmet>
