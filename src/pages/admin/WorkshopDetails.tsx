@@ -31,6 +31,7 @@ interface WorkshopData {
   education: string;
   designation: string;
   years_of_experience: string;
+  years_of_passing: string;
   created_at: string;
   workshop_type: string;
   payment_status: "pending" | "completed" | "failed";
@@ -180,6 +181,7 @@ const WorkshopDetails: React.FC = () => {
           workshop.education.toLowerCase().includes(lowercaseQuery) ||
           workshop.designation.toLowerCase().includes(lowercaseQuery) ||
           workshop.years_of_experience.toLowerCase().includes(lowercaseQuery) ||
+          workshop.years_of_passing.toLowerCase().includes(lowercaseQuery) ||
           (workshop.workshop_type?.toLowerCase() || "").includes(
             lowercaseQuery
           );
@@ -241,6 +243,7 @@ const WorkshopDetails: React.FC = () => {
         "Education",
         "Designation",
         "Years of Experience",
+        "Years of Passing",
         "Workshop Type",
         "Registration Date",
         "Registration Type",
@@ -263,6 +266,7 @@ const WorkshopDetails: React.FC = () => {
             escapeCSV(workshop.education),
             escapeCSV(workshop.designation),
             escapeCSV(workshop.years_of_experience),
+            escapeCSV(workshop.years_of_passing),
             escapeCSV(
               workshop.workshop_type
                 ? workshop.workshop_type === "DAWorkshop"
@@ -571,6 +575,12 @@ const WorkshopDetails: React.FC = () => {
                         scope="col"
                         className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                       >
+                        Years of Passing
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Registration Date
                       </th>
                       <th
@@ -670,6 +680,9 @@ const WorkshopDetails: React.FC = () => {
                           </td>
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {workshop.years_of_experience}
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
+                            {workshop.years_of_passing}
                           </td>
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
                             {new Date(workshop.created_at).toLocaleString()}
