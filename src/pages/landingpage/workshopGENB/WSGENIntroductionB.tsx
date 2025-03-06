@@ -4,12 +4,12 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionB = () => {
   const stats = [
     {
-      value: "90%",
-      label: "Customer Engagement Boost",
+      value: "40%",
+      label: "Productivity Increase",
     },
     {
-      value: "24/7",
-      label: "Automated Support",
+      value: "85%",
+      label: "of Jobs Transformed by AI",
     },
     {
       value: "Free",
@@ -20,15 +20,21 @@ const WSGENIntroductionB = () => {
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Practical AI Skills",
+      title: "Career Advancement",
       description:
-        "Learn how to use AI tools for real-world tasks and boost your productivity",
+        "Learn how to leverage AI tools to stand out in your professional field and advance your career",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Zero Technical Skills Needed",
+      title: "Practical AI Applications",
       description:
-        "Simple, step-by-step guidance to master AI tools - no coding required",
+        "Discover how to implement AI tools in your daily workflow to automate tasks and boost productivity",
+    },
+    {
+      icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
+      title: "Future-Proof Skills",
+      description:
+        "Stay ahead of the curve with in-demand AI skills that will remain valuable as technology evolves",
     },
   ];
 
@@ -73,18 +79,18 @@ const WSGENIntroductionB = () => {
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
             <span className="text-sm text-blue-400 font-medium">
-              Build Intelligent Chatbots
+              Master AI in Your Workplace
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Create <span className="text-blue-500">AI-Powered</span> Chatbots
+            Generative <span className="text-blue-500">AI</span> for Working Professionals
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Learn to design and develop intelligent chatbots using cutting-edge AI technologies. Transform communication strategies, enhance customer engagement, and unlock the power of conversational AI - completely free!
+            Learn how to harness the power of AI to transform your work, boost productivity, and advance your career. Discover practical applications of generative AI tools that you can implement immediately in your professional life - completely free!
           </p>
 
           {/* Stats Grid */}
@@ -103,7 +109,7 @@ const WSGENIntroductionB = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <div
                 key={index}

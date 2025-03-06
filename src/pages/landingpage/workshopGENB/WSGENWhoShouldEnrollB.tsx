@@ -2,26 +2,27 @@ import React from "react";
 import { Users, Briefcase, Megaphone, Brain } from "lucide-react";
 
 const WSGENWhoShouldEnrollB = () => {
+
   const targetAudience = [
     {
       icon: Users,
-      title: "Software Developers",
-      description: "Learn to build intelligent conversational AI solutions",
+      title: "Working Professionals",
+      description: "Enhance productivity and efficiency with Generative AI tools",
     },
     {
       icon: Briefcase,
-      title: "Product Managers",
-      description: "Design cutting-edge AI-powered communication strategies",
+      title: "Business Leaders & Managers",
+      description: "Leverage AI for smarter decision-making and workflow automation",
     },
     {
       icon: Megaphone,
-      title: "Customer Service Professionals",
-      description: "Transform customer interactions with advanced chatbots",
+      title: "Marketing & Content Creators",
+      description: "Use AI to streamline content creation and ideation processes",
     },
     {
       icon: Brain,
-      title: "AI Enthusiasts & Entrepreneurs",
-      description: "Explore the future of automated communication technologies",
+      title: "AI Enthusiasts & Innovators",
+      description: "Explore the potential of Generative AI in transforming industries",
     },
   ];
 
@@ -66,8 +67,7 @@ const WSGENWhoShouldEnrollB = () => {
                   <span className="text-white">?</span>
                 </h2>
                 <p className="text-lg text-blue-100">
-                  If you want to build custom chat bot with custom data then this workshop is for you
-                </p>
+                Join us and stay ahead in the AI-powered workplace.                </p>
               </div>
 
               {/* Target Audience Grid */}
@@ -99,29 +99,22 @@ const WSGENWhoShouldEnrollB = () => {
             <div className="flex-1 relative">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
                 <img
-                  src="/workshopChat.webp"
+                  src="/genai.svg"
                   alt="Students learning together"
                   className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Overlay elements */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
-                  <div className="flex justify-between items-center">
-                    <p className="text-blue-900 font-medium">
-                      Revolutionize Communication with AI-Powered Chatbots!
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
-            {/* <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center">
           <button
                 onClick={scrollToForm}
                 className="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
               >
                 Register Now
               </button>
-          </div> */}
+          </div>
           </div>
         </div>
       </div>

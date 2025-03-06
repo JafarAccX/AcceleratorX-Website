@@ -92,8 +92,8 @@ const WSAboutGENB = () => {
                   whileInView={{ opacity: [0, 1], y: [20, 0] }}
                   transition={{ duration: 0.5 }}
                 >
-                  Build Intelligent Chatbots with AI Technologies
-                </motion.h2>
+Unlock Productivity & Innovation with AI
+</motion.h2>
 
                 <div className="space-y-6">
                   <motion.div
@@ -107,7 +107,7 @@ const WSAboutGENB = () => {
                         className="font-semibold text-blue-400"
                         whileHover={{ scale: 1.05 }}
                       >
-                        6th March, 2025
+                        12th March, 2025
                       </motion.span>{" "}
                       at{" "}
                       <motion.span
@@ -116,8 +116,7 @@ const WSAboutGENB = () => {
                       >
                         07:30 PM
                       </motion.span>
-                      . Learn how to create intelligent chatbots that can transform communication and automate complex interactions.
-                    </p>
+                      Learn to leverage Generative AI to streamline communication, automate workflows, and enhance workplace efficiency.                    </p>
                   </motion.div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -146,10 +145,10 @@ const WSAboutGENB = () => {
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "Live AI Tool Demonstrations",
-                          "Step-by-Step Guidance",
+                          "Live Demonstrations of Generative AI Tools",
+                          "Step-by-Step Guidance on AI Integration",
                           "Interactive Q&A Session",
-                          "Practice Exercises",
+                          "Hands-on Exercises for Practical AI Applications",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -194,10 +193,10 @@ const WSAboutGENB = () => {
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "Conversational AI Design",
-                          "Prompt Engineering Techniques",
-                          "Integrating Large Language Models",
-                          "Building Contextual Chatbots",
+                          "How Generative AI streamlines everyday tasks like content creation, research, and data analysis.",
+                          "Practical tools and strategies to boost productivity with AI-powered assistants.",
+                          "Ethical considerations and best practices for leveraging AI in a professional setting.",
+                          "Real-world applications tailored to your industry.",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -343,14 +342,8 @@ const WSAboutGENB = () => {
               <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
                 <div className="flex justify-between items-center">
                   <p className="text-blue-900 font-medium">
-                  "Revolutionize Communication with AI-Powered Chatbots!"
+                  "AI isn't here to replace you—it’s here to make your work smarter"
                   </p>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-blue-600">
-                      Avail Now
-                    </p>
-                    <p className="text-sm text-gray-600">Limited Seats</p>
-                  </div>
                 </div>
               </div>
             </div>

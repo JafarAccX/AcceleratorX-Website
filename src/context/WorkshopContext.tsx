@@ -39,9 +39,9 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/p6pqoyzIREeUnyVxhSWEVA",
-  meetingId: "p6pqoyzIREeUnyVxhSWEVA",
-  time: "6th March, 2025 07:30 AM India",
+  link: "https://zoom.us/meeting/register/zVnro80ySDm_Qll-H-XvCQ",
+  meetingId: "zVnro80ySDm_Qll-H-XvCQ",
+  time: "12th March, 2025 07:30 AM India",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

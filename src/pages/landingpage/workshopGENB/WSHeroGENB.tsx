@@ -2,11 +2,6 @@ import React from "react";
 import WSFormFree from "./WSFormFree";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { motion } from "framer-motion";
-import {
-  FiClock,
-  FiAward,
-  FiMessageCircle,
-} from "react-icons/fi";
 import { RiRobot2Line } from "react-icons/ri";
 
 const WSHeroGENB = () => {
@@ -123,7 +118,7 @@ const WSHeroGENB = () => {
                     <RiRobot2Line className="w-12 h-12 animate animate-bounce" />
                   </motion.div>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-200">
-                    How to create chatbots with AI
+                    Generative AI for Working Professionals
                   </span>
                   <motion.div
                     animate={{ scale: [1, 1.1, 1] }}
@@ -140,8 +135,7 @@ const WSHeroGENB = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
-                Learn to build intelligent chatbots using cutting-edge AI
-                technologies and transform your communication strategies
+                Generative AI is reshaping the way professionals work—automating tasks, enhancing creativity, and driving efficiency. This workshop is designed for professionals looking to integrate AI into their workflow without the complexity.
               </motion.p>
 
               {/* Price Tag - Enhanced */}
@@ -156,49 +150,10 @@ const WSHeroGENB = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                     className="text-yellow-500 text-sm font-medium"
                   >
-                    Limited Workshop Slots
+                    2 Hour Live Workshop with Certificate included
                   </motion.div>
                 </div>
               </motion.div>
-
-              {/* Key Benefits Grid */}
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                {[
-                  {
-                    icon: FiClock,
-                    text: "2 Hour Live Workshop",
-                    highlight: "6th March, 07:30 PM",
-                  },
-                  {
-                    icon: FiAward,
-                    text: "Certificate Included",
-                    highlight: "Lifetime Access",
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center gap-3 bg-gradient-to-r from-white/[0.05] to-transparent rounded-lg p-4 border border-white/5"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <motion.div
-                      className="p-2 bg-blue-500/10 rounded-lg"
-                      whileHover={{ rotate: [0, -5, 5, 0] }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <item.icon className="w-5 h-5 text-blue-400" />
-                    </motion.div>
-                    <div>
-                      <span className="block text-white/80 text-sm">
-                        {item.text}
-                      </span>
-                      <span className="text-xs text-blue-400">
-                        {item.highlight}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
 
               {/* Primary CTA Button */}
               <motion.button

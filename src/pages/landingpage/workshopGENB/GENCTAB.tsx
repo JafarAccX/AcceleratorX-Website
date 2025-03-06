@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import DMTimer from "../../../pages/courses/dmAI/DMTimer";
 
 const GENCTAB = () => {
   const currentYear = new Date().getFullYear();
@@ -20,18 +19,6 @@ const GENCTAB = () => {
       <div className="relative py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col items-center justify-center space-y-10">
-            {/* Timer Badge */}
-            {/* <motion.div
-              className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 py-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-white text-sm font-medium">
-                Workshop starts in:
-              </span>
-              <DMTimer initialHours={120} className="text-white font-semibold" />
-            </motion.div> */}
 
             {/* Heading */}
             <motion.h2
@@ -40,7 +27,7 @@ const GENCTAB = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Transform Communication with AI Chatbots
+              Elevate Your Career with Generative AI Skills
             </motion.h2>
 
             {/* Price Badge */}
@@ -64,14 +51,14 @@ const GENCTAB = () => {
             >
               <div className="grid grid-cols-2 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-blue-400">AI-Powered</p>
-                  <p className="text-sm text-gray-400">Chatbot Design</p>
+                  <p className="text-2xl font-bold text-blue-400">Workplace</p>
+                  <p className="text-sm text-gray-400">AI Applications</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <p className="text-2xl font-bold text-green-400">
-                    Conversational
+                    Productivity
                   </p>
-                  <p className="text-sm text-gray-400">AI Strategies</p>
+                  <p className="text-sm text-gray-400">Enhancement Tools</p>
                 </div>
               </div>
             </motion.div>
@@ -89,7 +76,7 @@ const GENCTAB = () => {
                 className="group relative inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-200 overflow-hidden"
               >
                 <span className="relative z-10 text-lg font-semibold">
-                  Build Your Chatbot
+                  Master AI Skills
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out origin-left"></div>
               </button>
