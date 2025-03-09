@@ -117,7 +117,6 @@ export default function ChatWidget() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-white">Chat with AcceX</h3>
-                      <p className="text-sm text-blue-100/80">Response time: ~10 mins</p>
                     </div>
                   </div>
                   <button
@@ -200,7 +199,8 @@ export default function ChatWidget() {
                           <option value="" hidden>Select Course</option>
                           <option value="Product Management">Product Management</option>
                           <option value="Data Analytics">Data Analytics</option>
-                          <option value="No-Code Program">No-Code Program</option>
+                          <option value="GenAI">GenAI</option>
+                          <option value="Performance Marketing">Performance Marketing</option>
                         </select>
                       )}
 

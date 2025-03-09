@@ -277,6 +277,10 @@ const WorkshopDetails: React.FC = () => {
                   ? "Product Management Workshop"
                   : workshop.workshop_type === "GENAIWorkshop"
                   ? "GenAI Workshop"
+                  : workshop.workshop_type === "GENAIBWorkshop"
+                  ? "GenAI Workshop (Second)"
+                  : workshop.workshop_type === "GENAICWorkshop"
+                  ? "GenAI Workshop (Third)"
                   : workshop.workshop_type === "DMWorkshop"
                   ? "Digital Marketing Workshop"
                   : "Not specified"
@@ -426,6 +430,8 @@ const WorkshopDetails: React.FC = () => {
                   <option value="DASecondWorkshop">DA Workshop (Second)</option>
                   <option value="PMWorkshop">PM Workshop</option>
                   <option value="GENAIWorkshop">GenAI Workshop</option>
+                  <option value="GENAIBWorkshop">GenAI Workshop (Second)</option>
+                  <option value="GENAICWorkshop">GenAI Workshop (Third)</option>
                   <option value="DMWorkshop">Digital Marketing Workshop</option>
                 </select>
               </div>
@@ -697,6 +703,10 @@ const WorkshopDetails: React.FC = () => {
                                 ? "PM Workshop"
                                 : workshop.workshop_type === "GENAIWorkshop"
                                 ? "GenAI Workshop"
+                                : workshop.workshop_type === "GENAIBWorkshop"
+                                ? "GenAI Workshop (Second)"
+                                : workshop.workshop_type === "GENAICWorkshop"
+                                ? "GenAI Workshop (Third)"
                                 : workshop.workshop_type === "DMWorkshop"
                                 ? "Digital Marketing Workshop"
                                 : "Not specified"

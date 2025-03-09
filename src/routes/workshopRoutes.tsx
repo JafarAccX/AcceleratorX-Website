@@ -49,6 +49,18 @@ const WSAboutDM = lazy(
   () => import("../pages/landingpage/workshopDM/WSAboutDM")
 );
 
+const WSHeroGENC = lazy(() => import("../pages/landingpage/workshopGENC/WSHeroGENC"));
+const WSAboutGENC = lazy(
+  () => import("../pages/landingpage/workshopGENC/WSAboutGENC")
+);
+const WSGENWhoShouldEnrollC = lazy(
+  () => import("../pages/landingpage/workshopGENC/WSGENWhoShouldEnrollC")
+);
+const WSGENIntroductionC = lazy(
+  () => import("../pages/landingpage/workshopGENC/WSGENIntroductionC")
+);
+const GENCTAC = lazy(() => import("../pages/landingpage/workshopGENC/GENCTAC"));
+
 // Workshop Pages
 const WorkshopPageDA = () => (
   <>
@@ -96,6 +108,17 @@ const WorkshopPageGENBTest = () => (
   </>
 );
 
+const WorkshopPageGENC = () => (
+  <>
+    <WSHeroGENC />
+    <WSAboutGENC />
+    <WSGENWhoShouldEnrollC />
+    <WSGENIntroductionC />
+    <WSGENMentor />
+    <GENCTAC />
+  </>
+);
+
 const WorkshopPageDM = () => (
   <>
     <WSHeroDM />
@@ -106,12 +129,16 @@ const WorkshopPageDM = () => (
 export const workshopRoutes = [
   <Route path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
   <Route path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
-  <Route path="/workshop/gen-ai-masterclass" element={<WorkshopPageGEN />} />,
   <Route path="/workshop/dm-masterclass" element={<WorkshopPageDM />} />,
   <Route path="/workshop/da-masterclass-bxwxy" element={<WorkshopPageDASecond />} />,
+  <Route path="/workshop/gen-ai-masterclass" element={<WorkshopPageGEN />} />,
   <Route
     path="/workshop/gen-ai-masterclass-bxwcy"
     element={<WorkshopPageGENBTest />}
+  />,
+  <Route
+    path="/workshop/gen-ai-masterclass-thidtx"
+    element={<WorkshopPageGENC />}
   />,
   <Route
     path="/workshop-registration/success"

@@ -6,6 +6,8 @@ type WorkshopType =
   | "DASecondWorkshop"
   | "PMWorkshop"
   | "GENAIWorkshop"
+  | "GENAIBWorkshop"
+  | "GENAICWorkshop"
   | "DMWorkshop";
 
 interface ZoomMeetingDetails {
@@ -44,6 +46,18 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
   time: "12th March, 2025 07:30 AM India",
 };
 
+const GENAIBZoomDetails: ZoomMeetingDetails = {
+  link: "https://zoom.us/meeting/register/bxwcy-GENAIWorkshop",
+  meetingId: "bxwcy-GENAIWorkshop",
+  time: "15th March, 2025 07:30 AM India",
+};
+
+const GENAICZoomDetails: ZoomMeetingDetails = {
+  link: "https://zoom.us/meeting/register/NpBZZOV3SuuKSW25IkNRng",
+  meetingId: "NpBZZOV3SuuKSW25IkNRng",
+  time: "20th March, 2025 07:30 AM India",
+};
+
 const DMZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
   meetingId: "-EeXRY1GQFmxc9eHG73nnQ",
@@ -68,6 +82,10 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
       setWorkshopType("DASecondWorkshop");
     } else if (location.pathname.includes("/da-masterclass")) {
       setWorkshopType("DAWorkshop");
+    } else if (location.pathname.includes("/gen-ai-masterclass-bxwcy")) {
+      setWorkshopType("GENAIBWorkshop");
+    } else if (location.pathname.includes("/gen-ai-masterclass-thidtx")) {
+      setWorkshopType("GENAICWorkshop");
     } else if (location.pathname.includes("/gen-ai-masterclass")) {
       setWorkshopType("GENAIWorkshop");
     } else if (location.pathname.includes("/dm-masterclass")) {
@@ -80,6 +98,10 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
       ? PMZoomDetails
       : workshopType === "GENAIWorkshop"
       ? GENAIZoomDetails
+      : workshopType === "GENAIBWorkshop"
+      ? GENAIBZoomDetails
+      : workshopType === "GENAICWorkshop"
+      ? GENAICZoomDetails
       : workshopType === "DMWorkshop"
       ? DMZoomDetails
       : workshopType === "DASecondWorkshop"
