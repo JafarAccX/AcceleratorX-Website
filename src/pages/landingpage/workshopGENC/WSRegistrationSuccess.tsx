@@ -48,6 +48,22 @@ const WSRegistrationSuccess = () => {
     toast.success("Copied to clipboard!");
   };
 
+  // Get the appropriate WhatsApp group link based on workshop type
+  const getWhatsAppLink = () => {
+    const workshopType = state.registrationDetails.workshop_type.toLowerCase();
+    
+    if (workshopType.includes('da') || workshopType.includes('data')) {
+      return "https://chat.whatsapp.com/Hl7nzEfchrR1I4ea4h04J5";
+    } else if (workshopType.includes('gen') || workshopType.includes('ai')) {
+      return "https://chat.whatsapp.com/KmX1SZu2XPo1UaNICtWeVq";
+    } else if (workshopType.includes('pm') || workshopType.includes('product')) {
+      return "https://chat.whatsapp.com/IaFM3xfYfmRBO0jwiaDIHN";
+    }
+    
+    // Default fallback
+    return "https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ";
+  };
+
   // Social media links
   const socialLinks = [
     {
@@ -61,12 +77,6 @@ const WSRegistrationSuccess = () => {
       icon: <FaInstagram className="w-5 h-5" />,
       url: "https://www.instagram.com/acceleratorxorg/",
       color: "bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]"
-    },
-    {
-      name: "Whatsapp",
-      icon: <FaWhatsapp className="w-5 h-5" />,
-      url: "https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ",
-      color: "bg-[#0077B5]"
     },
     {
       name: "YouTube",
@@ -137,6 +147,24 @@ const WSRegistrationSuccess = () => {
                   >
                     Join Meeting
                     <Video className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <FaWhatsapp className="w-6 h-6 text-green-600 mt-1" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Join WhatsApp Group</h3>
+                  <p className="text-gray-600 mb-2">
+                    Connect with fellow participants and instructors
+                  </p>
+                  <a
+                    href={getWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                  >
+                    Join Group
+                    <FaWhatsapp className="w-4 h-4" />
                   </a>
                 </div>
               </div>

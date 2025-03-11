@@ -1,7 +1,7 @@
 import React from "react";
-import WSForm from "../workshop/WSForm";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { ArrowRight, Star } from "lucide-react";
+import WSFormFree from "../workshopGENB/WSFormFree";
 
 const WSHeroPM = () => {
 
@@ -137,7 +137,7 @@ const WSHeroPM = () => {
 <div id="workshop-registration-form">
 
                   <WorkshopProvider>
-                    <WSForm />
+                    <WSFormFree />
                   </WorkshopProvider>
 </div>
                 </div>
@@ -160,7 +160,7 @@ const WSHeroPM = () => {
                 </div>
 
                 <WorkshopProvider>
-                  <WSForm />
+                  <WSFormFree />
                 </WorkshopProvider>
               </div>
             </div>

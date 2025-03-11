@@ -5,7 +5,7 @@ import WSAboutGENB from "../pages/landingpage/workshopGENB/WSAboutGENB";
 import WSGENIntroductionB from "../pages/landingpage/workshopGENB/WSGENIntroductionB";
 import WSGENWhoShouldEnrollB from "../pages/landingpage/workshopGENB/WSGENWhoShouldEnrollB";
 import WSHeroGENB from "../pages/landingpage/workshopGENB/WSHeroGENB";
-import WSRegistrationSuccess from "../pages/landingpage/workshopGENB/WSRegistrationSuccess";
+import WSRegistrationSuccess from "../pages/landingpage/workshopGENC/WSRegistrationSuccess";
 import WSMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
 import WSGENMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
 import WSHeroDASecond from "../pages/landingpage/WorkshopDASecond/WSHeroDASecond";
@@ -127,9 +127,9 @@ const WorkshopPageDM = () => (
 );
 
 export const workshopRoutes = [
-  <Route path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
   <Route path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
   <Route path="/workshop/dm-masterclass" element={<WorkshopPageDM />} />,
+  <Route path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
   <Route path="/workshop/da-masterclass-bxwxy" element={<WorkshopPageDASecond />} />,
   <Route path="/workshop/gen-ai-masterclass" element={<WorkshopPageGEN />} />,
   <Route
