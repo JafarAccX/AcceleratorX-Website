@@ -160,7 +160,7 @@ export default function EnrollmentModal({
                         id="name"
                         required
                         className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                        placeholder="Rohit Ahuja"
+                        placeholder="Type Your Name"
                         value={formData.name}
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
@@ -180,7 +180,7 @@ export default function EnrollmentModal({
                         id="email"
                         required
                         className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                        placeholder="rohitahuja@gmail.com"
+                        placeholder="Type Your Email Address"
                         value={formData.email}
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
@@ -204,7 +204,7 @@ export default function EnrollmentModal({
                           id="phone"
                           required
                           className="w-full bg-gray-700 border border-gray-600 rounded-r-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                          placeholder="9876543210"
+                          placeholder="Type Your Phone No"
                           value={formData.phone}
                           onChange={(e) => {
                             const sanitizedValue = e.target.value
@@ -227,7 +227,7 @@ export default function EnrollmentModal({
                         id="designation"
                         required
                         className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                        placeholder="Designation"
+                        placeholder="Type Your Designation"
                         value={formData.designation}
                         onChange={(e) =>
                           setFormData({ ...formData, designation: e.target.value })

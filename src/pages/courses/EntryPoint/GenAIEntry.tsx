@@ -12,6 +12,7 @@ import GENProjectsAndOutcomes from "../genAI/GENProjectsAndOutcomes";
 import GENToolsYouWillLearn from "../genAI/GENToolsYouWillLearn";
 import GENWhoShouldEnroll from "../genAI/GENWhoShouldEnroll";
 import GENWhyLearnAI from "../genAI/GENWhyLearnAI";
+import GENMentors from "../genAI/GENMentors";
 
 const GenAICourse = () => {
   const {
@@ -32,6 +33,7 @@ const GenAICourse = () => {
       <GENMarketScope />
       <GENWhyLearnAI />
       <GENLearningJourney />
+      <GENMentors />
       <GENToolsYouWillLearn />
       <GENProjectsAndOutcomes />
       <GENPricing />
