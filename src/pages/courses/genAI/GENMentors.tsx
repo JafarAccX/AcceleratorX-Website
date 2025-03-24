@@ -5,15 +5,16 @@ const GENMentors = () => {
   const mentors = [
     {
       name: "Prashant Vijaybhai Sahatiya",
-      designation: "Program Coordinator & Assistant Professor at Parul University",
+      designation:
+        "Program Coordinator & Assistant Professor at Parul University",
       linkedin: "https://www.linkedin.com/in/prashant-sahatiya",
       image: "/assets/mentor/prashant.jpeg",
     },
     {
       name: "Pranali Bose",
       designation: "Software Engineer (Data Science), Ex-Walmart",
-      linkedin: "https://www.linkedin.com/in/pranali-bose-01/",
-      image: "/assets/images/mentors/placeholder.jpg",
+      linkedin: "https://www.linkedin.com/in/pranalibose",
+      image: "/assets/mentor/pranali.jpg",
     },
   ];
 
@@ -31,7 +32,8 @@ const GENMentors = () => {
               Meet Your <span className="text-blue-500">Mentors</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              Learn from experienced professionals who will guide you through your GenAI journey
+              Learn from experienced professionals who will guide you through
+              your GenAI journey
             </p>
           </div>
 
@@ -54,9 +56,13 @@ const GENMentors = () => {
                 </div>
 
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl font-semibold text-white mb-1">{mentor.name}</h3>
-                  <p className="text-gray-400 text-sm mb-3">{mentor.designation}</p>
-                  
+                  <h3 className="text-xl font-semibold text-white mb-1">
+                    {mentor.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-3">
+                    {mentor.designation}
+                  </p>
+
                   <a
                     href={mentor.linkedin}
                     target="_blank"

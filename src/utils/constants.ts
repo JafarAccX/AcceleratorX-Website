@@ -278,11 +278,11 @@ export const skills: Skill[] = [
 
 export const mentors = [
   {
-    name: "Anurag Goel",
-    role: "PM at Cequens",
-    experience: "17+ years",
-    image: "/assets/mentor/anuragme.png",
-    linkedin: "https://www.linkedin.com/in/anurag-goel-li/",
+    name: "Swati Sinha",
+    role: "Senior PM at Walmart",
+    experience: "10+ years",
+    image: "/assets/mentor/swati.jpg",
+    linkedin: "https://www.linkedin.com/in/swati-sinha-471644125",
     transitions: "Over 100+",
   },
   {
