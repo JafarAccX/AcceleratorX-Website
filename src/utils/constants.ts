@@ -287,7 +287,7 @@ export const mentors = [
   },
   {
     name: "Subhasis Chandra",
-    role: "SPM at Publicis Sapient",
+    role: "Senior PM at Publicis Sapient",
     experience: "10+ Years",
     image: "/assets/mentor/subhasis.png",
     linkedin: "https://www.linkedin.com/in/subhasis-chandra",

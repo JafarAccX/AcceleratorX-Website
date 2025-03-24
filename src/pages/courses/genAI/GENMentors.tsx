@@ -9,12 +9,14 @@ const GENMentors = () => {
         "Program Coordinator & Assistant Professor at Parul University",
       linkedin: "https://www.linkedin.com/in/prashant-sahatiya",
       image: "/assets/mentor/prashant.jpeg",
+      experience: "5+ Years",
     },
     {
       name: "Pranali Bose",
       designation: "Software Engineer (Data Science), Ex-Walmart",
       linkedin: "https://www.linkedin.com/in/pranalibose",
       image: "/assets/mentor/pranali.jpg",
+      experience: "7+ Years",
     },
   ];
 
@@ -61,6 +63,10 @@ const GENMentors = () => {
                   </h3>
                   <p className="text-gray-400 text-sm mb-3">
                     {mentor.designation}
+                  </p>
+
+                  <p className="text-white font-semibold">
+                    Experience: {mentor.experience}
                   </p>
 
                   <a
