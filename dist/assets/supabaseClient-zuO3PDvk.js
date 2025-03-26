@@ -1,0 +1,1 @@
+import{f as s}from"./index-lQ-6cG0e.js";const I="https://grdwabozcrwjwdytwpqa.supabase.co",a="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdyZHdhYm96Y3J3andkeXR3cHFhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMTgyOTY4NiwiZXhwIjoyMDQ3NDA1Njg2fQ.ZsBE6-Ffg4iyZpd9P_341TDaFJxJ6Qt50FlyCHGpT64",i=s(I,a);export{i as s};
