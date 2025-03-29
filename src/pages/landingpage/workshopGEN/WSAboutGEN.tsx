@@ -91,7 +91,8 @@ const WSAboutGEN = () => {
                   whileInView={{ opacity: [0, 1], y: [20, 0] }}
                   transition={{ duration: 0.5 }}
                 >
-                  Master AI Tools in Just 2 Hours
+                  Streamline Your Workflow: Automate Daily Tasks with Generative
+                  AI Tools!{" "}
                 </motion.h2>
 
                 <div className="space-y-6">
@@ -115,8 +116,8 @@ const WSAboutGEN = () => {
                       >
                         10:30 AM
                       </motion.span>
-                      . Learn how to use AI to complete your daily tasks in
-                      minutes instead of hours.
+                      . Learn How to Automate Your Daily Workflow Using AI in
+                      Minutes!
                     </p>
                   </motion.div>
 
@@ -194,10 +195,13 @@ const WSAboutGEN = () => {
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "Smart Content Creation",
-                          "Email & Document Writing",
-                          "Research & Analysis",
-                          "Task Automation",
+                          "AI-Powered Workflow Automation",
+
+                          "Smart Task Management with AI",
+
+                          "Effortless Email & Document Automation",
+
+                          "AI-Driven Research & Analysis",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -243,7 +247,7 @@ const WSAboutGEN = () => {
                           whileHover={{ scale: 1.1 }}
                           transition={{ duration: 0.2 }}
                         >
-                          ₹9
+                          ₹99
                         </motion.p>
                         <p className="text-sm text-gray-400 line-through">
                           Regular Price ₹499
@@ -352,7 +356,7 @@ const WSAboutGEN = () => {
           >
             <div className="relative">
               <img
-                src="/assets/ai.jpg"
+                src="/gen-ai.svg"
                 alt="AI Workshop"
                 className="w-full rounded-2xl shadow-2xl"
               />

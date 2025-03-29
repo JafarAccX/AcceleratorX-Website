@@ -51,7 +51,7 @@ const GENCTA = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="bg-blue-500/10 rounded-full px-6 py-2">
-                <span className="text-3xl font-bold text-white">₹9</span>
+                <span className="text-3xl font-bold text-white">₹99</span>
                 <span className="text-gray-400 text-sm ml-2">Only</span>
               </div>
               <p className="text-gray-400 text-sm">

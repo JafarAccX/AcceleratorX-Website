@@ -109,11 +109,11 @@ const WSHeroGEN = () => {
                 className="text-4xl md:text-7xl lg:text-6xl font-bold leading-tight"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-200">
-                How to create chatbots 
+                  How to Automate Your Daily Workflow Using
                 </span>
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-                   with AI
+                  Generative AI Tools
                 </span>
               </motion.h1>
 
@@ -124,8 +124,13 @@ const WSHeroGEN = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
-                Master the art of automating your daily work with AI tools in
-                just 2 hours
+                In today's fast-paced world, staying productive often means
+                finding smarter ways to manage tasks. Generative AI tools are
+                revolutionizing how professionals handle their daily workflows,
+                automating repetitive tasks, enhancing decision-making, and
+                fostering creativity. From streamlining content creation to
+                automating data analysis, AI-powered solutions can help you save
+                time and focus on high-impact work.
               </motion.p>
 
               {/* Price Tag - Enhanced */}
@@ -138,7 +143,7 @@ const WSHeroGEN = () => {
                   <div>
                     <span className="text-sm text-gray-400">Special Price</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-2xl font-bold text-white">₹9</span>
+                      <span className="text-2xl font-bold text-white">₹99</span>
                       <span className="text-sm text-gray-400 line-through">
                         ₹499
                       </span>
