@@ -1,15 +1,14 @@
-import React from "react";
 import { TrendingUp, Target, Brain } from "lucide-react";
 
 const WSGENIntroductionB = () => {
   const stats = [
     {
-      value: "40%",
-      label: "Productivity Increase",
+      value: "60%",
+      label: "Time Saved with AI Automation",
     },
     {
       value: "85%",
-      label: "of Jobs Transformed by AI",
+      label: "of Routine Tasks Can Be Automated",
     },
     {
       value: "Free",
@@ -20,21 +19,21 @@ const WSGENIntroductionB = () => {
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Career Advancement",
+      title: "Custom Workflow Design",
       description:
-        "Learn how to leverage AI tools to stand out in your professional field and advance your career",
+        "Learn to build personalized AI automation systems tailored to your specific daily tasks and workflows",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Practical AI Applications",
+      title: "Tool Integration Mastery",
       description:
-        "Discover how to implement AI tools in your daily workflow to automate tasks and boost productivity",
+        "Discover how to seamlessly connect multiple AI tools to create powerful automated task sequences",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Future-Proof Skills",
+      title: "Productivity Transformation",
       description:
-        "Stay ahead of the curve with in-demand AI skills that will remain valuable as technology evolves",
+        "Implement time-saving automation strategies that can reduce hours of manual work to minutes",
     },
   ];
 
@@ -53,54 +52,35 @@ const WSGENIntroductionB = () => {
   };
 
   return (
-    <section className="relative py-8 bg-black min-h-screen flex items-center overflow-hidden">
-      {/* Background Grid */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-          style={{ opacity: 0.3 }}
-        />
-        <div
-          className="absolute inset-0 bg-[linear-gradient(to_right,#2a2a2a_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] bg-[size:8rem_8rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-          style={{ opacity: 0.2 }}
-        />
-      </div>
+    <section className="bg-[#050A14] py-12">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
+              <Brain className="w-4 h-4 text-blue-400" />
+              <span className="text-blue-400 text-sm font-medium">
+                Transform Your Daily Work with AI Automation
+              </span>
+            </div>
 
-      {/* Radial Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black pointer-events-none" />
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              Workflow <span className="text-blue-500">Automation</span> With Generative AI
+            </h1>
 
-      {/* Glow Effects */}
-      <div className="absolute top-0 -left-48 w-96 h-96 bg-blue-500/10 rounded-full blur-[128px] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-      <div className="absolute bottom-0 -right-48 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-            <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">
-              Master AI in Your Workplace
-            </span>
+            <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
+              Learn practical strategies to automate repetitive tasks, streamline communications, and enhance productivity using the latest generative AI tools. This hands-on workshop reveals simple techniques to build custom automation systems for your daily work needs.
+            </p>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Generative <span className="text-blue-500">AI</span> for Working Professionals
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Learn how to harness the power of AI to transform your work, boost productivity, and advance your career. Discover practical applications of generative AI tools that you can implement immediately in your professional life - completely free!
-          </p>
-
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/5"
+                className="bg-[#0A1020] p-4 rounded-lg border border-blue-900/20 text-center"
               >
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                <div className="text-2xl font-bold text-white mb-1">
                   {stat.value}
                 </div>
                 <div className="text-sm text-gray-400">{stat.label}</div>
@@ -109,16 +89,16 @@ const WSGENIntroductionB = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border border-white/10"
+                className="bg-[#0A1020] rounded-lg p-4 flex flex-col items-start gap-3 border border-blue-900/20"
               >
-                <div className="rounded-full bg-blue-500/10 p-2.5 backdrop-blur-sm">
+                <div className="rounded-md bg-blue-500/10 p-2">
                   {feature.icon}
                 </div>
-                <div className="text-left">
+                <div>
                   <h3 className="text-lg font-semibold text-white mb-1">
                     {feature.title}
                   </h3>
@@ -127,10 +107,12 @@ const WSGENIntroductionB = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-center items-center">
+
+          {/* CTA Button */}
+          <div className="flex justify-center">
             <button
               onClick={scrollToForm}
-              className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-md hover:shadow-md transition-all duration-300 w-full sm:w-auto"
             >
               Register Now
             </button>

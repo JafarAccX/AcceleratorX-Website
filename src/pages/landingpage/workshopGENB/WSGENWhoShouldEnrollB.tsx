@@ -1,4 +1,3 @@
-import React from "react";
 import { Users, Briefcase, Megaphone, Brain } from "lucide-react";
 
 const WSGENWhoShouldEnrollB = () => {
@@ -7,22 +6,22 @@ const WSGENWhoShouldEnrollB = () => {
     {
       icon: Users,
       title: "Working Professionals",
-      description: "Enhance productivity and efficiency with Generative AI tools",
+      description: "Learn to automate daily tasks with AI tools that save hours of manual work",
     },
     {
       icon: Briefcase,
       title: "Business Leaders & Managers",
-      description: "Leverage AI for smarter decision-making and workflow automation",
+      description: "Implement AI automation systems to enhance team productivity and efficiency",
     },
     {
       icon: Megaphone,
       title: "Marketing & Content Creators",
-      description: "Use AI to streamline content creation and ideation processes",
+      description: "Streamline content production with AI-powered workflow automation tools",
     },
     {
       icon: Brain,
       title: "AI Enthusiasts & Innovators",
-      description: "Explore the potential of Generative AI in transforming industries",
+      description: "Discover cutting-edge automation techniques using the latest generative AI tools",
     },
   ];
 
@@ -41,51 +40,45 @@ const WSGENWhoShouldEnrollB = () => {
   };
 
   return (
-    <section className="relative py-12 bg-black">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 -top-48 -left-48 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute w-96 h-96 bottom-0 right-0 bg-indigo-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
-
-      <div className="container mx-auto px-3 relative z-10">
+    <section className="bg-[#050A14] py-12">
+      {/* Container */}
+      <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            {/* Content Section */}
-            <div className="flex-1">
-              {/* Section Header */}
-              <div className="mb-8">
-                <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-3 transform hover:scale-105 transition-all">
-                  <Users className="w-4 h-4 text-blue-600" />
-                  <span className="text-blue-600 text-sm font-medium">
-                    For Everyone
-                  </span>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                  <span className="text-white">Who Can </span>
-                  <span className="text-blue-500">Benefit</span>
-                  <span className="text-white">?</span>
-                </h2>
-                <p className="text-lg text-blue-100">
-                Join us and stay ahead in the AI-powered workplace.                </p>
-              </div>
+          {/* Header Section */}
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
+              <Users className="w-4 h-4 text-blue-400" />
+              <span className="text-blue-400 text-sm font-medium">For Everyone</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+              <span className="text-white">Who Can </span>
+              <span className="text-blue-500">Benefit</span>
+              <span className="text-white">?</span>
+            </h2>
+            <p className="text-blue-100 max-w-xl mx-auto">
+              Master the skills to automate your daily workflows with AI tools and stay ahead in today's fast-paced workplace.
+            </p>
+          </div>
 
-              {/* Target Audience Grid */}
+          {/* Content Layout */}
+          <div className="flex flex-col lg:flex-row gap-8 items-center">
+            {/* Target Audience Grid */}
+            <div className="w-full lg:w-3/5">
               <div className="grid sm:grid-cols-2 gap-4">
                 {targetAudience.map((audience, index) => (
                   <div
                     key={index}
-                    className="group p-5 rounded-xl bg-white backdrop-blur-sm border border-white/20 hover:border-blue-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-white/10"
+                    className="p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/20 transition-all duration-300 hover:bg-white/10"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 p-2.5 rounded-lg bg-blue-50 group-hover:bg-blue-100 transform group-hover:rotate-6 transition-all duration-300">
-                        <audience.icon className="w-5 h-5 text-blue-600" />
+                      <div className="flex-shrink-0 p-2 rounded-md bg-blue-500/10">
+                        <audience.icon className="w-5 h-5 text-blue-400" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-blue-900 group-hover:text-blue-700 transition-colors">
+                        <h3 className="text-lg font-semibold text-white mb-1">
                           {audience.title}
                         </h3>
-                        <p className="text-sm text-blue-700 mb-2">
+                        <p className="text-sm text-gray-300">
                           {audience.description}
                         </p>
                       </div>
@@ -93,28 +86,27 @@ const WSGENWhoShouldEnrollB = () => {
                   </div>
                 ))}
               </div>
+              {/* CTA Button with space for ads */}
+              <div className="mt-8 flex justify-center">
+                <button
+                  onClick={scrollToForm}
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-md hover:shadow-md transition-all duration-300 w-full sm:w-auto"
+                >
+                  Register Now
+                </button>
+              </div>
             </div>
 
             {/* Image Section */}
-            <div className="flex-1 relative">
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
+            <div className="w-full lg:w-2/5">
+              <div className="relative rounded-lg overflow-hidden">
                 <img
                   src="/genai.svg"
-                  alt="Students learning together"
-                  className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  alt="AI Workflow Automation"
+                  className="w-full h-auto object-cover"
                 />
-                {/* Overlay elements */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </div>
             </div>
-            <div className="flex justify-center items-center">
-          <button
-                onClick={scrollToForm}
-                className="block w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
-              >
-                Register Now
-              </button>
-          </div>
           </div>
         </div>
       </div>
