@@ -45,7 +45,9 @@ const WSAboutGENB = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-blue-400 text-sm font-medium">Live Workshop</span>
+                  <span className="text-blue-400 text-sm font-medium">
+                    Live Workshop
+                  </span>
                 </div>
 
                 {/* Title */}
@@ -56,10 +58,14 @@ const WSAboutGENB = () => {
                 {/* Workshop Info */}
                 <div className="bg-[#111827] rounded-md p-4 mb-5 border border-blue-500/10">
                   <p className="text-gray-300">
-                    Join our hands-on workshop on {" "}
-                    <span className="font-semibold text-blue-400">6th April, 2025</span> at{" "}
-                    <span className="text-blue-400">11:00 AM</span>.
-                    Learn practical ways to use AI tools that can save you hours each day by automating emails, reports, research, content creation, and other routine tasks.
+                    Join our hands-on workshop on{" "}
+                    <span className="font-semibold text-blue-400">
+                      7th April, 2025
+                    </span>{" "}
+                    at <span className="text-blue-400">07:30 PM</span>. Learn
+                    practical ways to use AI tools that can save you hours each
+                    day by automating emails, reports, research, content
+                    creation, and other routine tasks.
                   </p>
                 </div>
 
@@ -71,7 +77,9 @@ const WSAboutGENB = () => {
                       <div className="p-1.5 bg-blue-500/10 rounded-md">
                         <Brain className="w-4 h-4 text-blue-400" />
                       </div>
-                      <h3 className="font-semibold text-white text-lg">Workshop Highlights</h3>
+                      <h3 className="font-semibold text-white text-lg">
+                        Workshop Highlights
+                      </h3>
                     </div>
                     <ul className="space-y-2">
                       {[
@@ -80,8 +88,13 @@ const WSAboutGENB = () => {
                         "Personalized Automation Strategy Session",
                         "Practical Examples for Immediate Implementation",
                       ].map((item, index) => (
-                        <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
-                          <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
+                        <li
+                          key={index}
+                          className="flex items-center gap-2 text-gray-300 text-sm"
+                        >
+                          <span className="text-xs bg-blue-500/20 p-1 rounded-sm">
+                            {index + 1}
+                          </span>
                           {item}
                         </li>
                       ))}
@@ -94,7 +107,9 @@ const WSAboutGENB = () => {
                       <div className="p-1.5 bg-green-500/10 rounded-md">
                         <Target className="w-4 h-4 text-green-400" />
                       </div>
-                      <h3 className="font-semibold text-white text-lg">What You'll Learn</h3>
+                      <h3 className="font-semibold text-white text-lg">
+                        What You'll Learn
+                      </h3>
                     </div>
                     <ul className="space-y-2">
                       {[
@@ -103,8 +118,13 @@ const WSAboutGENB = () => {
                         "Setting up automated workflows that connect multiple AI tools for seamless task completion",
                         "Time-saving techniques tailored to your specific professional needs",
                       ].map((item, index) => (
-                        <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
-                          <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
+                        <li
+                          key={index}
+                          className="flex items-center gap-2 text-gray-300 text-sm"
+                        >
+                          <span className="text-xs bg-green-500/20 p-1 rounded-sm">
+                            {index + 1}
+                          </span>
                           {item}
                         </li>
                       ))}
@@ -123,11 +143,13 @@ const WSAboutGENB = () => {
             </div>
 
             {/* Tools Section - Simplified */}
-            <div 
+            <div
               ref={toolsRef}
               className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20"
             >
-              <h2 className="text-xl font-bold text-white mb-4">Tools You'll Learn</h2>
+              <h2 className="text-xl font-bold text-white mb-4">
+                Tools You'll Learn
+              </h2>
               <div className="relative overflow-hidden">
                 <div className="flex overflow-hidden">
                   <motion.div
@@ -177,10 +199,12 @@ const WSAboutGENB = () => {
                   <h3 className="text-xl font-bold">Certification Included</h3>
                 </div>
                 <p className="text-gray-200 mb-3 text-sm">
-                  Earn an industry-recognized certificate showcasing your AI workflow automation skills!
+                  Earn an industry-recognized certificate showcasing your AI
+                  workflow automation skills!
                 </p>
                 <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
-                  ⚠️ Only those who attend the complete automation workshop will receive the official certification.
+                  ⚠️ Only those who attend the complete automation workshop will
+                  receive the official certification.
                 </div>
               </div>
             </div>

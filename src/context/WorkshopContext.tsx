@@ -49,7 +49,7 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 const GENAIBZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/ecN8yCcaR8qCkTsy4sG54A",
   meetingId: "bxwcy-GENAIWorkshop",
-  time: "6th April, 2025 11:00 AM India",
+  time: "7th April, 2025 07:30 AM India",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {

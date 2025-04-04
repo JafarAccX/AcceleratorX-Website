@@ -36,7 +36,7 @@ const eiePricingData = {
 
 const dataAnalyticsPricingData = {
   title: "AcceleratorX Program",
-  mrp: "16,999",
+  mrp: "29,999",
   // price: "14999",
   // discount: "6",
   features: [
