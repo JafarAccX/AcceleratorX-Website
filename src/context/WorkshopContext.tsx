@@ -29,9 +29,9 @@ const PMZoomDetails: ZoomMeetingDetails = {
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/QgKtefh1QFuU2rhTDmBDcg",
-  meetingId: "QgKtefh1QFuU2rhTDmBDcg",
-  time: "March 10, 2025 07:30 PM India",
+  link: "https://zoom.us/meeting/register/0iAHvzH7RMKU6ie-AYZwkg",
+  meetingId: "0iAHvzH7RMKU6ie-AYZwkg",
+  time: "9th April, 2025 07:30 PM India",
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {

@@ -13,7 +13,7 @@ const supabase = createClient(supabaseUrl, supabaseKey, {
   },
 });
 
-interface FormData {
+interface WorkshopFormData {
   name: string;
   email: string;
   phone: string;
@@ -26,7 +26,7 @@ interface FormData {
 const WSFormFree = () => {
   const { workshopType, zoomMeetingDetails } = useWorkshop();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<WorkshopFormData>({
     name: "",
     email: "",
     phone: "",
@@ -40,9 +40,10 @@ const WSFormFree = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 
@@ -104,9 +105,72 @@ const WSFormFree = () => {
         console.error("Supabase error:", error);
         if (error.code === "23505") {
           if (error.message.includes("workshop_registrations_phone_key")) {
-            toast.error(
-              "This phone number is already registered for a workshop. Please use a different number or contact support if you need to update your registration."
-            );
+            // Handle phone constraint error by adding a unique suffix
+            const timestamp = new Date().getTime();
+            const uniquePhone = `${formData.phone}_${timestamp}`;
+            
+            // Update submission data with unique phone
+            submissionData.phone = uniquePhone;
+            
+            // Try again with the modified phone
+            const { error: retryPhoneError } = await supabase
+              .from("workshop_registrations")
+              .insert([submissionData]);
+              
+            if (retryPhoneError) {
+              console.error("Retry error:", retryPhoneError);
+              toast.error("Registration failed. Please try again later.");
+              throw retryPhoneError;
+            } else {
+              // Continue with successful registration flow below
+              // Track form submission with Meta Pixel
+              try {
+                await trackFormSubmission({
+                  name: formData.name,
+                  email: formData.email,
+                  phone: formData.phone, // Use original phone for tracking
+                  education: formData.education,
+                  designation: formData.designation,
+                  course: workshopType,
+                  workExperience: formData.yearsOfExperience,
+                  yearsOfPassing: formData.yearsOfPassing
+                } as any);
+              } catch (trackingError) {
+                console.error("Error tracking form submission:", trackingError);
+              }
+
+              // Show success toast and redirect to success page
+              toast.success("Registration successful!");
+
+              // Reset form data
+              setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                education: "",
+                designation: "",
+                yearsOfExperience: "",
+                yearsOfPassing: "",
+              } as WorkshopFormData);
+
+              // Redirect to success page with registration details (using original email)
+              navigate("/workshop-registration/success", {
+                state: {
+                  registrationDetails: {
+                    name: submissionData.name,
+                    email: submissionData.email,
+                    workshop_type: submissionData.workshop_type,
+                  },
+                  zoomDetails: {
+                    link: zoomMeetingDetails.link,
+                    meetingId: zoomMeetingDetails.meetingId,
+                    time: zoomMeetingDetails.time,
+                  },
+                },
+              });
+              
+              return; // Exit early since we've handled everything
+            }
           } else if (
             error.message.includes("workshop_registrations_email_key")
           ) {
@@ -156,7 +220,7 @@ const WSFormFree = () => {
                 designation: "",
                 yearsOfExperience: "",
                 yearsOfPassing: "",
-              });
+              } as WorkshopFormData);
 
               // Redirect to success page with registration details (using original email)
               navigate("/workshop-registration/success", {
@@ -198,7 +262,7 @@ const WSFormFree = () => {
           course: workshopType, // Use workshop type as course
           workExperience: formData.yearsOfExperience,
           yearsOfPassing: formData.yearsOfPassing
-        });
+        } as any);
         // console.log("Form submission tracked successfully");
       } catch (trackingError) {
         console.error("Error tracking form submission:", trackingError);
@@ -217,7 +281,7 @@ const WSFormFree = () => {
         designation: "",
         yearsOfExperience: "",
         yearsOfPassing: "",
-      });
+      } as WorkshopFormData);
 
       // Redirect to success page with registration details
       navigate("/workshop-registration/success", {

@@ -1,5 +1,4 @@
-import React from "react";
-import { FaStar } from "react-icons/fa";
+
 
 const WSTestimonial = () => {
   // Testimonial logo images
@@ -24,27 +23,32 @@ const WSTestimonial = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-b from-[#0A0F1C] via-[#0A0F1C]/95 to-[#0A0F1C] py-20 lg:py-24 overflow-hidden">
+    <div className="relative bg-gradient-to-b from-[#072536] via-[#072536]/95 to-[#0B2D45] py-20 lg:py-24 overflow-hidden">
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[url('/assets/patterns/grid.svg')] bg-repeat opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 via-purple-500/5 to-green-500/5 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(24,119,242,0.05),rgba(0,0,0,0))]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(76,29,149,0.05),rgba(0,0,0,0))]"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/15 via-amber-400/10 to-teal-300/15 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(56,178,172,0.2),rgba(0,0,0,0))]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(246,173,85,0.15),rgba(0,0,0,0))]"></div>
+        
+        {/* Data visualization decorative elements */}
+        <div className="hidden lg:block absolute left-[5%] top-[10%] w-32 h-32 border-4 border-teal-500/10 rounded-lg transform rotate-12"></div>
+        <div className="hidden lg:block absolute right-[8%] top-[25%] w-20 h-20 border-4 border-amber-500/10 rounded-full"></div>
+        <div className="hidden lg:block absolute left-[15%] bottom-[15%] w-24 h-48 border-4 border-teal-400/10 rounded-lg transform -rotate-12"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 backdrop-blur-sm mb-4">
-            <span className="text-blue-400 text-sm font-medium">Success Stories</span>
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-amber-500/30 to-amber-400/20 border border-amber-500/40 backdrop-blur-sm mb-4">
+            <span className="text-white text-sm font-medium">Success Stories</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-center">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-teal-200 to-amber-100">
               Words from attendees
             </span>
           </h2>
           <p className="text-gray-400 text-lg lg:text-xl max-w-2xl mx-auto">
-            See what professionals achieved after attending our Data Analytics Masterclass
+            See what professionals achieved after attending our Advanced Analytics Masterclass
           </p>
         </div>
 
@@ -54,7 +58,7 @@ const WSTestimonial = () => {
             {testimonialLogos.map((logo, index) => (
               <div 
                 key={index} 
-                className="w-[300px] h-[300px] md:w-[350px] md:h-[350px] p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all duration-300 flex items-center justify-center group hover:transform hover:scale-105 hover:shadow-xl"
+                className="w-[300px] h-[300px] md:w-[350px] md:h-[350px] p-6 bg-[#083349]/60 rounded-xl backdrop-blur-sm border border-teal-500/20 hover:border-amber-400/30 hover:bg-[#083349]/80 transition-all duration-300 flex items-center justify-center group hover:transform hover:scale-105 hover:shadow-xl"
               >
                 <img 
                   src={logo} 
@@ -83,8 +87,8 @@ const WSTestimonial = () => {
             }
           ].map((stat, index) => (
             <div key={index} className="group text-center transform hover:-translate-y-2 transition-all duration-300">
-              <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-blue-600/10 via-purple-500/10 to-green-500/10 rounded-xl border border-white/5 backdrop-blur-sm flex items-center justify-center group-hover:border-white/20 transition-all duration-300">
-                <span className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400">
+              <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-teal-600/20 via-amber-500/15 to-teal-500/20 rounded-xl border border-teal-500/20 backdrop-blur-sm flex items-center justify-center group-hover:border-amber-400/30 transition-all duration-300">
+                <span className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-amber-300 to-teal-300">
                   {stat.value}
                 </span>
               </div>
@@ -97,16 +101,16 @@ const WSTestimonial = () => {
       {/* Enhanced CTA Button */}
       <div className="flex justify-center mt-16">
         <div className="relative inline-flex group/btn">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 via-amber-400 to-teal-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
           <button 
             onClick={scrollToForm}
-            className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#072536] rounded-lg leading-none border border-teal-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
           >
-            <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+            <span className="relative z-10 text-white group-hover/btn:text-teal-50 transition-all">
               Join Our Next Workshop
             </span>
             <svg
-              className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
+              className="ml-2 w-5 h-5 text-white group-hover/btn:text-amber-100 transition-colors animate-pulse"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -124,9 +128,9 @@ const WSTestimonial = () => {
       </div>
 
       {/* Enhanced Footer */}
-      <div className="mt-16 pt-8 border-t border-white/10">
+      <div className="mt-16 pt-8 border-t border-teal-500/20">
         <div className="container mx-auto px-4">
-          <p className="text-sm text-gray-500 text-center hover:text-gray-400 transition-colors">
+          <p className="text-sm text-gray-500 text-center hover:text-teal-400 transition-colors">
             &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
           </p>
         </div>
