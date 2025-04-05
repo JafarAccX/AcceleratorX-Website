@@ -2,9 +2,6 @@ import React from "react";
 import {
   FaCheck,
   FaUser,
-  FaLaptopCode,
-  FaCertificate,
-  FaClock,
   FaRocket,
   FaUsers,
   FaBrain,
@@ -16,14 +13,14 @@ import {
 const WSAbout = () => {
   const instructorDetails = {
     name: "Akash Maurya",
-    title: "Senior ML Engineer, Nagarro, Ex-Deloitte ",
+    title: "Senior ML Engineer, Nagarro",
   };
 
   const targetAudience = [
-    "Excel Power Users – Discover what tools and techniques will take your analytics to the next level.",
-    "Business Analysts & Data Professionals – Learn modern analytics approaches that leading companies are using.",
-    "Executives & Managers – Understand how advanced analytics drives better decision-making and competitive advantage.",
-    "Anyone Struggling with Excel Limitations – Find better solutions for your complex data analysis needs.",
+    "Excel Power Users seeking advanced analytics tools",
+    "Business Analysts looking to upgrade their data skills",
+    "Executives wanting better data-driven decisions",
+    "Professionals facing Excel limitations",
   ];
   
 
@@ -40,15 +37,13 @@ const WSAbout = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-b from-[#072536] via-[#072536]/95 to-[#0B2D45] py-16 lg:py-24">
+    <div className="relative bg-gradient-to-b from-[#0A1A2A] via-[#091E2D] to-[#061625] py-12 lg:py-20">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-teal-500/10 via-amber-400/5 to-teal-300/10 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-indigo-600/10 via-cyan-400/5 to-emerald-300/10 mix-blend-overlay"></div>
         
-        {/* Data visualization decorative elements */}
-        <div className="hidden lg:block absolute left-[5%] top-[10%] w-32 h-32 border-4 border-teal-500/10 rounded-lg transform rotate-12"></div>
-        <div className="hidden lg:block absolute right-[8%] top-[25%] w-20 h-20 border-4 border-amber-500/10 rounded-full"></div>
-        <div className="hidden lg:block absolute left-[15%] bottom-[15%] w-24 h-48 border-4 border-teal-400/10 rounded-lg transform -rotate-12"></div>
-        <div className="hidden lg:block absolute right-[12%] bottom-[28%] w-36 h-16 border-4 border-amber-400/10 rounded-lg"></div>
+        {/* Minimal decorative elements */}
+        <div className="hidden lg:block absolute left-[5%] top-[10%] w-24 h-24 border-4 border-emerald-500/10 rounded-lg transform rotate-12"></div>
+        <div className="hidden lg:block absolute right-[8%] top-[25%] w-16 h-16 border-4 border-indigo-500/10 rounded-full"></div>
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16 lg:space-y-24">
@@ -56,42 +51,28 @@ const WSAbout = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* About Masterclass Section */}
             <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left relative">
-    <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-teal-400 to-amber-400 rounded-full"></div>
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-teal-100 to-amber-50">
+  <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-left relative">
+    <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-gradient-to-b from-emerald-400 to-indigo-400 rounded-full"></div>
+    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-indigo-50">
       About this Masterclass
     </span>
   </h2>
-  <div className="bg-white/5 backdrop-blur-xl rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-    <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      Business analytics is evolving rapidly—and{" "}
-      <span className="font-bold text-white">Excel's limitations</span> are becoming increasingly apparent in 2025. 
-      Top analysts have moved beyond spreadsheets to{" "}
-      <span className="font-bold text-white">leverage advanced analytics platforms, automation tools, and AI-powered solutions</span>{" "}
-      to gain deeper insights with unprecedented efficiency.  
+  <div className="bg-[#0A1A2A]/80 backdrop-blur-xl rounded-xl p-6 shadow-xl border border-emerald-500/10 hover:border-indigo-400/20 transition-all duration-300">
+    <p className="text-gray-300 text-left leading-relaxed mb-4">
+      Excel's limitations are becoming clear in 2025. Top analysts now use advanced platforms, automation, and AI to gain deeper insights faster.
     </p>
-    <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      In this practical workshop, you'll discover how{" "}
-      <span className="font-bold text-white">modern analytics tools are replacing traditional Excel workflows</span>, 
-      empowering professionals with powerful capabilities to{" "}
-      <span className="font-bold text-white">visualize complex data, automate repetitive tasks, and uncover deeper insights</span>.
+    <p className="text-gray-300 text-left leading-relaxed mb-4">
+      Learn how modern tools replace Excel workflows, helping you visualize complex data and automate repetitive tasks.
     </p>
-    <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      Join{" "}
-      <span className="font-bold text-white">AcceleratorX's Exclusive Masterclass</span>{" "}
-      with expert{" "}
-      <span className="font-bold text-white">Aakash Maurya</span> on{" "}
-      <span className="font-bold text-white">9th April, 2025, 7:30 PM</span>, and gain hands-on expertise in:
-    </p>
-    <ul className="list-none pl-0 mb-8 space-y-4">
+    <ul className="list-none pl-0 mb-6 space-y-3">
       {[
-        "Modern alternatives to Excel that top analysts are using in 2025",
-        "Advanced data visualization techniques that reveal insights Excel can't show",
-        "Automating repetitive analytics tasks to save hours of manual work",
-        "Integrating AI and machine learning into your analytics workflow",
+        "Modern alternatives to Excel for 2025",
+        "Advanced visualization techniques beyond Excel",
+        "Automating repetitive analytics tasks",
+        "AI integration for deeper insights",
       ].map((item, index) => (
-        <li key={index} className="flex items-start space-x-3 lg:text-lg group">
-          <FaCheck className="text-teal-400 mt-1.5 flex-shrink-0 group-hover:text-amber-300 transition-colors" />
+        <li key={index} className="flex items-start space-x-3 group">
+          <FaCheck className="text-emerald-400 mt-1 flex-shrink-0 group-hover:text-indigo-300 transition-colors" />
           <span className="text-gray-300 group-hover:text-white transition-colors">
             {item}
           </span>
@@ -99,10 +80,10 @@ const WSAbout = () => {
       ))}
     </ul>
 
-    <div className="bg-gradient-to-r from-teal-900/40 to-amber-900/30 rounded-lg p-6 border-l-4 border-amber-400 transform hover:scale-[1.01] transition-transform duration-300">
-      <p className="text-gray-300 font-medium lg:text-lg">
-        <span className="font-bold text-amber-400">Pro tip:</span> Excel skills alone are no longer enough in today's data-driven world.  
-        Secure your spot now—limited seats available! Learn what top analysts are doing in 2025 and transform your analytics capabilities.
+    <div className="bg-gradient-to-r from-emerald-900/30 to-indigo-900/20 rounded-lg p-4 border-l-4 border-cyan-400">
+      <p className="text-gray-300 font-medium text-sm">
+        <span className="font-bold text-cyan-400">Pro tip:</span> Excel skills alone aren't enough today. 
+        Limited seats available for this opportunity to transform your analytics capabilities.
       </p>
     </div>
   </div>
@@ -112,54 +93,54 @@ const WSAbout = () => {
 
             {/* Features Grid Section */}
             <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left relative">
-    <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-amber-400 to-teal-400 rounded-full"></div>
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-100 to-teal-50">
+  <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-left relative">
+    <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-gradient-to-b from-indigo-400 to-emerald-400 rounded-full"></div>
+    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-cyan-50">
       Workshop Features
     </span>
   </h2>
-  <div className="grid md:grid-cols-2 gap-6">
+  <div className="grid md:grid-cols-2 gap-5">
     {[
       {
-        icon: <FaChartBar className="text-3xl text-blue-400" />,
-        title: "Beyond Excel Limitations",
+        icon: <FaChartBar className="text-2xl text-emerald-400" />,
+        title: "Beyond Excel",
         description:
-          "Discover powerful analytics platforms that overcome Excel's constraints for complex data analysis.",
+          "Powerful analytics platforms for complex data analysis",
       },
       {
-        icon: <FaDatabase className="text-3xl text-green-400" />,
-        title: "Advanced Visualization Techniques",
+        icon: <FaDatabase className="text-2xl text-indigo-400" />,
+        title: "Advanced Visualization",
         description:
-          "Create interactive dashboards and visualizations that reveal insights Excel simply can't show.",
+          "Interactive dashboards revealing insights Excel can't show",
       },
       {
-        icon: <FaRobot className="text-3xl text-blue-400" />,
-        title: "Automation & AI Integration",
+        icon: <FaRobot className="text-2xl text-cyan-400" />,
+        title: "Automation & AI",
         description:
-          "Learn how top analysts automate repetitive tasks and leverage AI to enhance their analytics workflows.",
+          "Automating repetitive tasks and enhancing analytics workflows",
       },
       {
-        icon: <FaRocket className="text-3xl text-green-400" />,
-        title: "Future-Proof Your Analytics Skills",
+        icon: <FaRocket className="text-2xl text-emerald-400" />,
+        title: "Future-Proof Skills",
         description:
-          "Master the modern analytics toolkit that leading companies demand in 2025 and beyond.",
+          "Modern analytics toolkit demanded by leading companies",
       },
     ].map((feature, index) => (
       <div
         key={index}
-        className="group bg-[#083349]/60 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-teal-500/20 hover:border-amber-400/30 transition-all duration-300 transform hover:translate-y-[-4px] hover:shadow-lg"
+        className="group bg-[#0A1A2A]/60 backdrop-blur-xl p-5 rounded-xl shadow-xl border border-emerald-500/10 hover:border-indigo-400/20 transition-all duration-300 transform hover:translate-y-[-2px]"
       >
-        <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300 bg-gradient-to-br from-teal-700/30 to-amber-700/20 p-3 rounded-lg inline-block"
+        <div className="mb-3 transform group-hover:scale-110 transition-transform duration-300 bg-gradient-to-br from-emerald-700/20 to-indigo-700/10 p-2 rounded-lg inline-block"
           style={{
-            boxShadow: '0 0 15px rgba(56, 178, 172, 0.2)'
+            boxShadow: '0 0 10px rgba(16, 185, 129, 0.15)'
           }}
         >
           {feature.icon}
         </div>
-        <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-amber-300 transition-colors">
+        <h3 className="text-lg font-semibold mb-1 text-white group-hover:text-cyan-300 transition-colors">
           {feature.title}
         </h3>
-        <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+        <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
           {feature.description}
         </p>
       </div>
@@ -172,16 +153,16 @@ const WSAbout = () => {
           {/* Register Now Button */}
           <div className="flex justify-center">
             <div className="relative inline-flex group/btn">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 via-amber-400 to-teal-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-400 to-indigo-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
               <button
                 onClick={scrollToForm}
-                className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#072536] rounded-lg leading-none border border-teal-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="relative inline-flex items-center px-8 py-3 text-lg font-semibold text-white bg-[#061625] rounded-lg leading-none border border-emerald-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                <span className="relative z-10 text-white group-hover/btn:text-emerald-50 transition-all">
                   Register Now
                 </span>
                 <svg
-                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
+                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-indigo-100 transition-colors animate-pulse"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -200,49 +181,49 @@ const WSAbout = () => {
 
           {/* What You'll Gain Section */}
           <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-      What You Will Gain From This 2-Hour Generative AI & Business Analytics Masterclass
+  <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-left">
+    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-emerald-50">
+      What You'll Gain
     </span>
   </h2>
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div className="grid md:grid-cols-2 gap-5">
     {[
       {
         icon: FaBrain,
-        title: "Generative AI in Business Analytics",
+        title: "AI-Powered Analytics",
         description:
-          "Discover how Generative AI transforms raw data into business intelligence, predictive models, and automated reports.",
+          "Transform raw data into business intelligence and automated reports",
       },
       {
         icon: FaDatabase,
-        title: "AI-Powered Data Processing",
+        title: "Smart Data Processing",
         description:
-          "Learn how AI automates data wrangling, trend forecasting, and customer behavior analysis at scale.",
+          "Automate data wrangling and trend forecasting at scale",
       },
       {
         icon: FaChartBar,
-        title: "Real-World AI Use Cases",
+        title: "Real-World Use Cases",
         description:
-          "Explore how companies leverage AI in marketing, finance, supply chain, and customer experience to drive decisions.",
+          "See how companies use AI in marketing, finance, and operations",
       },
       {
         icon: FaUsers,
-        title: "Live AI Demos & Q&A",
+        title: "Interactive Learning",
         description:
-          "Engage in hands-on AI demonstrations, interact with industry experts, and expand your professional network.",
+          "Hands-on demonstrations and network with industry experts",
       },
     ].map((item, index) => (
       <div
         key={index}
-        className="group bg-[#083349]/60 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-teal-500/20 hover:border-amber-400/30 transition-all duration-300 transform hover:translate-y-[-4px] hover:shadow-lg"
+        className="group bg-[#0A1A2A]/60 backdrop-blur-xl p-4 rounded-xl shadow-xl border border-indigo-500/10 hover:border-emerald-400/20 transition-all duration-300 transform hover:-translate-y-1"
       >
-        <div className="flex items-start space-x-4">
-          <item.icon className="text-teal-400 w-6 h-6 mt-1 flex-shrink-0 group-hover:text-amber-300 transition-colors transform group-hover:scale-110 duration-300" />
+        <div className="flex items-start space-x-3">
+          <item.icon className="text-cyan-400 w-5 h-5 mt-1 flex-shrink-0 group-hover:text-emerald-300 transition-colors" />
           <div>
-            <h3 className="font-semibold text-white mb-2 group-hover:text-amber-300 transition-colors">
+            <h3 className="font-semibold text-white text-sm mb-1 group-hover:text-indigo-300 transition-colors">
               {item.title}
             </h3>
-            <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
+            <p className="text-gray-400 text-xs group-hover:text-gray-300 transition-colors">
               {item.description}
             </p>
           </div>
@@ -250,18 +231,18 @@ const WSAbout = () => {
       </div>
     ))}
   </div>
-  <div className="flex justify-center mt-4">
+  <div className="flex justify-center mt-8">
     <div className="relative inline-flex group/btn">
-      <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 via-amber-400 to-teal-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+      <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-400 to-indigo-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
       <button 
         onClick={scrollToForm}
-        className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-teal-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
+        className="relative inline-flex items-center px-6 py-3 text-base font-semibold text-white bg-[#061625] rounded-lg leading-none border border-emerald-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
       >
-        <span className="relative z-10 text-white group-hover/btn:text-amber-300 transition-all">
+        <span className="relative z-10 text-white group-hover/btn:text-emerald-50 transition-all">
           Register Now
         </span>
         <svg
-          className="ml-2 w-5 h-5 text-white group-hover/btn:text-amber-300 transition-colors animate-pulse"
+          className="ml-2 w-4 h-4 text-white group-hover/btn:text-cyan-100 transition-colors animate-pulse"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -282,14 +263,14 @@ const WSAbout = () => {
 
           {/* Instructor Section */}
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-teal-100 to-amber-50">
+            <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-left">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-indigo-50">
                 Meet {instructorDetails.name}
               </span>
             </h2>
-            <div className="bg-white/5 backdrop-blur-xl rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:block w-48 h-48 rounded-lg bg-gradient-to-br from-teal-500 to-amber-500 p-0.5">
+            <div className="bg-[#0A1A2A]/80 backdrop-blur-xl rounded-xl p-6 shadow-xl border border-emerald-500/10 hover:border-indigo-400/20 transition-all duration-300">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="md:block w-32 h-32 rounded-lg bg-gradient-to-br from-emerald-500 to-indigo-500 p-0.5">
                   <div className="w-full h-full bg-white rounded-lg p-1">
                     <img
                       src="/assets/mentor/akash.png"
@@ -299,31 +280,28 @@ const WSAbout = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-xl font-bold text-white mb-1">
                     {instructorDetails.name}
                   </h3>
-                  <p className="text-teal-400 font-medium mb-4">
+                  <p className="text-emerald-400 font-medium mb-3 text-sm">
                     {instructorDetails.title}
                   </p>
-                  <div className="space-y-4">
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                      With 7 years of experience in Machine Learning and AI,
-                      Akash Maurya, Senior ML Engineer at Nagarro, has delivered
-                      impactful projects in computer vision, NLP, and predictive
-                      analytics. His passion for data science extends to
-                      education.
+                  <div className="space-y-3">
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      With 7 years in ML and AI, Akash has delivered impactful projects in computer vision, NLP, and predictive
+                      analytics, with a passion for data science education.
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                      <div className="bg-gray-50/10 p-4 rounded-lg">
-                        <p className="text-gray-400">
-                          <span className="font-semibold text-white">Expertise:</span>{" "}
-                          Machine Learning, Deep Learning, Computer Vision, NLP
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+                      <div className="bg-indigo-900/20 p-3 rounded-lg">
+                        <p className="text-gray-300 text-xs">
+                          <span className="font-semibold text-cyan-300">Expertise:</span>{" "}
+                          ML, Deep Learning, Computer Vision, NLP
                         </p>
                       </div>
-                      <div className="bg-gray-50/10 p-4 rounded-lg">
-                        <p className="text-gray-400">
-                          <span className="font-semibold text-white">Previous:</span>{" "}
-                          Microsoft, Intel, Research Papers in ML
+                      <div className="bg-emerald-900/20 p-3 rounded-lg">
+                        <p className="text-gray-300 text-xs">
+                          <span className="font-semibold text-cyan-300">Previous:</span>{" "}
+                          Microsoft, Intel, ML Research
                         </p>
                       </div>
                     </div>
@@ -331,50 +309,23 @@ const WSAbout = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center mt-4">
-              <div className="relative inline-flex group/btn">
-                <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 via-amber-400 to-teal-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                <button 
-                  onClick={scrollToForm}
-                  className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-teal-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
-                >
-                  <span className="relative z-10 text-white group-hover/btn:text-amber-300 transition-all">
-                    Register Now
-                  </span>
-                  <svg
-                    className="ml-2 w-5 h-5 text-white group-hover/btn:text-amber-300 transition-colors animate-pulse"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
           </div>
 
           {/* Target Audience Section */}
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-teal-100 to-amber-50">
-                This Masterclass is for
+            <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-left">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-indigo-50">
+                Who Should Attend
               </span>
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4">
               {targetAudience.map((audience, index) => (
-                <div key={index} className="group bg-white/5 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-teal-500/10 flex items-center justify-center flex-shrink-0">
-                      <FaUser className="w-5 h-5 text-teal-400" />
+                <div key={index} className="group bg-[#0A1A2A]/60 backdrop-blur-xl p-4 rounded-xl shadow-xl border border-indigo-500/10 hover:border-emerald-400/20 transition-all duration-300">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-indigo-600/10 flex items-center justify-center flex-shrink-0">
+                      <FaUser className="w-4 h-4 text-cyan-400" />
                     </div>
-                    <p className="text-gray-400 text-lg">{audience}</p>
+                    <p className="text-gray-300 text-sm">{audience}</p>
                   </div>
                 </div>
               ))}
@@ -385,30 +336,16 @@ const WSAbout = () => {
           {/* Final CTA Button */}
           <div className="flex justify-center">
             <div className="relative inline-flex group/btn">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-400 to-indigo-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
               <button
-                onClick={() => {
-                  // console.log('WSAbout: Register button clicked');
-                  const form = document.getElementById("workshop-registration-form");
-                  console.log('WSAbout: Form element found:', form);
-                  if (form) {
-                    // console.log('WSAbout: Attempting to scroll to form');
-                    form.scrollIntoView({ 
-                      behavior: "smooth",
-                      block: "center"
-                    });
-                    // console.log('WSAbout: Scroll command executed');
-                  } else {
-                    // console.error('WSAbout: Form element not found with ID "workshop-registration-form"');
-                  }
-                }}
-                className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
+                onClick={scrollToForm}
+                className="relative inline-flex items-center px-8 py-3 text-lg font-semibold text-white bg-[#061625] rounded-lg leading-none border border-emerald-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
+                <span className="relative z-10 text-white group-hover/btn:text-emerald-50 transition-all">
                   Register Now
                 </span>
                 <svg
-                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
+                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-indigo-100 transition-colors animate-pulse"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
