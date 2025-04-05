@@ -87,7 +87,7 @@ const WSTestimonial = () => {
           ].map((stat, index) => (
             <div key={index} className="group text-center transform hover:-translate-y-1 transition-all duration-300">
               <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-emerald-600/20 via-cyan-500/15 to-indigo-500/20 rounded-xl border border-emerald-500/20 backdrop-blur-sm flex items-center justify-center">
-                <span className="text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-cyan-300 to-indigo-300">
+                <span className="text-2xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-cyan-300 to-indigo-300">
                   {stat.value}
                 </span>
               </div>
