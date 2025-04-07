@@ -80,20 +80,19 @@ const WSHeroDASecond = () => {
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-300">
-                  Data Analytics Masterclass
+                  GenAI Workshop
                 </span>
               </h1>
 
               <h2 className="text-2xl font-semibold">
                 <span className="text-white">Topic: </span>
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 text-transparent bg-clip-text text-3xl">
-                  AI Powered Data Visualization & Story Telling MasterClass
+                <span className="bg-gradient-to-r from-emerald-400 via-indigo-400 to-cyan-400 text-transparent bg-clip-text text-3xl">
+                  Build Your Own Data Analyst Bot with GenAI
                 </span>
               </h2>
 
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Join us for an exclusive masterclass on how AI is
-                revolutionizing data visualization and storytelling!
+                Create a powerful GenAI agent that cleans, analyzes, and visualizes CSV data with just one command — no coding required!
               </p>
 
               <div className="mt-8 flex justify-center lg:justify-start">
@@ -133,12 +132,12 @@ const WSHeroDASecond = () => {
                     value: "2 Hours",
                   },
                   {
-                    icon: <FaCalendarAlt className="text-purple-400 mb-1" />,
+                    icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "March 8",
+                    value: "April 12, 2025",
                   },
                   {
-                    icon: <FaClock className="text-green-400 mb-1" />,
+                    icon: <FaClock className="text-cyan-400 mb-1" />,
                     label: "Time",
                     value: "7:30 PM",
                   },
@@ -165,7 +164,7 @@ const WSHeroDASecond = () => {
 
               {/* Mentor Badge - Enhanced */}
               <div className="mt-8 flex items-center justify-center lg:justify-start space-x-3 bg-gradient-to-r from-blue-900/30 to-purple-900/30 px-5 py-3 rounded-lg border border-blue-500/20 w-fit mx-auto lg:mx-0">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-400 flex-shrink-0">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-400 flex-shrink-0">
                   <img
                     src="/assets/mentor/akash.png"
                     alt="Aakash Maurya"
@@ -175,11 +174,11 @@ const WSHeroDASecond = () => {
                 <div>
                   <div className="flex items-center">
                     <p className="text-white font-medium">Aakash Maurya</p>
-                    <div className="ml-2 px-2 py-0.5 bg-blue-500/20 rounded-full">
-                      <p className="text-blue-300 text-xs">Mentor</p>
+                    <div className="ml-2 px-2 py-0.5 bg-emerald-500/20 rounded-full">
+                      <p className="text-emerald-300 text-xs">Mentor</p>
                     </div>
                   </div>
-                  <p className="text-blue-400 text-sm">
+                  <p className="text-emerald-400 text-sm">
                     Senior ML Engineer, Nagarro
                   </p>
                 </div>

@@ -24,23 +24,23 @@ const GENCTAB = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                Transform Your Workday with AI Automation Skills
+                Build Amazing Apps Without Writing Any Code
               </motion.h2>
 
               <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-4">
-                <span className="text-base text-blue-400 font-medium">Register Now for AI Automation Training</span>
+                <span className="text-base text-blue-400 font-medium">Register Now for Vibe Coding with GenAI</span>
               </div>
             </div>
 
             {/* Value proposition boxes */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10 text-center">
-                <p className="text-xl font-bold text-blue-400 mb-1">Time-Saving</p>
-                <p className="text-sm text-gray-400">Automation Tools</p>
+                <p className="text-xl font-bold text-blue-400 mb-1">No-Code</p>
+                <p className="text-sm text-gray-400">Creation Tools</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-green-400 mb-1">Workflow</p>
-                <p className="text-sm text-gray-400">Optimization</p>
+                <p className="text-xl font-bold text-green-400 mb-1">Creative</p>
+                <p className="text-sm text-gray-400">App Building</p>
               </div>
             </div>
 
@@ -52,7 +52,7 @@ const GENCTAB = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Automate Your Daily Tasks
+                Build Your Wild App Ideas
               </motion.button>
             </div>
           </div>

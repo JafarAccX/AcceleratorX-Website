@@ -46,25 +46,25 @@ const WSHeroGENB = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             {/* Pre-title with minimal animation */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
-              <span className="text-blue-400 font-medium text-sm">AI Workflow Automation</span>
+              <span className="text-blue-400 font-medium text-sm">No-Code GenAI Creation</span>
             </div>
 
             {/* Main Title - Cleaner with better spacing */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-green-100">
-                How to Automate Your Daily Workflow Using Generative AI Tools
+                Vibe Coding with GenAI: Build Wild Ideas Without Writing Code
               </span>
             </h1>
 
             {/* Subtitle - More concise */}
             <p className="text-lg text-gray-300 max-w-xl">
-              Learn practical strategies to save hours each day by automating repetitive tasks with AI tools that work for you.
+              Turn your creative ideas into reality with GenAI tools that do the coding for you. No programming experience needed!
             </p>
 
             {/* Workshop Info Tag */}
             <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-lg border border-blue-500/20">
               <div className="text-yellow-400 text-sm font-medium">
-                2-Hour Live Workshop with Certificate
+                2-Hour Live Creative Workshop with Certificate
               </div>
               <div className="block sm:hidden animate-pulse">
                 <button

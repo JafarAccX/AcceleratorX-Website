@@ -5,23 +5,23 @@ const WSGENWhoShouldEnrollB = () => {
   const targetAudience = [
     {
       icon: Users,
-      title: "Working Professionals",
-      description: "Learn to automate daily tasks with AI tools that save hours of manual work",
+      title: "Creative Individuals",
+      description: "Turn your innovative app ideas into reality without learning to code",
     },
     {
       icon: Briefcase,
-      title: "Business Leaders & Managers",
-      description: "Implement AI automation systems to enhance team productivity and efficiency",
+      title: "Entrepreneurs & Founders",
+      description: "Build functional MVPs and prototypes without hiring developers",
     },
     {
       icon: Megaphone,
-      title: "Marketing & Content Creators",
-      description: "Streamline content production with AI-powered workflow automation tools",
+      title: "Designers & Content Creators",
+      description: "Bring your visual concepts to life as interactive web experiences",
     },
     {
       icon: Brain,
-      title: "AI Enthusiasts & Innovators",
-      description: "Discover cutting-edge automation techniques using the latest generative AI tools",
+      title: "No-Code Enthusiasts",
+      description: "Take your no-code skills to the next level with GenAI-powered creation tools",
     },
   ];
 
@@ -48,7 +48,7 @@ const WSGENWhoShouldEnrollB = () => {
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Users className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 text-sm font-medium">For Everyone</span>
+              <span className="text-blue-400 text-sm font-medium">For Creators</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
               <span className="text-white">Who Can </span>
@@ -56,7 +56,7 @@ const WSGENWhoShouldEnrollB = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Master the skills to automate your daily workflows with AI tools and stay ahead in today's fast-paced workplace.
+              Master the art of creating functional apps and websites with GenAI tools, all without writing a single line of code.
             </p>
           </div>
 

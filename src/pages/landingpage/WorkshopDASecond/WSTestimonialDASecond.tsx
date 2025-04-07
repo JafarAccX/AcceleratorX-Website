@@ -36,19 +36,19 @@ const WSTestimonialDASecond = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 backdrop-blur-sm mb-4">
-            <span className="text-blue-400 text-sm font-medium">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-indigo-500/20 border border-emerald-500/30 backdrop-blur-sm mb-4">
+            <span className="text-emerald-400 text-sm font-medium">
               Success Stories
             </span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-center">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
               Words from attendees
             </span>
           </h2>
           <p className="text-gray-400 text-lg lg:text-xl max-w-2xl mx-auto">
-            See what professionals achieved after attending our AI Powered Data
-            Visualization & Story Telling Masterclass
+            See what professionals have achieved with their custom Data Analyst Bots
+            built using GenAI
           </p>
         </div>
 
@@ -74,16 +74,16 @@ const WSTestimonialDASecond = () => {
         <div className="mt-20 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
-              value: "500+",
-              label: "Workshop Attendees",
+              value: "250+",
+              label: "Working Bots Created",
             },
             {
               value: "4.9",
               label: "Satisfaction Score",
             },
             {
-              value: "98%",
-              label: "Applied Skills at Work",
+              value: "95%",
+              label: "Time Saved on Analysis",
             },
           ].map((stat, index) => (
             <div
@@ -106,13 +106,13 @@ const WSTestimonialDASecond = () => {
       {/* Enhanced CTA Button */}
       <div className="flex justify-center mt-16">
         <div className="relative inline-flex group/btn">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 via-indigo-500 to-cyan-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
           <button
             onClick={scrollToForm}
             className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
           >
-            <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-              Join Our Next Workshop
+            <span className="relative z-10 text-white group-hover/btn:text-emerald-50 transition-all">
+              Create Your Data Analyst Bot
             </span>
             <svg
               className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"

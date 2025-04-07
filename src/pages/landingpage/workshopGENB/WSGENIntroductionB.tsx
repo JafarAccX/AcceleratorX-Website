@@ -3,37 +3,37 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionB = () => {
   const stats = [
     {
-      value: "60%",
-      label: "Time Saved with AI Automation",
+      value: "Zero",
+      label: "Coding Knowledge Required",
     },
     {
-      value: "85%",
-      label: "of Routine Tasks Can Be Automated",
+      value: "100%",
+      label: "Hands-on Learning Experience",
     },
     {
       value: "Free",
-      label: "Workshop",
+      label: "Creative Workshop",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Custom Workflow Design",
+      title: "Creative Prompt Engineering",
       description:
-        "Learn to build personalized AI automation systems tailored to your specific daily tasks and workflows",
+        "Master the art of crafting prompts that turn your ideas into functional code without programming knowledge",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Tool Integration Mastery",
+      title: "App Building Without Code",
       description:
-        "Discover how to seamlessly connect multiple AI tools to create powerful automated task sequences",
+        "Learn techniques to create interactive web applications and sites entirely through GenAI tools",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Productivity Transformation",
+      title: "Idea-to-Prototype Pipeline",
       description:
-        "Implement time-saving automation strategies that can reduce hours of manual work to minutes",
+        "Develop a systematic approach to transform creative concepts into working prototypes in hours, not weeks",
     },
   ];
 
@@ -60,16 +60,16 @@ const WSGENIntroductionB = () => {
             <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Brain className="w-4 h-4 text-blue-400" />
               <span className="text-blue-400 text-sm font-medium">
-                Transform Your Daily Work with AI Automation
+                Build Apps & Websites Without Writing Code
               </span>
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Workflow <span className="text-blue-500">Automation</span> With Generative AI
+              Vibe <span className="text-blue-500">Coding</span> With Generative AI
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Learn practical strategies to automate repetitive tasks, streamline communications, and enhance productivity using the latest generative AI tools. This hands-on workshop reveals simple techniques to build custom automation systems for your daily work needs.
+              Discover how to bring your wildest app ideas to life without writing a single line of code. This hands-on creative workshop teaches you how to use GenAI tools to build functional applications, websites, and interactive experiences from scratch.
             </p>
           </div>
 

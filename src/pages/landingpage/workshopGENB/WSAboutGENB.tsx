@@ -52,20 +52,19 @@ const WSAboutGENB = () => {
 
                 {/* Title */}
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Automate Your Daily Workflow with Generative AI Tools
+                  Vibe Coding with GenAI: Build Wild Ideas Without Writing Code
                 </h2>
 
                 {/* Workshop Info */}
                 <div className="bg-[#111827] rounded-md p-4 mb-5 border border-blue-500/10">
                   <p className="text-gray-300">
-                    Join our hands-on workshop on{" "}
+                    Join our creative hands-on workshop on{" "}
                     <span className="font-semibold text-blue-400">
-                      7th April, 2025
+                      11th April, 2025
                     </span>{" "}
                     at <span className="text-blue-400">07:30 PM</span>. Learn
-                    practical ways to use AI tools that can save you hours each
-                    day by automating emails, reports, research, content
-                    creation, and other routine tasks.
+                    how to bring your wildest app ideas to life using GenAI tools
+                    that write code for you - no programming experience required!
                   </p>
                 </div>
 
@@ -78,15 +77,15 @@ const WSAboutGENB = () => {
                         <Brain className="w-4 h-4 text-blue-400" />
                       </div>
                       <h3 className="font-semibold text-white text-lg">
-                        Workshop Highlights
+                        Creative Workshop Highlights
                       </h3>
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Step-by-Step AI Workflow Automation Setup",
-                        "Hands-on Experience with Popular AI Tools",
-                        "Personalized Automation Strategy Session",
-                        "Practical Examples for Immediate Implementation",
+                        "Create Apps & Websites Without Coding",
+                        "Hands-on Experience with Creative GenAI Tools",
+                        "Turn Your Unique Ideas into Working Prototypes",
+                        "Learn the 'Vibe Coding' Approach to Building",
                       ].map((item, index) => (
                         <li
                           key={index}
@@ -113,10 +112,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to use AI assistants to automate routine emails, reports, and documentation tasks",
-                        "Strategies for building effective AI prompts that deliver consistent, high-quality results",
-                        "Setting up automated workflows that connect multiple AI tools for seamless task completion",
-                        "Time-saving techniques tailored to your specific professional needs",
+                        "How to describe your app ideas to GenAI tools in ways they can turn into working code",
+                        "Techniques for designing UI/UX without touching HTML or CSS",
+                        "Building functional apps and websites through creative prompting",
+                        "Bringing your wildest app ideas to life without programming knowledge",
                       ].map((item, index) => (
                         <li
                           key={index}
@@ -148,7 +147,7 @@ const WSAboutGENB = () => {
               className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20"
             >
               <h2 className="text-xl font-bold text-white mb-4">
-                Tools You'll Learn
+                Creative Tools You'll Master
               </h2>
               <div className="relative overflow-hidden">
                 <div className="flex overflow-hidden">
@@ -198,6 +197,9 @@ const WSAboutGENB = () => {
                   <FaCertificate className="w-6 h-6" />
                   <h3 className="text-xl font-bold">Certification Included</h3>
                 </div>
+                <p className="text-gray-200 mb-3 text-sm">
+                  Upon completion of the workshop, you'll receive a professional certificate confirming your ability to create functional applications and websites without writing code using GenAI tools.
+                </p>
                 <p className="text-gray-200 mb-3 text-sm">
                   Earn an industry-recognized certificate showcasing your AI
                   workflow automation skills!

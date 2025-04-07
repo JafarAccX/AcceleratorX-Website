@@ -35,9 +35,9 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/6qShwfkERXWlbubPQwwIJg",
-  meetingId: "6qShwfkERXWlbubPQwwIJg",
-  time: "March 8, 2025 07:30 PM India",
+  link: "https://zoom.us/meeting/register/13ZbA8hlSeWBYYXMqZj96w",
+  meetingId: "13ZbA8hlSeWBYYXMqZj96w",
+  time: "March 12, 2025 07:30 PM India",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
@@ -47,9 +47,9 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/ecN8yCcaR8qCkTsy4sG54A",
-  meetingId: "bxwcy-GENAIWorkshop",
-  time: "7th April, 2025 07:30 AM India",
+  link: "https://zoom.us/meeting/register/qF7I8da6SXuMO2DJAPaxUA",
+  meetingId: "qF7I8da6SXuMO2DJAPaxUA",
+  time: "11th April, 2025 07:30 AM India",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {

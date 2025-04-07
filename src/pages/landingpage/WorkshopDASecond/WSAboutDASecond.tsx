@@ -5,12 +5,9 @@ import {
   FaLaptopCode,
   FaCertificate,
   FaClock,
-  FaRocket,
-  FaLightbulb,
   FaUsers,
   FaBrain,
   FaRobot,
-  FaChartLine,
   FaDatabase,
   FaChartBar,
 } from "react-icons/fa";
@@ -22,10 +19,10 @@ const WSAboutDASecond = () => {
   };
 
   const targetAudience = [
-    "Data Analysts & Visualization Professionals – Leverage AI for creating compelling data stories and visualizations.",
-    "Aspiring Data Scientists & Storytellers – Build expertise in AI-driven data visualization techniques.",
-    "Executives & Managers – Understand how AI enhances data communication and drives better decision-making.",
-    "Tech Enthusiasts – Explore cutting-edge AI applications transforming data visualization and storytelling.",
+    "Data Analysts - Learn to automate your workflows without writing code.",
+    "Business Professionals - Create your own data analysis assistant for daily tasks.",
+    "Researchers & Students - Process data efficiently with AI-powered tools.",
+    "Non-Technical Professionals - Harness GenAI to perform complex data analysis with simple commands.",
   ];
   
 
@@ -53,40 +50,35 @@ const WSAboutDASecond = () => {
             {/* About Masterclass Section */}
             <div>
   <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-      About this Masterclass
+    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
+      About this Workshop
     </span>
   </h2>
   <div className="bg-white/5 backdrop-blur-xl rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
     <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      Data visualization is evolving rapidly—and{" "}
-      <span className="font-bold text-white">AI</span> is at the forefront of this transformation. 
-      Organizations are now using AI to{" "}
-      <span className="font-bold text-white">create compelling visual narratives, automate visualization, and communicate insights</span>{" "}
-      with unprecedented clarity and impact.  
+      Data analysis has been{" "}
+      <span className="font-bold text-white">transformed by GenAI</span>. Now anyone can build their own AI assistant that processes data automatically, without writing a single line of code.
     </p>
     <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      In this hands-on workshop, you'll explore how{" "}
-      <span className="font-bold text-white">AI is reshaping Data Visualization and Storytelling</span>, 
-      equipping professionals with powerful tools to{" "}
-      <span className="font-bold text-white">create impactful data stories and enhance decision-making</span>.
+      In this practical workshop, you'll learn to{" "}
+      <span className="font-bold text-white">create your own Data Analyst Bot</span> that can clean messy data, perform complex analysis, and generate beautiful visualizations with just one command.
     </p>
     <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
       Join{" "}
-      <span className="font-bold text-white">AcceleratorX's Exclusive Masterclass</span>{" "}
+      <span className="font-bold text-white">AcceleratorX's Hands-on Workshop</span>{" "}
       with expert{" "}
       <span className="font-bold text-white">Aakash Maurya</span> on{" "}
-      <span className="font-bold text-white">Friday, 8th March, 7:30 PM</span>, and gain hands-on expertise in:
+      <span className="font-bold text-white">Friday, 12th April 2025, 7:30 PM</span>, and learn to:
     </p>
     <ul className="list-none pl-0 mb-8 space-y-4">
       {[
-        "How AI enhances data visualization and storytelling techniques",
-        "Creating interactive and dynamic visualizations using AI-driven tools",
-        "Transforming complex data into compelling visual narratives",
-        "Hands-on experience with AI-powered visualization frameworks",
+        "Build a GenAI agent that automatically cleans and prepares your data",
+        "Set up your bot to run complex analyses with simple natural language commands",
+        "Create beautiful visualizations and reports without coding skills",
+        "Customize your bot for your specific data analysis needs",
       ].map((item, index) => (
         <li key={index} className="flex items-start space-x-3 lg:text-lg group">
-          <FaCheck className="text-blue-400 mt-1.5 flex-shrink-0 group-hover:text-blue-300 transition-colors" />
+          <FaCheck className="text-emerald-400 mt-1.5 flex-shrink-0 group-hover:text-emerald-300 transition-colors" />
           <span className="text-gray-300 group-hover:text-white transition-colors">
             {item}
           </span>
@@ -94,10 +86,10 @@ const WSAboutDASecond = () => {
       ))}
     </ul>
 
-    <div className="bg-gradient-to-r from-blue-950/50 to-green-950/50 rounded-lg p-6 border-l-4 border-blue-400">
+    <div className="bg-gradient-to-r from-emerald-950/50 to-cyan-950/50 rounded-lg p-6 border-l-4 border-emerald-400">
       <p className="text-gray-300 font-medium lg:text-lg">
-        <span className="font-bold text-blue-400">Pro tip:</span> AI is the next big leap in data visualization.  
-        Secure your spot now—limited seats available! Elevate your data skills and stay ahead in the AI-powered future.
+        <span className="font-bold text-emerald-400">Pro tip:</span> You'll walk away with a working GenAI data analyst bot that you can use immediately.  
+        Limited seats available — reserve yours now to transform your data workflow!
       </p>
     </div>
   </div>
@@ -108,35 +100,35 @@ const WSAboutDASecond = () => {
             {/* Features Grid Section */}
             <div>
   <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
+    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
       Workshop Features
     </span>
   </h2>
   <div className="grid md:grid-cols-2 gap-6">
     {[
       {
-        icon: <FaChartLine className="text-3xl text-blue-400" />,
-        title: "AI-Driven Data Visualization",
+        icon: <FaRobot className="text-3xl text-emerald-400" />,
+        title: "No-Code GenAI Bot Creation",
         description:
-          "Discover how AI enhances data visualization for more impactful storytelling.",
+          "Build a powerful data analysis assistant without writing any code.",
       },
       {
-        icon: <FaDatabase className="text-3xl text-green-400" />,
-        title: "Hands-on with AI Visualization Tools",
+        icon: <FaDatabase className="text-3xl text-indigo-400" />,
+        title: "Automated Data Cleaning",
         description:
-          "Work with real-world datasets using AI-driven visualization frameworks.",
+          "Set up your bot to handle messy data and prepare it for analysis automatically.",
       },
       {
-        icon: <FaLightbulb className="text-3xl text-blue-400" />,
-        title: "Data Storytelling Techniques",
+        icon: <FaChartBar className="text-3xl text-emerald-400" />,
+        title: "One-Command Visualizations",
         description:
-          "Learn how top companies use AI to create compelling data narratives that drive decisions.",
+          "Generate beautiful charts and dashboards with simple natural language commands.",
       },
       {
-        icon: <FaRocket className="text-3xl text-green-400" />,
-        title: "Accelerate Your Data Career",
+        icon: <FaBrain className="text-3xl text-indigo-400" />,
+        title: "Customizable Analysis",
         description:
-          "Gain industry-relevant skills in AI-powered data visualization and storytelling.",
+          "Personalize your AI assistant to focus on your specific data analysis needs.",
       },
     ].map((feature, index) => (
       <div
