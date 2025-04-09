@@ -49,7 +49,7 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 const GENAIBZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/qF7I8da6SXuMO2DJAPaxUA",
   meetingId: "qF7I8da6SXuMO2DJAPaxUA",
-  time: "11th April, 2025 07:30 AM India",
+  time: "11th April, 2025 07:30 PM India",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
