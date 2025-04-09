@@ -51,13 +51,27 @@ const WSFormFree = () => {
 		campaignName,
 		phone,
 		name,
+		masterclass,
+		sessionDate,
+
+		link,
 	}: {
 		apiKey: string;
 		campaignName: string;
 		phone: string;
 		name: string;
+		masterclass: string;
+		sessionDate: string;
+		link: string;
 	}) {
 		try {
+			const cleaned = sessionDate.replace('India', '').trim();
+
+			const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/); // Split after the year
+
+			const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
+
+			console.log(campaignName, phone, name, masterclass, newdate, time, link);
 			const response = await fetch('https://backend.api-wa.co/campaign/serri-india/api/v2', {
 				method: 'POST',
 				headers: {
@@ -68,7 +82,7 @@ const WSFormFree = () => {
 					campaignName: campaignName,
 					destination: phone,
 					userName: name,
-					templateParams: ['$FirstName', '30'],
+					templateParams: ['$FirstName', masterclass, newdate, time, link],
 					source: 'registration form',
 					paramsFallbackValue: {
 						FirstName: 'user',
@@ -88,7 +102,7 @@ const WSFormFree = () => {
 				throw new Error('WhatsApp message sending failed');
 			}
 
-			console.log('WhatsApp message sent successfully!');
+			// console.log('WhatsApp message sent successfully!');
 		} catch (error) {
 			console.error('Error sending WhatsApp message:', error);
 		}
@@ -292,9 +306,12 @@ const WSFormFree = () => {
 
 			await sendWhatsAppMessage({
 				apiKey: whatsappSerriApi,
-				campaignName: 'testing.',
+				campaignName: 'registration_msg',
 				phone: formData.phone.startsWith('+') ? formData.phone : `+91${formData.phone}`,
 				name: formData.name,
+				masterclass: workshopType,
+				sessionDate: zoomMeetingDetails.time,
+				link: zoomMeetingDetails.link,
 			});
 
 			// const emailData = {
