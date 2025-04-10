@@ -53,9 +53,9 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/NpBZZOV3SuuKSW25IkNRng",
-  meetingId: "NpBZZOV3SuuKSW25IkNRng",
-  time: "20th March, 2025 07:30 AM India",
+  link: "https://zoom.us/meeting/register/OoXQSu52RpaY_nO-XCAO9w",
+  meetingId: "OoXQSu52RpaY_nO-XCAO9w",
+  time: "16th April, 2025 07:30 PM India",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

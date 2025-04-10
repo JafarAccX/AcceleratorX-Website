@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Award, Sparkles, GraduationCap } from "lucide-react";
+import { Linkedin, Award, Sparkles, GraduationCap, Server, Github } from "lucide-react";
 
 const WSGENMentor = () => {
   return (
@@ -19,7 +19,7 @@ const WSGENMentor = () => {
           {/* Section Title */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Meet Your Mentor
+              Meet Your Instructor
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
           </div>
@@ -55,23 +55,27 @@ const WSGENMentor = () => {
                 </h3>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-4">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                    <Award className="w-4 h-4" />
-                    Ph.D. in Computer Science at Parul University (2020-2024){" "}
+                    <Server className="w-4 h-4" />
+                    LangChain Specialist
                   </span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                    <GraduationCap className="w-4 h-4" />
-                    University Gold Medalist
+                    <Github className="w-4 h-4" />
+                    Open Source Contributor
                   </span>
                 </div>
 
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-start gap-2">
-                    <GraduationCap className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
-                    <p></p>
+                    <Award className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                    <p>Ph.D. in Computer Science with expertise in LLMs and Vector Databases</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
-                    <p>Assistant Professor at Parul University</p>
+                    <p>Built custom AI solutions using LangChain for multiple enterprises</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <GraduationCap className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                    <p>Assistant Professor and AI Researcher at Parul University</p>
                   </div>
                 </div>
               </div>
