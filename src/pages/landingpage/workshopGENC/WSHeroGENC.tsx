@@ -1,5 +1,5 @@
 import React from "react";
-import WSFormFree from "./WSFormFree";
+import WSFormFree from "../workshopGENB/WSFormFree";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { motion } from "framer-motion";
 import { RiRobot2Line } from "react-icons/ri";
@@ -97,7 +97,7 @@ const WSHeroGENC = () => {
                 <span className="text-blue-400">⚡</span>
               </motion.div>
               <span className="text-blue-400 font-medium">
-                AI Productivity Workshop
+                Hands-on LangChain Workshop
               </span>
             </motion.div>
 
@@ -118,7 +118,7 @@ const WSHeroGENC = () => {
                     <RiRobot2Line className="w-12 h-12 animate animate-bounce" />
                   </motion.div>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
-                  Learn Generative AI without <span className="text-yellow-400 underline">Coding</span>                  </span>
+                  Build Your <span className="text-yellow-400 underline">Personal AI App</span> with LangChain                  </span>
                   <motion.div
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -134,7 +134,7 @@ const WSHeroGENC = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
-                Generative AI is revolutionizing the workplace—streamlining tasks, boosting creativity, and enhancing efficiency. This workshop is tailored for professionals who want to harness AI’s power without diving into complex coding. 
+                Learn to create your own AI-powered application using LangChain and open-source models. This hands-on workshop will guide you through building a personalized AI assistant that can learn from your data and help with your tasks.
               </motion.p>
 
               {/* Price Tag - Enhanced */}
@@ -149,7 +149,7 @@ const WSHeroGENC = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                     className="text-yellow-500 text-sm font-medium"
                   >
-                    2 Hour Live Workshop with Certificate included
+                    2 Hour Live Workshop with Project & Certificate included
                   </motion.div>
                 </div>
               </motion.div>

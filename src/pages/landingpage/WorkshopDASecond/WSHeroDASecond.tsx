@@ -80,7 +80,7 @@ const WSHeroDASecond = () => {
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-300">
-                  GenAI Workshop
+                  Data Analytics Workshop
                 </span>
               </h1>
 
@@ -92,7 +92,8 @@ const WSHeroDASecond = () => {
               </h2>
 
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Create a powerful GenAI agent that cleans, analyzes, and visualizes CSV data with just one command — no coding required!
+                Create a powerful GenAI agent that cleans, analyzes, and
+                visualizes CSV data with just one command — no coding required!
               </p>
 
               <div className="mt-8 flex justify-center lg:justify-start">

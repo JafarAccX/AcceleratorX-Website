@@ -28,16 +28,16 @@ const WSAboutGENC = () => {
   };
 
   const allTools = [
-    { name: "GPT-4", img: "/assets/genAITools/gpt4.webp" },
-    { name: "DeepSeek", img: "/assets/genAITools/deepseek.webp" },
-    { name: "LLaMA", img: "/assets/genAITools/ollama.png" },
-    { name: "Falcon", img: "/assets/genAITools/falcon.png" },
     { name: "LangChain", img: "/assets/genAITools/langchain.png" },
-    { name: "CrewAI", img: "/assets/genAITools/crewai.webp" },
-    { name: "AutoGen", img: "/assets/genAITools/autogen.jpeg" },
-    { name: "RAG", img: "/assets/genAITools/rag.webp" },
+    { name: "Mistral AI", img: "/assets/genAITools/mistral.png" },
+    { name: "Ollama", img: "/assets/genAITools/ollama.png" },
+    { name: "LlamaIndex", img: "/assets/genAITools/llamaindex.png" },
+    { name: "OpenAI", img: "/assets/genAITools/openai.png" },
+    { name: "FAISS", img: "/assets/genAITools/faiss.png" },
+    { name: "Chroma DB", img: "/assets/genAITools/chroma.png" },
     { name: "Hugging Face", img: "/assets/genAITools/huggingface.svg" },
-    { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
+    { name: "Streamlit", img: "/assets/genAITools/streamlit.png" },
+    { name: "Docker", img: "/assets/genAITools/docker.png" },
   ];
 
 
@@ -92,7 +92,7 @@ const WSAboutGENC = () => {
                   whileInView={{ opacity: [0, 1], y: [20, 0] }}
                   transition={{ duration: 0.5 }}
                 >
-                  Unlock Productivity & Innovation with AI without writing complex code.
+                  Build and Deploy Your Personalized AI Application with LangChain
                 </motion.h2>
 
                 <div className="space-y-6">
@@ -107,7 +107,7 @@ const WSAboutGENC = () => {
                         className="font-semibold text-blue-400"
                         whileHover={{ scale: 1.05 }}
                       >
-                        20th March, 2025
+                        16th April, 2025
                       </motion.span>{" "}
                       at{" "}
                       <motion.span
@@ -116,7 +116,8 @@ const WSAboutGENC = () => {
                       >
                         07:30 PM
                       </motion.span>
-                      {" "} Generative AI is transforming industries, enabling professionals to work smarter, faster, and more creatively—without writing a single line of code.                   </p>
+                      {" "} Learn to build your own AI application using LangChain and open-source models. This workshop will guide you through creating a personal knowledge assistant that can process your documents, learn from your data, and respond to your questions with relevant information.
+                    </p>
                   </motion.div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -145,10 +146,10 @@ const WSAboutGENC = () => {
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "Live Demonstrations of No-Code Generative AI Tools",
-                          "Step-by-Step Guidance on AI Integration Without Coding",
-                          "Interactive Q&A with AI Experts",
-                          "Hands-on Exercises to Apply AI in Real-World Scenarios",
+                          "Hands-on project building a personal AI assistant with LangChain",
+                          "Work with open-source models like Mistral and Llama",
+                          "Process and embed your own documents for AI to learn from",
+                          "Deploy your application locally or to the cloud",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -194,10 +195,10 @@ const WSAboutGENC = () => {
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "How Generative AI can simplify tasks like content creation, research, and data analysis—without coding.",
-                          "No-code AI tools and strategies to enhance productivity and streamline workflows.",
-                          "Best practices and ethical considerations for integrating AI into your professional workflow.",
-                          "Real-world applications of AI across various industries—no technical skills required.",
+                          "LangChain fundamentals for building AI applications",
+                          "Vector databases for storing and retrieving knowledge",
+                          "Prompt engineering techniques for better AI responses",
+                          "How to run open source models locally on your computer",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -248,58 +249,6 @@ const WSAboutGENC = () => {
               </div>
             </motion.div>
 
-            {/* Tools Section */}
-            <motion.div
-              ref={toolsRef}
-              className="bg-[#111111] rounded-2xl shadow-lg p-6 border border-gray-800"
-              {...fadeInUp}
-            >
-              <h2 className="text-2xl font-bold text-white mb-6">
-                Tools You'll Learn
-              </h2>
-              <div className="relative overflow-hidden">
-                <motion.div
-                  className="flex overflow-hidden"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: isInView ? 1 : 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <motion.div
-                    className="flex gap-4 px-4"
-                    animate={{
-                      x: [0, -100 * allTools.length],
-                    }}
-                    transition={{
-                      x: {
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: allTools.length * 2,
-                        ease: "linear",
-                      },
-                    }}
-                  >
-                    {[...allTools, ...allTools].map((tool, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex-shrink-0 w-20 h-20 bg-[#1A1A1A] rounded-xl shadow-sm hover:shadow-md transition-all p-3 flex flex-col items-center justify-center gap-1 border border-gray-800/30"
-                        whileHover={{ scale: 1.1, y: -5 }}
-                      >
-                        <div className="w-10 h-10 flex items-center justify-center bg-white rounded-lg">
-                          <img
-                            src={tool.img}
-                            alt={tool.name}
-                            className="w-8 h-8 object-contain"
-                          />
-                        </div>
-                        <p className="text-[10px] font-medium text-gray-300 text-center line-clamp-1">
-                          {tool.name}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
 
             {/* Certificate Section */}
             <motion.div
@@ -310,15 +259,14 @@ const WSAboutGENC = () => {
               <div className="relative p-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <FaCertificate className="w-8 h-8" />
-                  <h3 className="text-2xl font-bold">Certification Included</h3>
+                  <h3 className="text-2xl font-bold">Project & Certification Included</h3>
                 </div>
                 <p className="text-gray-200 mb-4">
-                  Earn an industry-recognized certificate upon completion of the
-                  masterclass!
+                  Complete a real-world AI application project and earn an industry-recognized certificate upon completion of the workshop!
                 </p>
                 <div className="bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
                   <p className="text-sm text-gray-300">
-                    ⚠️ Only those who attend the workshop till the end will be eligible for the completion certificate.
+                    ⚠️ Only those who attend the workshop and complete the project will be eligible for the completion certificate.
                   </p>
                 </div>
               </div>
@@ -343,7 +291,7 @@ const WSAboutGENC = () => {
               <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
                 <div className="flex justify-between items-center">
                   <p className="text-blue-900 font-medium">
-                    "AI isn't here to replace you—it’s here to make your work smarter"
+                    "Build your personal AI that understands your data"
                   </p>
                 </div>
               </div>

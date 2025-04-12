@@ -1,28 +1,28 @@
 import React from "react";
-import { Users, Briefcase, Megaphone, Brain } from "lucide-react";
+import { Users, Briefcase, Megaphone, Brain, Code, Laptop } from "lucide-react";
 
 const WSGENWhoShouldEnrollC = () => {
 
   const targetAudience = [
     {
-      icon: Users,
-      title: "Non-Technical Professionals",
-      description: "Learn to use AI tools without coding to improve productivity and efficiency.",
+      icon: Code,
+      title: "Developers & Engineers",
+      description: "Learn to build intelligent applications with LangChain, even with basic Python knowledge.",
     },
     {
       icon: Briefcase,
-      title: "Business Leaders & Managers",
-      description: "Leverage AI for smarter decision-making and workflow automation—without technical expertise.",
+      title: "Technical Professionals",
+      description: "Implement AI solutions for your organization using open-source models and frameworks.",
     },
     {
-      icon: Megaphone,
-      title: "Marketers & Content Creators",
-      description: "Use AI-driven tools to generate ideas, create content, and optimize campaigns effortlessly.",
+      icon: Laptop,
+      title: "AI Enthusiasts & Learners",
+      description: "Take your first steps in building practical AI applications with hands-on guidance.",
     },
     {
       icon: Brain,
-      title: "AI Enthusiasts & Learners",
-      description: "Explore how AI can be applied in real-world scenarios without needing programming skills.",
+      title: "Data Scientists & ML Engineers",
+      description: "Expand your toolkit with LangChain for building personalized language model applications.",
     },
   ];
 
@@ -58,16 +58,17 @@ const WSGENWhoShouldEnrollC = () => {
                 <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-3 transform hover:scale-105 transition-all">
                   <Users className="w-4 h-4 text-blue-600" />
                   <span className="text-blue-600 text-sm font-medium">
-                    For Everyone
+                    Who Should Attend
                   </span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                  <span className="text-white">Who Can </span>
-                  <span className="text-blue-500">Benefit</span>
+                  <span className="text-white">Ready to </span>
+                  <span className="text-blue-500">Build with LangChain</span>
                   <span className="text-white">?</span>
                 </h2>
                 <p className="text-lg text-blue-100">
-                Join us and stay ahead in the AI-powered workplace.                </p>
+                Join us to learn how to create your own AI-powered applications with open-source technologies.
+                </p>
               </div>
 
               {/* Target Audience Grid */}

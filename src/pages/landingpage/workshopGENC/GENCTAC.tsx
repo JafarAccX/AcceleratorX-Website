@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Code, Database, Server } from "lucide-react";
 
 const GENCTAC = () => {
   const currentYear = new Date().getFullYear();
@@ -27,7 +28,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Learn Generative AI Without Coding
+              Build Your Personal GenAI App with LangChain & Open Models
             </motion.h2>
 
             {/* Badge */}
@@ -38,7 +39,7 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="bg-blue-500/10 rounded-full px-6 py-2">
-                <span className="text-lg font-bold text-white">No Coding Required</span>
+                <span className="text-lg font-bold text-white">Hands-On Project Workshop</span>
               </div>
             </motion.div>
 
@@ -49,16 +50,25 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="grid grid-cols-2 gap-4 w-full">
+              <div className="grid grid-cols-3 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-blue-400">AI for Everyone</p>
-                  <p className="text-sm text-gray-400">Understand AI without programming</p>
+                  <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+                  <p className="text-lg font-bold text-blue-400">LangChain</p>
+                  <p className="text-sm text-gray-400">Framework for LLM apps</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-green-400">
-                    Practical Tools
+                  <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                  <p className="text-lg font-bold text-green-400">
+                    Open Models
                   </p>
-                  <p className="text-sm text-gray-400">Use AI for work and creativity</p>
+                  <p className="text-sm text-gray-400">Run locally with Ollama</p>
+                </div>
+                <div className="bg-white/5 p-4 rounded-lg text-center">
+                  <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
+                  <p className="text-lg font-bold text-purple-400">
+                    Vector DB
+                  </p>
+                  <p className="text-sm text-gray-400">Store your knowledge</p>
                 </div>
               </div>
             </motion.div>
@@ -76,7 +86,7 @@ const GENCTAC = () => {
                 className="group relative inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-200 overflow-hidden"
               >
                 <span className="relative z-10 text-lg font-semibold">
-                  Start Learning AI
+                  Build Your AI App Today
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out origin-left"></div>
               </button>
