@@ -15,50 +15,26 @@ import WSTestimonialDASecond from "../pages/landingpage/WorkshopDASecond/WSTesti
 // Workshop Components
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
 const WSAboutDA = lazy(() => import("../pages/landingpage/workshop/WSAbout"));
-const WSTestimonialDA = lazy(
-  () => import("../pages/landingpage/workshop/WSTestimonial")
-);
-const WSCommunityDA = lazy(
-  () => import("../pages/landingpage/workshop/WSCommunity")
-);
+const WSTestimonialDA = lazy(() => import("../pages/landingpage/workshop/WSTestimonial"));
+const WSCommunityDA = lazy(() => import("../pages/landingpage/workshop/WSCommunity"));
 
 const WSHeroPM = lazy(() => import("../pages/landingpage/workshopPM/WSHeroPM"));
-const WSAboutPM = lazy(
-  () => import("../pages/landingpage/workshopPM/WSAboutPM")
-);
-const WSTestimonialPM = lazy(
-  () => import("../pages/landingpage/workshopPM/WSTestimonialPM")
-);
+const WSAboutPM = lazy(() => import("../pages/landingpage/workshopPM/WSAboutPM"));
+const WSTestimonialPM = lazy(() => import("../pages/landingpage/workshopPM/WSTestimonialPM"));
 
-const WSHeroGEN = lazy(
-  () => import("../pages/landingpage/workshopGEN/WSHeroGEN")
-);
-const WSAboutGEN = lazy(
-  () => import("../pages/landingpage/workshopGEN/WSAboutGEN")
-);
-const WSGENWhoShouldEnroll = lazy(
-  () => import("../pages/landingpage/workshopGEN/WSGENWhoShouldEnroll")
-);
-const WSGENIntroduction = lazy(
-  () => import("../pages/landingpage/workshopGEN/WSGENIntroduction")
-);
+const WSHeroGEN = lazy(() => import("../pages/landingpage/workshopGEN/WSHeroGEN"));
+const WSAboutGEN = lazy(() => import("../pages/landingpage/workshopGEN/WSAboutGEN"));
+const WSGENWhoShouldEnroll = lazy(() => import("../pages/landingpage/workshopGEN/WSGENWhoShouldEnroll"));
+const WSGENIntroduction = lazy(() => import("../pages/landingpage/workshopGEN/WSGENIntroduction"));
 const GENCTA = lazy(() => import("../pages/landingpage/workshopGEN/GENCTA"));
 
 const WSHeroDM = lazy(() => import("../pages/landingpage/workshopDM/WSHeroDM"));
-const WSAboutDM = lazy(
-  () => import("../pages/landingpage/workshopDM/WSAboutDM")
-);
+const WSAboutDM = lazy(() => import("../pages/landingpage/workshopDM/WSAboutDM"));
 
 const WSHeroGENC = lazy(() => import("../pages/landingpage/workshopGENC/WSHeroGENC"));
-const WSAboutGENC = lazy(
-  () => import("../pages/landingpage/workshopGENC/WSAboutGENC")
-);
-const WSGENWhoShouldEnrollC = lazy(
-  () => import("../pages/landingpage/workshopGENC/WSGENWhoShouldEnrollC")
-);
-const WSGENIntroductionC = lazy(
-  () => import("../pages/landingpage/workshopGENC/WSGENIntroductionC")
-);
+const WSAboutGENC = lazy(() => import("../pages/landingpage/workshopGENC/WSAboutGENC"));
+const WSGENWhoShouldEnrollC = lazy(() => import("../pages/landingpage/workshopGENC/WSGENWhoShouldEnrollC"));
+const WSGENIntroductionC = lazy(() => import("../pages/landingpage/workshopGENC/WSGENIntroductionC"));
 const GENCTAC = lazy(() => import("../pages/landingpage/workshopGENC/GENCTAC"));
 
 // Workshop Pages
@@ -132,16 +108,7 @@ export const workshopRoutes = [
   <Route path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
   <Route path="/workshop/da-masterclass-bxwxy" element={<WorkshopPageDASecond />} />,
   <Route path="/workshop/gen-ai-masterclass" element={<WorkshopPageGEN />} />,
-  <Route
-    path="/workshop/gen-ai-masterclass-bxwcy"
-    element={<WorkshopPageGENBTest />}
-  />,
-  <Route
-    path="/workshop/gen-ai-masterclass-thidtx"
-    element={<WorkshopPageGENC />}
-  />,
-  <Route
-    path="/workshop-registration/success"
-    element={<WSRegistrationSuccess />}
-  />,
+  <Route path="/workshop/gen-ai-masterclass-bxwcy" element={<WorkshopPageGENBTest />} />,
+  <Route path="/workshop/gen-ai-masterclass-thidtx" element={<WorkshopPageGENC />} />,
+  <Route path="/workshop-registration/success" element={<WSRegistrationSuccess />} />,
 ];

@@ -4,6 +4,9 @@ import { Helmet } from "react-helmet-async";
 const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
 // console.log('Meta Pixel ID:',  PIXEL_ID);
 
+/**
+ * paste the new routes here
+ */
 const PAGE_VIEW_ROUTES = [
   "/courses/product-management-program-fb",
   "/courses/data-analytics-program-fb",
@@ -19,11 +22,7 @@ const PAGE_VIEW_ROUTES = [
   "/workshop/da-masterclass-bxwxy",
 ];
 
-const LEAD_ROUTES = [
-  "/thank-you",
-  "/workshop-registration/success",
-  "/workshop-payment/success/",
-];
+const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
 
 export const MetaPixel = () => {
   const location = useLocation();
