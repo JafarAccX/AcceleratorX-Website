@@ -1,21 +1,20 @@
-import React from "react";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 import WSFormFree from "../workshopGENB/WSFormFree";
 
 const WSHero = () => {
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
       console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
-  
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#0A1A2A] to-[#061625]">
       {/* Background Effects */}
@@ -24,16 +23,16 @@ const WSHero = () => {
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/15 via-cyan-400/10 to-emerald-400/15"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.2),rgba(0,0,0,0))]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(79,70,229,0.15),rgba(0,0,0,0))]"></div>
-        
+
         {/* Modern abstract shapes */}
         <div className="absolute top-1/4 left-0 w-64 h-64 bg-emerald-500/15 rounded-full blur-3xl"></div>
         <div className="absolute top-1/3 right-0 w-64 h-64 bg-indigo-500/15 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl"></div>
-        
+
         {/* Animated particles */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(15)].map((_, i) => (
-            <div 
+            <div
               key={i}
               className="absolute rounded-full"
               style={{
@@ -41,9 +40,9 @@ const WSHero = () => {
                 height: `${Math.random() * 6 + 2}px`,
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-                background: i % 2 === 0 ? 'rgba(16, 185, 129, 0.4)' : 'rgba(79, 70, 229, 0.4)',
+                background: i % 2 === 0 ? "rgba(16, 185, 129, 0.4)" : "rgba(79, 70, 229, 0.4)",
                 animation: `float ${Math.random() * 10 + 10}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`
+                animationDelay: `${Math.random() * 5}s`,
               }}
             ></div>
           ))}
@@ -56,11 +55,7 @@ const WSHero = () => {
           <div className="w-40 md:w-48 relative group">
             <div className="absolute inset-0 blur-xl bg-gradient-to-r from-emerald-500/40 via-indigo-400/30 to-cyan-400/40 rounded-full group-hover:scale-110 transition-all duration-300"></div>
             <div className="relative bg-[#061625]/90 backdrop-blur-xl rounded-2xl p-3 shadow-2xl border border-emerald-500/20 hover:border-indigo-400/30 transition-all duration-300">
-              <img
-                src="/assets/logo/logo.png"
-                alt="AcceleratorX Logo"
-                className="w-full h-auto"
-              />
+              <img src="/assets/logo/logo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
             </div>
           </div>
         </div>
@@ -76,27 +71,28 @@ const WSHero = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500 mr-2"></span>
                 <span className="text-white text-sm font-medium">Live Masterclass</span>
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200 to-indigo-200">
-                  Analytics Masterclass
+                  Analyst Masterclass
                 </span>
               </h1>
-              
+
               <h2 className="text-xl lg:text-2xl font-semibold">
                 <span className="bg-gradient-to-r from-emerald-400 via-cyan-300 to-indigo-300 text-transparent bg-clip-text">
-                  Beyond Excel: Modern Analytics in 2025
+                  How to Become a Data Analyst with AI in 2025
                 </span>
               </h2>
-              
+
               <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Discover the powerful tools transforming data analysis in 2025. Learn advanced visualization, automation and AI-powered solutions for faster, data-driven decisions.
+                Break into one of the most in-demand careers of the decade. Learn the AI tools, real-world projects, and
+                job prep strategies that top data analysts use in 2025.
               </p>
 
               <div className="mt-6 flex justify-center lg:justify-start">
                 <div className="relative inline-flex group/btn">
                   <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-400 to-indigo-400 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                  <button 
+                  <button
                     onClick={scrollToForm}
                     className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#061625] rounded-lg leading-none border border-emerald-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
                   >
@@ -110,40 +106,35 @@ const WSHero = () => {
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </button>
                 </div>
               </div>
 
               {/* Key Info */}
-              <div className="grid grid-cols-3 gap-4 mt-6">
+              <div className="grid grid-cols-4 gap-4 mt-6">
                 {[
                   { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                  { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "April 9th" },
-                  { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" }
+                  { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "April 18th" },
+                  { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "time", value: "7.30 - 9.30 pm" },
+                  { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
                 ].map((item, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-[#0A1A2A]/80 to-[#061625]/60 backdrop-blur-xl rounded-lg p-3 border border-emerald-500/10 hover:border-indigo-400/30 transition-all duration-300 flex flex-col items-center hover:translate-y-[-2px] hover:shadow-lg">
+                  <div
+                    key={index}
+                    className="group bg-gradient-to-br from-[#0A1A2A]/80 to-[#061625]/60 backdrop-blur-xl rounded-lg p-3 border border-emerald-500/10 hover:border-indigo-400/30 transition-all duration-300 flex flex-col items-center hover:translate-y-[-2px] hover:shadow-lg"
+                  >
                     {item.icon}
                     <p className="text-gray-400 text-xs">{item.label}</p>
                     <p className="text-white font-semibold group-hover:text-cyan-300 transition-colors">{item.value}</p>
                   </div>
                 ))}
               </div>
-              
+
               {/* Mentor Badge */}
               <div className="mt-6 flex items-center space-x-3 bg-gradient-to-r from-emerald-900/40 to-indigo-900/30 px-4 py-2 rounded-lg border border-emerald-500/30 w-fit mx-auto lg:mx-0 hover:shadow-lg transition-all duration-300">
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-400 flex-shrink-0 shadow-md">
-                  <img 
-                    src="/assets/mentor/akash.png" 
-                    alt="Aakash Maurya" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="/assets/mentor/akash.png" alt="Aakash Maurya" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <div className="flex items-center">
@@ -162,7 +153,10 @@ const WSHero = () => {
           <div className="w-full lg:w-5/12">
             <div className="relative">
               {/* Form container with enhanced styling */}
-              <div className="relative z-10 bg-[#051522]/90 backdrop-blur-xl rounded-2xl p-6 border border-emerald-500/20 hover:border-indigo-400/30 transition-all duration-300 shadow-2xl max-w-lg mx-auto w-full transform hover:-translate-y-1" id="workshop-registration-form">
+              <div
+                className="relative z-10 bg-[#051522]/90 backdrop-blur-xl rounded-2xl p-6 border border-emerald-500/20 hover:border-indigo-400/30 transition-all duration-300 shadow-2xl max-w-lg mx-auto w-full transform hover:-translate-y-1"
+                id="workshop-registration-form"
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-indigo-500/10 rounded-2xl"></div>
                 <div className="relative z-10">
                   <WorkshopProvider>
@@ -170,7 +164,7 @@ const WSHero = () => {
                   </WorkshopProvider>
                 </div>
               </div>
-              
+
               {/* Decorative elements */}
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-emerald-500/20 rounded-full blur-xl"></div>
               <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-indigo-500/20 rounded-full blur-xl"></div>
@@ -178,7 +172,7 @@ const WSHero = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Animated CSS */}
       <style jsx>{`
         @keyframes float {
@@ -198,9 +192,11 @@ const WSHero = () => {
             transform: translateY(0) translateX(0);
           }
         }
-        
+
         @keyframes animate-tilt {
-          0%, 50%, 100% {
+          0%,
+          50%,
+          100% {
             transform: rotate(0deg);
           }
           25% {

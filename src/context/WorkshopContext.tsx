@@ -29,9 +29,9 @@ const PMZoomDetails: ZoomMeetingDetails = {
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
-  link: "https://zoom.us/meeting/register/0iAHvzH7RMKU6ie-AYZwkg",
-  meetingId: "0iAHvzH7RMKU6ie-AYZwkg",
-  time: "9th April, 2025 07:30 PM India",
+  link: "https://zoom.us/meeting/register/FcjNLNb5Q_WSEBzVW1_1tg",
+  meetingId: "FcjNLNb5Q_WSEBzVW1_1tg",
+  time: "18th April, 2025 07:30 PM India",
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
@@ -64,15 +64,10 @@ const DMZoomDetails: ZoomMeetingDetails = {
   time: "Feb 16, 2025 04:00 PM India",
 };
 
-const WorkshopContext = createContext<WorkshopContextType | undefined>(
-  undefined
-);
+const WorkshopContext = createContext<WorkshopContextType | undefined>(undefined);
 
-export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [workshopType, setWorkshopType] =
-    React.useState<WorkshopType>("DAWorkshop");
+export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [workshopType, setWorkshopType] = React.useState<WorkshopType>("DAWorkshop");
   const location = useLocation();
 
   useEffect(() => {
@@ -109,9 +104,7 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({
       : DAZoomDetails;
 
   return (
-    <WorkshopContext.Provider
-      value={{ workshopType, setWorkshopType, zoomMeetingDetails }}
-    >
+    <WorkshopContext.Provider value={{ workshopType, setWorkshopType, zoomMeetingDetails }}>
       {children}
     </WorkshopContext.Provider>
   );
