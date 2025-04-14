@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate } from "react-router-dom";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
-import { registerForZoomMeeting } from "../../../routes/utils/regestration";
+import { registerForZoomMeeting } from "../../../routes/utils/registration";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
