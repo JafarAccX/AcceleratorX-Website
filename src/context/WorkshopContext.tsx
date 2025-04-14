@@ -11,6 +11,7 @@ type WorkshopType =
   | "DMWorkshop";
 
 interface ZoomMeetingDetails {
+  title: string;
   link: string;
   meetingId: string;
   time: string;
@@ -23,42 +24,49 @@ interface WorkshopContextType {
 }
 
 const PMZoomDetails: ZoomMeetingDetails = {
+  title: "",
   link: "https://zoom.us/meeting/register/vcxHdRWkT6qgEbk5prfW-w",
   meetingId: "vcxHdRWkT6qgEbk5prfW",
   time: "Feb 20, 2025 07:00 PM India",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
+  title: "How to Become a Data Analyst with AI in 2025: Tools, Projects & Job Prep",
   link: "https://zoom.us/meeting/register/FcjNLNb5Q_WSEBzVW1_1tg",
   meetingId: "FcjNLNb5Q_WSEBzVW1_1tg",
   time: "18th April, 2025 07:30 PM India",
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
+  title: "",
   link: "https://zoom.us/meeting/register/13ZbA8hlSeWBYYXMqZj96w",
   meetingId: "13ZbA8hlSeWBYYXMqZj96w",
   time: "March 12, 2025 07:30 PM India",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
+  title: "",
   link: "https://zoom.us/meeting/register/zVnro80ySDm_Qll-H-XvCQ",
   meetingId: "zVnro80ySDm_Qll-H-XvCQ",
   time: "12th March, 2025 07:30 AM India",
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
+  title: "Vibe coding with GenAI",
   link: "https://zoom.us/meeting/register/qF7I8da6SXuMO2DJAPaxUA",
   meetingId: "qF7I8da6SXuMO2DJAPaxUA",
   time: "11th April, 2025 07:30 PM India",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
+  title: "Create a Personal GenAI App with LangChain & Open Models",
   link: "https://zoom.us/meeting/register/OoXQSu52RpaY_nO-XCAO9w",
   meetingId: "OoXQSu52RpaY_nO-XCAO9w",
   time: "16th April, 2025 07:30 PM India",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {
+  title: "",
   link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
   meetingId: "-EeXRY1GQFmxc9eHG73nnQ",
   time: "Feb 16, 2025 04:00 PM India",
