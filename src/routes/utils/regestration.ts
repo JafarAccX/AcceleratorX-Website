@@ -1,75 +1,68 @@
-const zoomSecretToken = import.meta.env.VITE_ZOOM_SECRET_TOKEN!
 
 
 /**
  * Registers a user for a Zoom meeting using fetch.
- * 
+ *
  * @param {string} fullName - The full name of the registrant.
  * @param {string} email - The email address of the registrant.
  * @param {string} phone - The phone number of the registrant.
- * 
+ * @param {string} zoomMeeting_id - The ID of the Zoom meeting.
+ *
  */
-export async function registerForZoomMeeting(fullName: string, email: string, phone: string) {
-    const [first_name, ...lastParts] = fullName.split(' ');
-    const last_name = lastParts.join(' ') || '-';
-
+export async function registerForZoomMeeting(fullName: string, email: string, phone: string, zoomMeeting_id: string) {
     const payload = {
-        first_name,
-        last_name,
+        fullName,
         email,
-        phone
+        phone,
+        zoomMeeting_id,
     };
 
     try {
-        const response = await fetch('https://api.zoom.us/v2/meetings/85746065/registrants', {
+        const response = await fetch('http://localhost:3020/zoom', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${zoomSecretToken}` // 🔐 Replace with your actual Zoom JWT/OAuth token
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Zoom API error: ${response.status} - ${JSON.stringify(errorData)}`);
+            const errorData = await response.text(); // Use text to handle non-JSON responses
+            console.error('Failed to register for Zoom meeting:', errorData);
+            throw new Error('Failed to register for Zoom meeting.');
         }
 
-        const data = await response.json();
-        console.log('Registration successful:', data);
-        return data;
+        const responseData = await response.json();
+        console.log('Zoom registration successful:', responseData);
+        return responseData;
     } catch (error) {
         if (error instanceof Error) {
-            console.error('Error registering user:', error.message);
+            console.error('Error registering for Zoom meeting:', error.message);
         } else {
-            console.error('Error registering user:', error);
+            console.error('Unknown error registering for Zoom meeting:', error);
         }
         throw error;
     }
 }
 
-
-// const emailData = {
-// 	name: submissionData.name,
-// 	email: submissionData.email,
-// 	phone: submissionData.phone,
-// 	workshop_type: submissionData.workshop_type,
-// 	created_at: new Date().toISOString(),
+// const zoomData = {
+//     fullName: submissionData.name,
+//     email: submissionData.email,
+//     phone: submissionData.phone,
+//     zoomMeeting_id: submissionData.workshop_type,
 // };
 
-// Trigger the email after data insertion is successful
-
-// const response = await fetch('http://localhost:3020/sendmail', {
-// 	method: 'POST',
-// 	headers: {
-// 		'Content-Type': 'application/json',
-// 	},
-// 	body: JSON.stringify(emailData),
+// const response = await fetch('http://localhost:3020/zoom', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(zoomData),
 // });
 
 // if (!response.ok) {
-// 	throw new Error('Failed to trigger email.');
+//     throw new Error('Failed to register for Zoom meeting.');
 // }
 
 // const responseData = await response.json();
-// console.log('Email sent successfully:', responseData);
+// console.log('Zoom registration successful:', responseData);
