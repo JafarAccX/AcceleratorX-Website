@@ -7,6 +7,7 @@ import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey, {
   auth: {
     persistSession: false,
@@ -37,14 +38,74 @@ const WSFormFree = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
+
+  async function sendWhatsAppMessage({
+    apiKey,
+    campaignName,
+    phone,
+    name,
+    masterclass,
+    sessionDate,
+
+    link,
+  }: {
+    apiKey: string;
+    campaignName: string;
+    phone: string;
+    name: string;
+    masterclass: string;
+    sessionDate: string;
+    link: string;
+  }) {
+    try {
+      const cleaned = sessionDate.replace("India", "").trim();
+
+      const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/); // Split after the year
+
+      const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
+
+      console.log("masterclass", masterclass);
+      const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          apiKey: apiKey,
+          campaignName: campaignName,
+          destination: phone,
+          userName: name,
+          templateParams: ["$FirstName", masterclass, newdate, time, link],
+          source: "registration form",
+          paramsFallbackValue: {
+            FirstName: "user",
+            value: "fallback value",
+          },
+          media: {},
+          buttons: [],
+          carouselCards: [],
+          location: {},
+          attributes: {},
+        }),
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        console.error("WhatsApp API error:", err);
+        throw new Error("WhatsApp message sending failed");
+      }
+
+      //       // console.log('WhatsApp message sent successfully!');
+    } catch (error) {
+      console.error("Error sending WhatsApp message:", error);
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,37 +152,38 @@ const WSFormFree = () => {
         fbclid: utmData.fbclid,
         gclid: utmData.gclid,
         ttclid: utmData.ttclid,
-        msclkid: utmData.msclkid
+        msclkid: utmData.msclkid,
       };
 
       // console.log("Submitting workshop registration with UTM data:", submissionData);
 
-      const { error } = await supabase
-        .from("workshop_registrations")
-        .insert([submissionData]);
+      /**
+       * * Insert data into Supabase table
+       */
+      const { error } = await supabase.from("workshop_registrations").insert([submissionData]);
 
+      /**
+       * * * Check for errors during insertion
+       * * * Handle unique constraint errors for phone and email
+       */
       if (error) {
         console.error("Supabase error:", error);
         if (error.code === "23505") {
           if (error.message.includes("workshop_registrations_phone_key")) {
             toast.error(
-              "This phone number is already registered for a workshop. Please use a different number or contact support if you need to update your registration."
+              "This phone number is already registered for a workshop. Please use a different number or contact support if you need to update your registration.",
             );
-          } else if (
-            error.message.includes("workshop_registrations_email_key")
-          ) {
+          } else if (error.message.includes("workshop_registrations_email_key")) {
             // Handle email constraint error by adding a unique suffix
             const timestamp = new Date().getTime();
-            const uniqueEmail = `${formData.email.split('@')[0]}+${timestamp}@${formData.email.split('@')[1]}`;
-            
+            const uniqueEmail = `${formData.email.split("@")[0]}+${timestamp}@${formData.email.split("@")[1]}`;
+
             // Update submission data with unique email
             submissionData.email = uniqueEmail;
-            
+
             // Try again with the modified email
-            const { error: retryError } = await supabase
-              .from("workshop_registrations")
-              .insert([submissionData]);
-              
+            const { error: retryError } = await supabase.from("workshop_registrations").insert([submissionData]);
+
             if (retryError) {
               console.error("Retry error:", retryError);
               toast.error("Registration failed. Please try again later.");
@@ -138,11 +200,21 @@ const WSFormFree = () => {
                   designation: formData.designation,
                   course: workshopType,
                   workExperience: formData.yearsOfExperience,
-                  yearsOfPassing: formData.yearsOfPassing
+                  yearsOfPassing: formData.yearsOfPassing,
                 });
               } catch (trackingError) {
                 console.error("Error tracking form submission:", trackingError);
               }
+
+              await sendWhatsAppMessage({
+                apiKey: whatsappSerriApi,
+                campaignName: "registration_confirmation",
+                phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                name: formData.name,
+                masterclass: zoomMeetingDetails.title,
+                sessionDate: zoomMeetingDetails.time,
+                link: zoomMeetingDetails.link,
+              });
 
               // Show success toast and redirect to success page
               toast.success("Registration successful!");
@@ -173,12 +245,12 @@ const WSFormFree = () => {
                   },
                 },
               });
-              
+
               return; // Exit early since we've handled everything
             }
           } else {
             toast.error(
-              "This registration already exists. Please contact support if you need to update your registration."
+              "This registration already exists. Please contact support if you need to update your registration.",
             );
           }
         } else {
@@ -186,6 +258,16 @@ const WSFormFree = () => {
         }
         throw error;
       }
+
+      await sendWhatsAppMessage({
+        apiKey: whatsappSerriApi,
+        campaignName: "registration_confirmation",
+        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+        name: formData.name,
+        masterclass: zoomMeetingDetails.title,
+        sessionDate: zoomMeetingDetails.time,
+        link: zoomMeetingDetails.link,
+      });
 
       // Track form submission with Meta Pixel
       try {
@@ -197,13 +279,23 @@ const WSFormFree = () => {
           designation: formData.designation,
           course: workshopType, // Use workshop type as course
           workExperience: formData.yearsOfExperience,
-          yearsOfPassing: formData.yearsOfPassing
+          yearsOfPassing: formData.yearsOfPassing,
         });
         // console.log("Form submission tracked successfully");
       } catch (trackingError) {
         console.error("Error tracking form submission:", trackingError);
         // Continue with registration process even if tracking fails
       }
+
+      await sendWhatsAppMessage({
+        apiKey: whatsappSerriApi,
+        campaignName: "registration_confirmation",
+        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+        name: formData.name,
+        masterclass: zoomMeetingDetails.title,
+        sessionDate: zoomMeetingDetails.time,
+        link: zoomMeetingDetails.link,
+      });
 
       // Show success toast and redirect to success page
       toast.success("Registration successful!");
@@ -243,10 +335,7 @@ const WSFormFree = () => {
   };
 
   return (
-    <div
-      className="bg-[#111] rounded-2xl shadow-2xl p-6 w-full border border-gray-800/30"
-      id="workshop-form"
-    >
+    <div className="bg-[#111] rounded-2xl shadow-2xl p-6 w-full border border-gray-800/30" id="workshop-form">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-4">
           <div className="relative">
