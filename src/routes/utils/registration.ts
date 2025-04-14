@@ -1,5 +1,3 @@
-
-
 /**
  * Registers a user for a Zoom meeting using fetch.
  *
@@ -17,8 +15,13 @@ export async function registerForZoomMeeting(fullName: string, email: string, ph
         zoomMeeting_id,
     };
 
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3020';
+
     try {
-        const response = await fetch('http://localhost:3020/zoom', {
+        console.log('Sending registration request to:', `${apiUrl}/zoom`);
+        console.log('With payload:', payload);
+
+        const response = await fetch(`${apiUrl}/zoom`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,22 +29,27 @@ export async function registerForZoomMeeting(fullName: string, email: string, ph
             body: JSON.stringify(payload),
         });
 
+        const responseData = await response.json().catch(async () => {
+            // If JSON parsing fails, try to get text
+            const text = await response.text();
+            return { error: text };
+        });
+
         if (!response.ok) {
-            const errorData = await response.text(); // Use text to handle non-JSON responses
-            console.error('Failed to register for Zoom meeting:', errorData);
-            throw new Error('Failed to register for Zoom meeting.');
+            const errorDetails = responseData.details || responseData;
+            const errorMessage = typeof errorDetails === 'object' ? 
+                JSON.stringify(errorDetails) : 
+                errorDetails.toString();
+            console.error('Zoom registration failed:', errorDetails);
+            throw new Error(errorMessage);
         }
 
-        const responseData = await response.json();
         console.log('Zoom registration successful:', responseData);
         return responseData;
     } catch (error) {
-        if (error instanceof Error) {
-            console.error('Error registering for Zoom meeting:', error.message);
-        } else {
-            console.error('Unknown error registering for Zoom meeting:', error);
-        }
-        throw error;
+        console.error('Error registering for Zoom meeting:', error);
+        const errorMessage = error instanceof Error ? error.message : 'Failed to register for Zoom meeting';
+        throw new Error(errorMessage);
     }
 }
 

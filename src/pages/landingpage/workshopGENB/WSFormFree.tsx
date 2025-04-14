@@ -334,7 +334,7 @@ const WSFormFree = () => {
 
       console.log("making regestration");
 
-      await registerForZoomMeeting(formData.name, formData.email, formData.phone, "97437027764")
+      await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingId)
         .then(async (data) => {
           // Success: maybe show a confirmation message
           console.log("Zoom registration successful:", data);
@@ -351,7 +351,7 @@ const WSFormFree = () => {
         .catch((error) => {
           // Error: show a friendly error message
           console.error("Error registering for Zoom meeting:", error);
-          toast.error("Zoom registration failed. Please try again.");
+          toast.error(error.message || "Zoom registration failed. Please try again.");
         });
 
       console.log("masterclass titile", zoomMeetingDetails.title);
