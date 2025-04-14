@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate } from "react-router-dom";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
+import { registerForZoomMeeting } from "../../../routes/utils/regestration";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -46,67 +47,67 @@ const WSFormFree = () => {
     }));
   };
 
-  //   async function sendWhatsAppMessage({
-  //     apiKey,
-  //     campaignName,
-  //     phone,
-  //     name,
-  //     masterclass,
-  //     sessionDate,
+  async function sendWhatsAppMessage({
+    apiKey,
+    campaignName,
+    phone,
+    name,
+    masterclass,
+    sessionDate,
 
-  //     link,
-  //   }: {
-  //     apiKey: string;
-  //     campaignName: string;
-  //     phone: string;
-  //     name: string;
-  //     masterclass: string;
-  //     sessionDate: string;
-  //     link: string;
-  //   }) {
-  //     try {
-  //       const cleaned = sessionDate.replace("India", "").trim();
+    link,
+  }: {
+    apiKey: string;
+    campaignName: string;
+    phone: string;
+    name: string;
+    masterclass: string;
+    sessionDate: string;
+    link: string;
+  }) {
+    try {
+      const cleaned = sessionDate.replace("India", "").trim();
 
-  //       const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/); // Split after the year
+      const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/); // Split after the year
 
-  //       const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
+      const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
 
-  //       // console.log(campaignName, phone, name, masterclass, newdate, time, link);
-  //       const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           apiKey: apiKey,
-  //           campaignName: campaignName,
-  //           destination: phone,
-  //           userName: name,
-  //           templateParams: ["$FirstName", masterclass, newdate, time, link],
-  //           source: "registration form",
-  //           paramsFallbackValue: {
-  //             FirstName: "user",
-  //             value: "fallback value",
-  //           },
-  //           media: {},
-  //           buttons: [],
-  //           carouselCards: [],
-  //           location: {},
-  //           attributes: {},
-  //         }),
-  //       });
+      console.log("masterclass", masterclass);
+      const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          apiKey: apiKey,
+          campaignName: campaignName,
+          destination: phone,
+          userName: name,
+          templateParams: ["$FirstName", masterclass, newdate, time, link],
+          source: "registration form",
+          paramsFallbackValue: {
+            FirstName: "user",
+            value: "fallback value",
+          },
+          media: {},
+          buttons: [],
+          carouselCards: [],
+          location: {},
+          attributes: {},
+        }),
+      });
 
-  //       if (!response.ok) {
-  //         const err = await response.json();
-  //         console.error("WhatsApp API error:", err);
-  //         throw new Error("WhatsApp message sending failed");
-  //       }
+      if (!response.ok) {
+        const err = await response.json();
+        console.error("WhatsApp API error:", err);
+        throw new Error("WhatsApp message sending failed");
+      }
 
-  //       // console.log('WhatsApp message sent successfully!');
-  //     } catch (error) {
-  //       console.error("Error sending WhatsApp message:", error);
-  //     }
-  //   }
+      //       // console.log('WhatsApp message sent successfully!');
+    } catch (error) {
+      console.error("Error sending WhatsApp message:", error);
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -203,6 +204,16 @@ const WSFormFree = () => {
                 console.error("Error tracking form submission:", trackingError);
               }
 
+              await sendWhatsAppMessage({
+                apiKey: whatsappSerriApi,
+                campaignName: "registration_confirmation",
+                phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                name: formData.name,
+                masterclass: zoomMeetingDetails.title,
+                sessionDate: zoomMeetingDetails.time,
+                link: zoomMeetingDetails.link,
+              });
+
               // Show success toast and redirect to success page
               toast.success("Registration successful!");
 
@@ -268,6 +279,16 @@ const WSFormFree = () => {
                 console.error("Error tracking form submission:", trackingError);
               }
 
+              await sendWhatsAppMessage({
+                apiKey: whatsappSerriApi,
+                campaignName: "registration_confirmation",
+                phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                name: formData.name,
+                masterclass: zoomMeetingDetails.title,
+                sessionDate: zoomMeetingDetails.time,
+                link: zoomMeetingDetails.link,
+              });
+
               // Show success toast and redirect to success page
               toast.success("Registration successful!");
 
@@ -311,40 +332,28 @@ const WSFormFree = () => {
         throw error;
       }
 
-      //   await sendWhatsAppMessage({
-      //     apiKey: whatsappSerriApi,
-      //     campaignName: "registration_msg",
-      //     phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
-      //     name: formData.name,
-      //     masterclass: workshopType,
-      //     sessionDate: zoomMeetingDetails.time,
-      //     link: zoomMeetingDetails.link,
-      //   });
+      registerForZoomMeeting(formData.name, formData.email, formData.phone)
+        .then((data) => {
+          // Success: maybe show a confirmation message
+          console.log("Zoom registration successful:", data);
+        })
+        .catch((error) => {
+          // Error: show a friendly error message
+          console.error("Error registering for Zoom meeting:", error);
+          toast.error("Zoom registration failed. Please try again.");
+        });
 
-      // const emailData = {
-      // 	name: submissionData.name,
-      // 	email: submissionData.email,
-      // 	phone: submissionData.phone,
-      // 	workshop_type: submissionData.workshop_type,
-      // 	created_at: new Date().toISOString(),
-      // };
+      console.log("masterclass titile", zoomMeetingDetails.title);
 
-      // Trigger the email after data insertion is successful
-
-      // const response = await fetch('http://localhost:3020/sendmail', {
-      // 	method: 'POST',
-      // 	headers: {
-      // 		'Content-Type': 'application/json',
-      // 	},
-      // 	body: JSON.stringify(emailData),
-      // });
-
-      // if (!response.ok) {
-      // 	throw new Error('Failed to trigger email.');
-      // }
-
-      // const responseData = await response.json();
-      // console.log('Email sent successfully:', responseData);
+      await sendWhatsAppMessage({
+        apiKey: whatsappSerriApi,
+        campaignName: "registration_confirmation",
+        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+        name: formData.name,
+        masterclass: zoomMeetingDetails.title,
+        sessionDate: zoomMeetingDetails.time,
+        link: zoomMeetingDetails.link,
+      });
 
       /**
        * * * Track form submission with Meta Pixel
