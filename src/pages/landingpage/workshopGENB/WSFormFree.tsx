@@ -162,175 +162,175 @@ const WSFormFree = () => {
       /**
        * * Insert data into Supabase table
        */
-      // const { error } = await supabase.from("workshop_registrations").insert([submissionData]);
+      const { error } = await supabase.from("workshop_registrations").insert([submissionData]);
 
       /**
        * * * Check for errors during insertion
        * * * Handle unique constraint errors for phone and email
        */
-      // if (error) {
-      //   console.error("Supabase error:", error);
-      //   if (error.code === "23505") {
-      //     if (error.message.includes("workshop_registrations_phone_key")) {
-      //       // Handle phone constraint error by adding a unique suffix
-      //       const timestamp = new Date().getTime();
-      //       const uniquePhone = `${formData.phone}_${timestamp}`;
+      if (error) {
+        console.error("Supabase error:", error);
+        if (error.code === "23505") {
+          if (error.message.includes("workshop_registrations_phone_key")) {
+            // Handle phone constraint error by adding a unique suffix
+            const timestamp = new Date().getTime();
+            const uniquePhone = `${formData.phone}_${timestamp}`;
 
-      //       // Update submission data with unique phone
-      //       submissionData.phone = uniquePhone;
+            // Update submission data with unique phone
+            submissionData.phone = uniquePhone;
 
-      //       // Try again with the modified phone
-      //       const { error: retryPhoneError } = await supabase.from("workshop_registrations").insert([submissionData]);
+            // Try again with the modified phone
+            const { error: retryPhoneError } = await supabase.from("workshop_registrations").insert([submissionData]);
 
-      //       if (retryPhoneError) {
-      //         console.error("Retry error:", retryPhoneError);
-      //         toast.error("Registration failed. Please try again later.");
-      //         throw retryPhoneError;
-      //       } else {
-      //         // Continue with successful registration flow below
-      //         // Track form submission with Meta Pixel
-      //         try {
-      //           await trackFormSubmission({
-      //             name: formData.name,
-      //             email: formData.email,
-      //             phone: formData.phone, // Use original phone for tracking
-      //             education: formData.education,
-      //             designation: formData.designation,
-      //             course: workshopType,
-      //             workExperience: formData.yearsOfExperience,
-      //             yearsOfPassing: formData.yearsOfPassing,
-      //           } as any);
-      //         } catch (trackingError) {
-      //           console.error("Error tracking form submission:", trackingError);
-      //         }
+            if (retryPhoneError) {
+              console.error("Retry error:", retryPhoneError);
+              toast.error("Registration failed. Please try again later.");
+              throw retryPhoneError;
+            } else {
+              // Continue with successful registration flow below
+              // Track form submission with Meta Pixel
+              try {
+                await trackFormSubmission({
+                  name: formData.name,
+                  email: formData.email,
+                  phone: formData.phone, // Use original phone for tracking
+                  education: formData.education,
+                  designation: formData.designation,
+                  course: workshopType,
+                  workExperience: formData.yearsOfExperience,
+                  yearsOfPassing: formData.yearsOfPassing,
+                } as any);
+              } catch (trackingError) {
+                console.error("Error tracking form submission:", trackingError);
+              }
 
-      //         await sendWhatsAppMessage({
-      //           apiKey: whatsappSerriApi,
-      //           campaignName: "registration_confirmation",
-      //           phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
-      //           name: formData.name,
-      //           masterclass: zoomMeetingDetails.title,
-      //           sessionDate: zoomMeetingDetails.time,
-      //           link: zoomMeetingDetails.link,
-      //         });
+              await sendWhatsAppMessage({
+                apiKey: whatsappSerriApi,
+                campaignName: "registration_confirmation",
+                phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                name: formData.name,
+                masterclass: zoomMeetingDetails.title,
+                sessionDate: zoomMeetingDetails.time,
+                link: zoomMeetingDetails.link,
+              });
 
-      //         // Show success toast and redirect to success page
-      //         toast.success("Registration successful!");
+              // Show success toast and redirect to success page
+              toast.success("Registration successful!");
 
-      //         // Reset form data
-      //         setFormData({
-      //           name: "",
-      //           email: "",
-      //           phone: "",
-      //           education: "",
-      //           designation: "",
-      //           yearsOfExperience: "",
-      //           yearsOfPassing: "",
-      //         } as WorkshopFormData);
+              // Reset form data
+              setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                education: "",
+                designation: "",
+                yearsOfExperience: "",
+                yearsOfPassing: "",
+              } as WorkshopFormData);
 
-      //         // Redirect to success page with registration details (using original email)
-      //         navigate("/workshop-registration/success", {
-      //           state: {
-      //             registrationDetails: {
-      //               name: submissionData.name,
-      //               email: submissionData.email,
-      //               workshop_type: submissionData.workshop_type,
-      //             },
-      //             zoomDetails: {
-      //               link: zoomMeetingDetails.link,
-      //               meetingId: zoomMeetingDetails.meetingId,
-      //               time: zoomMeetingDetails.time,
-      //             },
-      //           },
-      //         });
+              // Redirect to success page with registration details (using original email)
+              navigate("/workshop-registration/success", {
+                state: {
+                  registrationDetails: {
+                    name: submissionData.name,
+                    email: submissionData.email,
+                    workshop_type: submissionData.workshop_type,
+                  },
+                  zoomDetails: {
+                    link: zoomMeetingDetails.link,
+                    meetingId: zoomMeetingDetails.meetingId,
+                    time: zoomMeetingDetails.time,
+                  },
+                },
+              });
 
-      //         return; // Exit early since we've handled everything
-      //       }
-      //     } else if (error.message.includes("workshop_registrations_email_key")) {
-      //       // Handle email constraint error by adding a unique suffix
-      //       const timestamp = new Date().getTime();
-      //       const uniqueEmail = `${formData.email.split("@")[0]}+${timestamp}@${formData.email.split("@")[1]}`;
+              return; // Exit early since we've handled everything
+            }
+          } else if (error.message.includes("workshop_registrations_email_key")) {
+            // Handle email constraint error by adding a unique suffix
+            const timestamp = new Date().getTime();
+            const uniqueEmail = `${formData.email.split("@")[0]}+${timestamp}@${formData.email.split("@")[1]}`;
 
-      //       // Update submission data with unique email
-      //       submissionData.email = uniqueEmail;
+            // Update submission data with unique email
+            submissionData.email = uniqueEmail;
 
-      //       // Try again with the modified email
-      //       const { error: retryError } = await supabase.from("workshop_registrations").insert([submissionData]);
+            // Try again with the modified email
+            const { error: retryError } = await supabase.from("workshop_registrations").insert([submissionData]);
 
-      //       if (retryError) {
-      //         console.error("Retry error:", retryError);
-      //         toast.error("Registration failed. Please try again later.");
-      //         throw retryError;
-      //       } else {
-      //         // Continue with successful registration flow below
-      //         // Track form submission with Meta Pixel
-      //         try {
-      //           await trackFormSubmission({
-      //             name: formData.name,
-      //             email: formData.email, // Use original email for tracking
-      //             phone: formData.phone,
-      //             education: formData.education,
-      //             designation: formData.designation,
-      //             course: workshopType,
-      //             workExperience: formData.yearsOfExperience,
-      //             yearsOfPassing: formData.yearsOfPassing,
-      //           });
-      //         } catch (trackingError) {
-      //           console.error("Error tracking form submission:", trackingError);
-      //         }
+            if (retryError) {
+              console.error("Retry error:", retryError);
+              toast.error("Registration failed. Please try again later.");
+              throw retryError;
+            } else {
+              // Continue with successful registration flow below
+              // Track form submission with Meta Pixel
+              try {
+                await trackFormSubmission({
+                  name: formData.name,
+                  email: formData.email, // Use original email for tracking
+                  phone: formData.phone,
+                  education: formData.education,
+                  designation: formData.designation,
+                  course: workshopType,
+                  workExperience: formData.yearsOfExperience,
+                  yearsOfPassing: formData.yearsOfPassing,
+                });
+              } catch (trackingError) {
+                console.error("Error tracking form submission:", trackingError);
+              }
 
-      //         await sendWhatsAppMessage({
-      //           apiKey: whatsappSerriApi,
-      //           campaignName: "registration_confirmation",
-      //           phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
-      //           name: formData.name,
-      //           masterclass: zoomMeetingDetails.title,
-      //           sessionDate: zoomMeetingDetails.time,
-      //           link: zoomMeetingDetails.link,
-      //         });
+              await sendWhatsAppMessage({
+                apiKey: whatsappSerriApi,
+                campaignName: "registration_confirmation",
+                phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                name: formData.name,
+                masterclass: zoomMeetingDetails.title,
+                sessionDate: zoomMeetingDetails.time,
+                link: zoomMeetingDetails.link,
+              });
 
-      //         // Show success toast and redirect to success page
-      //         toast.success("Registration successful!");
+              // Show success toast and redirect to success page
+              toast.success("Registration successful!");
 
-      //         // Reset form data
-      //         setFormData({
-      //           name: "",
-      //           email: "",
-      //           phone: "",
-      //           education: "",
-      //           designation: "",
-      //           yearsOfExperience: "",
-      //           yearsOfPassing: "",
-      //         } as WorkshopFormData);
+              // Reset form data
+              setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                education: "",
+                designation: "",
+                yearsOfExperience: "",
+                yearsOfPassing: "",
+              } as WorkshopFormData);
 
-      //         // Redirect to success page with registration details (using original email)
-      //         navigate("/workshop-registration/success", {
-      //           state: {
-      //             registrationDetails: {
-      //               name: submissionData.name,
-      //               email: formData.email, // Use original email for display
-      //               workshop_type: submissionData.workshop_type,
-      //             },
-      //             zoomDetails: {
-      //               link: zoomMeetingDetails.link,
-      //               meetingId: zoomMeetingDetails.meetingId,
-      //               time: zoomMeetingDetails.time,
-      //             },
-      //           },
-      //         });
+              // Redirect to success page with registration details (using original email)
+              navigate("/workshop-registration/success", {
+                state: {
+                  registrationDetails: {
+                    name: submissionData.name,
+                    email: formData.email, // Use original email for display
+                    workshop_type: submissionData.workshop_type,
+                  },
+                  zoomDetails: {
+                    link: zoomMeetingDetails.link,
+                    meetingId: zoomMeetingDetails.meetingId,
+                    time: zoomMeetingDetails.time,
+                  },
+                },
+              });
 
-      //         return; // Exit early since we've handled everything
-      //       }
-      //     } else {
-      //       toast.error(
-      //         "This registration already exists. Please contact support if you need to update your registration.",
-      //       );
-      //     }
-      //   } else {
-      //     toast.error("Registration failed. Please try again later.");
-      //   }
-      //   throw error;
-      // }
+              return; // Exit early since we've handled everything
+            }
+          } else {
+            toast.error(
+              "This registration already exists. Please contact support if you need to update your registration.",
+            );
+          }
+        } else {
+          toast.error("Registration failed. Please try again later.");
+        }
+        throw error;
+      }
 
       console.log("making regestration");
 
