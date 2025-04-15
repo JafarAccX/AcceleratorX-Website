@@ -15,6 +15,7 @@ interface ZoomMeetingDetails {
   link: string;
   meetingId: string;
   time: string;
+  meetingCode: string;
 }
 
 interface WorkshopContextType {
@@ -28,20 +29,23 @@ const PMZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/vcxHdRWkT6qgEbk5prfW-w",
   meetingId: "vcxHdRWkT6qgEbk5prfW",
   time: "Feb 20, 2025 07:00 PM India",
+  meetingCode: "",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
   title: "How to Become a Data Analyst with AI in 2025: Tools, Projects & Job Prep",
   link: "https://zoom.us/j/96800960051?pwd=SFgfijR2mxKd7aMUSyaWJL2P72QG7C.1",
-  meetingId: "96800960051",
+  meetingId: "FcjNLNb5Q_WSEBzVW1_1tg",
   time: "18th April, 2025 07:30 PM India",
+  meetingCode: "97204349341",
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
   title: "",
   link: "https://zoom.us/j/96800960051?pwd=SFgfijR2mxKd7aMUSyaWJL2P72QG7C.1",
-  meetingId: "96800960051",
+  meetingId: "13ZbA8hlSeWBYYXMqZj96w",
   time: "March 12, 2025 07:30 PM India",
+  meetingCode: "",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
@@ -49,13 +53,15 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/zVnro80ySDm_Qll-H-XvCQ",
   meetingId: "zVnro80ySDm_Qll-H-XvCQ",
   time: "12th March, 2025 07:30 AM India",
+  meetingCode: "",
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  title: "Vibe coding with GenAI",
-  link: "https://zoom.us/meeting/register/qF7I8da6SXuMO2DJAPaxUA",
-  meetingId: "qF7I8da6SXuMO2DJAPaxUA",
-  time: "11th April, 2025 07:30 PM India",
+  title: "Build Real AI Projects in Just 90 Minutes",
+  link: "https://zoom.us/meeting/register/ZQDwsE6qTNGsmYLgkrWdRQ",
+  meetingId: "ZQDwsE6qTNGsmYLgkrWdRQ",
+  time: "20th April, 2025 11:00AM PM India",
+  meetingCode: "94260160495",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
@@ -63,6 +69,7 @@ const GENAICZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/OoXQSu52RpaY_nO-XCAO9w",
   meetingId: "OoXQSu52RpaY_nO-XCAO9w",
   time: "16th April, 2025 07:30 PM India",
+  meetingCode: "96869223628",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {
@@ -70,6 +77,7 @@ const DMZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
   meetingId: "-EeXRY1GQFmxc9eHG73nnQ",
   time: "Feb 16, 2025 04:00 PM India",
+  meetingCode: "",
 };
 
 const WorkshopContext = createContext<WorkshopContextType | undefined>(undefined);
