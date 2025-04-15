@@ -215,6 +215,7 @@ const WSFormFree = () => {
               )
                 .then(async (data) => {
                   // Success: maybe show a confirmation message
+                  const zoomJoinLink = data.join_url;
                   console.log("Zoom registration successful:", data);
                   await sendWhatsAppMessage({
                     apiKey: whatsappSerriApi,
@@ -223,7 +224,7 @@ const WSFormFree = () => {
                     name: formData.name,
                     masterclass: zoomMeetingDetails.title,
                     sessionDate: zoomMeetingDetails.time,
-                    link: zoomMeetingDetails.link,
+                    link: zoomJoinLink,
                   });
                 })
                 .catch((error) => {
@@ -279,6 +280,7 @@ const WSFormFree = () => {
 
       await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingCode)
         .then(async (data) => {
+          const zoomJoinLink = data.join_url;
           // Success: maybe show a confirmation message
           console.log("Zoom registration successful:", data);
           await sendWhatsAppMessage({
@@ -288,7 +290,7 @@ const WSFormFree = () => {
             name: formData.name,
             masterclass: zoomMeetingDetails.title,
             sessionDate: zoomMeetingDetails.time,
-            link: zoomMeetingDetails.link,
+            link: zoomJoinLink,
           });
         })
         .catch((error) => {
@@ -318,6 +320,7 @@ const WSFormFree = () => {
 
       await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingCode)
         .then(async (data) => {
+          const zoomJoinLink = data.join_url;
           // Success: maybe show a confirmation message
           console.log("Zoom registration successful:", data);
           await sendWhatsAppMessage({
@@ -327,7 +330,7 @@ const WSFormFree = () => {
             name: formData.name,
             masterclass: zoomMeetingDetails.title,
             sessionDate: zoomMeetingDetails.time,
-            link: zoomMeetingDetails.link,
+            link: zoomJoinLink,
           });
         })
         .catch((error) => {
