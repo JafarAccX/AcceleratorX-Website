@@ -15,8 +15,9 @@ export async function registerForZoomMeeting(fullName: string, email: string, ph
         zoomMeeting_id,
     };
 
-    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3020';
+    const apiUrl = import.meta.env.VITE_API_URL! || 'https://api.acceleratorx.org/';
 
+    console.log('API URL:', apiUrl);
     try {
         console.log('Sending registration request to:', `${apiUrl}/zoom`);
         console.log('With payload:', payload);
@@ -37,8 +38,8 @@ export async function registerForZoomMeeting(fullName: string, email: string, ph
 
         if (!response.ok) {
             const errorDetails = responseData.details || responseData;
-            const errorMessage = typeof errorDetails === 'object' ? 
-                JSON.stringify(errorDetails) : 
+            const errorMessage = typeof errorDetails === 'object' ?
+                JSON.stringify(errorDetails) :
                 errorDetails.toString();
             console.error('Zoom registration failed:', errorDetails);
             throw new Error(errorMessage);
