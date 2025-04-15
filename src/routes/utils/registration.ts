@@ -15,7 +15,7 @@ export async function registerForZoomMeeting(fullName: string, email: string, ph
         zoomMeeting_id,
     };
 
-    const apiUrl = import.meta.env.VITE_API_URL! || 'https://api.acceleratorx.org';
+    const apiUrl = import.meta.env.VITE_BACKEND_URL! || 'https://api.acceleratorx.org';
 
     console.log('API URL:', apiUrl);
     try {
