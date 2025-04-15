@@ -20,6 +20,7 @@ import {
 } from "./types/analytics";
 import WorkshopAnalytics from "./components/WorkshopAnalytics";
 import EnrollmentAnalytics from "./components/EnrollmentAnalytics";
+import { CacheManager } from '../../utils/cacheManager';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey =
@@ -34,6 +35,31 @@ const TIME_PERIODS = [
   { label: "Last 30 Days", days: 30 },
   { label: "Custom Range", days: 0 },
 ] as const;
+
+// Add storage cleanup function
+const cleanupStorage = () => {
+  try {
+    const keys = Object.keys(localStorage);
+    const now = Date.now();
+    
+    keys.forEach(key => {
+      try {
+        const item = localStorage.getItem(key);
+        if (item) {
+          const data = JSON.parse(item);
+          if (data.timestamp && (now - data.timestamp > CACHE_DURATION)) {
+            localStorage.removeItem(key);
+          }
+        }
+      } catch (e) {
+        // If we can't parse the item, remove it
+        localStorage.removeItem(key);
+      }
+    });
+  } catch (e) {
+    console.warn("Error during storage cleanup:", e);
+  }
+};
 
 const PerformanceAnalytics: React.FC = () => {
   const navigate = useNavigate();
@@ -98,23 +124,22 @@ const PerformanceAnalytics: React.FC = () => {
       const formattedStartDate = formatDateForSupabase(startDate);
       const formattedEndDate = formatDateForSupabase(endDate);
 
-      // Check cache first
-      const cachedData = localStorage.getItem(CACHE_KEY);
-      if (!forceRefresh && cachedData) {
-        const parsed: CachedData = JSON.parse(cachedData);
-        if (Date.now() - parsed.timestamp < CACHE_DURATION) {
+      // Check cache first using the new CacheManager
+      if (!forceRefresh) {
+        const cachedData = await CacheManager.getCache(CACHE_KEY);
+        if (cachedData) {
           console.log("Using cached data", {
-            cacheAge: Date.now() - parsed.timestamp,
+            cacheAge: Date.now() - cachedData.timestamp,
             dataSize: {
-              enrollments: parsed.allData.enrollments.length,
-              workshops: parsed.allData.workshops.length,
+              enrollments: cachedData.allData.enrollments.length,
+              workshops: cachedData.allData.workshops.length,
             },
           });
-          setData(parsed.allData);
+          setData(cachedData.allData);
           setRefreshing(false);
           return;
         }
-        console.log("Cache expired, fetching fresh data");
+        console.log("Cache miss or expired, fetching fresh data");
       }
 
       // Fetch all data with pagination
@@ -219,14 +244,17 @@ const PerformanceAnalytics: React.FC = () => {
         workshops: allWorkshops,
       };
 
-      // Cache the data
-      const cacheData: CachedData = {
-        timestamp: Date.now(),
-        allData: newData,
-        processedData: {},
-      };
-      localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
-      console.log("Data cached successfully");
+      // Replace the existing caching logic with the new CacheManager
+      try {
+        await CacheManager.setCache(CACHE_KEY, {
+          timestamp: Date.now(),
+          allData: newData,
+          processedData: {},
+        });
+        console.log("Data cached successfully using chunk manager");
+      } catch (error) {
+        console.warn("Unable to cache data:", error);
+      }
 
       setData(newData);
       setLastFetchTime(Date.now());
