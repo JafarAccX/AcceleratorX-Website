@@ -15,14 +15,11 @@ export async function registerForZoomMeeting(fullName: string, email: string, ph
         zoomMeeting_id,
     };
 
-    const apiUrl = 'https://api.acceleratorx.org';
-
-    console.log('API URL:', apiUrl);
     try {
-        console.log('Sending registration request to:', `${apiUrl}/zoom`);
+        console.log('Sending registration request to:', ``);
         console.log('With payload:', payload);
 
-        const response = await fetch(`${apiUrl}/zoom`, {
+        const response = await fetch(`https://api.acceleratorx.org/zoom`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
