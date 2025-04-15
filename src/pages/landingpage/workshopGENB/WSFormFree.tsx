@@ -334,7 +334,7 @@ const WSFormFree = () => {
 
       console.log("making regestration");
 
-      await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingId)
+      await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingCode)
         .then(async (data) => {
           // Success: maybe show a confirmation message
           console.log("Zoom registration successful:", data);
