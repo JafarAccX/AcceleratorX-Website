@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate } from "react-router-dom";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
+import { registerForZoomMeeting } from "../../../routes/utils/registration";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -259,16 +260,29 @@ const WSFormFree = () => {
         throw error;
       }
 
-      await sendWhatsAppMessage({
-        apiKey: whatsappSerriApi,
-        campaignName: "registration_confirmation",
-        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
-        name: formData.name,
-        masterclass: zoomMeetingDetails.title,
-        sessionDate: zoomMeetingDetails.time,
-        link: zoomMeetingDetails.link,
-      });
+      console.log("making regestration");
 
+      await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingCode)
+        .then(async (data) => {
+          // Success: maybe show a confirmation message
+          console.log("Zoom registration successful:", data);
+          await sendWhatsAppMessage({
+            apiKey: whatsappSerriApi,
+            campaignName: "registration_confirmation",
+            phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+            name: formData.name,
+            masterclass: zoomMeetingDetails.title,
+            sessionDate: zoomMeetingDetails.time,
+            link: zoomMeetingDetails.link,
+          });
+        })
+        .catch((error) => {
+          // Error: show a friendly error message
+          console.error("Error registering for Zoom meeting:", error);
+          toast.error(error.message || "Zoom registration failed. Please try again.");
+        });
+
+      console.log("masterclass titile", zoomMeetingDetails.title);
       // Track form submission with Meta Pixel
       try {
         await trackFormSubmission({

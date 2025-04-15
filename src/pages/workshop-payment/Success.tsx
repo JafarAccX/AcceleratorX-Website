@@ -34,9 +34,7 @@ interface PaymentDetails {
 const Success = () => {
   const { orderId } = useParams();
   const navigate = useNavigate();
-  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(
-    null
-  );
+  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -52,7 +50,7 @@ const Success = () => {
               email,
               workshop_type
             )
-          `
+          `,
           )
           .eq("razorpay_order_id", orderId)
           .single();
@@ -116,9 +114,7 @@ const Success = () => {
           errorData,
           url: apiUrl,
         });
-        throw new Error(
-          `Failed to generate invoice: ${response.status} ${response.statusText}`
-        );
+        throw new Error(`Failed to generate invoice: ${response.status} ${response.statusText}`);
       }
 
       // Create a blob from the PDF stream
@@ -141,9 +137,7 @@ const Success = () => {
       toast.success("Invoice downloaded successfully");
     } catch (error) {
       console.error("Error downloading invoice:", error);
-      toast.error(
-        error instanceof Error ? error.message : "Failed to download invoice"
-      );
+      toast.error(error instanceof Error ? error.message : "Failed to download invoice");
     }
   };
 
@@ -159,12 +153,8 @@ const Success = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">
-            Payment Not Found
-          </h2>
-          <p className="mt-2 text-gray-600">
-            We couldn't find the payment details for this order.
-          </p>
+          <h2 className="text-2xl font-bold text-gray-900">Payment Not Found</h2>
+          <p className="mt-2 text-gray-600">We couldn't find the payment details for this order.</p>
         </div>
       </div>
     );
@@ -194,20 +184,14 @@ const Success = () => {
     },
   };
 
-  const currentZoomDetails = workshopType
-    ? zoomDetails[workshopType as keyof typeof zoomDetails]
-    : null;
+  const currentZoomDetails = workshopType ? zoomDetails[workshopType as keyof typeof zoomDetails] : null;
 
   if (!currentZoomDetails) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">
-            Workshop Details Not Found
-          </h2>
-          <p className="mt-2 text-gray-600">
-            We couldn't find the workshop details for this payment.
-          </p>
+          <h2 className="text-2xl font-bold text-gray-900">Workshop Details Not Found</h2>
+          <p className="mt-2 text-gray-600">We couldn't find the workshop details for this payment.</p>
         </div>
       </div>
     );
@@ -232,19 +216,13 @@ const Success = () => {
             >
               <CheckCircle className="w-10 h-10 text-green-500" />
             </motion.div>
-            <h1 className="text-3xl font-bold text-white mb-2">
-              Payment Successful!
-            </h1>
-            <p className="text-blue-100">
-              Amount Paid: ₹{WORKSHOP_PRICE.amount}
-            </p>
+            <h1 className="text-3xl font-bold text-white mb-2">Payment Successful!</h1>
+            <p className="text-blue-100">Amount Paid: ₹{WORKSHOP_PRICE.amount}</p>
           </div>
 
           {/* Meeting Details */}
           <div className="px-8 py-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">
-              Workshop Details
-            </h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">Workshop Details</h2>
             <div className="bg-blue-50 rounded-xl p-6 space-y-4">
               <div className="flex items-start gap-4">
                 <Calendar className="w-6 h-6 text-blue-600 mt-1" />
@@ -257,9 +235,7 @@ const Success = () => {
                 <Video className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h3 className="font-medium text-gray-900">Zoom Meeting</h3>
-                  <p className="text-gray-600 mb-2">
-                    Meeting ID: {currentZoomDetails.meetingId}
-                  </p>
+                  <p className="text-gray-600 mb-2">Meeting ID: {currentZoomDetails.meetingId}</p>
                   <a
                     href={currentZoomDetails.link}
                     target="_blank"
@@ -276,26 +252,18 @@ const Success = () => {
 
           {/* Transaction Details */}
           <div className="px-8 py-8 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">
-              Transaction Details
-            </h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">Transaction Details</h2>
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">Amount Paid</span>
-                <span className="text-gray-900 font-medium">
-                  ₹{paymentDetails.amount}
-                </span>
+                <span className="text-gray-900 font-medium">₹{paymentDetails.amount}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">Payment ID</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-900 font-medium">
-                    {paymentDetails.razorpay_payment_id}
-                  </span>
+                  <span className="text-gray-900 font-medium">{paymentDetails.razorpay_payment_id}</span>
                   <button
-                    onClick={() =>
-                      handleCopyClick(paymentDetails.razorpay_payment_id)
-                    }
+                    onClick={() => handleCopyClick(paymentDetails.razorpay_payment_id)}
                     className="text-blue-600 hover:text-blue-700"
                   >
                     <Copy className="w-4 h-4" />

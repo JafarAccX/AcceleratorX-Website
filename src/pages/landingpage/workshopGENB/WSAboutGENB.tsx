@@ -12,9 +12,7 @@ const WSAboutGENB = () => {
         block: "center",
       });
     } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
+      console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
   const toolsRef = useRef(null);
@@ -41,30 +39,24 @@ const WSAboutGENB = () => {
           {/* Left Content Column */}
           <div className="w-full lg:w-3/5 space-y-6">
             {/* About Card */}
-            <div className="bg-[#0A1020] rounded-lg shadow-md border border-blue-900/20 overflow-hidden">
+            <div className="bg-[#0A1020] rounded-lg shadow-md border border-green-900/20 overflow-hidden">
               <div className="p-6">
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-blue-400 text-sm font-medium">
-                    Live Workshop
-                  </span>
+                <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
+                  <span className="text-green-400 text-sm font-medium">AI Builder Workshop</span>
                 </div>
 
                 {/* Title */}
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Vibe Coding with GenAI: Build Wild Ideas Without Writing Code
+                  Build Real AI Projects in Just 90 Minutes — No Code Required
                 </h2>
 
                 {/* Workshop Info */}
-                <div className="bg-[#111827] rounded-md p-4 mb-5 border border-blue-500/10">
+                <div className="bg-[#111827] rounded-md p-4 mb-5 border border-green-500/10">
                   <p className="text-gray-300">
-                    Join our creative hands-on workshop on{" "}
-                    <span className="font-semibold text-blue-400">
-                      11th April, 2025
-                    </span>{" "}
-                    at <span className="text-blue-400">07:30 PM</span>. Learn
-                    how to bring your wildest app ideas to life using GenAI tools
-                    that write code for you - no programming experience required!
+                    Join us live on <span className="font-semibold text-green-400">20th April, 2025</span> at{" "}
+                    <span className="text-green-400">11:00 PM</span> and learn to build working AI tools using no-code
+                    platforms — even if you’ve never built anything before!
                   </p>
                 </div>
 
@@ -76,24 +68,17 @@ const WSAboutGENB = () => {
                       <div className="p-1.5 bg-blue-500/10 rounded-md">
                         <Brain className="w-4 h-4 text-blue-400" />
                       </div>
-                      <h3 className="font-semibold text-white text-lg">
-                        Creative Workshop Highlights
-                      </h3>
+                      <h3 className="font-semibold text-white text-lg">Workshop Highlights</h3>
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Create Apps & Websites Without Coding",
-                        "Hands-on Experience with Creative GenAI Tools",
-                        "Turn Your Unique Ideas into Working Prototypes",
-                        "Learn the 'Vibe Coding' Approach to Building",
+                        "Build AI tools with real-world data — fast",
+                        "Use no-code/low-code AI platforms to launch ideas",
+                        "Hands-on projects you can deploy instantly",
+                        "Create without writing a single line of code",
                       ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-center gap-2 text-gray-300 text-sm"
-                        >
-                          <span className="text-xs bg-blue-500/20 p-1 rounded-sm">
-                            {index + 1}
-                          </span>
+                        <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
+                          <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
                           {item}
                         </li>
                       ))}
@@ -106,24 +91,17 @@ const WSAboutGENB = () => {
                       <div className="p-1.5 bg-green-500/10 rounded-md">
                         <Target className="w-4 h-4 text-green-400" />
                       </div>
-                      <h3 className="font-semibold text-white text-lg">
-                        What You'll Learn
-                      </h3>
+                      <h3 className="font-semibold text-white text-lg">What You'll Learn</h3>
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to describe your app ideas to GenAI tools in ways they can turn into working code",
-                        "Techniques for designing UI/UX without touching HTML or CSS",
-                        "Building functional apps and websites through creative prompting",
-                        "Bringing your wildest app ideas to life without programming knowledge",
+                        "How to structure real AI projects using modern tools",
+                        "Prompting techniques for smart, functional results",
+                        "Building apps powered by LLMs and automation",
+                        "Turning business needs into AI-powered solutions",
                       ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-center gap-2 text-gray-300 text-sm"
-                        >
-                          <span className="text-xs bg-green-500/20 p-1 rounded-sm">
-                            {index + 1}
-                          </span>
+                        <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
+                          <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
                           {item}
                         </li>
                       ))}
@@ -134,7 +112,7 @@ const WSAboutGENB = () => {
                 {/* CTA Button */}
                 <button
                   onClick={scrollToForm}
-                  className="w-full mt-5 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-md hover:shadow-md transition-shadow duration-300"
+                  className="w-full mt-5 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-md hover:shadow-md transition-shadow duration-300"
                 >
                   Register Now
                 </button>
@@ -142,13 +120,8 @@ const WSAboutGENB = () => {
             </div>
 
             {/* Tools Section - Simplified */}
-            <div
-              ref={toolsRef}
-              className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20"
-            >
-              <h2 className="text-xl font-bold text-white mb-4">
-                Creative Tools You'll Master
-              </h2>
+            <div ref={toolsRef} className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20">
+              <h2 className="text-xl font-bold text-white mb-4">Creative Tools You'll Master</h2>
               <div className="relative overflow-hidden">
                 <div className="flex overflow-hidden">
                   <motion.div
@@ -171,15 +144,9 @@ const WSAboutGENB = () => {
                         className="flex-shrink-0 w-16 h-16 bg-[#111827] rounded-md p-2 flex flex-col items-center justify-center gap-1 border border-gray-800/30"
                       >
                         <div className="w-8 h-8 flex items-center justify-center bg-white rounded-md">
-                          <img
-                            src={tool.img}
-                            alt={tool.name}
-                            className="w-6 h-6 object-contain"
-                          />
+                          <img src={tool.img} alt={tool.name} className="w-6 h-6 object-contain" />
                         </div>
-                        <p className="text-[9px] font-medium text-gray-300 text-center line-clamp-1">
-                          {tool.name}
-                        </p>
+                        <p className="text-[9px] font-medium text-gray-300 text-center line-clamp-1">{tool.name}</p>
                       </div>
                     ))}
                   </motion.div>
@@ -198,15 +165,14 @@ const WSAboutGENB = () => {
                   <h3 className="text-xl font-bold">Certification Included</h3>
                 </div>
                 <p className="text-gray-200 mb-3 text-sm">
-                  Upon completion of the workshop, you'll receive a professional certificate confirming your ability to create functional applications and websites without writing code using GenAI tools.
+                  Upon completion of the workshop, you'll receive a professional certificate confirming your ability to
+                  create functional applications and websites without writing code using GenAI tools.
                 </p>
                 <p className="text-gray-200 mb-3 text-sm">
-                  Earn an industry-recognized certificate showcasing your AI
-                  workflow automation skills!
+                  Earn an industry-recognized certificate showcasing your AI workflow automation skills!
                 </p>
                 <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
-                  ⚠️ Only those who attend the complete automation workshop will
-                  receive the official certification.
+                  ⚠️ Only those who attend the complete automation workshop will receive the official certification.
                 </div>
               </div>
             </div>
