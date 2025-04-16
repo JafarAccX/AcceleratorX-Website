@@ -6,7 +6,6 @@ import {
   User,
   Mail,
   Phone,
-  MapPin,
   Calendar,
   Edit2,
   LogOut,
@@ -15,6 +14,9 @@ import {
   CreditCard,
   XCircle,
   CheckCircle2,
+  GraduationCap,
+  Briefcase,
+  Award,
 } from "lucide-react";
 import { useUser } from "../../context/UserContext";
 import { supabase } from "../../lib/supabaseClient";
@@ -51,6 +53,8 @@ export default function Profile() {
   });
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetail[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  console.log("User data:", user);
 
   // Payment History Skeleton Component
   const PaymentHistorySkeleton = () => (
@@ -144,7 +148,9 @@ export default function Profile() {
       return;
     }
 
-    setFormData({
+    // Only set form data when the user state is initially available
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       id: user.id,
       full_name: user.full_name || "",
       email: user.email || "",
@@ -152,14 +158,19 @@ export default function Profile() {
       education_level: user.education_level || "",
       work_experience: user.work_experience || "",
       designation: user.designation || "",
-    });
-
-    // Fetch payment details when user is available
-    fetchPaymentDetails();
+    }));
   }, [user, navigate]);
+
+  useEffect(() => {
+    // Fetch payment details when the component mounts or user changes
+    if (user) {
+      fetchPaymentDetails();
+    }
+  }, [user]);
 
   // Profile Update Handler
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log("handle submit called");
     e.preventDefault();
     if (!user) return;
 
@@ -244,13 +255,15 @@ export default function Profile() {
               {!isEditing ? (
                 <>
                   <button
-                    onClick={() => setIsEditing(true)}
+                    type="button" // Changed from default submit to button
+                    onClick={() => setIsEditing((prev) => !prev)}
                     className="flex items-center gap-2 px-5 py-2.5 bg-blue-600/90 hover:bg-blue-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
                   >
                     <Edit2 className="w-5 h-5" />
                     <span className="font-medium">Edit Profile</span>
                   </button>
                   <button
+                    type="button" // Changed from default submit to button
                     onClick={handleLogout}
                     className="flex items-center gap-2 px-5 py-2.5 bg-red-600/90 hover:bg-red-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
                   >
@@ -261,7 +274,7 @@ export default function Profile() {
               ) : (
                 <>
                   <button
-                    type="submit"
+                    onClick={handleSubmit}
                     form="profile-form"
                     className="flex items-center gap-2 px-5 py-2.5 bg-green-600/90 hover:bg-green-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
                   >
@@ -269,7 +282,7 @@ export default function Profile() {
                     <span className="font-medium">Save Changes</span>
                   </button>
                   <button
-                    onClick={() => setIsEditing(false)}
+                    onClick={() => setIsEditing((prev) => !prev)}
                     className="flex items-center gap-2 px-5 py-2.5 bg-gray-600/90 hover:bg-gray-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
                   >
                     <X className="w-5 h-5" />
@@ -286,16 +299,17 @@ export default function Profile() {
       <div className="max-w-7xl mx-auto px-4 py-8 -mt-12">
         <form
           id="profile-form"
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-gray-700/30"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { icon: User, label: "Name", name: "name" },
+              { icon: User, label: "Name", name: "full_name" },
               { icon: Mail, label: "Email", name: "email" },
-              { icon: Phone, label: "Phone", name: "phone", disabled: true },
-              { icon: MapPin, label: "City", name: "city" },
-              { icon: MapPin, label: "State", name: "state" },
+              { icon: Phone, label: "Phone", name: "phone_number", disabled: true },
+              { icon: GraduationCap, label: "Education Level", name: "education_level" },
+              { icon: Briefcase, label: "Work Experience", name: "work_experience" },
+              { icon: Award, label: "Designation", name: "designation" },
             ].map((field) => (
               <div key={field.name} className="relative">
                 <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">{field.label}</label>

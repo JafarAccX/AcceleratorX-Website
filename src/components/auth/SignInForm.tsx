@@ -164,6 +164,8 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
           }),
         );
 
+        setUser(userData);
+
         toast.success("Welcome back!");
 
         // Execute onSuccess callback if provided

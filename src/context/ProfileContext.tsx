@@ -25,10 +25,6 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   };
 
   if (!profile) {
-    // Fetch the profile from an API or local storage here and set it
-    // For example:
-    // const fetchedProfile = fetchProfileFromAPI();
-    // setProfile(fetchedProfile);
     return;
   }
 

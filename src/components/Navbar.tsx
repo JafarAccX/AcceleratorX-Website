@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import companyLogo from "/assets/companylogo.png";
+import { isAuthenticated } from "../context/UserContext";
+import ProfileMenu from "./navbar/ProfileMenu";
 
 // Add CSS classes for transitions
 const dropdownTransition = "transition-all duration-300 ease-in-out";
@@ -14,11 +16,7 @@ const xsatNavItems = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export default function Navbar({
-  onEnrollClick,
-}: {
-  onEnrollClick: () => void;
-}) {
+export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,6 +44,7 @@ export default function Navbar({
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Careers", path: "/careers" },
+    { label: "Jobs", path: "/jobs" },
     { label: "XSAT", path: "/xsat" },
   ];
 
@@ -63,18 +62,13 @@ export default function Navbar({
     return (
       <header
         className={`fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${
-          isScrolled
-            ? "bg-black/80 shadow-lg border-b border-white/5"
-            : "bg-transparent"
+          isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <div className="text-2xl mt-2 font-bold text-white">
-              <Link
-                to="https://acceleratorx.org/"
-                className={`${hoverTransition} hover:opacity-90`}
-              >
+              <Link to="https://acceleratorx.org/" className={`${hoverTransition} hover:opacity-90`}>
                 <img src="/xsat-bg.png" alt="xsat" className="w-auto h-10" />
               </Link>
             </div>
@@ -134,15 +128,8 @@ export default function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            to="/"
-            className={`flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`}
-          >
-            <img
-              src={companyLogo}
-              alt="company logo"
-              className="w-auto h-16 object-contain"
-            />
+          <Link to="/" className={`flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`}>
+            <img src={companyLogo} alt="company logo" className="w-auto h-16 object-contain" />
           </Link>
 
           {/* Desktop Menu */}
@@ -168,9 +155,7 @@ export default function Navbar({
 
               <div
                 className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${
-                  isDropdownOpen
-                    ? "opacity-100 visible translate-y-0"
-                    : "opacity-0 invisible -translate-y-2"
+                  isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
                 }`}
               >
                 <div className="bg-black/95 backdrop-blur-md border border-white/10 rounded-xl shadow-xl overflow-hidden">
@@ -220,6 +205,22 @@ export default function Navbar({
             >
               Join AcceX Squad
             </button>
+
+            {isAuthenticated() ? (
+              <ProfileMenu />
+            ) : (
+              <div className="flex items-center space-x-4">
+                <Link to="/sign-in" className={`text-gray-300 hover:text-white ${hoverTransition} py-2 px-4`}>
+                  Login
+                </Link>
+                <Link
+                  to="/sign-up"
+                  className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}

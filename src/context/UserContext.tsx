@@ -92,3 +92,12 @@ export function useUser() {
   }
   return context;
 }
+
+export const isAuthenticated = () => {
+  const userData = localStorage.getItem("userData");
+  if (userData) {
+    const parsedData = JSON.parse(userData);
+    return parsedData.isAuthenticated || false;
+  }
+  return false;
+};
