@@ -24,14 +24,17 @@ export interface SignUpFormProps {
 export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
   const navigate = useNavigate();
   const { setUser } = useUser();
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [timer, setTimer] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [phoneVerified, setPhoneVerified] = useState(false);
+  const [phoneVerified, setPhoneVerified] = useState(true); // change it to false
+  const [fullName, setFullName] = useState("");
+  const [educationLevel, setEducationLevel] = useState("");
+  const [workExperience, setWorkExperience] = useState("");
+  const [designation, setDesignation] = useState("");
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -146,59 +149,89 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
         return;
       }
 
-      if (!name.trim()) {
-        // toast.error("Please enter your full name");
+      if (!fullName.trim()) {
+        toast.error("Please enter your full name");
         setIsLoading(false);
         return;
       }
 
       if (!email.trim()) {
-        // toast.error("Please enter your email address");
+        toast.error("Please enter your email address");
         setIsLoading(false);
         return;
       }
 
-      // After successful registration, get the user data with wallet
+      if (!educationLevel.trim()) {
+        toast.error("Please enter your education level");
+        setIsLoading(false);
+        return;
+      }
+
+      if (!workExperience.trim()) {
+        toast.error("Please enter your work experience");
+        setIsLoading(false);
+        return;
+      }
+
+      if (!designation.trim()) {
+        toast.error("Please enter your designation");
+        setIsLoading(false);
+        return;
+      }
+
+      // check for existing user
       const { data: userData, error: userDataError } = await supabase
         .from("profiles")
         .select(`*`)
         .eq("phone_number", phoneNumber)
         .single();
 
-      if (userDataError || !userData) {
+      if (userData) {
+        console.log("no need to insert the data again", userData);
+
         throw new Error(userDataError?.message || "Failed to fetch user data");
+      } else {
+        console.log("sending the data to supabase");
+
+        const { data, error } = await supabase
+          .from("profiles")
+          .insert({
+            phone_number: phoneNumber,
+            full_name: fullName,
+            email: email,
+            education_level: educationLevel,
+            work_experience: workExperience,
+            designation: designation,
+          })
+          .select("*");
+
+        if (error) {
+          console.error("209 : ");
+          throw new Error(error.message);
+        }
+        console.log("User data inserted:", data);
+        toast.success("User data inserted successfully");
+
+        // Update UserContext with the new user data
+        setUser(data[0]);
+
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({
+            ...data[0],
+            isAuthenticated: true,
+          }),
+        );
       }
 
-      // Create a new session for the user
-      const { error: sessionError } = await supabase.rpc("create_user_session", {
-        p_user_id: userData.id,
-      });
-
-      if (sessionError) {
-        console.error("Error creating session:", sessionError);
-        // Continue with signup even if session creation fails
-      }
-
-      // Set user data in the application state
-      setUser(userData);
-
-      // Store authentication state in localStorage
-      localStorage.setItem(
-        "userData",
-        JSON.stringify({
-          ...userData,
-          isAuthenticated: true,
-        }),
-      );
-
-      // Show success notifications
-      // toast.success("Account created successfully!");
       toast.success("Welcome to the platform!");
 
       // Call onSuccess first if it exists
       if (onSuccess) {
         onSuccess();
       }
+
+      console.log("navigating to profile page");
 
       // Navigate after onSuccess
       navigate("/profile");
@@ -211,12 +244,12 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-40">
       {/* Form */}
       <div className="w-full flex items-center justify-center">
         <div className="w-full space-y-8">
           <form
-            className="space-y-6 relative"
+            className="space-y-6 relative max-w-screen-sm mx-auto px-4 sm:px-6 lg:px-8"
             onSubmit={(e) => {
               e.preventDefault();
               if (showOTP) {
@@ -237,8 +270,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                   id="name"
                   required
                   placeholder="Enter your full name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   disabled={isLoading}
                   className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
                 />
@@ -246,7 +279,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
 
               <div>
                 <label htmlFor="email" className="text-blue-50 font-medium">
-                  Email Address
+                  Email
                 </label>
                 <input
                   id="email"
@@ -274,10 +307,11 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       placeholder="Enter your phone number"
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
-                      disabled={showOTP || isLoading || phoneVerified}
+                      // disabled={showOTP || isLoading || phoneVerified}
                       className="bg-transparent border-0 focus:ring-0 text-white placeholder:text-blue-200/50"
                     />
                   </div>
+
                   {!phoneVerified && !showOTP && (
                     <button
                       type="button"
@@ -327,27 +361,68 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                 </div>
               )}
 
-              <div>
-                <label htmlFor="referralCode" className="text-blue-50 font-medium">
-                  Referral Code <span className="text-blue-300/60">(Optional)</span>
-                </label>
-              </div>
-
               {phoneVerified && (
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3.5 font-medium relative transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <LoadingSpinner />
-                      <span>Registering...</span>
-                    </div>
-                  ) : (
-                    "Register"
-                  )}
-                </button>
+                <>
+                  <div>
+                    <label htmlFor="educationLevel" className="text-blue-50 font-medium">
+                      Education Level
+                    </label>
+                    <input
+                      id="educationLevel"
+                      required
+                      placeholder="Enter your education level"
+                      value={educationLevel}
+                      onChange={(e) => setEducationLevel(e.target.value)}
+                      disabled={isLoading}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="workExperience" className="text-blue-50 font-medium">
+                      Work Experience
+                    </label>
+                    <input
+                      id="workExperience"
+                      required
+                      placeholder="Enter your work experience"
+                      value={workExperience}
+                      onChange={(e) => setWorkExperience(e.target.value)}
+                      disabled={isLoading}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="designation" className="text-blue-50 font-medium">
+                      Designation
+                    </label>
+                    <input
+                      id="designation"
+                      required
+                      placeholder="Enter your designation"
+                      value={designation}
+                      onChange={(e) => setDesignation(e.target.value)}
+                      disabled={isLoading}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3.5 font-medium relative transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <LoadingSpinner />
+                        <span>Registering...</span>
+                      </div>
+                    ) : (
+                      "Register"
+                    )}
+                  </button>
+                </>
               )}
             </div>
           </form>

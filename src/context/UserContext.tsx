@@ -33,7 +33,14 @@ export function UserProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Save user to localStorage whenever it changes
     if (user) {
-      localStorage.setItem("userData", JSON.stringify(user));
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          ...user,
+          isAuthenticated: true,
+        }),
+      );
+      // localStorage.setItem("userData", JSON.stringify(user));
     }
   }, [user]);
 
@@ -59,7 +66,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
       } catch (error) {
         console.error("Error fetching user data:", error);
         // Clear localStorage if there's an error
-        localStorage.removeItem("user");
+        localStorage.removeItem("userData");
         localStorage.removeItem("phoneNumber");
       } finally {
         setIsLoading(false);
