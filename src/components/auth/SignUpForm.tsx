@@ -30,7 +30,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
   const [showOTP, setShowOTP] = useState(false);
   const [timer, setTimer] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [phoneVerified, setPhoneVerified] = useState(true); // change it to false
+  const [phoneVerified, setPhoneVerified] = useState(false); // change it to false
   const [fullName, setFullName] = useState("");
   const [educationLevel, setEducationLevel] = useState("");
   const [workExperience, setWorkExperience] = useState("");
@@ -307,7 +307,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       placeholder="Enter your phone number"
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
-                      // disabled={showOTP || isLoading || phoneVerified}
+                      disabled={showOTP || isLoading || phoneVerified}
                       className="bg-transparent border-0 focus:ring-0 text-white placeholder:text-blue-200/50"
                     />
                   </div>
