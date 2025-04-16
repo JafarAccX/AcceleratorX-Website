@@ -141,29 +141,19 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
           if (userError.code === "PGRST116") {
             // User not found
             toast.error("Account not found. Please sign up first.");
-            navigate("/sign-in");
+            navigate("/sign-up");
             return;
           }
           throw new Error(userError.message);
         }
 
+        console.log("User data:", userData);
         if (!userData) {
           toast.error("Account not found. Please sign up first.");
+          console.log("navigate to sign in");
           navigate("/sign-in");
           return;
         }
-
-        // Create a new session for the user
-        const { error: sessionError } = await supabase.rpc("create_user_session", {
-          p_user_id: userData.id,
-        });
-
-        if (sessionError) {
-          console.error("Error creating session:", sessionError);
-          // Continue with login even if session creation fails
-        }
-
-        setUser(userData);
 
         // Store user data and authentication state in localStorage
         localStorage.setItem(

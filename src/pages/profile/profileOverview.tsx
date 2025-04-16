@@ -16,8 +16,8 @@ import {
   XCircle,
   CheckCircle2,
 } from "lucide-react";
+import { useUser } from "../../context/UserContext";
 import { supabase } from "../../lib/supabaseClient";
-import { useProfile } from "../../context/ProfileContext";
 
 // Define types for better type safety
 interface PaymentDetail {
@@ -36,13 +36,15 @@ interface PaymentDetail {
 
 export default function Profile() {
   const navigate = useNavigate();
-  const { profile } = useProfile();
+  //   const { user } = useAuth();
+
+  const { user, logout } = useUser();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     id: "",
-    phone_number: "",
     full_name: "",
     email: "",
+    phone_number: "",
     education_level: "",
     work_experience: "",
     designation: "",
@@ -87,7 +89,7 @@ export default function Profile() {
       await new Promise((resolve) => setTimeout(resolve, 500));
 
       const { data, error } = await supabase
-        .from("enrollments")
+        .from("course_enrollments")
         .select(
           `
           *,
@@ -96,7 +98,7 @@ export default function Profile() {
           )
           `,
         )
-        .eq("user_id", profile?.id)
+        .eq("id", user?.id)
         .order("created_at", { ascending: false });
 
       if (error) {
@@ -137,29 +139,29 @@ export default function Profile() {
 
   // Initial data setup and navigation
   useEffect(() => {
-    if (!profile) {
+    if (!user) {
       navigate("/");
       return;
     }
 
     setFormData({
-      id: profile.id || "",
-      full_name: profile.full_name || "",
-      email: profile.email || "",
-      phone_number: profile.phone_number || "",
-      education_level: profile.education_level || "",
-      work_experience: profile.work_experience || "",
-      designation: profile.designation || "",
+      id: user.id,
+      full_name: user.full_name || "",
+      email: user.email || "",
+      phone_number: user.phone_number || "",
+      education_level: user.education_level || "",
+      work_experience: user.work_experience || "",
+      designation: user.designation || "",
     });
 
     // Fetch payment details when user is available
     fetchPaymentDetails();
-  }, [profile, navigate]);
+  }, [user, navigate]);
 
   // Profile Update Handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!profile) return;
+    if (!user) return;
 
     try {
       const { data, error } = await supabase
@@ -173,15 +175,15 @@ export default function Profile() {
           designation: formData.designation,
           updated_at: new Date().toISOString(),
         })
-        .eq("user_id", profile.id)
+        .eq("id", user.id)
         .select()
         .single();
 
       if (error) throw error;
 
       // Update local storage with flattened structure
-      const updatedUser = { ...profile, ...data };
-      localStorage.setItem("user", JSON.stringify(updatedUser));
+      const updatedUser = { ...user, ...data };
+      localStorage.setItem("userData", JSON.stringify(updatedUser));
       //   otplessAuth.setUser(updatedUser);
 
       setIsEditing(false);
@@ -222,7 +224,7 @@ export default function Profile() {
               <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 p-1 shadow-xl">
                 <div className="w-full h-full rounded-xl bg-gray-900 flex items-center justify-center">
                   <span className="text-4xl font-bold bg-gradient-to-r from-blue-200 to-purple-200 text-transparent bg-clip-text">
-                    {user.name?.[0]?.toUpperCase() || "U"}
+                    {user.full_name?.[0]?.toUpperCase() || "U"}
                   </span>
                 </div>
               </div>
@@ -234,8 +236,8 @@ export default function Profile() {
             </div>
 
             <div className="flex-1 mb-2">
-              <h1 className="text-3xl font-bold text-white drop-shadow-md mb-1">{user.name || "User"}</h1>
-              <p className="text-gray-300/90 font-medium">{user.email || user.phone}</p>
+              <h1 className="text-3xl font-bold text-white drop-shadow-md mb-1">{user.full_name || "User"}</h1>
+              <p className="text-gray-300/90 font-medium">{user.email || user.phone_number}</p>
             </div>
 
             <div className="flex gap-3 mb-2">

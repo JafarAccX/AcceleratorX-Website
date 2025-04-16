@@ -25,7 +25,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => {
     // Try to get user from localStorage on initial load
-    const savedUser = localStorage.getItem("user");
+    const savedUser = localStorage.getItem("userData");
     return savedUser ? JSON.parse(savedUser) : null;
   });
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +33,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Save user to localStorage whenever it changes
     if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("userData", JSON.stringify(user));
     }
   }, [user]);
 
@@ -71,7 +71,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
+    localStorage.removeItem("userData");
     localStorage.removeItem("phoneNumber");
   };
 

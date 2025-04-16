@@ -15,24 +15,22 @@ interface ProfileContextType {
   updateProfile: (newProfile: UserProfile) => void;
 }
 
-const defaultProfile: UserProfile = {
-  id: "1",
-  full_name: "Tanbir Alam",
-  email: "tanbir@acceleratorx.co",
-  phone_number: "+919903681979",
-  education_level: "Bachelors",
-  work_experience: "2 years",
-  designation: "Software Engineer",
-};
-
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export function ProfileProvider({ children }: { children: ReactNode }) {
-  const [profile, setProfile] = useState<UserProfile>(defaultProfile);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
 
   const updateProfile = (newProfile: UserProfile) => {
     setProfile(newProfile);
   };
+
+  if (!profile) {
+    // Fetch the profile from an API or local storage here and set it
+    // For example:
+    // const fetchedProfile = fetchProfileFromAPI();
+    // setProfile(fetchedProfile);
+    return;
+  }
 
   return <ProfileContext.Provider value={{ profile, updateProfile }}>{children}</ProfileContext.Provider>;
 }
