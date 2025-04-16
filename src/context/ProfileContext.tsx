@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
 interface UserProfile {
+  id: string;
   phone_number: string;
   full_name: string;
   email: string;
@@ -15,6 +16,7 @@ interface ProfileContextType {
 }
 
 const defaultProfile: UserProfile = {
+  id: "1",
   full_name: "Tanbir Alam",
   email: "tanbir@acceleratorx.co",
   phone_number: "+919903681979",
