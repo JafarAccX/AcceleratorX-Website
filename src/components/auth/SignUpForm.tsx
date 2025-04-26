@@ -244,12 +244,25 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <div className="w-full mt-40">
-      {/* Form */}
-      <div className="w-full flex items-center justify-center">
-        <div className="w-full space-y-8">
+    <div className="flex min-h-screen bg-gradient-to-r from-blue-800 to-indigo-900">
+      {/* Left side illustration */}
+      <div className="hidden lg:flex w-1/2 flex-col items-end justify-center p-8 relative">
+        <div className="relative w-full flex items-center justify-center max-w-[600px]">
+          <img src="/assets/signup.png" alt="People Illustration" className="relative z-10 w-full" />
+        </div>
+      </div>
+
+      {/* Right side form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 md:p-8">
+        <div className="w-full max-w-[450px] space-y-8">
+          <div className="space-y-3">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent pb-3">
+              Sign Up
+            </h1>
+          </div>
+
           <form
-            className="space-y-6 relative max-w-screen-sm mx-auto px-4 sm:px-6 lg:px-8"
+            className="space-y-6"
             onSubmit={(e) => {
               e.preventDefault();
               if (showOTP) {
@@ -262,8 +275,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
             }}
           >
             <div className="space-y-5">
-              <div>
-                <label htmlFor="name" className="text-blue-50 font-medium">
+              <div className="flex items-center gap-4">
+                <label htmlFor="name" className="text-blue-50 font-medium min-w-[100px] ">
                   Full Name
                 </label>
                 <input
@@ -273,12 +286,12 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   disabled={isLoading}
-                  className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                  className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                 />
               </div>
 
-              <div>
-                <label htmlFor="email" className="text-blue-50 font-medium">
+              <div className="flex items-center gap-4">
+                <label htmlFor="email" className="text-blue-50 font-medium min-w-[100px]">
                   Email
                 </label>
                 <input
@@ -289,26 +302,26 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isLoading}
-                  className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                  className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                 />
               </div>
 
-              <div>
-                <label htmlFor="phoneNumber" className="text-blue-50 font-medium">
-                  Phone Number
+              <div className="flex items-start  gap-4">
+                <label htmlFor="phoneNumber" className="text-blue-50 font-medium min-w-[100px] mt-2">
+                  Mobile Number
                 </label>
-                <div className="relative">
-                  <div className="flex items-center bg-white/10 rounded-lg border border-white/10 focus-within:border-blue-400 transition-all duration-200">
-                    <span className="text-white/80 px-3 py-2 border-r border-white/10">+91</span>
+                <div className="relative focus:ring-2 w-full">
+                  <div className="flex items-center   overflow-hidden w-full">
+                    <span className="rounded-lg text-[#6B7B93] bg-white/10 px-4 py-3 text-sm mr-1">+91</span>
                     <input
                       id="phoneNumber"
                       type="tel"
                       maxLength={10}
-                      placeholder="Enter your phone number"
+                      placeholder="Enter mobile number"
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       disabled={showOTP || isLoading || phoneVerified}
-                      className="bg-transparent border-0 focus:ring-0 text-white placeholder:text-blue-200/50"
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2 "
                     />
                   </div>
 
@@ -326,8 +339,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
               </div>
 
               {showOTP && (
-                <div>
-                  <label htmlFor="otp" className="text-blue-50 font-medium">
+                <div className="flex items-center gap-4">
+                  <label htmlFor="otp" className="text-blue-50 font-medium min-w-[100px]">
                     Enter OTP
                   </label>
                   <input
@@ -343,7 +356,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                     }}
                     maxLength={6}
                     disabled={isLoading}
-                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                   />
 
                   {timer > 0 ? (
@@ -363,9 +376,9 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
 
               {phoneVerified && (
                 <>
-                  <div>
-                    <label htmlFor="educationLevel" className="text-blue-50 font-medium">
-                      Education Level
+                  <div className="flex items-center gap-4">
+                    <label htmlFor="educationLevel" className="text-blue-50 font-medium min-w-[100px]">
+                      Education
                     </label>
                     <input
                       id="educationLevel"
@@ -374,13 +387,13 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       value={educationLevel}
                       onChange={(e) => setEducationLevel(e.target.value)}
                       disabled={isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="workExperience" className="text-blue-50 font-medium">
-                      Work Experience
+                  <div className="flex items-center gap-4">
+                    <label htmlFor="workExperience" className="text-blue-50 font-medium min-w-[100px]">
+                      Experience
                     </label>
                     <input
                       id="workExperience"
@@ -389,12 +402,12 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       value={workExperience}
                       onChange={(e) => setWorkExperience(e.target.value)}
                       disabled={isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="designation" className="text-blue-50 font-medium">
+                  <div className="flex items-center gap-4">
+                    <label htmlFor="designation" className="text-blue-50 font-medium min-w-[100px]">
                       Designation
                     </label>
                     <input
@@ -404,7 +417,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       value={designation}
                       onChange={(e) => setDesignation(e.target.value)}
                       disabled={isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200"
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                     />
                   </div>
 

@@ -232,8 +232,8 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                   Mobile Number
                 </label>
                 <div className="relative">
-                  <div className="flex items-center bg-[#0F1F4C] rounded-lg overflow-hidden">
-                    <span className="text-[#6B7B93] px-4 py-3 text-sm">+91</span>
+                  <div className="flex items-center  rounded-lg overflow-hidden">
+                    <span className="rounded-lg text-[#6B7B93] bg-white/10 px-4 py-3 text-sm mr-1">+91</span>
                     <input
                       id="phoneNumber"
                       type="tel"
@@ -242,7 +242,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       disabled={showOTP || isLoading}
-                      className="bg-transparent border-0 text-white placeholder:text-[#6B7B93] text-sm py-3"
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2 "
                     />
                   </div>
                 </div>
