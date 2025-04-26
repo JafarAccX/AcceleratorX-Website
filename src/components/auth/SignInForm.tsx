@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { supabase } from "../../lib/supabaseClient";
-import companyLogo from "/assets/companylogo.png";
 
 interface WindowOverride extends Window {
   OTPless?: any;
@@ -261,7 +260,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     onChange={(e) => setOtp(e.target.value)}
                     maxLength={6}
                     disabled={isLoading}
-                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-0 focus:outline-none transition-all duration-200"
+                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2 "
                   />
                   {timer > 0 ? (
                     <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>

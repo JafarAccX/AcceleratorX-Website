@@ -133,9 +133,9 @@ export default function Profile() {
       }
     } catch (error) {
       console.error("Error fetching payment details:", error);
-      toast.error(
-        error instanceof Error ? error.message : "An unexpected error occurred while fetching payment details",
-      );
+      // toast.error(
+      //   error instanceof Error ? error.message : "An unexpected error occurred while fetching payment details",
+      // );
     } finally {
       setIsLoading(false);
     }
@@ -300,6 +300,7 @@ export default function Profile() {
         <form
           id="profile-form"
           // onSubmit={handleSubmit}
+          onSubmit={(e) => e.preventDefault()}
           className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-gray-700/30"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
