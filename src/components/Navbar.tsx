@@ -199,12 +199,12 @@ export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void })
             ))}
 
             {/* CTA Button */}
-            <button
+            {/* <button
               className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
               onClick={onEnrollClick}
             >
               Join AcceX Squad
-            </button>
+            </button> */}
 
             {isAuthenticated() ? (
               <ProfileMenu />
@@ -299,7 +299,7 @@ export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void })
           ))}
 
           {/* Mobile CTA Button */}
-          <button
+          {/* <button
             className={`w-full bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2.5 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
             onClick={() => {
               setIsOpen(false);
@@ -307,7 +307,7 @@ export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void })
             }}
           >
             Join AcceX Squad
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { supabase } from "../../lib/supabaseClient";
+import companyLogo from "/assets/companylogo.png";
 
 interface WindowOverride extends Window {
   OTPless?: any;
@@ -194,13 +195,10 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   return (
     <div className="flex min-h-screen bg-gradient-to-r from-blue-800 to-indigo-900">
       {/* Left side illustration */}
-      <div className="hidden lg:flex w-1/2 flex-col items-center justify-center p-8 relative">
-        <div className="absolute top-8 left-8">
-          <img src="/assets/xsat-bg.png" alt="XSAT Logo" className="h-12 w-auto" />
-        </div>
-        <div className="relative w-full max-w-[600px]">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-violet-500/30 blur-3xl rounded-full transform -rotate-6"></div>
-          <img src="/assets/sign-in.svg" alt="People Illustration" className="relative z-10 w-full" />
+      <div className="hidden lg:flex w-1/2 flex-col items-end justify-center p-8 relative">
+        <div className="relative w-full flex items-center justify-center max-w-[600px]">
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-violet-500/30 blur-3xl rounded-full transform -rotate-6"></div> */}
+          <img src="/assets/signup.png" alt="People Illustration" className="relative z-10 w-full" />
         </div>
       </div>
 
@@ -212,7 +210,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
               Sign In
             </h1>
             <p className="text-blue-100/80 text-lg">
-              Welcome to XSAT, the premier scholarship examination for students.
+              Welcome to AcceleratoX, the premier scholarship examination for students.
               <br />
             </p>
           </div>
