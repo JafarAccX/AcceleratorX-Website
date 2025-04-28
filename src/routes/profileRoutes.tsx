@@ -5,13 +5,6 @@ import { ProtectedRoute } from "../components/auth/ProtectedRoute";
 // Profile Components
 const ProfileOverview = lazy(() => import("../pages/profile/profileOverview"));
 
-// Profile Pages
-const ProfilePageOverview = () => (
-  <>
-    <ProfileOverview />
-  </>
-);
-
 export const profileRoutes = [
   // <ProtectedRoute></ProtectedRoute>
   // <Route   />
@@ -20,10 +13,10 @@ export const profileRoutes = [
     path="/profile"
     element={
       <ProtectedRoute>
-        <ProfilePageOverview />
+        <ProfileOverview />
       </ProtectedRoute>
     }
   >
-    <Route index element={<ProfilePageOverview />} />
+    <Route index element={<ProfileOverview />} />
   </Route>,
 ];

@@ -24,9 +24,13 @@ import SignInForm from "./components/auth/SignInForm";
 import { UserProvider } from "./context/UserContext";
 import { AppliedJobs, JobApplication, JobDetails, JobList } from "./pages/jobs";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   const { setSelectedCourse } = useCourseContext();
+
+  // Create a client
+  const queryClient = new QueryClient();
 
   // Track view content on mount
   useEffect(() => {
@@ -34,56 +38,58 @@ function App() {
   }, []);
 
   return (
-    <HelmetProvider>
-      <CourseProvider>
-        <UserProvider>
-          <Router basename="/">
-            <ScrollToTop />
-            <MetaPixel />
-            <Toaster position="top-center" />
-            <RouteLogic setSelectedCourse={setSelectedCourse} />
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <CourseProvider>
+          <UserProvider>
+            <Router basename="/">
+              <ScrollToTop />
+              <MetaPixel />
+              <Toaster position="top-center" />
+              <RouteLogic setSelectedCourse={setSelectedCourse} />
 
-            <MainLayout>
-              <Suspense fallback={<Loader />}>
-                <Routes>
-                  {mainRoutes}
-                  {workshopRoutes}
-                  {flyerRoutes}
-                  {courseRoutes}
-                  {profileRoutes}
-                  <Route path="/sign-up" element={<SignUpForm />} />
-                  <Route path="/sign-in" element={<SignInForm />} />
-                  {/* Admin Routes */}
-                  <Route path="/admin" element={<AdminPage />} />
-                  <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                  <Route path="/admin/enrollments" element={<AdminPage />} />
-                  <Route path="/admin/ads" element={<AdAnalysis />} />
-                  <Route path="/jobs" element={<JobList />} />,
-                  <Route path="/jobs/:id" element={<JobDetails />} />,
-                  <Route
-                    path="/jobs/:id/apply"
-                    element={
-                      <ProtectedRoute>
-                        <JobApplication />
-                      </ProtectedRoute>
-                    }
-                  />
-                  ,
-                  <Route
-                    path="/jobs/applied-jobs"
-                    element={
-                      <ProtectedRoute>
-                        <AppliedJobs />
-                      </ProtectedRoute>
-                    }
-                  />
-                </Routes>
-              </Suspense>
-            </MainLayout>
-          </Router>
-        </UserProvider>
-      </CourseProvider>
-    </HelmetProvider>
+              <MainLayout>
+                <Suspense fallback={<Loader />}>
+                  <Routes>
+                    {mainRoutes}
+                    {workshopRoutes}
+                    {flyerRoutes}
+                    {courseRoutes}
+                    {profileRoutes}
+                    <Route path="/sign-up" element={<SignUpForm />} />
+                    <Route path="/sign-in" element={<SignInForm />} />
+                    {/* Admin Routes */}
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                    <Route path="/admin/enrollments" element={<AdminPage />} />
+                    <Route path="/admin/ads" element={<AdAnalysis />} />
+                    <Route path="/jobs" element={<JobList />} />,
+                    <Route path="/jobs/:id" element={<JobDetails />} />,
+                    <Route
+                      path="/jobs/:id/apply"
+                      element={
+                        <ProtectedRoute>
+                          <JobApplication />
+                        </ProtectedRoute>
+                      }
+                    />
+                    ,
+                    <Route
+                      path="/jobs/applied-jobs"
+                      element={
+                        <ProtectedRoute>
+                          <AppliedJobs />
+                        </ProtectedRoute>
+                      }
+                    />
+                  </Routes>
+                </Suspense>
+              </MainLayout>
+            </Router>
+          </UserProvider>
+        </CourseProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
   );
 }
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
-import { supabase } from "../../lib/supabaseClient";
+import { useGetUserByMobile } from "../../hooks/customer";
 
 interface WindowOverride extends Window {
   OTPless?: any;
@@ -28,8 +28,13 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   const [otp, setOtp] = React.useState("");
   const [showOTP, setShowOTP] = React.useState(false);
   const [timer, setTimer] = React.useState(0);
-  const [isLoading, setIsLoading] = React.useState(false);
+  // const [isLoading, setIsLoading] = React.useState(false);
   // const [errorMessage, setErrorMessage] = React.useState("");
+
+  // Using the custom hook to get user by mobile number
+  const { data: userData, isLoading, isError, error } = useGetUserByMobile(phoneNumber);
+
+  console.log(error);
 
   React.useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -56,50 +61,34 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     }
 
     try {
-      setIsLoading(true);
+      console.log(userData);
 
-      // Ensure the phone number starts with '91'
-      const formattedPhoneNumber = phoneNumber.replace(/^91|^/, "91");
-      console.log("Sending OTP to:", formattedPhoneNumber);
-      // Check if phone number exists
-      const { data: existingUser, error: checkError } = await supabase
-        .from("profiles")
-        .select()
-        .eq("phone_number", formattedPhoneNumber)
-        .single();
+      if (userData) {
+        // User exists, proceed with sending OTP
+        const OTPlessSignin = new OTPLess();
 
-      if (checkError) {
-        console.error("Error occurred:", checkError);
-      }
+        const { success, error } = await OTPlessSignin.initiate({
+          channel: "PHONE",
+          phone: phoneNumber,
+          countryCode: "+91",
+          otpLength: 6,
+          expiry: 60,
+        });
 
-      if (!existingUser) {
-        toast.error("This phone number is not registered. Please sign up first.");
-        return;
-      }
-
-      const OTPlessSignin = new OTPLess();
-
-      const { success, error } = await OTPlessSignin.initiate({
-        channel: "PHONE",
-        phone: phoneNumber,
-        countryCode: "+91",
-        otpLength: 6,
-        expiry: 60,
-      });
-
-      if (success) {
-        setShowOTP(true);
-        setTimer(30);
-        toast.success("OTP sent successfully");
+        if (success) {
+          setShowOTP(true);
+          setTimer(30);
+          toast.success("OTP sent successfully");
+        } else {
+          throw new Error(error || "Failed to send OTP");
+        }
       } else {
-        throw new Error(error || "Failed to send OTP");
+        toast.error("This phone number is not registered. Please sign up first.");
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
       toast.error(errorMessage);
       setShowOTP(false);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -116,7 +105,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     }
 
     try {
-      setIsLoading(true);
+      // setIsLoading(true);
       const OTPlessSignin = new OTPLess();
 
       const { response, success, error } = await OTPlessSignin.verify({
@@ -126,54 +115,32 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
         countryCode: "+91",
       });
 
-      const formattedPhoneNumber = phoneNumber.replace(/^91|^/, "91");
-      console.log("Sending OTP to:", formattedPhoneNumber);
-
       if (success && response?.verification === "COMPLETED") {
-        // First check if user exists in database with wallet data
-        const { data: userData, error: userError } = await supabase
-          .from("profiles")
-          .select(`*`)
-          .eq("phone_number", formattedPhoneNumber)
-          .single();
+        if (userData) {
+          console.log("User data:", userData);
+          // Store user data and authentication state in localStorage
+          localStorage.setItem(
+            "userData",
+            JSON.stringify({
+              ...userData,
+              isAuthenticated: true,
+            }),
+          );
 
-        if (userError) {
-          if (userError.code === "PGRST116") {
-            // User not found
-            toast.error("Account not found. Please sign up first.");
-            navigate("/sign-up");
-            return;
+          setUser(userData);
+
+          toast.success("Welcome back!");
+
+          // Execute onSuccess callback if provided
+          if (onSuccess) {
+            onSuccess();
           }
-          throw new Error(userError.message);
-        }
-
-        console.log("User data:", userData);
-        if (!userData) {
+          // Navigate to dashboard
+          navigate("/profile");
+        } else {
           toast.error("Account not found. Please sign up first.");
-          console.log("navigate to sign in");
-          navigate("/sign-in");
-          return;
+          navigate("/sign-up");
         }
-
-        // Store user data and authentication state in localStorage
-        localStorage.setItem(
-          "userData",
-          JSON.stringify({
-            ...userData,
-            isAuthenticated: true,
-          }),
-        );
-
-        setUser(userData);
-
-        toast.success("Welcome back!");
-
-        // Execute onSuccess callback if provided
-        if (onSuccess) {
-          onSuccess();
-        }
-        // Navigate to dashboard
-        navigate("/profile");
       } else {
         throw new Error(error || "Failed to verify OTP");
       }
@@ -181,8 +148,6 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       const errorMessage = error instanceof Error ? error.message : "Invalid OTP. Please try again.";
       toast.error(errorMessage);
       setOtp("");
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -246,6 +211,8 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                   </div>
                 </div>
               </div>
+
+              {isError && <div className="text-red-600"> Invalid Credentials</div>}
 
               {showOTP && (
                 <div>

@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
-import { supabase } from "../../lib/supabaseClient";
+// import { supabase } from "../../lib/supabaseClient";
+import { useCreateUser, useGetUserByMobile } from "../../hooks/customer";
+import { CreateCustomerPayload } from "../../types/customer";
+import Timer from "./timer";
 
 const LoadingSpinner = () => (
   <motion.div
@@ -24,32 +27,30 @@ export interface SignUpFormProps {
 export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
   const navigate = useNavigate();
   const { setUser } = useUser();
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [formState, setFormState] = useState<Partial<CreateCustomerPayload>>({
+    callingCode: "+91",
+    mobileVerified: false,
+    emailVerified: false,
+    active: true,
+    certificateGenerated: false,
+    role: "user",
+  });
+
+  const { mutateAsync: createUser } = useCreateUser();
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [timer, setTimer] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const [phoneVerified, setPhoneVerified] = useState(false); // change it to false
-  const [fullName, setFullName] = useState("");
-  const [educationLevel, setEducationLevel] = useState("");
-  const [workExperience, setWorkExperience] = useState("");
-  const [designation, setDesignation] = useState("");
 
-  useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
-    if (showOTP && timer > 0) {
-      interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
-    }
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [showOTP, timer]);
+  const { data: existingUser, isLoading, error } = useGetUserByMobile(formState?.mobile || "");
+
+  console.log(error);
+
+  const handleInputChange = (field: keyof CreateCustomerPayload, value: any) => {
+    setFormState((prev) => ({ ...prev, [field]: value }));
+  };
 
   const handleSendOTP = async () => {
-    if (!phoneNumber || phoneNumber.length !== 10) {
+    if (!formState.mobile || formState.mobile.length !== 10) {
       toast.error("Please enter a valid 10-digit phone number");
       return;
     }
@@ -61,11 +62,6 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
     }
 
     try {
-      setIsLoading(true);
-
-      // Check if phone number already exists
-      const { data: existingUser } = await supabase.from("users").select("id").eq("phone_number", phoneNumber).single();
-
       if (existingUser) {
         toast.error("This phone number is already registered. Please sign in instead.");
         return;
@@ -75,7 +71,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
 
       const { success, error } = await OTPlessSignin.initiate({
         channel: "PHONE",
-        phone: phoneNumber,
+        phone: formState.mobile,
         countryCode: "+91",
         otpLength: 6,
         expiry: 60,
@@ -92,8 +88,6 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
       const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
       toast.error(errorMessage);
       setShowOTP(false);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -115,12 +109,13 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
       const { response, success, error } = await OTPlessSignin.verify({
         otp: otp,
         channel: "PHONE",
-        phone: phoneNumber,
+        phone: formState.mobile,
         countryCode: "+91",
       });
 
       if (success && response?.verification === "COMPLETED") {
-        setPhoneVerified(true);
+        // setFormState(formState.mobileVerified);
+        handleInputChange("mobileVerified", true);
         setShowOTP(false);
         setOtp("");
         toast.success("Phone number verified successfully");
@@ -141,84 +136,61 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
 
     try {
-      if (!phoneVerified) {
-        toast.error("Please verify your phone number first");
-        return;
-      }
+      // if (!phoneVerified) {
+      //   toast.error("Please verify your phone number first");
+      //   return;
+      // }
 
-      if (!fullName.trim()) {
-        toast.error("Please enter your full name");
-        setIsLoading(false);
-        return;
-      }
+      // if (!fullName.trim()) {
+      //   toast.error("Please enter your full name");
 
-      if (!email.trim()) {
-        toast.error("Please enter your email address");
-        setIsLoading(false);
-        return;
-      }
+      //   return;
+      // }
 
-      if (!educationLevel.trim()) {
-        toast.error("Please enter your education level");
-        setIsLoading(false);
-        return;
-      }
+      // if (!email.trim()) {
+      //   toast.error("Please enter your email address");
 
-      if (!workExperience.trim()) {
-        toast.error("Please enter your work experience");
-        setIsLoading(false);
-        return;
-      }
+      //   return;
+      // }
 
-      if (!designation.trim()) {
-        toast.error("Please enter your designation");
-        setIsLoading(false);
-        return;
-      }
+      // if (!educationLevel.trim()) {
+      //   toast.error("Please enter your education level");
 
-      // check for existing user
-      const { data: userData, error: userDataError } = await supabase
-        .from("profiles")
-        .select(`*`)
-        .eq("phone_number", phoneNumber)
-        .single();
+      //   return;
+      // }
 
-      if (userData) {
-        console.log("no need to insert the data again", userData);
+      // if (!workExperience.trim()) {
+      //   toast.error("Please enter your work experience");
 
-        throw new Error(userDataError?.message || "Failed to fetch user data");
+      //   return;
+      // }
+
+      // if (!designation.trim()) {
+      //   toast.error("Please enter your designation");
+
+      //   return;
+      // }
+
+      if (existingUser) {
+        // console.log("no need to insert the data again", existingUser);
+
+        throw new Error(error?.message || "Failed to fetch user data");
       } else {
         console.log("sending the data to supabase");
 
-        const { data, error } = await supabase
-          .from("profiles")
-          .insert({
-            phone_number: phoneNumber,
-            full_name: fullName,
-            email: email,
-            education_level: educationLevel,
-            work_experience: workExperience,
-            designation: designation,
-          })
-          .select("*");
+        const data = await createUser(formState as CreateCustomerPayload);
 
-        if (error) {
-          console.error("209 : ");
-          throw new Error(error.message);
-        }
-        console.log("User data inserted:", data);
         toast.success("User data inserted successfully");
 
         // Update UserContext with the new user data
-        setUser(data[0]);
+        setUser(data);
 
         localStorage.setItem(
           "userData",
           JSON.stringify({
-            ...data[0],
+            ...data,
             isAuthenticated: true,
           }),
         );
@@ -238,8 +210,6 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
     } catch (error) {
       console.error("Error during signup:", error);
       toast.error("Failed to create account");
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -267,7 +237,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
               e.preventDefault();
               if (showOTP) {
                 handleVerifyOtp(otp);
-              } else if (phoneVerified) {
+              } else if (formState.mobile) {
                 handleSignUp(e);
               } else {
                 handleSendOTP();
@@ -276,16 +246,27 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
           >
             <div className="space-y-5">
               <div className="flex items-center gap-4">
-                <label htmlFor="name" className="text-blue-50 font-medium min-w-[100px] ">
-                  Full Name
+                <label htmlFor="email" className="text-blue-50 font-medium min-w-[100px]">
+                  FirstName
                 </label>
                 <input
-                  id="name"
-                  required
-                  placeholder="Enter your full name"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  disabled={isLoading}
+                  type="text"
+                  placeholder="Last Name"
+                  value={formState.firstName || ""}
+                  onChange={(e) => handleInputChange("firstName", e.target.value)}
+                  className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                />
+              </div>
+
+              <div className="flex items-center gap-4">
+                <label htmlFor="email" className="text-blue-50 font-medium min-w-[100px]">
+                  LastName
+                </label>
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  value={formState.lastName || ""}
+                  onChange={(e) => handleInputChange("lastName", e.target.value)}
                   className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                 />
               </div>
@@ -299,8 +280,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                   type="email"
                   required
                   placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formState.email}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
                   disabled={isLoading}
                   className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                 />
@@ -318,19 +299,19 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       type="tel"
                       maxLength={10}
                       placeholder="Enter mobile number"
-                      value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
-                      disabled={showOTP || isLoading || phoneVerified}
+                      value={formState.mobile}
+                      onChange={(e) => handleInputChange("mobile", e.target.value)}
+                      disabled={showOTP || isLoading || !!formState.mobileVerified}
                       className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2 "
                     />
                   </div>
 
-                  {!phoneVerified && !showOTP && (
+                  {!formState.mobileVerified && !showOTP && (
                     <button
                       type="button"
                       onClick={handleSendOTP}
                       className="mt-3 w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3 font-medium disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:hover:scale-100"
-                      disabled={isLoading || !phoneNumber || phoneNumber.length !== 10}
+                      disabled={isLoading || !formState.mobile || formState.mobile.length !== 10}
                     >
                       {isLoading ? <LoadingSpinner /> : "Verify Phone Number"}
                     </button>
@@ -360,7 +341,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                   />
 
                   {timer > 0 ? (
-                    <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>
+                    <Timer showOTP={showOTP} />
                   ) : (
                     <button
                       type="button"
@@ -374,23 +355,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                 </div>
               )}
 
-              {phoneVerified && (
+              {formState.mobileVerified && (
                 <>
-                  <div className="flex items-center gap-4">
-                    <label htmlFor="educationLevel" className="text-blue-50 font-medium min-w-[100px]">
-                      Education
-                    </label>
-                    <input
-                      id="educationLevel"
-                      required
-                      placeholder="Enter your education level"
-                      value={educationLevel}
-                      onChange={(e) => setEducationLevel(e.target.value)}
-                      disabled={isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                    />
-                  </div>
-
                   <div className="flex items-center gap-4">
                     <label htmlFor="workExperience" className="text-blue-50 font-medium min-w-[100px]">
                       Experience
@@ -399,8 +365,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       id="workExperience"
                       required
                       placeholder="Enter your work experience"
-                      value={workExperience}
-                      onChange={(e) => setWorkExperience(e.target.value)}
+                      value={formState.yearOfExperience}
+                      onChange={(e) => handleInputChange("yearOfExperience", e.target.value)}
                       disabled={isLoading}
                       className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                     />
@@ -414,10 +380,163 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
                       id="designation"
                       required
                       placeholder="Enter your designation"
-                      value={designation}
-                      onChange={(e) => setDesignation(e.target.value)}
+                      value={formState.designation}
+                      onChange={(e) => handleInputChange("designation", e.target.value)}
                       disabled={isLoading}
                       className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Date of Birth */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Date of Birth</label>
+                    <input
+                      type="date"
+                      value={formState.dob || ""}
+                      onChange={(e) => handleInputChange("dob", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg p-2"
+                    />
+                  </div>
+
+                  {/* Gender */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Gender</label>
+                    <select
+                      value={formState.gender || ""}
+                      onChange={(e) => handleInputChange("gender", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg p-2"
+                    >
+                      <option className="bg-white/10" value="">
+                        Select Gender
+                      </option>
+                      <option className="bg-white/10" value="MALE">
+                        Male
+                      </option>
+                      <option className="bg-white/10" value="FEMALE">
+                        Female
+                      </option>
+                      <option className="bg-white/10" value="OTHER">
+                        Other
+                      </option>
+                    </select>
+                  </div>
+
+                  {/* LinkedIn URL */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">LinkedIn</label>
+                    <input
+                      type="url"
+                      placeholder="LinkedIn profile link"
+                      value={formState.linkedinUrl || ""}
+                      onChange={(e) => handleInputChange("linkedinUrl", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* GitHub URL */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">GitHub</label>
+                    <input
+                      type="url"
+                      placeholder="GitHub profile link"
+                      value={formState.githubUrl || ""}
+                      onChange={(e) => handleInputChange("githubUrl", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Expected Salary */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Expected Salary</label>
+                    <input
+                      type="number"
+                      placeholder="Expected Salary (INR)"
+                      value={formState.expectedSalary || ""}
+                      onChange={(e) => handleInputChange("expectedSalary", Number(e.target.value))}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Notice Period */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Notice Period</label>
+                    <input
+                      type="number"
+                      placeholder="Notice period in days"
+                      value={formState.noticePeriod || ""}
+                      onChange={(e) => handleInputChange("noticePeriod", Number(e.target.value))}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Current Company */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Current Company</label>
+                    <input
+                      type="text"
+                      placeholder="Current company name"
+                      value={formState.currentCompany || ""}
+                      onChange={(e) => handleInputChange("currentCompany", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Resume Upload */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Resume</label>
+                    <input
+                      type="text"
+                      placeholder="Resume URL"
+                      value={formState.resume || ""}
+                      onChange={(e) => handleInputChange("resume", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Cover Letter Upload */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Cover Letter</label>
+                    <input
+                      type="text"
+                      placeholder="Cover Letter URL"
+                      value={formState.coverLetter || ""}
+                      onChange={(e) => handleInputChange("coverLetter", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Portfolio */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Portfolio</label>
+                    <input
+                      type="url"
+                      placeholder="Portfolio link"
+                      value={formState.portfolio || ""}
+                      onChange={(e) => handleInputChange("portfolio", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  {/* Referral Code */}
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Referral Code</label>
+                    <input
+                      type="text"
+                      placeholder="Referral code (optional)"
+                      value={formState.referralCode || ""}
+                      onChange={(e) => handleInputChange("referralCode", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <label className="text-blue-50 font-medium min-w-[100px]">Skills</label>
+                    <input
+                      type="text"
+                      placeholder="Skills"
+                      value={formState.skills || ""}
+                      onChange={(e) => handleInputChange("skills", e.target.value)}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                     />
                   </div>
 
