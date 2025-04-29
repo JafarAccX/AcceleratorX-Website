@@ -37,12 +37,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   return (
     <div className="relative">
-      {showNavbar && <Navbar onEnrollClick={handleEnrollClick} />}
+      {showNavbar && <Navbar />}
 
-      <EnrollmentModal
-        isOpen={isEnrollmentModalOpen}
-        onClose={handleCloseModal}
-      />
+      <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
 
       <main className="min-h-screen">{children}</main>
 
