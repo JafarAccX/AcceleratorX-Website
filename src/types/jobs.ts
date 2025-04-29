@@ -9,7 +9,7 @@ export interface Job {
     JobType: string;
     Duration: string;
     JobDescription: string;
-    RequiredSkills: string[] | null;
+    RequiredSkills: string | null;
     RequiredExperience: number | null;
     Salary: number | null;
     CreatedDate: string;
@@ -27,7 +27,7 @@ export interface CreateJobPayload {
     jobType: string;
     duration: string;
     jobDescription: string;
-    requiredSkills?: string[];
+    requiredSkills?: string;
     requiredExperience?: number;
     salary?: number;
     expiryDate?: string;

@@ -14,12 +14,21 @@ import {
   CreditCard,
   XCircle,
   CheckCircle2,
-  GraduationCap,
   Briefcase,
   Award,
+  MailIcon,
+  PhoneCall,
+  Building,
+  DollarSign,
+  Clock,
+  Link,
+  Linkedin,
 } from "lucide-react";
 import { useUser } from "../../context/UserContext";
 import { supabase } from "../../lib/supabaseClient";
+import { Customer } from "../../types/customer";
+import { FaGithubAlt } from "react-icons/fa";
+import { useUpdateUser } from "../../hooks/customer";
 
 // Define types for better type safety
 interface PaymentDetail {
@@ -39,22 +48,21 @@ interface PaymentDetail {
 export default function Profile() {
   const navigate = useNavigate();
   //   const { user } = useAuth();
-
+  const { mutateAsync: UpdateUser } = useUpdateUser();
   const { user, logout } = useUser();
   const [isEditing, setIsEditing] = useState(false);
-  const [formData, setFormData] = useState({
-    id: "",
-    full_name: "",
-    email: "",
-    phone_number: "",
-    education_level: "",
-    work_experience: "",
-    designation: "",
+  const [formData, setFormData] = useState<Partial<Customer>>({
+    CallingCode: user?.CallingCode,
+    MobileVerified: user?.MobileVerified,
+    EmailVerified: user?.EmailVerified,
+    Active: user?.Active,
+    CertificateGenerated: user?.CertificateGenerated,
+    Role: user?.Role,
   });
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetail[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log("User data:", user);
+  // console.log("User data:", user);
 
   // Payment History Skeleton Component
   const PaymentHistorySkeleton = () => (
@@ -151,13 +159,7 @@ export default function Profile() {
     // Only set form data when the user state is initially available
     setFormData((prevFormData) => ({
       ...prevFormData,
-      id: user.id,
-      full_name: user.full_name || "",
-      email: user.email || "",
-      phone_number: user.phone_number || "",
-      education_level: user.education_level || "",
-      work_experience: user.work_experience || "",
-      designation: user.designation || "",
+      ...user,
     }));
   }, [user, navigate]);
 
@@ -175,27 +177,60 @@ export default function Profile() {
     if (!user) return;
 
     try {
-      const { data, error } = await supabase
-        .from("profiles")
-        .update({
-          full_name: formData.full_name,
-          email: formData.email,
-          phone_number: formData.phone_number,
-          education_level: formData.education_level,
-          work_experience: formData.work_experience,
-          designation: formData.designation,
-          updated_at: new Date().toISOString(),
-        })
-        .eq("id", user.id)
-        .select()
-        .single();
+      const payload = {
+        mobile: formData.Mobile || "",
+        email: formData.Email || "",
+        designation: formData.Designation || "",
+        firstName: formData.FirstName || "",
+        middleName: formData.MiddleName || "",
+        lastName: formData.LastName || "",
+        dob: formData.DOB || "",
+        gender: formData.Gender || "",
+        mobileVerified: formData.MobileVerified || false,
+        emailVerified: formData.EmailVerified || false,
+        referralCode: formData.ReferralCode || "",
+        role: formData.Role || "",
+        profilePicture: formData.ProfilePicture || "",
+        resume: formData.Resume || "",
+        coverLetter: formData.CoverLetter || "",
+        portfolio: formData.Portfolio || "",
+        linkedinUrl: formData.LinkedinUrl || "",
+        githubUrl: formData.GithubUrl || "",
+        yearOfExperience: formData.YearOfExperience || 0,
+        expectedSalary: formData.ExpectedSalary || 0,
+        noticePeriod: formData.NoticePeriod || 0,
+        currentCompany: formData.CurrentCompany || "",
+        skills: formData.Skills || "",
+        certificateGenerated: formData.CertificateGenerated || false,
+      };
 
-      if (error) throw error;
+      console.log(payload);
+
+      const data = UpdateUser({
+        custId: user.CustId,
+        userData: payload,
+      });
+      // const { data, error } = await supabase
+      //   .from("profiles")
+      //   .update({
+      //     full_name: formData.full_name,
+      //     email: formData.email,
+      //     phone_number: formData.phone_number,
+      //     education_level: formData.education_level,
+      //     work_experience: formData.work_experience,
+      //     designation: formData.designation,
+      //     updated_at: new Date().toISOString(),
+      //   })
+      //   .eq("id", user.id)
+      //   .select()
+      //   .single();
+
+      // if (error) throw error;
 
       // Update local storage with flattened structure
       const updatedUser = { ...user, ...data };
       localStorage.setItem("userData", JSON.stringify(updatedUser));
-      //   otplessAuth.setUser(updatedUser);
+      // otplessAuth.setUser(updatedUser);
 
       setIsEditing(false);
       toast.success("Profile updated successfully!");
@@ -235,7 +270,7 @@ export default function Profile() {
               <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 p-1 shadow-xl">
                 <div className="w-full h-full rounded-xl bg-gray-900 flex items-center justify-center">
                   <span className="text-4xl font-bold bg-gradient-to-r from-blue-200 to-purple-200 text-transparent bg-clip-text">
-                    {user.full_name?.[0]?.toUpperCase() || "U"}
+                    {user.FirstName?.[0]?.toUpperCase() + user.LastName?.[0]?.toUpperCase() || "U"}
                   </span>
                 </div>
               </div>
@@ -247,12 +282,29 @@ export default function Profile() {
             </div>
 
             <div className="flex-1 mb-2">
-              <h1 className="text-3xl font-bold text-white drop-shadow-md mb-1">{user.full_name || "User"}</h1>
-              <p className="text-gray-300/90 font-medium">{user.email || user.phone_number}</p>
+              <h1 className="text-3xl font-bold text-white drop-shadow-md mb-1">
+                {user.FirstName + " " + user.LastName || "User"}
+              </h1>
+
+              <div className="space-y-2">
+                <div className="flex gap-4 items-center justify-start">
+                  <span>
+                    <MailIcon size={20} />
+                  </span>
+                  <p className="text-gray-300/90 font-medium">{user.Email}</p>
+                </div>
+
+                <div className="flex gap-4 items-center justify-start">
+                  <span>
+                    <PhoneCall size={20} />
+                  </span>
+                  <p className="text-gray-300/90 font-medium">{user.Mobile}</p>
+                </div>
+              </div>
             </div>
 
             <div className="flex gap-3 mb-2">
-              {!isEditing ? (
+              {!isEditing && (
                 <>
                   <button
                     type="button" // Changed from default submit to button
@@ -271,7 +323,9 @@ export default function Profile() {
                     <span className="font-medium">Sign Out</span>
                   </button>
                 </>
-              ) : (
+              )}
+
+              {isEditing && (
                 <>
                   <button
                     onClick={handleSubmit}
@@ -295,7 +349,7 @@ export default function Profile() {
         </div>
       </div>
 
-      {/* Enhanced Profile Form */}
+      {/* Enhanced Profile Form
       <div className="max-w-7xl mx-auto px-4 py-8 -mt-12">
         <form
           id="profile-form"
@@ -320,7 +374,7 @@ export default function Profile() {
                     type="text"
                     name={field.name}
                     disabled={!isEditing || field.disabled}
-                    value={formData[field.name as keyof typeof formData]}
+                    // value={formData[field.name as keyof typeof formData]}
                     onChange={(e) => setFormData({ ...formData, [field.name]: e.target.value })}
                     className={`w-full pl-10 pr-4 py-3.5 ${
                       isEditing && !field.disabled
@@ -333,6 +387,323 @@ export default function Profile() {
                 </div>
               </div>
             ))}
+          </div>
+        </form>
+      </div> */}
+
+      {/* Enhanced Profile Form */}
+      <div className="max-w-7xl mx-auto px-4 py-8 -mt-12">
+        <form
+          id="profile-form"
+          onSubmit={handleSubmit}
+          className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-gray-700/30"
+        >
+          {/* Personal Information */}
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-white mb-4">Personal Information</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">First Name</label>
+                <div className="relative">
+                  <User className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="text"
+                    name="FirstName"
+                    disabled={!isEditing}
+                    value={formData.FirstName || ""}
+                    onChange={(e) => setFormData({ ...formData, FirstName: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Middle Name</label>
+                <div className="relative">
+                  <User className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="text"
+                    name="MiddleName"
+                    disabled={!isEditing}
+                    value={formData.MiddleName || ""}
+                    onChange={(e) => setFormData({ ...formData, MiddleName: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Last Name</label>
+                <div className="relative">
+                  <User className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="text"
+                    name="LastName"
+                    disabled={!isEditing}
+                    value={formData.LastName || ""}
+                    onChange={(e) => setFormData({ ...formData, LastName: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Email</label>
+                <div className="relative">
+                  <Mail className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="email"
+                    name="Email"
+                    disabled={!isEditing}
+                    value={formData.Email || ""}
+                    onChange={(e) => setFormData({ ...formData, Email: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Mobile</label>
+                <div className="relative">
+                  <Phone className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="text"
+                    name="Mobile"
+                    disabled={true} // Always disabled
+                    value={formData.Mobile || ""}
+                    className="w-full pl-10 pr-4 py-3.5 bg-gray-700/20 border border-gray-600/30 rounded-xl text-white placeholder-gray-500"
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Date of Birth</label>
+                <div className="relative">
+                  <Calendar className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="date"
+                    name="DOB"
+                    disabled={!isEditing}
+                    value={formData.DOB || ""}
+                    onChange={(e) => setFormData({ ...formData, DOB: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Gender</label>
+                <div className="relative">
+                  <User className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <select
+                    name="Gender"
+                    disabled={!isEditing}
+                    value={formData.Gender || ""}
+                    onChange={(e) => setFormData({ ...formData, Gender: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Professional Information */}
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-white mb-4">Professional Information</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Designation</label>
+                <div className="relative">
+                  <Award className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="text"
+                    name="Designation"
+                    disabled={!isEditing}
+                    value={formData.Designation || ""}
+                    onChange={(e) => setFormData({ ...formData, Designation: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Current Company</label>
+                <div className="relative">
+                  <Building className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="text"
+                    name="CurrentCompany"
+                    disabled={!isEditing}
+                    value={formData.CurrentCompany || ""}
+                    onChange={(e) => setFormData({ ...formData, CurrentCompany: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Years of Experience</label>
+                <div className="relative">
+                  <Briefcase className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="number"
+                    name="YearOfExperience"
+                    disabled={!isEditing}
+                    value={formData.YearOfExperience || ""}
+                    onChange={(e) =>
+                      setFormData({ ...formData, YearOfExperience: e.target.value ? parseInt(e.target.value) : null })
+                    }
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Expected Salary</label>
+                <div className="relative">
+                  <DollarSign className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="number"
+                    name="ExpectedSalary"
+                    disabled={!isEditing}
+                    value={formData.ExpectedSalary || ""}
+                    onChange={(e) =>
+                      setFormData({ ...formData, ExpectedSalary: e.target.value ? parseInt(e.target.value) : null })
+                    }
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Notice Period (days)</label>
+                <div className="relative">
+                  <Clock className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="number"
+                    name="NoticePeriod"
+                    disabled={!isEditing}
+                    value={formData.NoticePeriod || ""}
+                    onChange={(e) =>
+                      setFormData({ ...formData, NoticePeriod: e.target.value ? parseInt(e.target.value) : null })
+                    }
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Links Section */}
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-white mb-4">Profile Links</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Portfolio URL</label>
+                <div className="relative">
+                  <Link className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="url"
+                    name="Portfolio"
+                    disabled={!isEditing}
+                    value={formData.Portfolio || ""}
+                    onChange={(e) => setFormData({ ...formData, Portfolio: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">LinkedIn URL</label>
+                <div className="relative">
+                  <Linkedin className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="url"
+                    name="LinkedinUrl"
+                    disabled={!isEditing}
+                    value={formData.LinkedinUrl || ""}
+                    onChange={(e) => setFormData({ ...formData, LinkedinUrl: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">GitHub URL</label>
+                <div className="relative">
+                  <FaGithubAlt className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
+                  <input
+                    type="url"
+                    name="GithubUrl"
+                    disabled={!isEditing}
+                    value={formData.GithubUrl || ""}
+                    onChange={(e) => setFormData({ ...formData, GithubUrl: e.target.value })}
+                    className={`w-full pl-10 pr-4 py-3.5 ${
+                      isEditing ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60" : "bg-gray-700/20"
+                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
+                      isEditing && "focus:ring-2 focus:ring-blue-500/50"
+                    }`}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </form>
       </div>

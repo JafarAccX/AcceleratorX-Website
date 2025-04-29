@@ -1,5 +1,5 @@
 export interface Customer {
-    Id: string;
+    id: string;
     CustId: string;
     CallingCode: string;
     Mobile: string;
@@ -25,7 +25,7 @@ export interface Customer {
     NoticePeriod: number | null;
     CurrentCompany: string | null;
     Active: boolean;
-    Skills: string[] | null;
+    Skills: string | null;
     CertificateGenerated: boolean;
     JoinDate: string;
     LastUpdateDate: string;
@@ -56,14 +56,51 @@ export interface CreateCustomerPayload {
     noticePeriod?: number;
     currentCompany?: string;
     active: boolean;
-    skills?: string[];
+    skills?: string;
     certificateGenerated: boolean;
     joinDate: string;
 }
 
-export interface UpdateCustomerPayload extends CreateCustomerPayload {
-    lastUpdateDate?: string;
+export interface UpdateCustomerPayload {
+    mobile: string;
+    email?: string;
+    designation: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    dob?: string;
+    gender?: string;
+    mobileVerified: boolean;
+    emailVerified: boolean;
+    referralCode?: string;
+    role: string;
+    profilePicture?: string;
+    resume?: string;
+    coverLetter?: string;
+    portfolio?: string;
+    linkedinUrl?: string;
+    githubUrl?: string;
+    yearOfExperience?: number;
+    expectedSalary?: number;
+    noticePeriod?: number;
+    currentCompany?: string;
+    skills?: string;
+    certificateGenerated: boolean;
 }
+
+
+export const Gender = {
+    MALE: 'Male',
+    FEMALE: 'Female',
+    TRANSGENDER: 'Transgender',
+    OTHERS: 'Others',
+    UNKNOWN: 'Unknown',
+};
+export type GenderType = keyof typeof Gender;
+
+// export interface UpdateCustomerPayload extends CreateCustomerPayload {
+//     lastUpdateDate?: string;
+// }
 
 export interface JobApplication {
     Id: string;
@@ -80,7 +117,7 @@ export interface JobApplication {
     Name?: string;
     Email?: string;
     Mobile?: string;
-    Skills?: string[];
+    Skills?: string;
     YearOfExperience?: number;
 }
 

@@ -30,9 +30,9 @@ export default function ProfileMenu() {
 
   if (!user) return null;
 
-  const displayName = user.full_name || "User";
-  const displayEmail = user.email || user.phone_number || "";
-  const userInitial = displayName[0]?.toUpperCase() || "U";
+  const displayName = user.FirstName + " " + user.LastName || "User";
+  const displayEmail = user.Mobile || user.Email || "";
+  const userInitial = user.FirstName[0]?.toUpperCase() + " " + user.LastName[0]?.toUpperCase() || "U";
 
   return (
     <div className="relative" ref={menuRef}>

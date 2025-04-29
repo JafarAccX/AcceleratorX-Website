@@ -6,6 +6,7 @@ import { useUser } from "../../context/UserContext";
 import { Job } from "../../types/job";
 import { jobService } from "../../services/jobService";
 import { jobApplicationService } from "../../services/jobApplicationService";
+import { useGetJobById } from "../../hooks/jobs";
 
 interface FormData {
   fullName: string;
@@ -106,13 +107,14 @@ const SuccessModal = ({ onClose }: { onClose: () => void }) => (
 
 export default function JobApplication() {
   const { id } = useParams<{ id: string }>();
+
+  const { data: job, isLoading: loading, error, isError } = useGetJobById(id ?? "");
+
   const navigate = useNavigate();
   const { user } = useUser();
-  const [job, setJob] = useState<Job | null>(null);
-  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
     fullName: user?.full_name || "",
     email: user?.email || "",
@@ -130,24 +132,24 @@ export default function JobApplication() {
     additionalNotes: "",
   });
 
-  useEffect(() => {
-    const fetchJob = async () => {
-      try {
-        if (!id) return;
-        const data = await jobService.getJobById(id);
-        setJob(data);
-        setError(null);
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : "Failed to fetch job details";
-        setError(errorMessage);
-        console.error("Error fetching job:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchJob = async () => {
+  //     try {
+  //       if (!id) return;
+  //       const data = await jobService.getJobById(id);
+  //       setJob(data);
+  //       setError(null);
+  //     } catch (err) {
+  //       const errorMessage = err instanceof Error ? err.message : "Failed to fetch job details";
+  //       setError(errorMessage);
+  //       console.error("Error fetching job:", err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchJob();
-  }, [id]);
+  //   fetchJob();
+  // }, [id]);
 
   const validateForm = (): boolean => {
     if (!isValidUrl(formData.resumeUrl)) {

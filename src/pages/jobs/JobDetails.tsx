@@ -1,37 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Building2, MapPin, Briefcase, Clock, ChevronLeft } from "lucide-react";
-import { Job } from "../../types/job";
-import { jobService } from "../../services/jobService";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { Building2, MapPin, Briefcase, Clock, ChevronLeft, X, Loader } from "lucide-react";
+import { useGetJobById } from "../../hooks/jobs";
+import { useState } from "react";
+import { useApplyForJob } from "../../hooks/customer";
+import { useUser } from "../../context/UserContext";
 
 export default function JobDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [job, setJob] = useState<Job | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [showAppling, setShowAppling] = useState(false);
+  const { user } = useUser();
 
-  useEffect(() => {
-    const fetchJob = async () => {
-      try {
-        if (!id) {
-          setError("Job ID is required");
-          return;
-        }
-        const data = await jobService.getJobById(id);
-        setJob(data);
-        setError(null);
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : "Failed to fetch job details";
-        setError(errorMessage);
-        console.error("Error fetching job:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const applyForJobMutation = useApplyForJob();
 
-    fetchJob();
-  }, [id]);
+  const { data: job, isLoading: loading, error, isError } = useGetJobById(id ?? "");
+
+  const handleApplyClick = () => {
+    console.log("appling for job");
+    if (!user?.CustId || !id) {
+      throw new Error("user custId or jobid is not present");
+    }
+    console.log(id, user.CustId);
+
+    // Call the mutation with the required data
+    applyForJobMutation.mutate({
+      CustId: user?.CustId,
+      JobId: id,
+      // Add any other required fields for ApplyForJobPayload
+    });
+  };
 
   if (loading) {
     return (
@@ -41,7 +38,7 @@ export default function JobDetails() {
     );
   }
 
-  if (error || !job) {
+  if (isError || !job) {
     return (
       <div className="min-h-screen bg-[#080B16] pt-20 sm:pt-24 pb-6 sm:pb-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -55,12 +52,12 @@ export default function JobDetails() {
             </button>
           </div>
           <div className="rounded-xl bg-[#0E1628] p-8 text-center">
-            <p className="text-red-500">{error || "Job not found"}</p>
+            <p className="text-red-500">{JSON.stringify(error) || "Job not found"}</p>
             <button
               onClick={() => navigate("/jobs")}
               className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
             >
-              View All Jobs
+              "View All Jobs"
             </button>
           </div>
         </div>
@@ -69,45 +66,90 @@ export default function JobDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-[#080B16] pt-20 sm:pt-24 pb-6 sm:pb-12">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <button
-            onClick={() => navigate("/jobs")}
-            className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Back to Jobs
-          </button>
-        </div>
+    <div className="min-h-screen  pt-20 sm:pt-24 pb-6 sm:pb-12">
+      {showAppling && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Blurred background overlay */}
+          <div
+            className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
+            onClick={() => setShowAppling(false)}
+          ></div>
 
-        <div className="rounded-xl bg-[#0E1628] p-6 sm:p-8">
+          {/* Modal content */}
+          <div className="relative bg-black shadow-md shadow-slate-700 rounded-lg  p-6 max-w-md w-full m-4 z-10">
+            {/* Close button */}
+            <button
+              onClick={() => setShowAppling(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 border-2 rounded-md border-black hover:border-slate-700"
+            >
+              <X size={24} />
+            </button>
+
+            <div className="mt-4">
+              <h3 className="text-lg font-semibold  mb-4">Appling with Profile</h3>
+              <p className="text-gray-300 mb-6">
+                Your profile will be shared with potential employers reviewing your application. Make sure your
+                information is complete and up-to-date to maximize your chances of being selected.
+              </p>
+
+              {/* Action buttons */}
+              <div className="flex gap-4 justify-end">
+                <Link
+                  to="/profile"
+                  className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-300 hover:border-blue-500 hover:text-blue-500"
+                  // onClick={handleUpdateProfile}
+                >
+                  Update Profile
+                </Link>
+                <button
+                  onClick={() => handleApplyClick()}
+                  className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
+                >
+                  Procced
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
+        <div className="rounded-xl  p-6 sm:p-8">
           <div className="mb-6">
-            <h1 className="text-2xl sm:text-3xl font-bold text-white">{job.title}</h1>
+            <div className="flex sm:flex-row-reverse  items-center justify-between">
+              <span
+                className={`px-3 py-1 rounded-full text-sm font-medium ${
+                  job.Active && !job.Deleted ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                }`}
+              >
+                {job.Active && !job.Deleted ? "Active" : "Closed"}
+              </span>
+              <h1 className="text-2xl sm:text-3xl font-bold text-white">{job.JobName}</h1>
+            </div>
             <div className="mt-4 flex flex-wrap gap-4 text-sm text-white/60">
               <div className="flex items-center gap-1.5">
                 <Building2 className="h-4 w-4" />
-                <span>{job.company}</span>
+                <span>{job.CompanyName}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <MapPin className="h-4 w-4" />
-                <span>{job.location}</span>
+                <span>{job.City + ", " + job.Country}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Briefcase className="h-4 w-4" />
-                <span>{job.job_type}</span>
+                <span>{job.JobType}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Clock className="h-4 w-4" />
-                <span>Posted {new Date(job.created_at).toLocaleDateString()}</span>
+                <span>Posted {new Date(job.CreatedDate).toLocaleDateString()}</span>
               </div>
             </div>
           </div>
 
-          <div className="prose prose-invert max-w-none">
+          <div className="max-w-none">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-white">Description</h2>
-              <p className="mt-2 text-white">{job.description}</p>
+              <p className="mt-2 text-white">{job.JobDescription}</p>
             </div>
 
             {/* Requirements */}
@@ -134,13 +176,15 @@ export default function JobDetails() {
               </div>
             )} */}
 
-            {/* Skills */}
-            {job.skills && job.skills.length > 0 && (
+            {job.RequiredSkills && job.RequiredSkills.split(",").length > 0 && (
               <div className="mb-6">
                 <h2 className="text-xl font-semibold text-white">Required Skills</h2>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {job.skills.map((skill, index) => (
-                    <span key={index} className="rounded-full bg-white/5 px-3 py-1 text-sm text-white/70">
+                  {job.RequiredSkills.split(",").map((skill, index) => (
+                    <span
+                      key={index}
+                      className="rounded-full  px-3 py-1 text-sm border-blue-500 text-blue-500 border-2 "
+                    >
                       {skill}
                     </span>
                   ))}
@@ -151,11 +195,19 @@ export default function JobDetails() {
 
           <div className="mt-8">
             <button
-              onClick={() => navigate(`/jobs/${job.id}/apply`)}
-              className="w-full rounded-lg bg-blue-500 px-4 py-3 text-sm font-medium text-white hover:bg-blue-600 sm:w-auto"
+              onClick={() => setShowAppling(true)}
+              disabled={job.Deleted}
+              className="w-full rounded-lg disabled:bg-slate-900 bg-blue-500 px-4 py-3 text-sm font-medium text-white hover:bg-blue-600 sm:w-auto"
             >
               Apply for this Position
             </button>
+            {/* <button
+              onClick={() => navigate(`/jobs/${job.Id}/apply`)}
+              disabled={job.Deleted}
+              className="w-full rounded-lg disabled:bg-slate-900 bg-blue-500 px-4 py-3 text-sm font-medium text-white hover:bg-blue-600 sm:w-auto"
+            >
+              Apply for this Position
+            </button> */}
           </div>
         </div>
       </div>
