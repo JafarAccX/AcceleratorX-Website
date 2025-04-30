@@ -4,7 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Calendar, Users, AlertCircle } from "lucide-react";
+import { Users, AlertCircle, Calendar } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";
 
@@ -31,46 +31,23 @@ type FormErrors = {
   [key in keyof FormData]?: string;
 };
 
-async function sendWhatsAppMessage({
-  apiKey,
-  campaignName,
-  phone,
-  name,
-  masterclass,
-  sessionDate,
-
-  link,
-}: {
-  apiKey: string;
-  campaignName: string;
-  phone: string;
-  name: string;
-  masterclass: string;
-  sessionDate: string;
-  link: string;
-}) {
+async function sendWhatsAppMessage({ phone, name }: { phone: string; name: string }) {
   try {
-    const cleaned = sessionDate.replace("India", "").trim();
-
-    const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/); // Split after the year
-
-    const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
-
-    console.log("masterclass", masterclass);
     const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        apiKey: apiKey,
-        campaignName: campaignName,
+        apiKey: whatsappSerriApi,
+        campaignName: "prodtempletefix",
         destination: phone,
         userName: name,
-        templateParams: ["$FirstName", masterclass, newdate, time, link],
+        templateParams: ["$FirstName", "https://chat.whatsapp.com/IRvuHFHrx8P7AU4QduC37L"],
         source: "registration form",
         paramsFallbackValue: {
-          FirstName: "user",
+          FirstName: "participant",
+          link: "https://chat.whatsapp.com/IRvuHFHrx8P7AU4QduC37L",
           value: "fallback value",
         },
         media: {},
@@ -170,24 +147,39 @@ export default function CreateEventPage() {
     setFormError(null);
 
     try {
-      const { data, error } = await supabase.from("Events").insert([formData]).select();
+      const { error } = await supabase.from("Events").insert([formData]).select();
 
       if (error) {
         throw error;
       }
 
-      console.log(data);
-      setFormSuccess("Event created successfully!");
+      setFormSuccess("Registration successfully!");
 
-      // await sendWhatsAppMessage({
-      //   apiKey: whatsappSerriApi,
-      //   campaignName: "registration_confirmation",
-      //   phone: formData.phone.startsWith("+") ? "9856478956" : `+91${"9856235984"}`,
-      //   name: formData.name,
-      //   masterclass: zoomMeetingDetails.title,
-      //   sessionDate: zoomMeetingDetails.time,
-      //   link: zoomJoinLink,
-      // });
+      if (formData.participant1 && formData.participantsnumber1) {
+        await sendWhatsAppMessage({
+          phone: formData.participantsnumber1.startsWith("+")
+            ? formData.participantsnumber1
+            : `+91${formData.participantsnumber1}`,
+          name: formData.participant1,
+        });
+      }
+
+      if (formData.participant2 && formData.participantsnumber2) {
+        await sendWhatsAppMessage({
+          phone: formData.participantsnumber2.startsWith("+")
+            ? formData.participantsnumber2
+            : `+91${formData.participantsnumber2}`,
+          name: formData.participant2,
+        });
+      }
+      if (formData.participant3 && formData.participantsnumber3) {
+        await sendWhatsAppMessage({
+          phone: formData.participantsnumber3.startsWith("+")
+            ? formData.participantsnumber3
+            : `+91${formData.participantsnumber3}`,
+          name: formData.participant3,
+        });
+      }
 
       // Reset form
       setFormData({
@@ -199,11 +191,6 @@ export default function CreateEventPage() {
         participant3: "",
         participantsnumber3: "",
       });
-
-      // Redirect to event page after short delay
-      //   setTimeout(() => {
-      //     router.push(`/event/${data[0].id}`);
-      //   }, 1500);
     } catch (error: any) {
       console.error("Error creating event:", error);
       setFormError(error.message || "Failed to create event. Please try again.");
@@ -213,11 +200,11 @@ export default function CreateEventPage() {
   };
 
   return (
-    <div className="min-h-screen    text-white">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen  w-full  text-white">
+      <div className="max-w-3xl mx-auto ">
         {/* Form */}
         <motion.div
-          className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800"
+          className="bg-gradient-to-br  from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -364,6 +351,17 @@ export default function CreateEventPage() {
                 {isSubmitting ? "Registering..." : "Register"}
               </motion.button>
             </div>
+            {formSuccess && (
+              <motion.div
+                className="mb-6 p-4 mt-4 bg-green-900/30 border border-green-500/30 rounded-lg text-green-400 flex items-center"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                transition={{ duration: 0.3 }}
+              >
+                <Calendar className="mr-2" size={18} />
+                {formSuccess}
+              </motion.div>
+            )}
           </form>
         </motion.div>
       </div>

@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Users } from "lucide-react";
+import { ArrowRight, Clock, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Events = () => {
@@ -8,7 +8,7 @@ const Events = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
       <div className=" mt-10 max-w-screen-lg mx-auto p-4 md:p-8">
-        <div className="min-h-screen  text-white p-6">
+        <div className="min-h-screen  text-white md:p-6">
           <div className="max-w-4xl mx-auto">
             <header className="flex justify-between items-center mb-10">
               <motion.h1
@@ -42,26 +42,31 @@ const Events = () => {
               </div> */}
             </header>
 
-            <div className="flex">
-              <div className="w-48 pr-6">
+            <div className="flex flex-col lg:flex-row items-start justify-between">
+              <div className="w-full lg:w-48 pr-6 ">
                 <motion.div
-                  className="relative"
+                  className="relative "
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <div className="flex flex-col items-start">
+                  <div className="flex flex-col items-start w-full">
                     <div className="flex items-center mb-2">
                       <div className="w-3 h-3 rounded-full bg-purple-500 mr-3"></div>
-                      <span className="text-xl font-semibold">Today</span>
+                      <span className="text-xl font-semibold">Duration</span>
                     </div>
-                    <div className="text-gray-400 ml-6">Tuesday</div>
+                    <div className="flex lg:flex-col items-center lg:items-start text-sm lg:text-base gap-2 mb-2 w-full">
+                      <div className="text-gray-400 ml-6">May 6th 2025</div>
+                      <div className="text-gray-400 lg:ml-6 hidden lg:block">|</div>
+                      <div className="text-gray-400 lg:ml-6 lg:hidden block">-</div>
+                      <div className="text-gray-400 lg:ml-6">May 12th 2025</div>
+                    </div>
                   </div>
                   <div className="absolute top-6 bottom-0 left-1.5 w-[1px] bg-gradient-to-b from-purple-500/50 to-transparent"></div>
                 </motion.div>
               </div>
 
-              <div className="flex-1">
+              <div className="lg:flex-1 w-full">
                 <motion.div
                   className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800"
                   initial={{ opacity: 0, y: 8 }}
@@ -84,17 +89,17 @@ const Events = () => {
                 >
                   <div className="flex justify-between">
                     <div>
-                      <div className="text-gray-400 mb-2">5:00 PM</div>
-                      <h2 className="text-2xl font-semibold mb-4">bla</h2>
+                      {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
+                      <h2 className="text-2xl font-semibold mb-4">Product Teardown</h2>
 
                       <div className="flex items-center text-amber-400 mb-2">
                         <MapPin size={16} className="mr-2" />
-                        <span>Location Missing</span>
+                        <span>Online (Zoom + Slack)</span>
                       </div>
 
                       <div className="flex items-center text-gray-400">
-                        <Users size={16} className="mr-2" />
-                        <span>No guests</span>
+                        <Clock size={16} className="mr-2" />
+                        <span>Daily tasks and live sessions</span>
                       </div>
 
                       <Link to={"/event/PMtakedown/view"}>
@@ -125,7 +130,7 @@ export default Events;
 function EventThumbnail() {
   return (
     <motion.div
-      className="w-24 h-24 relative"
+      className="w-24 h-24 relative hidden sm:block"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.6 }}
