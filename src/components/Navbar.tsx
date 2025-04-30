@@ -14,11 +14,7 @@ const xsatNavItems = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export default function Navbar({
-  onEnrollClick,
-}: {
-  onEnrollClick: () => void;
-}) {
+export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,7 +42,8 @@ export default function Navbar({
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Careers", path: "/careers" },
-    { label: "XSAT", path: "/xsat" },
+    // { label: "XSAT", path: "/xsat" },
+    { label: "Events", path: "/events" },
   ];
 
   const courses = [
@@ -63,18 +60,13 @@ export default function Navbar({
     return (
       <header
         className={`fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${
-          isScrolled
-            ? "bg-black/80 shadow-lg border-b border-white/5"
-            : "bg-transparent"
+          isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <div className="text-2xl mt-2 font-bold text-white">
-              <Link
-                to="https://acceleratorx.org/"
-                className={`${hoverTransition} hover:opacity-90`}
-              >
+              <Link to="https://acceleratorx.org/" className={`${hoverTransition} hover:opacity-90`}>
                 <img src="/xsat-bg.png" alt="xsat" className="w-auto h-10" />
               </Link>
             </div>
@@ -134,15 +126,8 @@ export default function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            to="/"
-            className={`flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`}
-          >
-            <img
-              src={companyLogo}
-              alt="company logo"
-              className="w-auto h-16 object-contain"
-            />
+          <Link to="/" className={`flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`}>
+            <img src={companyLogo} alt="company logo" className="w-auto h-16 object-contain" />
           </Link>
 
           {/* Desktop Menu */}
@@ -168,9 +153,7 @@ export default function Navbar({
 
               <div
                 className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${
-                  isDropdownOpen
-                    ? "opacity-100 visible translate-y-0"
-                    : "opacity-0 invisible -translate-y-2"
+                  isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
                 }`}
               >
                 <div className="bg-black/95 backdrop-blur-md border border-white/10 rounded-xl shadow-xl overflow-hidden">
@@ -193,19 +176,19 @@ export default function Navbar({
                 key={item.label}
                 to={item.path}
                 className={`relative group ${hoverTransition} ${
-                  item.label === "XSAT"
+                  item.label === "XSAT" || item.label === "Events"
                     ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
                     : "text-gray-300 hover:text-white py-2"
                 }`}
               >
                 {item.label}
-                {item.label === "XSAT" && (
+                {(item.label === "XSAT" || item.label === "Events") && (
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                   </span>
                 )}
-                {item.label !== "XSAT" && (
+                {(item.label === "XSAT" || item.label === "Events") && (
                   <span
                     className={`absolute bottom-0 left-0 w-0 h-0.5 bg-white ${dropdownTransition} group-hover:w-full`}
                   />
