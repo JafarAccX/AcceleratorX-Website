@@ -44,8 +44,8 @@ export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void })
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Careers", path: "/careers" },
-    { label: "Jobs", path: "/jobs" },
-    { label: "XSAT", path: "/xsat" },
+    // { label: "XSAT", path: "/xsat" },
+    { label: "EVENTS", path: "/Events" },
   ];
 
   const courses = [
@@ -178,18 +178,19 @@ export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void })
                 key={item.label}
                 to={item.path}
                 className={`relative group ${hoverTransition} ${
-                  item.label === "XSAT"
+                  item.label === "XSAT" || item.label === "EVENTS"
                     ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
                     : "text-gray-300 hover:text-white py-2"
                 }`}
               >
                 {item.label}
-                {item.label === "XSAT" && (
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                  </span>
-                )}
+                {item.label === "XSAT" ||
+                  (item.label === "EVENTS" && (
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                  ))}
                 {item.label !== "XSAT" && (
                   <span
                     className={`absolute bottom-0 left-0 w-0 h-0.5 bg-white ${dropdownTransition} group-hover:w-full`}
@@ -282,19 +283,20 @@ export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void })
               key={item.label}
               to={item.path}
               className={`block text-sm font-medium ${hoverTransition} ${
-                item.label === "XSAT"
+                item.label === "XSAT" || item.label === "EVENTS"
                   ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2.5 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20"
                   : "text-gray-300 hover:text-white py-2"
               }`}
               onClick={() => setIsOpen(false)}
             >
               {item.label}
-              {item.label === "XSAT" && (
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-              )}
+              {item.label === "XSAT" ||
+                (item.label === "EVENTS" && (
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                ))}
             </Link>
           ))}
 

@@ -1,21 +1,11 @@
 const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
-const SALES_EMAIL = import.meta.env.VITE_SALES_EMAIL;
-const SALES_PASSWORD = import.meta.env.VITE_SALES_PASSWORD;
-const ENROLLMENT_EMAIL = import.meta.env.VITE_ENROLLMENT_EMAIL;
-const ENROLLMENT_PASSWORD = import.meta.env.VITE_ENROLLMENT_PASSWORD;
 const BLOG_USER_EMAIL = import.meta.env.VITE_BLOG_USER_EMAIL;
 const BLOG_USER_PASSWORD = import.meta.env.VITE_BLOG_USER_PASSWORD;
-const AD1_EMAIL = import.meta.env.VITE_AD1_EMAIL;
-const AD1_PASSWORD = import.meta.env.VITE_AD1_PASSWORD;
-const AD2_EMAIL = import.meta.env.VITE_AD2_EMAIL;
-const AD2_PASSWORD = import.meta.env.VITE_AD2_PASSWORD;
-const WORKSHOP_VIEWER_EMAIL = import.meta.env.VITE_WORKSHOP_VIEWER_EMAIL;
-const WORKSHOP_VIEWER_PASSWORD = import.meta.env.VITE_WORKSHOP_VIEWER_PASSWORD;
 const PERFORMANCE_MARKETER_EMAIL = import.meta.env.VITE_PERFORMANCE_MARKETER_EMAIL;
 const PERFORMANCE_MARKETER_PASSWORD = import.meta.env.VITE_PERFORMANCE_MARKETER_PASSWORD;
 
-if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !SALES_EMAIL || !SALES_PASSWORD || !ENROLLMENT_EMAIL || !ENROLLMENT_PASSWORD || !BLOG_USER_EMAIL || !BLOG_USER_PASSWORD || !AD1_EMAIL || !AD1_PASSWORD || !AD2_EMAIL || !AD2_PASSWORD || !WORKSHOP_VIEWER_EMAIL || !WORKSHOP_VIEWER_PASSWORD || !PERFORMANCE_MARKETER_EMAIL || !PERFORMANCE_MARKETER_PASSWORD) {
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !BLOG_USER_EMAIL || !BLOG_USER_PASSWORD || !PERFORMANCE_MARKETER_EMAIL || !PERFORMANCE_MARKETER_PASSWORD) {
   throw new Error('Missing admin, sales, enrollment, blog user, AD, workshop viewer, or performance marketer credentials in environment variables');
 }
 
@@ -33,35 +23,10 @@ export const authService = {
       localStorage.setItem('auth_state', JSON.stringify(authState));
       return { success: true, role: 'admin' };
     }
-    if (email === SALES_EMAIL && password === SALES_PASSWORD) {
-      const authState: AuthState = { token: 'sales_authenticated', role: 'sales' };
-      localStorage.setItem('auth_state', JSON.stringify(authState));
-      return { success: true, role: 'sales' };
-    }
-    if (email === ENROLLMENT_EMAIL && password === ENROLLMENT_PASSWORD) {
-      const authState: AuthState = { token: 'enrollment_authenticated', role: 'enrollment' };
-      localStorage.setItem('auth_state', JSON.stringify(authState));
-      return { success: true, role: 'enrollment' };
-    }
     if (email === BLOG_USER_EMAIL && password === BLOG_USER_PASSWORD) {
       const authState: AuthState = { token: 'blog_user_authenticated', role: 'blog_user' };
       localStorage.setItem('auth_state', JSON.stringify(authState));
       return { success: true, role: 'blog_user' };
-    }
-    if (email === AD1_EMAIL && password === AD1_PASSWORD) {
-      const authState: AuthState = { token: 'ad1_authenticated', role: 'ad1' };
-      localStorage.setItem('auth_state', JSON.stringify(authState));
-      return { success: true, role: 'ad1' };
-    }
-    if (email === AD2_EMAIL && password === AD2_PASSWORD) {
-      const authState: AuthState = { token: 'ad2_authenticated', role: 'ad2' };
-      localStorage.setItem('auth_state', JSON.stringify(authState));
-      return { success: true, role: 'ad2' };
-    }
-    if (email === WORKSHOP_VIEWER_EMAIL && password === WORKSHOP_VIEWER_PASSWORD) {
-      const authState: AuthState = { token: 'workshop_viewer_authenticated', role: 'workshop_viewer' };
-      localStorage.setItem('auth_state', JSON.stringify(authState));
-      return { success: true, role: 'workshop_viewer' };
     }
     if (email === PERFORMANCE_MARKETER_EMAIL && password === PERFORMANCE_MARKETER_PASSWORD) {
       const authState: AuthState = { token: 'performance_marketer_authenticated', role: 'performance_marketer' };
