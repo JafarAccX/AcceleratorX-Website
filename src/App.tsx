@@ -7,6 +7,8 @@ import { Toaster } from "react-hot-toast";
 import { MetaPixel } from "./components/MetaPixel";
 import { trackViewContent } from "./utils/metaPixel";
 import ScrollToTop from "./components/ScrollToTop";
+import { ChatWidgetProvider } from "./context/ChatWidgetContext";
+import ChatWidget from "./components/ChatWidget";
 
 import { MainLayout } from "./layouts/MainLayout";
 import { RouteLogic } from "./routes/utils/routeUtils";
@@ -14,7 +16,6 @@ import { mainRoutes } from "./routes/mainRoutes";
 import { workshopRoutes } from "./routes/workshopRoutes";
 import { flyerRoutes } from "./routes/flyerRoutes";
 import { courseRoutes } from "./routes/courseRoutes";
-import ThankYouPage from "./components/ThankYouPage";
 import AdminPage from "./pages/admin/AdminPage";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdAnalysis from "./pages/admin/AdAnalysis";
@@ -28,7 +29,6 @@ import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 function App() {
   const { setSelectedCourse } = useCourseContext();
 
-  // Track view content on mount
   useEffect(() => {
     trackViewContent();
   }, []);
@@ -37,50 +37,53 @@ function App() {
     <HelmetProvider>
       <CourseProvider>
         <UserProvider>
-          <Router basename="/">
-            <ScrollToTop />
-            <MetaPixel />
-            <Toaster position="top-center" />
-            <RouteLogic setSelectedCourse={setSelectedCourse} />
+          <ChatWidgetProvider>
+            <Router basename="/">
+              <ScrollToTop />
+              <MetaPixel />
+              <Toaster position="top-center" />
+              <RouteLogic setSelectedCourse={setSelectedCourse} />
 
-            <MainLayout>
-              <Suspense fallback={<Loader />}>
-                <Routes>
-                  {mainRoutes}
-                  {workshopRoutes}
-                  {flyerRoutes}
-                  {courseRoutes}
-                  {profileRoutes}
-                  <Route path="/sign-up" element={<SignUpForm />} />
-                  <Route path="/sign-in" element={<SignInForm />} />
-                  {/* Admin Routes */}
-                  <Route path="/admin" element={<AdminPage />} />
-                  <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                  <Route path="/admin/enrollments" element={<AdminPage />} />
-                  <Route path="/admin/ads" element={<AdAnalysis />} />
-                  <Route path="/jobs" element={<JobList />} />,
-                  <Route path="/jobs/:id" element={<JobDetails />} />,
-                  <Route
-                    path="/jobs/:id/apply"
-                    element={
-                      <ProtectedRoute>
-                        <JobApplication />
-                      </ProtectedRoute>
-                    }
-                  />
-                  ,
-                  <Route
-                    path="/jobs/applied-jobs"
-                    element={
-                      <ProtectedRoute>
-                        <AppliedJobs />
-                      </ProtectedRoute>
-                    }
-                  />
-                </Routes>
-              </Suspense>
-            </MainLayout>
-          </Router>
+              <MainLayout>
+                <Suspense fallback={<Loader />}>
+                  <Routes>
+                    {mainRoutes}
+                    {workshopRoutes}
+                    {flyerRoutes}
+                    {courseRoutes}
+                    {profileRoutes}
+                    <Route path="/sign-up" element={<SignUpForm />} />
+                    <Route path="/sign-in" element={<SignInForm />} />
+                    {/* Admin Routes */}
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                    <Route path="/admin/enrollments" element={<AdminPage />} />
+                    <Route path="/admin/ads" element={<AdAnalysis />} />
+                    <Route path="/jobs" element={<JobList />} />,
+                    <Route path="/jobs/:id" element={<JobDetails />} />,
+                    <Route
+                      path="/jobs/:id/apply"
+                      element={
+                        <ProtectedRoute>
+                          <JobApplication />
+                        </ProtectedRoute>
+                      }
+                    />
+                    ,
+                    <Route
+                      path="/jobs/applied-jobs"
+                      element={
+                        <ProtectedRoute>
+                          <AppliedJobs />
+                        </ProtectedRoute>
+                      }
+                    />
+                  </Routes>
+                </Suspense>
+              </MainLayout>
+              <ChatWidget />
+            </Router>
+          </ChatWidgetProvider>
         </UserProvider>
       </CourseProvider>
     </HelmetProvider>

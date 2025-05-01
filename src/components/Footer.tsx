@@ -1,19 +1,10 @@
 import React, { useEffect } from "react";
 import companyLogo from "/assets/companylogo.png";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Linkedin,
-  Instagram,
-  Facebook,
-  Mail,
-  Phone,
-  MapPin,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin, Twitter, Youtube } from "lucide-react";
 
 type FooterLink =
-  | { label: string; url: string }
+  | { label: string; url: string; icon?: React.ReactNode }
   | { label: string; url: string; icon?: React.ReactNode };
 
 const footerLinks: {
@@ -93,8 +84,7 @@ const footerLinks: {
         icon: <Phone className="w-5 h-5" />,
       },
       {
-        label:
-          "L367, 5th Main Road, 6th Sector, HSR Layout, Bangalore, KA 560102, India",
+        label: "L367, 5th Main Road, 6th Sector, HSR Layout, Bangalore, KA 560102, India",
         url: "https://maps.app.goo.gl/PPSRGZyAgWkqUJ6E8",
         icon: <MapPin className="w-5 h-5" />,
       },
@@ -140,22 +130,15 @@ export default function Footer() {
           {/* Company Info Section */}
           <div className="md:col-span-4 space-y-8">
             <Link to="/" className="inline-block">
-              <img
-                src={companyLogo}
-                alt="AcceleratorX logo"
-                className="w-auto h-14 object-contain text-left"
-              />
+              <img src={companyLogo} alt="AcceleratorX logo" className="w-auto h-14 object-contain text-left" />
             </Link>
             <p className="text-gray-400 max-w-md">
-              Empowering professionals with industry-relevant skills through
-              expert-led programs in Product Management, Data Analytics &
-              Generative AI.
+              Empowering professionals with industry-relevant skills through expert-led programs in Product Management,
+              Data Analytics & Generative AI.
             </p>
             {/* Social Media Icons */}
             <div className="pt-4">
-              <h3 className="font-semibold text-white mb-4 text-lg">
-                Connect With Us
-              </h3>
+              <h3 className="font-semibold text-white mb-4 text-lg">Connect With Us</h3>
               <div className="flex items-center gap-4">
                 {footerLinks.social.links.map((link) => (
                   <a
@@ -179,16 +162,11 @@ export default function Footer() {
           <div className="md:col-span-4 grid grid-cols-2 gap-8">
             {["services", "company"].map((key) => (
               <div key={key}>
-                <h3 className="font-semibold text-white mb-4 text-lg">
-                  {footerLinks[key].title}
-                </h3>
+                <h3 className="font-semibold text-white mb-4 text-lg">{footerLinks[key].title}</h3>
                 <ul className="space-y-3">
                   {footerLinks[key].links.map((link) => (
                     <li key={link.label}>
-                      <Link
-                        to={link.url}
-                        className="text-gray-400 hover:text-white transition-colors duration-300"
-                      >
+                      <Link to={link.url} className="text-gray-400 hover:text-white transition-colors duration-300">
                         {link.label}
                       </Link>
                     </li>
@@ -200,9 +178,7 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="md:col-span-4">
-            <h3 className="font-semibold text-white mb-4 text-lg">
-              {footerLinks.contact.title}
-            </h3>
+            <h3 className="font-semibold text-white mb-4 text-lg">{footerLinks.contact.title}</h3>
             <ul className="space-y-4">
               {footerLinks.contact.links.map((link) => (
                 <li key={link.label}>
@@ -212,9 +188,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group"
                   >
-                    <span className="mt-1 text-blue-400 flex-shrink-0">
-                      {link.icon}
-                    </span>
+                    <span className="mt-1 text-blue-400 flex-shrink-0">{link.icon}</span>
                     <span className="group-hover:text-white">{link.label}</span>
                   </a>
                 </li>
@@ -227,8 +201,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-gray-800/50">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} AcceleratorX. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
             </p>
             <div id="siteseal" className="flex items-center space-x-4"></div>
           </div>
