@@ -289,7 +289,7 @@ import { useNavigate } from "react-router-dom";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-// const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
+const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey, {
   auth: {
     persistSession: false,
@@ -304,6 +304,48 @@ interface WorkshopFormData {
   designation: string;
   yearsOfExperience: string;
   // mentor: string;
+}
+
+async function sendWhatsAppMessage({ phone, name }: { phone: string; name: string }) {
+  try {
+    console.log(" Sending WhatsApp message to:", phone, name);
+    const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        apiKey: whatsappSerriApi,
+        campaignName: "course_reg_da_new",
+        destination: phone,
+        userName: name,
+        templateParams: ["$FirstName"],
+        source: "registration form",
+        media: {
+          url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AI%20Powered%20DA%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FJIFBvd2VyZWQgREEgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzQ2Mjc3MTU1LCJleHAiOjE4NzI0MjExNTV9.NWSk8RPs_nwupsr5Wfu6-EGpUzFFaVPrMKOVZmICPgw",
+          filename: "Ai-Powered-Data-Analytics.pdf",
+        },
+        paramsFallbackValue: {
+          FirstName: "user",
+          value: "fallback value",
+        },
+        buttons: [],
+        carouselCards: [],
+        location: {},
+        attributes: {},
+      }),
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      console.error("WhatsApp API error:", err);
+      throw new Error("WhatsApp message sending failed");
+    }
+
+    //       // console.log('WhatsApp message sent successfully!');
+  } catch (error) {
+    console.error("Error sending WhatsApp message:", error);
+  }
 }
 
 const BookingForm = ({ isOpen, onClose, course, handleModalSubmit }) => {
@@ -346,6 +388,13 @@ const BookingForm = ({ isOpen, onClose, course, handleModalSubmit }) => {
       ]);
 
       if (error) throw error;
+
+      console.log("Data inserted successfully!");
+      toast.success("Session booked successfully!");
+      await sendWhatsAppMessage({
+        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+        name: formData.name,
+      });
 
       // call handleModalSubmit
       handleModalSubmit();
