@@ -1,36 +1,35 @@
-import { useState, useEffect } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useState } from "react";
+import { animated } from "@react-spring/web";
 import { useCourseContext } from "../context/courseContext";
-import { ArrowRight } from "lucide-react";
 import { AnimatePresence } from "framer-motion"; // Import AnimatePresence
 import BookingForm from "./BookingForm";
 
 const StickyBookNav = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { selectedCourse } = useCourseContext();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show navbar after scrolling 300px
-      const scrolled = window.scrollY > 300;
-      setIsVisible(scrolled);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     // Show navbar after scrolling 300px
+  //     const scrolled = window.scrollY > 300;
+  //     setIsVisible(scrolled);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
-  const springStyles = useSpring({
-    transform: isVisible ? "translateY(0)" : "translateY(100%)",
-    opacity: isVisible ? 1 : 0,
-    config: { 
-      tension: 180, 
-      friction: 24,
-      mass: 1,
-      clamp: true 
-    },
-  });
+  // const springStyles = useSpring({
+  //   transform: isVisible ? "translateY(0)" : "translateY(100%)",
+  //   opacity: isVisible ? 1 : 0,
+  //   config: {
+  //     tension: 180,
+  //     friction: 24,
+  //     mass: 1,
+  //     clamp: true,
+  //   },
+  // });
 
   if (!selectedCourse) return null;
 
@@ -38,11 +37,11 @@ const StickyBookNav = () => {
     <>
       <animated.div
         style={{
-          ...springStyles,
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
+          // ...springStyles,
+          // position: "fixed",
+          // bottom: 0,
+          // left: 0,
+          // right: 0,
           zIndex: 40,
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
@@ -77,12 +76,7 @@ const StickyBookNav = () => {
 
       {/* AnimatePresence ensures smooth mount/unmount animations */}
       <AnimatePresence>
-        {isFormOpen && (
-          <BookingForm
-            isOpen={isFormOpen}
-            onClose={() => setIsFormOpen(false)}
-          />
-        )}
+        {isFormOpen && <BookingForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />}
       </AnimatePresence>
     </>
   );

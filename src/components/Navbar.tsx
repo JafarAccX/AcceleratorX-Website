@@ -43,7 +43,7 @@ export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void })
     { label: "Blog", path: "/blogs" },
     { label: "Careers", path: "/careers" },
     // { label: "XSAT", path: "/xsat" },
-    { label: "EVENTS", path: "/Events" },
+    // { label: "EVENTS", path: "/Events" },
   ];
 
   const courses = [

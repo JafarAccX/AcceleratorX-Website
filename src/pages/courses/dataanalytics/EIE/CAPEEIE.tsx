@@ -5,26 +5,26 @@ const capeSteps = [
   {
     icon: <Lightbulb className="h-6 w-6 text-[#96E072]" />,
     title: "Data Fundamentals",
-    description: "Organize raw data into actionable insights.",
-    duration: "Weeks 1–3",
+    description: "Organise raw data into actionable insights with the help of AI-assisted data processing.",
+    duration: "",
   },
   {
     icon: <BarChart className="h-6 w-6 text-[#96E072]" />,
     title: "Visual Storytelling",
-    description: "Make data speak through compelling visuals.",
-    duration: "Weeks 4–6",
+    description: "Use AI tools to turn complex data into compelling, interactive visuals.",
+    duration: "",
   },
   {
     icon: <Calculator className="h-6 w-6 text-[#96E072]" />,
     title: "Analytical Skills",
-    description: "Apply statistics to uncover hidden insights.",
-    duration: "Weeks 7–9",
+    description: "Leverage AI-powered statistical techniques to uncover patterns and predict outcomes.",
+    duration: "",
   },
   {
     icon: <ClipboardCheck className="h-6 w-6 text-[#96E072]" />,
     title: "CAP Project",
-    description: "Complete a custom project to showcase your data skills.",
-    duration: "Weeks 10–13",
+    description: "Apply everything you've learnt in an AI-integrated custom project that proves your expertise.",
+    duration: "",
   },
 ];
 
@@ -70,7 +70,7 @@ export default function CAPEEIE() {
               Build Your CAP Portfolio
             </h2>
           </div>
-          
+
           <p className="mt-6 text-xl text-black max-w-2xl mx-auto backdrop-blur-sm">
             A Portfolio That Speaks for You – Build Skills That Stand Out
           </p>
@@ -89,7 +89,7 @@ export default function CAPEEIE() {
             >
               {/* Card glow effect */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/30 to-[#96E072]/10 rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              
+
               {/* Card content */}
               <div className="relative p-6 rounded-3xl bg-gradient-to-b from-[#0A0F1E] to-[#141B2E] border border-[#96E072]/20 group-hover:border-[#96E072]/40 transition-all duration-500 backdrop-blur-sm transform hover:-translate-y-2">
                 {/* Icon container with glow */}
@@ -104,9 +104,7 @@ export default function CAPEEIE() {
                   {step.title}
                 </h3>
                 <p className="text-gray-300 mb-2">{step.description}</p>
-                <p className="text-sm text-[#96E072] font-medium">
-                  {step.duration}
-                </p>
+                <p className="text-sm text-[#96E072] font-medium">{step.duration}</p>
               </div>
             </motion.div>
           ))}
@@ -121,7 +119,7 @@ export default function CAPEEIE() {
         >
           {/* Section glow */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/30 to-[#96E072]/10 rounded-3xl blur opacity-50"></div>
-          
+
           <div className="relative p-12 rounded-3xl bg-gradient-to-b from-[#0A0F1E] to-[#141B2E] border border-[#96E072]/20 backdrop-blur-sm">
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-center bg-gradient-to-r from-[#96E072] to-[#96E072]/90 text-transparent bg-clip-text pb-2">

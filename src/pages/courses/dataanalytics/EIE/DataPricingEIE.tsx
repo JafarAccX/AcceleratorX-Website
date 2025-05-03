@@ -40,6 +40,9 @@ const dataAnalyticsPricingData = {
   // price: "14999",
   // discount: "6",
   features: [
+    { name: "AI Automation techniques for Data analytics", included: true },
+    { name: "Data Engineering Basics", included: true },
+    { name: "Product analytics ", included: true },
     { name: "Full Data Analytics Curriculum", included: true },
     { name: "Personalized CAPE Project", included: true },
     {
@@ -60,7 +63,7 @@ const dataAnalyticsPricingData = {
 export default function DataPricingEIE() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
-  const [isEIE, setIsEIE] = useState(true);
+  const [isEIE, setIsEIE] = useState(false);
 
   const pricingData = isEIE ? eiePricingData : dataAnalyticsPricingData;
 
@@ -68,27 +71,22 @@ export default function DataPricingEIE() {
     <section id="pricing" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Choose Your Learning Path
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Learning Path</h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Select the plan that best fits your learning goals and career
-            aspirations
+            Select the plan that best fits your learning goals and career aspirations
           </p>
 
           {/* Tab Switch */}
-          <div className="flex justify-center mt-8 p-1 space-x-1 bg-gray-800/50 rounded-xl max-w-xs mx-auto">
+          {/* <div className="flex justify-center mt-8 p-1 space-x-1 bg-gray-800/50 rounded-xl max-w-xs mx-auto">
             <button
               onClick={() => setIsEIE(false)}
               className={`${
-                !isEIE
-                  ? "bg-blue-600 text-white"
-                  : "text-gray-400 hover:text-white"
+                !isEIE ? "bg-blue-600 text-white" : "text-gray-400 hover:text-white"
               } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
               AcceleratorX
-            </button>
-            <button
+            </button> */}
+          {/* <button
               onClick={() => setIsEIE(true)}
               className={`${
                 isEIE
@@ -97,8 +95,8 @@ export default function DataPricingEIE() {
               } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
             >
               EIE European Business School
-            </button>
-          </div>
+            </button> */}
+          {/* </div> */}
         </div>
 
         {/* Pricing Card */}
@@ -107,9 +105,7 @@ export default function DataPricingEIE() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`relative rounded-3xl p-8 ${
-              isEIE ? "bg-[#0A2615]" : "bg-[#1a365d]"
-            }`}
+            className={`relative rounded-3xl p-8 ${isEIE ? "bg-[#0A2615]" : "bg-[#1a365d]"}`}
           >
             {/* Popular Badge */}
             <div className="absolute top-4 right-4">
@@ -125,9 +121,7 @@ export default function DataPricingEIE() {
             {/* Header */}
             <div className="mb-6">
               <div className="text-center">
-                <h3 className="text-2xl mt-2 font-bold text-white mb-4">
-                  {pricingData.title}
-                </h3>
+                <h3 className="text-2xl mt-2 font-bold text-white mb-4">{pricingData.title}</h3>
               </div>
 
               <div className="flex flex-col items-center gap-2 mb-2">
@@ -135,9 +129,7 @@ export default function DataPricingEIE() {
                   ₹{pricingData.price} text-gray-400 text-sm line-through 
                 </span> */}
                 <div className="text-center">
-                  <span className="text-4xl font-bold text-white">
-                    ₹{pricingData.mrp}
-                  </span>
+                  <span className="text-4xl font-bold text-white">₹{pricingData.mrp}</span>
                   {/* <span
                     className={`ml-2 text-sm ${isEIE ? "text-[#5CB338]" : "text-blue-500"
                       }`}
@@ -177,11 +169,7 @@ export default function DataPricingEIE() {
                   {feature.included ? (
                     <Check
                       className={`w-5 h-5 ${
-                        isEIE
-                          ? feature.highlight
-                            ? "text-amber-400"
-                            : "text-[#5CB338]"
-                          : "text-blue-500"
+                        isEIE ? (feature.highlight ? "text-amber-400" : "text-[#5CB338]") : "text-blue-500"
                       } mt-1 flex-shrink-0`}
                     />
                   ) : (
@@ -192,23 +180,13 @@ export default function DataPricingEIE() {
                   <div>
                     <p
                       className={`${
-                        feature.included
-                          ? feature.highlight
-                            ? "text-amber-400"
-                            : "text-white"
-                          : "text-gray-500"
+                        feature.included ? (feature.highlight ? "text-amber-400" : "text-white") : "text-gray-500"
                       }`}
                     >
                       {feature.name}
                     </p>
                     {feature.detail && feature.included && (
-                      <p
-                        className={`text-sm ${
-                          isEIE ? "text-[#5CB338]" : "text-blue-500"
-                        }`}
-                      >
-                        {feature.detail}
-                      </p>
+                      <p className={`text-sm ${isEIE ? "text-[#5CB338]" : "text-blue-500"}`}>{feature.detail}</p>
                     )}
                   </div>
                 </div>
@@ -218,11 +196,7 @@ export default function DataPricingEIE() {
         </div>
       </div>
 
-      <EnrollmentModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        plan={selectedPlan}
-      />
+      <EnrollmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} plan={selectedPlan} />
     </section>
   );
 }
