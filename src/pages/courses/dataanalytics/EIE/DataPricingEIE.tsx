@@ -16,7 +16,7 @@ const eiePricingData = {
     { name: "Data Analytics Toolbox & Templates", included: true },
     { name: "Assignment Feedback", included: true },
     {
-      name: "Product Analytics Specialization",
+      name: "Product Analytics Specialization ",
       included: true,
       highlight: true,
     },
@@ -42,13 +42,13 @@ const dataAnalyticsPricingData = {
   features: [
     { name: "AI Automation techniques for Data analytics", included: true },
     { name: "Data Engineering Basics", included: true },
-    { name: "Product analytics ", included: true },
+    // { name: "Product analytics ", included: true },
     { name: "Full Data Analytics Curriculum", included: true },
     { name: "Personalized CAPE Project", included: true },
     {
-      name: "Product Analytics Specialization",
-      included: false,
-      highlight: false,
+      name: "Product Analytics Specialization (optional)",
+      included: true,
+      highlight: true,
     },
     { name: "Real-world, hands-on project experiences", included: true },
     { name: "Access to industry-leading tools and datasets", included: true },
