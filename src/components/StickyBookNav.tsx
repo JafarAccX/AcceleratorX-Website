@@ -38,7 +38,7 @@ const StickyBookNav = () => {
                 <span className="animate-bounce hidden sm:inline-block">
                   💡
                 </span>
-                Got doubts? Book a session with our mentor 1:1
+                Thinking of Switching or kick starting your career?
                 <span className="hidden sm:inline-block animate-pulse">🎯</span>
               </p>
             </div>
