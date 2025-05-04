@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useCourseContext } from "../../../../context/courseContext";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
-import BookingForm from "../../../../components/BookingForm";
 
 interface CounterProps {
   end: number;
@@ -190,14 +189,7 @@ export default function DataHeroEIE() {
         </div>
       </div>
 
-      {/* <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} /> */}
-
-      <BookingForm
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        course="Data Analytics"
-        handleModalSubmit={handleModalSubmit}
-      />
+      <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} />
     </section>
   );
 }

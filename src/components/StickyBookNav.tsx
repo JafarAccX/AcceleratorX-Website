@@ -2,34 +2,11 @@ import { useState } from "react";
 import { animated } from "@react-spring/web";
 import { useCourseContext } from "../context/courseContext";
 import { AnimatePresence } from "framer-motion"; // Import AnimatePresence
-import BookingForm from "./BookingForm";
+import EnrollmentModal from "./EnrollmentModal";
 
 const StickyBookNav = () => {
-  // const [isVisible, setIsVisible] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { selectedCourse } = useCourseContext();
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     // Show navbar after scrolling 300px
-  //     const scrolled = window.scrollY > 300;
-  //     setIsVisible(scrolled);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
-  // const springStyles = useSpring({
-  //   transform: isVisible ? "translateY(0)" : "translateY(100%)",
-  //   opacity: isVisible ? 1 : 0,
-  //   config: {
-  //     tension: 180,
-  //     friction: 24,
-  //     mass: 1,
-  //     clamp: true,
-  //   },
-  // });
 
   if (!selectedCourse) return null;
 
@@ -76,7 +53,7 @@ const StickyBookNav = () => {
 
       {/* AnimatePresence ensures smooth mount/unmount animations */}
       <AnimatePresence>
-        {isFormOpen && <BookingForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />}
+        {isFormOpen && <EnrollmentModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />}
       </AnimatePresence>
     </>
   );
