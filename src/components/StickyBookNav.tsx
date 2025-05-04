@@ -15,10 +15,10 @@ const StickyBookNav = () => {
       <animated.div
         style={{
           // ...springStyles,
-          // position: "fixed",
-          // bottom: 0,
-          // left: 0,
-          // right: 0,
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
           zIndex: 40,
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
@@ -35,7 +35,9 @@ const StickyBookNav = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
             <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left">
               <p className="text-white text-sm sm:text-base md:text-lg font-medium leading-tight flex items-center gap-2">
-                <span className="animate-bounce hidden sm:inline-block">💡</span>
+                <span className="animate-bounce hidden sm:inline-block">
+                  💡
+                </span>
                 Got doubts? Book a session with our mentor 1:1
                 <span className="hidden sm:inline-block animate-pulse">🎯</span>
               </p>
@@ -44,8 +46,10 @@ const StickyBookNav = () => {
               onClick={() => setIsFormOpen(true)}
               className="w-full sm:w-auto inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 border border-transparent text-sm sm:text-base font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] shadow-sm group"
             >
-              Book Your Session
-              <span className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300">⚡</span>
+              Apply Scholarship
+              <span className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                ⚡
+              </span>
             </button>
           </div>
         </div>
@@ -53,7 +57,12 @@ const StickyBookNav = () => {
 
       {/* AnimatePresence ensures smooth mount/unmount animations */}
       <AnimatePresence>
-        {isFormOpen && <EnrollmentModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />}
+        {isFormOpen && (
+          <EnrollmentModal
+            isOpen={isFormOpen}
+            onClose={() => setIsFormOpen(false)}
+          />
+        )}
       </AnimatePresence>
     </>
   );
