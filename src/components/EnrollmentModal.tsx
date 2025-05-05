@@ -20,7 +20,25 @@ interface EnrollmentModalProps {
   onSubmit?: () => void;
 }
 
-async function sendWhatsAppMessage({ phone, name }: { phone: string; name: string }) {
+const daBroucher = {
+  title: "AI Powered Data Analytics",
+  url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AI%20Powered%20DA%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FJIFBvd2VyZWQgREEgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzQ2Mjc3MTU1LCJleHAiOjE4NzI0MjExNTV9.NWSk8RPs_nwupsr5Wfu6-EGpUzFFaVPrMKOVZmICPgw",
+};
+
+const genAiBroucher = {
+  title: "Generative AI",
+  url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Gen%20AI.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBHZW4gQUkucGRmIiwiaWF0IjoxNzQ2NDQwMTE0LCJleHAiOjE4MDk1MTIxMTR9.AFFhiMscFVvpzecvbkax-r6zDxugIz2LPmabyvm9m7o",
+};
+
+async function sendWhatsAppMessage({
+  phone,
+  name,
+  broucher,
+}: {
+  phone: string;
+  name: string;
+  broucher: { title: string; url: string };
+}) {
   try {
     console.log(" Sending WhatsApp message to:", phone, name);
     const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
@@ -36,8 +54,8 @@ async function sendWhatsAppMessage({ phone, name }: { phone: string; name: strin
         templateParams: ["$FirstName"],
         source: "registration form",
         media: {
-          url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AI%20Powered%20DA%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FJIFBvd2VyZWQgREEgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzQ2Mjc3MTU1LCJleHAiOjE4NzI0MjExNTV9.NWSk8RPs_nwupsr5Wfu6-EGpUzFFaVPrMKOVZmICPgw",
-          filename: "Ai-Powered-Data-Analytics.pdf",
+          url: broucher.url,
+          filename: broucher.title,
         },
         paramsFallbackValue: {
           FirstName: "user",
@@ -105,6 +123,20 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
       // Get UTM data
       const utmData = getUTMDataForDB();
 
+      const { data: existingEnrollment } = await supabase
+        .from("enrollments")
+        .select("*")
+        .eq("phone_number", formData.phone)
+        .eq("course", formData.course);
+
+      console.log("Existing enrollment data:", existingEnrollment);
+
+      // throw existing enrollment error
+      if (existingEnrollment && existingEnrollment.length > 0) {
+        toast.error("You have already enrolled for this course.");
+        throw new Error("User already enrolled for this course.");
+      }
+
       // Store enrollment data
       const { error } = await supabase.from("enrollments").insert([
         {
@@ -140,9 +172,13 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
         return;
       }
 
+      //courses available -- Generative AI, Data Analytics, Product Management
+      const broucherData = selectedCourse === "Data Analytics" ? daBroucher : genAiBroucher;
+
       await sendWhatsAppMessage({
         phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
         name: formData.name,
+        broucher: broucherData,
       });
 
       // Send to Meta Conversion API
