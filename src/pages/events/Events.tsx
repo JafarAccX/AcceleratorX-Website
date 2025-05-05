@@ -43,7 +43,7 @@ const Events = () => {
             </header>
 
             <div className="flex flex-col lg:flex-row items-start justify-between">
-              <div className="w-full lg:w-48 pr-6 ">
+              {/* <div className="w-full lg:w-48 pr-6 ">
                 <motion.div
                   className="relative "
                   initial={{ opacity: 0, x: -20 }}
@@ -64,7 +64,7 @@ const Events = () => {
                   </div>
                   <div className="absolute top-6 bottom-0 left-1.5 w-[1px] bg-gradient-to-b from-purple-500/50 to-transparent"></div>
                 </motion.div>
-              </div>
+              </div> */}
 
               <div className="lg:flex-1 w-full">
                 <motion.div
@@ -90,11 +90,11 @@ const Events = () => {
                   <div className="flex justify-between">
                     <div>
                       {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
-                      <h2 className="text-2xl font-semibold mb-4">Product Teardown</h2>
+                      <h2 className="text-2xl font-semibold mb-4">Product Inovation Challenge</h2>
 
                       <div className="flex items-center text-amber-400 mb-2">
                         <MapPin size={16} className="mr-2" />
-                        <span>Online (Zoom + Slack)</span>
+                        <span>Online (Zoom )</span>
                       </div>
 
                       <div className="flex items-center text-gray-400">
@@ -111,6 +111,8 @@ const Events = () => {
                           />
                         </button>
                       </Link>
+
+                      <p className="text-gray-400 mt-2">May 8th 2025 - May 14th 2025</p>
                     </div>
 
                     <EventThumbnail />

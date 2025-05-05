@@ -6,6 +6,7 @@ import WorkshopPaymentSuccess from "../pages/workshop-payment/Success";
 import XSATEntry from "../pages/courses/EntryPoint/XSATEntry";
 import PerformanceAnalytics from "../pages/admin/PerformanceAnalytics";
 import EventManagementPage from "../pages/events/event";
+import RegistrationSuccess from "../pages/events/registration-successful";
 
 // Lazy imports for main routes
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
@@ -138,6 +139,7 @@ export const mainRoutes = [
 
   // Thank You Page
   <Route path="/thank-you" element={<ThankYouPageWrapper />} />,
+  <Route path="/registration-sucessfull" element={<RegistrationSuccess />} />,
 
   // Workshop Payment Success
   <Route path="/workshop-payment/success/:orderId" element={<WorkshopPaymentSuccess />} />,

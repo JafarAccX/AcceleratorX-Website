@@ -18,7 +18,7 @@ export default function EventManagementPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold mt-2">Product Teardown – The 7-Day Break-In Challenge</h1>
+          <h1 className="text-4xl font-bold mt-2">Product Inovation Challenge – The 7-Day Break-In </h1>
         </motion.div>
 
         {/* Tabs */}
@@ -110,7 +110,7 @@ export default function EventManagementPage() {
         </div>
 
         {/* Footer Actions */}
-        <motion.div
+        {/* <motion.div
           className="mt-6 flex flex-wrap justify-between items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,7 +119,7 @@ export default function EventManagementPage() {
           <div className="flex items-center space-x-4">
             <span className="text-gray-400">Share Event</span>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </div>
   );
@@ -142,7 +142,7 @@ export function EventDetails() {
       role: "Ex-Attendee",
     },
     {
-      text: "The Product Teardown Challenge pushed me to think like a product manager. The mentorship and feedback were invaluable for my career transition.",
+      text: "The Product Inovation Challenge pushed me to think like a product manager. The mentorship and feedback were invaluable for my career transition.",
       author: "Rahul S.",
       role: "Product Manager",
     },
@@ -220,7 +220,7 @@ export function EventDetails() {
                   <Calendar size={18} className="text-amber-400" />
                 </div>
                 <div>
-                  <div className="text-gray-300 text-sm">May 6th 2025 - May 12th 2025</div>
+                  <div className="text-gray-300 text-sm">May 8th 2025 - May 14th 2025</div>
                   <div className="text-amber-400 text-sm">Daily tasks and live sessions (1–2 hours/day)</div>
                 </div>
               </div>
@@ -229,7 +229,7 @@ export function EventDetails() {
                 <div className="bg-purple-500/10 rounded-md p-1 mr-2">
                   <MapPin size={18} />
                 </div>
-                <span>Online (Zoom + Slack)</span>
+                <span>Online (Zoom)</span>
               </div>
 
               <motion.div
@@ -245,13 +245,13 @@ export function EventDetails() {
                 >
                   Register Now!
                 </motion.button> */}
-                <p className="text-amber-400 mt-3 font-medium">Limited spots availavle.</p>
+                <p className="text-amber-400 mt-3 font-medium">Limited spots available.</p>
               </motion.div>
             </div>
           </div>
         </motion.div>
 
-        {/* What's the Product Teardown Challenge Section */}
+        {/* What's the Product Inovation Challenge Section */}
         <motion.div
           className="bg-gradient-to-br from-gray-800/30 to-gray-900/90 rounded-xl p-6 md:p-8 border border-gray-800 mb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -260,13 +260,13 @@ export function EventDetails() {
         >
           <h2 className="text-2xl font-bold mb-4 flex items-center">
             <Award className="mr-3 text-purple-400" size={24} />
-            <span>What's the Product Teardown Challenge?</span>
+            <span>What's the Product Inovation Challenge?</span>
           </h2>
 
           <p className="text-gray-300 mb-6 leading-relaxed">
-            Product Teardown is a 7-day challenge where you'll form a team of 3 (or go solo), build a product using any
+            Product Inovation is a 7-day challenge where you'll form a team of 3 (or go solo), build a product using any
             AI tool, and position yourself like a top-tier product manager. Along the way, you'll get access to live
-            mentor sessions, resume reviews, a mock interview, and a shot at winning ₹50,000.
+            mentor sessions, resume reviews, a mock interview, and a shot at winning Rs 50,000*.
           </p>
 
           <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 p-6 rounded-xl border border-purple-800/20">
@@ -277,7 +277,7 @@ export function EventDetails() {
                 "Work solo or in teams of 3 – choose your own path",
                 "Learn how to brand yourself like a product",
                 "Resume review & mock interview with real PMs",
-                "Win ₹50,000 cash – show your product, tell your story",
+                "Win Rs 50,000* cash – show your product, tell your story",
                 "100% free – zero excuses, just hustle",
               ].map((item, index) => (
                 <motion.li
@@ -460,7 +460,7 @@ export function EventDetails() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">This 7-day challenge isn't just another event</h2>
           <p className="text-gray-300 mb-6 max-w-3xl mx-auto">
             It's your shot to build a product, brand yourself, and stand out in a sea of job seekers. You'll learn from
-            top PMs, compete for ₹50,000, and walk away with a personal story stronger than any resume.
+            top PMs, compete for Rs 50,000*, and walk away with a personal story stronger than any resume.
           </p>
 
           <motion.button
