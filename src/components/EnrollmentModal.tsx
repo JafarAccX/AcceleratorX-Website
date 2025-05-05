@@ -91,8 +91,8 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (formData.phone.length !== 10) {
-      toast.error("Please enter a valid 10-digit phone number");
+    if (formData.phone.length !== 10 || formData.phone.startsWith("0")) {
+      toast.error("Please enter a valid 10-digit phone number that doesn't start with 0");
       return;
     }
 
