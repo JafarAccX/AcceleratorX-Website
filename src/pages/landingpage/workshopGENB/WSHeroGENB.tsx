@@ -150,15 +150,13 @@ const WSHeroGENB = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             {/* Pre-title */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-              <span className="text-green-400 font-medium text-sm">
-                Supercharge Your Productivity with Workflow Automation
-              </span>
+              <span className="text-green-400 font-medium text-sm">— No Code Required</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-                Automate Anything with n8n — No Code Required
+                Automate Anything with n8n
               </span>
             </h1>
 
@@ -172,7 +170,7 @@ const WSHeroGENB = () => {
             {/* Workshop Info Tag */}
             <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg border border-green-500/20">
               <div className="text-yellow-400 text-sm font-medium">
-                90-Minute Live Workshop with Completion Certificate
+                Learn Automation for Free – No Experience Needed
               </div>
               <div className="block sm:hidden animate-pulse">
                 <button

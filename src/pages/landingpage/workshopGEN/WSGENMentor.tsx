@@ -1,11 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Linkedin,
-  Award,
-  Sparkles,
-  Briefcase,
-} from "lucide-react";
+import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 
 const WSGENMentor = () => {
   const mentors = [
@@ -26,7 +21,7 @@ const WSGENMentor = () => {
       experience: "5+ Years",
     },
   ];
-  
+
   return (
     <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
       {/* Background Elements */}
@@ -49,18 +44,17 @@ const WSGENMentor = () => {
           </div>
 
           {/* Mentors Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1  gap-8">
             {mentors.map((mentor, index) => (
-              <div key={index} className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800">
+              <div
+                key={index}
+                className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800 max-w-screen-sm mx-auto"
+              >
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   {/* Mentor Image */}
                   <div className="relative">
                     <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
-                      <img
-                        src={mentor.image}
-                        alt={mentor.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover" />
                     </div>
                     <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-lg">
                       <a
@@ -76,9 +70,7 @@ const WSGENMentor = () => {
 
                   {/* Mentor Details */}
                   <div className="flex-1 text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {mentor.name}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white mb-2">{mentor.name}</h3>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start mb-4">
                       <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20">
                         <Briefcase className="w-3 h-3" />

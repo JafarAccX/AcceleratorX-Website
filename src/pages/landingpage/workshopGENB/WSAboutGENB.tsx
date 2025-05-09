@@ -43,21 +43,13 @@ const WSAboutGENB = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-green-400 text-sm font-medium">AI Builder Workshop</span>
+                  <span className="text-green-400 text-sm font-medium">AI Automation Workshop</span>
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Automation Builder Workshop</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Automation with n8n Workshop</h2>
 
                 {/* Workshop Info */}
-                <div className="bg-[#111827] rounded-md p-4 mb-5 border border-green-500/10">
-                  <p className="text-gray-300">
-                    Build Real Workflow Automations in Just 90 Minutes — No Code Required Join us live on{" "}
-                    <span className="font-semibold text-green-400">15th May, 2025</span> at{" "}
-                    <span className="text-green-400">11:00 PM</span> and learn to create powerful automations using n8n
-                    — even if you’ve never automated anything before!
-                  </p>
-                </div>
 
                 {/* Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
