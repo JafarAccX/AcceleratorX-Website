@@ -57,11 +57,11 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  title: "Build Real AI Projects in Just 90 Minutes",
-  link: "https://zoom.us/meeting/register/ZQDwsE6qTNGsmYLgkrWdRQ",
-  meetingId: "ZQDwsE6qTNGsmYLgkrWdRQ",
-  time: "20th April, 2025 11:00AM PM India",
-  meetingCode: "94260160495",
+  title: "How to Automate your workflows Using n8n",
+  link: "https://zoom.us/meeting/register/moivGRTCRVu02E_-CmzaIw",
+  meetingId: "moivGRTCRVu02E_-CmzaIw",
+  time: "15th May, 2025 11:00AM PM India",
+  meetingCode: "96045949365",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {

@@ -24,11 +24,13 @@ const GENCTAB = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                Build Amazing Apps Without Writing Any Code
+                Automate Your Work — No Code Required
               </motion.h2>
 
               <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-4">
-                <span className="text-base text-blue-400 font-medium">Register Now for Vibe Coding with GenAI</span>
+                <span className="text-base text-blue-400 font-medium">
+                  Register Now for Hands-On Automation with n8n
+                </span>
               </div>
             </div>
 
@@ -36,11 +38,19 @@ const GENCTAB = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10 text-center">
                 <p className="text-xl font-bold text-blue-400 mb-1">No-Code</p>
-                <p className="text-sm text-gray-400">Creation Tools</p>
+                <p className="text-sm text-gray-400">Automation Tools</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-green-400 mb-1">Creative</p>
-                <p className="text-sm text-gray-400">App Building</p>
+                <p className="text-xl font-bold text-green-400 mb-1">Effortless</p>
+                <p className="text-sm text-gray-400">Workflow Building</p>
+              </div>
+              <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
+                <p className="text-xl font-bold text-green-400 mb-1">Smart</p>
+                <p className="text-sm text-gray-400">Task Automation</p>
+              </div>
+              <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
+                <p className="text-xl font-bold text-blue-400 mb-1">Build & Launch</p>
+                <p className="text-sm text-gray-400">Your Time-Saving Ideas</p>
               </div>
             </div>
 
@@ -52,7 +62,7 @@ const GENCTAB = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Build Your Wild App Ideas
+                Automate Your Wildest Workflow Ideas
               </motion.button>
             </div>
           </div>
@@ -60,16 +70,10 @@ const GENCTAB = () => {
           {/* Footer section */}
           <div className="mt-8 flex flex-col items-center space-y-2 text-center">
             <div className="flex items-center justify-center space-x-2">
-              <img
-                src="/favicon.svg"
-                alt="AcceleratorX"
-                className="h-5 w-5"
-              />
+              <img src="/favicon.svg" alt="AcceleratorX" className="h-5 w-5" />
               <span className="text-white text-sm font-medium">AcceleratorX</span>
             </div>
-            <p className="text-gray-500 text-xs">
-              {currentYear} AcceleratorX. All rights reserved.
-            </p>
+            <p className="text-gray-500 text-xs">{currentYear} AcceleratorX. All rights reserved.</p>
           </div>
         </div>
       </div>

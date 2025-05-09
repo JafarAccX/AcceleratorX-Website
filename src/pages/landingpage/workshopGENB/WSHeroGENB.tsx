@@ -150,20 +150,23 @@ const WSHeroGENB = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             {/* Pre-title */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-              <span className="text-green-400 font-medium text-sm">Hands-On AI Workshop</span>
+              <span className="text-green-400 font-medium text-sm">
+                Supercharge Your Productivity with Workflow Automation
+              </span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-                Build Real AI Projects in Just 90 Minutes — No Code Required
+                Automate Anything with n8n — No Code Required
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-              Create and launch AI-powered tools using no-code and low-code platforms. Get hands-on with real
-              projects—even if you've never built with AI before.
+              Build Real Automations in Just 90 Minutes — No Code Required Create and launch automated workflows using
+              the powerful no-code platform n8n. Get hands-on with real-time automation projects—even if you've never
+              used automation tools before.
             </p>
 
             {/* Workshop Info Tag */}
@@ -185,7 +188,7 @@ const WSHeroGENB = () => {
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
                 { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "April 20th" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "May 15th" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "time",
