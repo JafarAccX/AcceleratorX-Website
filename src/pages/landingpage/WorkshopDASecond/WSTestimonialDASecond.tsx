@@ -19,9 +19,7 @@ const WSTestimonialDASecond = () => {
         block: "center",
       });
     } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
+      console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
@@ -37,9 +35,7 @@ const WSTestimonialDASecond = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-indigo-500/20 border border-emerald-500/30 backdrop-blur-sm mb-4">
-            <span className="text-emerald-400 text-sm font-medium">
-              Success Stories
-            </span>
+            <span className="text-emerald-400 text-sm font-medium">Success Stories</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-center">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
@@ -47,8 +43,7 @@ const WSTestimonialDASecond = () => {
             </span>
           </h2>
           <p className="text-gray-400 text-lg lg:text-xl max-w-2xl mx-auto">
-            See what professionals have achieved with their custom Data Analyst Bots
-            built using GenAI
+            See what professionals have achieved with their custom Data Analyst Bots built using GenAI
           </p>
         </div>
 
@@ -86,10 +81,7 @@ const WSTestimonialDASecond = () => {
               label: "Time Saved on Analysis",
             },
           ].map((stat, index) => (
-            <div
-              key={index}
-              className="group text-center transform hover:-translate-y-2 transition-all duration-300"
-            >
+            <div key={index} className="group text-center transform hover:-translate-y-2 transition-all duration-300">
               <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-blue-600/10 via-purple-500/10 to-green-500/10 rounded-xl border border-white/5 backdrop-blur-sm flex items-center justify-center group-hover:border-white/20 transition-all duration-300">
                 <span className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400">
                   {stat.value}
@@ -112,7 +104,7 @@ const WSTestimonialDASecond = () => {
             className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
           >
             <span className="relative z-10 text-white group-hover/btn:text-emerald-50 transition-all">
-              Create Your Data Analyst Bot
+              Start Visualizing
             </span>
             <svg
               className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
@@ -121,12 +113,7 @@ const WSTestimonialDASecond = () => {
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </button>
         </div>

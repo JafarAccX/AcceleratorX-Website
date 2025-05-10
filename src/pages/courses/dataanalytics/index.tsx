@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import Loader from "../../../components/Loader";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";

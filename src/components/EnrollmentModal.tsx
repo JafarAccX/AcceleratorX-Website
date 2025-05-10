@@ -226,7 +226,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
                 </div>
               </div>
 
-              <div className=" shadow-2xl p-6 w-full border border-gray-800/30">
+              <div className=" shadow-2xl p-6 w-full border border-gray-800/30" id={"course-form"}>
                 <form onSubmit={handleSubmit} className="p-4 space-y-3">
                   <div className="space-y-3">
                     <div>

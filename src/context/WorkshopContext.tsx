@@ -41,11 +41,11 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "",
-  link: "https://zoom.us/j/96800960051?pwd=SFgfijR2mxKd7aMUSyaWJL2P72QG7C.1",
-  meetingId: "13ZbA8hlSeWBYYXMqZj96w",
-  time: "March 12, 2025 07:30 PM India",
-  meetingCode: "",
+  title: "Tableau Zero to Master",
+  link: "https://zoom.us/meeting/register/HIFV1qVHTWu_SPmJ-R4Ptw",
+  meetingId: "HIFV1qVHTWu_SPmJ-R4Ptw",
+  time: "MAy 17, 2025 8:00 PM India",
+  meetingCode: "99098630020",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {

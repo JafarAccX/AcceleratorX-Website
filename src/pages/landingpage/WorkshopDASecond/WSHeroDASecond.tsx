@@ -12,9 +12,7 @@ const WSHeroDASecond = () => {
         block: "center",
       });
     } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
+      console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
@@ -55,11 +53,7 @@ const WSHeroDASecond = () => {
           <div className="w-40 md:w-48 relative group">
             <div className="absolute inset-0 blur-xl bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-green-500/30 rounded-full group-hover:scale-110 transition-all duration-300"></div>
             <div className="relative bg-black/80 backdrop-blur-xl rounded-2xl p-3 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-              <img
-                src="/assets/logo/logo.png"
-                alt="AcceleratorX Logo"
-                className="w-full h-auto"
-              />
+              <img src="/assets/logo/logo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
             </div>
           </div>
         </div>
@@ -73,9 +67,7 @@ const WSHeroDASecond = () => {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/40 transition-all duration-300">
                 <span className="animate-ping absolute h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500 mr-2"></span>
-                <span className="text-blue-400 text-sm font-medium">
-                  Live Masterclass
-                </span>
+                <span className="text-blue-400 text-sm font-medium">Live Masterclass</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
@@ -87,16 +79,16 @@ const WSHeroDASecond = () => {
               <h2 className="text-2xl font-semibold">
                 <span className="text-white">Topic: </span>
                 <span className="bg-gradient-to-r from-emerald-400 via-indigo-400 to-cyan-400 text-transparent bg-clip-text text-3xl">
-                  Build Your Own Data Analyst Bot with GenAI
+                  Tableau Zero to Master
                 </span>
               </h2>
 
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Create a powerful GenAI agent that cleans, analyzes, and
-                visualizes CSV data with just one command — no coding required!
+                Master Tableau from scratch and learn to create dynamic dashboards, interactive visuals, and data
+                stories that drive real insights — no prior experience needed!
               </p>
 
-              <div className="mt-8 flex justify-center lg:justify-start">
+              {/* <div className="mt-8 flex justify-center lg:justify-start">
                 <div className="relative inline-flex group/btn">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
                   <button
@@ -113,16 +105,11 @@ const WSHeroDASecond = () => {
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </button>
                 </div>
-              </div>
+              </div> */}
 
               {/* Enhanced Key Features */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
@@ -135,12 +122,12 @@ const WSHeroDASecond = () => {
                   {
                     icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "April 12, 2025",
+                    value: "May 17, 2025",
                   },
                   {
                     icon: <FaClock className="text-cyan-400 mb-1" />,
                     label: "Time",
-                    value: "7:30 PM",
+                    value: "8:00 PM",
                   },
                   {
                     icon: <FaUserGraduate className="text-yellow-400 mb-1" />,
@@ -153,9 +140,7 @@ const WSHeroDASecond = () => {
                     className="group bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-xl rounded-lg p-4 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-center lg:items-start"
                   >
                     {item.icon}
-                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
-                      {item.label}
-                    </p>
+                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">{item.label}</p>
                     <p className="text-white font-semibold mt-1 group-hover:text-blue-300 transition-colors">
                       {item.value}
                     </p>
@@ -166,22 +151,16 @@ const WSHeroDASecond = () => {
               {/* Mentor Badge - Enhanced */}
               <div className="mt-8 flex items-center justify-center lg:justify-start space-x-3 bg-gradient-to-r from-blue-900/30 to-purple-900/30 px-5 py-3 rounded-lg border border-blue-500/20 w-fit mx-auto lg:mx-0">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-400 flex-shrink-0">
-                  <img
-                    src="/assets/mentor/akash.png"
-                    alt="Aakash Maurya"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="/assets/mentor/Shubham.jpeg" alt="Aakash Maurya" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <div className="flex items-center">
-                    <p className="text-white font-medium">Aakash Maurya</p>
+                    <p className="text-white font-medium">Shubham Swaraj </p>
                     <div className="ml-2 px-2 py-0.5 bg-emerald-500/20 rounded-full">
                       <p className="text-emerald-300 text-xs">Mentor</p>
                     </div>
                   </div>
-                  <p className="text-emerald-400 text-sm">
-                    Senior ML Engineer, Nagarro
-                  </p>
+                  <p className="text-emerald-400 text-sm">Founder & Director - BIP Consults pvt. ltd.</p>
                 </div>
               </div>
             </div>
