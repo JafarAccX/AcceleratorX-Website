@@ -94,12 +94,6 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
     designation: "",
   });
 
-  // const courseOptions = [
-  //   "Product Management",
-  //   "Data Analytics",
-  //   "No-Code Development",
-  // ];
-
   useEffect(() => {
     if (selectedCourse) {
       setFormData((prev) => ({ ...prev, course: selectedCourse }));
