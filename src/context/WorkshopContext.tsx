@@ -60,7 +60,7 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
   title: "How to Automate your workflows Using n8n",
   link: "https://zoom.us/meeting/register/moivGRTCRVu02E_-CmzaIw",
   meetingId: "moivGRTCRVu02E_-CmzaIw",
-  time: "15th May, 2025 11:00AM PM India",
+  time: "15th May, 2025 08:00 PM India",
   meetingCode: "96045949365",
 };
 
