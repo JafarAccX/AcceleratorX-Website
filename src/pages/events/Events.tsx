@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 
 const Events = () => {
   const [activeTab, setActiveTab] = useState<"events" | "workshops">("events");
+  const [workshopsTabs, setWorkshopsTabs] = useState<"upcomming" | "past">("upcomming");
 
-  const workshopsDetails = [
+  const AllworkshopsDetails = [
     {
       name: "Automate anything with n8n",
       mode: "Online (Zoom)",
@@ -45,9 +46,38 @@ const Events = () => {
     },
   ];
 
+  const AllEventsDetails = [
+    {
+      name: "Product Inovation Challenge",
+      mode: "Online (Zoom )",
+      val: "Daily tasks and live sessions",
+      time: "May 8th 2025 - May 14th 2025",
+      link: "/event/PMtakedown/view",
+      completed: false,
+    },
+  ];
+
+  const workshopsDetails = AllworkshopsDetails.filter((work) => {
+    if (workshopsTabs === "upcomming" && work.completed === false) {
+      return work;
+    }
+    if (workshopsTabs === "past" && work.completed === true) {
+      return work;
+    }
+  });
+
+  const eventsDetails = AllEventsDetails.filter((work) => {
+    if (workshopsTabs === "upcomming" && work.completed === false) {
+      return work;
+    }
+    if (workshopsTabs === "past" && work.completed === true) {
+      return work;
+    }
+  });
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
-      <div className=" mt-10 max-w-screen-lg mx-auto p-4 md:p-8">
+      <div className=" mt-10 md:mt-4 max-w-screen-lg mx-auto p-4 md:p-8">
         <div className="min-h-screen  text-white md:p-6">
           <div className="max-w-4xl mx-auto mt-10">
             <header className="flex justify-between items-center mb-10">
@@ -82,68 +112,102 @@ const Events = () => {
               </div>
             </header>
 
+            <div className="bg-gray-800/50 rounded-full p-1 mb-2 max-w-[215px]">
+              <div className="flex">
+                <button
+                  onClick={() => setWorkshopsTabs("upcomming")}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                    workshopsTabs === "upcomming" ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  Upcoming
+                </button>
+                <button
+                  onClick={() => setWorkshopsTabs("past")}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                    workshopsTabs === "past" ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  Past
+                </button>
+              </div>
+            </div>
+
             {activeTab === "events" && (
               <div className="flex flex-col lg:flex-row items-start justify-between">
-                <div className="lg:flex-1 w-full">
-                  <motion.div
-                    className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{
-                      opacity: [1, 0.8, 1],
-                      boxShadow: [
-                        "0 0 0px rgba(168, 85, 247, 0.0)",
-                        "0 0 20px rgba(168, 85, 247, 0.6)",
-                        "0 0 0px rgba(168, 85, 247, 0.0)",
-                      ],
-                      borderColor: ["rgba(168, 85, 247, 0.1)", "rgba(168, 85, 247, 0.6)", "rgba(168, 85, 247, 0.1)"],
-                      y: 0,
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      repeatType: "loop",
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <div className="flex justify-between">
-                      <div>
-                        {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
-                        <h2 className="text-2xl font-semibold mb-4">Product Inovation Challenge</h2>
+                {eventsDetails.length <= 0 && (
+                  <div className="lg:flex-1 w-full">
+                    <div className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800">
+                      <div className="flex justify-between items-center">
+                        <p className="text-4xl pl-4">No Events</p>
 
-                        <div className="flex items-center text-amber-400 mb-2">
-                          <MapPin size={16} className="mr-2" />
-                          <span>Online (Zoom )</span>
-                        </div>
-
-                        <div className="flex items-center text-gray-400">
-                          <Clock size={16} className="mr-2" />
-                          <span>Daily tasks and live sessions</span>
-                        </div>
-
-                        <Link to={"/event/PMtakedown/view"}>
-                          <button className="mt-6 flex items-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 group">
-                            <span>Event Info</span>
-                            <ArrowRight
-                              size={16}
-                              className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                            />
-                          </button>
-                        </Link>
-
-                        <p className="text-gray-400 mt-2">May 8th 2025 - May 14th 2025</p>
+                        <EventThumbnail num={9} />
                       </div>
-
-                      <EventThumbnail num={9} />
                     </div>
-                  </motion.div>
-                </div>
+                  </div>
+                )}
+                {eventsDetails.map((event) => (
+                  <div className="lg:flex-1 w-full" key={event.time}>
+                    <motion.div
+                      className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{
+                        opacity: [1, 0.8, 1],
+                        boxShadow: [
+                          "0 0 0px rgba(168, 85, 247, 0.0)",
+                          "0 0 20px rgba(168, 85, 247, 0.6)",
+                          "0 0 0px rgba(168, 85, 247, 0.0)",
+                        ],
+                        borderColor: ["rgba(168, 85, 247, 0.1)", "rgba(168, 85, 247, 0.6)", "rgba(168, 85, 247, 0.1)"],
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <div className="flex justify-between">
+                        <div>
+                          {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
+                          <h2 className="text-2xl font-semibold mb-4"> {event.name}</h2>
+
+                          <div className="flex items-center text-amber-400 mb-2">
+                            <MapPin size={16} className="mr-2" />
+                            <span> {event.mode}</span>
+                          </div>
+
+                          <div className="flex items-center text-gray-400">
+                            <Clock size={16} className="mr-2" />
+                            <span>{event.val}</span>
+                          </div>
+
+                          <Link to={event.link}>
+                            <button className="mt-6 flex items-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 group">
+                              <span>Event Info</span>
+                              <ArrowRight
+                                size={16}
+                                className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                              />
+                            </button>
+                          </Link>
+
+                          <p className="text-gray-400 mt-2"> {event.time}</p>
+                        </div>
+
+                        <EventThumbnail num={9} />
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
               </div>
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 max-w-screen-lg items-center justify-center gap-4">
               {activeTab === "workshops" &&
                 workshopsDetails.map((workshop) => (
-                  <div className="flex flex-col lg:flex-row items-start justify-between h-full">
+                  <div className="flex flex-col lg:flex-row items-start justify-between h-full" key={workshop.time}>
                     <div className="lg:flex-1 w-full h-full">
                       <motion.div
                         className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800 h-full"
