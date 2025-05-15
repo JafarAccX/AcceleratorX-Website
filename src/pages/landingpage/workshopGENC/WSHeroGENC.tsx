@@ -42,7 +42,7 @@ const WSHeroGENC = () => {
             scale: [1.2, 1, 1.2],
             opacity: [0.15, 0.25, 0.15],
           }}
-          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+          transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
           className="absolute bottom-20 left-20 w-96 h-96 bg-green-600/10 rounded-full blur-3xl"
         />
       </div>
@@ -65,9 +65,9 @@ const WSHeroGENC = () => {
         <div className="relative flex flex-col lg:flex-row items-center justify-center gap-12 pt-32 lg:pt-36">
           {/* Content Section */}
           <motion.div
-            initial={{ x: -50, opacity: 0 }}
+            // initial={{ x: -10, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
             // className="w-full lg:w-1/2 space-y-8 px-4 sm:px-0"
             className="flex flex-col gap-4"
           >
@@ -100,7 +100,7 @@ const WSHeroGENC = () => {
               <motion.h1
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.8 }}
                 className="text-4xl md:text-3xl lg:text-4xl font-bold leading-tight"
               >
                 <div className="flex items-center gap-4">
@@ -130,7 +130,7 @@ const WSHeroGENC = () => {
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: 0.8 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
                 Learn to create your own AI-powered assistant that helps you generate high-quality content quickly and
@@ -201,9 +201,9 @@ const WSHeroGENC = () => {
 
           {/* Form Section */}
           <motion.div
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ x: 10, opacity: 0 }}
+            animate={{ x: 0.7, opacity: 1 }}
+            transition={{ duration: 0.8 }}
             className="w-full lg:w-[45%] lg:sticky lg:top-32"
           >
             <div className="relative w-full max-w-md mx-auto">
