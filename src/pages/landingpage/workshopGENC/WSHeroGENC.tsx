@@ -217,10 +217,10 @@ const WSHeroGENC = () => {
                 {/* Form Content */}
                 <div className="relative">
                   <div className="mb-6 text-center">
-                    <motion.div animate={{ scale: [1, 1.02, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+                    <div>
                       <h3 className="text-xl font-bold text-white mb-2">Reserve Your Spot Now!</h3>
                       <p className="text-sm text-gray-400">Limited seats available for the next session</p>
-                    </motion.div>
+                    </div>
                   </div>
                   <div id="workshop-registration-form">
                     <WorkshopProvider>
