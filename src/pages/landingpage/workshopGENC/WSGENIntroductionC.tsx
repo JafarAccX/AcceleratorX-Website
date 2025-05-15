@@ -1,15 +1,14 @@
-import React from "react";
 import { TrendingUp, Target, Brain } from "lucide-react";
 
 const WSGENIntroductionC = () => {
   const stats = [
     {
       value: "40%",
-      label: "Productivity Boost with AI",
+      label: "Faster Content Creation with AI",
     },
     {
       value: "85%",
-      label: "of Jobs Will Be AI-Augmented",
+      label: "of Digital Content Will Involve AI",
     },
     {
       value: "No Coding",
@@ -20,21 +19,18 @@ const WSGENIntroductionC = () => {
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "AI-Powered Productivity",
-      description:
-        "Discover how AI can automate repetitive tasks and streamline workflows—without coding.",
+      title: "AI-Powered Content Tools",
+      description: "Discover AI that helps write, edit, and brainstorm—all tailored to your needs.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
       title: "Practical, No-Code AI Tools",
-      description:
-        "Learn hands-on how to use AI-driven tools for content creation, research, and data analysis.",
+      description: "Get hands-on with intuitive AI tools for real-world content creation tasks.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
       title: "Future-Proof Your Skills",
-      description:
-        "Stay ahead in your career by leveraging AI, even without a technical background.",
+      description: "Stay ahead in a content-driven world by learning how to use AI effectively.",
     },
   ];
 
@@ -46,9 +42,7 @@ const WSGENIntroductionC = () => {
         block: "center",
       });
     } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
+      console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
@@ -74,13 +68,11 @@ const WSGENIntroductionC = () => {
       <div className="absolute bottom-0 -right-48 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">
-              Learn AI Without Coding
-            </span>
+            <span className="text-sm text-blue-400 font-medium">Learn AI Without Coding</span>
           </div>
 
           {/* Main Heading */}
@@ -90,21 +82,15 @@ const WSGENIntroductionC = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Unlock the power of AI to enhance productivity, automate tasks, and 
-            boost creativity—without writing a single line of code. Join this free 
-            workshop and start using AI in your work today.
+            Leverage AI to enhance your creativity, productivity, and communication—without writing a single line of
+            code.
           </p>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
             {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/5"
-              >
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">
-                  {stat.value}
-                </div>
+              <div key={index} className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/30">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-400">{stat.label}</div>
               </div>
             ))}
@@ -115,24 +101,20 @@ const WSGENIntroductionC = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border border-white/10"
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border  border-white/30"
               >
-                <div className="rounded-full bg-blue-500/10 p-2.5 backdrop-blur-sm">
-                  {feature.icon}
-                </div>
+                <div className="rounded-full bg-blue-500/10 p-2.5 backdrop-blur-sm">{feature.icon}</div>
                 <div className="text-left">
-                  <h3 className="text-lg font-semibold text-white mb-1">
-                    {feature.title}
-                  </h3>
+                  <h3 className="text-lg font-semibold text-white mb-1">{feature.title}</h3>
                   <p className="text-sm text-gray-400">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center mt-6">
             <button
               onClick={scrollToForm}
-              className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+              className="block w-full mt-4 px-6 py-3 max-w-screen-sm bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
             >
               Register Now
             </button>

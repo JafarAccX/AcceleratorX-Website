@@ -13,14 +13,12 @@ const WSHeroGENC = () => {
         block: "center",
       });
     } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
+      console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#0A0F1F] to-black">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#0A0F1F] to-black px-4">
       {/* AI-themed Background Pattern */}
       <div className="absolute inset-0">
         <div
@@ -45,7 +43,6 @@ const WSHeroGENC = () => {
           transition={{ duration: 4, repeat: Infinity, delay: 1 }}
           className="absolute bottom-20 left-20 w-96 h-96 bg-green-600/10 rounded-full blur-3xl"
         />
-
       </div>
 
       {/* Header Logo */}
@@ -57,23 +54,20 @@ const WSHeroGENC = () => {
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="w-44 md:w-52 hover:scale-105 transition-transform duration-300">
-            <img
-              src="/assets/companylogo.png"
-              alt="AcceleratorX Logo"
-              className="w-full h-auto"
-            />
+            <img src="/assets/companylogo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
           </div>
         </div>
       </motion.div>
 
       <div className="container mx-auto px-0 sm:px-4">
-        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-12 pt-32 lg:pt-36">
+        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-12 pt-32 lg:pt-36">
           {/* Content Section */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-1/2 space-y-8 px-4 sm:px-0"
+            // className="w-full lg:w-1/2 space-y-8 px-4 sm:px-0"
+            className="flex flex-col gap-4"
           >
             {/* Pre-title with AI animation */}
             <motion.div
@@ -81,7 +75,7 @@ const WSHeroGENC = () => {
               animate={{ y: 0, opacity: 1 }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-green-500/10 border border-blue-500/20"
+              className="inline-flex max-w-[250px] items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-green-500/10 border border-blue-500/20"
             >
               <motion.div
                 animate={{
@@ -96,34 +90,37 @@ const WSHeroGENC = () => {
               >
                 <span className="text-blue-400">⚡</span>
               </motion.div>
-              <span className="text-blue-400 font-medium">
-                Hands-on LangChain Workshop
-              </span>
+              <span className="text-blue-400 font-medium">Hands-on AI Workshop</span>
             </motion.div>
 
             {/* Main Title & Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 flex items-start justify-center flex-col ">
               <motion.h1
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-7xl lg:text-6xl font-bold leading-tight"
+                className="text-4xl md:text-3xl lg:text-4xl font-bold leading-tight"
               >
                 <div className="flex items-center gap-4">
-                  <motion.div
+                  {/* <motion.div
                     animate={{ rotate: [0, -10, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                     className="text-blue-400"
                   >
                     <RiRobot2Line className="w-12 h-12 animate animate-bounce" />
-                  </motion.div>
+                  </motion.div> */}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
-                  Build Your <span className="text-yellow-400 underline">Personal AI App</span> with LangChain                  </span>
+                    Build Your
+                    <span className="text-yellow-400 underline ml-4">Personal Content Creator</span> with AI
+                  </span>
+
                   <motion.div
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                     className="flex gap-2"
-                  >                  </motion.div>
+                  >
+                    {" "}
+                  </motion.div>
                 </div>
               </motion.h1>
 
@@ -134,12 +131,14 @@ const WSHeroGENC = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
-                Learn to create your own AI-powered application using LangChain and open-source models. This hands-on workshop will guide you through building a personalized AI assistant that can learn from your data and help with your tasks.
+                Learn to create your own AI-powered assistant that helps you generate high-quality content quickly and
+                efficiently. This hands-on workshop will guide you through building a personal content creation tool
+                that boosts your creativity and productivity.
               </motion.p>
 
               {/* Price Tag - Enhanced */}
               <motion.div
-                className="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border border-blue-500/20"
+                className="flex flex-col items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border border-blue-500/20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
@@ -163,10 +162,7 @@ const WSHeroGENC = () => {
               >
                 <span className="flex items-center justify-center gap-2">
                   Register Now for Free
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
+                  <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                     →
                   </motion.span>
                 </span>
@@ -192,16 +188,9 @@ const WSHeroGENC = () => {
                 {/* Form Content */}
                 <div className="relative">
                   <div className="mb-6 text-center">
-                    <motion.div
-                      animate={{ scale: [1, 1.02, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        Reserve Your Spot Now!
-                      </h3>
-                      <p className="text-sm text-gray-400">
-                        Limited seats available for the next session
-                      </p>
+                    <motion.div animate={{ scale: [1, 1.02, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+                      <h3 className="text-xl font-bold text-white mb-2">Reserve Your Spot Now!</h3>
+                      <p className="text-sm text-gray-400">Limited seats available for the next session</p>
                     </motion.div>
                   </div>
                   <div id="workshop-registration-form">
