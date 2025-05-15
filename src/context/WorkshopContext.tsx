@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Create a Personal GenAI App with LangChain & Open Models",
-  link: "https://zoom.us/meeting/register/OoXQSu52RpaY_nO-XCAO9w",
-  meetingId: "OoXQSu52RpaY_nO-XCAO9w",
-  time: "16th April, 2025 07:30 PM India",
-  meetingCode: "96869223628",
+  title: "Build YourPersonal Content Creator with AI",
+  link: "https://zoom.us/meeting/register/ZWQXvYp2RnOT-5TmGJwzog",
+  meetingId: "ZWQXvYp2RnOT-5TmGJwzog",
+  time: "21th May, 2025 08:00 PM India",
+  meetingCode: "95052255978",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

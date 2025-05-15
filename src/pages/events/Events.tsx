@@ -24,6 +24,13 @@ const Events = () => {
       completed: false,
     },
     {
+      name: "Build YourPersonal Content Creator with AI",
+      mode: "Online (Zoom)",
+      time: "May 21, 2025 8:00 PM",
+      link: "/workshop/da-masterclass-thidtx",
+      completed: false,
+    },
+    {
       name: "Aytomate daily workflow using Generative AI tools",
       mode: "Online (Zoom)",
       time: "23rd Feb 2025, 10:30 AM",
