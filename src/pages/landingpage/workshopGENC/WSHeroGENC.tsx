@@ -3,6 +3,8 @@ import WSFormFree from "../workshopGENB/WSFormFree";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { motion } from "framer-motion";
 import { RiRobot2Line } from "react-icons/ri";
+import { FiAward, FiClock } from "react-icons/fi";
+import { FaCalendarAlt, FaClock, FaLevelUpAlt, FaUserGraduate } from "react-icons/fa";
 
 const WSHeroGENC = () => {
   const scrollToForm = () => {
@@ -167,6 +169,33 @@ const WSHeroGENC = () => {
                   </motion.span>
                 </span>
               </motion.button>
+            </div>
+
+            {/* Key Info */}
+            <div className="grid grid-cols-4 gap-4 mt-6">
+              {[
+                { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
+                {
+                  icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
+                  label: "Date",
+                  value: "May 21th ",
+                },
+                {
+                  icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
+                  label: "time",
+                  value: "08:00 pm",
+                },
+                { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="group bg-gradient-to-br from-[#0A1A2A]/80 to-[#061625]/60 backdrop-blur-xl rounded-lg p-3 border border-emerald-500/10 hover:border-indigo-400/30 transition-all duration-300 flex flex-col items-center hover:translate-y-[-2px] hover:shadow-lg"
+                >
+                  {item.icon}
+                  <p className="text-gray-400 text-xs">{item.label}</p>
+                  <p className="text-white font-semibold group-hover:text-cyan-300 transition-colors">{item.value}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
 
