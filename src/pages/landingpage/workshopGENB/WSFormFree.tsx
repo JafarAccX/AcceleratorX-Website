@@ -168,17 +168,6 @@ const WSFormFree = () => {
        * * * Check for errors during insertion
        * * * Handle unique constraint errors for phone and email
        */
-
-      await sendWhatsAppMessage({
-        apiKey: whatsappSerriApi,
-        campaignName: "registration_confirmation",
-        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
-        name: formData.name,
-        masterclass: zoomMeetingDetails.title,
-        sessionDate: zoomMeetingDetails.time,
-        link: "zoomJoinLink",
-      });
-
       if (error) {
         console.error("Supabase error:", error);
         if (error.code === "23505") {

@@ -26,16 +26,9 @@ const WSRegistrationSuccess = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">
-            Registration Details Not Found
-          </h2>
-          <p className="mt-2 text-gray-600">
-            Please complete the registration process to view this page.
-          </p>
-          <Link
-            to="/workshop/gen-ai-masterclass-bxwcy"
-            className="mt-4 inline-block text-blue-600 hover:text-blue-700"
-          >
+          <h2 className="text-2xl font-bold text-gray-900">Registration Details Not Found</h2>
+          <p className="mt-2 text-gray-600">Please complete the registration process to view this page.</p>
+          <Link to="/workshop/gen-ai-masterclass-bxwcy" className="mt-4 inline-block text-blue-600 hover:text-blue-700">
             Return to Workshop Page
           </Link>
         </div>
@@ -51,15 +44,16 @@ const WSRegistrationSuccess = () => {
   // Get the appropriate WhatsApp group link based on workshop type
   const getWhatsAppLink = () => {
     const workshopType = state.registrationDetails.workshop_type.toLowerCase();
-    
-    if (workshopType.includes('da') || workshopType.includes('data')) {
-      return "https://chat.whatsapp.com/Hl7nzEfchrR1I4ea4h04J5";
-    } else if (workshopType.includes('gen') || workshopType.includes('ai')) {
+
+    if (workshopType.includes("da") || workshopType.includes("data")) {
+      // return "https://chat.whatsapp.com/Hl7nzEfchrR1I4ea4h04J5";
+      return "https://chat.whatsapp.com/F37nunVbnd3BWRjcA4Bt9Q";
+    } else if (workshopType.includes("gen") || workshopType.includes("ai")) {
       return "https://chat.whatsapp.com/KmX1SZu2XPo1UaNICtWeVq";
-    } else if (workshopType.includes('pm') || workshopType.includes('product')) {
+    } else if (workshopType.includes("pm") || workshopType.includes("product")) {
       return "https://chat.whatsapp.com/IaFM3xfYfmRBO0jwiaDIHN";
     }
-    
+
     // Default fallback
     return "https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ";
   };
@@ -70,26 +64,26 @@ const WSRegistrationSuccess = () => {
       name: "LinkedIn",
       icon: <FaLinkedin className="w-5 h-5" />,
       url: "https://www.linkedin.com/company/acceleratorxorg",
-      color: "bg-[#0077B5]"
+      color: "bg-[#0077B5]",
     },
     {
       name: "Instagram",
       icon: <FaInstagram className="w-5 h-5" />,
       url: "https://www.instagram.com/acceleratorxorg/",
-      color: "bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]"
+      color: "bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]",
     },
     {
       name: "YouTube",
       icon: <FaYoutube className="w-5 h-5" />,
       url: "https://youtube.com/@acceleratorxorg",
-      color: "bg-[#FF0000]"
+      color: "bg-[#FF0000]",
     },
     {
       name: "Discord",
       icon: <FaDiscord className="w-5 h-5" />,
       url: "https://discord.gg/WKAdQuuv",
-      color: "bg-[#5865F2]"
-    }
+      color: "bg-[#5865F2]",
+    },
   ];
 
   return (
@@ -111,19 +105,13 @@ const WSRegistrationSuccess = () => {
             >
               <CheckCircle className="w-10 h-10 text-green-500" />
             </motion.div>
-            <h1 className="text-3xl font-bold text-white mb-2">
-              Registration Successful!
-            </h1>
-            <p className="text-blue-100">
-              Welcome to the Workshop, {state.registrationDetails.name}!
-            </p>
+            <h1 className="text-3xl font-bold text-white mb-2">Registration Successful!</h1>
+            <p className="text-blue-100">Welcome to the Workshop, {state.registrationDetails.name}!</p>
           </div>
 
           {/* Meeting Details */}
           <div className="px-8 py-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">
-              Workshop Details
-            </h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">Workshop Details</h2>
             <div className="bg-blue-50 rounded-xl p-6 space-y-4">
               <div className="flex items-start gap-4">
                 <Calendar className="w-6 h-6 text-blue-600 mt-1" />
@@ -136,9 +124,7 @@ const WSRegistrationSuccess = () => {
                 <Video className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h3 className="font-medium text-gray-900">Zoom Meeting</h3>
-                  <p className="text-gray-600 mb-2">
-                    Meeting ID: {state.zoomDetails.meetingId}
-                  </p>
+                  <p className="text-gray-600 mb-2">Meeting ID: {state.zoomDetails.meetingId}</p>
                   <a
                     href={state.zoomDetails.link}
                     target="_blank"
@@ -154,9 +140,7 @@ const WSRegistrationSuccess = () => {
                 <FaWhatsapp className="w-6 h-6 text-green-600 mt-1" />
                 <div>
                   <h3 className="font-medium text-gray-900">Join WhatsApp Group</h3>
-                  <p className="text-gray-600 mb-2">
-                    Connect with fellow participants and instructors
-                  </p>
+                  <p className="text-gray-600 mb-2">Connect with fellow participants and instructors</p>
                   <a
                     href={getWhatsAppLink()}
                     target="_blank"
@@ -176,13 +160,9 @@ const WSRegistrationSuccess = () => {
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Email</span>
               <div className="flex items-center gap-2">
-                <span className="text-gray-900 font-medium">
-                  {state.registrationDetails.email}
-                </span>
+                <span className="text-gray-900 font-medium">{state.registrationDetails.email}</span>
                 <button
-                  onClick={() =>
-                    handleCopyClick(state.registrationDetails.email)
-                  }
+                  onClick={() => handleCopyClick(state.registrationDetails.email)}
                   className="text-blue-600 hover:text-blue-700"
                 >
                   <Copy className="w-4 h-4" />
@@ -192,9 +172,7 @@ const WSRegistrationSuccess = () => {
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Meeting ID</span>
               <div className="flex items-center gap-2">
-                <span className="text-gray-900 font-medium">
-                  {state.zoomDetails.meetingId}
-                </span>
+                <span className="text-gray-900 font-medium">{state.zoomDetails.meetingId}</span>
                 <button
                   onClick={() => handleCopyClick(state.zoomDetails.meetingId)}
                   className="text-blue-600 hover:text-blue-700"
@@ -221,9 +199,7 @@ const WSRegistrationSuccess = () => {
                   className={`${social.color} text-white p-3 rounded-full hover:opacity-90 transition-opacity flex items-center justify-center group`}
                   aria-label={`Follow us on ${social.name}`}
                 >
-                  <span className="transform group-hover:scale-110 transition-transform">
-                    {social.icon}
-                  </span>
+                  <span className="transform group-hover:scale-110 transition-transform">{social.icon}</span>
                 </a>
               ))}
             </div>

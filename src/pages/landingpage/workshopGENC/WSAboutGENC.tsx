@@ -53,7 +53,7 @@ const WSAboutGENC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="relative">
-              <img src="/ai.svg" alt="AI Workshop" className="w-full rounded-2xl shadow-2xl" />
+              <img src="/ai.jpg" alt="AI Workshop" className="w-full rounded-2xl shadow-2xl" />
 
               {/* Price Overlay */}
               <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
