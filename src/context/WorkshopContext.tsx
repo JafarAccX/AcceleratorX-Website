@@ -33,11 +33,11 @@ const PMZoomDetails: ZoomMeetingDetails = {
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
-  title: "How to Become a Data Analyst with AI in 2025: Tools, Projects & Job Prep",
-  link: "https://zoom.us/j/96800960051?pwd=SFgfijR2mxKd7aMUSyaWJL2P72QG7C.1",
-  meetingId: "FcjNLNb5Q_WSEBzVW1_1tg",
-  time: "18th April, 2025 07:30 PM India",
-  meetingCode: "97204349341",
+  title: "Upgrade Your Data Analysis Techniques with AI",
+  link: "https://zoom.us/meeting/register/9wz8unT2Q8iq9NX_4-Nr7Q",
+  meetingId: "9wz8unT2Q8iq9NX_4-Nr7Q",
+  time: "23th May, 2025 08:00 PM India",
+  meetingCode: "95277125074",
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {

@@ -80,13 +80,13 @@ const WSHero = () => {
 
               <h2 className="text-xl lg:text-2xl font-semibold">
                 <span className="bg-gradient-to-r from-emerald-400 via-cyan-300 to-indigo-300 text-transparent bg-clip-text">
-                  How to Become a Data Analyst with AI in 2025
+                  Upgrade Your Data Analysis Techniques with AI
                 </span>
               </h2>
 
               <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Break into one of the most in-demand careers of the decade. Learn the AI tools, real-world projects, and
-                job prep strategies that top data analysts use in 2025.
+                Level up your data skills with cutting-edge AI tools. Discover how modern analysts in 2025 are enhancing
+                their workflows, delivering faster insights, and solving real business problems using AI.
               </p>
 
               <div className="mt-6 flex justify-center lg:justify-start">
@@ -116,8 +116,8 @@ const WSHero = () => {
               <div className="grid grid-cols-4 gap-4 mt-6">
                 {[
                   { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                  { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "April 18th" },
-                  { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "time", value: "7.30 - 9.30 pm" },
+                  { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "May 23th" },
+                  { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "time", value: "8:00 pm" },
                   { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
                 ].map((item, index) => (
                   <div

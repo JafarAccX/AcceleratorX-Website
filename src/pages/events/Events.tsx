@@ -10,13 +10,6 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
-      name: "Automate anything with n8n",
-      mode: "Online (Zoom)",
-      time: "May 15th 2025 08:00 PM",
-      link: "/workshop/gen-ai-masterclass-bxwcy",
-      completed: false,
-    },
-    {
       name: "Tableau Zero to Master",
       mode: "Online (Zoom)",
       time: "May 17, 2025 8:00 PM",
@@ -27,8 +20,22 @@ const Events = () => {
       name: "Build YourPersonal Content Creator with AI",
       mode: "Online (Zoom)",
       time: "May 21, 2025 8:00 PM",
-      link: "/workshop/da-masterclass-thidtx",
+      link: "/workshop/gen-ai-masterclass-thidtx",
       completed: false,
+    },
+    {
+      name: "Upgrade Your Data Analysis Techniques with AI",
+      mode: "Online (Zoom)",
+      time: "23th May, 2025 08:00 PM",
+      link: "/workshop/da-masterclass",
+      completed: false,
+    },
+    {
+      name: "Automate anything with n8n",
+      mode: "Online (Zoom)",
+      time: "May 15th 2025 08:00 PM",
+      link: "/workshop/gen-ai-masterclass-bxwcy",
+      completed: true,
     },
     {
       name: "Aytomate daily workflow using Generative AI tools",
@@ -240,44 +247,42 @@ const Events = () => {
                           ease: "easeInOut",
                         }}
                       >
-                        <div className="flex justify-between">
-                          <div>
-                            {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
-                            <h2 className="text-2xl font-semibold mb-4">{workshop.name}</h2>
+                        <div className="flex flex-col justify-around h-full">
+                          {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
+                          <h2 className="text-2xl font-semibold mb-4">{workshop.name}</h2>
 
-                            <div className="flex items-center text-amber-400 mb-2">
-                              <MapPin size={16} className="mr-2" />
-                              <span>{workshop.mode}</span>
-                            </div>
-
-                            <div className="flex items-center text-gray-400">
-                              <Clock size={16} className="mr-2" />
-                              <p className="text-gray-400 mt-2">{workshop.time}</p>
-                            </div>
-
-                            <Link to={workshop.completed ? "" : workshop.link} aria-disabled>
-                              <button
-                                className={
-                                  workshop.completed
-                                    ? "mt-6 flex items-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 group hover:cursor-not-allowed"
-                                    : "hover:cursor-pointer mt-6 flex items-center bg-gray-950 px-4 py-2 rounded-lg transition-all duration-300 group"
-                                }
-                              >
-                                <span>{workshop.completed ? "Completed" : "Workshop Info"}</span>
-                                {workshop.completed ? (
-                                  <Check
-                                    size={16}
-                                    className="ml-2 transition-transform duration-300 text-green-600 group-hover:translate-x-1"
-                                  />
-                                ) : (
-                                  <ArrowRight
-                                    size={16}
-                                    className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                                  />
-                                )}
-                              </button>
-                            </Link>
+                          <div className="flex items-center text-amber-400 mb-2">
+                            <MapPin size={16} className="mr-2" />
+                            <span>{workshop.mode}</span>
                           </div>
+
+                          <div className="flex items-center text-gray-400">
+                            <Clock size={16} className="mr-2" />
+                            <p className="text-gray-400 mt-2">{workshop.time}</p>
+                          </div>
+
+                          <Link to={workshop.completed ? "" : workshop.link} aria-disabled>
+                            <button
+                              className={
+                                workshop.completed
+                                  ? "mt-6 flex items-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 group hover:cursor-not-allowed"
+                                  : "hover:cursor-pointer mt-6 flex items-center bg-gray-950 px-4 py-2 rounded-lg transition-all duration-300 group"
+                              }
+                            >
+                              <span>{workshop.completed ? "Completed" : "Workshop Info"}</span>
+                              {workshop.completed ? (
+                                <Check
+                                  size={16}
+                                  className="ml-2 transition-transform duration-300 text-green-600 group-hover:translate-x-1"
+                                />
+                              ) : (
+                                <ArrowRight
+                                  size={16}
+                                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                                />
+                              )}
+                            </button>
+                          </Link>
                         </div>
                       </motion.div>
                     </div>
