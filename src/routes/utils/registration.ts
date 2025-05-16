@@ -7,51 +7,51 @@
  * @param {string} zoomMeeting_id - The ID of the Zoom meeting.
  *
  */
-// export async function registerForZoomMeeting(fullName: string, email: string, phone: string, zoomMeeting_id: string) {
-//     const payload = {
-//         fullName,
-//         email,
-//         phone,
-//         zoomMeeting_id,
-//     };
+export async function registerForZoomMeeting(fullName: string, email: string, phone: string, zoomMeeting_id: string) {
+    const payload = {
+        fullName,
+        email,
+        phone,
+        zoomMeeting_id,
+    };
 
-//     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3020';
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3020';
 
-//     try {
-//         console.log('Sending registration request to:', `${apiUrl}/zoom`);
-//         console.log('With payload:', payload);
+    try {
+        console.log('Sending registration request to:', `${apiUrl}/zoom`);
+        console.log('With payload:', payload);
 
-//         const response = await fetch(`${apiUrl}zoom`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify(payload),
-//         });
+        const response = await fetch(`${apiUrl}zoom`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        });
 
-//         const responseData = await response.json().catch(async () => {
-//             // If JSON parsing fails, try to get text
-//             const text = await response.text();
-//             return { error: text };
-//         });
+        const responseData = await response.json().catch(async () => {
+            // If JSON parsing fails, try to get text
+            const text = await response.text();
+            return { error: text };
+        });
 
-//         if (!response.ok) {
-//             const errorDetails = responseData.details || responseData;
-//             const errorMessage = typeof errorDetails === 'object' ?
-//                 JSON.stringify(errorDetails) :
-//                 errorDetails.toString();
-//             console.error('Zoom registration failed:', errorDetails);
-//             throw new Error(errorMessage);
-//         }
+        if (!response.ok) {
+            const errorDetails = responseData.details || responseData;
+            const errorMessage = typeof errorDetails === 'object' ?
+                JSON.stringify(errorDetails) :
+                errorDetails.toString();
+            console.error('Zoom registration failed:', errorDetails);
+            throw new Error(errorMessage);
+        }
 
-//         console.log('Zoom registration successful:', responseData);
-//         return responseData;
-//     } catch (error) {
-//         console.error('Error registering for Zoom meeting:', error);
-//         const errorMessage = error instanceof Error ? error.message : 'Failed to register for Zoom meeting';
-//         throw new Error(errorMessage);
-//     }
-// }
+        console.log('Zoom registration successful:', responseData);
+        return responseData;
+    } catch (error) {
+        console.error('Error registering for Zoom meeting:', error);
+        const errorMessage = error instanceof Error ? error.message : 'Failed to register for Zoom meeting';
+        throw new Error(errorMessage);
+    }
+}
 
 // const zoomData = {
 //     fullName: submissionData.name,
@@ -74,59 +74,3 @@
 
 // const responseData = await response.json();
 // console.log('Zoom registration successful:', responseData);
-
-
-export async function registerForZoomMeeting(
-    fullName: string,
-    email: string,
-    phone: string,
-    zoomMeeting_id: string
-) {
-    const payload = {
-        fullName,
-        email,
-        phone,
-        zoomMeeting_id,
-    };
-
-    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3020';
-
-    try {
-        console.log('Sending registration request to:', `${apiUrl}/zoom`);
-        console.log('With payload:', payload);
-
-        const response = await fetch(`${apiUrl}zoom`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-        });
-
-        const rawText = await response.text(); // ✅ Read once
-
-        let responseData;
-        try {
-            responseData = JSON.parse(rawText);
-        } catch {
-            responseData = { error: rawText };
-        }
-
-        if (!response.ok) {
-            const errorDetails = responseData.details || responseData;
-            const errorMessage = typeof errorDetails === 'object'
-                ? JSON.stringify(errorDetails)
-                : errorDetails.toString();
-            console.error('Zoom registration failed:', errorDetails);
-            throw new Error(errorMessage);
-        }
-
-        console.log('Zoom registration successful:', responseData);
-        return responseData;
-    } catch (error) {
-        console.error('Error registering for Zoom meeting:', error);
-        const errorMessage =
-            error instanceof Error ? error.message : 'Failed to register for Zoom meeting';
-        throw new Error(errorMessage);
-    }
-}
