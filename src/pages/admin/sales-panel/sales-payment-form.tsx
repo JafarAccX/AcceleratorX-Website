@@ -93,7 +93,7 @@ const CreatePaymentLinkForm: React.FC<CreatePaymentLinkFormProps> = ({ apiUrl })
         expireBy: expireByUnixTimestamp,
       };
 
-      const response = await fetch(`${apiUrl}/api/sales/payment-links`, {
+      const response = await fetch(`${apiUrl}/sales/payment-links`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -108,6 +108,18 @@ const CreatePaymentLinkForm: React.FC<CreatePaymentLinkFormProps> = ({ apiUrl })
       }
 
       setSuccessMessage(responseData.message || "Payment link created successfully");
+      setFormData({
+        salesPersonName: "",
+        salesPersonNumber: "",
+        organization: "",
+        customerName: "",
+        customerContact: "",
+        customerEmail: "",
+        amount: 1,
+        courseName: "Gen AI",
+        currency: "INR",
+        description: "",
+      });
       setPaymentLinkUrl(responseData.data?.razorpayData?.short_url || null);
     } catch (err: any) {
       console.error("Error creating payment link:", err);
