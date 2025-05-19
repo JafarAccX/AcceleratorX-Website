@@ -8,7 +8,6 @@ import { Users, AlertCircle, Calendar } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import RegistrationSuccess from "./registration-successful";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
