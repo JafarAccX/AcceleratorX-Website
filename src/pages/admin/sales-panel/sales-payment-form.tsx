@@ -93,7 +93,7 @@ const CreatePaymentLinkForm: React.FC<CreatePaymentLinkFormProps> = ({ apiUrl })
         expireBy: expireByUnixTimestamp,
       };
 
-      const response = await fetch(`${apiUrl}/sales/payment-links`, {
+      const response = await fetch(`${apiUrl}/api/sales/payment-links`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

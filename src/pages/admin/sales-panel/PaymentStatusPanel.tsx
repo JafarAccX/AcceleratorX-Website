@@ -95,7 +95,7 @@ const PaymentStatusPanel: React.FC<PaymentStatusPanelProps> = ({ apiUrl }) => {
     setSuccessMessage(null);
 
     try {
-      const response = await fetch(`${apiUrl}/sales/payment-links/${id}/status`, {
+      const response = await fetch(`${apiUrl}/api/sales/payment-links/${id}/status`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
