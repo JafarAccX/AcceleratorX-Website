@@ -6,7 +6,7 @@ import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase, Graduat
 import CreatePaymentLinkForm from "./sales-panel/sales-payment-form";
 import PaymentManagement from "./sales-panel/sales-panel";
 
-const apiUrl = import.meta.env.VITE_BACKEND_URL;
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -152,12 +152,7 @@ const AdminDashboard: React.FC = () => {
               </motion.div>
             </>
           )}
-          {(role === "sales" || role === "internal_sales") && (
-            <div className="w-full col-span-2">
-              {/* <CreatePaymentLinkForm apiUrl={apiUrl} /> */}
-              <PaymentManagement apiUrl={apiUrl} />
-            </div>
-          )}
+
           {role === "admin" && (
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -229,6 +224,13 @@ const AdminDashboard: React.FC = () => {
                 </div>
               </motion.div>
             </>
+          )}
+
+          {(role === "sales" || role === "admin") && (
+            <div className="w-full col-span-2">
+              {/* <CreatePaymentLinkForm apiUrl={apiUrl} /> */}
+              <PaymentManagement apiUrl={apiUrl} />
+            </div>
           )}
         </div>
       </div>
