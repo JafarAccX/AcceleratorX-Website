@@ -7,6 +7,10 @@ const PERFORMANCE_MARKETER_PASSWORD = import.meta.env.VITE_PERFORMANCE_MARKETER_
 const SECOND_ORG_EMAIL = import.meta.env.VITE_SECOND_ORG_EMAIL;
 const SECOND_ORG_PASSWORD = import.meta.env.VITE_SECOND_ORG_PASSWORD;
 
+
+const RNS_ORG_EMAIL = import.meta.env.VITE_RNS_ORG_EMAIL;
+const RNS_ORG_PASSWORD = import.meta.env.VITE_RNS_ORG_PASSWORD;
+
 if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !BLOG_USER_EMAIL || !BLOG_USER_PASSWORD || !PERFORMANCE_MARKETER_EMAIL || !PERFORMANCE_MARKETER_PASSWORD) {
   throw new Error('Missing admin, sales, enrollment, blog user, AD, workshop viewer, or performance marketer credentials in environment variables');
 }
@@ -37,6 +41,11 @@ export const authService = {
     }
 
     if (email === SECOND_ORG_EMAIL && password === SECOND_ORG_PASSWORD) {
+      const authState: AuthState = { token: 'sales_authenticated', role: 'sales' };
+      localStorage.setItem('auth_state', JSON.stringify(authState));
+      return { success: true, role: 'performance_marketer' };
+    }
+    if (email === RNS_ORG_EMAIL && password === RNS_ORG_PASSWORD) {
       const authState: AuthState = { token: 'sales_authenticated', role: 'sales' };
       localStorage.setItem('auth_state', JSON.stringify(authState));
       return { success: true, role: 'performance_marketer' };
