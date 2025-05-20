@@ -6,7 +6,7 @@ import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase, Graduat
 import CreatePaymentLinkForm from "./sales-panel/sales-payment-form";
 import PaymentManagement from "./sales-panel/sales-panel";
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
