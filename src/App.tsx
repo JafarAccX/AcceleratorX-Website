@@ -25,6 +25,7 @@ import { UserProvider } from "./context/UserContext";
 import { AppliedJobs, JobApplication, JobDetails, JobList } from "./pages/jobs";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import MyApplications from "./pages/jobs/MyApplications";
 
 function App() {
   const { setSelectedCourse } = useCourseContext();
@@ -64,6 +65,7 @@ function App() {
                     <Route path="/admin/enrollments" element={<AdminPage />} />
                     <Route path="/admin/ads" element={<AdAnalysis />} />
                     <Route path="/jobs" element={<JobList />} />,
+                    <Route path="/my-applications" element={<MyApplications />} />,
                     <Route path="/jobs/:id" element={<JobDetails />} />,
                     <Route
                       path="/jobs/:id/apply"

@@ -62,7 +62,6 @@ export interface CreateCustomerPayload {
 }
 
 export interface UpdateCustomerPayload {
-    mobile: string;
     email?: string;
     designation: string;
     firstName: string;
@@ -70,10 +69,6 @@ export interface UpdateCustomerPayload {
     lastName: string;
     dob?: string;
     gender?: string;
-    mobileVerified: boolean;
-    emailVerified: boolean;
-    referralCode?: string;
-    role: string;
     profilePicture?: string;
     resume?: string;
     coverLetter?: string;
@@ -85,7 +80,7 @@ export interface UpdateCustomerPayload {
     noticePeriod?: number;
     currentCompany?: string;
     skills?: string;
-    certificateGenerated: boolean;
+    lastUpdateDate?: string; // optional, defaults to current date if not provided
 }
 
 
@@ -110,6 +105,7 @@ export interface JobApplication {
     CreatedDate: string;
     Deleted: boolean;
     CompanyName?: string;
+    CompanyLogoURL?: string;
     JobName?: string;
     City?: string;
     Country?: string;

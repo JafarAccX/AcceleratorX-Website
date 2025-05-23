@@ -26,6 +26,7 @@ const customersApi = {
 
     // Update user by CustId
     updateUser: async ({ custId, userData }: { custId: string; userData: UpdateCustomerPayload }): Promise<Customer> => {
+        console.log("userData == ", userData)
         const response = await axios.put(`${API_URL}/user/${custId}`, userData);
         return response.data;
     },

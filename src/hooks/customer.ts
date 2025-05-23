@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import customersApi from '../api/customersApi';
+import toast from "react-hot-toast";
 
 
 // Create a new user
@@ -70,6 +71,8 @@ export const useApplyForJob = () => {
             queryClient.invalidateQueries({
                 queryKey: ['applicationCheck', variables.CustId, variables.JobId]
             });
+            toast.success("Application submitted successfully!");
+
         },
     });
 };

@@ -172,7 +172,6 @@ export default function Profile() {
 
   // Profile Update Handler
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log("handle submit called");
     e.preventDefault();
     if (!user) return;
 
@@ -204,28 +203,10 @@ export default function Profile() {
         certificateGenerated: formData.CertificateGenerated || false,
       };
 
-      console.log(payload);
-
       const data = UpdateUser({
         custId: user.CustId,
         userData: payload,
       });
-      // const { data, error } = await supabase
-      //   .from("profiles")
-      //   .update({
-      //     full_name: formData.full_name,
-      //     email: formData.email,
-      //     phone_number: formData.phone_number,
-      //     education_level: formData.education_level,
-      //     work_experience: formData.work_experience,
-      //     designation: formData.designation,
-      //     updated_at: new Date().toISOString(),
-      //   })
-      //   .eq("id", user.id)
-      //   .select()
-      //   .single();
-
-      // if (error) throw error;
 
       // Update local storage with flattened structure
       const updatedUser = { ...user, ...data };
@@ -260,50 +241,52 @@ export default function Profile() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black mt-10">
       {/* Enhanced Profile Header */}
-      <div className="relative h-64 overflow-hidden bg-gradient-to-r from-blue-700/90 to-purple-700/90">
+      <div className="relative h-72 md:h-64 overflow-hidden bg-gradient-to-r from-blue-700/90 to-purple-700/90">
         <div className="absolute inset-0 bg-noise opacity-10" />
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-end pb-8">
-          <div className="flex items-end gap-6 w-full">
-            <div className="relative group">
-              <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 p-1 shadow-xl">
-                <div className="w-full h-full rounded-xl bg-gray-900 flex items-center justify-center">
-                  <span className="text-4xl font-bold bg-gradient-to-r from-blue-200 to-purple-200 text-transparent bg-clip-text">
-                    {user.FirstName?.[0]?.toUpperCase() + user.LastName?.[0]?.toUpperCase() || "U"}
-                  </span>
+        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-end pb-8 mt-5">
+          <div className="flex flex-col md:flex-row items-end gap-6 w-full">
+            <div className="flex  items-center gap-4   p-6   w-full">
+              <div className="relative group">
+                <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 p-1 shadow-xl">
+                  <div className="w-full h-full rounded-xl bg-gray-900 flex items-center justify-center">
+                    <span className="text-4xl font-bold bg-gradient-to-r from-blue-200 to-purple-200 text-transparent bg-clip-text">
+                      {user.FirstName?.[0]?.toUpperCase() + user.LastName?.[0]?.toUpperCase() || "U"}
+                    </span>
+                  </div>
+                </div>
+                {isEditing && (
+                  <div className="absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center">
+                    <Edit2 className="w-6 h-6 text-white/80" />
+                  </div>
+                )}
+              </div>
+
+              <div className="flex-1 mb-2">
+                <h1 className="text-3xl font-bold  text-white drop-shadow-md mb-1">
+                  {user.FirstName + " " + user.LastName || "User"}
+                </h1>
+
+                <div className="space-y-2">
+                  <div className="flex gap-4 items-center justify-start">
+                    <span>
+                      <MailIcon size={20} />
+                    </span>
+                    <p className="text-gray-300/90 font-medium">{user.Email}</p>
+                  </div>
+
+                  <div className="flex gap-4 items-center justify-start">
+                    <span>
+                      <PhoneCall size={20} />
+                    </span>
+                    <p className="text-gray-300/90 font-medium">{user.Mobile}</p>
+                  </div>
                 </div>
               </div>
-              {isEditing && (
-                <div className="absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center">
-                  <Edit2 className="w-6 h-6 text-white/80" />
-                </div>
-              )}
             </div>
 
-            <div className="flex-1 mb-2">
-              <h1 className="text-3xl font-bold text-white drop-shadow-md mb-1">
-                {user.FirstName + " " + user.LastName || "User"}
-              </h1>
-
-              <div className="space-y-2">
-                <div className="flex gap-4 items-center justify-start">
-                  <span>
-                    <MailIcon size={20} />
-                  </span>
-                  <p className="text-gray-300/90 font-medium">{user.Email}</p>
-                </div>
-
-                <div className="flex gap-4 items-center justify-start">
-                  <span>
-                    <PhoneCall size={20} />
-                  </span>
-                  <p className="text-gray-300/90 font-medium">{user.Mobile}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-3 mb-2">
+            <div className="flex gap-3 md:min-w-[300px] mb-2">
               {!isEditing && (
                 <>
                   <button
@@ -312,15 +295,15 @@ export default function Profile() {
                     className="flex items-center gap-2 px-5 py-2.5 bg-blue-600/90 hover:bg-blue-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
                   >
                     <Edit2 className="w-5 h-5" />
-                    <span className="font-medium">Edit Profile</span>
+                    <span className="font-medium hidden md:block">Edit Profile</span>
                   </button>
                   <button
                     type="button" // Changed from default submit to button
                     onClick={handleLogout}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-red-600/90 hover:bg-red-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
+                    className="flex items-center gap-2  px-5  py-2.5 bg-red-600/90 hover:bg-red-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
                   >
                     <LogOut className="w-5 h-5" />
-                    <span className="font-medium">Sign Out</span>
+                    <span className="font-medium ">Sign Out</span>
                   </button>
                 </>
               )}
@@ -333,7 +316,7 @@ export default function Profile() {
                     className="flex items-center gap-2 px-5 py-2.5 bg-green-600/90 hover:bg-green-700 text-white rounded-xl transition-all hover:scale-[1.02] shadow-lg"
                   >
                     <Save className="w-5 h-5" />
-                    <span className="font-medium">Save Changes</span>
+                    <span className="font-medium   ">Save</span>
                   </button>
                   <button
                     onClick={() => setIsEditing((prev) => !prev)}
@@ -349,50 +332,8 @@ export default function Profile() {
         </div>
       </div>
 
-      {/* Enhanced Profile Form
-      <div className="max-w-7xl mx-auto px-4 py-8 -mt-12">
-        <form
-          id="profile-form"
-          // onSubmit={handleSubmit}
-          onSubmit={(e) => e.preventDefault()}
-          className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-gray-700/30"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              { icon: User, label: "Name", name: "full_name" },
-              { icon: Mail, label: "Email", name: "email" },
-              { icon: Phone, label: "Phone", name: "phone_number", disabled: true },
-              { icon: GraduationCap, label: "Education Level", name: "education_level" },
-              { icon: Briefcase, label: "Work Experience", name: "work_experience" },
-              { icon: Award, label: "Designation", name: "designation" },
-            ].map((field) => (
-              <div key={field.name} className="relative">
-                <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">{field.label}</label>
-                <div className="relative">
-                  <field.icon className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
-                  <input
-                    type="text"
-                    name={field.name}
-                    disabled={!isEditing || field.disabled}
-                    // value={formData[field.name as keyof typeof formData]}
-                    onChange={(e) => setFormData({ ...formData, [field.name]: e.target.value })}
-                    className={`w-full pl-10 pr-4 py-3.5 ${
-                      isEditing && !field.disabled
-                        ? "bg-gray-700/40 hover:bg-gray-700/60 focus:bg-gray-700/60"
-                        : "bg-gray-700/20"
-                    } border border-gray-600/30 rounded-xl text-white placeholder-gray-500 transition-all ${
-                      !field.disabled && "focus:ring-2 focus:ring-blue-500/50"
-                    }`}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </form>
-      </div> */}
-
       {/* Enhanced Profile Form */}
-      <div className="max-w-7xl mx-auto px-4 py-8 -mt-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 ">
         <form
           id="profile-form"
           onSubmit={handleSubmit}

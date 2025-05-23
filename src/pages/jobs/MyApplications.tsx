@@ -1,95 +1,82 @@
-import React, { useState, useEffect } from "react";
-import { toast } from "react-hot-toast";
+import React from "react";
 import { format, parseISO } from "date-fns";
 import { useUser } from "../../context/UserContext";
-import { JobApplication } from "../../types/job";
-import { jobApplicationService } from "../../services/jobApplicationService";
+import { useGetCustomerApplications } from "../../hooks/customer";
+
+const statusColors: Record<string, string> = {
+  applied: "bg-blue-900 text-blue-300",
+  pending: "bg-yellow-900 text-yellow-300",
+  shortlisted: "bg-green-900 text-green-300",
+  rejected: "bg-red-900 text-red-300",
+};
 
 const MyApplications: React.FC = () => {
   const { user } = useUser();
-  const [applications, setApplications] = useState<JobApplication[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { data: myJobs, isLoading } = useGetCustomerApplications(user?.CustId || "");
 
-  useEffect(() => {
-    if (user) {
-      loadMyApplications();
-    }
-  }, [user]);
-
-  const loadMyApplications = async () => {
-    try {
-      const data = await jobApplicationService.getUserApplications(user!.id);
-      setApplications(data);
-    } catch (error) {
-      console.error("Error loading applications:", error);
-      toast.error("Failed to load your applications");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "pending":
-        return "bg-yellow-100 text-yellow-800";
-      case "reviewed":
-        return "bg-blue-100 text-blue-800";
-      case "shortlisted":
-        return "bg-green-100 text-green-800";
-      case "rejected":
-        return "bg-red-100 text-red-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
-  };
-
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+        <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-6 text-white">My Job Applications</h2>
+    <div className="container mx-auto px-4 py-8 mt-12">
+      <h2 className="text-3xl font-bold mb-6 text-white">My Job Applications</h2>
 
-      {applications.length === 0 ? (
-        <div className="text-center py-8">
-          <p className="text-gray-600 text-white">You haven't applied to any jobs yet.</p>
+      {myJobs?.length === 0 ? (
+        <div className="text-center text-gray-400">
+          <p>You have not applied for any jobs yet.</p>
         </div>
       ) : (
-        <div className="grid gap-6">
-          {applications.map((application) => (
-            <div key={application.id} className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-black">{application.job?.title}</h3>
-                  <p className="text-gray-600">{application.job?.company}</p>
+        <>
+          <p className="text-gray-400 mb-4">
+            You have applied for <strong>{myJobs?.length}</strong> job(s).
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {myJobs?.map((application) => (
+              <div
+                key={application.Id}
+                className="bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-lg transition duration-200 overflow-hidden"
+              >
+                <div className="flex items-center min-h-[120px] gap-4 p-4 border-b border-gray-700">
+                  <img
+                    src={application.CompanyLogoURL}
+                    alt={application.CompanyName}
+                    className="w-12 h-12 object-cover rounded-md bg-white"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{application.JobName}</h3>
+                    <p className="text-sm text-gray-400">{application.CompanyName}</p>
+                  </div>
+                  <span
+                    className={`ml-auto px-3 py-1 text-sm font-medium rounded-full ${
+                      statusColors[application.Result.toLowerCase()] || "bg-gray-700 text-gray-300"
+                    }`}
+                  >
+                    {application.Result}
+                  </span>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(application.status)}`}>
-                  {application.status}
-                </span>
+                <div className="p-4 text-sm text-gray-300 grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-gray-400">Applied On</p>
+                    <p className="font-medium">
+                      {application.CreatedDate ? format(parseISO(application.CreatedDate), "PPP") : "Not available"}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-gray-400">Location</p>
+                    <p className="font-medium">
+                      {application.City}, {application.Country}
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <p className="text-sm text-gray-600 text-black">Applied On</p>
-                  <p className="font-medium text-black">
-                    {application.created_at
-                      ? format(parseISO(application.created_at), "PPP") || "Invalid date"
-                      : "Not available"}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600 text-black">Location</p>
-                  <p className="font-medium text-black">{application.job?.location}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

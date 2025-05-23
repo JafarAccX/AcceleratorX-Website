@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Search, Filter, Briefcase, MapPin, Clock, DollarSign, X } from "lucide-react";
 import JobCard from "./JobCard";
+
 import { useGetAllJobs } from "../../hooks/jobs";
 
 export interface Job {
@@ -185,9 +186,11 @@ const JobList = () => {
       {/* Search and Filter Header */}
       <div className="mb-8">
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-          <h1 className="text-2xl font-bold text-white">
-            Available Jobs <span className="text-gray-400 text-lg">({filteredJobs.length})</span>
-          </h1>
+          <div>
+            <h1 className="text-2xl font-bold text-white">
+              Available Jobs <span className="text-gray-400 text-lg">({filteredJobs.length})</span>
+            </h1>
+          </div>
 
           {/* Search Bar */}
           <div className="relative w-full md:w-96">
@@ -238,7 +241,7 @@ const JobList = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {/* Company Filter */}
             <div>
-              <label className="block text-gray-300 mb-2 flex items-center gap-2">
+              <label className=" text-gray-300 mb-2 flex items-center gap-2">
                 <Briefcase className="h-4 w-4" />
                 Company
               </label>
@@ -258,7 +261,7 @@ const JobList = () => {
 
             {/* Job Type Filter */}
             <div>
-              <label className="block text-gray-300 mb-2 flex items-center gap-2">
+              <label className=" text-gray-300 mb-2 flex items-center gap-2">
                 <Briefcase className="h-4 w-4" />
                 Job Type
               </label>
@@ -278,7 +281,7 @@ const JobList = () => {
 
             {/* Location Filter */}
             <div>
-              <label className="block text-gray-300 mb-2 flex items-center gap-2">
+              <label className=" text-gray-300 mb-2 flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 Location
               </label>
@@ -298,7 +301,7 @@ const JobList = () => {
 
             {/* Experience Filter */}
             <div>
-              <label className="block text-gray-300 mb-2 flex items-center gap-2">
+              <label className=" text-gray-300 mb-2 flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 Experience (years)
               </label>
@@ -318,7 +321,7 @@ const JobList = () => {
 
             {/* Salary Range Filter */}
             <div>
-              <label className="block text-gray-300 mb-2 flex items-center gap-2">
+              <label className=" text-gray-300 mb-2 flex items-center gap-2">
                 <DollarSign className="h-4 w-4" />
                 Salary Range
               </label>

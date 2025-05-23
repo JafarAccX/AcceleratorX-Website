@@ -11,24 +11,32 @@ export default function JobDetails() {
   const navigate = useNavigate();
   const [showAppling, setShowAppling] = useState(false);
   const { user } = useUser();
-
   const applyForJobMutation = useApplyForJob();
 
   const { data: job, isLoading: loading, error, isError } = useGetJobById(id ?? "");
 
   const handleApplyClick = () => {
-    console.log("appling for job");
     if (!user?.CustId || !id) {
-      throw new Error("user custId or jobid is not present");
+      toast.error("User or job ID missing");
+      return;
     }
 
-    // Call the mutation with the required data
-    applyForJobMutation.mutate({
-      CustId: user?.CustId,
-      JobId: id,
-    });
-    toast.success("Application submitted successfully!");
-    navigate("/jobs");
+    applyForJobMutation.mutate(
+      {
+        CustId: user.CustId,
+        JobId: id,
+      },
+      {
+        onSuccess: () => {
+          toast.success("Application submitted successfully!");
+          setShowAppling(false);
+          navigate("/jobs");
+        },
+        onError: () => {
+          toast.error("Already applied");
+        },
+      },
+    );
   };
 
   if (loading) {
@@ -41,7 +49,7 @@ export default function JobDetails() {
 
   if (isError || !job) {
     return (
-      <div className="min-h-screen bg-[#080B16] pt-20 sm:pt-24 pb-6 sm:pb-12">
+      <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-[#080B16] text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <button
@@ -52,13 +60,13 @@ export default function JobDetails() {
               Back to Jobs
             </button>
           </div>
-          <div className="rounded-xl bg-[#0E1628] p-8 text-center">
+          <div className="rounded-xl bg-[#0E1628] p-8 text-center border border-gray-700">
             <p className="text-red-500">{JSON.stringify(error) || "Job not found"}</p>
             <button
               onClick={() => navigate("/jobs")}
               className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
             >
-              "View All Jobs"
+              View All Jobs
             </button>
           </div>
         </div>
@@ -67,57 +75,49 @@ export default function JobDetails() {
   }
 
   return (
-    <div className="min-h-screen  pt-20 sm:pt-24 pb-6 sm:pb-12">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-[#080B16] text-white">
       {showAppling && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Blurred background overlay */}
           <div
             className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
             onClick={() => setShowAppling(false)}
           ></div>
 
-          {/* Modal content */}
-          <div className="relative bg-black shadow-md shadow-slate-700 rounded-lg  p-6 max-w-md w-full m-4 z-10">
-            {/* Close button */}
+          <div className="relative bg-[#1A1A1A] rounded-lg p-6 shadow-lg border border-gray-700 max-w-md w-full m-4 z-10">
             <button
               onClick={() => setShowAppling(false)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 border-2 rounded-md border-black hover:border-slate-700"
+              className="absolute top-3 right-3 text-gray-400 hover:text-white transition"
             >
-              <X size={24} />
+              <X size={20} />
             </button>
 
-            <div className="mt-4">
-              <h3 className="text-lg font-semibold  mb-4">Appling with Profile</h3>
-              <p className="text-gray-300 mb-6">
-                Your profile will be shared with potential employers reviewing your application. Make sure your
-                information is complete and up-to-date to maximize your chances of being selected.
-              </p>
+            <h3 className="text-lg font-semibold text-white mb-4">Apply with Profile</h3>
+            <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+              Your profile will be shared with employers. Ensure your details are up-to-date to improve your chances.
+            </p>
 
-              {/* Action buttons */}
-              <div className="flex gap-4 justify-end">
-                <Link
-                  to="/profile"
-                  className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-300 hover:border-blue-500 hover:text-blue-500"
-                  // onClick={handleUpdateProfile}
-                >
-                  Update Profile
-                </Link>
-                <button
-                  onClick={() => handleApplyClick()}
-                  className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
-                >
-                  Procced
-                </button>
-              </div>
+            <div className="flex gap-4 justify-end">
+              <Link
+                to="/profile"
+                className="rounded-md border border-gray-600 px-4 py-2 text-sm text-gray-300 hover:border-blue-500 hover:text-blue-500 transition"
+              >
+                Update Profile
+              </Link>
+              <button
+                onClick={handleApplyClick}
+                className="bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 text-sm font-medium rounded-md"
+              >
+                Proceed
+              </button>
             </div>
           </div>
         </div>
       )}
 
       <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
-        <div className="rounded-xl  p-6 sm:p-8">
+        <div className="rounded-xl border border-gray-700 bg-[#0E1628] p-6 sm:p-8">
           <div className="mb-6">
-            <div className="flex sm:flex-row-reverse  items-center justify-between">
+            <div className="flex sm:flex-row-reverse items-center justify-between">
               <span
                 className={`px-3 py-1 rounded-full text-sm font-medium ${
                   job.Active && !job.Deleted ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
@@ -150,42 +150,15 @@ export default function JobDetails() {
           <div className="max-w-none">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-white">Description</h2>
-              <p className="mt-2 text-white">{job.JobDescription}</p>
+              <p className="mt-2 text-gray-300">{job.JobDescription}</p>
             </div>
-
-            {/* Requirements */}
-            {/* {job.requirements && job.requirements.length > 0 && (
-              <div className="mb-6">
-                <h2 className="text-xl font-semibold text-white">Requirements</h2>
-                <ul className="mt-2 list-disc pl-6 text-white/80 space-y-1">
-                  {job.requirements.map((req, index) => (
-                    <li key={index}>{req}</li>
-                  ))}
-                </ul>
-              </div>
-            )} */}
-
-            {/* Responsibilities */}
-            {/* {job.responsibilities && job.responsibilities.length > 0 && (
-              <div className="mb-6">
-                <h2 className="text-xl font-semibold text-white">Responsibilities</h2>
-                <ul className="mt-2 list-disc pl-6 text-white/80 space-y-1">
-                  {job.responsibilities.map((resp, index) => (
-                    <li key={index}>{resp}</li>
-                  ))}
-                </ul>
-              </div>
-            )} */}
 
             {job.RequiredSkills && job.RequiredSkills.split(",").length > 0 && (
               <div className="mb-6">
                 <h2 className="text-xl font-semibold text-white">Required Skills</h2>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {job.RequiredSkills.split(",").map((skill, index) => (
-                    <span
-                      key={index}
-                      className="rounded-full  px-3 py-1 text-sm border-blue-500 text-blue-500 border-2 "
-                    >
+                    <span key={index} className="rounded-full border border-blue-500 text-blue-500 px-3 py-1 text-sm">
                       {skill}
                     </span>
                   ))}
@@ -198,17 +171,10 @@ export default function JobDetails() {
             <button
               onClick={() => setShowAppling(true)}
               disabled={job.Deleted}
-              className="w-full rounded-lg disabled:bg-slate-900 bg-blue-500 px-4 py-3 text-sm font-medium text-white hover:bg-blue-600 sm:w-auto"
+              className="w-full sm:w-auto rounded-lg disabled:bg-slate-800 bg-blue-500 px-4 py-3 text-sm font-medium text-white hover:bg-blue-600 transition"
             >
               Apply for this Position
             </button>
-            {/* <button
-              onClick={() => navigate(`/jobs/${job.Id}/apply`)}
-              disabled={job.Deleted}
-              className="w-full rounded-lg disabled:bg-slate-900 bg-blue-500 px-4 py-3 text-sm font-medium text-white hover:bg-blue-600 sm:w-auto"
-            >
-              Apply for this Position
-            </button> */}
           </div>
         </div>
       </div>
