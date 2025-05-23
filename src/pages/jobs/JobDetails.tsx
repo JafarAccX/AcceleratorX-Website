@@ -1,9 +1,10 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { Building2, MapPin, Briefcase, Clock, ChevronLeft, X, Loader } from "lucide-react";
+import { Building2, MapPin, Briefcase, Clock, ChevronLeft, X } from "lucide-react";
 import { useGetJobById } from "../../hooks/jobs";
 import { useState } from "react";
 import { useApplyForJob } from "../../hooks/customer";
 import { useUser } from "../../context/UserContext";
+import toast from "react-hot-toast";
 
 export default function JobDetails() {
   const { id } = useParams<{ id: string }>();
@@ -20,14 +21,14 @@ export default function JobDetails() {
     if (!user?.CustId || !id) {
       throw new Error("user custId or jobid is not present");
     }
-    console.log(id, user.CustId);
 
     // Call the mutation with the required data
     applyForJobMutation.mutate({
       CustId: user?.CustId,
       JobId: id,
-      // Add any other required fields for ApplyForJobPayload
     });
+    toast.success("Application submitted successfully!");
+    navigate("/jobs");
   };
 
   if (loading) {
