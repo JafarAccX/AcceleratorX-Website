@@ -57,22 +57,22 @@
 //       </noscript>
 
 //       {/* Track PageView for specific routes */}
-//       {isPageViewRoute && (
-//         <script>
-//           {`
-//             fbq('track', 'PageView');
+// {isPageViewRoute && (
+//   <script>
+//     {`
+//       fbq('track', 'PageView');
 
-//           `}
-//         </script>
-//       )}
+//     `}
+//   </script>
+// )}
 
-//       {/* Track Lead for thank you page */}
-//       {isLeadRoute && (
-//         <script>
-//           {`
-//             fbq('track', 'Lead');
-//           `}
-//         </script>
+// {/* Track Lead for thank you page */}
+// {isLeadRoute && (
+//   <script>
+//     {`
+//       fbq('track', 'Lead');
+//     `}
+//   </script>
 //       )}
 //     </Helmet>
 //   );
@@ -176,6 +176,29 @@ export const MetaPixel = () => {
               shouldTriggerDAPixel
                 ? `// Also track Lead on DA pixel for DA related conversions
             fbq('trackSingle', '${PIXEL_ID_DA_DIRECT}', 'Lead', {}, {eventID: 'da_lead_${Date.now()}'});`
+                : ""
+            }
+          `}
+        </script>
+      )}
+
+      {/* Track CompleteRegistration for registration success pages */}
+      {isLeadRoute && (
+        <script>
+          {`
+            // Track CompleteRegistration on main pixel
+            fbq('track', 'CompleteRegistration', {
+              content_name: 'registration_form',
+              status: 'complete'
+            }, {eventID: 'reg_${Date.now()}'});
+            
+            ${
+              shouldTriggerDAPixel
+                ? `// Also track CompleteRegistration on DA pixel for DA related registrations
+            fbq('trackSingle', '${PIXEL_ID_DA_DIRECT}', 'CompleteRegistration', {
+              content_name: 'registration_form', 
+              status: 'complete'
+            }, {eventID: 'da_reg_${Date.now()}'});`
                 : ""
             }
           `}
