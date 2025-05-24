@@ -50,8 +50,9 @@ export default function DataHeroEIE() {
 
   const handleModalSubmit = () => {
     if (isDownload) {
-      window.location.href =
-        "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/DA%20Brochure%20Final%20Draft.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0RBIEJyb2NodXJlIEZpbmFsIERyYWZ0LnBkZiIsImlhdCI6MTczMzQ5ODM1NSwiZXhwIjo4MDA5MTYyMzU1fQ.tbDI6sPkotmr5bQ3rOZy1-3XN7wnX4WaBF2pO3CGUUg&t=2024-12-06T15%3A19%3A16.109Z";
+      window.open(
+        "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AI%20Powered%20DA%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FJIFBvd2VyZWQgREEgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzQ2Mjc3MTU1LCJleHAiOjE4NzI0MjExNTV9.NWSk8RPs_nwupsr5Wfu6-EGpUzFFaVPrMKOVZmICPgw",
+      );
     }
     handleModalClose();
   };
@@ -95,37 +96,36 @@ export default function DataHeroEIE() {
                 Master
                 <span className="relative">
                   <span className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg"></span>
-                  <span className="relative bg-gradient-to-r from-[#96E072] to-[#96E072]/90 bg-clip-text text-transparent">
-                    {" "}
-                    Data Analytics{" "}
+                  <span className="relative bg-gradient-to-r from-[#96E072] to-[#96E072]/90 bg-clip-text text-transparent ml-2">
+                    AI Powered Data Analytics{" "}
                   </span>
                 </span>
-                with EIE European Business School Malta
+                {/* with an AI-Powered Program Built for the Future */}
               </h1>
             </div>
             <p className="mt-8 text-lg text-gray-300 leading-relaxed backdrop-blur-sm">
-              Unlock your potential with a prestigious, world-class program
-              designed for ambitious professionals. Backed by the renowned EIE
-              European Business School Malta, this iconic course offers
-              unparalleled opportunities to master the art and science of data
-              analytics.
+              An industry-leading, AI-powered Data Analytics training customised for driven professionals will help you
+              to realise your potential. This innovative program provides you with the newest tools, methods, and
+              practical skills to lead in data-driven positions, meant to help you flourish in the era of automation and
+              smart insights.
             </p>
+            <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <p className="text-sm font-medium text-amber-400">
+                Designed with artificial intelligence at the centre, work quicker, lead better, and learn smarter.
+              </p>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+            </div>
 
             {/* CTA Buttons */}
             <div className="mt-10 flex flex-col sm:flex-row gap-6 items-start">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="relative group"
-              >
+              <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072] to-[#96E072]/70 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                 <div
                   className="relative px-8 py-3 bg-[#96E072] rounded-full flex items-center justify-center group cursor-pointer"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  <span className="text-[#0A0F1E] font-semibold">
-                    Apply Now
-                  </span>
+                  <span className="text-[#0A0F1E] font-semibold">Apply Now</span>
                   <ArrowRight className="ml-2 h-5 w-5 text-[#0A0F1E] group-hover:translate-x-1 transition-transform" />
                 </div>
               </motion.button>
@@ -140,9 +140,7 @@ export default function DataHeroEIE() {
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/50 to-[#96E072]/30 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative px-8 py-3 bg-[#0A0F1E] border border-[#96E072]/50 rounded-full">
-                  <span className="text-white font-semibold">
-                    Download Curriculum
-                  </span>
+                  <span className="text-white font-semibold">Download Curriculum</span>
                 </div>
               </motion.button>
             </div>
@@ -154,11 +152,7 @@ export default function DataHeroEIE() {
                 { value: 40000, suffix: "+", label: "Job Openings" },
                 { value: 22, suffix: " weeks", label: "Duration" },
               ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="relative group"
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
+                <motion.div key={index} className="relative group" whileHover={{ scale: 1.02, y: -5 }}>
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/30 to-[#96E072]/10 rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                   <div className="relative bg-gradient-to-b from-[#0A0F1E] to-[#141B2E] p-6 rounded-2xl border border-[#96E072]/20 group-hover:border-[#96E072]/40 transition-all duration-300">
                     <Counter end={stat.value} suffix={stat.suffix} />
@@ -179,29 +173,23 @@ export default function DataHeroEIE() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/60 to-[#96E072]/30 rounded-lg blur-md opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <img
-                src="/assets/daBanner.png"
+                src="/assets/daBanner.jpg"
                 alt="Data Analytics Program"
                 className="relative w-full rounded-lg shadow-2xl transform group-hover:scale-[1.01] transition-transform duration-500"
               />
             </div>
             <div className="flex justify-center mt-4">
-              <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                <p className="text-sm font-medium text-amber-400">
-                  *15 Days Money Back Guarantee Program
-                </p>
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              </div>
+              {/* <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> */}
+              <p className="text-sm font-medium text-amber-400">*15 Days Money Back Guarantee Program</p>
+              {/* <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              </div> */}
             </div>
           </motion.div>
         </div>
       </div>
 
-      <EnrollmentModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        onSubmit={handleModalSubmit}
-      />
+      <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} />
     </section>
   );
 }

@@ -76,7 +76,7 @@ export default function ChatWidget() {
       // Track form submission with Meta Pixel after successful submission
       trackFormSubmission({
         ...formData,
-        course: isHomePage ? formData.course : selectedCourse || "Unknown"
+        course: isHomePage ? formData.course : selectedCourse || "Unknown",
       });
 
       setIsSubmitted(true);
@@ -94,7 +94,11 @@ export default function ChatWidget() {
   };
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/918884288277`, "_blank");
+    window.open(
+      `https://wa.me/+919916859555
+`,
+      "_blank",
+    );
   };
 
   return (
@@ -140,9 +144,7 @@ export default function ChatWidget() {
                           className="w-full bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/30 transition-all"
                           placeholder="Full Name"
                           value={formData.name}
-                          onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
-                          }
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                       </div>
 
@@ -158,9 +160,7 @@ export default function ChatWidget() {
                           placeholder="Phone Number"
                           value={formData.phone}
                           onChange={(e) => {
-                            const sanitizedValue = e.target.value
-                              .replace(/\D/g, "")
-                              .slice(0, 10);
+                            const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 10);
                             setFormData({
                               ...formData,
                               phone: sanitizedValue,
@@ -177,9 +177,7 @@ export default function ChatWidget() {
                           className="w-full bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/30 transition-all"
                           placeholder="Email Address"
                           value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         />
                       </div>
 
@@ -196,7 +194,9 @@ export default function ChatWidget() {
                             })
                           }
                         >
-                          <option value="" hidden>Select Course</option>
+                          <option value="" hidden>
+                            Select Course
+                          </option>
                           <option value="Product Management">Product Management</option>
                           <option value="Data Analytics">Data Analytics</option>
                           <option value="GenAI">GenAI</option>
@@ -216,7 +216,9 @@ export default function ChatWidget() {
                           })
                         }
                       >
-                        <option value="" hidden>Education Level</option>
+                        <option value="" hidden>
+                          Education Level
+                        </option>
                         <option value="Bachelor's">Bachelor's</option>
                         <option value="Master's">Master's</option>
                         <option value="PhD">PhD</option>
@@ -254,18 +256,8 @@ export default function ChatWidget() {
                 ) : (
                   <div className="text-center py-8">
                     <div className="mx-auto flex items-center justify-center h-14 w-14 rounded-full bg-emerald-100 dark:bg-emerald-900/30">
-                      <svg
-                        className="h-7 w-7 text-emerald-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
+                      <svg className="h-7 w-7 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                     <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">

@@ -1,228 +1,241 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { authService } from '../../services/authService';
-import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase, GraduationCap } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { authService } from "../../services/authService";
+import { FileText, Users, LogOut, Inbox, BookOpen, BarChart2, Briefcase, GraduationCap } from "lucide-react";
+import CreatePaymentLinkForm from "./sales-panel/sales-payment-form";
+import PaymentManagement from "./sales-panel/sales-panel";
+
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const AdminDashboard: React.FC = () => {
-	const navigate = useNavigate();
-	const role = authService.getRole();
+  const navigate = useNavigate();
+  const role = authService.getRole();
 
-	const handleLogout = () => {
-		authService.logout();
-		navigate('/login');
-	};
+  const handleLogout = () => {
+    authService.logout();
+    navigate("/login");
+  };
 
-	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 0.5 }}
-			className='min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8'
-		>
-			<div className='max-w-7xl mx-auto pt-8 mt-16'>
-				<div className='mb-8 flex justify-between items-center'>
-					<div>
-						<h1 className='text-3xl font-bold text-gray-900'>
-							{role === 'blog_user'
-								? 'Blog Dashboard'
-								: role === 'workshop_viewer'
-								? 'Workshop Dashboard'
-								: role === 'performance_marketer'
-								? 'Performance Marketing Dashboard'
-								: 'Admin Dashboard'}
-						</h1>
-						<p className='mt-2 text-sm text-gray-600'>
-							Welcome,{' '}
-							{role === 'admin'
-								? 'Administrator'
-								: role === 'blog_user'
-								? 'Blog Manager'
-								: role === 'workshop_viewer'
-								? 'Workshop Viewer'
-								: role === 'performance_marketer'
-								? 'Performance Marketer'
-								: 'Sales Team Member'}
-						</p>
-					</div>
-					<button
-						onClick={handleLogout}
-						className='flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors'
-					>
-						<LogOut size={18} />
-						Logout
-					</button>
-				</div>
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8"
+    >
+      <div className="max-w-7xl mx-auto pt-8 mt-16">
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">
+              {role === "blog_user"
+                ? "Blog Dashboard"
+                : role === "workshop_viewer"
+                ? "Workshop Dashboard"
+                : role === "performance_marketer"
+                ? "Performance Marketing Dashboard"
+                : role == "sales"
+                ? "Dashboard"
+                : role == "internal_sales"
+                ? "Dashboard"
+                : "Sales Dashboard"}
+            </h1>
+            <p className="mt-2 text-sm text-gray-600">
+              Welcome,{" "}
+              {role === "admin"
+                ? "Administrator"
+                : role === "blog_user"
+                ? "Blog Manager"
+                : role === "workshop_viewer"
+                ? "Workshop Viewer"
+                : role === "performance_marketer"
+                ? "Performance Marketer"
+                : "Sales Team Member"}
+            </p>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
+          >
+            <LogOut size={18} />
+            Logout
+          </button>
+        </div>
 
-				<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-					{(role === 'admin' || role === 'blog_user') && (
-						<motion.div
-							whileHover={{ scale: 1.02 }}
-							whileTap={{ scale: 0.98 }}
-							onClick={() => navigate('/admin/blogs')}
-							className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-						>
-							<div className='flex items-center gap-4'>
-								<div className='p-3 bg-blue-100 rounded-lg'>
-									<FileText className='h-6 w-6 text-blue-600' />
-								</div>
-								<div>
-									<h2 className='text-xl font-semibold text-gray-900'>Blog Management</h2>
-									<p className='text-gray-500 mt-1'>Manage and create blog posts</p>
-								</div>
-							</div>
-						</motion.div>
-					)}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {(role === "admin" || role === "blog_user") && (
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate("/admin/blogs")}
+              className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-blue-100 rounded-lg">
+                  <FileText className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">Blog Management</h2>
+                  <p className="text-gray-500 mt-1">Manage and create blog posts</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+          {role !== "blog_user" && role !== "performance_marketer" && role !== "sales" && role !== "internal_sales" && (
+            <>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/analytics")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-purple-100 rounded-lg">
+                    <BarChart2 className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">Performance Analytics</h2>
+                    <p className="text-gray-500 mt-1">View detailed analytics for enrollments and workshops</p>
+                  </div>
+                </div>
+              </motion.div>
 
-					{role !== 'blog_user' && role !== 'performance_marketer' && (
-						<>
-							<motion.div
-								whileHover={{ scale: 1.02 }}
-								whileTap={{ scale: 0.98 }}
-								onClick={() => navigate('/admin/analytics')}
-								className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-							>
-								<div className='flex items-center gap-4'>
-									<div className='p-3 bg-purple-100 rounded-lg'>
-										<BarChart2 className='h-6 w-6 text-purple-600' />
-									</div>
-									<div>
-										<h2 className='text-xl font-semibold text-gray-900'>Performance Analytics</h2>
-										<p className='text-gray-500 mt-1'>View detailed analytics for enrollments and workshops</p>
-									</div>
-								</div>
-							</motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/enrollments")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-green-100 rounded-lg">
+                    <Users className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">Enrollment Data</h2>
+                    <p className="text-gray-500 mt-1">View and manage enrollment submissions</p>
+                  </div>
+                </div>
+              </motion.div>
 
-							<motion.div
-								whileHover={{ scale: 1.02 }}
-								whileTap={{ scale: 0.98 }}
-								onClick={() => navigate('/admin/enrollments')}
-								className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-							>
-								<div className='flex items-center gap-4'>
-									<div className='p-3 bg-green-100 rounded-lg'>
-										<Users className='h-6 w-6 text-green-600' />
-									</div>
-									<div>
-										<h2 className='text-xl font-semibold text-gray-900'>Enrollment Data</h2>
-										<p className='text-gray-500 mt-1'>View and manage enrollment submissions</p>
-									</div>
-								</div>
-							</motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/hiring")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-indigo-100 rounded-lg">
+                    <Briefcase className="h-6 w-6 text-indigo-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">Hiring Leads</h2>
+                    <p className="text-gray-500 mt-1">View and manage job applications</p>
+                  </div>
+                </div>
+              </motion.div>
 
-							<motion.div
-								whileHover={{ scale: 1.02 }}
-								whileTap={{ scale: 0.98 }}
-								onClick={() => navigate('/admin/hiring')}
-								className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-							>
-								<div className='flex items-center gap-4'>
-									<div className='p-3 bg-indigo-100 rounded-lg'>
-										<Briefcase className='h-6 w-6 text-indigo-600' />
-									</div>
-									<div>
-										<h2 className='text-xl font-semibold text-gray-900'>Hiring Leads</h2>
-										<p className='text-gray-500 mt-1'>View and manage job applications</p>
-									</div>
-								</div>
-							</motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/scholarships")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-yellow-100 rounded-lg">
+                    <GraduationCap className="h-6 w-6 text-yellow-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">Scholarship Details</h2>
+                    <p className="text-gray-500 mt-1">View and manage scholarship applications</p>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
 
-							<motion.div
-								whileHover={{ scale: 1.02 }}
-								whileTap={{ scale: 0.98 }}
-								onClick={() => navigate('/admin/scholarships')}
-								className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-							>
-								<div className='flex items-center gap-4'>
-									<div className='p-3 bg-yellow-100 rounded-lg'>
-										<GraduationCap className='h-6 w-6 text-yellow-600' />
-									</div>
-									<div>
-										<h2 className='text-xl font-semibold text-gray-900'>Scholarship Details</h2>
-										<p className='text-gray-500 mt-1'>View and manage scholarship applications</p>
-									</div>
-								</div>
-							</motion.div>
-						</>
-					)}
+          {role === "admin" && (
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate("/admin/workshop-details")}
+              className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-purple-100 rounded-lg">
+                  <BookOpen className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">Workshop Details</h2>
+                  <p className="text-gray-500 mt-1">View workshop registrations</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+          {role === "admin" && (
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate("/admin/other-enquiries")}
+              className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-orange-100 rounded-lg">
+                  <Inbox className="h-6 w-6 text-orange-600" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">Other Enquiries</h2>
+                  <p className="text-gray-500 mt-1">View other form submissions</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+          {role === "performance_marketer" && (
+            <>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/enrollments")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-green-100 rounded-lg">
+                    <Users className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">Enrollment Data</h2>
+                    <p className="text-gray-500 mt-1">View and manage enrollment submissions</p>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate("/admin/workshop-details")}
+                className="cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-purple-100 rounded-lg">
+                    <BookOpen className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">Workshop Details</h2>
+                    <p className="text-gray-500 mt-1">View workshop registrations</p>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
 
-					{(role === 'admin' || role === 'sales') && (
-						<motion.div
-							whileHover={{ scale: 1.02 }}
-							whileTap={{ scale: 0.98 }}
-							onClick={() => navigate('/admin/workshop-details')}
-							className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-						>
-							<div className='flex items-center gap-4'>
-								<div className='p-3 bg-purple-100 rounded-lg'>
-									<BookOpen className='h-6 w-6 text-purple-600' />
-								</div>
-								<div>
-									<h2 className='text-xl font-semibold text-gray-900'>Workshop Details</h2>
-									<p className='text-gray-500 mt-1'>View workshop registrations</p>
-								</div>
-							</div>
-						</motion.div>
-					)}
-
-					{role === 'admin' && (
-						<motion.div
-							whileHover={{ scale: 1.02 }}
-							whileTap={{ scale: 0.98 }}
-							onClick={() => navigate('/admin/other-enquiries')}
-							className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-						>
-							<div className='flex items-center gap-4'>
-								<div className='p-3 bg-orange-100 rounded-lg'>
-									<Inbox className='h-6 w-6 text-orange-600' />
-								</div>
-								<div>
-									<h2 className='text-xl font-semibold text-gray-900'>Other Enquiries</h2>
-									<p className='text-gray-500 mt-1'>View other form submissions</p>
-								</div>
-							</div>
-						</motion.div>
-					)}
-					{role === 'performance_marketer' && (
-						<>
-							<motion.div
-								whileHover={{ scale: 1.02 }}
-								whileTap={{ scale: 0.98 }}
-								onClick={() => navigate('/admin/enrollments')}
-								className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-							>
-								<div className='flex items-center gap-4'>
-									<div className='p-3 bg-green-100 rounded-lg'>
-										<Users className='h-6 w-6 text-green-600' />
-									</div>
-									<div>
-										<h2 className='text-xl font-semibold text-gray-900'>Enrollment Data</h2>
-										<p className='text-gray-500 mt-1'>View and manage enrollment submissions</p>
-									</div>
-								</div>
-							</motion.div>
-							<motion.div
-								whileHover={{ scale: 1.02 }}
-								whileTap={{ scale: 0.98 }}
-								onClick={() => navigate('/admin/workshop-details')}
-								className='cursor-pointer bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-blue-500 transition-colors'
-							>
-								<div className='flex items-center gap-4'>
-									<div className='p-3 bg-purple-100 rounded-lg'>
-										<BookOpen className='h-6 w-6 text-purple-600' />
-									</div>
-									<div>
-										<h2 className='text-xl font-semibold text-gray-900'>Workshop Details</h2>
-										<p className='text-gray-500 mt-1'>View workshop registrations</p>
-									</div>
-								</div>
-							</motion.div>
-						</>
-					)}
-				</div>
-			</div>
-		</motion.div>
-	);
+          {(role === "sales" || role === "admin") && (
+            <div className="w-full col-span-2">
+              {/* <CreatePaymentLinkForm apiUrl={apiUrl} /> */}
+              <PaymentManagement apiUrl={apiUrl} />
+            </div>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 export default AdminDashboard;

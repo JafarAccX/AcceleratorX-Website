@@ -56,8 +56,7 @@ const GENWhoShouldEnrollAd = () => {
                   <span className="text-white">?</span>
                 </h2>
                 <p className="text-lg text-blue-100">
-                  Designed for professionals and beginners looking to master AI
-                  without coding
+                  Designed for professionals and beginners looking to master AI without coding
                 </p>
               </div>
 
@@ -76,16 +75,15 @@ const GENWhoShouldEnrollAd = () => {
                         <h3 className="text-lg font-semibold text-blue-900 group-hover:text-blue-700 transition-colors">
                           {audience.title}
                         </h3>
-                        <p className="text-sm text-blue-700 mb-2">
-                          {audience.description}
-                        </p>
+                        <p className="text-sm text-blue-700 mb-2">{audience.description}</p>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
               <p className="text-gray-300 text-lg mb-6">
-                Whether you're a complete beginner or an experienced professional, our course is designed to help you master AI tools and concepts.
+                Whether you're a complete beginner or an experienced professional, our course is designed to help you
+                master AI tools and concepts.
               </p>
               <button
                 onClick={handleModalOpen}
@@ -99,7 +97,7 @@ const GENWhoShouldEnrollAd = () => {
             <div className="flex-1 relative">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
                 <img
-                  src="/bggpt.webp"
+                  src="/bggpt.jpg"
                   alt="Students learning together"
                   className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />

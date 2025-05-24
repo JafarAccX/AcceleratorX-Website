@@ -29,7 +29,7 @@ export const adRoutes = [
   "/workshop-payment/success/",
   "/admin/analytics",
   "/admin/analytics/adanalysis",
-  
+
 
 ] as const;
 
@@ -52,6 +52,15 @@ export interface RouteLogicProps {
  */
 export const RouteLogic: React.FC<RouteLogicProps> = ({ setSelectedCourse }) => {
   const location = useLocation();
+
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-16732602077/CMPJCPz1msUaEN393Ko-',
+      });
+    }
+  }, []);
+
 
   useEffect(() => {
     if (
@@ -85,9 +94,9 @@ export const RouteLogic: React.FC<RouteLogicProps> = ({ setSelectedCourse }) => 
 export const ThankYouPageWrapper: React.FC = () => {
   const location = useLocation();
   const { selectedCourse } = useCourseContext();
-  
+
   // Use location state if available, otherwise fall back to context
   const courseName = (location.state as LocationState | null)?.courseName || selectedCourse || "our course";
-  
+
   return React.createElement(ThankYouPage, { courseName });
 };

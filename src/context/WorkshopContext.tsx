@@ -33,19 +33,19 @@ const PMZoomDetails: ZoomMeetingDetails = {
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
-  title: "How to Become a Data Analyst with AI in 2025: Tools, Projects & Job Prep",
-  link: "https://zoom.us/j/96800960051?pwd=SFgfijR2mxKd7aMUSyaWJL2P72QG7C.1",
-  meetingId: "FcjNLNb5Q_WSEBzVW1_1tg",
-  time: "18th April, 2025 07:30 PM India",
-  meetingCode: "97204349341",
+  title: "Upgrade Your Data Analysis Techniques with AI",
+  link: "https://zoom.us/meeting/register/9wz8unT2Q8iq9NX_4-Nr7Q",
+  meetingId: "9wz8unT2Q8iq9NX_4-Nr7Q",
+  time: "23th May, 2025 08:00 PM India",
+  meetingCode: "95277125074",
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "",
-  link: "https://zoom.us/j/96800960051?pwd=SFgfijR2mxKd7aMUSyaWJL2P72QG7C.1",
-  meetingId: "13ZbA8hlSeWBYYXMqZj96w",
-  time: "March 12, 2025 07:30 PM India",
-  meetingCode: "",
+  title: "Tableau Zero to Master",
+  link: "https://zoom.us/meeting/register/HIFV1qVHTWu_SPmJ-R4Ptw",
+  meetingId: "HIFV1qVHTWu_SPmJ-R4Ptw",
+  time: "MAy 17, 2025 8:00 PM India",
+  meetingCode: "99098630020",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
@@ -57,19 +57,19 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  title: "Build Real AI Projects in Just 90 Minutes",
-  link: "https://zoom.us/meeting/register/ZQDwsE6qTNGsmYLgkrWdRQ",
-  meetingId: "ZQDwsE6qTNGsmYLgkrWdRQ",
-  time: "20th April, 2025 11:00AM PM India",
-  meetingCode: "94260160495",
+  title: "How to Automate your workflows Using n8n",
+  link: "https://zoom.us/meeting/register/moivGRTCRVu02E_-CmzaIw",
+  meetingId: "moivGRTCRVu02E_-CmzaIw",
+  time: "15th May, 2025 08:00 PM India",
+  meetingCode: "96045949365",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Create a Personal GenAI App with LangChain & Open Models",
-  link: "https://zoom.us/meeting/register/OoXQSu52RpaY_nO-XCAO9w",
-  meetingId: "OoXQSu52RpaY_nO-XCAO9w",
-  time: "16th April, 2025 07:30 PM India",
-  meetingCode: "96869223628",
+  title: "Build YourPersonal Content Creator with AI",
+  link: "https://zoom.us/meeting/register/ZWQXvYp2RnOT-5TmGJwzog",
+  meetingId: "ZWQXvYp2RnOT-5TmGJwzog",
+  time: "21th May, 2025 08:00 PM India",
+  meetingCode: "95052255978",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

@@ -22,19 +22,19 @@ const GENPricing = () => {
 
   const plans = [
     {
-      name: "Early Bird",
+      name: "Regular",
       price: "34,999",
       description: "Limited time offer",
       features: features,
       highlighted: true,
     },
-    {
-      name: "Regular",
-      price: "44,999",
-      description: "Standard pricing",
-      features: features,
-      highlighted: false,
-    },
+    // {
+    //   name: "Regular",
+    //   price: "44,999",
+    //   description: "Standard pricing",
+    //   features: features,
+    //   highlighted: false,
+    // },
   ];
 
   return (
@@ -45,9 +45,7 @@ const GENPricing = () => {
         {/* Timer Banner */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 py-2">
-            <span className="text-white text-sm font-medium">
-              Early Bird Offer ends in:
-            </span>
+            <span className="text-white text-sm font-medium">Early Bird Offer ends in:</span>
             <DMTimer initialHours={120} className="text-white font-semibold" />
           </div>
         </div>
@@ -76,33 +74,33 @@ const GENPricing = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Invest in Your AI Future
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Invest in Your AI Future</h2>
             <p className="text-gray-400 text-sm">
               Join our comprehensive AI program and master the future of technology
             </p>
           </div>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-8 max-w-4xl mx-auto">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-b from-gray-900 to-black border rounded-xl p-8 shadow-xl ${
-                  plan.highlighted ? 'border-blue-500' : 'border-gray-800'
+                className={`bg-gradient-to-b min-w-[300px] from-gray-900 to-black border rounded-xl p-8 shadow-xl ${
+                  plan.highlighted ? "border-blue-500" : "border-gray-800"
                 }`}
               >
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {plan.name}
-                  </h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                   <p className="text-gray-400 mb-4">{plan.description}</p>
                   <div className="flex items-baseline justify-center gap-1 mb-4">
                     <span className="text-3xl font-bold text-white">₹</span>
-                    <span className={`text-4xl font-bold ${
-                      plan.highlighted ? 'bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text' : 'text-gray-400'
-                    }`}>
+                    <span
+                      className={`text-4xl font-bold ${
+                        plan.highlighted
+                          ? "bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text"
+                          : "text-gray-400"
+                      }`}
+                    >
                       {plan.price}
                     </span>
                   </div>
@@ -124,8 +122,8 @@ const GENPricing = () => {
                   disabled={!plan.highlighted}
                   className={`w-full rounded-lg py-3 px-6 font-semibold transition-all duration-300 ${
                     plan.highlighted
-                      ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600'
-                      : 'bg-gray-700 text-gray-400 cursor-not-allowed opacity-70'
+                      ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600"
+                      : "bg-gray-700 text-gray-400 cursor-not-allowed opacity-70"
                   }`}
                 >
                   Enroll Now
@@ -137,15 +135,10 @@ const GENPricing = () => {
       </div>
 
       {/* Enrollment Modal */}
-      <EnrollmentModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <EnrollmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       {/* Scholarship Form Modal */}
-      {isScholarshipModalOpen && (
-        <ScholarshipForm onClose={() => setIsScholarshipModalOpen(false)} />
-      )}
+      {isScholarshipModalOpen && <ScholarshipForm onClose={() => setIsScholarshipModalOpen(false)} />}
     </section>
   );
 };

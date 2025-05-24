@@ -516,21 +516,21 @@ export const weeklyData = [
 
 export const dataAnalyticsmodules = [
   {
-    title: "University-Recognized Professional Certification",
+    title: "Industry-Recognized Professional Certification",
     description:
-      "Earn certifications that validate your skills, making you stand out to top employers.",
+      "Earn cutting-edge certifications powered by AI-driven learning—trusted by top employers and designed to showcase your real-world data skills.",
     image: "/assets/program/security.png",
   },
   {
-    title: "Cutting-Edge Tools Training",
+    title: "AI-Powered Tools & Tech Training",
     description:
-      "Master the latest tools and technologies used by leading companies to build your dream products.",
+      "Master the latest AI-driven tools and platforms used by leading companies to analyse data, build insights, and automate solutions.",
     image: "/assets/program/learning.png",
   },
   {
-    title: "Hands-On Learning from Day One",
+    title: "Hands-On, AI-Integrated Learning from Day One",
     description:
-      "Dive straight into hands-on projects that tackle real-world challenges in product management.",
+      "Work on live projects from day one, using AI-enhanced methods to solve real-world data challenges in business and product roles.",
     image: "/assets/program/file-case.png",
   },
   {
@@ -648,6 +648,7 @@ export const dataAnalyticsTools = [
 ];
 
 export const dataAnalyticsSkills = [
+
   "Data Cleaning & Preparation",
   "Data Visualization",
   "Statistical Analysis",
@@ -667,6 +668,9 @@ export const dataAnalyticsSkills = [
   "Time Series Forecasting",
   "Customer Segmentation",
   "Sentiment Analysis and NLP",
+  "Data analytics with AI automation",
+  "Automate data workflows",
+  "Data engineering",
 ];
 
 export const dataAnalyticsMentors = [

@@ -43,22 +43,13 @@ const WSAboutGENB = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-green-400 text-sm font-medium">AI Builder Workshop</span>
+                  <span className="text-green-400 text-sm font-medium">AI Automation Workshop</span>
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Build Real AI Projects in Just 90 Minutes — No Code Required
-                </h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Automation with n8n Workshop</h2>
 
                 {/* Workshop Info */}
-                <div className="bg-[#111827] rounded-md p-4 mb-5 border border-green-500/10">
-                  <p className="text-gray-300">
-                    Join us live on <span className="font-semibold text-green-400">20th April, 2025</span> at{" "}
-                    <span className="text-green-400">11:00 PM</span> and learn to build working AI tools using no-code
-                    platforms — even if you’ve never built anything before!
-                  </p>
-                </div>
 
                 {/* Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -72,10 +63,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Build AI tools with real-world data — fast",
-                        "Use no-code/low-code AI platforms to launch ideas",
+                        "Build workflow automations that save hours of manual effort",
+                        "Use n8n to connect your favorite apps (like Gmail, Notion, Slack & more)",
                         "Hands-on projects you can deploy instantly",
-                        "Create without writing a single line of code",
+                        "Automate without writing a single line of code",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -95,10 +86,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to structure real AI projects using modern tools",
-                        "Prompting techniques for smart, functional results",
-                        "Building apps powered by LLMs and automation",
-                        "Turning business needs into AI-powered solutions",
+                        "How to structure real-world automations using n8n",
+                        "Creating workflows with triggers, actions, and decision logic",
+                        "Integrating tools like Google Sheets, CRMs, APIs, and more",
+                        "Automating repetitive tasks to boost personal and business productivity",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>

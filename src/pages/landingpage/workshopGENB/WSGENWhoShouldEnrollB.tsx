@@ -1,27 +1,26 @@
 import { Users, Briefcase, Megaphone, Brain } from "lucide-react";
 
 const WSGENWhoShouldEnrollB = () => {
-
   const targetAudience = [
     {
       icon: Users,
-      title: "Creative Individuals",
-      description: "Turn your innovative app ideas into reality without learning to code",
+      title: "Solopreneurs & Founders",
+      description: "Automate client onboarding, emails, and backend operations",
     },
     {
       icon: Briefcase,
-      title: "Entrepreneurs & Founders",
-      description: "Build functional MVPs and prototypes without hiring developers",
+      title: "Marketers & Content Teams",
+      description: "Streamline social media, lead management, and reporting",
     },
     {
       icon: Megaphone,
-      title: "Designers & Content Creators",
-      description: "Bring your visual concepts to life as interactive web experiences",
+      title: "Operations & Admin Roles",
+      description: "Eliminate repetitive tasks and reduce manual work",
     },
     {
       icon: Brain,
       title: "No-Code Enthusiasts",
-      description: "Take your no-code skills to the next level with GenAI-powered creation tools",
+      description: "Take your no-code skills to the next level by learning workflow automation",
     },
   ];
 
@@ -33,9 +32,7 @@ const WSGENWhoShouldEnrollB = () => {
         block: "center",
       });
     } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
+      console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
@@ -48,7 +45,7 @@ const WSGENWhoShouldEnrollB = () => {
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Users className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 text-sm font-medium">For Creators</span>
+              <span className="text-blue-400 text-sm font-medium">For Doers & Builders</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
               <span className="text-white">Who Can </span>
@@ -56,7 +53,7 @@ const WSGENWhoShouldEnrollB = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Master the art of creating functional apps and websites with GenAI tools, all without writing a single line of code.
+              Master the art of workflow automation with n8n, all without writing a single line of code.
             </p>
           </div>
 
@@ -75,12 +72,8 @@ const WSGENWhoShouldEnrollB = () => {
                         <audience.icon className="w-5 h-5 text-blue-400" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-1">
-                          {audience.title}
-                        </h3>
-                        <p className="text-sm text-gray-300">
-                          {audience.description}
-                        </p>
+                        <h3 className="text-lg font-semibold text-white mb-1">{audience.title}</h3>
+                        <p className="text-sm text-gray-300">{audience.description}</p>
                       </div>
                     </div>
                   </div>
@@ -100,11 +93,7 @@ const WSGENWhoShouldEnrollB = () => {
             {/* Image Section */}
             <div className="w-full lg:w-2/5">
               <div className="relative rounded-lg overflow-hidden">
-                <img
-                  src="/genai.svg"
-                  alt="AI Workflow Automation"
-                  className="w-full h-auto object-cover"
-                />
+                <img src="/genai.svg" alt="AI Workflow Automation" className="w-full h-auto object-cover" />
               </div>
             </div>
           </div>

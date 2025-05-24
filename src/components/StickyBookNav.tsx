@@ -1,36 +1,12 @@
-import { useState, useEffect } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useState } from "react";
+import { animated } from "@react-spring/web";
 import { useCourseContext } from "../context/courseContext";
-import { ArrowRight } from "lucide-react";
 import { AnimatePresence } from "framer-motion"; // Import AnimatePresence
-import BookingForm from "./BookingForm";
+import EnrollmentModal from "./EnrollmentModal";
 
 const StickyBookNav = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { selectedCourse } = useCourseContext();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show navbar after scrolling 300px
-      const scrolled = window.scrollY > 300;
-      setIsVisible(scrolled);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const springStyles = useSpring({
-    transform: isVisible ? "translateY(0)" : "translateY(100%)",
-    opacity: isVisible ? 1 : 0,
-    config: { 
-      tension: 180, 
-      friction: 24,
-      mass: 1,
-      clamp: true 
-    },
-  });
 
   if (!selectedCourse) return null;
 
@@ -38,7 +14,7 @@ const StickyBookNav = () => {
     <>
       <animated.div
         style={{
-          ...springStyles,
+          // ...springStyles,
           position: "fixed",
           bottom: 0,
           left: 0,
@@ -59,8 +35,10 @@ const StickyBookNav = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
             <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left">
               <p className="text-white text-sm sm:text-base md:text-lg font-medium leading-tight flex items-center gap-2">
-                <span className="animate-bounce hidden sm:inline-block">💡</span>
-                Got doubts? Book a session with our mentor 1:1
+                <span className="animate-bounce hidden sm:inline-block">
+                  💡
+                </span>
+                Thinking of Switching or kick starting your career?
                 <span className="hidden sm:inline-block animate-pulse">🎯</span>
               </p>
             </div>
@@ -68,8 +46,10 @@ const StickyBookNav = () => {
               onClick={() => setIsFormOpen(true)}
               className="w-full sm:w-auto inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 border border-transparent text-sm sm:text-base font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] shadow-sm group"
             >
-              Book Your Session
-              <span className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300">⚡</span>
+              Apply Scholarship
+              <span className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                ⚡
+              </span>
             </button>
           </div>
         </div>
@@ -78,7 +58,7 @@ const StickyBookNav = () => {
       {/* AnimatePresence ensures smooth mount/unmount animations */}
       <AnimatePresence>
         {isFormOpen && (
-          <BookingForm
+          <EnrollmentModal
             isOpen={isFormOpen}
             onClose={() => setIsFormOpen(false)}
           />
