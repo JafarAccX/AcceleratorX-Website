@@ -46,7 +46,15 @@ function App() {
             <Router basename="/">
               <ScrollToTop />
               <MetaPixel />
-              <Toaster position="top-center" />
+              <Toaster
+                position="bottom-right"
+                toastOptions={{
+                  style: {
+                    zIndex: 9999, // 👈 ensures it's on top
+                  },
+                }}
+              />
+
               <RouteLogic setSelectedCourse={setSelectedCourse} />
 
               <MainLayout>

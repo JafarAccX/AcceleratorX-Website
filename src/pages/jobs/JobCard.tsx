@@ -9,7 +9,7 @@ interface JobCardProps {
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
   return (
-    <div className="rounded-lg shadow-md p-6  shadow-slate-700 bg-slate-900">
+    <div className="rounded-lg shadow-md p-6  flex flex-col w-full justify-between  border-[1px] border-gray-200/20   duration-300 ">
       <div className="flex justify-between items-start mb-4">
         <div>
           <h2 className="text-xl font-semibold  mb-1">{job.JobName}</h2>

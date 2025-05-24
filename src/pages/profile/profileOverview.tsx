@@ -214,10 +214,8 @@ export default function Profile() {
       // otplessAuth.setUser(updatedUser);
 
       setIsEditing(false);
-      toast.success("Profile updated successfully!");
     } catch (error) {
       console.error("Error updating profile:", error);
-      toast.error("Failed to update profile");
     }
   };
 
@@ -337,7 +335,7 @@ export default function Profile() {
         <form
           id="profile-form"
           onSubmit={handleSubmit}
-          className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-gray-700/30"
+          className=" flex flex-col gap-6 rounded-2xl p-4 shadow-xl border border-gray-700/30"
         >
           {/* Personal Information */}
           <div className="mb-6">
@@ -433,7 +431,7 @@ export default function Profile() {
                 </div>
               </div>
 
-              <div className="relative">
+              {/* <div className="relative">
                 <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Date of Birth</label>
                 <div className="relative">
                   <Calendar className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
@@ -450,7 +448,7 @@ export default function Profile() {
                     }`}
                   />
                 </div>
-              </div>
+              </div> */}
 
               <div className="relative">
                 <label className="block text-sm font-medium text-gray-400 mb-2 pl-1">Gender</label>
@@ -613,6 +611,7 @@ export default function Profile() {
                   <Linkedin className="w-5 h-5 text-gray-500 absolute left-3 top-3.5" />
                   <input
                     type="url"
+                    placeholder="https://www.linkedin.com/in/username/"
                     name="LinkedinUrl"
                     disabled={!isEditing}
                     value={formData.LinkedinUrl || ""}

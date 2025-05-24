@@ -40,7 +40,13 @@ export const useUpdateUser = () => {
     return useMutation({
         mutationFn: customersApi.updateUser,
         onSuccess: (data) => {
+            toast.success("Profile updated successfully!");
             queryClient.invalidateQueries({ queryKey: ['user', data.CustId] });
+        },
+        onError: (error: any) => {
+            toast.error(
+                error?.response?.data?.message || "Failed to update profile. Please try again."
+            );
         },
     });
 };

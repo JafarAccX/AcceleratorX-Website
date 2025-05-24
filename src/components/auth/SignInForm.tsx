@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { useGetUserByMobile } from "../../hooks/customer";
 
@@ -289,8 +289,6 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
               </button>
             </p>
           </div>
-
-          <Toaster position="top-center" />
         </div>
       </div>
     </div>
