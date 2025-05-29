@@ -132,6 +132,7 @@ export interface ApplicationStats {
 export interface ApplyForJobPayload {
     JobId: string;
     CustId: string;
+    Result: string
 }
 
 export interface UpdateApplicationStatusPayload {

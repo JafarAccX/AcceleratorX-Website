@@ -43,6 +43,7 @@ export const useUpdateUser = () => {
             toast.success("Profile updated successfully!");
             queryClient.invalidateQueries({ queryKey: ['user', data.CustId] });
         },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onError: (error: any) => {
             toast.error(
                 error?.response?.data?.message || "Failed to update profile. Please try again."
