@@ -32,9 +32,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   // const [errorMessage, setErrorMessage] = React.useState("");
 
   // Using the custom hook to get user by mobile number
-  const { data: userData, isLoading, isError, error } = useGetUserByMobile(phoneNumber);
-
-  console.log(error);
+  const { data: userData, isLoading, isError } = useGetUserByMobile(phoneNumber);
 
   React.useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -61,8 +59,6 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     }
 
     try {
-      console.log(userData);
-
       if (userData) {
         // User exists, proceed with sending OTP
         const OTPlessSignin = new OTPLess();

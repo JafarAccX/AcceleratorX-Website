@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { Skeleton } from "@mui/material";
+// import toast from "react-hot-toast";
+// import { Skeleton } from "@mui/material";
 import {
   User,
   Mail,
@@ -25,25 +25,25 @@ import {
   Linkedin,
 } from "lucide-react";
 import { useUser } from "../../context/UserContext";
-import { supabase } from "../../lib/supabaseClient";
+// import { supabase } from "../../lib/supabaseClient";
 import { Customer } from "../../types/customer";
 import { FaGithubAlt } from "react-icons/fa";
 import { useUpdateUser } from "../../hooks/customer";
 
 // Define types for better type safety
-interface PaymentDetail {
-  id: string;
-  amount_paid: number;
-  payment_status: string;
-  payment_type?: string;
-  emi_tenure?: number;
-  next_emi_date?: string;
-  created_at: string;
-  courses?: {
-    title: string;
-    thumbnail_url?: string;
-  };
-}
+// interface PaymentDetail {
+//   id: string;
+//   amount_paid: number;
+//   payment_status: string;
+//   payment_type?: string;
+//   emi_tenure?: number;
+//   next_emi_date?: string;
+//   created_at: string;
+//   courses?: {
+//     title: string;
+//     thumbnail_url?: string;
+//   };
+// }
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -59,95 +59,95 @@ export default function Profile() {
     CertificateGenerated: user?.CertificateGenerated,
     Role: user?.Role,
   });
-  const [paymentDetails, setPaymentDetails] = useState<PaymentDetail[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [paymentDetails, setPaymentDetails] = useState<PaymentDetail[]>([]);
+  // const [isLoading, setIsLoading] = useState(true);
 
   // console.log("User data:", user);
 
   // Payment History Skeleton Component
-  const PaymentHistorySkeleton = () => (
-    <div className="space-y-3">
-      {[1, 2, 3].map((item) => (
-        <div key={item} className="bg-gray-700/20 rounded-xl p-5 border border-gray-700/30">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Skeleton
-                variant="rectangular"
-                width={56}
-                height={56}
-                className="rounded-lg"
-                sx={{ bgcolor: "grey.800" }}
-              />
-              <div>
-                <Skeleton variant="text" width={220} height={28} className="mb-2" sx={{ bgcolor: "grey.800" }} />
-                <Skeleton variant="text" width={180} height={20} sx={{ bgcolor: "grey.800" }} />
-              </div>
-            </div>
-            <div className="text-right">
-              <Skeleton variant="text" width={120} height={28} className="mb-2" sx={{ bgcolor: "grey.800" }} />
-              <Skeleton variant="text" width={100} height={24} sx={{ bgcolor: "grey.800" }} />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+  // const PaymentHistorySkeleton = () => (
+  //   <div className="space-y-3">
+  //     {[1, 2, 3].map((item) => (
+  //       <div key={item} className="bg-gray-700/20 rounded-xl p-5 border border-gray-700/30">
+  //         <div className="flex items-center justify-between">
+  //           <div className="flex items-center gap-4">
+  //             <Skeleton
+  //               variant="rectangular"
+  //               width={56}
+  //               height={56}
+  //               className="rounded-lg"
+  //               sx={{ bgcolor: "grey.800" }}
+  //             />
+  //             <div>
+  //               <Skeleton variant="text" width={220} height={28} className="mb-2" sx={{ bgcolor: "grey.800" }} />
+  //               <Skeleton variant="text" width={180} height={20} sx={{ bgcolor: "grey.800" }} />
+  //             </div>
+  //           </div>
+  //           <div className="text-right">
+  //             <Skeleton variant="text" width={120} height={28} className="mb-2" sx={{ bgcolor: "grey.800" }} />
+  //             <Skeleton variant="text" width={100} height={24} sx={{ bgcolor: "grey.800" }} />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     ))}
+  //   </div>
+  // );
 
-  // Fetch Payment Details
-  const fetchPaymentDetails = async () => {
-    setIsLoading(true);
-    try {
-      // Simulate network delay for smoother loading experience
-      await new Promise((resolve) => setTimeout(resolve, 500));
+  // // Fetch Payment Details
+  // const fetchPaymentDetails = async () => {
+  //   setIsLoading(true);
+  //   try {
+  //     // Simulate network delay for smoother loading experience
+  //     await new Promise((resolve) => setTimeout(resolve, 500));
 
-      const { data, error } = await supabase
-        .from("course_enrollments")
-        .select(
-          `
-          *,
-          courses:course_id (
-            title
-          )
-          `,
-        )
-        .eq("id", user?.id)
-        .order("created_at", { ascending: false });
+  //     const { data, error } = await supabase
+  //       .from("course_enrollments")
+  //       .select(
+  //         `
+  //         *,
+  //         courses:course_id (
+  //           title
+  //         )
+  //         `,
+  //       )
+  //       .eq("id", user?.id)
+  //       .order("created_at", { ascending: false });
 
-      if (error) {
-        // More specific error handling
-        if (error.code === "PGRST116") {
-          // No rows returned is not necessarily an error
-          setPaymentDetails([]);
-        } else {
-          throw error;
-        }
-      } else {
-        // Transform data to match PaymentDetail interface
-        const transformedData =
-          data?.map((enrollment) => ({
-            id: enrollment.id,
-            amount_paid: enrollment.final_amount,
-            payment_status: enrollment.payment_status,
-            payment_type: enrollment.is_emi ? "emi" : "full",
-            emi_tenure: enrollment.emi_tenure,
-            created_at: enrollment.created_at,
-            courses: {
-              title: enrollment.courses?.title,
-              thumbnail_url: "", // Removed as per schema
-            },
-          })) || [];
+  //     if (error) {
+  //       // More specific error handling
+  //       if (error.code === "PGRST116") {
+  //         // No rows returned is not necessarily an error
+  //         setPaymentDetails([]);
+  //       } else {
+  //         throw error;
+  //       }
+  //     } else {
+  //       // Transform data to match PaymentDetail interface
+  //       const transformedData =
+  //         data?.map((enrollment) => ({
+  //           id: enrollment.id,
+  //           amount_paid: enrollment.final_amount,
+  //           payment_status: enrollment.payment_status,
+  //           payment_type: enrollment.is_emi ? "emi" : "full",
+  //           emi_tenure: enrollment.emi_tenure,
+  //           created_at: enrollment.created_at,
+  //           courses: {
+  //             title: enrollment.courses?.title,
+  //             thumbnail_url: "", // Removed as per schema
+  //           },
+  //         })) || [];
 
-        setPaymentDetails(transformedData);
-      }
-    } catch (error) {
-      console.error("Error fetching payment details:", error);
-      // toast.error(
-      //   error instanceof Error ? error.message : "An unexpected error occurred while fetching payment details",
-      // );
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  //       setPaymentDetails(transformedData);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching payment details:", error);
+  //     // toast.error(
+  //     //   error instanceof Error ? error.message : "An unexpected error occurred while fetching payment details",
+  //     // );
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   // Initial data setup and navigation
   useEffect(() => {
@@ -163,12 +163,12 @@ export default function Profile() {
     }));
   }, [user, navigate]);
 
-  useEffect(() => {
-    // Fetch payment details when the component mounts or user changes
-    if (user) {
-      fetchPaymentDetails();
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   // Fetch payment details when the component mounts or user changes
+  //   if (user) {
+  //     fetchPaymentDetails();
+  //   }
+  // }, [user]);
 
   // Profile Update Handler
   const handleSubmit = async (e: React.FormEvent) => {
@@ -649,7 +649,7 @@ export default function Profile() {
       </div>
 
       {/* Enhanced Payment History Section */}
-      <div className="max-w-7xl mx-auto px-4 pb-12">
+      {/* <div className="max-w-7xl mx-auto px-4 pb-12">
         <div className="bg-gray-800/40 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-gray-700/30">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3">
@@ -728,7 +728,7 @@ export default function Profile() {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

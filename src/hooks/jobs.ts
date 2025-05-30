@@ -16,10 +16,11 @@ export const useCreateJob = () => {
 };
 
 // Get all jobs
-export const useGetAllJobs = () => {
+export const useGetAllJobs = (page: number = 1, limit: number = 20) => {
     return useQuery({
-        queryKey: ['jobs'],
-        queryFn: jobsApi.getAllJobs,
+        queryKey: ['jobs', page, limit],
+        queryFn: () => jobsApi.getAllJobs(page, limit),
+
     });
 };
 

@@ -190,8 +190,6 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
 
         const data = await createUser(formDataWithDefaults as CreateCustomerPayload);
 
-        toast.success("User data inserted successfully");
-
         // Update UserContext with the new user data
         setUser(data);
 

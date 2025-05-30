@@ -1,6 +1,5 @@
-// export default JobList;
 import React, { useState, useEffect, useMemo } from "react";
-import { Search, Filter, Briefcase, MapPin, Clock, DollarSign, X } from "lucide-react";
+import { Search, Filter, Briefcase, MapPin, Clock, DollarSign, X, ChevronLeft, ChevronRight } from "lucide-react";
 import JobCard from "./JobCard";
 
 import { useGetAllJobs } from "../../hooks/jobs";
@@ -14,31 +13,41 @@ export interface Job {
   Country?: string;
   Location: string;
   JobType: string;
-  Duration?: string; // Made optional as it might not always be present
+  Duration?: string;
   JobDescription: string;
   RequiredSkills: string | null;
-  RequiredExperience: string | number | null; // Updated to handle both string and number
+  RequiredExperience: string | number | null;
   Salary: number | null;
   CreatedDate: string;
   ExpiryDate: string | null;
   Active: boolean;
   Deleted: boolean;
-  CompanyURL: string | null; // New field
-  JobApplyURL: string | null; // New field
-  EasyApply: boolean; // New field
-  Category: string; // New field
+  CompanyURL: string | null;
+  JobApplyURL: string | null;
+  EasyApply: boolean;
+  Category: string;
+}
+
+export interface PaginationInfo {
+  currentPage: number;
+  totalPages: number;
+  totalJobs: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  jobsPerPage: number;
 }
 
 const JobList = () => {
-  const { data: jobs, isLoading } = useGetAllJobs();
-  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [jobsPerPage, setJobsPerPage] = useState(20);
 
-  // Initialize filteredJobs when jobs data is loaded
-  useEffect(() => {
-    if (jobs) {
-      setFilteredJobs(jobs);
-    }
-  }, [jobs]);
+  const { data: jobsResponse, isLoading } = useGetAllJobs(currentPage, jobsPerPage);
+
+  // Extract jobs and pagination info from response
+  const jobs = jobsResponse?.jobs || [];
+  const paginationInfo = jobsResponse?.pagination;
+
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -50,6 +59,13 @@ const JobList = () => {
   const [selectedSalaryRange, setSelectedSalaryRange] = useState<string>("");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
+  // Initialize filteredJobs when jobs data is loaded
+  useEffect(() => {
+    if (jobs) {
+      setFilteredJobs(jobs);
+    }
+  }, [jobs]);
+
   const uniqueCompanies = Array.from(new Set(jobs?.map((job) => job.CompanyName) || []));
   const uniqueJobTypes = Array.from(new Set(jobs?.map((job) => job.JobType) || []));
   const uniqueLocations = Array.from(new Set(jobs?.map((job) => `${job.City}, ${job.Country}`) || []));
@@ -57,10 +73,10 @@ const JobList = () => {
   // Get all unique skills from all jobs
   const allSkills = jobs ? Array.from(new Set(jobs.flatMap((job) => job.RequiredSkills || []))) : [];
 
-  // Experience ranges - defined with useMemo to prevent recreation on each render
+  // Experience ranges
   const experienceRanges = useMemo(() => ["0-1", "1-3", "3-5", "5-10", "10+"], []);
 
-  // Salary ranges - defined outside of component or using useMemo to prevent recreating on each render
+  // Salary ranges
   const salaryRanges = React.useMemo(
     () => [
       { label: "0-50K", min: 0, max: 50000 },
@@ -144,6 +160,21 @@ const JobList = () => {
     salaryRanges,
   ]);
 
+  // Reset to first page when filters change
+  useEffect(() => {
+    if (currentPage !== 1) {
+      setCurrentPage(1);
+    }
+  }, [
+    searchTerm,
+    selectedCompany,
+    selectedJobType,
+    selectedLocation,
+    selectedExperience,
+    selectedSalaryRange,
+    selectedSkills,
+  ]);
+
   const clearFilters = () => {
     setSearchTerm("");
     setSelectedCompany("");
@@ -175,6 +206,40 @@ const JobList = () => {
     return count;
   };
 
+  // Pagination handlers
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleJobsPerPageChange = (newLimit: number) => {
+    setJobsPerPage(newLimit);
+    setCurrentPage(1); // Reset to first page when changing page size
+  };
+
+  // Generate page numbers for pagination
+  const getPageNumbers = () => {
+    if (!paginationInfo) return [];
+
+    const { currentPage, totalPages } = paginationInfo;
+    const pages = [];
+    const maxPagesToShow = 5;
+
+    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+    let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+    // Adjust start page if we're near the end
+    if (endPage - startPage + 1 < maxPagesToShow) {
+      startPage = Math.max(1, endPage - maxPagesToShow + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+
+    return pages;
+  };
+
   if (!jobs || jobs.length <= 0) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -193,7 +258,10 @@ const JobList = () => {
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-white">
-              Available Jobs <span className="text-gray-400 text-lg">({filteredJobs.length})</span>
+              Available Jobs
+              <span className="text-gray-400 text-lg">
+                ({paginationInfo?.totalJobs || 0} total, showing {filteredJobs.length})
+              </span>
             </h1>
           </div>
 
@@ -204,7 +272,7 @@ const JobList = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search jobs..."
-              className="w-full pl-10 bg-transparent pr-4 py-2 rounded-lg  border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full pl-10 bg-transparent pr-4 py-2 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
             <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
           </div>
@@ -222,6 +290,20 @@ const JobList = () => {
             )}
           </button>
         </div>
+      </div>
+
+      {/* Jobs per page selector */}
+      <div className="mb-6 flex items-center gap-4">
+        <span className="text-gray-400 text-sm">Jobs per page:</span>
+        <select
+          value={jobsPerPage}
+          onChange={(e) => handleJobsPerPageChange(Number(e.target.value))}
+          className="p-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+          <option value={50}>50</option>
+        </select>
       </div>
 
       {/* Filters Panel */}
@@ -246,7 +328,7 @@ const JobList = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {/* Company Filter */}
             <div>
-              <label className=" text-gray-300 mb-2 flex items-center gap-2">
+              <label className="text-gray-300 mb-2 flex items-center gap-2">
                 <Briefcase className="h-4 w-4" />
                 Company
               </label>
@@ -266,7 +348,7 @@ const JobList = () => {
 
             {/* Job Type Filter */}
             <div>
-              <label className=" text-gray-300 mb-2 flex items-center gap-2">
+              <label className="text-gray-300 mb-2 flex items-center gap-2">
                 <Briefcase className="h-4 w-4" />
                 Job Type
               </label>
@@ -286,7 +368,7 @@ const JobList = () => {
 
             {/* Location Filter */}
             <div>
-              <label className=" text-gray-300 mb-2 flex items-center gap-2">
+              <label className="text-gray-300 mb-2 flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 Location
               </label>
@@ -306,7 +388,7 @@ const JobList = () => {
 
             {/* Experience Filter */}
             <div>
-              <label className=" text-gray-300 mb-2 flex items-center gap-2">
+              <label className="text-gray-300 mb-2 flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 Experience (years)
               </label>
@@ -326,7 +408,7 @@ const JobList = () => {
 
             {/* Salary Range Filter */}
             <div>
-              <label className=" text-gray-300 mb-2 flex items-center gap-2">
+              <label className="text-gray-300 mb-2 flex items-center gap-2">
                 <DollarSign className="h-4 w-4" />
                 Salary Range
               </label>
@@ -481,6 +563,91 @@ const JobList = () => {
           filteredJobs.map((job) => <JobCard key={job.Id} job={job} />)
         )}
       </div>
+
+      {/* Pagination Controls */}
+      {paginationInfo && paginationInfo.totalPages > 1 && (
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Pagination Info */}
+          <div className="text-gray-400 text-sm">
+            Showing page {paginationInfo.currentPage} of {paginationInfo.totalPages}({paginationInfo.totalJobs} total
+            jobs)
+          </div>
+
+          {/* Pagination Navigation */}
+          <div className="flex items-center gap-2">
+            {/* Previous Button */}
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={!paginationInfo.hasPreviousPage}
+              className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                paginationInfo.hasPreviousPage
+                  ? "bg-slate-800 hover:bg-slate-700 text-white"
+                  : "bg-slate-900 text-gray-500 cursor-not-allowed"
+              }`}
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Previous
+            </button>
+
+            {/* Page Numbers */}
+            <div className="flex items-center gap-1">
+              {paginationInfo.currentPage > 3 && (
+                <>
+                  <button
+                    onClick={() => handlePageChange(1)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
+                  >
+                    1
+                  </button>
+                  {paginationInfo.currentPage > 4 && <span className="px-2 text-gray-400">...</span>}
+                </>
+              )}
+
+              {getPageNumbers().map((pageNum) => (
+                <button
+                  key={pageNum}
+                  onClick={() => handlePageChange(pageNum)}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                    pageNum === paginationInfo.currentPage
+                      ? "bg-blue-600 text-white"
+                      : "bg-slate-800 hover:bg-slate-700 text-white"
+                  }`}
+                >
+                  {pageNum}
+                </button>
+              ))}
+
+              {paginationInfo.currentPage < paginationInfo.totalPages - 2 && (
+                <>
+                  {paginationInfo.currentPage < paginationInfo.totalPages - 3 && (
+                    <span className="px-2 text-gray-400">...</span>
+                  )}
+                  <button
+                    onClick={() => handlePageChange(paginationInfo.totalPages)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
+                  >
+                    {paginationInfo.totalPages}
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={!paginationInfo.hasNextPage}
+              className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                paginationInfo.hasNextPage
+                  ? "bg-slate-800 hover:bg-slate-700 text-white"
+                  : "bg-slate-900 text-gray-500 cursor-not-allowed"
+              }`}
+            >
+              Next
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

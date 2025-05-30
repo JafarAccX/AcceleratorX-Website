@@ -13,8 +13,23 @@ const jobsApi = {
     },
 
     // Get all jobs
-    getAllJobs: async (): Promise<Job[]> => {
-        const response = await axios.get(`${API_URL}/api/jobs`);
+    getAllJobs: async (page: number = 1, limit: number = 20): Promise<{
+        jobs: Job[];
+        pagination: {
+            currentPage: number;
+            totalPages: number;
+            totalJobs: number;
+            hasNextPage: boolean;
+            hasPreviousPage: boolean;
+            jobsPerPage: number;
+        };
+    }> => {
+        const response = await axios.get(`${API_URL}/api/jobs`, {
+            params: {
+                page,
+                limit
+            }
+        });
         return response.data;
     },
 
@@ -55,6 +70,7 @@ const jobsApi = {
     },
 
     // Get all applications for a job
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getJobApplications: async (jobId: string): Promise<any[]> => {
         const response = await axios.get(`${API_URL}/applications/job/${jobId}`);
         return response.data;

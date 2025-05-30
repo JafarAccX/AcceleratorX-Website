@@ -1,3 +1,43 @@
+// {
+//     "Id": "636f624e-935a-4788-813d-c6dc31bb16b3",
+//     "CustId": "2025041100001",
+//     "CallingCode": 91,
+//     "Designation": null,
+//     "Mobile": "9359029858",
+//     "Email": "satyendra@acceleratorx.co",
+//     "FirstName": "satyendra",
+//     "MiddleName": null,
+//     "LastName": "mourya",
+//     "DOB": "1969-12-30T18:30:00.000Z",
+//     "Gender": "MALE",
+//     "MobileVerified": false,
+//     "EmailVerified": false,
+//     "ReferralCode": "1d77ddafce1",
+//     "Role": "Admin",
+//     "ProfilePicture": null,
+//     "Resume": null,
+//     "CoverLetter": null,
+//     "Portfolio": null,
+//     "LinkedinUrl": null,
+//     "GithubUrl": null,
+//     "YearOfExperience": null,
+//     "ExpectedSalary": null,
+//     "NoticePeriod": null,
+//     "CurrentCompany": null,
+//     "Active": true,
+//     "Skills": null,
+//     "CertificateGenerated": false,
+//     "JoinDate": "2025-04-11T09:14:27.178Z",
+//     "LastUpdateDate": "2025-05-29T07:56:59.140Z",
+// "ProfileCreated": true,
+// "CourseEnrolled": true,
+//     "IsJoiningFeePaid": false,
+//     "BannedUser": false,
+//     "PlatformDisabledReason": null,
+//     "CreatedDate": "2025-04-11T09:14:27.237Z",
+//     "UpdatedDate": null
+// }
+
 export interface Customer {
     id: string;
     CustId: string;
@@ -27,6 +67,8 @@ export interface Customer {
     Active: boolean;
     Skills: string | null;
     CertificateGenerated: boolean;
+    ProfileCreated: boolean,
+    CourseEnrolled: boolean,
     JoinDate: string;
     LastUpdateDate: string;
 }
