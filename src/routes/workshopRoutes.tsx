@@ -88,8 +88,8 @@ const WorkshopPageGENC = () => (
   <>
     <WSHeroGENC />
     <WSAboutGENC />
-    <WSGENWhoShouldEnrollC />
     <WSGENIntroductionC />
+    <WSGENWhoShouldEnrollC />
     <WSGENMentor />
     <GENCTAC />
   </>

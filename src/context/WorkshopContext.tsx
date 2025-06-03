@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Build YourPersonal Content Creator with AI",
-  link: "https://zoom.us/meeting/register/ZWQXvYp2RnOT-5TmGJwzog",
-  meetingId: "ZWQXvYp2RnOT-5TmGJwzog",
-  time: "21th May, 2025 08:00 PM India",
-  meetingCode: "95052255978",
+  title: "Automate workflows using n8n - Practical Implementation",
+  link: "https://zoom.us/meeting/register/A4GSQocITmyJn-gBZzORcA",
+  meetingId: "A4GSQocITmyJn-gBZzORcA",
+  time: "09 Jun, 2025 07:30 PM India",
+  meetingCode: "92394151440",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

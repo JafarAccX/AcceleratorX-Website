@@ -450,7 +450,7 @@ const WSFormFree = () => {
   };
 
   return (
-    <div className="bg-[#111] rounded-2xl shadow-2xl p-6 w-full border border-gray-800/30" id="workshop-form">
+    <div id="workshop-form">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-4">
           <div className="relative">

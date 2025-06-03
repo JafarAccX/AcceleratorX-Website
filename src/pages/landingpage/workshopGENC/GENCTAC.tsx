@@ -21,12 +21,12 @@ const GENCTAC = () => {
           <div className="flex flex-col items-center justify-center space-y-10">
             {/* Heading */}
             <motion.h2
-              className="text-4xl md:text-5xl font-bold text-center text-white max-w-3xl leading-tight"
+              className="text-4xl   font-bold text-center text-white max-w-3xl leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build Your Personal AI Content Creator with Open-Source Tools
+              Build Your Own Workflow Automation System
             </motion.h2>
 
             {/* Badge */}
@@ -43,26 +43,33 @@ const GENCTAC = () => {
 
             {/* Value Props */}
             <motion.div
-              className="flex flex-col items-center space-y-4 max-w-2xl mx-auto"
+              className="flex flex-col items-center space-y-4  mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
-                  <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-blue-400">Generative AI</p>
-                  <p className="text-sm text-gray-400">For content, blogs, and media</p>
-                </div>
-                <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-green-400">Open Tools</p>
-                  <p className="text-sm text-gray-400">Free and easy-to-use platforms</p>
+                  <p className="text-lg font-bold text-green-400">Visual Tools</p>
+                  <p className="text-sm text-gray-400">
+                    Use free, open-source platforms like n8n—designed for seamless workflow building without writing
+                    code
+                  </p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-purple-400">Smart Storage</p>
-                  <p className="text-sm text-gray-400">Save your preferences, prompts, and content history</p>
+                  <p className="text-lg font-bold text-purple-400">Smart Triggers</p>
+                  <p className="text-sm text-gray-400">
+                    Automate actions based on emails, forms, messages, or schedules—connect apps effortlessly
+                  </p>
+                </div>
+                <div className="bg-white/5 p-4 rounded-lg text-center">
+                  <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+                  <p className="text-lg font-bold text-blue-400">Organized Ops</p>
+                  <p className="text-sm text-gray-400">
+                    Centralize and automate repetitive operations like reporting, notifications, and data entry
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -74,12 +81,13 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
+              <p>Are you ready to Automate your workflow?</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}
                 className="group relative inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-200 overflow-hidden"
               >
-                <span className="relative z-10 text-lg font-semibold">Start Creating Smarter with AI Today</span>
+                <span className="relative z-10 text-lg font-semibold">Register Now</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out origin-left"></div>
               </button>
             </motion.div>

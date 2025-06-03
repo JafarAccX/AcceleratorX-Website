@@ -3,34 +3,37 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionC = () => {
   const stats = [
     {
-      value: "40%",
-      label: "Faster Content Creation with AI",
+      value: "70%",
+      label: "Time Saved by Automating Routine Tasks",
     },
     {
-      value: "85%",
-      label: "of Digital Content Will Involve AI",
+      value: "75%",
+      label: "of Teams Will Rely on Automation Tools by 2026",
     },
     {
       value: "No Coding",
-      label: "Required to Learn AI",
+      label: "Needed to Build Powerful Automations",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "AI-Powered Content Tools",
-      description: "Discover AI that helps write, edit, and brainstorm—all tailored to your needs.",
+      title: "Visual Workflow Automation",
+      description:
+        "Use n8n to automate email workflows, sync data across tools, and trigger actions based on events—without writing scripts.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Practical, No-Code AI Tools",
-      description: "Get hands-on with intuitive AI tools for real-world content creation tasks.",
+      title: "Hands-On With Real Tools",
+      description:
+        "Work with powerful, open-source automation tools like n8n, and connect services like Google Sheets, Slack, Notion, and more.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Future-Proof Your Skills",
-      description: "Stay ahead in a content-driven world by learning how to use AI effectively.",
+      title: "Future-Proof Your Workflow Skills",
+      description:
+        "Equip yourself with practical automation skills that help you work faster, smarter, and scale your impact—without relying on engineering.",
     },
   ];
 
@@ -72,18 +75,18 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">Learn AI Without Coding</span>
+            <span className="text-sm text-blue-400 font-medium">Automate Workflows Without Coding</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Generative <span className="text-blue-500">AI</span> for Everyone—No Coding Needed
+            n8n for <span className="text-blue-500">Workflow Automation</span>— No Coding Needed
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Leverage AI to enhance your creativity, productivity, and communication—without writing a single line of
-            code.
+            Streamline repetitive tasks, integrate tools, and boost efficiency using visual, no-code automations with
+            n8n.
           </p>
 
           {/* Stats Grid */}

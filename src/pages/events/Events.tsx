@@ -10,25 +10,32 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Automate workflows using n8n - Practical Implementation",
+      mode: "Online (Zoom)",
+      time: "June 09, 2025 07:30 PM",
+      link: "/workshop/gen-ai-masterclass-thidtx",
+      completed: false,
+    },
+    {
       name: "Tableau Zero to Master",
       mode: "Online (Zoom)",
       time: "May 17, 2025 8:00 PM",
       link: "/workshop/da-masterclass-bxwxy",
-      completed: false,
+      completed: true,
     },
     {
       name: "Build YourPersonal Content Creator with AI",
       mode: "Online (Zoom)",
       time: "May 21, 2025 8:00 PM",
       link: "/workshop/gen-ai-masterclass-thidtx",
-      completed: false,
+      completed: true,
     },
     {
       name: "Upgrade Your Data Analysis Techniques with AI",
       mode: "Online (Zoom)",
       time: "23th May, 2025 08:00 PM",
       link: "/workshop/da-masterclass",
-      completed: false,
+      completed: true,
     },
     {
       name: "Automate anything with n8n",
@@ -67,7 +74,7 @@ const Events = () => {
       val: "Daily tasks and live sessions",
       time: "May 8th 2025 - May 14th 2025",
       link: "/event/PMtakedown/view",
-      completed: false,
+      completed: true,
     },
   ];
 
