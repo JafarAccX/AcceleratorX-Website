@@ -1,16 +1,15 @@
-import React from "react";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { ArrowRight, Star } from "lucide-react";
 import WSFormFree from "../workshopGENB/WSFormFree";
+import { FaCalendarAlt, FaClock, FaLevelUpAlt, FaUserGraduate } from "react-icons/fa";
 
 const WSHeroPM = () => {
-
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
       console.error('Form element not found with ID "workshop-registration-form"');
@@ -25,11 +24,7 @@ const WSHeroPM = () => {
           <div className="w-44 md:w-48 relative">
             <div className="absolute inset-0 blur-3xl bg-gradient-to-r from-indigo-500/30 to-violet-500/30 rounded-full"></div>
             <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-indigo-500/20">
-              <img
-                src="/assets/companylogo.png"
-                alt="AcceleratorX Logo"
-                className="w-full h-auto"
-              />
+              <img src="/assets/companylogo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
             </div>
           </div>
         </div>
@@ -51,18 +46,26 @@ const WSHeroPM = () => {
 
               {/* Content */}
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
+                <h1 className="  text-3xl md:text-5xl    font-bold">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">
-                    Product Management Masterclass
+                    Gen AI for PMs Masterclass
                   </span>
                 </h1>
 
                 {/* Hero Image */}
                 <div className="relative w-full max-w-2xl mx-auto mt-6 lg:mt-8">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/30 to-violet-500/30 rounded-xl blur-xl"></div>
-                  <div className="relative overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+                  <div className="relative hidden md:block overflow-hidden rounded-xl border border-white/10 shadow-2xl">
                     <img
-                      src="/assets/workshopCover/pmWebinar.png"
+                      src="/assets/workshopCover/PMWebinarLPCover.jpg"
+                      alt="Product Management Masterclass"
+                      className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  </div>
+                  <div className="relative block md:hidden overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+                    <img
+                      src="/assets/workshopCover/mobilePm.png"
                       alt="Product Management Masterclass"
                       className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
                     />
@@ -72,15 +75,43 @@ const WSHeroPM = () => {
 
                 <h2 className="text-2xl lg:text-3xl font-semibold">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
-                  UX Designing for Product Management
+                    Master Generative AI for Product Management!
                   </span>
                 </h2>
               </div>
 
               <p className="text-gray-400 text-lg lg:text-xl leading-relaxed">
-              Unlock the secrets to successful product management with our hands-on masterclass! Learn to navigate every stage—ideation, development, launch, and growth—with proven strategies. Gain expert insights, practical frameworks, and real-world applications to drive innovation, maximize impact, and ensure long-term success. Enroll now and take your product skills to the next level!
+                Learn how to use Gen AI to speed up product research, ideation, development, and optimization. Gain
+                hands-on tools, real-world strategies, and become the AI-savvy PM every team wants. Enroll now!
               </p>
 
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                {[
+                  { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
+                  {
+                    icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
+                    label: "Date",
+                    value: "07 Jun",
+                  },
+                  {
+                    icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
+                    label: "time",
+                    value: "07:30 pm",
+                  },
+                  { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="group   backdrop-blur-xl rounded-lg p-3 border border-emerald-500/10 hover:border-indigo-400/30 transition-all duration-300 flex flex-col items-center hover:translate-y-[-2px] hover:shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400"
+                  >
+                    {item.icon}
+                    <p className="text-gray-400 text-xs ">{item.label}</p>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
               <div className="block lg:hidden pt-4">
                 <button
@@ -91,33 +122,6 @@ const WSHeroPM = () => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 </button>
-              </div>
-
-              {/* Features List */}
-              <div className="flex flex-wrap gap-4">
-                {["Industry Expert", "Live Sessions", "Hands-on Projects", "Career Support"].map((feature, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-2 hover:bg-indigo-500/20 transition-colors duration-300"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
-                    <span className="text-sm text-gray-300">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Mobile CTA */}
-              
-            </div>
-
-            {/* Company Section */}
-            <div className="flex justify-center w-full">
-              <div className="inline-flex items-center gap-6 px-6 py-4 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-2xl backdrop-blur-sm border border-indigo-500/10">
-                <img
-                  src="/assets/companylogo.png"
-                  alt="AcceleratorX"
-                  className="h-12"
-                />
               </div>
             </div>
 
@@ -134,22 +138,21 @@ const WSHeroPM = () => {
                       <p className="text-gray-400 text-sm">Limited seats available</p>
                     </div>
                   </div>
-<div id="workshop-registration-form">
-
-                  <WorkshopProvider>
-                    <WSFormFree />
-                  </WorkshopProvider>
-</div>
+                  <div id="workshop-registration-form">
+                    <WorkshopProvider>
+                      <WSFormFree />
+                    </WorkshopProvider>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Form Section - Desktop */}
-          <div className="hidden lg:block lg:w-5/12" >
+          <div className="hidden lg:block lg:w-5/12">
             <div className="bg-gradient-to-b from-indigo-500/10 to-violet-500/10 p-1 rounded-2xl sticky top-24">
               <div className="bg-[#0A0F1D]/90 backdrop-blur-xl rounded-2xl p-8 border border-indigo-500/20">
-                <div className="mb-6 space-y-2"  onClick={scrollToForm}>
+                <div className="mb-6 space-y-2" onClick={scrollToForm}>
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
                     Reserve Your Spot
                   </h3>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // Added useLocation
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
 import { registerForZoomMeeting } from "../../../routes/utils/registration";
 
@@ -28,6 +28,7 @@ interface WorkshopFormData {
 const WSFormFree = () => {
   const { workshopType, zoomMeetingDetails } = useWorkshop();
   const navigate = useNavigate();
+  const location = useLocation(); // Added this line
   const [formData, setFormData] = useState<WorkshopFormData>({
     name: "",
     email: "",
@@ -47,6 +48,28 @@ const WSFormFree = () => {
     }));
   };
 
+  // Added conditional redirect function
+  const handleRedirect = (submissionData: any) => {
+    if (location.pathname === "/workshop/pm-masterclass") {
+      navigate("/registration-sucessfull");
+    } else {
+      navigate("/workshop-registration/success", {
+        state: {
+          registrationDetails: {
+            name: submissionData.name,
+            email: formData.email,
+            workshop_type: submissionData.workshop_type,
+          },
+          zoomDetails: {
+            link: zoomMeetingDetails.link,
+            meetingId: zoomMeetingDetails.meetingId,
+            time: zoomMeetingDetails.time,
+          },
+        },
+      });
+    }
+  };
+
   async function sendWhatsAppMessage({
     apiKey,
     campaignName,
@@ -54,7 +77,6 @@ const WSFormFree = () => {
     name,
     masterclass,
     sessionDate,
-
     link,
   }: {
     apiKey: string;
@@ -67,9 +89,7 @@ const WSFormFree = () => {
   }) {
     try {
       const cleaned = sessionDate.replace("India", "").trim();
-
-      const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/); // Split after the year
-
+      const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/);
       const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
 
       console.log("masterclass", masterclass);
@@ -102,8 +122,6 @@ const WSFormFree = () => {
         console.error("WhatsApp API error:", err);
         throw new Error("WhatsApp message sending failed");
       }
-
-      //       // console.log('WhatsApp message sent successfully!');
     } catch (error) {
       console.error("Error sending WhatsApp message:", error);
     }
@@ -129,7 +147,6 @@ const WSFormFree = () => {
     try {
       // Get UTM data for tracking
       const utmData = getUTMDataForDB();
-      // console.log("UTM Data captured:", utmData);
 
       // Convert camelCase to snake_case for database
       const submissionData = {
@@ -159,27 +176,19 @@ const WSFormFree = () => {
 
       console.log("Submitting workshop registration with UTM data:", submissionData);
 
-      /**
-       * * Insert data into Supabase table
-       */
+      // Insert data into Supabase table
       const { error } = await supabase.from("workshop_registrations").insert([submissionData]);
 
-      /**
-       * * * Check for errors during insertion
-       * * * Handle unique constraint errors for phone and email
-       */
+      // Check for errors during insertion
       if (error) {
         console.error("Supabase error:", error);
         if (error.code === "23505") {
           if (error.message.includes("workshop_registrations_phone_key")) {
-            // Handle phone constraint error by adding a unique suffix
+            // Handle phone constraint error
             const timestamp = new Date().getTime();
             const uniquePhone = `${formData.phone}_${timestamp}`;
-
-            // Update submission data with unique phone
             submissionData.phone = uniquePhone;
 
-            // Try again with the modified phone
             const { error: retryPhoneError } = await supabase.from("workshop_registrations").insert([submissionData]);
 
             if (retryPhoneError) {
@@ -187,13 +196,12 @@ const WSFormFree = () => {
               toast.error("Registration failed. Please try again later.");
               throw retryPhoneError;
             } else {
-              // Continue with successful registration flow below
               // Track form submission with Meta Pixel
               try {
                 await trackFormSubmission({
                   name: formData.name,
                   email: formData.email,
-                  phone: formData.phone, // Use original phone for tracking
+                  phone: formData.phone,
                   education: formData.education,
                   designation: formData.designation,
                   course: workshopType,
@@ -211,12 +219,7 @@ const WSFormFree = () => {
                 zoomMeetingDetails.meetingCode,
               )
                 .then(async (data) => {
-                  const zoomJoinLink = data.join_url; // <- 👈 This is the magic link
-
-                  console.log("Zoom registration successful:", data);
-
-                  // Success: maybe show a confirmation message
-                  console.log("Zoom registration successful:", data);
+                  const zoomJoinLink = data.join_url;
                   await sendWhatsAppMessage({
                     apiKey: whatsappSerriApi,
                     campaignName: "registration_confirmation",
@@ -228,15 +231,11 @@ const WSFormFree = () => {
                   });
                 })
                 .catch((error) => {
-                  // Error: show a friendly error message
                   console.error("Error registering for Zoom meeting:", error);
                   toast.error(error.message || "Zoom registration failed. Please try again.");
                 });
 
-              // Show success toast and redirect to success page
               toast.success("Registration successful!");
-
-              // Reset form data
               setFormData({
                 name: "",
                 email: "",
@@ -247,33 +246,16 @@ const WSFormFree = () => {
                 yearsOfPassing: "",
               } as WorkshopFormData);
 
-              // Redirect to success page with registration details (using original email)
-              navigate("/workshop-registration/success", {
-                state: {
-                  registrationDetails: {
-                    name: submissionData.name,
-                    email: submissionData.email,
-                    workshop_type: submissionData.workshop_type,
-                  },
-                  zoomDetails: {
-                    link: zoomMeetingDetails.link,
-                    meetingId: zoomMeetingDetails.meetingId,
-                    time: zoomMeetingDetails.time,
-                  },
-                },
-              });
-
-              return; // Exit early since we've handled everything
+              // Use conditional redirect
+              handleRedirect(submissionData);
+              return;
             }
           } else if (error.message.includes("workshop_registrations_email_key")) {
-            // Handle email constraint error by adding a unique suffix
+            // Handle email constraint error
             const timestamp = new Date().getTime();
             const uniqueEmail = `${formData.email.split("@")[0]}+${timestamp}@${formData.email.split("@")[1]}`;
-
-            // Update submission data with unique email
             submissionData.email = uniqueEmail;
 
-            // Try again with the modified email
             const { error: retryError } = await supabase.from("workshop_registrations").insert([submissionData]);
 
             if (retryError) {
@@ -281,12 +263,11 @@ const WSFormFree = () => {
               toast.error("Registration failed. Please try again later.");
               throw retryError;
             } else {
-              // Continue with successful registration flow below
               // Track form submission with Meta Pixel
               try {
                 await trackFormSubmission({
                   name: formData.name,
-                  email: formData.email, // Use original email for tracking
+                  email: formData.email,
                   phone: formData.phone,
                   education: formData.education,
                   designation: formData.designation,
@@ -306,8 +287,6 @@ const WSFormFree = () => {
               )
                 .then(async (data) => {
                   const zoomJoinLink = data.join_url;
-                  // Success: maybe show a confirmation message
-                  console.log("Zoom registration successful:", data);
                   await sendWhatsAppMessage({
                     apiKey: whatsappSerriApi,
                     campaignName: "registration_confirmation",
@@ -319,15 +298,11 @@ const WSFormFree = () => {
                   });
                 })
                 .catch((error) => {
-                  // Error: show a friendly error message
                   console.error("Error registering for Zoom meeting:", error);
                   toast.error(error.message || "Zoom registration failed. Please try again.");
                 });
 
-              // Show success toast and redirect to success page
               toast.success("Registration successful!");
-
-              // Reset form data
               setFormData({
                 name: "",
                 email: "",
@@ -338,23 +313,9 @@ const WSFormFree = () => {
                 yearsOfPassing: "",
               } as WorkshopFormData);
 
-              // Redirect to success page with registration details (using original email)
-              navigate("/workshop-registration/success", {
-                state: {
-                  registrationDetails: {
-                    name: submissionData.name,
-                    email: formData.email, // Use original email for display
-                    workshop_type: submissionData.workshop_type,
-                  },
-                  zoomDetails: {
-                    link: zoomMeetingDetails.link,
-                    meetingId: zoomMeetingDetails.meetingId,
-                    time: zoomMeetingDetails.time,
-                  },
-                },
-              });
-
-              return; // Exit early since we've handled everything
+              // Use conditional redirect
+              handleRedirect(submissionData);
+              return;
             }
           } else {
             toast.error(
@@ -367,13 +328,9 @@ const WSFormFree = () => {
         throw error;
       }
 
-      console.log("making regestration");
-
       await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingCode)
         .then(async (data) => {
-          const zoomJoinLink = data.join_url; // <- 👈 This is the magic link
-          // Success: maybe show a confirmation message
-          console.log("Zoom registration successful:", data);
+          const zoomJoinLink = data.join_url;
           await sendWhatsAppMessage({
             apiKey: whatsappSerriApi,
             campaignName: "registration_confirmation",
@@ -385,16 +342,11 @@ const WSFormFree = () => {
           });
         })
         .catch((error) => {
-          // Error: show a friendly error message
           console.error("Error registering for Zoom meeting:", error);
           toast.error(error.message || "Zoom registration failed. Please try again.");
         });
 
-      console.log("masterclass titile", zoomMeetingDetails.title);
-
-      /**
-       * * * Track form submission with Meta Pixel
-       */
+      // Track form submission with Meta Pixel
       try {
         await trackFormSubmission({
           name: formData.name,
@@ -402,20 +354,16 @@ const WSFormFree = () => {
           phone: formData.phone,
           education: formData.education,
           designation: formData.designation,
-          course: workshopType, // Use workshop type as course
+          course: workshopType,
           workExperience: formData.yearsOfExperience,
           yearsOfPassing: formData.yearsOfPassing,
         } as any);
         console.log("Form submission tracked successfully");
       } catch (trackingError) {
         console.error("Error tracking form submission:", trackingError);
-        // Continue with registration process even if tracking fails
       }
 
-      // Show success toast and redirect to success page
       toast.success("Registration successful!");
-
-      // Reset form data
       setFormData({
         name: "",
         email: "",
@@ -426,24 +374,8 @@ const WSFormFree = () => {
         yearsOfPassing: "",
       } as WorkshopFormData);
 
-      // Redirect to success page with registration details
-      navigate("/workshop-registration/success", {
-        state: {
-          registrationDetails: {
-            name: submissionData.name,
-            email: submissionData.email,
-            workshop_type: submissionData.workshop_type,
-          },
-          zoomDetails: {
-            link: zoomMeetingDetails.link,
-            meetingId: zoomMeetingDetails.meetingId,
-            time: zoomMeetingDetails.time,
-          },
-        },
-      });
-    } catch (error) {
-      console.error("Submission error:", error);
-      toast.error("Registration failed. Please try again.");
+      // Use conditional redirect
+      handleRedirect(submissionData);
     } finally {
       setIsSubmitting(false);
     }

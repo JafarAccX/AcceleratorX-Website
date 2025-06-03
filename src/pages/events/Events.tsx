@@ -10,6 +10,13 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Gen Ai for PM's",
+      mode: "Online (Zoom)",
+      time: "June 07, 2025 07:30 PM",
+      link: "/workshop/pm-masterclass",
+      completed: false,
+    },
+    {
       name: "Automate workflows using n8n - Practical Implementation",
       mode: "Online (Zoom)",
       time: "June 09, 2025 07:30 PM",
