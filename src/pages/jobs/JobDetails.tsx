@@ -19,7 +19,8 @@ export default function JobDetails() {
   // Enhanced apply handler for both easy apply and external redirect
   const handleApplyClick = async () => {
     if (!user?.CustId || !id) {
-      toast.error("User or job ID missing");
+      toast.error("Sign-Up to Apply");
+      navigate("/sign-up");
       return;
     }
 
@@ -192,12 +193,6 @@ export default function JobDetails() {
             )}
 
             <div className="flex gap-4 justify-end">
-              <Link
-                to="/profile"
-                className="rounded-md border border-gray-600 px-4 py-2 text-sm text-gray-300 hover:border-blue-500 hover:text-blue-500 transition"
-              >
-                Update Profile
-              </Link>
               <button
                 onClick={handleApplyClick}
                 className={`px-4 py-2 text-sm font-medium rounded-md transition ${
