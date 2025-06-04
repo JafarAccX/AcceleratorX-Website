@@ -26,7 +26,7 @@ export interface SignUpFormProps {
 
 export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
   const navigate = useNavigate();
-  const { user, setUser } = useUser();
+  const { user, setUser } = useUser(); // This now handles the new session logic
   const [formState, setFormState] = useState<Partial<CreateCustomerPayload>>({
     callingCode: "+91",
     mobileVerified: false,
@@ -121,7 +121,6 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
       });
 
       if (success && response?.verification === "COMPLETED") {
-        // setFormState(formState.mobileVerified);
         handleInputChange("mobileVerified", true);
         setShowOTP(false);
         setOtp("");
@@ -153,20 +152,18 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
 
       if (!formState.firstName?.trim()) {
         toast.error("Please enter your full name");
-
         return;
       }
 
       if (!formState.email?.trim()) {
         toast.error("Please enter your email address");
-
         return;
       }
 
       if (existingUser) {
         throw new Error(error?.message || "Failed to fetch user data");
       } else {
-        console.log("sending the data to supabase");
+        console.log("sending the data to backend");
 
         // Prepare form data with default values for backend requirements
         const formDataWithDefaults = {
@@ -188,31 +185,24 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
           skills: formState.skills || "",
         };
 
-        const data = await createUser(formDataWithDefaults as CreateCustomerPayload);
+        const userData = await createUser(formDataWithDefaults as CreateCustomerPayload);
 
-        // Update UserContext with the new user data
-        setUser(data);
+        // Use the UserContext setUser method which now handles the new session logic
+        // This will automatically add loginTime, expiresAt, lastActivity, and isAuthenticated
+        setUser(userData);
 
-        localStorage.setItem(
-          "userData",
-          JSON.stringify({
-            ...data,
-            isAuthenticated: true,
-          }),
-        );
+        toast.success("Welcome to the platform!");
+
+        // Call onSuccess first if it exists
+        if (onSuccess) {
+          onSuccess();
+        }
+
+        console.log("navigating to profile page");
+
+        // Navigate after onSuccess
+        navigate("/profile");
       }
-
-      toast.success("Welcome to the platform!");
-
-      // Call onSuccess first if it exists
-      if (onSuccess) {
-        onSuccess();
-      }
-
-      console.log("navigating to profile page");
-
-      // Navigate after onSuccess
-      navigate("/profile");
     } catch (error) {
       console.error("Error during signup:", error);
       toast.error("Failed to create account");

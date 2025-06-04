@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { useGetUserByMobile } from "../../hooks/customer";
+import { Customer } from "../../types/customer";
 
 interface WindowOverride extends Window {
   OTPless?: any;
@@ -28,11 +29,33 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   const [otp, setOtp] = React.useState("");
   const [showOTP, setShowOTP] = React.useState(false);
   const [timer, setTimer] = React.useState(0);
-  // const [isLoading, setIsLoading] = React.useState(false);
-  // const [errorMessage, setErrorMessage] = React.useState("");
+  const [isProcessing, setIsProcessing] = React.useState(false);
+  const [cachedUserData, setCachedUserData] = React.useState<Customer | null>(null);
 
-  // Using the custom hook to get user by mobile number
-  const { data: userData, isLoading, isError } = useGetUserByMobile(phoneNumber);
+  // Only fetch user data when we have a valid phone number and haven't cached it yet
+  const shouldFetchUser = phoneNumber.length === 10 && !cachedUserData;
+  const {
+    data: fetchedUserData,
+    isLoading: isUserLoading,
+    isError,
+  } = useGetUserByMobile(shouldFetchUser ? phoneNumber : "");
+
+  // Cache the user data when it's fetched
+  React.useEffect(() => {
+    if (fetchedUserData && phoneNumber.length === 10) {
+      setCachedUserData(fetchedUserData);
+    }
+  }, [fetchedUserData, phoneNumber]);
+
+  // Clear cached data when phone number changes
+  React.useEffect(() => {
+    if (phoneNumber.length !== 10) {
+      setCachedUserData(null);
+    }
+  }, [phoneNumber]);
+
+  // Use cached data if available, otherwise use fetched data
+  const userData = cachedUserData || fetchedUserData;
 
   React.useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -52,6 +75,16 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       return;
     }
 
+    if (isUserLoading) {
+      toast.error("Please wait while we verify your phone number");
+      return;
+    }
+
+    if (!userData) {
+      toast.error("This phone number is not registered. Please sign up first.");
+      return;
+    }
+
     const OTPLess = (window as WindowOverride)?.OTPless;
     if (!OTPLess) {
       toast.error("OTP service not available. Please try again later.");
@@ -59,32 +92,30 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     }
 
     try {
-      if (userData) {
-        // User exists, proceed with sending OTP
-        const OTPlessSignin = new OTPLess();
+      setIsProcessing(true);
+      const OTPlessSignin = new OTPLess();
 
-        const { success, error } = await OTPlessSignin.initiate({
-          channel: "PHONE",
-          phone: phoneNumber,
-          countryCode: "+91",
-          otpLength: 6,
-          expiry: 60,
-        });
+      const { success, error } = await OTPlessSignin.initiate({
+        channel: "PHONE",
+        phone: phoneNumber,
+        countryCode: "+91",
+        otpLength: 6,
+        expiry: 60,
+      });
 
-        if (success) {
-          setShowOTP(true);
-          setTimer(30);
-          toast.success("OTP sent successfully");
-        } else {
-          throw new Error(error || "Failed to send OTP");
-        }
+      if (success) {
+        setShowOTP(true);
+        setTimer(30);
+        toast.success("OTP sent successfully");
       } else {
-        toast.error("This phone number is not registered. Please sign up first.");
+        throw new Error(error || "Failed to send OTP");
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
       toast.error(errorMessage);
       setShowOTP(false);
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -101,7 +132,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     }
 
     try {
-      // setIsLoading(true);
+      setIsProcessing(true);
       const OTPlessSignin = new OTPLess();
 
       const { response, success, error } = await OTPlessSignin.verify({
@@ -114,25 +145,34 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       if (success && response?.verification === "COMPLETED") {
         if (userData) {
           console.log("User data:", userData);
-          // Store user data and authentication state in localStorage
-          localStorage.setItem(
-            "userData",
-            JSON.stringify({
-              ...userData,
-              isAuthenticated: true,
-            }),
-          );
 
-          setUser(userData);
+          // Validate userData before storing
+          if (userData && typeof userData === "object") {
+            try {
+              // Store user data in localStorage
+              const userDataToStore = {
+                ...userData,
+                isAuthenticated: true,
+              };
 
-          toast.success("Welcome back!");
+              localStorage.setItem("userData", JSON.stringify(userDataToStore));
+              setUser(userData);
+              toast.success("Welcome back!");
 
-          // Execute onSuccess callback if provided
-          if (onSuccess) {
-            onSuccess();
+              // Execute onSuccess callback if provided
+              if (onSuccess) {
+                onSuccess();
+              } else {
+                // Navigate to dashboard
+                navigate("/profile");
+              }
+            } catch (storageError) {
+              console.error("Error storing user data:", storageError);
+              toast.error("Login successful but failed to save session. Please try again.");
+            }
+          } else {
+            throw new Error("Invalid user data received");
           }
-          // Navigate to dashboard
-          navigate("/profile");
         } else {
           toast.error("Account not found. Please sign up first.");
           navigate("/sign-up");
@@ -141,9 +181,12 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
         throw new Error(error || "Failed to verify OTP");
       }
     } catch (error) {
+      console.error("OTP verification error:", error);
       const errorMessage = error instanceof Error ? error.message : "Invalid OTP. Please try again.";
       toast.error(errorMessage);
       setOtp("");
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -152,13 +195,22 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     await handleSendOTP();
   };
 
+  const isLoading = isUserLoading || isProcessing;
+
   return (
     <div className="flex min-h-screen bg-gradient-to-r from-blue-800 to-indigo-900">
       {/* Left side illustration */}
       <div className="hidden lg:flex w-1/2 flex-col items-end justify-center p-8 relative">
         <div className="relative w-full flex items-center justify-center max-w-[600px]">
-          {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-violet-500/30 blur-3xl rounded-full transform -rotate-6"></div> */}
-          <img src="/assets/signup.png" alt="People Illustration" className="relative z-10 w-full" />
+          <img
+            src="/assets/signup.png"
+            alt="People Illustration"
+            className="relative z-10 w-full"
+            onError={(e) => {
+              console.error("Image failed to load");
+              e.currentTarget.style.display = "none";
+            }}
+          />
         </div>
       </div>
 
@@ -171,7 +223,6 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
             </h1>
             <p className="text-blue-100/80 text-lg">
               Welcome to AcceleratoX, the premier scholarship examination for students.
-              <br />
             </p>
           </div>
 
@@ -192,7 +243,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                   Mobile Number
                 </label>
                 <div className="relative">
-                  <div className="flex items-center  rounded-lg overflow-hidden">
+                  <div className="flex items-center rounded-lg overflow-hidden">
                     <span className="rounded-lg text-[#6B7B93] bg-white/10 px-4 py-3 text-sm mr-1">+91</span>
                     <input
                       id="phoneNumber"
@@ -200,15 +251,30 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                       maxLength={10}
                       placeholder="Enter mobile number"
                       value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, ""); // Only allow digits
+                        setPhoneNumber(value);
+                        // Reset OTP state and clear cached data when phone number changes
+                        if (showOTP) {
+                          setShowOTP(false);
+                          setOtp("");
+                          setTimer(0);
+                        }
+                        // Clear cached data when user starts typing a new number
+                        if (value.length < 10) {
+                          setCachedUserData(null);
+                        }
+                      }}
                       disabled={showOTP || isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2 "
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                     />
                   </div>
                 </div>
               </div>
 
-              {isError && <div className="text-red-600"> Invalid Credentials</div>}
+              {isError && (
+                <div className="text-red-400 text-sm">This phone number is not registered. Please sign up first.</div>
+              )}
 
               {showOTP && (
                 <div>
@@ -220,10 +286,13 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     type="text"
                     placeholder="Enter 6-digit OTP"
                     value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, ""); // Only allow digits
+                      setOtp(value);
+                    }}
                     maxLength={6}
                     disabled={isLoading}
-                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2 "
+                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                   />
                   {timer > 0 ? (
                     <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>
@@ -244,12 +313,12 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3.5 font-medium relative transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100"
-                  disabled={isLoading}
+                  disabled={isLoading || phoneNumber.length !== 10}
                 >
                   {isLoading ? (
                     <div className="flex items-center justify-center gap-2">
                       <LoadingSpinner />
-                      <span>Sending OTP...</span>
+                      <span>{isUserLoading ? "Checking..." : "Sending OTP..."}</span>
                     </div>
                   ) : (
                     "Send OTP"
@@ -259,7 +328,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3.5 font-medium relative transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100"
-                  disabled={isLoading}
+                  disabled={isLoading || otp.length !== 6}
                 >
                   {isLoading ? (
                     <div className="flex items-center justify-center gap-2">
@@ -280,6 +349,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
               <button
                 onClick={() => navigate("/sign-up")}
                 className="text-blue-300 hover:text-blue-200 transition-colors duration-200"
+                disabled={isLoading}
               >
                 Sign Up
               </button>

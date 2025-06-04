@@ -11,24 +11,23 @@ interface UserProfile {
 }
 
 interface ProfileContextType {
-  profile: UserProfile;
+  profile: UserProfile | null;
   updateProfile: (newProfile: UserProfile) => void;
+  isLoading: boolean;
 }
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export function ProfileProvider({ children }: { children: ReactNode }) {
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const updateProfile = (newProfile: UserProfile) => {
     setProfile(newProfile);
   };
 
-  if (!profile) {
-    return;
-  }
-
-  return <ProfileContext.Provider value={{ profile, updateProfile }}>{children}</ProfileContext.Provider>;
+  // Always render the provider - don't conditionally return
+  return <ProfileContext.Provider value={{ profile, updateProfile, isLoading }}>{children}</ProfileContext.Provider>;
 }
 
 export function useProfile() {

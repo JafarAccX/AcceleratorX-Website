@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Building2, MapPin, Briefcase, Clock, ChevronLeft, X, ExternalLink, Globe } from "lucide-react";
 import { useGetJobById } from "../../hooks/jobs";
 import { useState } from "react";
