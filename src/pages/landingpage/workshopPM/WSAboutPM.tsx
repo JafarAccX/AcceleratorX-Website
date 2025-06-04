@@ -47,7 +47,7 @@ const WSAboutPM = () => {
                 <p className="text-gray-300 leading-relaxed">
                   {" "}
                   Join <span className="text-indigo-400 font-medium">AcceleratorX's Masterclass</span> led by AI and
-                  product leader <span className="text-indigo-400 font-medium">Subhasis Chandra</span> on Thursday, 10th
+                  product leader <span className="text-indigo-400 font-medium">Subhasis Chandra</span> on Thursday, 7th
                   June, 07:30 PM IST onwards to discover:
                 </p>
                 <ul className="space-y-4">
@@ -82,8 +82,8 @@ const WSAboutPM = () => {
                     <div>
                       <p className="font-medium text-white mb-1">Pro Tip</p>
                       <p className="text-gray-300">
-                        Stand out as a future-ready PM by integrating Generative AI into your workflow. Seats are
-                        limited – Register now and get ahead of the curve! 🚀
+                        Stand out as a future-ready PM by integrating Generative AI into your workflow. Only 15 seats
+                        left! – Register now and get ahead of the curve! 🚀
                       </p>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ const WSAboutPM = () => {
               {targetAudience.map((item, index) => (
                 <div key={index} className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-xl"></div>
-                  <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20">
+                  <div className="relative h-full bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20">
                     <div className="flex gap-4">
                       <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0">
                         <FaCheck className="text-indigo-400 w-4 h-4" />

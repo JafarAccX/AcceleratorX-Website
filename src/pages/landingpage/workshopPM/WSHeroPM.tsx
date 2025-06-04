@@ -65,7 +65,7 @@ const WSHeroPM = () => {
                   </div>
                   <div className="relative block md:hidden overflow-hidden rounded-xl border border-white/10 shadow-2xl">
                     <img
-                      src="/assets/workshopCover/mobilePm.png"
+                      src="/assets/workshopCover/mobilePmNew.png"
                       alt="Product Management Masterclass"
                       className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
                     />
