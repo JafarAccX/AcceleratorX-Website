@@ -18,9 +18,8 @@ const xsatNavItems = [
 
 // <<<<<<< HEAD
 export default function Navbar() {
- 
-// export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void }) {
- 
+  // export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void }) {
+
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,10 +46,8 @@ export default function Navbar() {
   const menuItems = [
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
-    { label: "Careers", path: "/careers" }, 
-    { label: "Jobs", path: "/jobs" },  
+    { label: "Jobs", path: "/jobs" },
     { label: "EVENTS", path: "/Events" },
- 
   ];
 
   const courses = [

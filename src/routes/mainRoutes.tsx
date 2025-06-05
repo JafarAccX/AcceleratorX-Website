@@ -12,7 +12,6 @@ import RegistrationSuccess from "../pages/events/registration-successful";
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
 const AboutPage = lazy(() => import("../pages/courses/EntryPoint/AboutPage"));
 const HireHero = lazy(() => import("../pages/hirewithus/HireHero"));
-const CareersHero = lazy(() => import("../components/CareersHero"));
 const BecomeAMentor = lazy(() => import("../pages/becomeamentor/BecomeAMentor"));
 const Blogs = lazy(() => import("../pages/blogs/Blogs"));
 const Login = lazy(() => import("../pages/auth/Login"));
@@ -43,7 +42,6 @@ export const mainRoutes = [
   <Route path="/" element={<HomePage />} />,
   <Route path="/about-us" element={<AboutPage />} />,
   <Route path="/hire-with-us" element={<HireHero />} />,
-  <Route path="/careers" element={<CareersHero />} />,
   <Route path="/become-a-mentor" element={<BecomeAMentor />} />,
   <Route path="/blogs" element={<Blogs />} />,
   <Route path="/login" element={<Login />} />,
