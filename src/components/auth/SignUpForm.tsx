@@ -57,7 +57,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
   };
 
   // const API_BASE = "http://localhost:3020/api/otp";
-  const API_BASE = "https://api.acceleratorx.org/api/otp";
+  const API_BASE = "https://dev-api.acceleratorx.org/api/otp";
+  // const API_BASE = "https://api.acceleratorx.org/api/otp";
 
   // const handleSendOTP = async () => {
   //   if (!formState.mobile || formState.mobile.length !== 10) {
