@@ -66,7 +66,7 @@ const WSTestimonialDASecond = () => {
         </div>
 
         {/* Enhanced Testimonial Stats */}
-        <div className="mt-20 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="mt-20 flex items-center justify-center gap-8 max-w-5xl mx-auto">
           {[
             {
               value: "250+",

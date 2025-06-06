@@ -19,13 +19,13 @@ const WSAboutDASecond = () => {
         {/* About and Features Section */}
         <div className="grid lg:grid-cols-2 gap-12 h-full mb-20">
           {/* About Masterclass Section */}
-          <div className=" h-full float-start items-start justify-between ">
+          <div className=" lg:h-full float-start items-start justify-between ">
             <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
                 About this Workshop
               </span>
             </h2>
-            <div className="bg-white/5 backdrop-blur-xl h-full rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
+            <div className="bg-white/5 backdrop-blur-xl lg:h-full rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
               <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
                 Most people see raw data as chaos — rows and rows of noise. But in this workshop, you’ll{" "}
                 <span className="font-bold text-white">learn how to clean that chaos, segment it into meaning,</span>{" "}
