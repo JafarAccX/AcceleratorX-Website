@@ -111,12 +111,12 @@ const WSHeroDASecond = () => {
                   {
                     icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "May 17, 2025",
+                    value: "June 13, 2025",
                   },
                   {
                     icon: <FaClock className="text-cyan-400 mb-1" />,
                     label: "Time",
-                    value: "8:00 PM",
+                    value: " 7:30 PM",
                   },
                   {
                     icon: <FaUserGraduate className="text-yellow-400 mb-1" />,
