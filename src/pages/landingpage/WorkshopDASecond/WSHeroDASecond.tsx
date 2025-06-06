@@ -1,21 +1,8 @@
-import React from "react";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 import WSFormFree from "../workshopGENB/WSFormFree";
 
 const WSHeroDASecond = () => {
-  const scrollToForm = () => {
-    const form = document.getElementById("workshop-registration-form");
-    if (form) {
-      form.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
-    }
-  };
-
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#0A0F1C] to-[#121a2e]">
       {/* Enhanced Background Effects */}
@@ -70,22 +57,24 @@ const WSHeroDASecond = () => {
                 <span className="text-blue-400 text-sm font-medium">Live Masterclass</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
+              <h1 className="text-4xl md:text-5xl font-bold">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-300">
                   Data Analytics Workshop
                 </span>
               </h1>
 
               <h2 className="text-2xl font-semibold">
-                <span className="text-white">Topic: </span>
                 <span className="bg-gradient-to-r from-emerald-400 via-indigo-400 to-cyan-400 text-transparent bg-clip-text text-3xl">
-                  Tableau Zero to Master
+                  How to do Data Analysis using AI
                 </span>
               </h2>
 
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Master Tableau from scratch and learn to create dynamic dashboards, interactive visuals, and data
-                stories that drive real insights — no prior experience needed!
+                Raw data is powerful — but only when we know how to read it, clean it, and let it speak. This hands-on
+                masterclass will teach you how to transform messy datasets into meaningful stories using AI — from
+                segmentation to automation to insight. You’ll learn to build analysis that’s not just smart, but
+                emotionally resonant and decision-driven. No coding or AI background needed — just a desire to see data
+                differently.
               </p>
 
               {/* <div className="mt-8 flex justify-center lg:justify-start">
@@ -146,22 +135,6 @@ const WSHeroDASecond = () => {
                     </p>
                   </div>
                 ))}
-              </div>
-
-              {/* Mentor Badge - Enhanced */}
-              <div className="mt-8 flex items-center justify-center lg:justify-start space-x-3 bg-gradient-to-r from-blue-900/30 to-purple-900/30 px-5 py-3 rounded-lg border border-blue-500/20 w-fit mx-auto lg:mx-0">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-400 flex-shrink-0">
-                  <img src="/assets/mentor/Shubham.jpeg" alt="Aakash Maurya" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <div className="flex items-center">
-                    <p className="text-white font-medium">Shubham Swaraj </p>
-                    <div className="ml-2 px-2 py-0.5 bg-emerald-500/20 rounded-full">
-                      <p className="text-emerald-300 text-xs">Mentor</p>
-                    </div>
-                  </div>
-                  <p className="text-emerald-400 text-sm">Founder & Director - BIP Consults pvt. ltd.</p>
-                </div>
               </div>
             </div>
           </div>

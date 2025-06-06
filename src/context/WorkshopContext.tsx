@@ -41,11 +41,11 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "Tableau Zero to Master",
-  link: "https://zoom.us/meeting/register/HIFV1qVHTWu_SPmJ-R4Ptw",
-  meetingId: "HIFV1qVHTWu_SPmJ-R4Ptw",
-  time: "MAy 17, 2025 8:00 PM India",
-  meetingCode: "99098630020",
+  title: "How to do data analysis using AI ",
+  link: "https://zoom.us/meeting/register/HAfvvi1URiadTOeGsRf8TA",
+  meetingId: "HAfvvi1URiadTOeGsRf8TA",
+  time: "June 13, 2025 7:30 PM India",
+  meetingCode: "92672772725",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {

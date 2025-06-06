@@ -24,6 +24,13 @@ const Events = () => {
       completed: false,
     },
     {
+      name: "How to do data analysis using AI ",
+      mode: "Online (Zoom)",
+      time: "June 13, 2025 7:30 PM",
+      link: "/workshop/da-masterclass-bxwxy",
+      completed: false,
+    },
+    {
       name: "Tableau Zero to Master",
       mode: "Online (Zoom)",
       time: "May 17, 2025 8:00 PM",

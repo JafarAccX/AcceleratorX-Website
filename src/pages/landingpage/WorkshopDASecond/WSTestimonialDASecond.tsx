@@ -83,7 +83,7 @@ const WSTestimonialDASecond = () => {
           ].map((stat, index) => (
             <div key={index} className="group text-center transform hover:-translate-y-2 transition-all duration-300">
               <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-blue-600/10 via-purple-500/10 to-green-500/10 rounded-xl border border-white/5 backdrop-blur-sm flex items-center justify-center group-hover:border-white/20 transition-all duration-300">
-                <span className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400">
+                <span className="text-2xl  font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400">
                   {stat.value}
                 </span>
               </div>
