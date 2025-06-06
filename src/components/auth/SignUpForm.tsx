@@ -320,37 +320,51 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
               </div>
 
               {showOTP && (
-                <div className="flex items-center gap-4">
-                  <label htmlFor="otp" className="text-blue-50 font-medium min-w-[100px]">
-                    Enter OTP
-                  </label>
-                  <input
-                    id="otp"
-                    type="text"
-                    placeholder="Enter 6-digit OTP"
-                    value={otp}
-                    onChange={(e) => {
-                      setOtp(e.target.value);
-                      if (e.target.value.length === 6) {
-                        handleVerifyOtp(e.target.value);
-                      }
-                    }}
-                    maxLength={6}
-                    disabled={isLoading}
-                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                  />
+                <div className="flex flex-col items-center gap-4 w-full">
+                  <div className="flex items-center w-full  gap-4">
+                    <label htmlFor="otp" className="text-blue-50 font-medium min-w-[100px]">
+                      Enter OTP
+                    </label>
+                    <input
+                      id="otp"
+                      type="text"
+                      placeholder="Enter 6-digit OTP"
+                      value={otp}
+                      onChange={(e) => {
+                        setOtp(e.target.value);
+                        if (e.target.value.length === 6) {
+                          handleVerifyOtp(e.target.value);
+                        }
+                      }}
+                      maxLength={6}
+                      disabled={isLoading}
+                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
+                    />
+                  </div>
 
                   {timer > 0 ? (
-                    <Timer showOTP={showOTP} />
+                    <div className="w-full mt-4">
+                      <p className="text-white text-base font-semibold mb-2">
+                        Please answer the call to receive your OTP.
+                      </p>
+
+                      <Timer showOTP={showOTP} />
+                    </div>
                   ) : (
-                    <button
-                      type="button"
-                      onClick={handleResendOTP}
-                      className="w-full text-blue-300 hover:text-blue-200 text-sm mt-2 transition-colors duration-200"
-                      disabled={isLoading}
-                    >
-                      Resend OTP
-                    </button>
+                    <div className="w-full mt-4">
+                      <p className="text-white text-base font-semibold mb-2">
+                        Please answer the call to receive your OTP.
+                      </p>
+
+                      <button
+                        type="button"
+                        onClick={handleResendOTP}
+                        className="w-full text-blue-300 hover:text-blue-200 text-sm mt-2 transition-colors duration-200"
+                        disabled={isLoading}
+                      >
+                        Resend OTP
+                      </button>
+                    </div>
                   )}
                 </div>
               )}

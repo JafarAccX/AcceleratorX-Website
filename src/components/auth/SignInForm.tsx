@@ -221,9 +221,6 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
             <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent pb-3">
               Sign In
             </h1>
-            <p className="text-blue-100/80 text-lg">
-              Welcome to AcceleratoX, the premier scholarship examination for students.
-            </p>
           </div>
 
           <form
@@ -295,16 +292,28 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
                   />
                   {timer > 0 ? (
-                    <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>
+                    <div className="w-full mt-4">
+                      <p className="text-white text-base font-semibold mb-2">
+                        Please answer the call to receive your OTP.
+                      </p>
+
+                      <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>
+                    </div>
                   ) : (
-                    <button
-                      type="button"
-                      onClick={handleResendOTP}
-                      className="w-full text-blue-300 hover:text-blue-200 text-sm mt-2 transition-colors duration-200"
-                      disabled={isLoading}
-                    >
-                      Resend OTP
-                    </button>
+                    <div className="w-full mt-4">
+                      <p className="text-white text-base font-semibold mb-2">
+                        Please answer the call to receive your OTP.
+                      </p>
+
+                      <button
+                        type="button"
+                        onClick={handleResendOTP}
+                        className="w-full text-blue-300 hover:text-blue-200 text-sm mt-2 transition-colors duration-200"
+                        disabled={isLoading}
+                      >
+                        Resend OTP
+                      </button>
+                    </div>
                   )}
                 </div>
               )}
