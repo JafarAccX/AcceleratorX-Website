@@ -344,17 +344,13 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
 
                   {timer > 0 ? (
                     <div className="w-full mt-4">
-                      <p className="text-white text-base font-semibold mb-2">
-                        Please answer the call to receive your OTP.
-                      </p>
+                      <p className="text-white text-base font-semibold mb-2">OTP has been sent to you on WhatsApp.</p>
 
                       <Timer showOTP={showOTP} />
                     </div>
                   ) : (
                     <div className="w-full mt-4">
-                      <p className="text-white text-base font-semibold mb-2">
-                        Please answer the call to receive your OTP.
-                      </p>
+                      <p className="text-white text-base font-semibold mb-2">OTP has been sent to you on WhatsApp.</p>
 
                       <button
                         type="button"

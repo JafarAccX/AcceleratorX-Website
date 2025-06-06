@@ -293,17 +293,13 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                   />
                   {timer > 0 ? (
                     <div className="w-full mt-4">
-                      <p className="text-white text-base font-semibold mb-2">
-                        Please answer the call to receive your OTP.
-                      </p>
+                      <p className="text-white text-base font-semibold mb-2">OTP has been sent to you on WhatsApp.</p>
 
                       <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>
                     </div>
                   ) : (
                     <div className="w-full mt-4">
-                      <p className="text-white text-base font-semibold mb-2">
-                        Please answer the call to receive your OTP.
-                      </p>
+                      <p className="text-white text-base font-semibold mb-2">OTP has been sent to you on WhatsApp.</p>
 
                       <button
                         type="button"
