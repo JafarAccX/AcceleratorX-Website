@@ -79,6 +79,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
       const { success, error } = await OTPlessSignin.initiate({
         channel: "PHONE",
         phone: formState.mobile,
+        deliveryChannel: "WHATSAPP",
         countryCode: "+91",
         otpLength: 6,
         expiry: 60,

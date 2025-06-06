@@ -98,6 +98,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       const { success, error } = await OTPlessSignin.initiate({
         channel: "PHONE",
         phone: phoneNumber,
+        deliveryChannel: "WHATSAPP",
         countryCode: "+91",
         otpLength: 6,
         expiry: 60,
