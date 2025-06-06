@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
-// import { supabase } from "../../lib/supabaseClient";
+import axios from "axios";
 import { useCreateUser, useGetUserByMobile } from "../../hooks/customer";
 import { CreateCustomerPayload } from "../../types/customer";
 import Timer from "./timer";
@@ -16,9 +16,9 @@ const LoadingSpinner = () => (
   />
 );
 
-interface WindowOverride extends Window {
-  OTPless?: any;
-}
+// interface WindowOverride extends Window {
+//   OTPless?: any;
+// }
 
 export interface SignUpFormProps {
   onSuccess?: () => void;
@@ -56,15 +56,55 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
     setFormState((prev) => ({ ...prev, [field]: value }));
   };
 
+  // const API_BASE = "http://localhost:3020/api/otp";
+  const API_BASE = "https://api.acceleratorx.org/api/otp";
+
+  // const handleSendOTP = async () => {
+  //   if (!formState.mobile || formState.mobile.length !== 10) {
+  //     toast.error("Please enter a valid 10-digit phone number");
+  //     return;
+  //   }
+
+  //   const OTPLess = (window as WindowOverride)?.OTPless;
+  //   if (!OTPLess) {
+  //     toast.error("OTP service not available. Please try again later.");
+  //     return;
+  //   }
+
+  //   try {
+  //     if (existingUser) {
+  //       toast.error("This phone number is already registered. Please sign in instead.");
+  //       return;
+  //     }
+
+  //     const OTPlessSignin = new OTPLess();
+
+  //     const { success, error } = await OTPlessSignin.initiate({
+  //       channel: "PHONE",
+  //       phone: formState.mobile,
+  //       deliveryChannel: "WHATSAPP",
+  //       countryCode: "+91",
+  //       otpLength: 6,
+  //       expiry: 60,
+  //     });
+
+  //     if (success) {
+  //       setShowOTP(true);
+  //       setTimer(60);
+  //       toast.success("OTP sent successfully");
+  //     } else {
+  //       throw new Error(error || "Failed to send OTP");
+  //     }
+  //   } catch (error) {
+  //     const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
+  //     toast.error(errorMessage);
+  //     setShowOTP(false);
+  //   }
+  // };
+
   const handleSendOTP = async () => {
     if (!formState.mobile || formState.mobile.length !== 10) {
       toast.error("Please enter a valid 10-digit phone number");
-      return;
-    }
-
-    const OTPLess = (window as WindowOverride)?.OTPless;
-    if (!OTPLess) {
-      toast.error("OTP service not available. Please try again later.");
       return;
     }
 
@@ -74,23 +114,16 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
         return;
       }
 
-      const OTPlessSignin = new OTPLess();
-
-      const { success, error } = await OTPlessSignin.initiate({
-        channel: "PHONE",
-        phone: formState.mobile,
-        deliveryChannel: "WHATSAPP",
-        countryCode: "+91",
-        otpLength: 6,
-        expiry: 60,
+      const response = await axios.post(`${API_BASE}/send`, {
+        phoneNumber: `+91${formState.mobile}`,
       });
 
-      if (success) {
+      if (response.status === 200) {
         setShowOTP(true);
-        setTimer(60);
+        setTimer(30); // Start timer for OTP expiry UI
         toast.success("OTP sent successfully");
       } else {
-        throw new Error(error || "Failed to send OTP");
+        throw new Error("Failed to send OTP");
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
@@ -105,29 +138,22 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
       return;
     }
 
-    const OTPLess = (window as WindowOverride)?.OTPless;
-    if (!OTPLess) {
-      toast.error("OTP service not available. Please try again later.");
-      return;
-    }
-
     try {
-      const OTPlessSignin = new OTPLess();
-
-      const { response, success, error } = await OTPlessSignin.verify({
-        otp: otp,
-        channel: "PHONE",
-        phone: formState.mobile,
-        countryCode: "+91",
+      const response = await axios.post(`${API_BASE}/verify`, {
+        phoneNumber: `+91${formState.mobile}`,
+        otpCode: otp,
       });
 
-      if (success && response?.verification === "COMPLETED") {
+      // Check the response message
+      const message = response.data?.message;
+
+      if (response.status === 200 && message === "OTP verified successfully") {
         handleInputChange("mobileVerified", true);
         setShowOTP(false);
         setOtp("");
         toast.success("Phone number verified successfully");
       } else {
-        throw new Error(error || "Failed to verify OTP");
+        throw new Error("Invalid OTP or verification failed");
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Invalid OTP. Please try again.";

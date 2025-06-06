@@ -5,10 +5,11 @@ import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { useGetUserByMobile } from "../../hooks/customer";
 import { Customer } from "../../types/customer";
+import axios from "axios";
 
-interface WindowOverride extends Window {
-  OTPless?: any;
-}
+// interface WindowOverride extends Window {
+//   OTPless?: any;
+// }
 
 const LoadingSpinner = () => (
   <motion.div
@@ -69,6 +70,9 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     };
   }, [showOTP, timer]);
 
+  // const API_BASE = "http://localhost:3020/api/otp";
+  const API_BASE = "https://api.acceleratorx.org/api/otp";
+
   const handleSendOTP = async () => {
     if (!phoneNumber || phoneNumber.length !== 10) {
       toast.error("Please enter a valid 10-digit phone number");
@@ -85,31 +89,20 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       return;
     }
 
-    const OTPLess = (window as WindowOverride)?.OTPless;
-    if (!OTPLess) {
-      toast.error("OTP service not available. Please try again later.");
-      return;
-    }
-
     try {
       setIsProcessing(true);
-      const OTPlessSignin = new OTPLess();
 
-      const { success, error } = await OTPlessSignin.initiate({
-        channel: "PHONE",
-        phone: phoneNumber,
-        deliveryChannel: "WHATSAPP",
-        countryCode: "+91",
-        otpLength: 6,
-        expiry: 60,
+      // Make API call to your send OTP endpoint
+      const response = await axios.post(`${API_BASE}/send`, {
+        phoneNumber: "+91" + phoneNumber,
       });
 
-      if (success) {
+      if (response.status === 200) {
         setShowOTP(true);
-        setTimer(30);
+        setTimer(30); // Start timer for OTP expiry UI
         toast.success("OTP sent successfully");
       } else {
-        throw new Error(error || "Failed to send OTP");
+        throw new Error("Failed to send OTP");
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
@@ -126,63 +119,40 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       return;
     }
 
-    const OTPLess = (window as WindowOverride)?.OTPless;
-    if (!OTPLess) {
-      toast.error("OTP service not available. Please try again later.");
-      return;
-    }
-
     try {
       setIsProcessing(true);
-      const OTPlessSignin = new OTPLess();
 
-      const { response, success, error } = await OTPlessSignin.verify({
-        otp: otp,
-        channel: "PHONE",
-        phone: phoneNumber,
-        countryCode: "+91",
+      const response = await axios.post(`${API_BASE}/verify`, {
+        phoneNumber: "+91" + phoneNumber,
+        otpCode: otp,
       });
 
-      if (success && response?.verification === "COMPLETED") {
+      // Check the response message
+      const message = response.data?.message;
+
+      if (response.status === 200 && message === "OTP verified successfully") {
         if (userData) {
-          console.log("User data:", userData);
+          const userDataToStore = {
+            ...userData,
+            isAuthenticated: true,
+          };
+          localStorage.setItem("userData", JSON.stringify(userDataToStore));
+          setUser(userData);
+          toast.success("Welcome back!");
 
-          // Validate userData before storing
-          if (userData && typeof userData === "object") {
-            try {
-              // Store user data in localStorage
-              const userDataToStore = {
-                ...userData,
-                isAuthenticated: true,
-              };
-
-              localStorage.setItem("userData", JSON.stringify(userDataToStore));
-              setUser(userData);
-              toast.success("Welcome back!");
-
-              // Execute onSuccess callback if provided
-              if (onSuccess) {
-                onSuccess();
-              } else {
-                // Navigate to dashboard
-                navigate("/profile");
-              }
-            } catch (storageError) {
-              console.error("Error storing user data:", storageError);
-              toast.error("Login successful but failed to save session. Please try again.");
-            }
+          if (onSuccess) {
+            onSuccess();
           } else {
-            throw new Error("Invalid user data received");
+            navigate("/profile");
           }
         } else {
           toast.error("Account not found. Please sign up first.");
           navigate("/sign-up");
         }
       } else {
-        throw new Error(error || "Failed to verify OTP");
+        throw new Error("Invalid OTP or verification failed");
       }
     } catch (error) {
-      console.error("OTP verification error:", error);
       const errorMessage = error instanceof Error ? error.message : "Invalid OTP. Please try again.";
       toast.error(errorMessage);
       setOtp("");
