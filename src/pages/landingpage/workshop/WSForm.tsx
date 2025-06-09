@@ -30,7 +30,6 @@ interface FormData {
 const WSForm = () => {
   const { workshopType, zoomMeetingDetails } = useWorkshop();
 
-  console.log("workshopType, zoomMeetingDetails --- ", workshopType, zoomMeetingDetails);
   const navigate = useNavigate();
   // console.log('WSForm - Current workshop type:', workshopType);
   const [formData, setFormData] = useState<FormData>({
