@@ -183,7 +183,7 @@ export const MetaPixel = () => {
       )}
 
       {/* Track CompleteRegistration for registration success pages */}
-      {isLeadRoute && (
+      {/* {isLeadRoute && (
         <script>
           {`
             // Track CompleteRegistration on main pixel
@@ -203,7 +203,7 @@ export const MetaPixel = () => {
             }
           `}
         </script>
-      )}
+      )} */}
     </Helmet>
   );
 };

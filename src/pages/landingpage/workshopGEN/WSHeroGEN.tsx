@@ -349,29 +349,51 @@ const WSHeroGENC = () => {
                 transition={{ duration: 0.8 }}
                 className="text-xl text-gray-400 max-w-xl"
               >
-                Learn how to harness the power of Generative AI to accelerate product discovery, improve user
-                experience, and optimize your product workflows. This hands-on workshop will teach you how to integrate
-                Gen AI tools into your product development lifecycle for real-world impact.
+                Learn GenAI and automate 70% of your daily tasks in a 2-hour, hands-on workshop for only ₹199. Boost
+                efficiency, accelerate product discovery, and enhance user experience with essential AI implementation
+                skills.
               </motion.p>
 
               {/* Price Tag - Enhanced */}
               <motion.div
-                className="flex flex-col items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border border-blue-500/20"
+                className="flex flex-col items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border w-full border-blue-500/20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="flex items-center gap-3">
-                  <motion.div
-                    animate={{ opacity: [1, 0.7, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-yellow-500 text-sm font-medium"
-                  >
-                    2 Day Workshop
-                  </motion.div>
+                <div className="flex justify-between  items-center w-full  ">
+                  <div>
+                    <motion.h3
+                      className="text-xl font-bold text-white mb-1"
+                      animate={{ opacity: [0.8, 1, 0.8] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      Price
+                    </motion.h3>
+                    <p className="text-sm text-gray-400">Avail now to get the offer</p>
+                  </div>
+                  <div className="text-right">
+                    <motion.p
+                      className="text-3xl font-bold text-white"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <span className=" text-gray-400 font-light line-through mx-4">₹299</span>
+                      ₹199
+                    </motion.p>
+                  </div>
                 </div>
               </motion.div>
 
               {/* Primary CTA Button */}
+            </div>
+            <div className="flex items-center gap-3">
+              <motion.div
+                animate={{ opacity: [1, 0.7, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-yellow-500 text-sm font-medium"
+              >
+                * The first 50 people pay ₹199, and then it becomes ₹299!
+              </motion.div>
             </div>
 
             {/* Key Info */}
@@ -381,12 +403,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "09 Jun",
+                  value: "15 Jun",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "time",
-                  value: "07:30 pm",
+                  value: "11:30 am",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

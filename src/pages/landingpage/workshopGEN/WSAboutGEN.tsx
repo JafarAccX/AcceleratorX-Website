@@ -1,21 +1,8 @@
 import React, { useRef } from "react";
-import { FaCertificate } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { Brain, Target } from "lucide-react";
 
 const WSAboutGEN = () => {
-  const scrollToForm = () => {
-    const form = document.getElementById("workshop-registration-form");
-    if (form) {
-      form.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
-    }
-  };
   const toolsRef = useRef(null);
   const isInView = useInView(toolsRef, { once: false, margin: "-100px" });
 
@@ -55,44 +42,6 @@ const WSAboutGEN = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <img src="/ai.jpg" alt="AI Workshop" className="  rounded-2xl shadow-2xl" />
-
-            {/* Price Card */}
-            <motion.div
-              className="-my-20 z-50 absolute left-0 right-0 bg-[#111111]/70  p-2 rounded-xl  "
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="flex justify-between  items-center  ">
-                <div>
-                  <motion.h3
-                    className="text-xl font-bold text-white mb-1"
-                    animate={{ opacity: [0.8, 1, 0.8] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    Price
-                  </motion.h3>
-                  <p className="text-sm text-gray-400">Avail now to get the offer</p>
-                </div>
-                <div className="text-right">
-                  <motion.p
-                    className="text-3xl font-bold text-white"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    ₹199
-                  </motion.p>
-                  <p className="text-sm text-gray-400 line-through">Regular Price ₹499</p>
-                </div>
-              </div>
-              <motion.button
-                onClick={scrollToForm}
-                className="w-full py-3 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Register Now
-              </motion.button>
-            </motion.div>
           </motion.div>
 
           {/* Right Content Section */}
@@ -146,11 +95,11 @@ const WSAboutGEN = () => {
                     <p className="text-gray-300 leading-relaxed">
                       Join our hands-on workshop on{" "}
                       <motion.span className="font-semibold text-blue-400" whileHover={{ scale: 1.05 }}>
-                        February 23, 2025
+                        June 15, 2025
                       </motion.span>{" "}
                       at{" "}
                       <motion.span className="text-blue-400" whileHover={{ scale: 1.05 }}>
-                        10:30 AM
+                        11:30 AM
                       </motion.span>
                       . Learn How to Automate Your Daily Workflow Using AI in Minutes!
                     </p>
