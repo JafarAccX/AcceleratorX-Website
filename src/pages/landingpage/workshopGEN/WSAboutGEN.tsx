@@ -27,16 +27,20 @@ const WSAboutGEN = () => {
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
+      <div className=" p-4 flex items-center justify-center mb-20 bg-gradient-to-r from-blue-500/20 to-green-500/20">
+        <div className="font-semibold tracking-wider text-xl md:text-3xl text-yellow-500  ">
+          Learn to Build Advance Flows
+        </div>
+      </div>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full mix-blend-overlay blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-900/20 rounded-full mix-blend-overlay blur-3xl"></div>
       </div>
-
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Image Section */}
           <motion.div
-            className="w-full flex-col gap-4 lg:w-2/5 sticky top-8 h-fit relative"
+            className="w-full flex-col gap-4 lg:w-2/5  top-8 h-fit relative"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}

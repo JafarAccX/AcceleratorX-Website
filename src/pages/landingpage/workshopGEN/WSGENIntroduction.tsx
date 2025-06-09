@@ -80,7 +80,7 @@ const WSGENIntroductionC = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            n8n for <span className="text-blue-500">Workflow Automation</span>— No Coding Needed
+            Live <span className="text-blue-500">Workflow Creationg & Walk through</span>— No theory
           </h1>
 
           {/* Subtitle */}

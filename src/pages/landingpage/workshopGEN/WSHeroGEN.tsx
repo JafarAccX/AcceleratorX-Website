@@ -91,7 +91,7 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline ml-4">Automate Workflows Using n8n </span> <br />–
-                    Practical Implementation
+                    Practical Implementation (Part II)
                   </span>
 
                   <motion.div
@@ -104,17 +104,55 @@ const WSHeroGENC = () => {
                 </div>
               </motion.h1>
 
-              {/* Subtitle */}
-              <motion.p
+              {/* Funky "Missed Part One" Message */}
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="text-xl text-gray-400 max-w-xl"
+                className="flex items-center gap-3 text-xl max-w-xl"
               >
-                Learn GenAI and automate 70% of your daily tasks in a 2-hour, hands-on workshop for only ₹199. Boost
-                efficiency, accelerate product discovery, and enhance user experience with essential AI implementation
-                skills.
-              </motion.p>
+                <motion.span
+                  className="  font-bold"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  Missed Part One?
+                </motion.span>
+
+                <motion.div
+                  animate={{ x: [0, 10, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="flex items-center gap-2"
+                >
+                  <span className="text-2xl">→</span>
+                  <span className="text-2xl">→</span>
+                </motion.div>
+
+                <motion.div className="relative" whileHover={{ scale: 1.05 }}>
+                  <motion.span
+                    className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-900 font-extrabold text-xl"
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  >
+                    Reserve Your Slot!
+                  </motion.span>
+
+                  {/* Glowing underline effect */}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-yellow-400 to-red-500"
+                    animate={{
+                      width: ["0%", "100%", "0%"],
+                      opacity: [0, 1, 0],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                  />
+                </motion.div>
+              </motion.div>
 
               {/* Price Tag - Enhanced */}
               <motion.div

@@ -29,6 +29,12 @@ const WSGENWhoShouldEnrollC = () => {
 
   return (
     <section className="relative py-12 bg-black px-4">
+      <div className=" p-4 flex items-center justify-center mb-20 bg-gradient-to-r from-blue-500/20 to-green-500/20">
+        <div className="font-semibold tracking-wider text-xl md:text-3xl text-yellow-500  ">
+          One Free Slot & n8n starter kit give away in the webinar*
+        </div>
+      </div>
+
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 -top-48 -left-48 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>

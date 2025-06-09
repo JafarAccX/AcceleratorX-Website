@@ -13,11 +13,11 @@ const WSGENMentor = () => {
     //   experience: "5+ Years",
     // },
     {
-      name: "Nitish M L Setty",
-      designation: "Software Developer, MD at GrowSharp Technologies",
+      name: "Sagar Rajput",
+      designation: "Generative AI Engineer Flooid.in ",
       description: "Expert in AI implementation and automation",
-      linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192/",
-      image: "/assets/mentor/nitish.jpg",
+      linkedin: "https://www.linkedin.com/in/sagrrajput/",
+      image: "/assets/mentor/sagar.png",
       experience: "5+ Years",
     },
   ];
