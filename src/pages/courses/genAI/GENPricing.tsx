@@ -257,7 +257,7 @@ const GENPricing = () => {
 
             <p className="text-white text-center mb-4">
               <span className="font-semibold">₹34,999</span> →{" "}
-              <span className="font-semibold text-blue-400">₹37,499</span>
+              <span className="font-semibold text-blue-400">₹38,499</span>
             </p>
 
             <div className="flex items-center justify-center gap-2 mb-4">
