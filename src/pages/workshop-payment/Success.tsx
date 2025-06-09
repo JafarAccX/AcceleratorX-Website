@@ -173,9 +173,9 @@ const Success = () => {
       time: "Feb 19, 2025 07:30 PM India",
     },
     GENAIWorkshop: {
-      link: "https://zoom.us/meeting/register/X1TlVVNhTdKlqwNN4FXtfg",
-      meetingId: "X1TlVVNhTdKlqwNN4FXtfg",
-      time: "Feb 23, 2025 10:30 AM India",
+      link: "https://zoom.us/meeting/register/GCqkzZCARP-ZKToBbMMQcQ",
+      meetingId: "GCqkzZCARP-ZKToBbMMQcQ",
+      time: "15 Jun, 2025 11:30 AM India",
     },
     DMWorkshop: {
       link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
@@ -231,7 +231,7 @@ const Success = () => {
                   <p className="text-gray-600">{currentZoomDetails.time}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <Video className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h3 className="font-medium text-gray-900">Zoom Meeting</h3>
@@ -246,7 +246,7 @@ const Success = () => {
                     <Video className="w-4 h-4" />
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
