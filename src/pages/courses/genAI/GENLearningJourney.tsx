@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Calendar, BookOpen, Cloud, Rocket, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Calendar, BookOpen, Cloud, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface MonthData {
   title: string;
@@ -24,7 +24,7 @@ const GENLearningJourney = () => {
           content: [
             "Understanding AI, ML, and Generative AI fundamentals",
             "Hands-on with ChatGPT, DeepSeek, Midjourney, DALL·E",
-            "Setting up development environment and tools"
+            "Setting up development environment and tools",
           ],
         },
         {
@@ -32,7 +32,7 @@ const GENLearningJourney = () => {
           content: [
             "Working with GPT-4, DeepSeek, Claude, Gemini",
             "Mastering prompt engineering techniques",
-            "API integration and fine-tuning"
+            "API integration and fine-tuning",
           ],
         },
         {
@@ -40,7 +40,7 @@ const GENLearningJourney = () => {
           content: [
             "Understanding GANs and Diffusion Models",
             "Creating with Midjourney, DALL·E, Stable Diffusion",
-            "Video generation with Runway ML"
+            "Video generation with Runway ML",
           ],
         },
         {
@@ -48,10 +48,10 @@ const GENLearningJourney = () => {
           content: [
             "Text-to-speech and voice cloning",
             "AI music generation and audio synthesis",
-            "Building audio applications"
+            "Building audio applications",
           ],
-        }
-      ]
+        },
+      ],
     },
     {
       title: "Month 2: AI Deployment & AI Agent Building",
@@ -62,15 +62,15 @@ const GENLearningJourney = () => {
           content: [
             "Understanding AI ethics and bias",
             "Regulatory compliance and safety",
-            "Best practices in AI deployment"
-          ]
+            "Best practices in AI deployment",
+          ],
         },
         {
           title: "Week 6: Deploying & Scaling AI Models",
           content: [
             "Cloud deployment on AWS, GCP, Azure",
             "Model optimization and monitoring",
-            "Building scalable AI solutions"
+            "Building scalable AI solutions",
           ],
         },
         {
@@ -78,7 +78,7 @@ const GENLearningJourney = () => {
           content: [
             "Understanding AI agents and architectures",
             "LangChain, AutoGen, and CrewAI development",
-            "Building autonomous AI systems"
+            "Building autonomous AI systems",
           ],
         },
         {
@@ -86,10 +86,10 @@ const GENLearningJourney = () => {
           content: [
             "Multi-agent system development",
             "Real-world AI agent applications",
-            "Integration with external systems"
+            "Integration with external systems",
           ],
         },
-      ]
+      ],
     },
     {
       title: "Month 3: Building AI-Powered Applications & Capstone Project",
@@ -97,28 +97,24 @@ const GENLearningJourney = () => {
       weeks: [
         {
           title: "Weeks 9-10: Capstone Project Development",
-          content: [
-            "Project planning and architecture",
-            "Development and testing",
-            "Performance optimization"
-          ]
+          content: ["Project planning and architecture", "Development and testing", "Performance optimization"],
         },
         {
           title: "Weeks 11-12: Final Presentation & Career Guidance",
           content: [
             "Project showcase and presentation",
             "Career path planning",
-            "Freelancing and business opportunities"
-          ]
-        }
-      ]
-    }
+            "Freelancing and business opportunities",
+          ],
+        },
+      ],
+    },
   ];
 
   const icons = {
     month1: BookOpen,
     month2: Cloud,
-    month3: Rocket
+    month3: Rocket,
   };
 
   const nextMonth = () => {
@@ -139,16 +135,14 @@ const GENLearningJourney = () => {
       </div>
 
       <div className="container mx-auto px-3 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className=" mx-auto flex flex-col gap-4">
           {/* Section Header */}
           <div className="mb-8">
             <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-3 transform hover:scale-105 transition-all">
               <Calendar className="w-4 h-4 text-blue-600" />
               <span className="text-blue-600 text-sm font-medium">Learning Journey</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Your Path to AI Mastery
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Your Path to AI Mastery</h2>
             <p className="text-gray-300 text-lg max-w-2xl">
               A comprehensive 3-month journey to master Generative AI and build real-world applications
             </p>
@@ -169,7 +163,7 @@ const GENLearningJourney = () => {
                   key={index}
                   onClick={() => setActiveMonth(index)}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    activeMonth === index ? 'bg-blue-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'
+                    activeMonth === index ? "bg-blue-500 scale-125" : "bg-gray-600 hover:bg-gray-500"
                   }`}
                   aria-label={`Go to month ${index + 1}`}
                 />
@@ -185,9 +179,9 @@ const GENLearningJourney = () => {
           </div>
 
           {/* Current Month Content */}
-          <div className="bg-[#111827] rounded-xl p-6 border border-gray-800">
+          <div className=" ">
             <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 p-2.5 rounded-lg bg-blue-500/10">
+              <div className="flex-shrink-0 p-2.5 rounded-lg bg-st-500/10">
                 <MonthIcon className="w-6 h-6 text-blue-400" />
               </div>
               <div>
@@ -198,7 +192,7 @@ const GENLearningJourney = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               {months[activeMonth].weeks.map((week, weekIndex) => (
-                <div key={weekIndex} className="bg-[#1F2937] rounded-lg p-4 border border-gray-700">
+                <div key={weekIndex} className="bg-[#1F2937]/70 rounded-lg p-4 border border-gray-700">
                   <h4 className="text-lg font-semibold text-white mb-3">{week.title}</h4>
                   <ul className="space-y-2">
                     {week.content.map((point, pointIndex) => (

@@ -50,8 +50,7 @@ const GENWhoShouldEnroll = () => {
                   <span className="text-white">?</span>
                 </h2>
                 <p className="text-lg text-blue-100">
-                  Designed for professionals and beginners looking to master AI
-                  without coding
+                  Designed for professionals and beginners looking to master AI without coding
                 </p>
               </div>
 
@@ -60,19 +59,15 @@ const GENWhoShouldEnroll = () => {
                 {targetAudience.map((audience, index) => (
                   <div
                     key={index}
-                    className="group p-5 rounded-xl bg-white backdrop-blur-sm border border-white/20 hover:border-blue-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-white/10"
+                    className="group p-5 rounded-xl relative py-8 bg-black  backdrop-blur-sm border border-white/20 hover:border-blue-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-white/10"
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 p-2.5 rounded-lg bg-blue-50 group-hover:bg-blue-100 transform group-hover:rotate-6 transition-all duration-300">
+                    <div className="flex  flex-col items-start gap-3">
+                      <div className="flex-shrink-0 p-2.5 rounded-lg bg-blue-50/20 group-hover:bg-blue-100 transform group-hover:rotate-6 transition-all duration-300">
                         <audience.icon className="w-5 h-5 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-blue-900 group-hover:text-blue-700 transition-colors">
-                          {audience.title}
-                        </h3>
-                        <p className="text-sm text-blue-700 mb-2">
-                          {audience.description}
-                        </p>
+                        <h3 className="text-lg font-semibold   transition-colors">{audience.title}</h3>
+                        <p className="text-sm text-gray-400 mb-2">{audience.description}</p>
                       </div>
                     </div>
                   </div>
@@ -84,7 +79,7 @@ const GENWhoShouldEnroll = () => {
             <div className="flex-1 relative">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
                 <img
-                  src="/bggpt.webp"
+                  src="/bggpt.jpg"
                   alt="Students learning together"
                   className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />
