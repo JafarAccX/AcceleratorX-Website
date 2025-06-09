@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Check, Star, Crown } from "lucide-react";
+import { Check, Clock, TrendingUp } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 const eiePricingData = {
   title: "EIE European Business School Program",
   mrp: "39,999",
-  // price: "34999",
-  // discount: "12",
   features: [
     {
       name: "EIE European Business School Malta University Certificate",
@@ -36,13 +34,11 @@ const eiePricingData = {
 
 const dataAnalyticsPricingData = {
   title: "AcceleratorX Program",
-  mrp: "29,999",
-  // price: "14999",
-  // discount: "6",
+  currentPrice: "29,999",
+  newPrice: "32,999",
   features: [
     { name: "AI Automation techniques for Data analytics", included: true },
     { name: "Data Engineering Basics", included: true },
-    // { name: "Product analytics ", included: true },
     { name: "Full Data Analytics Curriculum", included: true },
     { name: "Personalized CAPE Project", included: true },
     {
@@ -64,40 +60,138 @@ export default function DataPricingEIE() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
   const [isEIE, setIsEIE] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   const pricingData = isEIE ? eiePricingData : dataAnalyticsPricingData;
 
+  // Calculate time until 11:59 PM today
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const today = new Date();
+      today.setHours(23, 59, 0, 0); // Set to 11:59 PM today
+
+      // If it's already past 11:59 PM today, set to 11:59 PM tomorrow
+      if (now > today) {
+        today.setDate(today.getDate() + 1);
+      }
+
+      const difference = today - now;
+
+      if (difference > 0) {
+        return {
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        };
+      }
+
+      return { hours: 0, minutes: 0, seconds: 0 };
+    };
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    // Initial calculation
+    setTimeLeft(calculateTimeLeft());
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const CountdownBox = ({ value, label }) => (
+    <div className="bg-[#1a365d]   rounded-lg p-3 min-w-[70px]">
+      <motion.div
+        key={value}
+        initial={{ scale: 1.2, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="text-2xl font-bold text-white text-center"
+      >
+        {value.toString().padStart(2, "0")}
+      </motion.div>
+      <div className="text-xs text-gray-300 text-center uppercase tracking-wide">{label}</div>
+    </div>
+  );
+
   return (
     <section id="pricing" className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Learning Path</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Select the plan that best fits your learning goals and career aspirations
-          </p>
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Learning Path</h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          Select the plan that best fits your learning goals and career aspirations
+        </p>
+      </div>
+      <div className="max-w-7xl grid grid-cols-1 md:grid-cols-2 mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Price Hike Alert - Only show for AcceleratorX */}
+        {!isEIE && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-md mx-auto mb-6 "
+          >
+            <div className="  rounded-xl p-4 bg-[#1a365d]/50 w-full">
+              <div className="flex items-center justify-center gap-2 mb-3 ">
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 1 }}
+                >
+                  <TrendingUp className="w-5 h-5 text-[#1a365d]" />
+                </motion.div>
+                <h3 className="text-[#1a365d] font-bold text-lg">Price Increase Alert!</h3>
+                <motion.div
+                  animate={{ rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 1 }}
+                >
+                  <TrendingUp className="w-5 h-5 text-[#1a365d]" />
+                </motion.div>
+              </div>
 
-          {/* Tab Switch */}
-          {/* <div className="flex justify-center mt-8 p-1 space-x-1 bg-gray-800/50 rounded-xl max-w-xs mx-auto">
-            <button
-              onClick={() => setIsEIE(false)}
-              className={`${
-                !isEIE ? "bg-blue-600 text-white" : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
-            >
-              AcceleratorX
-            </button> */}
-          {/* <button
-              onClick={() => setIsEIE(true)}
-              className={`${
-                isEIE
-                  ? "bg-green-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
-            >
-              EIE European Business School
-            </button> */}
-          {/* </div> */}
-        </div>
+              <p className="text-white text-xl text-center mb-4">
+                <span className="font-semibold">₹29,999</span> → <span className="font-semibold ">₹32,999</span>
+              </p>
+
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 1, repeat: Infinity }}>
+                  <Clock className="w-5 h-5 text-orange-400" />
+                </motion.div>
+                <span className="text-orange-400 font-medium">Price increases in:</span>
+              </div>
+
+              <div className="flex justify-center gap-3">
+                <CountdownBox value={timeLeft.hours} label="Hours" />
+                <div className="flex flex-col justify-center">
+                  <motion.div
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                    className="text-white text-2xl font-bold"
+                  >
+                    :
+                  </motion.div>
+                </div>
+                <CountdownBox value={timeLeft.minutes} label="Mins" />
+                <div className="flex flex-col justify-center">
+                  <motion.div
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                    className="text-white text-2xl font-bold"
+                  >
+                    :
+                  </motion.div>
+                </div>
+                <CountdownBox value={timeLeft.seconds} label="Secs" />
+              </div>
+
+              <p className="text-xs text-gray-300 text-center mt-3">
+                Secure your spot at the current price before it increases!
+              </p>
+            </div>
+          </motion.div>
+        )}
 
         {/* Pricing Card */}
         <div className="max-w-md mx-auto">
@@ -125,31 +219,44 @@ export default function DataPricingEIE() {
               </div>
 
               <div className="flex flex-col items-center gap-2 mb-2">
-                {/* <span className="text-4xl font-bold text-white">
-                  ₹{pricingData.price} text-gray-400 text-sm line-through 
-                </span> */}
                 <div className="text-center">
-                  <span className="text-4xl font-bold text-white">₹{pricingData.mrp}</span>
-                  {/* <span
-                    className={`ml-2 text-sm ${isEIE ? "text-[#5CB338]" : "text-blue-500"
-                      }`}
-                  >
-                    {pricingData.discount}% off
-                  </span> */}
+                  <span className="text-4xl font-bold text-white">
+                    ₹{isEIE ? pricingData.mrp : pricingData.currentPrice}
+                  </span>
+                  {!isEIE && (
+                    <div className="mt-2">
+                      <span className="text-sm text-gray-400 line-through">
+                        ₹{pricingData.newPrice} (after price hike)
+                      </span>
+                      <motion.div
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="inline-block ml-2 bg-green-600 text-white text-xs px-2 py-1 rounded-full"
+                      >
+                        Save ₹3,000
+                      </motion.div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
 
             {/* Enroll Button */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => {
                 setIsModalOpen(true);
                 setSelectedPlan(pricingData.title);
               }}
-              className="w-full py-3 px-6 rounded-xl bg-white text-black font-semibold mb-2 hover:bg-gray-100 transition-colors"
+              className={`w-full py-3 px-6 rounded-xl font-semibold mb-2 transition-all duration-300 ${
+                !isEIE
+                  ? "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/25"
+                  : "bg-white text-black hover:bg-gray-100"
+              }`}
             >
-              Enroll Now
-            </button>
+              {!isEIE ? "🔥 Secure Current Price" : "Enroll Now"}
+            </motion.button>
 
             {/* Money Back Guarantee */}
             {isEIE && (
