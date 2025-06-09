@@ -49,11 +49,11 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  title: "",
-  link: "https://zoom.us/meeting/register/zVnro80ySDm_Qll-H-XvCQ",
-  meetingId: "zVnro80ySDm_Qll-H-XvCQ",
-  time: "12th March, 2025 07:30 AM India",
-  meetingCode: "",
+  title: "testing paid webinar",
+  link: "https://zoom.us/meeting/register/A4GSQocITmyJn-gBZzORcA",
+  meetingId: "A4GSQocITmyJn-gBZzORcA",
+  time: "09 Jun, 2025 07:30 PM India",
+  meetingCode: "92394151440",
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {

@@ -1,26 +1,21 @@
 //Working Form File
 
 import React, { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate } from "react-router-dom";
 import { WORKSHOP_PRICE } from "../../../utils/constants_price";
+import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
+import { registerForZoomMeeting } from "../../../routes/utils/registration";
+
+const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
 
 declare global {
   interface Window {
     Razorpay: any;
   }
 }
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey, {
-  auth: {
-    persistSession: false,
-  },
-});
-
 
 interface FormData {
   name: string;
@@ -29,10 +24,13 @@ interface FormData {
   education: string;
   designation: string;
   yearsOfExperience: string;
+  yearsOfPassing: string;
 }
 
 const WSForm = () => {
   const { workshopType, zoomMeetingDetails } = useWorkshop();
+
+  console.log("workshopType, zoomMeetingDetails --- ", workshopType, zoomMeetingDetails);
   const navigate = useNavigate();
   // console.log('WSForm - Current workshop type:', workshopType);
   const [formData, setFormData] = useState<FormData>({
@@ -42,10 +40,11 @@ const WSForm = () => {
     education: "",
     designation: "",
     yearsOfExperience: "",
+    yearsOfPassing: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [registrationId, setRegistrationId] = useState<string | null>(null);
+  // const [registrationId, setRegistrationId] = useState<string | null>(null);
   const [paymentVerified, setPaymentVerified] = useState(false);
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [showCancellationModal, setShowCancellationModal] = useState(false);
@@ -54,9 +53,7 @@ const WSForm = () => {
 
   // console.log("API URL:", apiUrl);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -90,159 +87,19 @@ const WSForm = () => {
     });
   };
 
-  const handlePayment = async (registrationId: string) => {
-    console.log("Initiating payment for registration:", registrationId);
-    const res = await initializeRazorpay();
-    if (!res) {
-      console.error("Razorpay SDK failed to load");
-      toast.error("Razorpay SDK failed to load");
-      return false;
-    }
-
+  const handlePaymentCancellation = async (tempId: string) => {
     try {
-      // console.log("Creating order with backend...");
-      const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
-      const response = await fetch(`${baseUrl}/workshop/create-workshop-order`, {
+      // Extract base URL without '/api' suffix if it exists
+      const baseUrl = apiUrl.endsWith("/api") ? apiUrl.slice(0, -4) : apiUrl;
+      const response = await fetch(`${baseUrl}/workshop/cancel-workshop-payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          amount: WORKSHOP_PRICE.amount,
-          registrationId,
+          tempId,
         }),
       });
-
-      const responseData = await response.json();
-      // console.log("Backend response:", responseData);
-
-      if (!response.ok) {
-        throw new Error(responseData.error || "Failed to create order");
-      }
-
-      if (!responseData.success) {
-        throw new Error(responseData.error || "Failed to create order");
-      }
-
-      // console.log("Order created successfully:", responseData.data);
-
-      return new Promise((resolve, reject) => {
-        const options = {
-          key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-          amount: WORKSHOP_PRICE.amountInPaise, // amount in paise
-          currency: "INR",
-          name: "AcceleratorX",
-          description: `${workshopType} Registration`,
-          order_id: responseData.data.orderId,
-          notes: {
-            workshop_type: workshopType,
-            tempId: responseData.data.tempId
-          },
-          handler: async function (response: any) {
-            // console.log("Payment successful, verifying...", response);
-            try {
-              const verificationResponse = await fetch(
-                `${baseUrl}/workshop/verify-workshop-payment`,
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    razorpay_payment_id: response.razorpay_payment_id,
-                    razorpay_order_id: response.razorpay_order_id,
-                    razorpay_signature: response.razorpay_signature,
-                    registrationId,
-                  }),
-                }
-              );
-
-              const verificationData = await verificationResponse.json();
-              // console.log("Payment verification response:", verificationData);
-
-              if (!verificationResponse.ok) {
-                throw new Error(
-                  verificationData.error || "Payment verification failed"
-                );
-              }
-
-              if (verificationData.success) {
-                // console.log("Payment verified successfully");
-                setPaymentVerified(true);
-                // Redirect to success page
-                navigate(
-                  `/workshop-payment/success/${response.razorpay_order_id}`
-                );
-                resolve(true);
-              } else {
-                throw new Error("Payment verification failed");
-              }
-            } catch (error: any) {
-              console.error("Payment verification error:", error);
-              toast.error(error.message || "Payment verification failed");
-              reject(error);
-            }
-          },
-          modal: {
-            ondismiss: function () {
-              // console.log("Payment modal dismissed");
-              handlePaymentCancellation(responseData.data.tempId);
-              reject(new Error("Payment cancelled"));
-            },
-          },
-          prefill: {
-            name: formData.name,
-            email: formData.email,
-            contact: formData.phone,
-          },
-          theme: {
-            color: "#4F46E5",
-          },
-        };
-
-        // console.log("Opening Razorpay modal with options:", options);
-        try {
-          if (!window.Razorpay) {
-            console.error("Razorpay SDK not loaded");
-            throw new Error("Razorpay SDK not loaded");
-          }
-          const paymentObject = new window.Razorpay(options);
-          // console.log("Razorpay instance created successfully");
-          paymentObject.on('payment.failed', function (response: any){
-            console.error('Payment failed:', response.error);
-            toast.error(`Payment failed: ${response.error.description}`);
-            reject(new Error(response.error.description));
-          });
-          paymentObject.open();
-        } catch (error) {
-          console.error("Error creating Razorpay instance:", error);
-          toast.error("Failed to initialize payment. Please try again.");
-          reject(error);
-        }
-      });
-    } catch (error: any) {
-      console.error("Payment error:", error);
-      toast.error(error.message || "Failed to initiate payment");
-      return false;
-    }
-  };
-
-  const handlePaymentCancellation = async (tempId: string) => {
-    try {
-      // Extract base URL without '/api' suffix if it exists
-      const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
-      const response = await fetch(
-        `${baseUrl}/workshop/cancel-workshop-payment`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            tempId,
-          }),
-        }
-      );
 
       if (!response.ok) {
         console.error("Failed to notify backend about payment cancellation");
@@ -255,6 +112,63 @@ const WSForm = () => {
       setShowCancellationModal(true);
     }
   };
+
+  async function sendWhatsAppMessage({
+    apiKey,
+    campaignName,
+    phone,
+    name,
+    masterclass,
+    sessionDate,
+    link,
+  }: {
+    apiKey: string;
+    campaignName: string;
+    phone: string;
+    name: string;
+    masterclass: string;
+    sessionDate: string;
+    link: string;
+  }) {
+    try {
+      const cleaned = sessionDate.replace("India", "").trim();
+      const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/);
+      const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
+
+      console.log("masterclass", masterclass);
+      const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          apiKey: apiKey,
+          campaignName: campaignName,
+          destination: phone,
+          userName: name,
+          templateParams: ["$FirstName", masterclass, newdate, time, link],
+          source: "registration form",
+          paramsFallbackValue: {
+            FirstName: "user",
+            value: "fallback value",
+          },
+          media: {},
+          buttons: [],
+          carouselCards: [],
+          location: {},
+          attributes: {},
+        }),
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        console.error("WhatsApp API error:", err);
+        throw new Error("WhatsApp message sending failed");
+      }
+    } catch (error) {
+      console.error("Error sending WhatsApp message:", error);
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -274,6 +188,8 @@ const WSForm = () => {
     setIsSubmitting(true);
 
     try {
+      const utmData = getUTMDataForDB();
+
       // Initialize Razorpay first
       // console.log("Initializing Razorpay...");
       const razorpayLoaded = await initializeRazorpay();
@@ -289,12 +205,25 @@ const WSForm = () => {
         education: formData.education,
         designation: formData.designation,
         years_of_experience: formData.yearsOfExperience,
+        years_of_passing: formData.yearsOfPassing,
         workshop_type: workshopType,
+        // Add UTM data
+        utm_source: utmData.utm_source,
+        utm_medium: utmData.utm_medium,
+        utm_campaign: utmData.utm_campaign,
+        utm_term: utmData.utm_term,
+        utm_content: utmData.utm_content,
+        referrer: utmData.referrer,
+        landing_page_url: utmData.landing_page_url,
+        fbclid: utmData.fbclid,
+        gclid: utmData.gclid,
+        ttclid: utmData.ttclid,
+        msclkid: utmData.msclkid,
       };
 
       // console.log("Registration data:", registrationData);
       // Extract base URL without '/api' suffix if it exists
-      const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+      const baseUrl = apiUrl.endsWith("/api") ? apiUrl.slice(0, -4) : apiUrl;
       const response = await fetch(`${baseUrl}/workshop/create-workshop-order`, {
         method: "POST",
         headers: {
@@ -335,44 +264,72 @@ const WSForm = () => {
           order_id: responseData.data.orderId,
           notes: {
             workshop_type: workshopType,
-            tempId: tempId
+            tempId: tempId,
           },
           handler: async function (response: any) {
             // console.log("Payment successful, verifying...", response);
             try {
-              const verificationResponse = await fetch(
-                `${baseUrl}/workshop/verify-workshop-payment`,
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    razorpay_payment_id: response.razorpay_payment_id,
-                    razorpay_order_id: response.razorpay_order_id,
-                    razorpay_signature: response.razorpay_signature,
-                    tempId,
-                    registrationData,
-                  }),
-                }
-              );
+              const verificationResponse = await fetch(`${baseUrl}/workshop/verify-workshop-payment`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_signature: response.razorpay_signature,
+                  tempId,
+                  registrationData,
+                }),
+              });
 
               const verificationData = await verificationResponse.json();
               // console.log("Payment verification response:", verificationData);
 
               if (!verificationResponse.ok) {
-                throw new Error(
-                  verificationData.error || "Payment verification failed"
-                );
+                throw new Error(verificationData.error || "Payment verification failed");
               }
 
               if (verificationData.success) {
                 // console.log("Payment verified successfully");
                 setPaymentVerified(true);
                 // Redirect to success page
-                navigate(
-                  `/workshop-payment/success/${response.razorpay_order_id}`
-                );
+                await trackFormSubmission({
+                  name: formData.name,
+                  email: formData.email,
+                  phone: formData.phone,
+                  education: formData.education,
+                  designation: formData.designation,
+                  course: workshopType,
+                  workExperience: formData.yearsOfExperience,
+                  yearsOfPassing: formData.yearsOfPassing,
+                } as any);
+
+                await registerForZoomMeeting(
+                  formData.name,
+                  formData.email,
+                  formData.phone,
+                  zoomMeetingDetails.meetingCode,
+                )
+                  .then(async (data) => {
+                    const zoomJoinLink = data.join_url;
+                    await sendWhatsAppMessage({
+                      apiKey: whatsappSerriApi,
+                      campaignName: "registration_confirmation",
+                      phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                      name: formData.name,
+                      masterclass: zoomMeetingDetails.title,
+                      sessionDate: zoomMeetingDetails.time,
+                      link: zoomJoinLink,
+                    });
+                  })
+                  .catch((error) => {
+                    console.error("Error registering for Zoom meeting:", error);
+                    toast.error(error.message || "Zoom registration failed. Please try again.");
+                  });
+
+                toast.success("Registration successful!");
+                navigate(`/workshop-payment/success/${response.razorpay_order_id}`);
                 resolve(true);
               } else {
                 throw new Error("Payment verification failed");
@@ -408,8 +365,8 @@ const WSForm = () => {
           }
           const paymentObject = new window.Razorpay(options);
           // console.log("Razorpay instance created successfully");
-          paymentObject.on('payment.failed', function (response: any){
-            console.error('Payment failed:', response.error);
+          paymentObject.on("payment.failed", function (response: any) {
+            console.error("Payment failed:", response.error);
             toast.error(`Payment failed: ${response.error.description}`);
             reject(new Error(response.error.description));
           });
@@ -429,10 +386,7 @@ const WSForm = () => {
   };
 
   return (
-    <div
-      className="bg-[#111] rounded-2xl shadow-2xl p-6 w-full border border-gray-800/30 "
-      id="workshop-form"
-    >
+    <div className="  w-full border border-gray-800/30 " id="workshop-form">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-4">
           <div className="relative">
@@ -513,28 +467,61 @@ const WSForm = () => {
               <option value="10+">10+ years</option>
             </select>
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-              <svg
-                className="w-4 h-4 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
+              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </div>
           </div>
         </div>
 
+        <div className="relative">
+          <select
+            name="yearsOfPassing"
+            value={formData.yearsOfPassing}
+            onChange={handleChange}
+            required
+            className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm appearance-none"
+          >
+            <option value="">Year of Passing</option>
+            <option value="<2000">Before 2000</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+          </select>
+        </div>
+
         {paymentCancelled && (
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
             <p className="text-yellow-800 text-sm">
-              Your previous payment attempt was cancelled. You can try again by
-              clicking the register button below.
+              Your previous payment attempt was cancelled. You can try again by clicking the register button below.
             </p>
           </div>
         )}
@@ -573,12 +560,7 @@ const WSForm = () => {
             </button>
             <div className="text-center">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-yellow-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -587,12 +569,8 @@ const WSForm = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Payment Cancelled
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Your payment was cancelled. Would you like to try again?
-              </p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Payment Cancelled</h3>
+              <p className="text-gray-600 mb-6">Your payment was cancelled. Would you like to try again?</p>
               <div className="flex gap-4">
                 <button
                   onClick={() => {
@@ -631,37 +609,18 @@ const WSForm = () => {
             </button>
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-green-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  ></path>
+                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Thank You for Registering!
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank You for Registering!</h3>
               <p className="text-gray-600 mb-6">
-                We're excited to have you join us for the workshop on{" "}
-                {zoomMeetingDetails.time}
+                We're excited to have you join us for the workshop on {zoomMeetingDetails.time}
               </p>
               <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
-                <h4 className="font-semibold text-gray-800 mb-2">
-                  Zoom Meeting Details:
-                </h4>
-                <p className="text-sm text-gray-600 mb-2">
-                  Meeting ID: {zoomMeetingDetails.meetingId}
-                </p>
-                <p className="text-sm text-gray-600 mb-2">
-                  Time: {zoomMeetingDetails.time}
-                </p>
+                <h4 className="font-semibold text-gray-800 mb-2">Zoom Meeting Details:</h4>
+                <p className="text-sm text-gray-600 mb-2">Meeting ID: {zoomMeetingDetails.meetingId}</p>
+                <p className="text-sm text-gray-600 mb-2">Time: {zoomMeetingDetails.time}</p>
                 <a
                   href={zoomMeetingDetails.link}
                   target="_blank"

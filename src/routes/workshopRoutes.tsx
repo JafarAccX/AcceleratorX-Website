@@ -66,6 +66,7 @@ const WorkshopPageGEN = () => (
   <>
     <WSHeroGEN />
     <WSAboutGEN />
+    <WSGENIntroduction />
     <WSGENWhoShouldEnroll />
     <WSGENIntroduction />
     <WSGENMentor />
