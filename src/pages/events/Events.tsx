@@ -10,17 +10,10 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
-      name: "Gen Ai for PM's",
+      name: "Automate workflows using n8n - Practical Implementation (Part II)",
       mode: "Online (Zoom)",
-      time: "June 07, 2025 07:30 PM",
-      link: "/workshop/pm-masterclass",
-      completed: false,
-    },
-    {
-      name: "Automate workflows using n8n - Practical Implementation",
-      mode: "Online (Zoom)",
-      time: "June 09, 2025 07:30 PM",
-      link: "/workshop/gen-ai-masterclass-thidtx",
+      time: "June 15, 2025 11:30 PM",
+      link: "/workshop/gen-ai-masterclass",
       completed: false,
     },
     {
@@ -29,6 +22,20 @@ const Events = () => {
       time: "June 13, 2025 7:30 PM",
       link: "/workshop/da-masterclass-bxwxy",
       completed: false,
+    },
+    {
+      name: "Gen Ai for PM's",
+      mode: "Online (Zoom)",
+      time: "June 07, 2025 07:30 PM",
+      link: "/workshop/pm-masterclass",
+      completed: true,
+    },
+    {
+      name: "Automate workflows using n8n - Practical Implementation",
+      mode: "Online (Zoom)",
+      time: "June 09, 2025 07:30 PM",
+      link: "/workshop/gen-ai-masterclass-thidtx",
+      completed: true,
     },
     {
       name: "Tableau Zero to Master",
