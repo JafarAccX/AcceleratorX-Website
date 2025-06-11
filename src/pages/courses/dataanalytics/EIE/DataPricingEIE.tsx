@@ -3,35 +3,6 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 
-const eiePricingData = {
-  title: "EIE European Business School Program",
-  mrp: "39,999",
-  features: [
-    {
-      name: "EIE European Business School Malta University Certificate",
-      included: true,
-    },
-    { name: "Data Analytics Toolbox & Templates", included: true },
-    { name: "Assignment Feedback", included: true },
-    {
-      name: "Product Analytics Specialization ",
-      included: true,
-      highlight: true,
-    },
-    { name: "Mock Interviews", included: true, detail: "1:1 + Group" },
-    { name: "Personalized Skill Report", included: true },
-    { name: "AcceleratorX Job Priority Access", included: true },
-    { name: "Alumni Access & Exclusive Content", included: true },
-    { name: "Project-Based Mini Challenges", included: true },
-    { name: "Exclusive Data Analytics Workshops & Events", included: true },
-    { name: "Bi-Weekly Career Review Calls", included: true },
-    { name: "Chance to win Industry Internship", included: true },
-    { name: "Data Analytics Portfolio Workshop", included: true },
-    { name: "Project Showcase on Wall of Analytics", included: true },
-    { name: "Ask Doubt (1:1 with Mentor on demand)", included: true },
-  ],
-};
-
 const dataAnalyticsPricingData = {
   title: "AcceleratorX Program",
   currentPrice: "32,999",

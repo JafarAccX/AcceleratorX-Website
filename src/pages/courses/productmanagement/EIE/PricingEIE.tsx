@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Star, Crown } from "lucide-react";
+import { Check } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 const acceleratorPricingData = {
   title: "AcceleratorX Program",
-  mrp: "39,999",
+  mrp: "44,999",
   // price: "34999",
   discount: "12",
   features: [
@@ -31,77 +31,19 @@ const acceleratorPricingData = {
   ],
 };
 
-const eiePricingData = {
-  title: "EIE European Business School Program",
-  mrp: "69,999",
-  // price: "64999",
-  discount: "7",
-  features: [
-    { name: "BYDP", included: true },
-    {
-      name: "EIE European Business School Malta University Certificate",
-      included: true,
-    },
-    { name: "AI Product Management Specialization", included: true },
-    { name: "Growth Product Management Specialization", included: true },
-    { name: "PM Toolbox & Templates", included: true },
-    { name: "Assignment Feedback", included: true },
-    { name: "Mock Interviews", included: true, detail: "1:1 + Group" },
-    { name: "Personalized Skill Report", included: true },
-    { name: "AcceleratorX Job Priority Access", included: true },
-    { name: "Alumni Access & Exclusive Content", included: true },
-    { name: "Project-Based Mini Challenges", included: true },
-    { name: "Exclusive PM Workshops & Events", included: true },
-    { name: "Bi-Weekly Career Review Calls", included: true },
-    { name: "Chance to win Industry Internship", included: true },
-    { name: "Business Pitch & Investor Workshop", included: true },
-    { name: "Product Showcase on Wall of Product", included: true },
-    { name: "Ask Doubt (1:1 with Mentor on demand)", included: true },
-  ],
-};
-
 export default function PricingEIE() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState("");
-  const [isEIE, setIsEIE] = useState(true);
 
-  const pricingData = isEIE ? eiePricingData : acceleratorPricingData;
+  const pricingData = acceleratorPricingData;
 
   return (
     <section id="pricing" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Choose Your Learning Path
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Learning Path</h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Select the plan that best fits your learning goals and career
-            aspirations
+            Select the plan that best fits your learning goals and career aspirations
           </p>
-
-          {/* Tab Switch */}
-          <div className="flex justify-center mt-8 p-1 space-x-1 bg-gray-800/50 rounded-xl max-w-xs mx-auto">
-            <button
-              onClick={() => setIsEIE(false)}
-              className={`${
-                !isEIE
-                  ? "bg-blue-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
-            >
-              AcceleratorX
-            </button>
-            <button
-              onClick={() => setIsEIE(true)}
-              className={`${
-                isEIE
-                  ? "bg-green-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
-            >
-              EIE European Business School
-            </button>
-          </div>
         </div>
 
         {/* Pricing Card */}
@@ -110,25 +52,12 @@ export default function PricingEIE() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`relative rounded-3xl p-8 ${
-              isEIE ? "bg-[#0A2615]" : "bg-[#1a365d]"
-            }`}
+            className={`relative rounded-3xl p-8 ${"bg-[#1a365d]"}`}
           >
-            {/* Popular Badge */}
-            {isEIE && (
-              <div className="absolute top-4 right-4">
-                <div className="bg-[#5CB338] text-white text-xs font-medium px-3 py-1 rounded-lg">
-                  Most Popular
-                </div>
-              </div>
-            )}
-
             {/* Header */}
             <div className="mb-6">
               <div className="text-center">
-                <h3 className="text-2xl mt-2 font-bold text-white mb-4">
-                  {pricingData.title}
-                </h3>
+                <h3 className="text-2xl mt-2 font-bold text-white mb-4">{pricingData.title}</h3>
               </div>
 
               <div className="flex flex-col items-center gap-2 mb-2">
@@ -136,16 +65,7 @@ export default function PricingEIE() {
                   ₹{pricingData.price} text-gray-400 text-sm line-through 
                 </span> */}
                 <div className="text-center">
-                  <span className="text-4xl font-bold text-white">
-                    ₹{pricingData.mrp}
-                  </span>
-                  {/* <span
-                    className={`ml-2 text-sm ${
-                      isEIE ? "text-[#5CB338]" : "text-blue-500"
-                    }`}
-                  >
-                    {pricingData.discount}% off
-                  </span> */}
+                  <span className="text-4xl font-bold text-white">₹{pricingData.mrp}</span>
                 </div>
               </div>
             </div>
@@ -154,55 +74,27 @@ export default function PricingEIE() {
             <button
               onClick={() => {
                 setIsModalOpen(true);
-                setSelectedPlan(pricingData.title);
               }}
               className="w-full py-3 px-6 rounded-xl bg-white text-black font-semibold mb-2 hover:bg-gray-100 transition-colors"
             >
               Enroll Now
             </button>
 
-            {/* Money Back Guarantee */}
-            {isEIE && (
-              <div className="text-center mb-8">
-                <p className="text-xs text-amber-400 flex items-center justify-center gap-1">
-                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
-                  *15 Days Money Back Guarantee
-                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
-                </p>
-              </div>
-            )}
-
             {/* Features List */}
             <div className="space-y-4">
               {pricingData.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
                   {feature.included ? (
-                    <Check
-                      className={`w-5 h-5 ${
-                        isEIE ? "text-[#5CB338]" : "text-blue-500"
-                      } mt-1 flex-shrink-0`}
-                    />
+                    <Check className={`w-5 h-5   "text-blue-500"} mt-1 flex-shrink-0`} />
                   ) : (
                     <div className="w-5 h-5 mt-1 flex-shrink-0">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-600 mx-auto mt-1.5" />
                     </div>
                   )}
                   <div>
-                    <p
-                      className={`${
-                        feature.included ? "text-white" : "text-gray-500"
-                      }`}
-                    >
-                      {feature.name}
-                    </p>
+                    <p className={`${feature.included ? "text-white" : "text-gray-500"}`}>{feature.name}</p>
                     {feature.detail && feature.included && (
-                      <p
-                        className={`text-sm ${
-                          isEIE ? "text-[#5CB338]" : "text-blue-500"
-                        }`}
-                      >
-                        {feature.detail}
-                      </p>
+                      <p className={`text-sm   "text-blue-500"}`}>{feature.detail}</p>
                     )}
                   </div>
                 </div>
@@ -212,11 +104,7 @@ export default function PricingEIE() {
         </div>
       </div>
 
-      <EnrollmentModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        plan={selectedPlan}
-      />
+      <EnrollmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

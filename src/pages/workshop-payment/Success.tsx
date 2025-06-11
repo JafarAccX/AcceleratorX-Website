@@ -231,22 +231,6 @@ const Success = () => {
                   <p className="text-gray-600">{currentZoomDetails.time}</p>
                 </div>
               </div>
-              {/* <div className="flex items-start gap-4">
-                <Video className="w-6 h-6 text-blue-600 mt-1" />
-                <div>
-                  <h3 className="font-medium text-gray-900">Zoom Meeting</h3>
-                  <p className="text-gray-600 mb-2">Meeting ID: {currentZoomDetails.meetingId}</p>
-                  <a
-                    href={currentZoomDetails.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Join Meeting
-                    <Video className="w-4 h-4" />
-                  </a>
-                </div>
-              </div> */}
             </div>
           </div>
 
