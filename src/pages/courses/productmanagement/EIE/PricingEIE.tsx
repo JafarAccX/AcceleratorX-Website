@@ -10,10 +10,7 @@ const acceleratorPricingData = {
   discount: "12",
   features: [
     { name: "BYDP", included: true },
-    {
-      name: "EIE European Business School Malta University Certificate",
-      included: false,
-    },
+
     { name: "PM Toolbox & Templates", included: true },
     { name: "Assignment Feedback", included: true },
     { name: "Growth Product Management Specialization", included: true },
