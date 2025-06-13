@@ -4,10 +4,10 @@ import { Linkedin } from "lucide-react";
 const GENMentors = () => {
   const mentors = [
     {
-      name: "Dr. Prashant ",
-      designation: "Professor at Renowned University",
-      // linkedin: "https://www.linkedin.com/in/prashant-sahatiya",
-      image: "/assets/mentor/dummyuser.webp",
+      name: "Sagar Rajput",
+      designation: "Generative AI Engineer Flooid.in",
+      linkedin: "https://www.linkedin.com/in/sagrrajput/",
+      image: "/assets/mentor/sagar.png",
       experience: "5+ Years",
     },
     {
@@ -22,6 +22,13 @@ const GENMentors = () => {
       designation: "Software Developer, MD at GrowSharp Technologies",
       linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192/",
       image: "/assets/mentor/nitish.jpg",
+      experience: "5+ Years",
+    },
+    {
+      name: "Dr. Prashant ",
+      designation: "Professor at Renowned University",
+      // linkedin: "https://www.linkedin.com/in/prashant-sahatiya",
+      image: "/assets/mentor/dummyuser.webp",
       experience: "5+ Years",
     },
   ];
