@@ -2,10 +2,10 @@ import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
-const PIXEL_ID_DA_DIRECT = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
+// console.log('Meta Pixel ID:',  PIXEL_ID);
 
 /**
- * Route configurations
+ * paste the new routes here
  */
 const PAGE_VIEW_ROUTES = [
   "/courses/product-management-program-fb",
@@ -24,21 +24,18 @@ const PAGE_VIEW_ROUTES = [
 
 const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
 
-// Routes specifically for Data Analytics
-const DA_ROUTES = ["/courses/data-analytics-program-fb"];
-
 export const MetaPixel = () => {
   const location = useLocation();
   const isPageViewRoute = PAGE_VIEW_ROUTES.includes(location.pathname);
   const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
-  const isDARoute = DA_ROUTES.includes(location.pathname);
 
-  // Determine if DA direct pixel should be triggered
-  const shouldTriggerDAPixel = isDARoute && (isPageViewRoute || isLeadRoute);
+  // console.log('Meta Pixel - Current Path:', location.pathname);
+  // console.log('Is PageView Route:', isPageViewRoute);
+  // console.log('Is Lead Route:', isLeadRoute);
 
   return (
     <Helmet>
-      {/* Main Meta Pixel Base Code */}
+      {/* Meta Pixel Base Code */}
       <script>
         {`
           !function(f,b,e,v,n,t,s)
@@ -49,38 +46,21 @@ export const MetaPixel = () => {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          
-          // Initialize main pixel
           fbq('init', '${PIXEL_ID}');
-          
-          // Initialize DA direct pixel
-          fbq('init', '${PIXEL_ID_DA_DIRECT}');
+
         `}
       </script>
-
-      {/* Noscript fallback for both pixels */}
       <noscript>
         {`<img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1"/>`}
-      </noscript>
-      <noscript>
-        {`<img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=${PIXEL_ID_DA_DIRECT}&ev=PageView&noscript=1"/>`}
       </noscript>
 
       {/* Track PageView for specific routes */}
       {isPageViewRoute && (
         <script>
           {`
-            // Track PageView on main pixel for all relevant routes
-            fbq('track', 'PageView', {}, {eventID: 'pv_${Date.now()}'});
-            
-            ${
-              shouldTriggerDAPixel
-                ? `// Also track PageView on DA pixel for DA specific routes
-            fbq('trackSingle', '${PIXEL_ID_DA_DIRECT}', 'PageView', {}, {eventID: 'da_pv_${Date.now()}'});`
-                : ""
-            }
+            fbq('track', 'PageView');
+
           `}
         </script>
       )}
@@ -89,41 +69,10 @@ export const MetaPixel = () => {
       {isLeadRoute && (
         <script>
           {`
-            // Track Lead on main pixel
-            fbq('track', 'Lead', {}, {eventID: 'lead_${Date.now()}'});
-            
-            ${
-              shouldTriggerDAPixel
-                ? `// Also track Lead on DA pixel for DA related conversions
-            fbq('trackSingle', '${PIXEL_ID_DA_DIRECT}', 'Lead', {}, {eventID: 'da_lead_${Date.now()}'});`
-                : ""
-            }
+            fbq('track', 'Lead');
           `}
         </script>
       )}
-
-      {/* Track CompleteRegistration for registration success pages */}
-      {/* {isLeadRoute && (
-        <script>
-          {`
-            // Track CompleteRegistration on main pixel
-            fbq('track', 'CompleteRegistration', {
-              content_name: 'registration_form',
-              status: 'complete'
-            }, {eventID: 'reg_${Date.now()}'});
-            
-            ${
-              shouldTriggerDAPixel
-                ? `// Also track CompleteRegistration on DA pixel for DA related registrations
-            fbq('trackSingle', '${PIXEL_ID_DA_DIRECT}', 'CompleteRegistration', {
-              content_name: 'registration_form', 
-              status: 'complete'
-            }, {eventID: 'da_reg_${Date.now()}'});`
-                : ""
-            }
-          `}
-        </script>
-      )} */}
     </Helmet>
   );
 };
