@@ -84,9 +84,9 @@ const WSGENWhoShouldEnrollC = () => {
             <p className="p-4 bg-black absolute top-0 z-50 rounded-br-3xl">WORKFLOW BUILD IN LIVE WORKSHOP</p>
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <img
-                src="/workflow1.png"
+                src="/workflownew.png"
                 alt="Students learning together"
-                className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                className="object-contain w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
               />
               {/* Overlay elements */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
