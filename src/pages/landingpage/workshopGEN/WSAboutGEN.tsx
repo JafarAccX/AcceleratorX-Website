@@ -29,7 +29,7 @@ const WSAboutGEN = () => {
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
       <div className=" p-4 flex items-center justify-center mb-20 bg-gradient-to-r from-blue-500/20 to-green-500/20">
         <div className="font-semibold tracking-wider text-xl md:text-3xl text-yellow-500  ">
-          Learn to Build Advance to Advance Flows
+          Learn to Build Basic to Advance Flows
         </div>
       </div>
       <div className="absolute inset-0 pointer-events-none">
