@@ -81,6 +81,7 @@ const WSGENWhoShouldEnrollC = () => {
           </div>
 
           <div className="flex-1 relative">
+            <p className="p-4 bg-black absolute top-0 z-50 rounded-br-3xl">WORKFLOW BUILD IN LIVE WORKSHOP</p>
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <img
                 src="/workflow1.png"
