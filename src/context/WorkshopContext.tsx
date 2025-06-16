@@ -49,11 +49,11 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  title: "Automate workflows using n8n - Practical Implementation (part II)",
-  link: "https://zoom.us/meeting/register/GCqkzZCARP-ZKToBbMMQcQ",
-  meetingId: "GCqkzZCARP-ZKToBbMMQcQ",
-  time: "15 Jun, 2025 11:30 AM India",
-  meetingCode: "96603588561",
+  title: "Automate workflows using n8n - Basic to Advance",
+  link: "https://zoom.us/meeting/register/yG0rdYoCS3WsWGyBcyV1sg",
+  meetingId: "yG0rdYoCS3WsWGyBcyV1sg",
+  time: "22 Jun, 2025 11:00 AM India",
+  meetingCode: "94533549753",
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {

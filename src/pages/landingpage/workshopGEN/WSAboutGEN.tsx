@@ -13,23 +13,23 @@ const WSAboutGEN = () => {
   };
 
   const allTools = [
-    { name: "GPT-4", img: "/assets/genAITools/gpt4.webp" },
-    { name: "DeepSeek", img: "/assets/genAITools/deepseek.webp" },
-    { name: "LLaMA", img: "/assets/genAITools/ollama.png" },
-    { name: "Falcon", img: "/assets/genAITools/falcon.png" },
-    { name: "LangChain", img: "/assets/genAITools/langchain.png" },
-    { name: "CrewAI", img: "/assets/genAITools/crewai.webp" },
-    { name: "AutoGen", img: "/assets/genAITools/autogen.jpeg" },
-    { name: "RAG", img: "/assets/genAITools/rag.webp" },
-    { name: "Hugging Face", img: "/assets/genAITools/huggingface.svg" },
-    { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
+    { name: "Slack", img: "/assets/n8n/slack.webp" },
+    { name: "Gmail", img: "/assets/n8n/gmail.webp" },
+    { name: "Google Sheets", img: "/assets/n8n/sheets.webp" },
+    { name: "Airtable", img: "/assets/n8n/airtable.webp" },
+    { name: "Notion", img: "/assets/n8n/notion.webp" },
+    { name: "Trello", img: "/assets/n8n/trello.webp" },
+    { name: "ClickUp", img: "/assets/n8n/clickup.webp" },
+    { name: "HubSpot", img: "/assets/n8n/hubspot.webp" },
+    { name: "Stripe", img: "/assets/n8n/stripe.webp" },
+    { name: "OpenAI", img: "/assets/n8n/openai.webp" },
   ];
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
       <div className=" p-4 flex items-center justify-center mb-20 bg-gradient-to-r from-blue-500/20 to-green-500/20">
         <div className="font-semibold tracking-wider text-xl md:text-3xl text-yellow-500  ">
-          Learn to Build Advance Flows
+          Learn to Build Advance to Advance Flows
         </div>
       </div>
       <div className="absolute inset-0 pointer-events-none">

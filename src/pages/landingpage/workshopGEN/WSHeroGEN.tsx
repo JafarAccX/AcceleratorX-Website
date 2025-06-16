@@ -90,8 +90,8 @@ const WSHeroGENC = () => {
               >
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
-                    <span className=" text-yellow-400 underline ml-4">Automate Workflows Using n8n </span> <br />–
-                    Practical Implementation (Part II)
+                    <span className=" text-yellow-400 underline ">Automate Workflows Using n8n </span> <br />– Practical
+                    Implementation <br /> (Basic to Advance)
                   </span>
 
                   <motion.div
@@ -118,7 +118,7 @@ const WSHeroGENC = () => {
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  Missed Part One?
+                  Missed Part Two?
                 </motion.span>
 
                 <motion.div
@@ -203,12 +203,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "15 Jun",
+                  value: "22 Jun",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "time",
-                  value: "11:30 am",
+                  value: "11:00 am",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

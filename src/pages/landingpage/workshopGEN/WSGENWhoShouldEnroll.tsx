@@ -83,7 +83,7 @@ const WSGENWhoShouldEnrollC = () => {
           <div className="flex-1 relative">
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <img
-                src="/genai.svg"
+                src="/workflow1.png"
                 alt="Students learning together"
                 className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
               />

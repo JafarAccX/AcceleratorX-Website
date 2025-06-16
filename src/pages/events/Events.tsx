@@ -10,18 +10,25 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Automate workflows using n8n - Basic to Advance",
+      mode: "Online (Zoom)",
+      time: "June 22, 2025 11:00 PM",
+      link: "/workshop/gen-ai-masterclass",
+      completed: false,
+    },
+    {
       name: "Automate workflows using n8n - Practical Implementation (Part II)",
       mode: "Online (Zoom)",
       time: "June 15, 2025 11:30 PM",
       link: "/workshop/gen-ai-masterclass",
-      completed: false,
+      completed: true,
     },
     {
       name: "How to do data analysis using AI ",
       mode: "Online (Zoom)",
       time: "June 13, 2025 7:30 PM",
       link: "/workshop/da-masterclass-bxwxy",
-      completed: false,
+      completed: true,
     },
     {
       name: "Gen Ai for PM's",
