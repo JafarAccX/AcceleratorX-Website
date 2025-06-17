@@ -10,16 +10,23 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Automate workflows using n8n - Practical Implementation",
+      mode: "Online (Zoom)",
+      time: "June 21, 2025 11:30 AM",
+      link: "/workshop/gen-ai-masterclass-thidtx",
+      completed: false,
+    },
+    {
       name: "Automate workflows using n8n - Basic to Advance",
       mode: "Online (Zoom)",
-      time: "June 22, 2025 11:00 PM",
+      time: "June 22, 2025 11:00 AM",
       link: "/workshop/gen-ai-masterclass",
       completed: false,
     },
     {
       name: "Automate workflows using n8n - Practical Implementation (Part II)",
       mode: "Online (Zoom)",
-      time: "June 15, 2025 11:30 PM",
+      time: "June 15, 2025 11:30 AM",
       link: "/workshop/gen-ai-masterclass",
       completed: true,
     },

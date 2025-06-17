@@ -68,7 +68,7 @@ const GENAICZoomDetails: ZoomMeetingDetails = {
   title: "Building AI Powered Applications Using Langchain",
   link: "https://zoom.us/meeting/register/dcf-c3C1TQ639dJ6Sw1TrA",
   meetingId: "dcf-c3C1TQ639dJ6Sw1TrA",
-  time: "21 Jun, 2025 07:30 PM India",
+  time: "21 Jun, 2025 11:30 AM India",
   meetingCode: "92086179774",
 };
 
