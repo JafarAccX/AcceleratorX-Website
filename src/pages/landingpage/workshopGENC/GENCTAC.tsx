@@ -26,7 +26,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build Your Own Workflow Automation System
+              Build Your Coding Vibe
             </motion.h2>
 
             {/* Badge */}
@@ -37,7 +37,7 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="bg-blue-500/10 rounded-full px-6 py-2">
-                <span className="text-lg font-bold text-white">Hands-On Project Workshop</span>
+                <span className="text-lg font-bold text-white">Hands-On. No Pressure. Real Fun.</span>
               </div>
             </motion.div>
 
@@ -52,24 +52,17 @@ const GENCTAC = () => {
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-green-400">Visual Tools</p>
-                  <p className="text-sm text-gray-400">
-                    Use free, open-source platforms like n8n—designed for seamless workflow building without writing
-                    code
-                  </p>
+                  <p className="text-sm text-gray-400">No coding background needed</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-purple-400">Smart Triggers</p>
-                  <p className="text-sm text-gray-400">
-                    Automate actions based on emails, forms, messages, or schedules—connect apps effortlessly
-                  </p>
+                  <p className="text-lg font-bold text-purple-400">Smart Learning</p>
+                  <p className="text-sm text-gray-400">Build step-by-step with guidance</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-blue-400">Organized Ops</p>
-                  <p className="text-sm text-gray-400">
-                    Centralize and automate repetitive operations like reporting, notifications, and data entry
-                  </p>
+                  <p className="text-lg font-bold text-blue-400">Creative Confidence</p>
+                  <p className="text-sm text-gray-400">Feel proud of what you make</p>
                 </div>
               </div>
             </motion.div>
@@ -81,7 +74,11 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p>Are you ready to Automate your workflow?</p>
+              <p className="bg-blue-500/10 rounded-full px-6 py-2 text-lg font-bold text-white">
+                Are You Ready to Code Your First Project — and Actually Enjoy It?
+              </p>
+              <p>100+ beginners have vibed with us. Now it’s your turn</p>
+              <p> Don’t overthink. Just click. We’ll take care of the rest.</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}

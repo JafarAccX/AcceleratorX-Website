@@ -30,7 +30,7 @@ const WSAboutGENC = () => {
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3  gap-4 items-center justify-center ">
-          <img src="/ai.jpg" alt="AI Workshop" className="  rounded-2xl shadow-2xl" />
+          <img src="/vibecoding.png" alt="AI Workshop" className="  rounded-2xl shadow-2xl" />
 
           <motion.div
             className="w-full  space-y-8 col-span-2"
@@ -69,7 +69,7 @@ const WSAboutGENC = () => {
                 whileInView={{ opacity: [0, 1], y: [20, 0] }}
                 transition={{ duration: 0.5 }}
               >
-                Gen AI Tools for Product Management
+                Workshop Highlights
               </motion.h2>
 
               <div className="space-y-6">
@@ -90,14 +90,14 @@ const WSAboutGENC = () => {
                       >
                         <Brain className="w-5 h-5 text-blue-400" />
                       </motion.div>
-                      <h3 className="font-semibold text-white">Workshop Highlights</h3>
+                      <h3 className="font-semibold text-white">What You’ll Do:</h3>
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Hands-on project automating real-world workflows with n8n",
-                        "Connect and integrate multiple apps and services without writing code",
-                        "Design workflows that run on schedule, on trigger, or in response to data",
-                        "Deploy and monitor your automation on cloud or self-hosted platforms",
+                        "Learn basic coding in a fun and visual way",
+                        "Build your own live tool with us – step-by-step",
+                        "Understand how to “think like a coder”",
+                        "Get access to free tools and a roadmap for learning",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -130,14 +130,15 @@ const WSAboutGENC = () => {
                       >
                         <Target className="w-5 h-5 text-green-400" />
                       </motion.div>
-                      <h3 className="font-semibold text-white">What You'll Learn</h3>
+                      <h3 className="font-semibold text-white">What You’ll Learn:</h3>
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "n8n fundamentals: workflows, triggers, and nodes",
-                        "How to connect apps like Google Sheets, Gmail, Notion, Slack, and more",
-                        "Designing automation logic visually using the n8n interface",
-                        "Best practices for scaling, error handling, and secure deployment",
+                        "What coding really means (in simple words)",
+                        "How websites, apps, and automations are built",
+                        "How to build your first mini app live",
+                        "Career options and creative paths in tech",
+                        "Tools and tips to keep growing at your pace",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

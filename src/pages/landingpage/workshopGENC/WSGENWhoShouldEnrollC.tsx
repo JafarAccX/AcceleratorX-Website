@@ -5,25 +5,23 @@ const WSGENWhoShouldEnrollC = () => {
   const targetAudience = [
     {
       icon: Briefcase,
-      title: "Markters",
-      description: "Automate repetitive tasks, sync tools, and free up time for strategic work.",
+      title: "Professionals",
+      description: "curious about coding",
     },
     {
       icon: Laptop,
-      title: "Founders & Entrepreneurs",
-      description:
-        "Use automation to streamline operations, reduce manual work, and scale smarter with limited resources.",
+      title: "Students",
+      description: "looking to explore tech",
     },
     {
       icon: Code,
-      title: "Tech Professionals & Business Analysts",
-      description: "Create no-code workflows that connect your tech stack and optimize internal processes with ease.",
+      title: "Entrepreneurs",
+      description: "wanting to understand how things are made",
     },
     {
       icon: Brain,
-      title: "Students & Career Switchers",
-      description:
-        "Gain practical automation experience and build portfolio-ready projects to boost your resume and confidence.",
+      title: "Creatives",
+      description: "who want to automate or build",
     },
   ];
 
@@ -43,14 +41,10 @@ const WSGENWhoShouldEnrollC = () => {
             <Users className="w-4 h-4 text-blue-600" />
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            <span className="text-white">Ready to </span>
-            <span className="text-blue-500">Automate Your Workflow Without Writing Code</span>
-            <span className="text-white">?</span>
+          <h2 className="text-3xl  l font-bold mb-3">
+            <span className="text-white">This is for anyone who’s ever thought: </span> <br />
+            <span className="text-blue-500">“Coding looks cool, but I don’t know where to start.”</span>
           </h2>
-          <p className="text-lg text-blue-100 mb-4">
-            Join us and learn how to build real-world workflow automations using n8n—no technical background required.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -66,8 +60,8 @@ const WSGENWhoShouldEnrollC = () => {
                     <audience.icon className="w-5 h-5 text-blue-700 " />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold  transition-colors">{audience.title}</h3>
-                    <p className="text-sm  mb-2">{audience.description}</p>
+                    <h3 className="text-xl font-semibold  transition-colors">{audience.title}</h3>
+                    <p className="  mb-2 text-gray-400">{audience.description}</p>
                   </div>
                 </div>
               </div>

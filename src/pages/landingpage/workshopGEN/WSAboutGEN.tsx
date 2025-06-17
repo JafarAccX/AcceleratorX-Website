@@ -40,12 +40,22 @@ const WSAboutGEN = () => {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Image Section */}
           <motion.div
-            className="w-full flex-col gap-4 lg:w-2/5  top-8 h-fit relative"
+            className="w-full flex-col gap-4 lg:w-2/5 top-8 h-fit relative overflow-hidden rounded-2xl shadow-2xl border border-white/10 max-w-[400px] mx-auto"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <img src="/ai.jpg" alt="AI Workshop" className="  rounded-2xl shadow-2xl" />
+            <div className="absolute inset-0 bg-[#0A1B33]/40 z-10 pointer-events-none rounded-2xl" />
+            <video
+              autoPlay
+              muted
+              controls
+              playsInline
+              className="w-full h-full max-h-[700px]  mx-auto object-fill z-0 rounded-2xl"
+            >
+              <source src="/assets/videos/n8n.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </motion.div>
 
           {/* Right Content Section */}

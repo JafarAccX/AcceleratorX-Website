@@ -90,8 +90,8 @@ const WSHeroGENC = () => {
               >
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
-                    <span className=" text-yellow-400 underline ml-4">Automate Workflows Using n8n </span> <br />–
-                    Practical Implementation
+                    <span className=" text-yellow-400 underline  ">Vibe Coding</span> <br />– Code with Confidence,
+                    Create with Joy
                   </span>
 
                   <motion.div
@@ -105,19 +105,16 @@ const WSHeroGENC = () => {
               </motion.h1>
 
               {/* Subtitle */}
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="text-xl text-gray-400 max-w-xl"
-              >
-                Learn how to harness the power of Generative AI to accelerate product discovery, improve user
-                experience, and optimize your product workflows. This hands-on workshop will teach you how to integrate
-                Gen AI tools into your product development lifecycle for real-world impact.
-              </motion.p>
+              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
+                <p className="  text-gray-400 max-w-xl">Learn how to enjoy coding even if you’ve never tried before.</p>
+                <p className="  text-gray-400 max-w-xl">
+                  In this beginner-friendly webinar session, you’ll build your first mini app, understand how coding
+                  works, and unlock the creative side of tech.
+                </p>
+              </motion.div>
 
               {/* Price Tag - Enhanced */}
-              <motion.div
+              {/* <motion.div
                 className="flex flex-col items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border border-blue-500/20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
@@ -131,7 +128,7 @@ const WSHeroGENC = () => {
                     2 Day Workshop
                   </motion.div>
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Primary CTA Button */}
             </div>

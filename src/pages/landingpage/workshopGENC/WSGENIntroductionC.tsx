@@ -3,37 +3,34 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionC = () => {
   const stats = [
     {
-      value: "70%",
-      label: "Time Saved by Automating Routine Tasks",
+      value: "85%",
+      label: "beginners said this session helped them understand coding.",
     },
     {
-      value: "75%",
-      label: "of Teams Will Rely on Automation Tools by 2026",
+      value: "92%",
+      label: "felt more confident to explore tech after this workshop.",
     },
     {
-      value: "No Coding",
-      label: "Needed to Build Powerful Automations",
+      value: "No Code",
+      label: "No Jargon. No pressure. Just Vibes",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Visual Workflow Automation",
-      description:
-        "Use n8n to automate email workflows, sync data across tools, and trigger actions based on events—without writing scripts.",
+      title: "Visual Coding Experience",
+      description: " Use simple visual tools to build your first project without writing long code.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Hands-On With Real Tools",
-      description:
-        "Work with powerful, open-source automation tools like n8n, and connect services like Google Sheets, Slack, Notion, and more.",
+      title: "Live & Hands-On",
+      description: "We’ll build together, live. You’ll get to try things in real time.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Future-Proof Your Workflow Skills",
-      description:
-        "Equip yourself with practical automation skills that help you work faster, smarter, and scale your impact—without relying on engineering.",
+      title: "Feel the Flow of Creation",
+      description: "Coding is a creative skill. Let’s make it fun, expressive, and human.",
     },
   ];
 
@@ -75,18 +72,18 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">Automate Workflows Without Coding</span>
+            <span className="text-sm text-blue-400 font-medium">Vibe Coding = Simple, Visual, Empowering</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            n8n for <span className="text-blue-500">Workflow Automation</span>— No Coding Needed
+            Coding <span className="text-blue-500"> Doesn’t </span>Need to Be Complicated.
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Streamline repetitive tasks, integrate tools, and boost efficiency using visual, no-code automations with
-            n8n.
+            This session is about feeling the flow, not fearing the code. We’ll make you feel at home—even if this is
+            your first time hearing the word “HTML.”
           </p>
 
           {/* Stats Grid */}
