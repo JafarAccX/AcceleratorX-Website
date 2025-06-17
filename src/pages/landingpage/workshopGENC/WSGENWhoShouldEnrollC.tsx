@@ -6,22 +6,26 @@ const WSGENWhoShouldEnrollC = () => {
     {
       icon: Briefcase,
       title: "Professionals",
-      description: "curious about coding",
+      description:
+        "who are curious about how AI and automation can boost productivity, streamline work, or enhance their careers",
     },
     {
       icon: Laptop,
       title: "Students",
-      description: "looking to explore tech",
+      description:
+        "who want to dive into the world of tech, explore future-ready skills, and get hands-on experience with real tools",
     },
     {
       icon: Code,
       title: "Entrepreneurs",
-      description: "wanting to understand how things are made",
+      description:
+        "who are eager to understand how modern AI-powered applications are built, and how to use them to launch smarter products",
     },
     {
       icon: Brain,
       title: "Creatives",
-      description: "who want to automate or build",
+      description:
+        "who want to automate repetitive tasks, build interactive tools, or turn their ideas into intelligent, AI-enhanced experiences",
     },
   ];
 
@@ -42,8 +46,8 @@ const WSGENWhoShouldEnrollC = () => {
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
           <h2 className="text-3xl  l font-bold mb-3">
-            <span className="text-white">This is for anyone who’s ever thought: </span> <br />
-            <span className="text-blue-500">“Coding looks cool, but I don’t know where to start.”</span>
+            <span className="text-white">This is for anyone who’s ever thought:</span> <br />
+            <span className="text-blue-500">“AI sounds exciting, but I don’t know where to start.”</span>
           </h2>
         </div>
 

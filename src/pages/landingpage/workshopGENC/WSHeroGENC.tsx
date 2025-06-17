@@ -90,8 +90,10 @@ const WSHeroGENC = () => {
               >
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
-                    <span className=" text-yellow-400 underline  ">Vibe Coding</span> <br />– Code with Confidence,
-                    Create with Joy
+                    <span className=" text-yellow-400 underline  ">
+                      Building AI Powered Applications Using Langchain
+                    </span>{" "}
+                    <br />– Build Smarter Apps, Faster
                   </span>
 
                   <motion.div
@@ -106,31 +108,14 @@ const WSHeroGENC = () => {
 
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
-                <p className="  text-gray-400 max-w-xl">Learn how to enjoy coding even if you’ve never tried before.</p>
                 <p className="  text-gray-400 max-w-xl">
-                  In this beginner-friendly webinar session, you’ll build your first mini app, understand how coding
-                  works, and unlock the creative side of tech.
+                  Discover how to integrate powerful AI capabilities into your apps with ease.
+                </p>
+                <p className="  text-gray-400 max-w-xl">
+                  In this beginner-friendly webinar session, you’ll create your first AI-driven mini app using
+                  Langchain, learn how AI workflows operate, and explore the future of smart applications.
                 </p>
               </motion.div>
-
-              {/* Price Tag - Enhanced */}
-              {/* <motion.div
-                className="flex flex-col items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border border-blue-500/20"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="flex items-center gap-3">
-                  <motion.div
-                    animate={{ opacity: [1, 0.7, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-yellow-500 text-sm font-medium"
-                  >
-                    2 Day Workshop
-                  </motion.div>
-                </div>
-              </motion.div> */}
-
-              {/* Primary CTA Button */}
             </div>
 
             {/* Key Info */}

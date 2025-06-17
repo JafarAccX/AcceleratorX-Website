@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Automate workflows using n8n - Practical Implementation",
-  link: "https://zoom.us/meeting/register/A4GSQocITmyJn-gBZzORcA",
-  meetingId: "A4GSQocITmyJn-gBZzORcA",
-  time: "09 Jun, 2025 07:30 PM India",
-  meetingCode: "92394151440",
+  title: "Building AI Powered Applications Using Langchain",
+  link: "https://zoom.us/meeting/register/dcf-c3C1TQ639dJ6Sw1TrA",
+  meetingId: "dcf-c3C1TQ639dJ6Sw1TrA",
+  time: "21 Jun, 2025 07:30 PM India",
+  meetingCode: "92086179774",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

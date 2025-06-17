@@ -26,7 +26,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build Your Coding Vibe
+              Build Your First AI App
             </motion.h2>
 
             {/* Badge */}
@@ -52,17 +52,19 @@ const GENCTAC = () => {
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-green-400">Visual Tools</p>
-                  <p className="text-sm text-gray-400">No coding background needed</p>
+                  <p className="text-sm text-gray-400">No AI or coding background needed — just curiosity</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-purple-400">Smart Learning</p>
-                  <p className="text-sm text-gray-400">Build step-by-step with guidance</p>
+                  <p className="text-sm text-gray-400">
+                    Follow step-by-step guidance to build your first intelligent app
+                  </p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-blue-400">Creative Confidence</p>
-                  <p className="text-sm text-gray-400">Feel proud of what you make</p>
+                  <p className="text-sm text-gray-400">Walk away with something real, useful, and uniquely yours</p>
                 </div>
               </div>
             </motion.div>
@@ -75,10 +77,10 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p className="bg-blue-500/10 rounded-full px-6 py-2 text-lg font-bold text-white">
-                Are You Ready to Code Your First Project — and Actually Enjoy It?
+                Are You Ready to Build with AI — and Actually Enjoy It?
               </p>
-              <p>100+ beginners have vibed with us. Now it’s your turn</p>
-              <p> Don’t overthink. Just click. We’ll take care of the rest.</p>
+              <p>100+ beginners have built with us. Now it’s your turn.</p>
+              <p>Don’t stress the tech. Just click — we’ll guide you the rest of the way.</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}

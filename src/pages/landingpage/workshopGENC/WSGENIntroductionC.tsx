@@ -3,34 +3,34 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionC = () => {
   const stats = [
     {
-      value: "85%",
-      label: "beginners said this session helped them understand coding.",
+      value: "87%",
+      label: "of past attendees said this session made AI concepts finally click.",
     },
     {
-      value: "92%",
-      label: "felt more confident to explore tech after this workshop.",
+      value: "94%",
+      label: "felt more confident exploring AI tools after this workshop.",
     },
     {
-      value: "No Code",
-      label: "No Jargon. No pressure. Just Vibes",
+      value: "No Complexity",
+      label: "No heavy coding. No jargon. No pressure. Just Clarity.",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Visual Coding Experience",
-      description: " Use simple visual tools to build your first project without writing long code.",
+      title: "Visual AI Workflows",
+      description: "Use drag-and-drop logic and easy tools to power up your first AI application.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Live & Hands-On",
-      description: "We’ll build together, live. You’ll get to try things in real time.",
+      title: "Live & Interactive",
+      description: "We’ll build together, live. You’ll experience AI development in real time.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Feel the Flow of Creation",
-      description: "Coding is a creative skill. Let’s make it fun, expressive, and human.",
+      title: "Feel the Power of Smart Creation",
+      description: "AI is a creative medium. Let’s use it to build tools that feel smart, human, and useful.",
     },
   ];
 
@@ -72,18 +72,18 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">Vibe Coding = Simple, Visual, Empowering</span>
+            <span className="text-sm text-blue-400 font-medium">AI-Powered Apps = Visual, Practical, Empowering</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Coding <span className="text-blue-500"> Doesn’t </span>Need to Be Complicated.
+            AI Development <span className="text-blue-500"> Doesn’t </span> Have to Be Intimidating.
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This session is about feeling the flow, not fearing the code. We’ll make you feel at home—even if this is
-            your first time hearing the word “HTML.”
+            This session is about building real things, not battling complex code. Whether you’re new to AI or just
+            curious about how it works — you’ll feel right at home here.
           </p>
 
           {/* Stats Grid */}

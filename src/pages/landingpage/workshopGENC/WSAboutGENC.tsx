@@ -94,10 +94,10 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Learn basic coding in a fun and visual way",
-                        "Build your own live tool with us – step-by-step",
-                        "Understand how to “think like a coder”",
-                        "Get access to free tools and a roadmap for learning",
+                        "Explore Langchain through hands-on, beginner-friendly guidance",
+                        "Build your own live AI-powered app – step by step",
+                        "Understand how to structure smart workflows using AI tools",
+                        "Access free AI tools, templates, and a roadmap to build more apps",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -134,11 +134,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "What coding really means (in simple words)",
-                        "How websites, apps, and automations are built",
-                        "How to build your first mini app live",
-                        "Career options and creative paths in tech",
-                        "Tools and tips to keep growing at your pace",
+                        "What AI-powered apps are and how Langchain fits in",
+                        "How to connect large language models to real-world data",
+                        "How to build and deploy your first Langchain-based app",
+                        "Ways AI is changing tech careers and future opportunities",
+                        "Top resources, tools, and communities to grow in AI development",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
