@@ -7,10 +7,10 @@ const WSAboutDASecond = () => {
   };
 
   const targetAudience = [
-    "Aspiring Data Analysts – Understand how AI can supercharge your skills in a job-ready way.",
-    "Business Professionals – Use automation to move from raw reports to strategy-changing insights.",
-    "Students & Researchers – Build smarter, faster, and more compelling research visuals.",
-    "Non-Technical Learners – Discover how no-code AI can help you work confidently with any dataset.",
+    "Aspiring Data Analysts - See how AI can elevate your data skills and make you job-ready — faster than ever.",
+    "Business Professionals - Automate tedious analysis and turn raw reports into decision-driving strategies.",
+    "Students & Researchers – Create powerful, research-grade visuals and insights — effortlessly and accurately.",
+    "Non-Technical Learners – Learn how to work with data using intuitive, no-code AI tools — no background required.",
   ];
 
   return (
@@ -27,7 +27,7 @@ const WSAboutDASecond = () => {
             </h2>
             <div className="bg-white/5 backdrop-blur-xl lg:h-full rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
               <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-                Most people see raw data as chaos — rows and rows of noise. But in this workshop, you’ll{" "}
+                Most people see raw data as rows of noise — but in this live workshop, you’ll{" "}
                 <span className="font-bold text-white">learn how to clean that chaos, segment it into meaning,</span>{" "}
                 and let AI do the heavy lifting in finding stories worth telling.
               </p>
@@ -37,10 +37,10 @@ const WSAboutDASecond = () => {
               </p>
               <ul className="list-none pl-0 mb-8 space-y-4">
                 {[
-                  "Use AI tools to clean and structure real-world datasets",
-                  "Segment data to uncover actionable patterns",
-                  "Automate analysis to save hours of manual effort",
-                  "Translate AI-generated insights into powerful data stories",
+                  "Use AI tools to clean and structure messy datasets",
+                  "Segment data to uncover patterns and trends",
+                  "Automate your analysis and save hours",
+                  "Craft insights into persuasive, data-driven stories",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-3 lg:text-lg group">
                     <FaCheck className="text-emerald-400 mt-1.5 flex-shrink-0 group-hover:text-emerald-300 transition-colors" />
@@ -63,24 +63,23 @@ const WSAboutDASecond = () => {
                 {
                   icon: <FaRobot className="text-3xl text-emerald-400" />,
                   title: "AI-Powered Data Cleaning",
-                  description:
-                    "Let AI handle the mess — remove inconsistencies, fix formats, and prepare your data in seconds.",
+                  description: "Experience how AI can clean messy datasets live — no Excel or scripts needed.",
                 },
                 {
                   icon: <FaDatabase className="text-3xl text-indigo-400" />,
-                  title: "Data Segmentation & Pattern Recognition",
-                  description: "Identify key trends, groupings, and business-relevant segments using smart algorithms.",
+                  title: "Live Data Segmentation with AI",
+                  description: "Watch how intelligent grouping reveals hidden patterns from raw data effortlessly.",
                 },
                 {
                   icon: <FaChartBar className="text-3xl text-emerald-400" />,
-                  title: "Automated Insight Generation",
-                  description: "No more manual number crunching — generate narratives and recommendations instantly.",
+                  title: "Instant Insight Generation",
+                  description: "See AI transform numbers into ready-to-present insights — as you upload them.",
                 },
                 {
                   icon: <FaBrain className="text-3xl text-indigo-400" />,
-                  title: "Storytelling That Moves People",
+                  title: "Impact-Driven Storytelling",
                   description:
-                    "Learn how to frame insights that don’t just inform — they persuade, inspire, and lead to action.",
+                    "Master the art of using AI-generated visuals and narratives to tell compelling data stories.",
                 },
               ].map((feature, index) => (
                 <div
@@ -155,22 +154,25 @@ const WSAboutDASecond = () => {
               {
                 icon: FaBrain,
                 title: "Raw to Refined Workflow",
-                description: "Master the journey from raw CSVs to clean, structured, and analysis-ready data.",
+                description:
+                  "Learn how to go from messy CSVs to structured, ready-to-analyze datasets — live, with AI.",
               },
               {
                 icon: FaDatabase,
                 title: "AI-Powered Segmentation",
-                description: "Group your data into meaningful categories for targeted insights — no formulas needed.",
+                description:
+                  "Discover how AI can group your data into meaningful clusters — without writing a single formula.",
               },
               {
                 icon: FaChartBar,
-                title: "Real-World Business Use Cases",
-                description: "See how top firms use AI to boost marketing, operations, and strategic decision-making.",
+                title: "Real-World Business Applications",
+                description: "Explore how AI Analysts are used in marketing, sales, and strategy by leading companies.",
               },
               {
                 icon: FaUsers,
                 title: "Live Demos & Interactive Q&A",
-                description: "Watch real-time automation flows and get your questions answered by experts.",
+                description:
+                  "Experience hands-on automation flows and get expert answers to your real-world data challenges.",
               },
             ].map((item, index) => (
               <div

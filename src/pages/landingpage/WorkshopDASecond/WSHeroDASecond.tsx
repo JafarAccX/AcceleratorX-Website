@@ -59,46 +59,19 @@ const WSHeroDASecond = () => {
 
               <h1 className="text-4xl md:text-5xl font-bold">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-300">
-                  Data Analytics Workshop
+                  Build Your First AI Analyst
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-emerald-400 via-indigo-400 to-cyan-400 text-transparent bg-clip-text  ">
+                  — Live!
                 </span>
               </h1>
 
-              <h2 className="text-2xl font-semibold">
-                <span className="bg-gradient-to-r from-emerald-400 via-indigo-400 to-cyan-400 text-transparent bg-clip-text text-3xl">
-                  How to do Data Analysis using AI
-                </span>
-              </h2>
-
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Raw data is powerful — but only when we know how to read it, clean it, and let it speak. This hands-on
-                masterclass will teach you how to transform messy datasets into meaningful stories using AI — from
-                segmentation to automation to insight. You’ll learn to build analysis that’s not just smart, but
-                emotionally resonant and decision-driven. No coding or AI background needed — just a desire to see data
-                differently.
+                Discover how to turn raw data into real insights using AI — without writing a single line of code. In
+                this live session, you’ll learn to clean, segment, and analyze data in minutes using smart tools and
+                guided workflows. Perfect for beginners curious about the power of AI in analytics.
               </p>
-
-              {/* <div className="mt-8 flex justify-center lg:justify-start">
-                <div className="relative inline-flex group/btn">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                  <button
-                    onClick={scrollToForm}
-                    className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
-                  >
-                    <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                      Reserve Your Seat
-                    </span>
-                    <svg
-                      className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </button>
-                </div>
-              </div> */}
 
               {/* Enhanced Key Features */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
@@ -111,7 +84,7 @@ const WSHeroDASecond = () => {
                   {
                     icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "June 13, 2025",
+                    value: "June 24, 2025",
                   },
                   {
                     icon: <FaClock className="text-cyan-400 mb-1" />,

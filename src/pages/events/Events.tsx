@@ -24,6 +24,13 @@ const Events = () => {
       completed: false,
     },
     {
+      name: "Build your first AI Analyst Live",
+      mode: "Online (Zoom)",
+      time: "June 24, 2025 7:30 PM",
+      link: "/workshop/da-masterclass-bxwxy",
+      completed: true,
+    },
+    {
       name: "Automate workflows using n8n - Practical Implementation (Part II)",
       mode: "Online (Zoom)",
       time: "June 15, 2025 11:30 AM",

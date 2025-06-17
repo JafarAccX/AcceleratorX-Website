@@ -40,8 +40,6 @@ const WSFormFree = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  console.log("zoomMeetingDetails -- ", zoomMeetingDetails);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
