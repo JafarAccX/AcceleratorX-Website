@@ -66,7 +66,7 @@ const GENToolsYouWillLearn = () => {
 
   const tools: Tool[] = [
     {
-      name: "GPT-4",
+      name: "Chat-GPT",
       description: "Advanced language model from OpenAI for sophisticated text generation",
       image: "/assets/genAITools/gpt4.webp",
       category: "Text & Language Models",
@@ -179,6 +179,25 @@ const GENToolsYouWillLearn = () => {
       image: "/assets/genAITools/rag.webp",
       category: "AI Agent Building",
     },
+
+    {
+      name: "n8n",
+      description: "Automation platform  for building AI workflows",
+      image: "/assets/genAITools/n8n-seeklogo.png",
+      category: "AI Deployment & Integration",
+    },
+    {
+      name: "langchain",
+      description: "Powerful framework for building AI applications",
+      image: "/assets/genAITools/langchain-seeklogo.png",
+      category: "AI Deployment & Integration",
+    },
+    {
+      name: "Hugging Face",
+      description: "Platform for sharing and deploying AI models",
+      image: "/assets/genAITools/huggingface.svg",
+      category: "AI Deployment & Integration",
+    },
     {
       name: "AWS",
       description: "Cloud platform for AI deployment and scaling",
@@ -197,12 +216,7 @@ const GENToolsYouWillLearn = () => {
       image: "/assets/genAITools/openai-logomark.svg",
       category: "AI Deployment & Integration",
     },
-    {
-      name: "Hugging Face",
-      description: "Platform for sharing and deploying AI models",
-      image: "/assets/genAITools/huggingface.svg",
-      category: "AI Deployment & Integration",
-    },
+
     {
       name: "Zapier",
       description: "Automation platform for integrating AI services",

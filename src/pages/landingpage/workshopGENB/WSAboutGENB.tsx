@@ -18,7 +18,7 @@ const WSAboutGENB = () => {
   const toolsRef = useRef(null);
 
   const allTools = [
-    { name: "GPT-4", img: "/assets/genAITools/gpt4.webp" },
+    { name: "Chat-GPT", img: "/assets/genAITools/gpt4.webp" },
     { name: "DeepSeek", img: "/assets/genAITools/deepseek.webp" },
     { name: "LLaMA", img: "/assets/genAITools/ollama.png" },
     { name: "Falcon", img: "/assets/genAITools/falcon.png" },

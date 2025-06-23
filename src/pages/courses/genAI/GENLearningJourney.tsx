@@ -30,7 +30,7 @@ const GENLearningJourney = () => {
         {
           title: "Week 2: Large Language Models (LLMs) & Text Generation",
           content: [
-            "Working with GPT-4, DeepSeek, Claude, Gemini",
+            "Working with Chat-GPT, DeepSeek, Claude, Gemini",
             "Mastering prompt engineering techniques",
             "API integration and fine-tuning",
           ],

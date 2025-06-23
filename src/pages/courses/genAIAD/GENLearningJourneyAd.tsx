@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Calendar, BookOpen, Cloud, Rocket, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Calendar, BookOpen, Cloud, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 
 interface MonthData {
@@ -29,15 +29,15 @@ const GENLearningJourneyAd = () => {
           content: [
             "Understanding AI, ML, and Generative AI fundamentals",
             "Hands-on with ChatGPT, DeepSeek, Midjourney, DALL·E",
-            "Setting up development environment and tools"
+            "Setting up development environment and tools",
           ],
         },
         {
           title: "Week 2: Large Language Models (LLMs) & Text Generation",
           content: [
-            "Working with GPT-4, DeepSeek, Claude, Gemini",
+            "Working with Chat-GPT, DeepSeek, Claude, Gemini",
             "Mastering prompt engineering techniques",
-            "API integration and fine-tuning"
+            "API integration and fine-tuning",
           ],
         },
         {
@@ -45,7 +45,7 @@ const GENLearningJourneyAd = () => {
           content: [
             "Understanding GANs and Diffusion Models",
             "Creating with Midjourney, DALL·E, Stable Diffusion",
-            "Video generation with Runway ML"
+            "Video generation with Runway ML",
           ],
         },
         {
@@ -53,10 +53,10 @@ const GENLearningJourneyAd = () => {
           content: [
             "Text-to-speech and voice cloning",
             "AI music generation and audio synthesis",
-            "Building audio applications"
+            "Building audio applications",
           ],
-        }
-      ]
+        },
+      ],
     },
     {
       title: "Month 2: AI Deployment & AI Agent Building",
@@ -67,15 +67,15 @@ const GENLearningJourneyAd = () => {
           content: [
             "Understanding AI ethics and bias",
             "Regulatory compliance and safety",
-            "Best practices in AI deployment"
-          ]
+            "Best practices in AI deployment",
+          ],
         },
         {
           title: "Week 6: Deploying & Scaling AI Models",
           content: [
             "Cloud deployment on AWS, GCP, Azure",
             "Model optimization and monitoring",
-            "Building scalable AI solutions"
+            "Building scalable AI solutions",
           ],
         },
         {
@@ -83,7 +83,7 @@ const GENLearningJourneyAd = () => {
           content: [
             "Understanding AI agents and architectures",
             "LangChain, AutoGen, and CrewAI development",
-            "Building autonomous AI systems"
+            "Building autonomous AI systems",
           ],
         },
         {
@@ -91,10 +91,10 @@ const GENLearningJourneyAd = () => {
           content: [
             "Multi-agent system development",
             "Real-world AI agent applications",
-            "Integration with external systems"
+            "Integration with external systems",
           ],
         },
-      ]
+      ],
     },
     {
       title: "Month 3: Building AI-Powered Applications & Capstone Project",
@@ -102,28 +102,24 @@ const GENLearningJourneyAd = () => {
       weeks: [
         {
           title: "Weeks 9-10: Capstone Project Development",
-          content: [
-            "Project planning and architecture",
-            "Development and testing",
-            "Performance optimization"
-          ]
+          content: ["Project planning and architecture", "Development and testing", "Performance optimization"],
         },
         {
           title: "Weeks 11-12: Final Presentation & Career Guidance",
           content: [
             "Project showcase and presentation",
             "Career path planning",
-            "Freelancing and business opportunities"
-          ]
-        }
-      ]
-    }
+            "Freelancing and business opportunities",
+          ],
+        },
+      ],
+    },
   ];
 
   const icons = {
     month1: BookOpen,
     month2: Cloud,
-    month3: Rocket
+    month3: Rocket,
   };
 
   const nextMonth = () => {
@@ -151,9 +147,7 @@ const GENLearningJourneyAd = () => {
               <Calendar className="w-4 h-4 text-blue-600" />
               <span className="text-blue-600 text-sm font-medium">Learning Journey</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Your Path to AI Mastery
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Your Path to AI Mastery</h2>
             <p className="text-gray-300 text-lg max-w-2xl">
               A comprehensive 3-month journey to master Generative AI and build real-world applications
             </p>
@@ -174,7 +168,7 @@ const GENLearningJourneyAd = () => {
                   key={index}
                   onClick={() => setActiveMonth(index)}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    activeMonth === index ? 'bg-blue-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'
+                    activeMonth === index ? "bg-blue-500 scale-125" : "bg-gray-600 hover:bg-gray-500"
                   }`}
                   aria-label={`Go to month ${index + 1}`}
                 />
@@ -221,9 +215,7 @@ const GENLearningJourneyAd = () => {
       </div>
       {/* CTA Section */}
       <div className="mt-12 text-center">
-        <p className="text-gray-300 text-lg mb-6">
-          Ready to start your AI learning journey?
-        </p>
+        <p className="text-gray-300 text-lg mb-6">Ready to start your AI learning journey?</p>
         <button
           onClick={handleModalOpen}
           className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 transform hover:scale-105"

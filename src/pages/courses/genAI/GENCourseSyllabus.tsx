@@ -6,7 +6,7 @@ const GENCourseSyllabus = () => {
     {
       month: "Month 1: Generative AI Fundamentals",
       topics: [
-        "Large Language Models (GPT-4, DeepSeek, Claude, Gemini, LLaMA, Falcon)",
+        "Large Language Models (Chat-GPT, DeepSeek, Claude, Gemini, LLaMA, Falcon)",
         "AI content automation, AI text generation, and chatbot development",
         "Image & video generation (Midjourney, Stable Diffusion, Runway ML)",
         "Speech & audio generation (ElevenLabs, OpenAI Whisper, DeepSeek Audio)",
@@ -36,17 +36,11 @@ const GENCourseSyllabus = () => {
   const tools = [
     {
       category: "Text & Language Models",
-      items: ["GPT-4", "DeepSeek", "LLaMA", "Falcon", "Claude", "Gemini"],
+      items: ["Chat-GPT", "DeepSeek", "LLaMA", "Falcon", "Claude", "Gemini"],
     },
     {
       category: "Image & Video AI",
-      items: [
-        "Midjourney",
-        "Stable Diffusion",
-        "DALL·E",
-        "Runway ML",
-        "Pika Labs",
-      ],
+      items: ["Midjourney", "Stable Diffusion", "DALL·E", "Runway ML", "Pika Labs"],
     },
     {
       category: "Speech & Audio AI",
@@ -76,8 +70,7 @@ const GENCourseSyllabus = () => {
               Course Syllabus
             </h2>
             <p className="text-lg text-gray-300">
-              A comprehensive curriculum covering all aspects of modern AI
-              development
+              A comprehensive curriculum covering all aspects of modern AI development
             </p>
           </div>
 
@@ -93,9 +86,7 @@ const GENCourseSyllabus = () => {
                     <month.icon className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-4">
-                      {month.month}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white mb-4">{month.month}</h3>
                     <div className="space-y-3">
                       {month.topics.map((topic, idx) => (
                         <div key={idx} className="flex items-start gap-3">
@@ -116,16 +107,12 @@ const GENCourseSyllabus = () => {
               <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
                 <Cloud className="w-5 h-5 text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-white">
-                Tools & Technologies Covered
-              </h3>
+              <h3 className="text-xl font-bold text-white">Tools & Technologies Covered</h3>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {tools.map((category, index) => (
                 <div key={index} className="space-y-3">
-                  <h4 className="text-lg font-semibold text-blue-400">
-                    {category.category}
-                  </h4>
+                  <h4 className="text-lg font-semibold text-blue-400">{category.category}</h4>
                   <div className="flex flex-wrap gap-2">
                     {category.items.map((tool, idx) => (
                       <span
