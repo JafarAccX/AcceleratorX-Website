@@ -41,7 +41,7 @@ const WSHeroGENC = () => {
         <div className="relative z-20 flex items-center justify-start h-full px-10 md:px-24">
           <div className="max-w-2xl text-white space-y-6 flex flex-col items-start justify-center">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">Social media lead gen magnet.</h1>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-5xl md:text-4xl font-bold leading-tight">
               Make your mark with <span className="text-black underline">make.com</span>
             </h1>
             {/* <p className="text-lg md:text-xl">Dream big, build fast, and grow far on Shopify.</p> */}
@@ -159,7 +159,7 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "22 Jun",
+                  value: "29 Jun",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
