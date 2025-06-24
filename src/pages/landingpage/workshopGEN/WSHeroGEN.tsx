@@ -40,9 +40,12 @@ const WSHeroGENC = () => {
         {/* Foreground Text */}
         <div className="relative z-20 flex items-start  pt-52 lg:pb-0 lg:items-center justify-start h-full px-10 md:px-24">
           <div className="max-w-2xl text-white space-y-6 flex flex-col items-start justify-center">
-            <h1 className="text-3xl md:text-6xl font-bold leading-tight">Social media lead gen magnet.</h1>
-            <h1 className="text-xl md:text-4xl font-bold leading-tight">
+            <h1 className="text-3xl md:text-6xl font-bold leading-tight">Social Media Lead Gen Magnet</h1>
+            <h1 className="text-xl md:text-4xl font-bold leading-tight flex items-start gap-2">
               Make your mark with <span className="text-black underline">make.com</span>
+              {/* <div className="w-20 h-20 flex items-center justify-center bg-white rounded-lg"> */}
+              <img src={"/make.webp"} alt={"make.com"} className="w-12 h-12 object-contain bg-white p-2 rounded-md" />
+              {/* </div> */}
             </h1>
             {/* <p className="text-lg md:text-xl">Dream big, build fast, and grow far on Shopify.</p> */}
             <button
