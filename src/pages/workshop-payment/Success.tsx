@@ -173,9 +173,9 @@ const Success = () => {
       time: "Feb 19, 2025 07:30 PM India",
     },
     GENAIWorkshop: {
-      link: "https://zoom.us/meeting/register/yG0rdYoCS3WsWGyBcyV1sg",
-      meetingId: "yG0rdYoCS3WsWGyBcyV1sg",
-      time: "22 Jun, 2025 11:00 AM India",
+      link: "https://zoom.us/meeting/register/_UMsYvzPRayKLzneFMoawQ",
+      meetingId: "_UMsYvzPRayKLzneFMoawQ",
+      time: "29 Jun, 2025 11:00 AM India",
     },
     DMWorkshop: {
       link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
