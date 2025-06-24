@@ -13,23 +13,24 @@ const WSAboutGEN = () => {
   };
 
   const allTools = [
-    { name: "Slack", img: "/assets/n8n/slack.webp" },
-    { name: "Gmail", img: "/assets/n8n/gmail.webp" },
-    { name: "Google Sheets", img: "/assets/n8n/sheets.webp" },
-    { name: "Airtable", img: "/assets/n8n/airtable.webp" },
-    { name: "Notion", img: "/assets/n8n/notion.webp" },
-    { name: "Trello", img: "/assets/n8n/trello.webp" },
-    { name: "ClickUp", img: "/assets/n8n/clickup.webp" },
-    { name: "HubSpot", img: "/assets/n8n/hubspot.webp" },
-    { name: "Stripe", img: "/assets/n8n/stripe.webp" },
-    { name: "OpenAI", img: "/assets/n8n/openai.webp" },
+    // { name: "Slack", img: "/assets/n8n/slack.webp" },
+    // { name: "Gmail", img: "/assets/n8n/gmail.webp" },
+    // { name: "Google Sheets", img: "/assets/n8n/sheets.webp" },
+    // { name: "Airtable", img: "/assets/n8n/airtable.webp" },
+    // { name: "Notion", img: "/assets/n8n/notion.webp" },
+    // { name: "Trello", img: "/assets/n8n/trello.webp" },
+    // { name: "ClickUp", img: "/assets/n8n/clickup.webp" },
+    // { name: "HubSpot", img: "/assets/n8n/hubspot.webp" },
+    // { name: "Stripe", img: "/assets/n8n/stripe.webp" },
+    // { name: "OpenAI", img: "/assets/n8n/openai.webp" },
+    { name: "Make", img: "/make.webp" },
   ];
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
-      <div className=" p-4 flex items-center justify-center mb-20 bg-gradient-to-r from-blue-500/20 to-green-500/20">
-        <div className="font-semibold tracking-wider text-xl md:text-3xl text-yellow-500  ">
-          Learn to Build Basic to Advance Flows
+      <div className=" p-4 flex items-center justify-center mb-20 text-blue-400 ">
+        <div className="font-semibold tracking-wider text-xl md:text-3xl">
+          Bonus: Get our ready-to-use templates & shortcuts.
         </div>
       </div>
       <div className="absolute inset-0 pointer-events-none">
@@ -37,9 +38,9 @@ const WSAboutGEN = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-900/20 rounded-full mix-blend-overlay blur-3xl"></div>
       </div>
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Image Section */}
-          <motion.div
+          {/* <motion.div
             className="w-full flex-col gap-4 lg:w-2/5 top-8 h-fit relative overflow-hidden rounded-2xl shadow-2xl border border-white/10 max-w-[400px] mx-auto"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -56,11 +57,56 @@ const WSAboutGEN = () => {
               <source src="/assets/videos/n8n.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+          </motion.div> */}
+
+          <motion.div
+          // ref={toolsRef}
+          // className="bg-[#111111] rounded-2xl shadow-lg p-6 border border-gray-800"
+          // {...fadeInUp}
+          >
+            {/* <h2 className="text-2xl font-bold text-white mb-6">Tools You'll Learn</h2> */}
+            <div className="relative overflow-hidden">
+              {/* <motion.div
+                className="flex  "
+                // initial={{ opacity: 0 }}
+                // animate={{ opacity: isInView ? 1 : 0 }}
+                // transition={{ duration: 0.5 }}
+              > */}
+              {/* <motion.div
+                className="flex flex-wrap gap-4 px-4"
+                // animate={{
+                //   x: [0, -100 * allTools.length],
+                // }}
+                // transition={{
+                //   x: {
+                //     repeat: Infinity,
+                //     repeatType: "loop",
+                //     duration: allTools.length * 2,
+                //     ease: "linear",
+                //   },
+                // }}
+              >
+                  {[...allTools, ...allTools].map((tool, index) => ( 
+                
+                  <motion.div
+                    key={index}
+                    // className="flex-shrink-0 w-20 h-20 bg-[#1A1A1A] rounded-xl shadow-sm hover:shadow-md transition-all p-3 flex flex-col items-center justify-center gap-1 border border-gray-800/30"
+                    // whileHover={{ scale: 1.1, y: -5 }}
+                  >
+                    <div className="w-20 h-20 flex items-center justify-center bg-white rounded-lg">
+                      <img src={tool.img} alt={tool.name} className="w-12 h-12 object-contain" />
+                    </div>
+                    <p className="text-[10px] font-medium text-gray-300 text-center line-clamp-1">{tool.name}</p>
+                  </motion.div>
+                ))}
+              </motion.div> */}
+              {/* </motion.div> */}
+            </div>
           </motion.div>
 
           {/* Right Content Section */}
           <motion.div
-            className="w-full lg:w-3/5 space-y-8"
+            className="w-full space-y-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -97,28 +143,10 @@ const WSAboutGEN = () => {
                   whileInView={{ opacity: [0, 1], y: [20, 0] }}
                   transition={{ duration: 0.5 }}
                 >
-                  Streamline Your Workflow: Automate Daily Tasks with Generative AI Tools!{" "}
+                  Make.com vs n8n
                 </motion.h2>
 
                 <div className="space-y-6">
-                  <motion.div
-                    className="bg-gradient-to-r from-white/[0.05] to-transparent backdrop-blur-sm rounded-xl p-6 border border-white/10"
-                    whileHover={{ scale: 1.01 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <p className="text-gray-300 leading-relaxed">
-                      Join our hands-on workshop on{" "}
-                      <motion.span className="font-semibold text-blue-400" whileHover={{ scale: 1.05 }}>
-                        June 15, 2025
-                      </motion.span>{" "}
-                      at{" "}
-                      <motion.span className="text-blue-400" whileHover={{ scale: 1.05 }}>
-                        11:30 AM
-                      </motion.span>
-                      . Learn How to Automate Your Daily Workflow Using AI in Minutes!
-                    </p>
-                  </motion.div>
-
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <motion.div
                       className="bg-gradient-to-r bg-[#111111] from-blue-500/5 to-transparent p-6 rounded-xl border border-blue-900"
@@ -128,22 +156,19 @@ const WSAboutGEN = () => {
                       }}
                       transition={{ duration: 0.2 }}
                     >
-                      <motion.div className="flex items-center gap-3 mb-4" whileHover={{ gap: "0.875rem" }}>
-                        <motion.div
-                          className="p-2 bg-blue-500/10 rounded-lg"
-                          whileHover={{ rotate: [0, -5, 5, 0] }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <Brain className="w-5 h-5 text-blue-400" />
-                        </motion.div>
-                        <h3 className="font-semibold text-white">Workshop Highlights</h3>
+                      <motion.div className="flex flex-col items-start gap-3 mb-4" whileHover={{ gap: "0.875rem" }}>
+                        <div className="w-20 h-20 flex items-center justify-center bg-white rounded-lg">
+                          <img src={"/make.webp"} alt={"make.com"} className="w-12 h-12 object-contain" />
+                        </div>
+                        <h3 className="font-semibold text-white">Make.com</h3>
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "Live AI Tool Demonstrations",
-                          "Step-by-Step Guidance",
-                          "Interactive Q&A Session",
-                          "Practice Exercises",
+                          "No code. Drag & drop UI",
+                          "Super fast – Start automating in minutes",
+                          "Marketers, Founders, SMBs",
+                          "1000+ apps pre-built",
+                          "Free + Affordable paid plans",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -168,25 +193,23 @@ const WSAboutGEN = () => {
                       }}
                       transition={{ duration: 0.2 }}
                     >
-                      <motion.div className="flex items-center gap-3 mb-4" whileHover={{ gap: "0.875rem" }}>
-                        <motion.div
-                          className="p-2 bg-green-500/10 rounded-lg"
-                          whileHover={{ rotate: [0, -5, 5, 0] }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <Target className="w-5 h-5 text-green-400" />
-                        </motion.div>
-                        <h3 className="font-semibold text-white">What You'll Learn</h3>
+                      <motion.div className="flex flex-col items-start gap-3 mb-4" whileHover={{ gap: "0.875rem" }}>
+                        <div className="w-20 h-20 flex items-center justify-center bg-white rounded-lg">
+                          <img
+                            src={"/assets/genAITools/n8n-seeklogo.png"}
+                            alt={"n8n"}
+                            className="w-12 h-12 object-scale-down"
+                          />
+                        </div>
+                        <h3 className="font-semibold text-white">n8n</h3>
                       </motion.div>
                       <ul className="space-y-3">
                         {[
-                          "AI-Powered Workflow Automation",
-
-                          "Smart Task Management with AI",
-
-                          "Effortless Email & Document Automation",
-
-                          "AI-Driven Research & Analysis",
+                          "Low-code. Needs some technical setup",
+                          "Requires hosting or tech configuration",
+                          "Developers, Tech-Savvy Automators",
+                          "Fewer native apps, but highly customizable",
+                          "Free (self-hosted), Paid cloud version",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -204,51 +227,6 @@ const WSAboutGEN = () => {
                     </motion.div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Tools Section */}
-            <motion.div
-              ref={toolsRef}
-              className="bg-[#111111] rounded-2xl shadow-lg p-6 border border-gray-800"
-              {...fadeInUp}
-            >
-              <h2 className="text-2xl font-bold text-white mb-6">Tools You'll Learn</h2>
-              <div className="relative overflow-hidden">
-                <motion.div
-                  className="flex overflow-hidden"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: isInView ? 1 : 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <motion.div
-                    className="flex gap-4 px-4"
-                    animate={{
-                      x: [0, -100 * allTools.length],
-                    }}
-                    transition={{
-                      x: {
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: allTools.length * 2,
-                        ease: "linear",
-                      },
-                    }}
-                  >
-                    {[...allTools, ...allTools].map((tool, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex-shrink-0 w-20 h-20 bg-[#1A1A1A] rounded-xl shadow-sm hover:shadow-md transition-all p-3 flex flex-col items-center justify-center gap-1 border border-gray-800/30"
-                        whileHover={{ scale: 1.1, y: -5 }}
-                      >
-                        <div className="w-10 h-10 flex items-center justify-center bg-white rounded-lg">
-                          <img src={tool.img} alt={tool.name} className="w-8 h-8 object-contain" />
-                        </div>
-                        <p className="text-[10px] font-medium text-gray-300 text-center line-clamp-1">{tool.name}</p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </motion.div>
               </div>
             </motion.div>
 

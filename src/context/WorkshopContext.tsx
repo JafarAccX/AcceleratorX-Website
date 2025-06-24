@@ -49,11 +49,11 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  title: "Automate workflows using n8n - Basic to Advance",
-  link: "https://zoom.us/meeting/register/yG0rdYoCS3WsWGyBcyV1sg",
-  meetingId: "yG0rdYoCS3WsWGyBcyV1sg",
-  time: "22 Jun, 2025 11:00 AM India",
-  meetingCode: "94533549753",
+  title: "Automate workflows using make.com",
+  link: "https://zoom.us/meeting/register/_UMsYvzPRayKLzneFMoawQ",
+  meetingId: "_UMsYvzPRayKLzneFMoawQ",
+  time: "29 Jun, 2025 11:00 AM India",
+  meetingCode: "91800954050",
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {

@@ -14,14 +14,14 @@ const Events = () => {
       mode: "Online (Zoom)",
       time: "June 21, 2025 11:30 AM",
       link: "/workshop/gen-ai-masterclass-thidtx",
-      completed: false,
+      completed: true,
     },
     {
       name: "Automate workflows using n8n - Basic to Advance",
       mode: "Online (Zoom)",
       time: "June 22, 2025 11:00 AM",
       link: "/workshop/gen-ai-masterclass",
-      completed: false,
+      completed: true,
     },
     {
       name: "Build your first AI Analyst Live",

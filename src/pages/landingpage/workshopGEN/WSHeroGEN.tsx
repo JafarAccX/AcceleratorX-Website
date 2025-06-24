@@ -2,34 +2,57 @@ import WSForm from "../workshop/WSForm";
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaClock, FaLevelUpAlt, FaUserGraduate } from "react-icons/fa";
+import { useEffect, useRef } from "react";
 
 const WSHeroGENC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.7; // Adjust speed here (e.g., 2 for 2x)
+    }
+  }, []);
+
+  const handleEnrollClick = () => {
+    const formSection = document.getElementById("workshop-form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#0A0F1F] to-black px-4">
-      {/* AI-themed Background Pattern */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-          style={{ opacity: 0.3 }}
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#0A0F1F] to-black ">
+      <div className="relative w-full h-screen overflow-hidden">
+        {/* Background Video */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src="/make_com_out_6.mp4"
         />
 
-        {/* Animated Gradient Orbs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="absolute top-20 right-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-          className="absolute bottom-20 left-20 w-96 h-96 bg-green-600/10 rounded-full blur-3xl"
-        />
+        {/* Overlay for dark effect */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+
+        {/* Foreground Text */}
+        <div className="relative z-20 flex items-center justify-start h-full px-10 md:px-24">
+          <div className="max-w-2xl text-white space-y-6 flex flex-col items-start justify-center">
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">Social media lead gen magnet.</h1>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              Make your mark with <span className="text-black underline">make.com</span>
+            </h1>
+            {/* <p className="text-lg md:text-xl">Dream big, build fast, and grow far on Shopify.</p> */}
+            <button
+              onClick={handleEnrollClick}
+              className="bg-white text-black px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-200 transition"
+            >
+              Register now
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Header Logo */}
@@ -37,7 +60,7 @@ const WSHeroGENC = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="absolute top-0 left-0 w-full z-20 bg-gradient-to-b from-black/90 to-transparent"
+        className="absolute top-0 left-0 w-full z-20 bg-gradient-to-b from-black/90 to-transparent "
       >
         <div className="container mx-auto   py-4 flex justify-between items-center">
           <div className="w-44 md:w-52 hover:scale-105 transition-transform duration-300">
@@ -46,7 +69,7 @@ const WSHeroGENC = () => {
         </div>
       </motion.div>
 
-      <div className="container mx-auto px-0  ">
+      <div className="container mx-auto px-4  ">
         <div className="relative space-y-8 grid grid-cols-1 md:grid-cols-5  items-center justify-center md:gap-12 pt-32 lg:pt-36">
           {/* Content Section */}
           <motion.div
@@ -88,101 +111,34 @@ const WSHeroGENC = () => {
                 transition={{ duration: 0.8 }}
                 className=" text-3xl lg:text-4xl font-bold leading-tight"
               >
-                <div className="flex items-center gap-4">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
-                    <span className=" text-yellow-400 underline ">Automate Workflows Using n8n </span> <br />– Practical
-                    Implementation <br /> (Basic to Advance)
+                <div className="space-y-4">
+                  <span className="text-white">Turn Your Social Media Into a Lead Machine</span>
+                  <span className=" text-gray-400">
+                    <br />– Without Big Team
                   </span>
-
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="flex gap-2"
-                  >
-                    {" "}
-                  </motion.div>
                 </div>
               </motion.h1>
 
               {/* Funky "Missed Part One" Message */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="flex items-center gap-3 text-xl max-w-xl"
-              >
-                <motion.span
-                  className="  font-bold"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  Missed Part Two?
-                </motion.span>
-
-                <motion.div
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="flex items-center gap-2"
-                >
-                  <span className="text-2xl">→</span>
-                  <span className="text-2xl">→</span>
-                </motion.div>
-
-                <motion.div className="relative" whileHover={{ scale: 1.05 }}>
-                  <motion.span
-                    className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-900 font-extrabold text-xl"
-                    animate={{
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    style={{ backgroundSize: "200% 200%" }}
-                  >
-                    Reserve Your Slot!
-                  </motion.span>
-
-                  {/* Glowing underline effect */}
-                  <motion.div
-                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-yellow-400 to-red-500"
-                    animate={{
-                      width: ["0%", "100%", "0%"],
-                      opacity: [0, 1, 0],
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                  />
-                </motion.div>
-              </motion.div>
-
+              <p className=" text-gray-400">
+                Join our hands-on webinar where we’ll walk you through how to use Make.com to build lead-generation
+                workflows that work while you sleep.
+              </p>
               {/* Price Tag - Enhanced */}
-              <motion.div
-                className="flex flex-col items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border w-full border-blue-500/20"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
+              <div className="flex flex-col items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl backdrop-blur-sm border w-full border-blue-500/20">
                 <div className="flex justify-between  items-center w-full  ">
                   <div>
-                    <motion.h3
-                      className="text-xl font-bold text-white mb-1"
-                      animate={{ opacity: [0.8, 1, 0.8] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      Price
-                    </motion.h3>
+                    <h3 className="text-xl font-bold text-white mb-1">Price</h3>
                     <p className="text-sm text-gray-400">Avail now to get the offer</p>
                   </div>
                   <div className="text-right">
-                    <motion.p
-                      className="text-3xl font-bold text-white"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <span className=" text-gray-400 font-light line-through mx-4">₹299</span>
-                      ₹199
-                    </motion.p>
+                    <p className="text-3xl font-bold text-white">
+                      <span className=" text-gray-400 font-light line-through mx-4">₹199</span>
+                      ₹99
+                    </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Primary CTA Button */}
             </div>
@@ -190,9 +146,9 @@ const WSHeroGENC = () => {
               <motion.div
                 animate={{ opacity: [1, 0.7, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="text-yellow-500 text-sm font-medium"
+                className="text-blue-400  text-sm font-medium"
               >
-                * The first 50 people pay ₹199, and then it becomes ₹299!
+                * The first 50 people pay ₹99, and then it becomes ₹199!
               </motion.div>
             </div>
 
@@ -233,7 +189,7 @@ const WSHeroGENC = () => {
           >
             <div className="relative w-full mx-auto ">
               {/* Animated border glow */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl blur opacity-75 group-hover:opacity-100 animate-pulse"></div>
+              {/* <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl blur opacity-75 group-hover:opacity-100 animate-pulse"></div> */}
 
               {/* Form Container */}
               <div className="relative bg-gradient-to-b my-2 from-[#1A1F2B] to-[#141820] p-6 rounded-2xl shadow-2xl">

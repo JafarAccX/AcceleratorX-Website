@@ -4,15 +4,19 @@ const WSGENIntroductionC = () => {
   const stats = [
     {
       value: "70%",
-      label: "Time Saved by Automating Routine Tasks",
+      label: "Auto-create content",
     },
     {
       value: "75%",
-      label: "of Teams Will Rely on Automation Tools by 2026",
+      label: "Schedule & post it",
     },
     {
       value: "No Coding",
-      label: "Needed to Build Powerful Automations",
+      label: "Capture leads instantly",
+    },
+    {
+      value: "No Coding",
+      label: "Enrich them with data",
     },
   ];
 
@@ -75,32 +79,31 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">Automate Workflows Without Coding</span>
+            <span className="text-sm text-blue-400 font-medium">Build This in the Webinar</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Live <span className="text-blue-500">Workflow Creationg & Walk through</span>— No theory
+            <span className="text-blue-500">What if your social media could generate leads while you sleep?</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            Streamline repetitive tasks, integrate tools, and boost efficiency using visual, no-code automations with
-            n8n.
+            In this session, we’ll help you set up a complete automation system using Make.com to:
           </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
             {stats.map((stat, index) => (
               <div key={index} className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/30">
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-lg md:text-xl font-semibold text-white mb-1">{stat.label}</div>
+                {/* <div className="text-sm text-gray-400">{stat.value}</div> */}
               </div>
             ))}
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -113,7 +116,7 @@ const WSGENIntroductionC = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div>*/}
           <div className="flex justify-center items-center mt-6">
             <button
               onClick={scrollToForm}
