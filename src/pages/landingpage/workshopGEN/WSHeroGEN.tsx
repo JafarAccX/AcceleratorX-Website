@@ -38,10 +38,10 @@ const WSHeroGENC = () => {
         <div className="absolute inset-0 bg-black/50 z-10" />
 
         {/* Foreground Text */}
-        <div className="relative z-20 flex items-center justify-start h-full px-10 md:px-24">
+        <div className="relative z-20 flex items-end pb-40 lg:p-0 lg:items-center justify-start h-full px-10 md:px-24">
           <div className="max-w-2xl text-white space-y-6 flex flex-col items-start justify-center">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">Social media lead gen magnet.</h1>
-            <h1 className="text-5xl md:text-4xl font-bold leading-tight">
+            <h1 className="text-xl md:text-6xl font-bold leading-tight">Social media lead gen magnet.</h1>
+            <h1 className="text-xl md:text-4xl font-bold leading-tight">
               Make your mark with <span className="text-black underline">make.com</span>
             </h1>
             {/* <p className="text-lg md:text-xl">Dream big, build fast, and grow far on Shopify.</p> */}
