@@ -316,11 +316,16 @@ export default function Navbar() {
             <ProfileMenu />
           ) : (
             <div className="flex flex-col items-center space-y-4">
-              <Link to="/sign-in" className={`text-gray-300 hover:text-white w-full ${hoverTransition} py-2 px-4`}>
+              <Link
+                to="/sign-in"
+                onClick={() => setIsOpen(false)}
+                className={`text-gray-300 hover:text-white w-full ${hoverTransition} py-2 px-4`}
+              >
                 Login
               </Link>
               <Link
                 to="/sign-up"
+                onClick={() => setIsOpen(false)}
                 className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90  w-full text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
               >
                 Sign Up
