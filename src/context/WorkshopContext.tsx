@@ -49,7 +49,7 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
-  title: "Automate workflows using make.com",
+  title: "Social Media Lead Gen Magnet using make.com",
   link: "https://zoom.us/meeting/register/_UMsYvzPRayKLzneFMoawQ",
   meetingId: "_UMsYvzPRayKLzneFMoawQ",
   time: "29 Jun, 2025 11:00 AM India",

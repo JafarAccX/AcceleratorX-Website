@@ -10,6 +10,13 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Social Media Lead Gen Magnet using make.com",
+      mode: "Online (Zoom)",
+      time: "June 29, 2025 11:30 AM IST",
+      link: "/workshop/gen-ai-masterclass",
+      completed: false,
+    },
+    {
       name: "Automate workflows using n8n - Practical Implementation",
       mode: "Online (Zoom)",
       time: "June 21, 2025 11:30 AM",

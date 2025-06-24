@@ -2,6 +2,18 @@ import React from "react";
 import { Users, Briefcase, Brain, Code, Laptop } from "lucide-react";
 
 const WSGENWhoShouldEnrollC = () => {
+  const scrollToForm = () => {
+    const form = document.getElementById("workshop-registration-form");
+    if (form) {
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    } else {
+      console.error('Form element not found with ID "workshop-registration-form"');
+    }
+  };
+
   const targetAudience = [
     {
       icon: Briefcase,
@@ -29,7 +41,7 @@ const WSGENWhoShouldEnrollC = () => {
 
   return (
     <section className="relative py-12 bg-black px-4  ">
-      <div className="container mx-auto px-3 relative z-10 space-y-52">
+      <div className="container mx-auto px-3 relative z-10 space-y-24">
         <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
           {/* Target Audience Grid */}
           {/* <div className="  grid sm:grid-cols-2 gap-4">
@@ -56,12 +68,12 @@ const WSGENWhoShouldEnrollC = () => {
                 <Users className="w-4 h-4 text-blue-600" />
                 <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              <h2 className="text-xl md:text-4xl font-bold mb-3">
                 <span className="text-blue-500">
                   Real-Time Integrations <br /> Let us Show You
                 </span>
               </h2>
-              <p className="text-lg text-blue-100 mb-4">
+              <p className=" md:text-lg text-blue-100 mb-4">
                 Join us and learn how to build real-world workflow automations using make.com —no technical background
                 required.
               </p>
@@ -83,6 +95,14 @@ const WSGENWhoShouldEnrollC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
         </div>
+        <div className="flex justify-center items-center mt-6 mx-auto max-w-[200px]">
+          <button
+            onClick={scrollToForm}
+            className="block w-full mt-4 px-6 py-3 max-w-screen-sm bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+          >
+            Register Now
+          </button>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
           <div className="relative w-full rounded-2xl overflow-hidden">
             <img
@@ -99,7 +119,7 @@ const WSGENWhoShouldEnrollC = () => {
                 <Users className="w-4 h-4 text-blue-600" />
                 <span className="text-blue-600 text-sm font-medium">POST-WEBINAR VALUE</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-blue-500">
+              <h2 className="text-xl md:text-4xl font-bold mb-3 text-blue-500">
                 This Isn’t Just a Workshop <br />
                 <span className="text-white">– It’s a System.</span>
               </h2>

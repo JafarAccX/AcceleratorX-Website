@@ -21,7 +21,7 @@ const GENCTA = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4"
         >
-          <h2 className="text-3xl font-bold text-white">Don’t Just Scroll. Automate.</h2>
+          <h2 className="text-xl md:text-3xl font-bold text-white">Don’t Just Scroll. Automate.</h2>
           <p className="text-gray-400 text-base">This is not another “watch and forget” session.</p>
           <p className="text-gray-300 text-base">
             This is your shortcut to turning social media into a lead-gen machine using{" "}

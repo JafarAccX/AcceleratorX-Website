@@ -83,7 +83,7 @@ const WSGENIntroductionC = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
+          <h1 className="text-2xl text-white md:text-5xl font-bold mb-4">
             <span className="text-blue-500">What if your social media could generate leads while you sleep?</span>
           </h1>
 

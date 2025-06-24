@@ -28,9 +28,9 @@ const WSAboutGEN = () => {
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
-      <div className=" p-4 flex items-center justify-center mb-20 text-blue-400 ">
+      <div className=" p-4 flex items-center justify-center text-center mb-10 md:mb-20 text-blue-400 ">
         <div className="font-semibold tracking-wider text-xl md:text-3xl">
-          Bonus: Get our ready-to-use templates & shortcuts.
+          Bonus: Get our ready-to-use templates & shortcuts
         </div>
       </div>
       <div className="absolute inset-0 pointer-events-none">
