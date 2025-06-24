@@ -35,19 +35,19 @@ const WSHeroGENC = () => {
         />
 
         {/* Overlay for dark effect */}
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-black/70 z-10" />
 
         {/* Foreground Text */}
-        <div className="relative z-20 flex items-end pb-40 lg:pb-0 lg:items-center justify-start h-full px-10 md:px-24">
+        <div className="relative z-20 flex items-start  pt-52 lg:pb-0 lg:items-center justify-start h-full px-10 md:px-24">
           <div className="max-w-2xl text-white space-y-6 flex flex-col items-start justify-center">
-            <h1 className="text-xl md:text-6xl font-bold leading-tight">Social media lead gen magnet.</h1>
+            <h1 className="text-3xl md:text-6xl font-bold leading-tight">Social media lead gen magnet.</h1>
             <h1 className="text-xl md:text-4xl font-bold leading-tight">
               Make your mark with <span className="text-black underline">make.com</span>
             </h1>
             {/* <p className="text-lg md:text-xl">Dream big, build fast, and grow far on Shopify.</p> */}
             <button
               onClick={handleEnrollClick}
-              className="bg-white text-black px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-200 transition"
+              className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-200 transition"
             >
               Register now
             </button>
