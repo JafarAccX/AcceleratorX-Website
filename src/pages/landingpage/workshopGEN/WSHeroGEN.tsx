@@ -38,15 +38,15 @@ const WSHeroGENC = () => {
         <div className="absolute inset-0 bg-black/70 z-10" />
 
         {/* Foreground Text */}
-        <div className="relative z-20 flex items-start  pt-52 lg:pb-0 lg:items-center justify-start h-full px-10 md:px-24">
-          <div className="max-w-2xl text-white space-y-6 flex flex-col items-center lg:items-start justify-between  h-[400px] pt-20">
+        <div className="relative z-20 flex items-start pb-20  pt-52 lg:pb-0 lg:items-center justify-start h-full px-10 md:px-24">
+          <div className="max-w-2xl text-white space-y-6 flex flex-col items-center lg:items-start justify-between  h-[400px] pb-24">
             <h1 className="text-3xl md:text-6xl font-bold leading-tight text-center lg:text-start">
               Social Media Lead Gen Magnet
             </h1>
-            <h1 className="text-xl md:text-4xl font-bold leading-tight md:flex items-start gap-2">
+            <h1 className="text-xl md:text-4xl font-bold leading-tight text-center lg:text-start md:flex items-center gap-2 md:gap-0">
               Make your mark with
-              <span className="text-black underline flex gap-2 items-center">
-                make.com{" "}
+              <span className="pl-8 md:pl-2 flex items-center mx-auto text-start gap-2">
+                <span className="text-[#daaaff] underline flex gap-2 items-center">make.com </span>{" "}
                 <img
                   src={"/make.webp"}
                   alt={"make.com"}
