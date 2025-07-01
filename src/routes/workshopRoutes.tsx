@@ -10,6 +10,7 @@ import WSMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
 import WSGENMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
 import WSHeroDASecond from "../pages/landingpage/WorkshopDASecond/WSHeroDASecond";
 import WSAboutDASecond from "../pages/landingpage/WorkshopDASecond/WSAboutDASecond";
+import WSFIOSection from "../pages/landingpage/WorkshopDASecond/WSIOSection";
 import WSTestimonialDASecond from "../pages/landingpage/WorkshopDASecond/WSTestimonialDASecond";
 
 // Workshop Components
@@ -50,6 +51,7 @@ const WorkshopPageDASecond = () => (
   <>
     <WSHeroDASecond />
     <WSAboutDASecond />
+    <WSFIOSection />
     <WSTestimonialDASecond />
   </>
 );

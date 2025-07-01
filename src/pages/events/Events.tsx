@@ -10,11 +10,18 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Build Your Own AI Agents Live",
+      mode: "Online (Zoom)",
+      time: "July 7, 2025 8:30 PM",
+      link: "/workshop/da-masterclass-bxwxy",
+      completed: true,
+    },
+    {
       name: "Social Media Lead Gen Magnet using make.com",
       mode: "Online (Zoom)",
       time: "June 29, 2025 11:30 AM IST",
       link: "/workshop/gen-ai-masterclass",
-      completed: false,
+      completed: true,
     },
     {
       name: "Automate workflows using n8n - Practical Implementation",

@@ -2,21 +2,130 @@ import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 import WSFormFree from "../workshopGENB/WSFormFree";
 
+import { motion } from "framer-motion"; 
+
+
 const WSHeroDASecond = () => {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#0A0F1C] to-[#121a2e]">
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-purple-500/5 to-green-500/10"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(24,119,242,0.15),rgba(0,0,0,0))]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(76,29,149,0.1),rgba(0,0,0,0))]"></div>
+    <>
+    
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#1d112b] to-[#0b0a12] px-6 py-24 text-white">
+      {/* Background placeholder */}
+      <div className="absolute top-0 left-0 right-0 bottom-0 inset-0 z-0">
+        <img
+          src="/assets/workshop-blobs/lp_bg.jpg"
+          alt="background"
+          className="h-full w-full object-cover opacity-30"
+        />
+      </div>
 
-        {/* Animated particles */}
+     
+
+      <motion.img
+        src={'/assets/genAITools/huggingface.svg'}
+        alt="BTC"
+        className="absolute object-contain top-10 left-10 h-12 w-12 rounded-xl border border-orange-500  p-1"
+        initial={{ y: -10 }}
+        animate={{ y: 10 }}
+        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+      />
+      <motion.img
+        src={'/assets/genAITools/openai-logomark.svg'}
+        alt="USDT"
+        className="absolute bg-white/50 object-contain bottom-20 left-24 h-12 w-12 rounded-xl border border-green-500  p-1"
+        initial={{ y: 10 }}
+        animate={{ y: -10 }}
+        transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+      />
+      <motion.img
+        src={'/assets/genAITools/zapier.webp'}
+        alt="USDC"
+        className="absolute top-20 right-24 object-contain h-12 w-12 rounded-xl border border-blue-500  p-1"
+        initial={{ y: -10 }}
+        animate={{ y: 10 }}
+        transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
+      />
+      <motion.img
+        src={'/assets/genAITools/autogen.jpeg'}
+        alt="USDC"
+         className="absolute bottom-36 object-contain left-80 h-12 w-12 rounded-xl border border-yellow-400  p-1"
+        initial={{ y: -10 }}
+        animate={{ y: 10 }}
+        transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
+      />
+      <motion.img
+        src={'/assets/genAITools/langchain-seeklogo.png'}
+        alt="USDC"
+         className="absolute bottom-36 bg-white object-contain right-80 h-12 w-12 rounded-xl border border-yellow-400  p-1"
+        initial={{ y: -10 }}
+        animate={{ y: 10 }}
+        transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
+      />
+      <motion.img
+        src={'/assets/genAITools/crewai.webp'}
+        alt="BNB"
+        className="absolute object-contain bottom-10 right-10 h-12 w-12 rounded-xl border border-yellow-400  p-1"
+        initial={{ y: 10 }}
+        animate={{ y: -10 }}
+        transition={{ duration: 3.5, repeat: Infinity, repeatType: "reverse" }}
+      />
+
+      
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
+        <motion.h1
+          className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Build Your Own   
+          <br className="hidden sm:block" /> AI Agent
+        </motion.h1>
+
+        <motion.p
+          className="mt-6 text-lg text-gray-300"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          A 90-minute live session where professionals like you go from zero to launching your own AI agent — no complex coding, no prior AI experience needed.
+        </motion.p>
+
+        <motion.div
+          className="mt-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          <button onClick={() => {
+                // console.log('WSAbout: Register button clicked');
+                const form = document.getElementById("workshop-registration-form");
+                console.log("WSAbout: Form element found:", form);
+                if (form) {
+                  // console.log('WSAbout: Attempting to scroll to form');
+                  form.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                  // console.log('WSAbout: Scroll command executed');
+                } else {
+                  // console.error('WSAbout: Form element not found with ID "workshop-registration-form"');
+                }
+              }} className="rounded-full  px-6 py-3 text-sm font-semibold text-black shadow-md transition bg-gray-200">
+            Reserve My Spot Now ↗
+          </button>
+        </motion.div>
+      </div>
+    </div>
+      <div className="relative min-h-screen overflow-x-hidden">
+       
+      <div className="absolute inset-0">
+        
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(100)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-blue-500/20"
+              className="absolute rounded-full bg-blue-500/30"
               style={{
                 width: `${Math.random() * 8 + 2}px`,
                 height: `${Math.random() * 8 + 2}px`,
@@ -29,27 +138,17 @@ const WSHeroDASecond = () => {
           ))}
         </div>
 
-        {/* Decorative geometric shapes */}
+         
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/5 to-green-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Enhanced Logo Section */}
-      <div className="absolute top-0 left-0 w-full z-20">
-        <div className="container mx-auto px-4 py-6 flex justify-center md:justify-start">
-          <div className="w-40 md:w-48 relative group">
-            <div className="absolute inset-0 blur-xl bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-green-500/30 rounded-full group-hover:scale-110 transition-all duration-300"></div>
-            <div className="relative bg-black/80 backdrop-blur-xl rounded-2xl p-3 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-              <img src="/assets/logo/logo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between pt-32 pb-16 lg:pt-40 lg:pb-24 gap-12">
-          {/* Main Content Section */}
-          <div className="w-full lg:w-3/5 text-center lg:text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-2  max-w-screen-lg mx-auto items-center justify-between pt-32 pb-16 lg:pt-40 lg:pb-24 gap-12">
+         
+          <div className="w-full  text-center lg:text-left">
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/40 transition-all duration-300">
                 <span className="animate-ping absolute h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
@@ -57,15 +156,6 @@ const WSHeroDASecond = () => {
                 <span className="text-blue-400 text-sm font-medium">Live Masterclass</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-300">
-                  Build Your First AI Analyst
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-emerald-400 via-indigo-400 to-cyan-400 text-transparent bg-clip-text  ">
-                  — Live!
-                </span>
-              </h1>
 
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Discover how to turn raw data into real insights using AI — without writing a single line of code. In
@@ -73,7 +163,7 @@ const WSHeroDASecond = () => {
                 guided workflows. Perfect for beginners curious about the power of AI in analytics.
               </p>
 
-              {/* Enhanced Key Features */}
+               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 {[
                   {
@@ -112,14 +202,14 @@ const WSHeroDASecond = () => {
             </div>
           </div>
 
-          {/* Form Section */}
-          <div className="w-full lg:w-2/5">
+          
+          <div className="w-full ">
             <div className="relative">
-              {/* Decorative elements */}
+              
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
               <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
 
-              {/* Form container with enhanced styling */}
+             
               <div
                 className="relative z-10 bg-black/60 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-2xl"
                 id="workshop-registration-form"
@@ -136,7 +226,7 @@ const WSHeroDASecond = () => {
         </div>
       </div>
 
-      {/* Animated CSS */}
+       
       <style jsx>{`
         @keyframes float {
           0% {
@@ -162,7 +252,8 @@ const WSHeroDASecond = () => {
           }
         }
       `}</style>
-    </div>
+    </div>  
+    </>
   );
 };
 
