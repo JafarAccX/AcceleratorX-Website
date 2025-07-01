@@ -24,7 +24,7 @@ const WSHeroDASecond = () => {
       <motion.img
         src={'/assets/genAITools/huggingface.svg'}
         alt="BTC"
-        className="absolute object-contain top-10 left-10 h-12 w-12 rounded-xl border border-orange-500  p-1"
+        className="absolute object-contain top-10 left-10 h-12 w-12  md:h-20 md:w-20 rounded-xl    p-1"
         initial={{ y: -10 }}
         animate={{ y: 10 }}
         transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
@@ -32,7 +32,7 @@ const WSHeroDASecond = () => {
       <motion.img
         src={'/assets/genAITools/openai-logomark.svg'}
         alt="USDT"
-        className="absolute bg-white/50 object-contain bottom-20 left-24 h-12 w-12 rounded-xl border border-green-500  p-1"
+        className="absolute bg-white/50 object-contain bottom-20 left-24 h-12 w-12  md:h-20 md:w-20 rounded-xl    p-1"
         initial={{ y: 10 }}
         animate={{ y: -10 }}
         transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
@@ -40,7 +40,7 @@ const WSHeroDASecond = () => {
       <motion.img
         src={'/assets/genAITools/zapier.webp'}
         alt="USDC"
-        className="absolute top-20 right-24 object-contain h-12 w-12 rounded-xl border border-blue-500  p-1"
+        className="absolute top-20 right-24 object-contain h-12 w-12  md:h-20 md:w-20 rounded-xl   p-1"
         initial={{ y: -10 }}
         animate={{ y: 10 }}
         transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
@@ -48,7 +48,7 @@ const WSHeroDASecond = () => {
       <motion.img
         src={'/assets/genAITools/autogen.jpeg'}
         alt="USDC"
-         className="absolute bottom-36 object-contain left-80 h-12 w-12 rounded-xl border border-yellow-400  p-1"
+         className="absolute bottom-36 object-contain left-80 h-12 w-12  md:h-20 md:w-20 rounded-xl    p-1"
         initial={{ y: -10 }}
         animate={{ y: 10 }}
         transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
@@ -56,7 +56,7 @@ const WSHeroDASecond = () => {
       <motion.img
         src={'/assets/genAITools/langchain-seeklogo.png'}
         alt="USDC"
-         className="absolute bottom-36 bg-white object-contain right-80 h-12 w-12 rounded-xl border border-yellow-400  p-1"
+         className="absolute bottom-36 bg-white object-contain right-80 h-12 w-12  md:h-20 md:w-20 rounded-xl   p-1"
         initial={{ y: -10 }}
         animate={{ y: 10 }}
         transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
@@ -64,14 +64,14 @@ const WSHeroDASecond = () => {
       <motion.img
         src={'/assets/genAITools/crewai.webp'}
         alt="BNB"
-        className="absolute object-contain bottom-10 right-10 h-12 w-12 rounded-xl border border-yellow-400  p-1"
+        className="absolute object-contain bottom-10 right-10 h-12 w-12  md:h-20 md:w-20 rounded-xl   p-1"
         initial={{ y: 10 }}
         animate={{ y: -10 }}
         transition={{ duration: 3.5, repeat: Infinity, repeatType: "reverse" }}
       />
 
       
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
+      <div className="relative z-10 mx-auto max-w-4xl h-full flex flex-col items-center text-center">
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
           initial={{ opacity: 0, y: 20 }}
@@ -158,9 +158,8 @@ const WSHeroDASecond = () => {
 
 
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Discover how to turn raw data into real insights using AI — without writing a single line of code. In
-                this live session, you’ll learn to clean, segment, and analyze data in minutes using smart tools and
-                guided workflows. Perfect for beginners curious about the power of AI in analytics.
+                This isn't just a webinar — it's your entry into building with AI.
+In just 90 minutes, you’ll go hands-on and build your own working AI agent — guided live by experts, with zero fluff and zero overwhelm. No heavy coding, no wasted time — just real, career-boosting skills tailored for working professionals.
               </p>
 
                

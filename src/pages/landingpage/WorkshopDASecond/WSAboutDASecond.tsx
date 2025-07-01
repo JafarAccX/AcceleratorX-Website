@@ -19,12 +19,12 @@ const WSAboutDASecond = () => {
         highlight: true,
     },
     {
-      icon: <FiCpu className="text-white text-xl" />,
-      title: "For Working Professionals Only.",
-      description:
-        'Designed specifically for busy professionals who want practical AI skills that apply to their careers.',
-      highlight: true,
-  },
+  icon: <FiCpu className="text-white text-xl" />,
+  title: "Learn AI by Building Real Projects.",
+  description:
+    "A hands-on course designed for anyone who wants to master practical AI skills through real-world applications.",
+  highlight: true,
+}
   ];
 
   const features2 = [

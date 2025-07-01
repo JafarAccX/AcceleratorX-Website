@@ -12,6 +12,7 @@ import WSHeroDASecond from "../pages/landingpage/WorkshopDASecond/WSHeroDASecond
 import WSAboutDASecond from "../pages/landingpage/WorkshopDASecond/WSAboutDASecond";
 import WSFIOSection from "../pages/landingpage/WorkshopDASecond/WSIOSection";
 import WSTestimonialDASecond from "../pages/landingpage/WorkshopDASecond/WSTestimonialDASecond";
+import AIEcosystem from "../pages/landingpage/WorkshopDASecond/AIEcosystem";
 
 // Workshop Components
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
@@ -51,6 +52,7 @@ const WorkshopPageDASecond = () => (
   <>
     <WSHeroDASecond />
     <WSAboutDASecond />
+    <AIEcosystem />
     <WSFIOSection />
     <WSTestimonialDASecond />
   </>
