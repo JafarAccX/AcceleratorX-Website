@@ -94,10 +94,10 @@ const WSAboutDASecond = () => {
         </p>
       </div>
 
-      <div className="relative grid grid-cols-3 gap-8 ">
+      {/* <div className="relative grid grid-cols-3 gap-8 ">
         {features2.map((item, idx) => (
           <div key={idx} className="flex flex-col items-center relative">
-            {/* Top: Icon -> Line -> Card */}
+            
             {item.top && (
               <>
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-lg">
@@ -114,7 +114,7 @@ const WSAboutDASecond = () => {
               </>
             )}
 
-            {/* Center: Card -> Line -> Icon */}
+           
             {!item.top && (
               <>
                 <motion.div
@@ -132,7 +132,58 @@ const WSAboutDASecond = () => {
             )}
           </div>
         ))}
-      </div>
+      </div> */}
+
+      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+  {features2.map((item, idx) => (
+    <div
+      key={idx}
+      className="flex flex-col items-center text-center relative"
+    >
+      {item.top ? (
+        <>
+          {/* Icon section (hidden on mobile) */}
+          <div className="mb-4 hidden sm:flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-lg">
+            <img src={item.icon} alt={item.title} className="h-8 w-8" />
+          </div>
+
+          {/* Line (hidden on mobile) */}
+          <div className="h-10 w-1 bg-white/20 hidden sm:block" />
+
+          {/* Card */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="rounded-xl border border-white/5 bg-white/5 backdrop-blur-md p-5 text-center hover:border-white/10 transition w-full max-w-sm"
+          >
+            <h3 className="text-lg font-semibold">{item.title}</h3>
+            <p className="text-sm text-gray-300 mt-2">{item.description}</p>
+          </motion.div>
+        </>
+      ) : (
+        <>
+          {/* Card */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="rounded-xl border border-white/5 bg-white/5 backdrop-blur-md p-5 text-center hover:border-white/10 transition mb-4 w-full max-w-sm"
+          >
+            <h3 className="text-lg font-semibold">{item.title}</h3>
+            <p className="text-sm text-gray-300 mt-2">{item.description}</p>
+          </motion.div>
+
+          {/* Line (hidden on mobile) */}
+          <div className="h-10 w-1 bg-white/20 hidden sm:block" />
+
+          {/* Icon section (hidden on mobile) */}
+          <div className="mt-4 hidden sm:flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-lg">
+            <img src={item.icon} alt={item.title} className="h-8 w-8" />
+          </div>
+        </>
+      )}
+    </div>
+  ))}
+</div>
+
+
 
       {/* Optional blob decorations */}
       <img
