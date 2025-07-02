@@ -246,7 +246,7 @@ import { Helmet } from "react-helmet-async";
 import { useCourseContext } from "../context/courseContext";
 
 const PIXEL_ID_DEFAULT = import.meta.env.VITE_META_PIXEL_ID;
-const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA;
+const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
 
 const PAGE_VIEW_ROUTES = [
   "/courses/product-management-program-fb",

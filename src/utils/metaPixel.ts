@@ -251,10 +251,10 @@
 const META_CONVERSION_API_URL = "https://graph.facebook.com/v17.0";
 
 const DEFAULT_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
-const DA_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_DA;
+const DA_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
 
 const DEFAULT_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
-const DA_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA;
+const DA_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT;
 
 const DA_COURSE_NAMES = ["Data Analytics"]; // You can also match by route if needed
 
