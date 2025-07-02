@@ -176,7 +176,10 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
       });
 
       // Send to Meta Conversion API
-      await trackFormSubmission(formData);
+      await trackFormSubmission({
+        ...formData,
+        course: formData.course || selectedCourse || "",
+      });
 
       if (onSubmit) onSubmit();
 
