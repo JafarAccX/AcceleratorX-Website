@@ -41,11 +41,11 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "Build your first AI Analyst Live",
-  link: "https://zoom.us/meeting/register/EenzTVi3R--LHzhOC6d4Bw",
-  meetingId: "EenzTVi3R--LHzhOC6d4Bw",
-  time: "June 24, 2025 7:30 PM India",
-  meetingCode: "97486892546",
+  title: "Build Your Own AI Agents Live",
+  link: "https://zoom.us/meeting/register/IGbLFLisRLq36gAJ5SBfGw",
+  meetingId: "IGbLFLisRLq36gAJ5SBfGw",
+  time: "July 7, 2025 8:30 PM India",
+  meetingCode: "92169644323",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
