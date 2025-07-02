@@ -5,7 +5,7 @@ import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 const acceleratorPricingData = {
   title: "AcceleratorX Program",
-  mrp: "44,999",
+  mrp: "49,999",
   // price: "34999",
   discount: "12",
   features: [

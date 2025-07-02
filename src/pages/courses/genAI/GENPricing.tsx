@@ -22,7 +22,7 @@ const GENPricing = () => {
   const plans = [
     {
       name: "Regular",
-      currentPrice: "38,499",
+      currentPrice: "42,499",
       description: "Comprehensive AI training program",
       features: features,
       highlighted: true,

@@ -5,7 +5,7 @@ import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 const dataAnalyticsPricingData = {
   title: "AcceleratorX Program",
-  currentPrice: "32,999",
+  currentPrice: "34,999",
   features: [
     { name: "AI Automation techniques for Data analytics", included: true },
     { name: "Data Engineering Basics", included: true },
