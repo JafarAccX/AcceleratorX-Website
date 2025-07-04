@@ -25,11 +25,11 @@ interface WorkshopContextType {
 }
 
 const PMZoomDetails: ZoomMeetingDetails = {
-  title: "Gen Ai for PM's",
-  link: "https://zoom.us/meeting/register/0GpAaGmmSoOQrKlZbzKwuQ",
-  meetingId: "0GpAaGmmSoOQrKlZbzKwuQ",
-  time: "June 07, 2025 07:30 PM India",
-  meetingCode: "94740560060",
+  title: "Building AI Products (Marathon Session - 3 Hr ) ",
+  link: "https://zoom.us/meeting/register/ASxjF13aRdW4_fMzjx5OcQ",
+  meetingId: "ASxjF13aRdW4_fMzjx5OcQ",
+  time: "July 13, 2025 11:00 AM India",
+  meetingCode: "93044155126",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
