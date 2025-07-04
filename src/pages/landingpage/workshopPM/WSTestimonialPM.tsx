@@ -24,7 +24,7 @@ const WSTestimonialPM = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <WSFIOSection />
-        <div className="block lg:hidden pt-4">
+        <div className=" lg:hidden flex items-center justify-center py-10">
           <button
             onClick={scrollToForm}
             className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
