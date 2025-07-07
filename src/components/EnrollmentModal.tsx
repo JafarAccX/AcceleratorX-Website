@@ -30,6 +30,11 @@ const genAiBroucher = {
   url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Gen%20AI.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBHZW4gQUkucGRmIiwiaWF0IjoxNzQ2NDQwMTE0LCJleHAiOjE4MDk1MTIxMTR9.AFFhiMscFVvpzecvbkax-r6zDxugIz2LPmabyvm9m7o",
 };
 
+const pmAiBroucher = {
+  title: "Product Management",
+  url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20PM%20Brochure.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80Njc1NTVlNS1jOGMxLTQwOTYtYmQxMC03YzkzODVjZWEyMjQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBQTSBCcm9jaHVyZS5wZGYiLCJpYXQiOjE3NTE4NzI1NjYsImV4cCI6MTc4MzQwODU2Nn0.5EEcYzrdRpA7nqzfqWvOjyM4zV9Di4JKpcx7n6qS898",
+};
+
 async function sendWhatsAppMessage({
   phone,
   name,
@@ -167,7 +172,17 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
       }
 
       //courses available -- Generative AI, Data Analytics, Product Management
-      const broucherData = selectedCourse === "Data Analytics" ? daBroucher : genAiBroucher;
+      // const broucherData = selectedCourse === "Data Analytics" ? daBroucher : genAiBroucher;
+
+      const broucherData =
+  selectedCourse === "Data Analytics"
+    ? daBroucher
+    : selectedCourse === "Product Management"
+    ? pmAiBroucher
+    : genAiBroucher;
+    
+    console.log("Broucher data:", broucherData);
+    console.log("selectedCourse:", selectedCourse);
 
       await sendWhatsAppMessage({
         phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
@@ -332,31 +347,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
                         <option value="5+">5+ yrs</option>
                       </select>
                     </div>
-
-                    {/* <div>
-                      <label
-                        htmlFor="course"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
-                        Course
-                      </label>
-                      <select
-                        id="course"
-                        required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                        value={formData.course}
-                        onChange={(e) =>
-                          setFormData({ ...formData, course: e.target.value })
-                        }
-                      >
-                        <option value="">Select</option>
-                        {courseOptions.map((course) => (
-                          <option key={course} value={course}>
-                            {course}
-                          </option>
-                        ))}
-                      </select>
-                    </div> */}
+ 
                   </div>
 
                   <div className="mt-4">
