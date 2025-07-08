@@ -18,6 +18,7 @@ import WorkshopHighlights from "../pages/landingpage/workshopDM/workshop-highlig
 import BuiltForYou from "../pages/landingpage/workshopDM/built-for-you";
 import AutomationFeatures from "../pages/landingpage/workshopDM/automation-features";
 import LeadEngineCTA from "../pages/landingpage/workshopDM/lead-engine-cta";
+import TechStackSection from "../pages/landingpage/workshopDM/tech-stack-section";
 
 // Workshop Components
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
@@ -106,9 +107,11 @@ const WorkshopPageGENC = () => (
 
 const WorkshopPageDM = () => (
   <>
+
     <HeroSection />
     <WSHeroDM />
     <WorkshopHighlights />
+    <TechStackSection />
     <AutomationFeatures />
     <BuiltForYou />
     <LeadEngineCTA />
