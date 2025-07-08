@@ -56,14 +56,15 @@ export default function HeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Join This Live Session & Automate It All Using n8n — No Tech Skills Required
+        <p className="text-lg sm:text-xl text-gray-300 mb-2 max-w-2xl mx-auto leading-relaxed">
+          Join This Live Session & Automate It All Using n8n 
         </p>
+        <p className="text-sm mb-8"> * Claim your free kit now *</p>
 
         {/* CTA Button */}
         <div className="flex justify-center">
           <button onClick={scrollToForm}  className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900">
-            Get Started
+            Claim Now
             <ArrowRight className="w-5 h-5 ml-2" />
           </button>
         </div>
