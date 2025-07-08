@@ -178,9 +178,9 @@ const Success = () => {
       time: "29 Jun, 2025 11:00 AM India",
     },
     DMWorkshop: {
-      link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
-      meetingId: "-EeXRY1GQFmxc9eHG73nnQ",
-      time: "Feb 16, 2025 04:00 PM India",
+      link: "https://zoom.us/meeting/register/KVSQCqQxRl-OUCNUlS_NNw",
+      meetingId: "KVSQCqQxRl-OUCNUlS_NNw",
+      time: "July 15, 2025 08:30 PM India",
     },
   };
 

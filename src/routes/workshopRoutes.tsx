@@ -13,6 +13,11 @@ import WSAboutDASecond from "../pages/landingpage/WorkshopDASecond/WSAboutDASeco
 import WSFIOSection from "../pages/landingpage/WorkshopDASecond/WSIOSection";
 import WSTestimonialDASecond from "../pages/landingpage/WorkshopDASecond/WSTestimonialDASecond";
 import AIEcosystem from "../pages/landingpage/WorkshopDASecond/AIEcosystem";
+import HeroSection from "../pages/landingpage/workshopDM/hero-section";
+import WorkshopHighlights from "../pages/landingpage/workshopDM/workshop-highlights";
+import BuiltForYou from "../pages/landingpage/workshopDM/built-for-you";
+import AutomationFeatures from "../pages/landingpage/workshopDM/automation-features";
+import LeadEngineCTA from "../pages/landingpage/workshopDM/lead-engine-cta";
 
 // Workshop Components
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
@@ -101,8 +106,14 @@ const WorkshopPageGENC = () => (
 
 const WorkshopPageDM = () => (
   <>
+    <HeroSection />
     <WSHeroDM />
-    <WSAboutDM />
+    <WorkshopHighlights />
+    <AutomationFeatures />
+    <BuiltForYou />
+    <LeadEngineCTA />
+
+    {/* <WSAboutDM /> */}
   </>
 );
 
