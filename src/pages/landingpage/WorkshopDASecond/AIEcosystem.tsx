@@ -2,43 +2,80 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+ 
 const aiTools = [
   {
-    name: "LangChain",
-    logo: "/assets/genAITools/langchain-seeklogo.png",
-    description:
-      "Framework for building LLM-powered apps using chains, memory, and agents.",
+    name: "Airtable",
+    logo: "/assets/n8n/airtable.webp",
+    description: "Flexible spreadsheet-database hybrid to manage and automate data.",
+  },
+  {
+    name: "ClickUp",
+    logo: "/assets/n8n/clickup.webp",
+    description: "All-in-one project management tool for tasks, docs, and collaboration.",
+  },
+  {
+    name: "Cursor",
+    logo: "/assets/n8n/Cursor.webp",
+    description: "AI-native code editor with collaboration and chat features.",
+  },
+  {
+    name: "Gmail",
+    logo: "/assets/n8n/gmail.webp",
+    description: "Email service by Google with rich integration and automation support.",
+  },
+  {
+    name: "HubSpot",
+    logo: "/assets/n8n/hubspot.webp",
+    description: "CRM platform for sales, marketing, and customer service automation.",
+  },
+  {
+    name: "Lovable",
+    logo: "/assets/n8n/Lovable.webp",
+    description: "Brand or tool description not available — customize this entry.",
+  },
+  {
+    name: "Notion",
+    logo: "/assets/n8n/notion.webp",
+    description: "Workspace for docs, wikis, tasks, and knowledge management.",
   },
   {
     name: "OpenAI",
-    logo: "/assets/genAITools/openai-logomark.svg",
-    description:
-      "Access GPT-4 and other cutting-edge models to power your AI logic.",
+    logo: "/assets/n8n/openai.webp",
+    description: "Access state-of-the-art AI models like GPT-4 for natural language tasks.",
   },
   {
-    name: "Pinecone",
-    logo: "/assets/genAITools/pinecone.webp",
-    description: "High-speed vector database for storing and querying embeddings.",
+    name: "Replit",
+    logo: "/assets/n8n/replit.webp",
+    description: "Online IDE to build, run, and deploy code collaboratively in real time.",
   },
   {
-    name: "Weaviate",
-    logo: "/assets/genAITools/weaviate.webp",
-    description:
-      "AI-native vector database enabling semantic search and hybrid queries.",
+    name: "Google Sheets",
+    logo: "/assets/n8n/sheets.webp",
+    description: "Cloud-based spreadsheet app with support for formulas and automation.",
   },
   {
-    name: "Supabase",
-    logo: "/assets/genAITools/supabase.webp",
-    description:
-      "Postgres-based backend with auth, storage, and real-time support.",
+    name: "Slack",
+    logo: "/assets/n8n/slack.webp",
+    description: "Team communication and collaboration tool with deep integration support.",
   },
   {
-    name: "Vercel",
-    logo: "/assets/genAITools/vercel.webp",
-    description:
-      "Fast, scalable deployment platform ideal for fullstack AI apps.",
+    name: "Stripe",
+    logo: "/assets/n8n/stripe.webp",
+    description: "Payment infrastructure for online businesses to accept payments globally.",
+  },
+  {
+    name: "Trello",
+    logo: "/assets/n8n/trello.webp",
+    description: "Kanban-style task management tool for teams and individuals.",
+  },
+  {
+    name: "Windsurf",
+    logo: "/assets/n8n/windsurf.webp",
+    description: "Tool description not available — you can replace this with accurate info.",
   },
 ];
+
 
 export default function AIEcosystem() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -57,7 +94,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Build Your Own AI Agent
+          Visual Data Analysis in AI Era
         </motion.h2>
         <motion.p
           className="mt-4 text-gray-400 max-w-xl mx-auto text-base md:text-lg"

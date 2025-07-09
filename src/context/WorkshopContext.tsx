@@ -41,11 +41,11 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "Build Your Own AI Agents Live",
-  link: "https://zoom.us/meeting/register/IGbLFLisRLq36gAJ5SBfGw",
-  meetingId: "IGbLFLisRLq36gAJ5SBfGw",
-  time: "July 7, 2025 8:30 PM India",
-  meetingCode: "92169644323",
+  title: "Visual Data Analysis in AI Era",
+  link: "https://zoom.us/meeting/register/l0RyCasST7aJgmncVzggTA",
+  meetingId: "l0RyCasST7aJgmncVzggTA",
+  time: "July 17, 2025 8:30 PM India",
+  meetingCode: "94102953142",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {

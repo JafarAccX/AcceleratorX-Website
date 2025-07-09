@@ -10,19 +10,26 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
-      name: "Build Your Own AI Agents Live",
-      mode: "Online (Zoom)",
-      time: "July 7, 2025 8:30 PM",
-      link: "/workshop/da-masterclass-bxwxy",
-      completed: false,
-    },
-    {
       name: "Building AI Products (Marathon Session - 3 Hr ) ",
       mode: "Online (Zoom)",
       time: "July 13, 2025 11:00 AM India",
       link: "/workshop/pm-masterclass",
       completed: false,
     },
+    {
+      name: "Visual Data Analysis in AI Era",
+      mode: "Online (Zoom)",
+      time: "July 17, 2025 8:30 PM",
+      link: "/workshop/da-masterclass-bxwxy",
+      completed: false,
+    },
+    {
+      name: "Build Your Own AI Agents Live",
+      mode: "Online (Zoom)",
+      time: "July 7, 2025 8:30 PM",
+      link: "/workshop/da-masterclass-bxwxy",
+      completed: true,
+    },    
     {
       name: "Social Media Lead Gen Magnet using make.com",
       mode: "Online (Zoom)",

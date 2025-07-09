@@ -27,29 +27,7 @@ const WSAboutDASecond = () => {
 }
   ];
 
-  const features2 = [
-  {
-    title: "Learn by Doing",
-    description:
-      "Skip the fluff. In just 90 minutes, you’ll build and launch your first AI agent live — something you can actually use in your job or freelance projects.",
-    icon: "/assets/genAITools/huggingface.svg",
-    top: true,
-  },
-  {
-    title: "Make AI Work for You",
-    description:
-      "Whether you’re in product, marketing, data, or UX — you’ll learn how to create tools that save time, automate work, and impress clients/stakeholders.",
-    icon: "/assets/genAITools/rag.webp",
-    top: false,
-  },
-  {
-    title: "Live Mentoring from Experts",
-    description:
-      "No YouTube rabbit holes. No boring slides. Just clear, live instruction with interactive Q&A.",
-    icon: "/assets/genAITools/openai-logomark.svg",
-    top: true,
-  },
-];
+ 
 
   return (
     <>
@@ -86,119 +64,9 @@ const WSAboutDASecond = () => {
         <img src="/assets/workshop-blobs/3d-delivery-robot-working.png"  alt="right-decor" className="w-32 opacity-60" />
       </div>
     </section>
-     <section className="relative z-10 mt-32 my-24 px-4 md:px-10 text-white max-w-6xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold">Why This Webinar Is a Game-Changer</h2>
-        <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-          This isn’t another theory-heavy session. It’s a live, hands-on experience designed to help working professionals like you build, automate, and lead with AI — starting now.
-        </p>
-      </div>
+     
 
-      {/* <div className="relative grid grid-cols-3 gap-8 ">
-        {features2.map((item, idx) => (
-          <div key={idx} className="flex flex-col items-center relative">
-            
-            {item.top && (
-              <>
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-lg">
-                  <img src={item.icon} alt={item.title} className="h-8 w-8" />
-                </div>
-                <div className="h-10 w-1 bg-white/20" />
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="rounded-xl border border-white/5 bg-white/5 backdrop-blur-md p-5 text-center hover:border-white/10 transition"
-                >
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-300 mt-2">{item.description}</p>
-                </motion.div>
-              </>
-            )}
-
-           
-            {!item.top && (
-              <>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="rounded-xl border border-white/5 bg-white/5 backdrop-blur-md p-5 text-center hover:border-white/10 transition mb-4"
-                >
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-300 mt-2">{item.description}</p>
-                </motion.div>
-                <div className="h-10 w-1 bg-white/20" />
-                <div className="mt-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-lg">
-                  <img src={item.icon} alt={item.title} className="h-8 w-8" />
-                </div>
-              </>
-            )}
-          </div>
-        ))}
-      </div> */}
-
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-  {features2.map((item, idx) => (
-    <div
-      key={idx}
-      className="flex flex-col items-center text-center relative"
-    >
-      {item.top ? (
-        <>
-          {/* Icon section (hidden on mobile) */}
-          <div className="mb-4 hidden sm:flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-lg">
-            <img src={item.icon} alt={item.title} className="h-8 w-8" />
-          </div>
-
-          {/* Line (hidden on mobile) */}
-          <div className="h-10 w-1 bg-white/20 hidden sm:block" />
-
-          {/* Card */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="rounded-xl border border-white/5 bg-white/5 backdrop-blur-md p-5 text-center hover:border-white/10 transition w-full max-w-sm"
-          >
-            <h3 className="text-lg font-semibold">{item.title}</h3>
-            <p className="text-sm text-gray-300 mt-2">{item.description}</p>
-          </motion.div>
-        </>
-      ) : (
-        <>
-          {/* Card */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="rounded-xl border border-white/5 bg-white/5 backdrop-blur-md p-5 text-center hover:border-white/10 transition mb-4 w-full max-w-sm"
-          >
-            <h3 className="text-lg font-semibold">{item.title}</h3>
-            <p className="text-sm text-gray-300 mt-2">{item.description}</p>
-          </motion.div>
-
-          {/* Line (hidden on mobile) */}
-          <div className="h-10 w-1 bg-white/20 hidden sm:block" />
-
-          {/* Icon section (hidden on mobile) */}
-          <div className="mt-4 hidden sm:flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-lg">
-            <img src={item.icon} alt={item.title} className="h-8 w-8" />
-          </div>
-        </>
-      )}
-    </div>
-  ))}
-</div>
-
-
-
-      {/* Optional blob decorations */}
-      <img
-        src="/assets/workshop-blobs/3d-delivery-robot-working.png"
-        className="absolute left-0 bottom-0 w-28 opacity-40 -rotate-45"
-        alt="blob"
-      />
-      <img
-        src="/assets/workshop-blobs/3d-delivery-robot-working.png"
-        className="absolute right-0 top-0 w-28 opacity-40 rotate-45"
-        alt="blob"
-      />
-    </section>
-
-<div className=" flex items-center justify-center">
+<div className=" flex items-center justify-center pb-10">
   <motion.div
     className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 shadow-md hover:border-purple-400 transition"
     initial={{ opacity: 0, y: 10 }}

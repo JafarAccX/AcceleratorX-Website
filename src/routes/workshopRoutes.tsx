@@ -19,6 +19,10 @@ import BuiltForYou from "../pages/landingpage/workshopDM/built-for-you";
 import AutomationFeatures from "../pages/landingpage/workshopDM/automation-features";
 import LeadEngineCTA from "../pages/landingpage/workshopDM/lead-engine-cta";
 import TechStackSection from "../pages/landingpage/workshopDM/tech-stack-section";
+import StatsSection from "../pages/landingpage/WorkshopDASecond/StatsSection";
+import CryptoMarketSection from "../pages/landingpage/WorkshopDASecond/CryptoMarketSection";
+import ProductsSection from "../pages/landingpage/WorkshopDASecond/ProductsSection";
+import TradingPlatformSection from "../pages/landingpage/WorkshopDASecond/TradingPlatformSection";
 
 // Workshop Components
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
@@ -57,7 +61,8 @@ const WorkshopPageDA = () => (
 const WorkshopPageDASecond = () => (
   <>
     <WSHeroDASecond />
-    <WSAboutDASecond />
+    <ProductsSection /> 
+    <TradingPlatformSection />
     <AIEcosystem />
     <WSFIOSection />
     <WSTestimonialDASecond />
