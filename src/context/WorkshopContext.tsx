@@ -44,7 +44,7 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
   title: "Visual Data Analysis in AI Era",
   link: "https://zoom.us/meeting/register/l0RyCasST7aJgmncVzggTA",
   meetingId: "l0RyCasST7aJgmncVzggTA",
-  time: "July 17, 2025 8:30 PM India",
+  time: "July 21, 2025 8:30 PM India",
   meetingCode: "94102953142",
 };
 

@@ -19,7 +19,7 @@ const Events = () => {
     {
       name: "Visual Data Analysis in AI Era",
       mode: "Online (Zoom)",
-      time: "July 17, 2025 8:30 PM",
+      time: "July 21, 2025 8:30 PM",
       link: "/workshop/da-masterclass-bxwxy",
       completed: false,
     },
