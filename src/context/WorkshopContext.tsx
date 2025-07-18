@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Building AI Powered Applications Using Langchain",
-  link: "https://zoom.us/meeting/register/dcf-c3C1TQ639dJ6Sw1TrA",
-  meetingId: "dcf-c3C1TQ639dJ6Sw1TrA",
-  time: "21 Jun, 2025 07:30 PM India",
-  meetingCode: "92086179774",
+  title: "Learn to Build your RAG application",
+  link: "https://zoom.us/meeting/register/wWXc9eJZQJy6wFUJ5jW3Yw",
+  meetingId: "wWXc9eJZQJy6wFUJ5jW3Yw",
+  time: "23 July, 2025 07:30 PM India",
+  meetingCode: "99945241847",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

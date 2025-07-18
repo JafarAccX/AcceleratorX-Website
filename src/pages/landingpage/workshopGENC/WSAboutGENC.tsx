@@ -94,10 +94,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Explore Langchain through hands-on, beginner-friendly guidance",
-                        "Build your own live AI-powered app – step by step",
-                        "Understand how to structure smart workflows using AI tools",
-                        "Access free AI tools, templates, and a roadmap to build more apps",
+                        "Learn how Retrieval-Augmented Generation (RAG) works with real examples",
+                        "Build your own RAG-based app using LangChain or LlamaIndex",
+                        "Connect your own documents and data sources to answer real-time queries",
+                        "Deploy your RAG app and test live responses",
+                        "Access templates, tools, and future resources",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -134,11 +135,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "What AI-powered apps are and how Langchain fits in",
-                        "How to connect large language models to real-world data",
-                        "How to build and deploy your first Langchain-based app",
-                        "Ways AI is changing tech careers and future opportunities",
-                        "Top resources, tools, and communities to grow in AI development",
+                        "What RAG is and why it's transforming AI applications",
+                        "How to fetch answers from your documents using vector stores",
+                        "Connecting data to LLMs for accurate and relevant generation",
+                        "Deploying your first RAG app — no advanced coding needed",
+                        "Real-world use cases: customer support, research, knowledge assistants",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

@@ -9,18 +9,19 @@ const Events = () => {
   const [workshopsTabs, setWorkshopsTabs] = useState<"upcomming" | "past">("upcomming");
 
   const AllworkshopsDetails = [
-    {
-      name: "Building AI Products (Marathon Session - 3 Hr ) ",
-      mode: "Online (Zoom)",
-      time: "July 13, 2025 11:00 AM India",
-      link: "/workshop/pm-masterclass",
-      completed: false,
-    },
+   
     {
       name: "Visual Data Analysis in AI Era",
       mode: "Online (Zoom)",
       time: "July 21, 2025 8:30 PM",
       link: "/workshop/da-masterclass-bxwxy",
+      completed: false,
+    },
+    {
+      name: "Learn to Build your RAG application ",
+      mode: "Online (Zoom)",
+      time: "July 23, 2025  7:30 PM",
+      link: "/workshop/gen-ai-masterclass-thidtx",
       completed: false,
     },
     {
@@ -35,6 +36,13 @@ const Events = () => {
       mode: "Online (Zoom)",
       time: "June 29, 2025 11:30 AM IST",
       link: "/workshop/gen-ai-masterclass",
+      completed: true,
+    },
+     {
+      name: "Building AI Products (Marathon Session - 3 Hr ) ",
+      mode: "Online (Zoom)",
+      time: "July 13, 2025 11:00 AM India",
+      link: "/workshop/pm-masterclass",
       completed: true,
     },
     {

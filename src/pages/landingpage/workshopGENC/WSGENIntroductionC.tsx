@@ -19,18 +19,18 @@ const WSGENIntroductionC = () => {
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Visual AI Workflows",
-      description: "Use drag-and-drop logic and easy tools to power up your first AI application.",
+      title: "RAG Workflows",
+      description: "No walls of code — just visual, drag-and-drop-friendly design to build real AI experiences.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
       title: "Live & Interactive",
-      description: "We’ll build together, live. You’ll experience AI development in real time.",
+      description: "Work side-by-side with our expert. Watch. Try. Build. Get feedback in real time.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Feel the Power of Smart Creation",
-      description: "AI is a creative medium. Let’s use it to build tools that feel smart, human, and useful.",
+      title: "Smarter Creativity",
+      description: "Learn how to create helpful apps powered by your own knowledge base — for work or personal projects.",
     },
   ];
 
@@ -77,13 +77,13 @@ const WSGENIntroductionC = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            AI Development <span className="text-blue-500"> Doesn’t </span> Have to Be Intimidating.
+            AI-Powered Apps <span className="text-blue-500"> =</span> Visual, Practical, Empowering
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This session is about building real things, not battling complex code. Whether you’re new to AI or just
-            curious about how it works — you’ll feel right at home here.
+            This session is about building things you can use. Whether you're curious about how AI works or want to build an intelligent app for your data — you’re in the right place.
+
           </p>
 
           {/* Stats Grid */}

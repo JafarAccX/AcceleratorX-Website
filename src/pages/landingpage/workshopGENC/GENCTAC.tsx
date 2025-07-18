@@ -51,20 +51,20 @@ const GENCTAC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-green-400">Visual Tools</p>
-                  <p className="text-sm text-gray-400">No AI or coding background needed — just curiosity</p>
+                  <p className="text-lg font-bold text-green-400">Use Your Own Data</p>
+                  <p className="text-sm text-gray-400">Learn to connect PDFs, Notion pages, Docs, and websites into your app.</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-purple-400">Smart Learning</p>
+                  <p className="text-lg font-bold text-purple-400">Step-by-Step Learning</p>
                   <p className="text-sm text-gray-400">
-                    Follow step-by-step guidance to build your first intelligent app
+                    Follow our live expert as you build — from first step to deployment
                   </p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-blue-400">Creative Confidence</p>
-                  <p className="text-sm text-gray-400">Walk away with something real, useful, and uniquely yours</p>
+                  <p className="text-lg font-bold text-blue-400">Smart Responses, Your Way</p>
+                  <p className="text-sm text-gray-400">Build a system that gives smart, personalized answers — powered by your data.</p>
                 </div>
               </div>
             </motion.div>

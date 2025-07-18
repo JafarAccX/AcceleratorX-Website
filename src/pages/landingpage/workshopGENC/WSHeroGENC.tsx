@@ -91,9 +91,9 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      Building AI Powered Applications Using Langchain
+                      Learn to Build Your Own RAG Application
                     </span>{" "}
-                    <br />– Build Smarter Apps, Faster
+                    <br />– Smart, Searchable Apps with Real-Time Answers
                   </span>
 
                   <motion.div
@@ -109,11 +109,11 @@ const WSHeroGENC = () => {
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
                 <p className="  text-gray-400 max-w-xl">
-                  Discover how to integrate powerful AI capabilities into your apps with ease.
+                  Discover how to create your own Retrieval-Augmented Generation (RAG) app from scratch 
                 </p>
                 <p className="  text-gray-400 max-w-xl">
-                  In this beginner-friendly webinar session, you’ll create your first AI-driven mini app using
-                  Langchain, learn how AI workflows operate, and explore the future of smart applications.
+                 no complex theory, just real-world results. In this beginner-friendly session, you'll learn how to combine LLMs with your own data to build smarter, context-aware applications that can retrieve and generate accurate answers in real-time.
+
                 </p>
               </motion.div>
             </div>
@@ -125,7 +125,7 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "21 Jun",
+                  value: "23 July",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
