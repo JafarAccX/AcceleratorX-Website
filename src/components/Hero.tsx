@@ -128,26 +128,27 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - VintageTV */}
+          {/* Right Content - n8n Coming Soon */}
           <motion.div
-            className="relative w-full lg:w-1/2"
+            className="relative w-full lg:w-1/2 flex flex-col items-center justify-center"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative">
-              <motion.div
-                className="absolute -right-4 -top-4 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
+            <div className="relative flex flex-col items-center justify-center">
+              <img
+                src="/n8n-commingsoon.jpg"
+                alt="n8n Coming Soon"
+                className="w-full max-w-md rounded-xl shadow-lg object-cover"
               />
-              <VintageTV videoSrc="https://vimeo.com/1037475835" />
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeJxgV3bMDrcy4m8bGdEIHqR0GLZrvVeZ5QF0itPIQqgDaC2g/viewform?usp=sharing&ouid=112961186201792362694"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 px-10 py-4 text-lg font-semibold text-white bg-[#1a71f6] hover:bg-[#1558b0] rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 w-[90vw] max-w-xs text-center"
+              >
+                Join the Waitlist
+              </a>
             </div>
           </motion.div>
         </div>

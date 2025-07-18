@@ -58,6 +58,10 @@ export default function Navbar() {
       label: "Advance Performance Marketing With AI",
       path: "/courses/advance-performance-marketing-with-ai",
     },
+    {
+      label: "n8n Automation",
+      path: "/courses/n8n-automation",
+    },
   ];
 
   if (isXSATRoute) {
