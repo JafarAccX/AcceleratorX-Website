@@ -1,6 +1,5 @@
 import  { useEffect } from "react";
-import { WorkshopProvider } from "../../../context/WorkshopContext";
-import WSForm from "../workshop/WSForm";
+import { WorkshopProvider } from "../../../context/WorkshopContext"; 
 import WSFormFree from "../workshopGENB/WSFormFree";
 
 const WSHeroDM = () => {
@@ -60,7 +59,7 @@ const WSHeroDM = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
                 {[
                   { label: "Duration", value: "2 Hours", icon: "⏱️" },
-                  { label: "Date", value: "15 June", icon: "📅" },
+                  { label: "Date", value: "24 June", icon: "📅" },
                   { label: "Time", value: "08:30 PM", icon: "🕐" },
                   { label: "Level", value: "All Levels", icon: "🎯" }
                 ].map((item, index) => (

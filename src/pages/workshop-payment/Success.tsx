@@ -180,7 +180,7 @@ const Success = () => {
     DMWorkshop: {
       link: "https://zoom.us/meeting/register/KVSQCqQxRl-OUCNUlS_NNw",
       meetingId: "KVSQCqQxRl-OUCNUlS_NNw",
-      time: "July 15, 2025 08:30 PM India",
+      time: "July 24, 2025 08:30 PM India",
     },
   };
 
