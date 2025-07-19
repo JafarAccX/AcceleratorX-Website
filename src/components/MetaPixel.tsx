@@ -261,6 +261,7 @@ const PAGE_VIEW_ROUTES = [
   "/workshop/gen-ai-masterclass",
   "/workshop/da-masterclass",
   "/workshop/da-masterclass-bxwxy",
+  "/courses/gen-ai-for-pms",
 ];
 
 const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
