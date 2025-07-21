@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import { Calendar, BookOpen, Cloud, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
+import { Calendar, BookOpen, Cloud, Rocket, ChevronLeft, ChevronRight, Brain, Users } from "lucide-react";
 
-interface MonthData {
+interface CardData {
   title: string;
-  goal: string;
-  weeks: {
-    title: string;
-    content: string[];
-    assignments?: string[];
-  }[];
+  content: string[];
+}
+
+interface WeekData {
+  title: string;
+  cards: CardData[];
 }
 
 const GENLearningJourney = () => {
-  const [activeMonth, setActiveMonth] = useState(0);
+  const [activeWeek, setActiveWeek] = useState(0);
 
-  const months: MonthData[] = [
+  const weeks: WeekData[] = [
     {
-      title: "Month 1: GenAI Foundations for PMs",
-      goal: "Build a strong foundation in GenAI, focusing on product management use cases and tools.",
-      weeks: [
+      title: "Week 1: GenAI Foundations & Prompt Engineering",
+      cards: [
         {
-          title: "Week 1: GenAI in Product Management",
+          title: "GenAI in Product Management",
           content: [
             "Overview of GenAI and its impact on PM roles",
             "Key GenAI tools for product managers",
@@ -28,15 +27,20 @@ const GENLearningJourney = () => {
           ],
         },
         {
-          title: "Week 2: Prompt Engineering for PMs",
+          title: "Prompt Engineering for PMs",
           content: [
             "Crafting effective prompts for product research",
             "Automating user feedback analysis",
             "Hands-on with ChatGPT, Claude, Gemini",
           ],
         },
+      ],
+    },
+    {
+      title: "Week 2: AI-Driven Planning & User Insights",
+      cards: [
         {
-          title: "Week 3: GenAI for Roadmapping & Planning",
+          title: "GenAI for Roadmapping & Planning",
           content: [
             "Using GenAI for roadmap generation",
             "Sprint planning and backlog grooming with AI",
@@ -44,7 +48,7 @@ const GENLearningJourney = () => {
           ],
         },
         {
-          title: "Week 4: AI-Driven User Insights",
+          title: "AI-Driven User Insights",
           content: [
             "Leveraging GenAI for user persona creation",
             "Automating competitor analysis",
@@ -54,11 +58,10 @@ const GENLearningJourney = () => {
       ],
     },
     {
-      title: "Month 2: Building & Deploying GenAI Solutions",
-      goal: "Learn to build, deploy, and integrate GenAI-powered solutions for product management.",
-      weeks: [
+      title: "Week 3: No-Code Tools & AI Agents",
+      cards: [
         {
-          title: "Week 5: No-Code GenAI Tools for PMs",
+          title: "No-Code GenAI Tools for PMs",
           content: [
             "Introduction to no-code GenAI platforms",
             "Building AI-powered workflows with n8n, Zapier",
@@ -66,15 +69,20 @@ const GENLearningJourney = () => {
           ],
         },
         {
-          title: "Week 6: AI Agent Building for PMs",
+          title: "AI Agent Building for PMs",
           content: [
             "Designing and deploying GenAI agents",
             "Integrating agents into product workflows",
             "Best practices for PMs using AI agents",
           ],
         },
+      ],
+    },
+    {
+      title: "Week 4: Communication & Responsible AI",
+      cards: [
         {
-          title: "Week 7: GenAI for Stakeholder Communication",
+          title: "GenAI for Stakeholder Communication",
           content: [
             "Automating stakeholder updates with GenAI",
             "AI-powered reporting and dashboards",
@@ -82,7 +90,7 @@ const GENLearningJourney = () => {
           ],
         },
         {
-          title: "Week 8: Responsible AI for PMs",
+          title: "Responsible AI for PMs",
           content: [
             "Ethical considerations in GenAI for products",
             "Ensuring compliance and transparency",
@@ -92,19 +100,39 @@ const GENLearningJourney = () => {
       ],
     },
     {
-      title: "Month 3: Capstone Project & Career Growth",
-      goal: "Apply your GenAI skills to a real-world PM project and prepare for advanced PM roles.",
-      weeks: [
+      title: "Week 5: Capstone Project Development",
+      cards: [
         {
-          title: "Weeks 9-10: Capstone Project",
+          title: "Project Planning & Development",
           content: [
             "Define a product challenge and GenAI solution",
-            "Develop, test, and iterate your GenAI-powered feature",
-            "Present your project to mentors and peers",
+            "Develop and test your GenAI-powered feature",
+            "Iterate based on feedback and testing",
           ],
         },
         {
-          title: "Weeks 11-12: Career Acceleration",
+          title: "Project Implementation & Testing",
+          content: [
+            "Build working prototype or detailed mockup",
+            "Conduct user testing and gather feedback",
+            "Refine solution based on insights",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Week 6: Project Presentation & Career Growth",
+      cards: [
+        {
+          title: "Capstone Project Showcase",
+          content: [
+            "Present your project to mentors and peers",
+            "Demonstrate impact and learnings",
+            "Receive feedback and iterate",
+          ],
+        },
+        {
+          title: "Career Acceleration",
           content: [
             "Building your GenAI PM portfolio",
             "Interview prep for AI-focused PM roles",
@@ -115,21 +143,20 @@ const GENLearningJourney = () => {
     },
   ];
 
-  const icons = {
-    month1: BookOpen,
-    month2: Cloud,
-    month3: Rocket,
+  const getWeekIcon = (weekIndex: number) => {
+    const icons = [BookOpen, Brain, Cloud, Users, Rocket, Calendar];
+    return icons[weekIndex] || BookOpen;
   };
 
-  const nextMonth = () => {
-    setActiveMonth((prev) => (prev + 1) % months.length);
+  const nextWeek = () => {
+    setActiveWeek((prev) => (prev + 1) % weeks.length);
   };
 
-  const prevMonth = () => {
-    setActiveMonth((prev) => (prev - 1 + months.length) % months.length);
+  const prevWeek = () => {
+    setActiveWeek((prev) => (prev - 1 + weeks.length) % weeks.length);
   };
 
-  const MonthIcon = icons[`month${activeMonth + 1}` as keyof typeof icons];
+  const WeekIcon = getWeekIcon(activeWeek);
 
   return (
     <section className="relative py-12 bg-black">
@@ -139,7 +166,7 @@ const GENLearningJourney = () => {
       </div>
 
       <div className="container mx-auto px-3 relative z-10">
-        <div className=" mx-auto flex flex-col gap-4">
+        <div className="mx-auto flex flex-col gap-4">
           {/* Section Header */}
           <div className="mb-8">
             <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-3 transform hover:scale-105 transition-all">
@@ -148,58 +175,67 @@ const GENLearningJourney = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Your GenAI PM Learning Path</h2>
             <p className="text-gray-300 text-lg max-w-2xl">
-              A 3-month journey to master GenAI for product management and accelerate your PM career
+              A 6-week intensive journey to master GenAI for product management and accelerate your PM career
             </p>
           </div>
 
-          {/* Month Navigation */}
+          {/* Week Navigation */}
           <div className="flex items-center justify-between mb-6">
             <button
-              onClick={prevMonth}
+              onClick={prevWeek}
               className="p-2 rounded-full bg-[#111827] text-white hover:bg-[#1F2937] transition-colors"
-              aria-label="Previous month"
+              aria-label="Previous week"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <div className="flex items-center gap-3">
-              {months.map((_, index) => (
+              {weeks.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setActiveMonth(index)}
+                  onClick={() => setActiveWeek(index)}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    activeMonth === index ? "bg-blue-500 scale-125" : "bg-gray-600 hover:bg-gray-500"
+                    activeWeek === index ? "bg-blue-500 scale-125" : "bg-gray-600 hover:bg-gray-500"
                   }`}
-                  aria-label={`Go to month ${index + 1}`}
+                  aria-label={`Go to week ${index + 1}`}
                 />
               ))}
             </div>
             <button
-              onClick={nextMonth}
+              onClick={nextWeek}
               className="p-2 rounded-full bg-[#111827] text-white hover:bg-[#1F2937] transition-colors"
-              aria-label="Next month"
+              aria-label="Next week"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
           </div>
 
-          {/* Current Month Content */}
-          <div className=" ">
+          {/* Current Week Content */}
+          <div>
             <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 p-2.5 rounded-lg bg-st-500/10">
-                <MonthIcon className="w-6 h-6 text-blue-400" />
+              <div className="flex-shrink-0 p-2.5 rounded-lg bg-blue-500/10">
+                <WeekIcon className="w-6 h-6 text-blue-400" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">{months[activeMonth].title}</h3>
-                <p className="text-gray-300">{months[activeMonth].goal}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{weeks[activeWeek].title}</h3>
+                <p className="text-gray-300">
+                  Week {activeWeek + 1} of 6 - {weeks[activeWeek].cards.length} learning modules
+                </p>
               </div>
             </div>
 
+            {/* Cards Grid - Always 2 cards per week */}
             <div className="grid md:grid-cols-2 gap-4">
-              {months[activeMonth].weeks.map((week, weekIndex) => (
-                <div key={weekIndex} className="bg-[#1F2937]/70 rounded-lg p-4 border border-gray-700">
-                  <h4 className="text-lg font-semibold text-white mb-3">{week.title}</h4>
+              {weeks[activeWeek].cards.map((card, cardIndex) => (
+                <div 
+                  key={cardIndex} 
+                  className="bg-[#1F2937]/70 rounded-lg p-4 border border-gray-700 hover:border-blue-500/30 transition-all duration-300 hover:bg-[#1F2937]/90"
+                >
+                  <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                    {card.title}
+                  </h4>
                   <ul className="space-y-2">
-                    {week.content.map((point, pointIndex) => (
+                    {card.content.map((point, pointIndex) => (
                       <li key={pointIndex} className="text-gray-300 text-sm flex items-start gap-2">
                         <div className="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0 mt-2"></div>
                         <span>{point}</span>
@@ -208,6 +244,20 @@ const GENLearningJourney = () => {
                   </ul>
                 </div>
               ))}
+            </div>
+
+            {/* Progress Indicator */}
+            <div className="mt-6 flex items-center justify-between text-sm text-gray-400">
+              <span>Week {activeWeek + 1} of 6</span>
+              <div className="flex items-center gap-2">
+                <div className="w-32 h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
+                    style={{ width: `${((activeWeek + 1) / weeks.length) * 100}%` }}
+                  ></div>
+                </div>
+                <span>{Math.round(((activeWeek + 1) / weeks.length) * 100)}%</span>
+              </div>
             </div>
           </div>
         </div>

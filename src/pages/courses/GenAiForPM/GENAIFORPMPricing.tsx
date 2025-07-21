@@ -8,7 +8,7 @@ const GENPricing = () => {
   // const [isScholarshipModalOpen, setIsScholarshipModalOpen] = useState(false);
 
   const features = [
-    "3-month intensive program",
+    "6-week intensive program",
     "Live instructor-led sessions",
     "Real-world AI projects",
     "Industry-recognized certification",
@@ -22,7 +22,7 @@ const GENPricing = () => {
   const plans = [
     {
       name: "Regular",
-      currentPrice: "42,499",
+      currentPrice: "21,999",
       description: "Comprehensive AI training program",
       features: features,
       highlighted: true,

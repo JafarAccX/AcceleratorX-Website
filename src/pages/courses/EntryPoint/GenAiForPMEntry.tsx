@@ -5,14 +5,14 @@ import GENHero from "../GenAiForPM/GENAIFORPMHero";
 import GENIntroduction from "../GenAiForPM/GENAIFORPMIntroduction";
 import GENWhoShouldEnroll from "../GenAiForPM/GENAIFORPMWhoShouldEnroll";
 import GENBYOA from "../GenAiForPM/GENAIFORPMBYOA"; 
-import GENWhyLearnAI from "../GenAiForPM/GENAIFORPMWhyLearnAI";
-import GENLearningJourney from "../GenAiForPM/GENAIFORPMLearningJourney";
+import GENWhyLearnAI from "../GenAiForPM/GENAIFORPMWhyLearnAI"; 
 import GENMentors from "../GenAiForPM/GENAIFORPMMentors";
 import GENToolsYouWillLearn from "../GenAiForPM/GENAIFORPMToolsYouWillLearn";
 import GENProjectsAndOutcomes from "../GenAiForPM/GENAIFORPMProjectsAndOutcomes";
 import GENPricing from "../GenAiForPM/GENAIFORPMPricing";
 import GENFAQ from "../GenAiForPM/GENAIFORPMFAQ";
 import GENMarketScope from "../GenAiForPM/GENAIFORPMMarketScope";
+import GENLearningJourney from "../GenAiForPM/GENAIFORPMLearningJourney";
 const GenAiForPMEntry = () => {
   const {
     setSelectedCourse,
