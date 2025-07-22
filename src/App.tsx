@@ -6,7 +6,7 @@ import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
 import { MetaPixel } from "./components/MetaPixel";
 import { trackViewContent } from "./utils/metaPixel";
-import { persistUTMParams } from "./utils/utm";
+// import { persistUTMParams } from "./utils/utm";
 import ScrollToTop from "./components/ScrollToTop";
 
 import { MainLayout } from "./layouts/MainLayout";
@@ -30,7 +30,7 @@ import MyApplications from "./pages/jobs/MyApplications";
 
 function App() {
   const { setSelectedCourse } = useCourseContext();
-  const location = useLocation();
+  // const location = useLocation();
 
   // Create a client
   const queryClient = new QueryClient();
@@ -38,8 +38,8 @@ function App() {
   // Track view content and persist UTM on every route change
   useEffect(() => {
     trackViewContent();
-    persistUTMParams();
-  }, [location.pathname, location.search]);
+    // persistUTMParams();
+  }, [ ]);
 
   return (
     <QueryClientProvider client={queryClient}>
