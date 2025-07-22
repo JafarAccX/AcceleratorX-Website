@@ -1,11 +1,12 @@
 import { Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Loader from "./components/Loader";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
 import { MetaPixel } from "./components/MetaPixel";
 import { trackViewContent } from "./utils/metaPixel";
+import { persistUTMParams } from "./utils/utm";
 import ScrollToTop from "./components/ScrollToTop";
 
 import { MainLayout } from "./layouts/MainLayout";
@@ -29,14 +30,16 @@ import MyApplications from "./pages/jobs/MyApplications";
 
 function App() {
   const { setSelectedCourse } = useCourseContext();
+  const location = useLocation();
 
   // Create a client
   const queryClient = new QueryClient();
 
-  // Track view content on mount
+  // Track view content and persist UTM on every route change
   useEffect(() => {
     trackViewContent();
-  }, []);
+    persistUTMParams();
+  }, [location.pathname, location.search]);
 
   return (
     <QueryClientProvider client={queryClient}>
