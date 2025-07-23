@@ -141,6 +141,48 @@ const GENLearningJourney = () => {
         },
       ],
     },
+    {
+      title: "Week 7: Advanced GenAI Product Strategies",
+      cards: [
+        {
+          title: "Scaling GenAI Solutions",
+          content: [
+            "Strategies for scaling GenAI features in products",
+            "Managing AI-driven product roadmaps",
+            "Cross-functional collaboration for AI initiatives",
+          ],
+        },
+        {
+          title: "AI Product Metrics & Analytics",
+          content: [
+            "Defining success metrics for GenAI features",
+            "Using analytics to improve AI products",
+            "A/B testing and user feedback loops",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Week 8: Industry Applications & Future Trends",
+      cards: [
+        {
+          title: "GenAI in Different Industries",
+          content: [
+            "Case studies: GenAI in healthcare, finance, and more",
+            "Adapting GenAI solutions to industry needs",
+            "Compliance and ethical considerations by sector",
+          ],
+        },
+        {
+          title: "Future of Product Management with AI",
+          content: [
+            "Emerging trends in GenAI and product management",
+            "Preparing for the next wave of AI innovation",
+            "Building a long-term GenAI career plan",
+          ],
+        },
+      ],
+    },
   ];
 
   const getWeekIcon = (weekIndex: number) => {
@@ -175,7 +217,7 @@ const GENLearningJourney = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Your GenAI PM Learning Path</h2>
             <p className="text-gray-300 text-lg max-w-2xl">
-              A 6-week intensive journey to master GenAI for product management and accelerate your PM career
+              An 8-week intensive journey to master GenAI for product management and accelerate your PM career
             </p>
           </div>
 
@@ -218,7 +260,7 @@ const GENLearningJourney = () => {
               <div>
                 <h3 className="text-xl font-bold text-white mb-2">{weeks[activeWeek].title}</h3>
                 <p className="text-gray-300">
-                  Week {activeWeek + 1} of 6 - {weeks[activeWeek].cards.length} learning modules
+                  Week {activeWeek + 1} of 8 - {weeks[activeWeek].cards.length} learning modules
                 </p>
               </div>
             </div>
@@ -248,15 +290,15 @@ const GENLearningJourney = () => {
 
             {/* Progress Indicator */}
             <div className="mt-6 flex items-center justify-between text-sm text-gray-400">
-              <span>Week {activeWeek + 1} of 6</span>
+              <span>Week {activeWeek + 1} of 8</span>
               <div className="flex items-center gap-2">
                 <div className="w-32 h-2 bg-gray-700 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
-                    style={{ width: `${((activeWeek + 1) / weeks.length) * 100}%` }}
+                    style={{ width: `${((activeWeek + 1) / 8) * 100}%` }}
                   ></div>
                 </div>
-                <span>{Math.round(((activeWeek + 1) / weeks.length) * 100)}%</span>
+                <span>{Math.round(((activeWeek + 1) / 8) * 100)}%</span>
               </div>
             </div>
           </div>

@@ -55,7 +55,7 @@ const GENHero = () => {
 
             {/* Title */}
             <h1 className="text-4xl md:text-6xl font-bold mb-6 pb-4 bg-white text-transparent bg-clip-text">
-            Ultimate 6-Week Generative AI Program for Product Managers
+            Ultimate 8-Week Generative AI Program for Product Managers
             </h1>
 
             {/* Subtitle */}

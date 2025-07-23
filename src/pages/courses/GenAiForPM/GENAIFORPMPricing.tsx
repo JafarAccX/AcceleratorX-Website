@@ -8,7 +8,7 @@ const GENPricing = () => {
   // const [isScholarshipModalOpen, setIsScholarshipModalOpen] = useState(false);
 
   const features = [
-    "6-week intensive program",
+    "8-week intensive program",
     "Live instructor-led sessions",
     "Real-world AI projects",
     "Industry-recognized certification",
