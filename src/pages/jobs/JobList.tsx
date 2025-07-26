@@ -44,10 +44,9 @@ const JobList = () => {
   const { data: jobsResponse, isLoading } = useGetAllJobs(currentPage, jobsPerPage);
 
   // Extract jobs and pagination info from response
-  const jobs = jobsResponse?.jobs || [];
+  const jobs = useMemo(() => jobsResponse?.jobs || [], [jobsResponse?.jobs]);
   const paginationInfo = jobsResponse?.pagination;
 
-  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -58,13 +57,6 @@ const JobList = () => {
   const [selectedExperience, setSelectedExperience] = useState<string>("");
   const [selectedSalaryRange, setSelectedSalaryRange] = useState<string>("");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-
-  // Initialize filteredJobs when jobs data is loaded
-  useEffect(() => {
-    if (jobs) {
-      setFilteredJobs(jobs);
-    }
-  }, [jobs]);
 
   const uniqueCompanies = Array.from(new Set(jobs?.map((job) => job.CompanyName) || []));
   const uniqueJobTypes = Array.from(new Set(jobs?.map((job) => job.JobType) || []));
@@ -87,9 +79,8 @@ const JobList = () => {
     [],
   );
 
-  // Apply filters whenever they change
-  useEffect(() => {
-    if (!jobs) return;
+  const filteredJobs = useMemo(() => {
+    if (!jobs) return [];
 
     let result = [...jobs];
 
@@ -99,8 +90,7 @@ const JobList = () => {
       result = result.filter(
         (job) =>
           job.JobName.toLowerCase().includes(term) ||
-          job.CompanyName.toLowerCase().includes(term) ||
-          (job.JobDescription && job.JobDescription.toLowerCase().includes(term)),
+          job.CompanyName.toLowerCase().includes(term),
       );
     }
 
@@ -121,33 +111,36 @@ const JobList = () => {
 
     // Experience filter
     if (selectedExperience) {
-      const [minExp, maxExp] = selectedExperience.split("-").map((val) => (val === "+" ? Infinity : Number(val)));
+      const [minExp] = selectedExperience.replace("+", "").split("-").map(Number);
       result = result.filter((job) => {
-        const exp = Number(job.RequiredExperience) || 0;
-        return exp >= minExp && (maxExp === Infinity ? true : exp <= maxExp);
+        if (typeof job.RequiredExperience === "number") {
+          return job.RequiredExperience >= minExp;
+        }
+        return false;
       });
     }
 
-    // Salary filter
+    // Salary range filter
     if (selectedSalaryRange) {
-      const range = salaryRanges.find((r) => r.label === selectedSalaryRange);
-      if (range) {
+      const selectedRange = salaryRanges.find((r) => r.label === selectedSalaryRange);
+      if (selectedRange) {
         result = result.filter((job) => {
-          const salary = job.Salary || 0;
-          return salary >= range.min && salary <= range.max;
+          if (typeof job.Salary === "number") {
+            return job.Salary >= selectedRange.min && job.Salary < selectedRange.max;
+          }
+          return false;
         });
       }
     }
 
     // Skills filter
     if (selectedSkills.length > 0) {
-      result = result.filter((job) => {
-        if (!job.RequiredSkills) return false;
-        return selectedSkills.every((skill) => job.RequiredSkills?.includes(skill));
-      });
+      result = result.filter((job) =>
+        selectedSkills.every((skill) => job.RequiredSkills?.includes(skill)),
+      );
     }
 
-    setFilteredJobs(result);
+    return result;
   }, [
     jobs,
     searchTerm,
@@ -165,6 +158,7 @@ const JobList = () => {
     if (currentPage !== 1) {
       setCurrentPage(1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     searchTerm,
     selectedCompany,
@@ -223,20 +217,27 @@ const JobList = () => {
 
     const { currentPage, totalPages } = paginationInfo;
     const pages = [];
-    const maxPagesToShow = 5;
+    const maxPageNumbers = 5; // How many page numbers to show.
 
-    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-    let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+    if (totalPages <= maxPageNumbers) {
+      // If total pages are less than or equal to maxPageNumbers, show all pages.
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      // If total pages are more than maxPageNumbers, calculate start and end pages.
+      let startPage = Math.max(1, currentPage - Math.floor(maxPageNumbers / 2));
+      const endPage = Math.min(totalPages, startPage + maxPageNumbers - 1);
 
-    // Adjust start page if we're near the end
-    if (endPage - startPage + 1 < maxPagesToShow) {
-      startPage = Math.max(1, endPage - maxPagesToShow + 1);
+      // Adjust startPage if endPage is at the end.
+      if (endPage === totalPages) {
+        startPage = Math.max(1, totalPages - maxPageNumbers + 1);
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pages.push(i);
+      }
     }
-
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-
     return pages;
   };
 
@@ -603,7 +604,7 @@ const JobList = () => {
                 </>
               )}
 
-              {getPageNumbers().map((pageNum) => (
+              {getPageNumbers().map((pageNum: number) => (
                 <button
                   key={pageNum}
                   onClick={() => handlePageChange(pageNum)}
