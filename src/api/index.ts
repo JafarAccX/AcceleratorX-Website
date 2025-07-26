@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance for API calls
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://dev-api.acceleratorx.org',
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 // Set up axios interceptor to add the auth token to every request
