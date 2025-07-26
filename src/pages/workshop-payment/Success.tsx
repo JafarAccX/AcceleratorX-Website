@@ -83,9 +83,7 @@ const Success = () => {
 
   const downloadInvoice = async () => {
     try {
-      // Log the API URL and orderId for debugging
-      console.log("API URL:", import.meta.env.VITE_API_URL);
-      console.log("Order ID:", orderId);
+      // Log the API URL and orderId for debuggin
 
       // Ensure we have the required values
       if (!import.meta.env.VITE_API_URL) {
@@ -97,7 +95,6 @@ const Success = () => {
       }
 
       const apiUrl = `${import.meta.env.VITE_API_URL}/api/invoice/${orderId}`;
-      console.log("Full API URL:", apiUrl);
 
       const response = await fetch(apiUrl, {
         method: "GET",
