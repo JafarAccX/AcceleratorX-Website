@@ -2,7 +2,7 @@ import axios from 'axios';
 import { CreateJobPayload, Job, SearchJobsParams, UpdateJobPayload } from '../types/jobs';
 import { api } from '.';
 
-const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3020/api';
+const API_URL = import.meta.env.VITE_BACKEND_URL || 'https://api.acceleratorx.org/api';
 
 
 // Jobs API functions

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ApplicationStats, ApplyForJobPayload, CreateCustomerPayload, Customer, JobApplication, UpdateApplicationStatusPayload, UpdateCustomerPayload, WithdrawApplicationPayload } from "../types/customer"
 import { api } from '.';
 
-const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3020/api';
+const API_URL = import.meta.env.VITE_BACKEND_URL || 'https://api.acceleratorx.org/api';
 
 
 const customersApi = {
