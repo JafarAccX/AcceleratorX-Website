@@ -71,7 +71,7 @@ const WSFormFree = () => {
 
       const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
 
-      console.log("masterclass", masterclass);
+      
       const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
         method: "POST",
         headers: {
@@ -216,7 +216,7 @@ const WSFormFree = () => {
                 .then(async (data) => {
                   // Success: maybe show a confirmation message
                   const zoomJoinLink = data.join_url;
-                  console.log("Zoom registration successful:", data);
+                 
                   await sendWhatsAppMessage({
                     apiKey: whatsappSerriApi,
                     campaignName: "registration_confirmation",
@@ -276,13 +276,13 @@ const WSFormFree = () => {
         throw error;
       }
 
-      console.log("making regestration");
+      
 
       await registerForZoomMeeting(formData.name, formData.email, formData.phone, zoomMeetingDetails.meetingCode)
         .then(async (data) => {
           const zoomJoinLink = data.join_url;
           // Success: maybe show a confirmation message
-          console.log("Zoom registration successful:", data);
+         
           await sendWhatsAppMessage({
             apiKey: whatsappSerriApi,
             campaignName: "registration_confirmation",
@@ -322,7 +322,7 @@ const WSFormFree = () => {
         .then(async (data) => {
           const zoomJoinLink = data.join_url;
           // Success: maybe show a confirmation message
-          console.log("Zoom registration successful:", data);
+         
           await sendWhatsAppMessage({
             apiKey: whatsappSerriApi,
             campaignName: "registration_confirmation",

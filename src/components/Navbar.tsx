@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import companyLogo from "/assets/companylogo.png";
-import { isAuthenticated } from "../context/UserContext";
+import { useUser } from "../context/UserContext";
 import ProfileMenu from "./navbar/ProfileMenu";
 
 // Add CSS classes for transitions
@@ -16,13 +16,12 @@ const xsatNavItems = [
   { label: "FAQ", href: "#faq" },
 ];
 
-// <<<<<<< HEAD
 export default function Navbar() {
-  // export default function Navbar({ onEnrollClick }: { onEnrollClick: () => void }) {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isAuthenticated } = useUser();
   const location = useLocation();
   const isXSATRoute = location.pathname === "/xsat";
 
@@ -214,7 +213,7 @@ export default function Navbar() {
               Join AcceX Squad
             </button> */}
 
-            {isAuthenticated() ? (
+            {isAuthenticated ? (
               <ProfileMenu />
             ) : (
               <div className="flex items-center space-x-4">
@@ -317,7 +316,7 @@ export default function Navbar() {
           >
             Join AcceX Squad
           </button> */}
-          {isAuthenticated() ? (
+          {isAuthenticated ? (
             <ProfileMenu />
           ) : (
             <div className="flex flex-col items-center space-y-4">

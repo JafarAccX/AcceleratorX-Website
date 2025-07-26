@@ -44,8 +44,7 @@ async function sendWhatsAppMessage({
   name: string;
   broucher: { title: string; url: string };
 }) {
-  try {
-    console.log(" Sending WhatsApp message to:", phone, name);
+  try { 
     const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
       method: "POST",
       headers: {
@@ -127,8 +126,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
         .select("*")
         .eq("phone_number", formData.phone)
         .eq("course", formData.course);
-
-      console.log("Existing enrollment data:", existingEnrollment);
+ 
 
       // throw existing enrollment error
       if (existingEnrollment && existingEnrollment.length > 0) {
@@ -180,10 +178,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
     : selectedCourse === "Product Management"
     ? pmAiBroucher
     : genAiBroucher;
-    
-    console.log("Broucher data:", broucherData);
-    console.log("selectedCourse:", selectedCourse);
-
+     
       await sendWhatsAppMessage({
         phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
         name: formData.name,

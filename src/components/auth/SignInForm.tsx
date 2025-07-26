@@ -1,15 +1,10 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
-import { useGetUserByMobile } from "../../hooks/customer";
-import { Customer } from "../../types/customer";
-import axios from "axios";
-
-// interface WindowOverride extends Window {
-//   OTPless?: any;
-// }
+import { api } from "../../api";
+import { AxiosError } from "axios";
 
 const LoadingSpinner = () => (
   <motion.div
@@ -23,43 +18,22 @@ export interface SignInFormProps {
   onSuccess?: () => void;
 }
 
+interface ApiError {
+  message: string;
+  success: boolean;
+}
+
 export function SignInForm({ onSuccess }: SignInFormProps) {
   const navigate = useNavigate();
-  const { setUser } = useUser();
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-  const [otp, setOtp] = React.useState("");
-  const [showOTP, setShowOTP] = React.useState(false);
-  const [timer, setTimer] = React.useState(0);
-  const [isProcessing, setIsProcessing] = React.useState(false);
-  const [cachedUserData, setCachedUserData] = React.useState<Customer | null>(null);
+  const { login } = useUser();
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [otp, setOtp] = useState("");
+  const [showOTP, setShowOTP] = useState(false);
+  const [timer, setTimer] = useState(0);
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  // Only fetch user data when we have a valid phone number and haven't cached it yet
-  const shouldFetchUser = phoneNumber.length === 10 && !cachedUserData;
-  const {
-    data: fetchedUserData,
-    isLoading: isUserLoading,
-    isError,
-  } = useGetUserByMobile(shouldFetchUser ? phoneNumber : "");
-
-  // Cache the user data when it's fetched
-  React.useEffect(() => {
-    if (fetchedUserData && phoneNumber.length === 10) {
-      setCachedUserData(fetchedUserData);
-    }
-  }, [fetchedUserData, phoneNumber]);
-
-  // Clear cached data when phone number changes
-  React.useEffect(() => {
-    if (phoneNumber.length !== 10) {
-      setCachedUserData(null);
-    }
-  }, [phoneNumber]);
-
-  // Use cached data if available, otherwise use fetched data
-  const userData = cachedUserData || fetchedUserData;
-
-  React.useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
     if (showOTP && timer > 0) {
       interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
     }
@@ -70,45 +44,30 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     };
   }, [showOTP, timer]);
 
-  // const API_BASE = "http://localhost:3020/api/otp";
-  // const API_BASE = "https://api.acceleratorx.org/api/otp";
-  const API_BASE = "https://dev-api.acceleratorx.org/api/otp";
-
   const handleSendOTP = async () => {
     if (!phoneNumber || phoneNumber.length !== 10) {
       toast.error("Please enter a valid 10-digit phone number");
       return;
     }
 
-    if (isUserLoading) {
-      toast.error("Please wait while we verify your phone number");
-      return;
-    }
-
-    if (!userData) {
-      toast.error("This phone number is not registered. Please sign up first.");
-      return;
-    }
-
+    setIsProcessing(true);
     try {
-      setIsProcessing(true);
-
-      // Make API call to your send OTP endpoint
-      const response = await axios.post(`${API_BASE}/send`, {
-        phoneNumber: "+91" + phoneNumber,
+      const response = await api.post("/auth/request-otp", {
+        phoneNumber: `${phoneNumber}`,
       });
 
-      if (response.status === 200) {
+      if (response.data.success) {
+        toast.success("OTP sent successfully!");
         setShowOTP(true);
-        setTimer(30); // Start timer for OTP expiry UI
-        toast.success("OTP sent successfully");
+        setTimer(60);
       } else {
-        throw new Error("Failed to send OTP");
+        toast.error(response.data.message || "Failed to send OTP");
       }
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
-      toast.error(errorMessage);
-      setShowOTP(false);
+      const axiosError = error as AxiosError<ApiError>;
+      toast.error(
+        axiosError.response?.data?.message || "An error occurred while sending OTP."
+      );
     } finally {
       setIsProcessing(false);
     }
@@ -120,54 +79,35 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       return;
     }
 
+    setIsProcessing(true);
     try {
-      setIsProcessing(true);
-
-      const response = await axios.post(`${API_BASE}/verify`, {
-        phoneNumber: "+91" + phoneNumber,
+      const response = await api.post("/auth/verify-otp", {
+        phoneNumber: `${phoneNumber}`,
         otpCode: otp,
       });
 
-      // Check the response message
-      const message = response.data?.message;
+      if (response.data.success) {
+        toast.success("Login successful!");
+        const { user, accessToken, refreshToken } = response.data;
+        login({ user, accessToken, refreshToken });
 
-      if (response.status === 200 && message === "OTP verified successfully") {
-        if (userData) {
-          const userDataToStore = {
-            ...userData,
-            isAuthenticated: true,
-          };
-          localStorage.setItem("userData", JSON.stringify(userDataToStore));
-          setUser(userData);
-          toast.success("Welcome back!");
-
-          if (onSuccess) {
-            onSuccess();
-          } else {
-            navigate("/profile");
-          }
+        if (onSuccess) {
+          onSuccess();
         } else {
-          toast.error("Account not found. Please sign up first.");
-          navigate("/sign-up");
+          navigate("/"); // Redirect to home or dashboard
         }
       } else {
-        throw new Error("Invalid OTP or verification failed");
+        toast.error(response.data.message || "Invalid OTP");
       }
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Invalid OTP. Please try again.";
-      toast.error(errorMessage);
-      setOtp("");
+      const axiosError = error as AxiosError<ApiError>;
+      toast.error(
+        axiosError.response?.data?.message || "An error occurred during verification."
+      );
     } finally {
       setIsProcessing(false);
     }
   };
-
-  const handleResendOTP = async () => {
-    setTimer(30);
-    await handleSendOTP();
-  };
-
-  const isLoading = isUserLoading || isProcessing;
 
   return (
     <div className="flex min-h-screen bg-gradient-to-r from-blue-800 to-indigo-900">
@@ -186,156 +126,89 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
         </div>
       </div>
 
-      {/* Right side form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 md:p-8">
-        <div className="w-full max-w-[450px] space-y-8">
-          <div className="space-y-3">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent pb-3">
-              Sign In
-            </h1>
-          </div>
-
-          <form
-            className="space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (showOTP) {
-                handleVerifyOTP();
-              } else {
-                handleSendOTP();
-              }
-            }}
-          >
-            <div className="space-y-5">
-              <div>
-                <label htmlFor="phoneNumber" className="text-blue-50 font-medium">
-                  Mobile Number
-                </label>
-                <div className="relative">
-                  <div className="flex items-center rounded-lg overflow-hidden">
-                    <span className="rounded-lg text-[#6B7B93] bg-white/10 px-4 py-3 text-sm mr-1">+91</span>
-                    <input
-                      id="phoneNumber"
-                      type="tel"
-                      maxLength={10}
-                      placeholder="Enter mobile number"
-                      value={phoneNumber}
-                      onChange={(e) => {
-                        const value = e.target.value.replace(/\D/g, ""); // Only allow digits
-                        setPhoneNumber(value);
-                        // Reset OTP state and clear cached data when phone number changes
-                        if (showOTP) {
-                          setShowOTP(false);
-                          setOtp("");
-                          setTimer(0);
-                        }
-                        // Clear cached data when user starts typing a new number
-                        if (value.length < 10) {
-                          setCachedUserData(null);
-                        }
-                      }}
-                      disabled={showOTP || isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {isError && (
-                <div className="text-red-400 text-sm">This phone number is not registered. Please sign up first.</div>
-              )}
-
-              {showOTP && (
-                <div>
-                  <label htmlFor="otp" className="text-blue-50 font-medium">
-                    Enter OTP
-                  </label>
-                  <input
-                    id="otp"
-                    type="text"
-                    placeholder="Enter 6-digit OTP"
-                    value={otp}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/\D/g, ""); // Only allow digits
-                      setOtp(value);
-                    }}
-                    maxLength={6}
-                    disabled={isLoading}
-                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200 focus:ring-2 border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                  />
-                  {timer > 0 ? (
-                    <div className="w-full mt-4">
-                      <p className="text-white text-base font-semibold mb-2">OTP has been sent to you on WhatsApp.</p>
-
-                      <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>
-                    </div>
-                  ) : (
-                    <div className="w-full mt-4">
-                      <p className="text-white text-base font-semibold mb-2">OTP has been sent to you on WhatsApp.</p>
-
-                      <button
-                        type="button"
-                        onClick={handleResendOTP}
-                        className="w-full text-blue-300 hover:text-blue-200 text-sm mt-2 transition-colors duration-200"
-                        disabled={isLoading}
-                      >
-                        Resend OTP
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {!showOTP ? (
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3.5 font-medium relative transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100"
-                  disabled={isLoading || phoneNumber.length !== 10}
-                >
-                  {isLoading ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <LoadingSpinner />
-                      <span>{isUserLoading ? "Checking..." : "Sending OTP..."}</span>
-                    </div>
-                  ) : (
-                    "Send OTP"
-                  )}
-                </button>
-              ) : (
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3.5 font-medium relative transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100"
-                  disabled={isLoading || otp.length !== 6}
-                >
-                  {isLoading ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <LoadingSpinner />
-                      <span>Verifying...</span>
-                    </div>
-                  ) : (
-                    "Verify OTP"
-                  )}
-                </button>
-              )}
-            </div>
-          </form>
-
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+        <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
           <div className="text-center">
-            <p className="text-blue-200/60">
-              Don't have an account?{" "}
-              <button
-                onClick={() => navigate("/sign-up")}
-                className="text-blue-300 hover:text-blue-200 transition-colors duration-200"
-                disabled={isLoading}
-              >
-                Sign Up
-              </button>
+            <h2 className="text-2xl font-bold text-gray-800">Sign In</h2>
+            <p className="text-gray-600">
+              {!showOTP
+                ? "Enter your phone number to receive an OTP"
+                : "An OTP has been sent to your number"}
             </p>
           </div>
+
+          {!showOTP ? (
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="phone" className="sr-only">
+                  Phone Number
+                </label>
+                <div className="relative">
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                    +91
+                  </span>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    required
+                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Your 10-digit phone number"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                  />
+                </div>
+              </div>
+              <button
+                onClick={handleSendOTP}
+                disabled={isProcessing}
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-blue-400"
+              >
+                {isProcessing ? <LoadingSpinner /> : "Send OTP"}
+              </button>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="otp" className="sr-only">
+                  OTP
+                </label>
+                <input
+                  id="otp"
+                  name="otp"
+                  type="text"
+                  maxLength={6}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter 6-digit OTP"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                />
+              </div>
+              <button
+                onClick={handleVerifyOTP}
+                disabled={isProcessing}
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-green-400"
+              >
+                {isProcessing ? <LoadingSpinner /> : "Verify OTP"}
+              </button>
+              <div className="text-center text-sm text-gray-500">
+                {timer > 0 ? (
+                  <p>Resend OTP in {timer}s</p>
+                ) : (
+                  <button
+                    onClick={handleSendOTP}
+                    className="font-medium text-blue-600 hover:text-blue-500"
+                  >
+                    Resend OTP
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
-
-export default SignInForm;

@@ -29,9 +29,7 @@ export default function ProfileMenu() {
     navigate("/");
   };
 
-  if (!user) return null;
-
-  console.log("user -- context", user);
+  if (!user) return null; 
 
   const displayName = user.FirstName + " " + user.LastName || "User";
   const displayEmail = user.Mobile || user.Email || "";

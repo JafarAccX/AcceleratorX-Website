@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { CreateJobPayload, Job, SearchJobsParams, UpdateJobPayload } from '../types/jobs';
+import { api } from '.';
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3020/api';
 
@@ -8,7 +9,7 @@ const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3020/api';
 const jobsApi = {
     // Create a new job
     createJob: async (jobData: CreateJobPayload): Promise<Job> => {
-        const response = await axios.post(`${API_URL}/api/jobs`, jobData);
+        const response = await api.post(`${API_URL}/api/jobs`, jobData);
         return response.data;
     },
 
@@ -41,19 +42,19 @@ const jobsApi = {
 
     // Update job by ID
     updateJob: async ({ jobId, jobData }: { jobId: string; jobData: UpdateJobPayload }): Promise<Job> => {
-        const response = await axios.put(`${API_URL}/api/jobs/${jobId}`, jobData);
+        const response = await api.put(`${API_URL}/api/jobs/${jobId}`, jobData);
         return response.data;
     },
 
     // Delete job by ID (soft delete)
     deleteJob: async (jobId: string): Promise<{ message: string }> => {
-        const response = await axios.delete(`${API_URL}/api/jobs/${jobId}`);
+        const response = await api.delete(`${API_URL}/api/jobs/${jobId}`);
         return response.data;
     },
 
     // Hard delete job by ID
     hardDeleteJob: async (jobId: string): Promise<{ message: string }> => {
-        const response = await axios.delete(`${API_URL}/api/jobs/${jobId}/hard`);
+        const response = await api.delete(`${API_URL}/api/jobs/${jobId}/hard`);
         return response.data;
     },
 

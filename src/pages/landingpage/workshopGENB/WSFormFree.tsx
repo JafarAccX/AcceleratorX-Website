@@ -40,8 +40,8 @@ const WSFormFree = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  console.log("workshopType ", workshopType);
-  console.log("zoomMeetingDetails ", zoomMeetingDetails);
+  // console.log("workshopType ", workshopType);
+  // console.log("zoomMeetingDetails ", zoomMeetingDetails);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -95,7 +95,7 @@ const WSFormFree = () => {
       const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/);
       const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
 
-      console.log("masterclass", masterclass);
+    
       const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
         method: "POST",
         headers: {
@@ -177,7 +177,7 @@ const WSFormFree = () => {
         msclkid: utmData.msclkid,
       };
 
-      console.log("Submitting workshop registration with UTM data:", submissionData);
+      
 
       // Insert data into Supabase table
       const { error } = await supabase.from("workshop_registrations").insert([submissionData]);
@@ -361,7 +361,7 @@ const WSFormFree = () => {
           workExperience: formData.yearsOfExperience,
           yearsOfPassing: formData.yearsOfPassing,
         } as any);
-        console.log("Form submission tracked successfully");
+       
       } catch (trackingError) {
         console.error("Error tracking form submission:", trackingError);
       }

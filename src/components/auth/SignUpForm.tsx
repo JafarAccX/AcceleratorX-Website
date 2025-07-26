@@ -191,7 +191,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
       if (existingUser) {
         throw new Error(error?.message || "Failed to fetch user data");
       } else {
-        console.log("sending the data to backend");
+         
 
         // Prepare form data with default values for backend requirements
         const formDataWithDefaults = {
@@ -226,7 +226,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
           onSuccess();
         }
 
-        console.log("navigating to profile page");
+       
 
         // Navigate after onSuccess
         navigate("/profile");

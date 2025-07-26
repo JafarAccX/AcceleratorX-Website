@@ -7,7 +7,6 @@ import { Globe } from "lucide-react";
 
 const WSHeroPM = () => {
   const scrollToForm = () => {
-    console.log("workshop-registration-form");
     const form = document.getElementById("workshop-registration-form");
     if (form) {
       // Add a small delay to ensure the element is properly rendered
