@@ -9,12 +9,11 @@ const Events = () => {
   const [workshopsTabs, setWorkshopsTabs] = useState<"upcomming" | "past">("upcomming");
 
   const AllworkshopsDetails = [
-   
     {
-      name: "Visual Data Analysis in AI Era",
+      name: "Learn everything n8n !",
       mode: "Online (Zoom)",
-      time: "July 21, 2025 8:30 PM",
-      link: "/workshop/da-masterclass-bxwxy",
+      time: "Aug 5, 2025  8:00 PM",
+      link: "/workshop/gen-ai-masterclass-bxwcy",
       completed: false,
     },
     {
@@ -22,7 +21,14 @@ const Events = () => {
       mode: "Online (Zoom)",
       time: "July 23, 2025  7:30 PM",
       link: "/workshop/gen-ai-masterclass-thidtx",
-      completed: false,
+      completed: true,
+    },
+    {
+      name: "Visual Data Analysis in AI Era",
+      mode: "Online (Zoom)",
+      time: "July 21, 2025 8:30 PM",
+      link: "/workshop/da-masterclass-bxwxy",
+      completed: true,
     },
     {
       name: "Build Your Own AI Agents Live",

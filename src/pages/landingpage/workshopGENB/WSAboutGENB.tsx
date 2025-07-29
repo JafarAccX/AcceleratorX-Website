@@ -47,7 +47,8 @@ const WSAboutGENB = () => {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Automation with n8n Workshop</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Automation Workshop: Learn n8n by Doing
+                </h2>
 
                 {/* Workshop Info */}
 
@@ -63,10 +64,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Build workflow automations that save hours of manual effort",
-                        "Use n8n to connect your favorite apps (like Gmail, Notion, Slack & more)",
-                        "Hands-on projects you can deploy instantly",
-                        "Automate without writing a single line of code",
+                        "Learn to build real workflow automations.",
+                        "Instantly deploy automations with no coding.",
+                        "Connect your favorite tools like Gmail, Notion, Slack, and ChatGPT.",
+                        "Build flows you can use in your daily work.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -86,10 +87,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to structure real-world automations using n8n",
-                        "Creating workflows with triggers, actions, and decision logic",
-                        "Integrating tools like Google Sheets, CRMs, APIs, and more",
-                        "Automating repetitive tasks to boost personal and business productivity",
+                        "How to automate manual tasks and save hours",
+                        "Building workflows using triggers, actions, and conditions",
+                        "Using n8n with tools like Google Sheets, APIs, Slack, CRM",
+                        "Supercharging workflows using GenAI (ChatGPT, LangChain)",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>

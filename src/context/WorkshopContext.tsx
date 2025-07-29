@@ -57,11 +57,11 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  title: "How to Automate your workflows Using n8n",
-  link: "https://zoom.us/meeting/register/moivGRTCRVu02E_-CmzaIw",
-  meetingId: "moivGRTCRVu02E_-CmzaIw",
-  time: "15th May, 2025 08:00 PM India",
-  meetingCode: "96045949365",
+  title: "Learn everything n8n !",
+  link: "https://zoom.us/meeting/register/a6NlhxHhTfylhGtXvf8qiA",
+  meetingId: "a6NlhxHhTfylhGtXvf8qiA",
+  time: "5th Aug, 2025 08:00 PM India",
+  meetingCode: "97843712816",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
