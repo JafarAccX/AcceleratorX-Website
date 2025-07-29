@@ -89,8 +89,8 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
 
       if (response.data.success) {
         toast.success("Login successful!");
-        const { user, accessToken, refreshToken } = response.data;
-        login({ user, accessToken, refreshToken });
+        const { user, accessToken } = response.data;
+        login({ user, accessToken });
 
         if (onSuccess) {
           onSuccess();
