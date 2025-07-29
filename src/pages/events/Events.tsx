@@ -12,7 +12,7 @@ const Events = () => {
     {
       name: "Learn everything n8n !",
       mode: "Online (Zoom)",
-      time: "Aug 5, 2025  8:00 PM",
+      time: "Aug 5, 2025  7:00 PM",
       link: "/workshop/gen-ai-masterclass-bxwcy",
       completed: false,
     },

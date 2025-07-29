@@ -60,7 +60,7 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
   title: "Learn everything n8n !",
   link: "https://zoom.us/meeting/register/a6NlhxHhTfylhGtXvf8qiA",
   meetingId: "a6NlhxHhTfylhGtXvf8qiA",
-  time: "5th Aug, 2025 08:00 PM India",
+  time: "5th Aug, 2025 07:00 PM India",
   meetingCode: "97843712816",
 };
 
