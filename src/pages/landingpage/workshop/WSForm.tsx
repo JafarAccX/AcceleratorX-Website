@@ -43,7 +43,6 @@ const WSForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  // const [registrationId, setRegistrationId] = useState<string | null>(null);
   const [paymentVerified, setPaymentVerified] = useState(false);
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [showCancellationModal, setShowCancellationModal] = useState(false);
@@ -86,23 +85,18 @@ const WSForm = () => {
     });
   };
 
-  const handlePaymentCancellation = async (tempId: string) => {
+  const handlePaymentCancellation = async (registrationId: string) => {
     try {
-      // Extract base URL without '/api' suffix if it exists
       const baseUrl = apiUrl.endsWith("/api") ? apiUrl.slice(0, -4) : apiUrl;
-      const response = await fetch(`${baseUrl}/workshop/cancel-workshop-payment`, {
+      await fetch(`${baseUrl}/workshop/cancel-workshop-payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          tempId,
+          registrationId,
         }),
       });
-
-      if (!response.ok) {
-        console.error("Failed to notify backend about payment cancellation");
-      }
     } catch (error) {
       console.error("Error handling payment cancellation:", error);
     } finally {
@@ -247,8 +241,8 @@ const WSForm = () => {
 
       // console.log("Order created successfully:", responseData.data);
 
-      // Store tempId for payment verification
-      const tempId = responseData.data.tempId;
+      // Store registrationId for payment verification
+      const registrationId = responseData.data.registrationId;
 
       // Wait for a small delay to ensure Razorpay is fully initialized
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -263,7 +257,7 @@ const WSForm = () => {
           order_id: responseData.data.orderId,
           notes: {
             workshop_type: workshopType,
-            tempId: tempId,
+            registrationId: registrationId,
           },
           handler: async function (response: any) {
             // console.log("Payment successful, verifying...", response);
@@ -277,8 +271,7 @@ const WSForm = () => {
                   razorpay_payment_id: response.razorpay_payment_id,
                   razorpay_order_id: response.razorpay_order_id,
                   razorpay_signature: response.razorpay_signature,
-                  tempId,
-                  registrationData,
+                  registrationId,
                 }),
               });
 
@@ -342,7 +335,7 @@ const WSForm = () => {
           modal: {
             ondismiss: function () {
               // console.log("Payment modal dismissed");
-              handlePaymentCancellation(tempId);
+              handlePaymentCancellation(registrationId);
               reject(new Error("Payment cancelled"));
             },
           },

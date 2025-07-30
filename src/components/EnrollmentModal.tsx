@@ -1,18 +1,13 @@
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import toast from "react-hot-toast";
 import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 import { useNavigate } from "react-router-dom";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+import { createEnrollment } from "../api/enrollmentApi";
 
 const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface EnrollmentModalProps {
   isOpen: boolean;
@@ -104,8 +99,11 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
     }
   }, [selectedCourse]);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
 
     if (formData.phone.length !== 10 || formData.phone.startsWith("0")) {
       toast.error("Please enter a valid 10-digit phone number that doesn't start with 0");
@@ -117,90 +115,70 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
-      // Get UTM data
       const utmData = getUTMDataForDB();
+      const submissionData = {
+        full_name: formData.name,
+        phone_number: formData.phone,
+        email: formData.email,
+        education_level: formData.education,
+        course: formData.course,
+        work_experience: formData.workExperience,
+        designation: formData.designation,
+        utm_source: utmData.utm_source,
+        utm_medium: utmData.utm_medium,
+        utm_campaign: utmData.utm_campaign,
+        utm_term: utmData.utm_term,
+        utm_content: utmData.utm_content,
+        referrer: utmData.referrer,
+        landing_page_url: utmData.landing_page_url,
+        fbclid: utmData.fbclid,
+        gclid: utmData.gclid,
+        ttclid: utmData.ttclid,
+        msclkid: utmData.msclkid,
+      };
 
-      const { data: existingEnrollment } = await supabase
-        .from("enrollments")
-        .select("*")
-        .eq("phone_number", formData.phone)
-        .eq("course", formData.course);
- 
-
-      // throw existing enrollment error
-      if (existingEnrollment && existingEnrollment.length > 0) {
-        toast.error("You have already enrolled for this course.");
-        throw new Error("User already enrolled for this course.");
-      }
-
-      // Store enrollment data
-      const { error } = await supabase.from("enrollments").insert([
-        {
-          full_name: formData.name,
-          phone_number: formData.phone,
-          email: formData.email,
-          education_level: formData.education,
-          course: formData.course,
-          work_experience: formData.workExperience,
-          designation: formData.designation,
-          // UTM and tracking data
-          utm_source: utmData.utm_source,
-          utm_medium: utmData.utm_medium,
-          utm_campaign: utmData.utm_campaign,
-          utm_term: utmData.utm_term,
-          utm_content: utmData.utm_content,
-          referrer: utmData.referrer,
-          landing_page_url: utmData.full_url,
-          fbclid: utmData.fbclid,
-          gclid: utmData.gclid,
-          ttclid: utmData.ttclid,
-          msclkid: utmData.msclkid,
-        },
-      ]);
-
-      if (error) {
-        if (error.code === "23505") {
-          toast.error("You have already enrolled with this email address");
-        } else {
-          toast.error("Failed to submit enrollment. Please try again.");
-        }
-        console.error("Error submitting form:", error);
-        return;
-      }
-
-      //courses available -- Generative AI, Data Analytics, Product Management
-      // const broucherData = selectedCourse === "Data Analytics" ? daBroucher : genAiBroucher;
+      await createEnrollment(submissionData);
 
       const broucherData =
-  selectedCourse === "Data Analytics"
-    ? daBroucher
-    : selectedCourse === "Product Management"
-    ? pmAiBroucher
-    : genAiBroucher;
-     
+        selectedCourse === "Data Analytics"
+          ? daBroucher
+          : selectedCourse === "Product Management"
+          ? pmAiBroucher
+          : genAiBroucher;
+
       await sendWhatsAppMessage({
         phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
         name: formData.name,
         broucher: broucherData,
       });
 
-      // Send to Meta Conversion API
-      await trackFormSubmission({
-        ...formData,
-        course: formData.course || selectedCourse || "",
-      });
+      const trackingFormData = new FormData();
+      trackingFormData.append("name", formData.name);
+      trackingFormData.append("email", formData.email);
+      trackingFormData.append("phone", formData.phone);
+      trackingFormData.append("education", formData.education);
+      trackingFormData.append("designation", formData.designation);
+      trackingFormData.append("course", formData.course || selectedCourse || "");
+      trackingFormData.append("workExperience", formData.workExperience);
+      await trackFormSubmission(trackingFormData);
+
+      toast.success("Enrollment submitted successfully!");
 
       if (onSubmit) onSubmit();
 
-      // Navigate after a brief delay
       setTimeout(() => {
         onClose();
         navigate("/thank-you", { state: { courseName: formData.course } });
       }, 1000);
+
     } catch (error) {
-      toast.error("An unexpected error occurred. Please try again later.");
       console.error("Error submitting form:", error);
+      toast.error("Failed to submit enrollment. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
