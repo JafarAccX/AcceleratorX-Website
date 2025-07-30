@@ -25,6 +25,7 @@ import {  JobApplication, JobDetails, JobList } from "./pages/jobs";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import MyApplications from "./pages/jobs/MyApplications";
+import CertificateDisplayPage from "./pages/CertificateDisplayPage";
 
 // Create a client outside of the component to prevent re-creation on re-renders
 const queryClient = new QueryClient();
@@ -69,6 +70,9 @@ function AppContent() {
             {/* Public Job Routes */}
             <Route path="/jobs" element={<JobList />} />
             <Route path="/jobs/:id" element={<JobDetails />} />
+
+            {/* Public Certificate Route */}
+            <Route path="/certificate/:certificateId" element={<CertificateDisplayPage />} />
 
             {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>

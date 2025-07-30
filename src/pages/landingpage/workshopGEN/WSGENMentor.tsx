@@ -4,14 +4,14 @@ import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 
 const WSGENMentor = () => {
   const mentors = [
-    {
-      name: "Prashant Sahatiya",
-      designation: "Assistant Professor at Parul University",
-      description: "Ph.D. in Computer Science, University Gold Medalist",
-      linkedin: "https://www.linkedin.com/in/prashant-sahatiya/",
-      image: "/assets/mentor/prashant.jpeg",
-      experience: "5+ Years",
-    },
+    // {
+    //   name: "Prashant Sahatiya",
+    //   designation: "Assistant Professor at Parul University",
+    //   description: "Ph.D. in Computer Science, University Gold Medalist",
+    //   linkedin: "https://www.linkedin.com/in/prashant-sahatiya/",
+    //   image: "/assets/mentor/prashant.jpeg",
+    //   experience: "5+ Years",
+    // },
     // {
     //   name: "Sagar Rajput",
     //   designation: "Generative AI Engineer Flooid.in ",
@@ -20,6 +20,15 @@ const WSGENMentor = () => {
     //   image: "/assets/mentor/sagar.png",
     //   experience: "5+ Years",
     // },
+
+    {
+      name: "Nitish M L Setty",
+      designation: "Software Developer, MD at GrowSharp Technologies",
+      description: "Expert in AI implementation and automation",
+      linkedin: "https://www.linkedin.com/in/nitish-m-l-shetty-7a0206192",
+      image: "/assets/mentor/nitish.jpg",
+      experience: "5+ Years",
+    },
   ];
 
   return (

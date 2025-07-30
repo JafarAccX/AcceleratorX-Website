@@ -360,8 +360,8 @@ export const SignUpForm = () => {
       const response = await api.post("/auth/register", payload);
 
       if (response.status === 201 && response.data.success) {
-        const { user, accessToken, refreshToken } = response.data;
-        login({ user, accessToken, refreshToken });
+        const { user, accessToken } = response.data;
+        login({ user, accessToken });
         toast.success("Registration successful! Welcome.");
         navigate("/profile");
       } else {
