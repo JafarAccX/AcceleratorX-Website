@@ -105,8 +105,8 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
     e.preventDefault();
     if (isSubmitting) return;
 
-    if (formData.phone.length !== 13 || formData.phone.startsWith("0")) {
-      toast.error("Please enter a valid  phone number that doesn't start with 0");
+    if (formData.phone.length < 10 || formData.phone.length > 12) {
+      toast.error("Please enter a valid phone number (10-12 digits)");
       return;
     }
 
@@ -260,7 +260,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
                           placeholder="Type Your Phone No"
                           value={formData.phone}
                           onChange={(e) => {
-                            const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 10);
+                            const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 12);
                             setFormData({ ...formData, phone: sanitizedValue });
                           }}
                         />
