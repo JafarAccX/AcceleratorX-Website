@@ -105,8 +105,8 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
     e.preventDefault();
     if (isSubmitting) return;
 
-    if (formData.phone.length !== 10 || formData.phone.startsWith("0")) {
-      toast.error("Please enter a valid 10-digit phone number that doesn't start with 0");
+    if (formData.phone.length !== 13 || formData.phone.startsWith("0")) {
+      toast.error("Please enter a valid  phone number that doesn't start with 0");
       return;
     }
 

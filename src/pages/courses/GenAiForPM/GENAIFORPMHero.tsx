@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import EnrollmentModal from "../../../components/EnrollmentModal";
-import DMTimer from "../dmAI/DMTimer";
+import EnrollmentModal from "../../../components/EnrollmentModal"; 
 
 const GENHero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
