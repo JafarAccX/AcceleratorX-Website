@@ -41,11 +41,11 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "Visual Data Analysis in AI Era",
-  link: "https://zoom.us/meeting/register/l0RyCasST7aJgmncVzggTA",
-  meetingId: "l0RyCasST7aJgmncVzggTA",
-  time: "July 21, 2025 8:30 PM India",
-  meetingCode: "94102953142",
+  title: "Data Analysis with AI",
+  link: "https://zoom.us/meeting/register/sM7Gq-jLQxuGa3qLIV3Eog",
+  meetingId: "sM7Gq-jLQxuGa3qLIV3Eog",
+  time: "Aug 9, 2025 8:30 PM India",
+  meetingCode: "98309274658",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {

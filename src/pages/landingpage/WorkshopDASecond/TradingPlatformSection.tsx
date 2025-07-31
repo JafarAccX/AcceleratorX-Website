@@ -22,10 +22,14 @@ const TradingPlatformSection: React.FC = () => {
             {/* Main Heading */}
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Why This Workshop Matters
+              Why Attend This Workshop?
               </h2>
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-                Let’s face it—most people don’t know how to present data well. They get lost in spreadsheets or overwhelmed by tools. This session is built for real people, not data scientists. It’s for anyone who wants to confidently explore, explain, and use data in their everyday work or study.
+              “Data is the new oil. But AI is the refinery.”
+              </p>
+
+              <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
+              Whether you’re a student, working professional, founder, or freelancer — this session will show you how to use AI to analyze data, make better decisions, and stand out in your career.
               </p>
             </div>
           </div>

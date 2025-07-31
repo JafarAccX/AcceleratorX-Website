@@ -82,6 +82,9 @@ export default function AIEcosystem() {
 
   return (
     <section className="relative z-10 py-20 bg-gradient-to-b from-[#0a0f1c] to-[#0b0a12] text-white overflow-hidden">
+      
+      
+      
       {/* Background blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl z-0" />
       <div className="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-blue-500/10 rounded-full blur-3xl z-0" />
@@ -94,7 +97,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Visual Data Analysis in AI Era
+          Data Analysis with AI
         </motion.h2>
         <motion.p
           className="mt-4 text-gray-400 max-w-xl mx-auto text-base md:text-lg"

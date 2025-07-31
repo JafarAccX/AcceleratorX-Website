@@ -88,11 +88,11 @@ const ProductsSection: React.FC = () => {
       description: "Use tools like ChatGPT to automate tasks and simplify analysis.",
       illustration: <AIToolsIllustration />,
     },
-    {
-      title: "Smart Templates",
-      description: "Save time with prebuilt templates for dashboards and reports.",
-      illustration: <TemplatesIllustration />,
-    },
+    // {
+    //   title: "Smart Templates",
+    //   description: "Save time with prebuilt templates for dashboards and reports.",
+    //   illustration: <TemplatesIllustration />,
+    // },
   ]
 
   return (
