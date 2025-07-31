@@ -68,9 +68,7 @@ export const trackFormSubmission = async (
   try {
     const { pixelId, accessToken } = getMetaConfig(formData.get("course") as string);
 
-    console.log("🚀 ~ trackFormSubmission ~ formData:", formData);
-    console.log("🚀 ~ trackFormSubmission ~ pixelId:", pixelId);
-    console.log("🚀 ~ trackFormSubmission ~ accessToken:", accessToken);
+
 
     if (!pixelId || !accessToken) return;
 
@@ -123,8 +121,6 @@ export const trackFormSubmission = async (
       ],
       access_token: accessToken,
     };
-
-    console.log(payload)
 
     await fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
       method: "POST",
