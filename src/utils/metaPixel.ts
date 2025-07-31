@@ -76,10 +76,19 @@ export const trackFormSubmission = async (
 
     const trackingData = getTrackingData();
 
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const name = formData.get("name");
+
+    if (typeof email !== "string" || typeof phone !== "string" || typeof name !== "string") {
+      console.error("Invalid form data");
+      return;
+    }
+
     const [hashedEmail, hashedPhone, hashedFirstName] = await Promise.all([
-      hashData(formData.email.toLowerCase()),
-      hashData(formData.phone),
-      hashData(formData.name.split(" ")[0]),
+      hashData(email.toLowerCase()),
+      hashData(phone),
+      hashData(name.split(" ")[0]),
     ]);
 
     const payload = {
@@ -114,6 +123,8 @@ export const trackFormSubmission = async (
       ],
       access_token: accessToken,
     };
+
+    console.log(payload)
 
     await fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
       method: "POST",
