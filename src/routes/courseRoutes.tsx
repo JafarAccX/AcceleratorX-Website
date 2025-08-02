@@ -59,7 +59,7 @@ export const courseRoutes = [
     element={<N8nAutomationEntry />}
   />,
   <Route
-    path="/courses/all-courses"
+    path="/courses/onsite-workshopz"
     element={<KuppamCourses />}
   />,
 ];
