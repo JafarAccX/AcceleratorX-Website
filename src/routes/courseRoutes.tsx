@@ -4,6 +4,7 @@ import ProductManagementEntry from "../pages/courses/EntryPoint/ProductManagemen
 import DataAnalyticsEntry from "../pages/courses/EntryPoint/DataAnalyticsEntry";
 import DataAnalyticsAd from "../pages/courses/EntryPoint/DataAnalyticsAd";
 import GenAiForPMEntry from "../pages/courses/EntryPoint/GenAiForPMEntry";
+import KuppamCourses from "../pages/courses/EntryPoint/KuppamCourses";
 
 // Course Pages
 const GenAICourse = lazy(
@@ -56,5 +57,9 @@ export const courseRoutes = [
   <Route
     path="/courses/n8n-automation"
     element={<N8nAutomationEntry />}
+  />,
+  <Route
+    path="/courses/all-courses"
+    element={<KuppamCourses />}
   />,
 ];
