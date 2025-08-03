@@ -135,12 +135,12 @@ const GoogleTranslate = () => {
           padding: 0px !important;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
           border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          top: 80px !important;
         }
         
         /* Responsive adjustments */
         @media (max-width: 640px) {
           #google_translate_element {
-            top: 60px !important;
             right: 8px !important;
             transform: scale(0.85) !important;
           }
@@ -250,7 +250,7 @@ const GoogleTranslate = () => {
     <>
       <div
         id="google_translate_element"
-        className="fixed top-4 right-4 z-[10000] transition-all duration-300"
+        className="fixed right-4 z-[10000] transition-all duration-300"
         title="Translate this page"
       />
     </>
