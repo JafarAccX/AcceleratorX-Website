@@ -17,7 +17,6 @@ const xsatNavItems = [
 ];
 
 export default function Navbar() {
-
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);

@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import ChatWidget from "../components/ChatWidget";
 import EnrollmentModal from "../components/EnrollmentModal";
 import Loader from "../components/Loader";
+import GoogleTranslate from "../components/GoogleTranslate";
 import { getRouteLayout } from "../utils/layoutUtils";
 
 interface MainLayoutProps {
@@ -16,9 +17,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
-  const handleEnrollClick = () => {
-    setEnrollmentModalOpen(true);
-  };
+  // const handleEnrollClick = () => {
+  //   setEnrollmentModalOpen(true);
+  // };
 
   const handleCloseModal = () => {
     setEnrollmentModalOpen(false);
@@ -38,6 +39,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="relative">
       {showNavbar && <Navbar />}
+
+      {/* Google Translate Widget */}
+      <GoogleTranslate />
 
       <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
 
