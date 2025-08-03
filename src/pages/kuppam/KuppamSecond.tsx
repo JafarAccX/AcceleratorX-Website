@@ -3,28 +3,12 @@ import { Globe } from "lucide-react";
 const KuppamSecond = () => {
   return (
     <div className="relative bg-[#0A0F1D] min-h-screen overflow-x-hidden">
-      {/* Logo Section */}
-      <div className="absolute top-0 left-0 w-full z-20">
-        <div className="container mx-auto px-4 py-6">
-          <div className="w-44 md:w-48 relative">
-            <div className="absolute inset-0 blur-3xl bg-gradient-to-r from-indigo-500/30 to-violet-500/30 rounded-full"></div>
-            <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-indigo-500/20">
-              <img src="/assets/companylogo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
-            </div>
-          </div>
-        </div>
-      </div>
-
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
-          <img 
-            src="/kuppam-tools.png" 
-            alt="Background" 
-            className="w-full h-full object-cover"
-          />
+          <img src="/kuppam-tools.png" alt="Background" className="w-full h-full object-cover" />
           {/* Dark overlay for better text contrast */}
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-black/80" />
           {/* Blur effect */}
           <div className="absolute inset-0 backdrop-blur-sm"></div>
         </div>
@@ -39,17 +23,11 @@ const KuppamSecond = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Master the Tools of
+            Learn the skill that get you hired
           </h1>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Tomorrow's Technology
+            Gen AI and AI Agent Building program
           </h1>
-
-          <div className="mt-12">
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Discover the most powerful AI tools and technologies that are shaping the future of development and design.
-            </p>
-          </div>
         </div>
 
         {/* Background elements */}
@@ -61,7 +39,7 @@ const KuppamSecond = () => {
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/20 via-violet-500/10 to-transparent rounded-bl-full pointer-events-none blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-violet-500/20 via-indigo-500/10 to-transparent rounded-tr-full pointer-events-none blur-3xl"></div>
     </div>
-  )
-}
+  );
+};
 
-export default KuppamSecond
+export default KuppamSecond;

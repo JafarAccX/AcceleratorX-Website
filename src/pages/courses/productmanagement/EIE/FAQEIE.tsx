@@ -19,8 +19,7 @@ const faqs = [
       "To enroll in the course, simply click on the registration button and fill in all the required details. Once you complete the payment, your seat will be reserved, or our counselor will reach out to you to assist with the process.",
   },
   {
-    question:
-      "What are the different modes of payment available for the Course?",
+    question: "What are the different modes of payment available for the Course?",
     answer:
       "Payment for the course can be made through our online portal, using UPI, net banking, credit card, debit card or opting for EMI plans through our partnered financial institutions.",
   },
@@ -31,18 +30,15 @@ const faqs = [
   },
   {
     question: "What is the duration of the Course?",
-    answer:
-      "The course spans a total of 16 weeks and our detailed schedule will be available on the website.",
+    answer: "The course spans a total of 16 weeks and our detailed schedule will be available on the website.",
   },
   {
     question: "What are the timings for the classes in the Course?",
-    answer:
-      "Classes are scheduled for weekday evenings and during the first half of weekends.",
+    answer: "Classes are scheduled for weekday evenings and during the first half of weekends.",
   },
   {
     question: "Is there a minimum attendance requirement for the Course?",
-    answer:
-      "Yes, participants are required to maintain a minimum attendance of 70% throughout the course.",
+    answer: "Yes, participants are required to maintain a minimum attendance of 70% throughout the course.",
   },
   {
     question: "What happens if I miss a live session during the Course?",
@@ -50,8 +46,7 @@ const faqs = [
       "If you miss any live sessions, recordings will be made available on your LMS portal within 24 hours after the class concludes.",
   },
   {
-    question:
-      "Will I have the opportunity to ask questions directly to the instructors during the Course?",
+    question: "Will I have the opportunity to ask questions directly to the instructors during the Course?",
     answer:
       "Yes, you will have access to a dedicated forum within the Learning Management System (LMS) where you can directly address your doubts with our instructors. Additionally, dedicated doubt resolution sessions will be held, and there will be a specific time window after each class to clarify any questions you may have.",
   },
@@ -63,12 +58,12 @@ const faqs = [
   {
     question: "What tools are covered in the Course?",
     answer:
-      "The course covers a variety of essential tools, including: Whimsical, Amplitude, Optimizely, Jira, Asana, MySQL, Mixpanel, Miro, Google Analytics, Postman, Figma.",
+      "The course covers a variety of essential tools, including: Whimsical, Amplitude, Optimizely, Jira, Asana, MySQL, Mixpanel, Miro, Postman, Figma.",
   },
   {
     question: "What specializations are included with the Course?",
     answer:
-      "The program includes two specializations: Growth Product Management and AI Product Management. These specializations focus on developing expertise in critical areas of product management, preparing you for diverse opportunities in the field.",
+      "The course covers a variety of essential tools, including: Whimsical, Amplitude, Optimizely, Jira, Asana, MySQL, Mixpanel, Miro, Google Analytics, Postman, Figma.",
   },
   {
     question: "What support will I receive after completing the Course?",
@@ -76,26 +71,22 @@ const faqs = [
       "Upon completion of the program, you will receive the following support: Lifetime Access to all recorded classes and course content, a mentorship call with our expert, lifetime access to our dedicated job portal, and the opportunity to showcase your profile on the exclusive AI Product Managers wall.",
   },
   {
-    question:
-      "Is there any dedicated interview preparation included in the Course?",
+    question: "Is there any dedicated interview preparation included in the Course?",
     answer:
       "Yes, the course includes interview preparation sessions, mock interviews, and comprehensive study materials.",
   },
   {
-    question:
-      "What is included in the placement support offered with the Course?",
+    question: "What is included in the placement support offered with the Course?",
     answer:
       "The placement support includes a dedicated job portal, resume-building tools, and priority access to job listings.",
   },
   {
     question: "Is there a deadline for submitting assignments in the Course?",
-    answer:
-      "Yes, participants will be given a deadline of one week to submit their assignments.",
+    answer: "Yes, participants will be given a deadline of one week to submit their assignments.",
   },
   {
     question: "Is there a deadline for the submission of the BYDP?",
-    answer:
-      "Yes, the submission deadline for the BYDP project is set for one week before the final presentation.",
+    answer: "Yes, the submission deadline for the BYDP project is set for one week before the final presentation.",
   },
   {
     question: "What are the future aspects of pursuing the Course?",
@@ -132,8 +123,7 @@ export default function FAQEIE() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
-            Find answers to common questions about AcceleratorX and our
-            services.
+            Find answers to common questions about AcceleratorX and our services.
           </motion.p>
         </motion.div>
 
@@ -147,34 +137,32 @@ export default function FAQEIE() {
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               className={`border border-gray-800/50 rounded-xl p-4 backdrop-blur-sm
                        hover:border-gray-700 transition-all duration-300
-                       ${openIndex === index ? 'bg-gray-900/50' : 'bg-gray-900/20'}`}
+                       ${openIndex === index ? "bg-gray-900/50" : "bg-gray-900/20"}`}
             >
               <button
                 className="flex justify-between items-center w-full text-left group"
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
               >
-                <span className={`text-lg font-medium transition-colors duration-300
-                              ${openIndex === index ? 'text-[#5CB338]' : 'text-white'}`}>
+                <span
+                  className={`text-lg font-medium transition-colors duration-300
+                              ${openIndex === index ? "text-[#5CB338]" : "text-white"}`}
+                >
                   {faq.question}
                 </span>
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: openIndex === index ? 180 : 0,
-                    scale: openIndex === index ? 1.1 : 1
+                    scale: openIndex === index ? 1.1 : 1,
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 0.4,
-                    ease: [0.4, 0, 0.2, 1]
+                    ease: [0.4, 0, 0.2, 1],
                   }}
                   className={`p-1 rounded-full transition-colors duration-300
-                          ${openIndex === index ? 'text-amber-400 bg-amber-400/10' : 'text-gray-400 bg-gray-800/50'}
+                          ${openIndex === index ? "text-amber-400 bg-amber-400/10" : "text-gray-400 bg-gray-800/50"}
                           group-hover:bg-amber-400/10 group-hover:text-amber-400`}
                 >
-                  {openIndex === index ? (
-                    <Minus className="w-4 h-4" />
-                  ) : (
-                    <Plus className="w-4 h-4" />
-                  )}
+                  {openIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </motion.div>
               </button>
 
@@ -184,15 +172,13 @@ export default function FAQEIE() {
                     initial={{ height: 0 }}
                     animate={{ height: "auto" }}
                     exit={{ height: 0 }}
-                    transition={{ 
+                    transition={{
                       duration: 0.15,
-                      ease: [0.32, 0, 0.67, 0]
+                      ease: [0.32, 0, 0.67, 0],
                     }}
                     className="overflow-hidden"
                   >
-                    <div className="text-gray-400 pt-4 leading-relaxed">
-                      {faq.answer}
-                    </div>
+                    <div className="text-gray-400 pt-4 leading-relaxed">{faq.answer}</div>
                   </motion.div>
                 )}
               </AnimatePresence>

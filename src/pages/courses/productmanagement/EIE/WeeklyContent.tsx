@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Crown } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronDown, Crown } from "lucide-react";
 
 const weeklyContent = [
   {
     week: 1,
     title: "Product Management Basics",
-    content: [
-      "Understanding Product Management Basics",
-      "Gaining User Understanding",
-      "Performing Product Critique",
-    ],
+    content: ["Understanding Product Management Basics", "Gaining User Understanding", "Performing Product Critique"],
   },
   {
     week: 2,
@@ -25,11 +21,7 @@ const weeklyContent = [
   {
     week: 3,
     title: "Competitor Analysis & Strategy",
-    content: [
-      "Understanding Competitor Analysis",
-      "Building Product Strategy",
-      "Creating Your Dream Product",
-    ],
+    content: ["Understanding Competitor Analysis", "Building Product Strategy", "Creating Your Dream Product"],
   },
   {
     week: 4,
@@ -92,11 +84,7 @@ const weeklyContent = [
   {
     week: 10,
     title: "Analytics & Testing",
-    content: [
-      "Presenting GTM Strategy",
-      "Practicing A/B Testing",
-      "Exploring Product Analytics",
-    ],
+    content: ["Presenting GTM Strategy", "Practicing A/B Testing", "Exploring Product Analytics"],
   },
   {
     week: 11,
@@ -131,40 +119,24 @@ const weeklyContent = [
   {
     week: 14,
     title: "Product-Led Growth",
-    content: [
-      "Exploring Product-Led Growth",
-      "Participating in Mock Interviews",
-    ],
+    content: ["Exploring Product-Led Growth", "Participating in Mock Interviews"],
   },
   {
     week: 15,
     title: "AI in Product Management",
-    content: [
-      "Exploring Components of AI Management",
-      "Understanding the AI Landscape",
-      "Leveraging AI in Products",
-    ],
-    highlight: true
+    content: ["Exploring Components of AI Management", "Understanding the AI Landscape", "Leveraging AI in Products"],
+    highlight: true,
   },
   {
     week: 16,
     title: "Building AI Products",
-    content: [
-      "Learning How to Build AI Products",
-      "Exploring AI Ethics",
-      "Participating in Industry Sessions",
-    ],
-    highlight: true
+    content: ["Learning How to Build AI Products", "Exploring AI Ethics", "Participating in Industry Sessions"],
+    highlight: true,
   },
   {
     week: 17,
     title: "Final Project Presentation",
-    content: [
-      "Finalizing BYDP Projects",
-      "Mock Interviews - 4",
-      "Q&A Sessions",
-      "Planning Your Career Roadmap",
-    ],
+    content: ["Finalizing BYDP Projects", "Mock Interviews - 4", "Q&A Sessions", "Planning Your Career Roadmap"],
   },
 ];
 
@@ -186,7 +158,11 @@ export default function WeeklyContent() {
           >
             <div>
               <h3 className="text-lg font-semibold group-hover:text-[#5CB338] text-left flex items-center gap-2">
-                <span className={`text-sm font-medium ${week.highlight ? 'text-amber-400 bg-amber-400/10' : 'text-[#5CB338] bg-[#5CB338]/10'} px-2 py-0.5 rounded flex items-center gap-1`}>
+                <span
+                  className={`text-sm font-medium ${
+                    week.highlight ? "text-amber-400 bg-amber-400/10" : "text-[#5CB338] bg-[#5CB338]/10"
+                  } px-2 py-0.5 rounded flex items-center gap-1`}
+                >
                   Week {week.week}
                   {week.highlight && (
                     <Crown className="w-4 h-4 text-amber-400 drop-shadow-[0_0_3px_rgba(251,191,36,0.5)] animate-pulse" />
@@ -195,17 +171,15 @@ export default function WeeklyContent() {
                 {week.title}
               </h3>
             </div>
-            <ChevronDown 
-              className={`w-5 h-5 text-[#5CB338] transition-transform ${
-                activeWeek === week.week ? 'rotate-180' : ''
-              }`} 
+            <ChevronDown
+              className={`w-5 h-5 text-[#5CB338] transition-transform ${activeWeek === week.week ? "rotate-180" : ""}`}
             />
           </button>
-          
+
           {activeWeek === week.week && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
               className="mt-2 pl-4 space-y-2"

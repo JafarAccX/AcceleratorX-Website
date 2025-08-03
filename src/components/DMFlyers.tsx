@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Sparkles, Send, Briefcase, Trophy, Users, Calendar, Clock, Star, Building, DollarSign, GraduationCap, Info } from "lucide-react";
+import {
+  Sparkles,
+  Send,
+  Briefcase,
+  Trophy,
+  Users,
+  Calendar,
+  Clock,
+  Star,
+  Building,
+  DollarSign,
+  GraduationCap,
+  Info,
+} from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useCourseContext } from "../context/courseContext";
@@ -18,7 +31,7 @@ function DMFlyers() {
     education: "",
     designation: "",
     workExperience: "",
-    course: selectedCourse || "DM_Flyers"
+    course: selectedCourse || "DM_Flyers",
   });
 
   useEffect(() => {
@@ -29,12 +42,12 @@ function DMFlyers() {
       target.setHours(23, 59, 59, 999);
 
       const diff = target.getTime() - now.getTime();
-      
+
       setTimeLeft({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((diff % (1000 * 60)) / 1000)
+        seconds: Math.floor((diff % (1000 * 60)) / 1000),
       });
     }, 1000);
 
@@ -84,7 +97,7 @@ function DMFlyers() {
         education: "",
         designation: "",
         workExperience: "",
-        course: selectedCourse || "DM_Flyers"
+        course: selectedCourse || "DM_Flyers",
       });
 
       toast.success("Thank you for enrolling! We'll contact you soon.");
@@ -94,9 +107,7 @@ function DMFlyers() {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -130,7 +141,8 @@ function DMFlyers() {
               </h1>
 
               <p className="text-base text-blue-100 max-w-xl">
-                Learn advanced strategies, automation, and data-driven decision-making to optimize campaigns and drive business growth.
+                Learn advanced strategies, automation, and data-driven decision-making to optimize campaigns and drive
+                business growth.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
@@ -163,7 +175,9 @@ function DMFlyers() {
                   <div className="bg-white/5 p-3 rounded-lg border border-blue-500/20">
                     <Users className="w-5 h-5 text-orange-400 mb-1" />
                     <h4 className="text-white text-sm font-medium mb-1">Freelancers</h4>
-                    <p className="text-xs text-blue-200">Enhance your service offerings with cutting-edge marketing tools</p>
+                    <p className="text-xs text-blue-200">
+                      Enhance your service offerings with cutting-edge marketing tools
+                    </p>
                   </div>
                   <div className="bg-white/5 p-3 rounded-lg border border-blue-500/20">
                     <GraduationCap className="w-5 h-5 text-orange-400 mb-1" />
@@ -228,11 +242,9 @@ function DMFlyers() {
                 Early Bird Offer - Save ₹10,000
               </div>
               <h2 className="text-lg font-semibold text-white mb-2">Begin Your Digital Marketing Journey</h2>
-              <p className="text-blue-200 text-sm">
-                Limited seats available for next cohort
-              </p>
+              <p className="text-blue-200 text-sm">Limited seats available for next cohort</p>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="md:col-span-2">
                 <label htmlFor="name" className="block text-sm font-medium text-blue-200 mb-2">

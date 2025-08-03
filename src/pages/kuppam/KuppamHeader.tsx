@@ -1,38 +1,13 @@
- 
-
 import { Globe } from "lucide-react";
+import { useState } from "react";
+import KuppamEnrollmentModal from "./KuppamEnrollmentModal";
 
 const KuppamHeader = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const scrollToForm = () => {
-        const form = document.getElementById("workshop-registration-form");
-        if (form) {
-          // Add a small delay to ensure the element is properly rendered
-          setTimeout(() => {
-            form.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-              inline: "nearest",
-            });
-          }, 10);
-        } else {
-          // Fallback: try to find the form by data attribute
-          const formContainer = document.querySelector('[data-form-container="workshop"]');
-          if (formContainer) {
-            setTimeout(() => {
-              formContainer.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-                inline: "nearest",
-              });
-            }, 100);
-          } else {
-            console.error('Form element not found with ID "workshop-registration-form"');
-          }
-        }
-      };
-
-
+  const handleEnrollClick = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="relative bg-[#0A0F1D] min-h-screen overflow-x-hidden">
@@ -67,16 +42,14 @@ const KuppamHeader = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             First Ever AI Program In
           </h1>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            English & Telugu
-          </h1>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">English & Telugu</h1>
 
           <div>
             <button
               className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-colors duration-200 min-w-[200px]"
-              onClick={scrollToForm}
+              onClick={handleEnrollClick}
             >
-              Claim your scholorship
+              Claim your scholarship
             </button>
           </div>
         </div>
@@ -86,12 +59,20 @@ const KuppamHeader = () => {
         <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-blue-300/30 rounded-full blur-sm" />
       </section>
 
-     
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/20 via-violet-500/10 to-transparent rounded-bl-full pointer-events-none blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-violet-500/20 via-indigo-500/10 to-transparent rounded-tr-full pointer-events-none blur-3xl"></div>
-    </div>
-  )
-}
 
-export default KuppamHeader
+      {/* Enrollment Modal */}
+      <KuppamEnrollmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={() => {
+          console.log("Enrollment submitted successfully");
+        }}
+      />
+    </div>
+  );
+};
+
+export default KuppamHeader;
