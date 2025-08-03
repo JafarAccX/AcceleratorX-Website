@@ -154,7 +154,7 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
       trackingFormData.append("workExperience", formData.workExperience);
       await trackFormSubmission(trackingFormData);
 
-      toast.success("Kuppam Workshop enrollment submitted successfully!");
+      toast.success(" enrollment submitted successfully!");
 
       if (onSubmit) onSubmit();
 
