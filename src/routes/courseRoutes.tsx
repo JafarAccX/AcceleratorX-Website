@@ -46,6 +46,10 @@ export const courseRoutes = [
     element={<DataAnalyticsPage />}
   />,
   <Route
+    path="/courses/data-analytics-program-fb-b"
+    element={<DataAnalyticsPage />}
+  />,
+  <Route
     path="/courses/product-management-program-eie"
     element={<ProductManagementPageEIE />}
   />,

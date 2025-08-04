@@ -11,6 +11,7 @@ interface LocationState {
 export const adRoutes = [
   "/courses/product-management-program-fb",
   "/courses/data-analytics-program-fb",
+  "/courses/data-analytics-program-fb-b",
   "/courses/no-code-tool-program-fb",
   "/courses/product-management-program-eie",
   "/courses/data-analytics-program-eie",
@@ -71,7 +72,8 @@ export const RouteLogic: React.FC<RouteLogicProps> = ({ setSelectedCourse }) => 
       setSelectedCourse("Product Management");
     } else if (
       location.pathname === "/courses/data-analytics" ||
-      location.pathname === "/courses/data-analytics-program-fb"
+      location.pathname === "/courses/data-analytics-program-fb"||
+      location.pathname === "/courses/data-analytics-program-fb-b"
     ) {
       setSelectedCourse("Data Analytics");
     } else if (

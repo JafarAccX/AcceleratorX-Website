@@ -3,9 +3,11 @@ const META_CONVERSION_API_URL = "https://graph.facebook.com/v17.0";
 
 const DEFAULT_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
 const DA_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
+const DA_PIXEL_ID_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND;
 
 const DEFAULT_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
 const DA_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT;
+const DA_ACCESS_TOKEN_SECOND = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT_SECOND;
 
 const DA_COURSE_NAMES = ["Data Analytics"]; // You can also match by route if needed
 
@@ -53,12 +55,28 @@ export const getUTMDataForDB = () => {
   };
 };
 
-// Choose correct pixel ID and token based on course
+// Choose correct pixel ID and token based on course and route
 const getMetaConfig = (course?: string) => {
   const isDA = DA_COURSE_NAMES.includes(course || "");
+  const isDASecondRoute = window.location.pathname === "/courses/data-analytics-program-fb-b";
+  
+  if (isDASecondRoute) {
+    return {
+      pixelId: DA_PIXEL_ID_SECOND,
+      accessToken: DA_ACCESS_TOKEN_SECOND,
+    };
+  }
+  
+  if (isDA) {
+    return {
+      pixelId: DA_PIXEL_ID,
+      accessToken: DA_ACCESS_TOKEN,
+    };
+  }
+  
   return {
-    pixelId: isDA ? DA_PIXEL_ID : DEFAULT_PIXEL_ID,
-    accessToken: isDA ? DA_ACCESS_TOKEN : DEFAULT_ACCESS_TOKEN,
+    pixelId: DEFAULT_PIXEL_ID,
+    accessToken: DEFAULT_ACCESS_TOKEN,
   };
 };
 

@@ -6,10 +6,10 @@ import WSGENIntroductionB from "../pages/landingpage/workshopGENB/WSGENIntroduct
 import WSGENWhoShouldEnrollB from "../pages/landingpage/workshopGENB/WSGENWhoShouldEnrollB";
 import WSHeroGENB from "../pages/landingpage/workshopGENB/WSHeroGENB";
 import WSRegistrationSuccess from "../pages/landingpage/workshopGENC/WSRegistrationSuccess";
-import WSMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
+// import WSMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
 import WSGENMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
 import WSHeroDASecond from "../pages/landingpage/WorkshopDASecond/WSHeroDASecond";
-import WSAboutDASecond from "../pages/landingpage/WorkshopDASecond/WSAboutDASecond";
+// import WSAboutDASecond from "../pages/landingpage/WorkshopDASecond/WSAboutDASecond";
 import WSFIOSection from "../pages/landingpage/WorkshopDASecond/WSIOSection";
 import WSTestimonialDASecond from "../pages/landingpage/WorkshopDASecond/WSTestimonialDASecond";
 import AIEcosystem from "../pages/landingpage/WorkshopDASecond/AIEcosystem";
@@ -19,8 +19,8 @@ import BuiltForYou from "../pages/landingpage/workshopDM/built-for-you";
 import AutomationFeatures from "../pages/landingpage/workshopDM/automation-features";
 import LeadEngineCTA from "../pages/landingpage/workshopDM/lead-engine-cta";
 import TechStackSection from "../pages/landingpage/workshopDM/tech-stack-section";
-import StatsSection from "../pages/landingpage/WorkshopDASecond/StatsSection";
-import CryptoMarketSection from "../pages/landingpage/WorkshopDASecond/CryptoMarketSection";
+// import StatsSection from "../pages/landingpage/WorkshopDASecond/StatsSection";
+// import CryptoMarketSection from "../pages/landingpage/WorkshopDASecond/CryptoMarketSection";
 import ProductsSection from "../pages/landingpage/WorkshopDASecond/ProductsSection";
 import TradingPlatformSection from "../pages/landingpage/WorkshopDASecond/TradingPlatformSection";
 
@@ -28,7 +28,7 @@ import TradingPlatformSection from "../pages/landingpage/WorkshopDASecond/Tradin
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
 const WSAboutDA = lazy(() => import("../pages/landingpage/workshop/WSAbout"));
 const WSTestimonialDA = lazy(() => import("../pages/landingpage/workshop/WSTestimonial"));
-const WSCommunityDA = lazy(() => import("../pages/landingpage/workshop/WSCommunity"));
+// const WSCommunityDA = lazy(() => import("../pages/landingpage/workshop/WSCommunity"));
 
 const WSHeroPM = lazy(() => import("../pages/landingpage/workshopPM/WSHeroPM"));
 const WSAboutPM = lazy(() => import("../pages/landingpage/workshopPM/WSAboutPM"));
@@ -41,7 +41,7 @@ const WSGENIntroduction = lazy(() => import("../pages/landingpage/workshopGEN/WS
 const GENCTA = lazy(() => import("../pages/landingpage/workshopGEN/GENCTA"));
 
 const WSHeroDM = lazy(() => import("../pages/landingpage/workshopDM/WSHeroDM"));
-const WSAboutDM = lazy(() => import("../pages/landingpage/workshopDM/WSAboutDM"));
+// const WSAboutDM = lazy(() => import("../pages/landingpage/workshopDM/WSAboutDM"));
 
 const WSHeroGENC = lazy(() => import("../pages/landingpage/workshopGENC/WSHeroGENC"));
 const WSAboutGENC = lazy(() => import("../pages/landingpage/workshopGENC/WSAboutGENC"));
