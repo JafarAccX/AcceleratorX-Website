@@ -282,7 +282,7 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
                         <option value="">Select Course</option>
                         <option value="Generative AI (En)">Generative AI (English)</option>
                         <option value="Generative AI (TL)">Generative AI (Telugu)</option>
-                        <option value="Data Analytics">Data Analytics (English and Telugu)</option>
+                        <option value="Data Analytics (EN - TL)">Data Analytics (English and Telugu)</option>
                       </select>
                     </div>
                   </div>
