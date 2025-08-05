@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ChatWidget from "../components/ChatWidget";
+// import ChatWidget from "../components/ChatWidget";
 import EnrollmentModal from "../components/EnrollmentModal";
 import Loader from "../components/Loader";
 import GoogleTranslate from "../components/GoogleTranslate";
@@ -49,7 +49,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
       {showFooter && (
         <>
-          <ChatWidget />
+          {/* <ChatWidget /> */}
           <Footer />
         </>
       )}
