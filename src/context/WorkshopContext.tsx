@@ -44,7 +44,7 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
   title: "Data Analysis with AI",
   link: "https://zoom.us/meeting/register/sM7Gq-jLQxuGa3qLIV3Eog",
   meetingId: "sM7Gq-jLQxuGa3qLIV3Eog",
-  time: "Aug 9, 2025 6:00 PM India",
+  time: "Aug 13, 2025 8:00 PM India",
   meetingCode: "98309274658",
 };
 
