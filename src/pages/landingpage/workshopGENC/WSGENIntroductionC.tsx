@@ -3,34 +3,34 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionC = () => {
   const stats = [
     {
-      value: "87%",
-      label: "of past attendees said this session made AI concepts finally click.",
+      value: "89%",
+      label: "of past attendees said they could start building apps the same day.",
     },
     {
-      value: "94%",
-      label: "felt more confident exploring AI tools after this workshop.",
+      value: "93%",
+      label: "felt more confident using AI after the workshop.",
     },
     {
-      value: "No Complexity",
-      label: "No heavy coding. No jargon. No pressure. Just Clarity.",
+      value: "Zero Coding Stress",
+      label: "We make it simple. No fluff. No theory overload.",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "RAG Workflows",
-      description: "No walls of code — just visual, drag-and-drop-friendly design to build real AI experiences.",
+      title: "RAG Workflows Made Easy",
+      description: "No confusing setups. Just drag, drop, connect, and see results.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
       title: "Live & Interactive",
-      description: "Work side-by-side with our expert. Watch. Try. Build. Get feedback in real time.",
+      description: "Work alongside your mentor. Ask questions. Get instant feedback.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Smarter Creativity",
-      description: "Learn how to create helpful apps powered by your own knowledge base — for work or personal projects.",
+      title: "Smart Creativity",
+      description: "Use AI to make your work faster, more accurate, and more impactful.",
     },
   ];
 
@@ -72,18 +72,17 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">AI-Powered Apps = Visual, Practical, Empowering</span>
+            <span className="text-sm text-blue-400 font-medium">AI-Powered Apps = Practical, Useful, Yours</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            AI-Powered Apps <span className="text-blue-500"> =</span> Visual, Practical, Empowering
+            AI-Powered Apps <span className="text-blue-500"> =</span> Practical, Useful, Yours
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This session is about building things you can use. Whether you're curious about how AI works or want to build an intelligent app for your data — you’re in the right place.
-
+            This isn’t about theory, it’s about apps you can actually use. Whether you’re working in tech, business, or studying, you’ll walk away with an AI tool you built yourself.
           </p>
 
           {/* Stats Grid */}

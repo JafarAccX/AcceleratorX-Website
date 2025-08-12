@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Award, Sparkles, GraduationCap, Server, Github } from "lucide-react";
 
-const WSGENMentor = () => {
+const WSGENCMentor = () => {
   return (
     <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
       {/* Background Elements */}
@@ -87,4 +87,4 @@ const WSGENMentor = () => {
   );
 };
 
-export default WSGENMentor;
+export default WSGENCMentor;

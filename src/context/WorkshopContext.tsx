@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Learn to Build your RAG application",
-  link: "https://zoom.us/meeting/register/wWXc9eJZQJy6wFUJ5jW3Yw",
-  meetingId: "wWXc9eJZQJy6wFUJ5jW3Yw",
-  time: "23 July, 2025 07:30 PM India",
-  meetingCode: "99945241847",
+  title: "Context Engineering ",
+  link: "https://zoom.us/meeting/register/VZvsA5G8Teegdtc-ywX8WA",
+  meetingId: "VZvsA5G8Teegdtc-ywX8WA",
+  time: "19 Aug, 2025 09:00 PM India",
+  meetingCode: "91806062490",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

@@ -91,9 +91,9 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      Learn to Build Your Own RAG Application
+                      Learn Context Engineering – Build AI Apps That Understand You
                     </span>{" "}
-                    <br />– Smart, Searchable Apps with Real-Time Answers
+                    <br />– Smarter, Faster, Context-Aware AI in Just 2 Hours
                   </span>
 
                   <motion.div
@@ -109,11 +109,10 @@ const WSHeroGENC = () => {
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
                 <p className="  text-gray-400 max-w-xl">
-                  Discover how to create your own Retrieval-Augmented Generation (RAG) app from scratch 
+                  AI is powerful, but without context, it’s like talking to someone who’s forgotten the conversation.
                 </p>
                 <p className="  text-gray-400 max-w-xl">
-                 no complex theory, just real-world results. In this beginner-friendly session, you'll learn how to combine LLMs with your own data to build smarter, context-aware applications that can retrieve and generate accurate answers in real-time.
-
+                  In this beginner-friendly workshop, you’ll discover how to make AI apps that truly understand your needs, by adding context, memory, and intelligence. No fluff. No theory overload. Just real, usable skills you can apply instantly.
                 </p>
               </motion.div>
             </div>
@@ -125,12 +124,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "23 July",
+                  value: "19 August",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
-                  label: "time",
-                  value: "07:30 pm",
+                  label: "Time",
+                  value: "09:00 PM",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

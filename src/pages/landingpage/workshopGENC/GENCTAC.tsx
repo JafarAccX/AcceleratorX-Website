@@ -26,7 +26,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build Your First AI App
+              Build Your First Context-Aware AI App
             </motion.h2>
 
             {/* Badge */}
@@ -37,7 +37,7 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="bg-blue-500/10 rounded-full px-6 py-2">
-                <span className="text-lg font-bold text-white">Hands-On. No Pressure. Real Fun.</span>
+                <span className="text-lg font-bold text-white">Hands-On. No Pressure. Real Skills.</span>
               </div>
             </motion.div>
 
@@ -52,19 +52,17 @@ const GENCTAC = () => {
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-green-400">Use Your Own Data</p>
-                  <p className="text-sm text-gray-400">Learn to connect PDFs, Notion pages, Docs, and websites into your app.</p>
+                  <p className="text-sm text-gray-400">PDFs, notes, websites, databases.</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-purple-400">Step-by-Step Learning</p>
-                  <p className="text-sm text-gray-400">
-                    Follow our live expert as you build — from first step to deployment
-                  </p>
+                  <p className="text-lg font-bold text-purple-400">Step-by-Step Guidance</p>
+                  <p className="text-sm text-gray-400">From blank page to working app.</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-blue-400">Smart Responses, Your Way</p>
-                  <p className="text-sm text-gray-400">Build a system that gives smart, personalized answers — powered by your data.</p>
+                  <p className="text-sm text-gray-400">AI that knows what you mean, not just what you type.</p>
                 </div>
               </div>
             </motion.div>
@@ -77,10 +75,10 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p className="bg-blue-500/10 rounded-full px-6 py-2 text-lg font-bold text-white">
-                Are You Ready to Build with AI — and Actually Enjoy It?
+                Are You Ready to Build With AI — and Actually Enjoy It?
               </p>
               <p>100+ beginners have built with us. Now it’s your turn.</p>
-              <p>Don’t stress the tech. Just click — we’ll guide you the rest of the way.</p>
+              <p>Click below. Join the live workshop. Build something real.</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}

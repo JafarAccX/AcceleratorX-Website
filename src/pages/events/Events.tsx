@@ -10,11 +10,18 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Context Engineering",
+      mode: "Online (Zoom)",
+      time: "Aug 19, 2025  9:00 PM",
+      link: "/workshop/gen-ai-masterclass-thidtx",
+      completed: false,
+    },
+    {
       name: "Learn everything n8n !",
       mode: "Online (Zoom)",
       time: "Aug 5, 2025  7:00 PM",
       link: "/workshop/gen-ai-masterclass-bxwcy",
-      completed: false,
+      completed: true,
     },
     {
       name: "Learn to Build your RAG application ",

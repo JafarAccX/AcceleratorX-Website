@@ -1,25 +1,8 @@
-import { FaCertificate } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Brain, Target } from "lucide-react";
 
 const WSAboutGENC = () => {
-  const scrollToForm = () => {
-    const form = document.getElementById("workshop-registration-form");
-    if (form) {
-      form.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
-    }
-  };
-
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-  };
+  
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
@@ -69,7 +52,7 @@ const WSAboutGENC = () => {
                 whileInView={{ opacity: [0, 1], y: [20, 0] }}
                 transition={{ duration: 0.5 }}
               >
-                Workshop Highlights
+                Live Workshop – Highlights
               </motion.h2>
 
               <div className="space-y-6">
@@ -94,11 +77,12 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Learn how Retrieval-Augmented Generation (RAG) works with real examples",
-                        "Build your own RAG-based app using LangChain or LlamaIndex",
-                        "Connect your own documents and data sources to answer real-time queries",
-                        "Deploy your RAG app and test live responses",
-                        "Access templates, tools, and future resources",
+                        "Understand what Context Engineering is and why it matters.",
+                        "Build your own context-aware AI app step-by-step.",
+                        "Connect real-world data (documents, PDFs, websites) into your app.",
+                        "Teach your AI to remember and respond smarter.",
+                        "Deploy your app and test it live.",
+                        "Get access to templates, resources, and tools to keep building.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -135,11 +119,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "What RAG is and why it's transforming AI applications",
-                        "How to fetch answers from your documents using vector stores",
-                        "Connecting data to LLMs for accurate and relevant generation",
-                        "Deploying your first RAG app — no advanced coding needed",
-                        "Real-world use cases: customer support, research, knowledge assistants",
+                        "How to make AI respond relevantly instead of generically.",
+                        "Techniques to feed your AI real, useful data.",
+                        "Context-handling workflows used by AI pros.",
+                        "How to deploy without advanced coding.",
+                        "Real-world examples: smarter customer support, research tools, internal assistants.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

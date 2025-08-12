@@ -23,6 +23,7 @@ import TechStackSection from "../pages/landingpage/workshopDM/tech-stack-section
 // import CryptoMarketSection from "../pages/landingpage/WorkshopDASecond/CryptoMarketSection";
 import ProductsSection from "../pages/landingpage/WorkshopDASecond/ProductsSection";
 import TradingPlatformSection from "../pages/landingpage/WorkshopDASecond/TradingPlatformSection";
+import WSGENCMentor from "../pages/landingpage/workshopGENC/WSGENMentor";
 
 // Workshop Components
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
@@ -105,7 +106,7 @@ const WorkshopPageGENC = () => (
     <WSAboutGENC />
     <WSGENIntroductionC />
     <WSGENWhoShouldEnrollC />
-    <WSGENMentor />
+    <WSGENCMentor />
     <GENCTAC />
   </>
 );

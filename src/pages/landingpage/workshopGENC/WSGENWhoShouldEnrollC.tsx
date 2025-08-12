@@ -46,8 +46,7 @@ const WSGENWhoShouldEnrollC = () => {
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
           <h2 className="text-3xl  l font-bold mb-3">
-            <span className="text-white">RAG sounds powerful, but I don’t know where to start.</span> <br />
-            <span className="text-blue-500">This is for anyone who’s thought that — and wants to change it.</span>
+            <span className="text-white">This is for you if you’ve ever thought: “AI is powerful, but I don’t know where to start.”</span>
           </h2>
         </div>
 
