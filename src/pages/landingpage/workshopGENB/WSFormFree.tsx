@@ -155,8 +155,10 @@ const WSFormFree = () => {
         years_of_experience: formData.yearsOfExperience,
         years_of_passing: formData.yearsOfPassing,
         workshop_type: workshopType,
+        workshop_title: zoomMeetingDetails?.title || "Untitled",
         created_at: new Date().toISOString(),
         is_free: true,
+        
         // Add UTM data
         utm_source: utmData.utm_source,
         utm_medium: utmData.utm_medium,

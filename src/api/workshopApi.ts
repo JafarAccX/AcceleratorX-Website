@@ -9,6 +9,7 @@ export interface WorkshopRegistrationData {
     years_of_experience: string;
     years_of_passing: string;
     workshop_type?: string;
+    workshop_title?: string;
     is_free?: boolean;
     utm_source?: string;
     utm_medium?: string;

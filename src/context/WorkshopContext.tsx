@@ -57,7 +57,7 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  title: "Learn everything n8n !",
+  title: "Learn everything n8n!",
   link: "https://zoom.us/meeting/register/a6NlhxHhTfylhGtXvf8qiA",
   meetingId: "a6NlhxHhTfylhGtXvf8qiA",
   time: "5th Aug, 2025 07:00 PM India",
@@ -65,7 +65,7 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Context Engineering ",
+  title: "Context Engineering",
   link: "https://zoom.us/meeting/register/VZvsA5G8Teegdtc-ywX8WA",
   meetingId: "VZvsA5G8Teegdtc-ywX8WA",
   time: "19 Aug, 2025 09:00 PM India",
