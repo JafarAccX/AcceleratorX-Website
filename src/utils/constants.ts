@@ -285,14 +285,14 @@ export const mentors = [
     linkedin: "https://www.linkedin.com/in/swati-sinha-471644125",
     transitions: "Over 100+",
   },
-  {
-    name: "Subhasis Chandra",
-    role: "Senior PM at Publicis Sapient",
-    experience: "10+ Years",
-    image: "/assets/mentor/subhasis.png",
-    linkedin: "https://www.linkedin.com/in/subhasis-chandra",
-    transitions: "Over 500+",
-  },
+  // {
+  //   name: "Subhasis Chandra",
+  //   role: "Senior PM at Publicis Sapient",
+  //   experience: "10+ Years",
+  //   image: "/assets/mentor/subhasis.png",
+  //   linkedin: "https://www.linkedin.com/in/subhasis-chandra",
+  //   transitions: "Over 500+",
+  // },
   {
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",

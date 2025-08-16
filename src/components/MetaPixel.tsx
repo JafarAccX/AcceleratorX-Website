@@ -53,6 +53,11 @@ export const MetaPixel = () => {
   useEffect(() => {
     if (!pixelId) return;
 
+    // Polyfill fbq as a no-op to prevent ReferenceError if fbevents.js runs before our script sets fbq
+    if (!window.fbq) {
+      window.fbq = function () { return; };
+    }
+
     const triggerEvents = () => {
       if (!window.fbq) return;
       if (!window.fbqInitialized) {

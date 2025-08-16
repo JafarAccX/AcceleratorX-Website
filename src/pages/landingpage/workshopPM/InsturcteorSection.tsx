@@ -3,8 +3,8 @@ import { ArrowRight, Award } from "lucide-react";
 
 const InstructorSection = () => {
   const instructorDetails = {
-    name: "Subhasis Chandra",
-    title: "Senior Product Manager, Publicis Sapient",
+    name: "Subhas Chand",
+    title: "Senior Product Manager",
   };
 
   const scrollToForm = () => {
@@ -39,7 +39,7 @@ const InstructorSection = () => {
 
               <div className="flex flex-col lg:flex-row gap-8 items-start">
                 {/* Profile Image */}
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -55,7 +55,7 @@ const InstructorSection = () => {
                       />
                     </div>
                   </div>
-                </motion.div>
+                </motion.div> */}
 
                 {/* Content */}
                 <div className="flex-1 space-y-4">

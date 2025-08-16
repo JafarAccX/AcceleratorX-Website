@@ -4,11 +4,11 @@ import { Route } from "react-router-dom";
 import RoleProtectedRoute from "../components/RoleProtectedRoute";
 import { ThankYouPageWrapper } from "./utils/routeUtils";
 // // Lazy-load heavy pages that were previously imported eagerly
-// const WorkshopPaymentSuccess = lazy(() => import("../pages/workshop-payment/Success"));
-// const XSATEntry = lazy(() => import("../pages/courses/EntryPoint/XSATEntry"));
-// const PerformanceAnalytics = lazy(() => import("../pages/admin/PerformanceAnalytics"));
-// const EventManagementPage = lazy(() => import("../pages/events/event"));
-// const RegistrationSuccess = lazy(() => import("../pages/events/registration-successful"));
+const WorkshopPaymentSuccess = lazy(() => import("../pages/workshop-payment/Success"));
+const XSATEntry = lazy(() => import("../pages/courses/EntryPoint/XSATEntry"));
+const PerformanceAnalytics = lazy(() => import("../pages/admin/PerformanceAnalytics"));
+const EventManagementPage = lazy(() => import("../pages/events/event"));
+const RegistrationSuccess = lazy(() => import("../pages/events/registration-successful"));
 
 // Lazy imports for main routes
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
