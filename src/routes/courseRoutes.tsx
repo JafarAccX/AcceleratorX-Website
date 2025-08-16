@@ -1,10 +1,12 @@
+/* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
-import ProductManagementEntry from "../pages/courses/EntryPoint/ProductManagementEntry";
-import DataAnalyticsEntry from "../pages/courses/EntryPoint/DataAnalyticsEntry";
-import DataAnalyticsAd from "../pages/courses/EntryPoint/DataAnalyticsAd";
-import GenAiForPMEntry from "../pages/courses/EntryPoint/GenAiForPMEntry";
-import KuppamCourses from "../pages/courses/EntryPoint/KuppamCourses";
+
+const ProductManagementEntry = lazy(() => import("../pages/courses/EntryPoint/ProductManagementEntry"));
+const DataAnalyticsEntry = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsEntry"));
+const DataAnalyticsAd = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsAd"));
+const GenAiForPMEntry = lazy(() => import("../pages/courses/EntryPoint/GenAiForPMEntry"));
+const KuppamCourses = lazy(() => import("../pages/courses/EntryPoint/KuppamCourses"));
 
 // Course Pages
 const GenAICourse = lazy(

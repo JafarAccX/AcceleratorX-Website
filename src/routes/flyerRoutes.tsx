@@ -1,8 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
+import { lazy } from "react";
 import { Route } from "react-router-dom";
-import GENAIFlyers from "../components/GENAIFlyers";
-import DMFlyers from "../components/DMFlyers";
-import PMFlyers from "../components/PMFlyers";
-import DAFlyers from "../components/DAFlyers";
+
+const GENAIFlyers = lazy(() => import("../components/GENAIFlyers"));
+const DMFlyers = lazy(() => import("../components/DMFlyers"));
+const PMFlyers = lazy(() => import("../components/PMFlyers"));
+const DAFlyers = lazy(() => import("../components/DAFlyers"));
 
 export const flyerRoutes = [
   <Route path="/fa-register/gen-ai" element={<GENAIFlyers />} />,

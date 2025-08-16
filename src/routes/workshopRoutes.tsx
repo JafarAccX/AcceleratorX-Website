@@ -1,31 +1,41 @@
+/* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
-import GENCTAB from "../pages/landingpage/workshopGENB/GENCTAB";
-import WSAboutGENB from "../pages/landingpage/workshopGENB/WSAboutGENB";
-import WSGENIntroductionB from "../pages/landingpage/workshopGENB/WSGENIntroductionB";
-import WSGENWhoShouldEnrollB from "../pages/landingpage/workshopGENB/WSGENWhoShouldEnrollB";
-import WSHeroGENB from "../pages/landingpage/workshopGENB/WSHeroGENB";
-import WSRegistrationSuccess from "../pages/landingpage/workshopGENC/WSRegistrationSuccess";
-// import WSMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
-import WSGENMentor from "../pages/landingpage/workshopGEN/WSGENMentor";
-import WSHeroDASecond from "../pages/landingpage/WorkshopDASecond/WSHeroDASecond";
-// import WSAboutDASecond from "../pages/landingpage/WorkshopDASecond/WSAboutDASecond";
-import WSFIOSection from "../pages/landingpage/WorkshopDASecond/WSIOSection";
-import WSTestimonialDASecond from "../pages/landingpage/WorkshopDASecond/WSTestimonialDASecond";
-import AIEcosystem from "../pages/landingpage/WorkshopDASecond/AIEcosystem";
-import HeroSection from "../pages/landingpage/workshopDM/hero-section";
-import WorkshopHighlights from "../pages/landingpage/workshopDM/workshop-highlights";
-import BuiltForYou from "../pages/landingpage/workshopDM/built-for-you";
-import AutomationFeatures from "../pages/landingpage/workshopDM/automation-features";
-import LeadEngineCTA from "../pages/landingpage/workshopDM/lead-engine-cta";
-import TechStackSection from "../pages/landingpage/workshopDM/tech-stack-section";
-// import StatsSection from "../pages/landingpage/WorkshopDASecond/StatsSection";
-// import CryptoMarketSection from "../pages/landingpage/WorkshopDASecond/CryptoMarketSection";
-import ProductsSection from "../pages/landingpage/WorkshopDASecond/ProductsSection";
-import TradingPlatformSection from "../pages/landingpage/WorkshopDASecond/TradingPlatformSection";
-import WSGENCMentor from "../pages/landingpage/workshopGENC/WSGENMentor";
 
-// Workshop Components
+// Lazily loaded Workshop B (GENB) sections
+const GENCTAB = lazy(() => import("../pages/landingpage/workshopGENB/GENCTAB"));
+const WSAboutGENB = lazy(() => import("../pages/landingpage/workshopGENB/WSAboutGENB"));
+const WSGENIntroductionB = lazy(() => import("../pages/landingpage/workshopGENB/WSGENIntroductionB"));
+const WSGENWhoShouldEnrollB = lazy(() => import("../pages/landingpage/workshopGENB/WSGENWhoShouldEnrollB"));
+const WSHeroGENB = lazy(() => import("../pages/landingpage/workshopGENB/WSHeroGENB"));
+
+// Lazily loaded Registration Success
+const WSRegistrationSuccess = lazy(() => import("../pages/landingpage/workshopGENC/WSRegistrationSuccess"));
+
+// Lazily loaded Workshop GEN shared components
+const WSGENMentor = lazy(() => import("../pages/landingpage/workshopGEN/WSGENMentor"));
+
+// Lazily loaded DA Second workshop sections
+const WSHeroDASecond = lazy(() => import("../pages/landingpage/WorkshopDASecond/WSHeroDASecond"));
+// const WSAboutDASecond = lazy(() => import("../pages/landingpage/WorkshopDASecond/WSAboutDASecond"));
+const WSFIOSection = lazy(() => import("../pages/landingpage/WorkshopDASecond/WSIOSection"));
+const WSTestimonialDASecond = lazy(() => import("../pages/landingpage/WorkshopDASecond/WSTestimonialDASecond"));
+const AIEcosystem = lazy(() => import("../pages/landingpage/WorkshopDASecond/AIEcosystem"));
+const ProductsSection = lazy(() => import("../pages/landingpage/WorkshopDASecond/ProductsSection"));
+const TradingPlatformSection = lazy(() => import("../pages/landingpage/WorkshopDASecond/TradingPlatformSection"));
+
+// Lazily loaded DM workshop sections
+const HeroSection = lazy(() => import("../pages/landingpage/workshopDM/hero-section"));
+const WorkshopHighlights = lazy(() => import("../pages/landingpage/workshopDM/workshop-highlights"));
+const BuiltForYou = lazy(() => import("../pages/landingpage/workshopDM/built-for-you"));
+const AutomationFeatures = lazy(() => import("../pages/landingpage/workshopDM/automation-features"));
+const LeadEngineCTA = lazy(() => import("../pages/landingpage/workshopDM/lead-engine-cta"));
+const TechStackSection = lazy(() => import("../pages/landingpage/workshopDM/tech-stack-section"));
+
+// Lazily loaded Workshop C (GENC) sections
+const WSGENCMentor = lazy(() => import("../pages/landingpage/workshopGENC/WSGENMentor"));
+
+// Workshop Components (already lazy)
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
 const WSAboutDA = lazy(() => import("../pages/landingpage/workshop/WSAbout"));
 const WSTestimonialDA = lazy(() => import("../pages/landingpage/workshop/WSTestimonial"));

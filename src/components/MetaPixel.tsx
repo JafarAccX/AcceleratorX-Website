@@ -1,13 +1,17 @@
-import React from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { useCourseContext } from "../context/courseContext";
 
-const PIXEL_ID_DEFAULT = import.meta.env.VITE_META_PIXEL_ID;
-const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
-const PIXEL_ID_DA_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND;
+const PIXEL_ID_DEFAULT = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
+const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT as string | undefined;
+const PIXEL_ID_DA_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND as string | undefined;
 
-console.log(PIXEL_ID_DEFAULT, PIXEL_ID_DA, PIXEL_ID_DA_SECOND);
+declare global {
+  interface Window {
+    fbq?: (command: string, eventOrId: string, params?: unknown) => void;
+    fbqInitialized?: boolean;
+  }
+}
 
 const PAGE_VIEW_ROUTES = [
   "/courses/product-management-program-fb",
@@ -31,52 +35,51 @@ const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-
 const DA_ROUTES = ["/courses/data-analytics-program-fb", "/courses/data-analytics"];
 const DA_ROUTES_SECOND = ["/courses/data-analytics-program-fb-b"];
 
-export const MetaPixel: React.FC = () => {
+export const MetaPixel = () => {
   const location = useLocation();
   const { selectedCourse } = useCourseContext();
 
   const isDaRoute = DA_ROUTES.includes(location.pathname);
   const isDaRouteSecond = DA_ROUTES_SECOND.includes(location.pathname);
   const isDaCourse = selectedCourse === "Data Analytics";
-  
-  let pixelId = PIXEL_ID_DEFAULT;
-  if (isDaRouteSecond) {
-    pixelId = PIXEL_ID_DA_SECOND;
-  } else if (isDaRoute || isDaCourse) {
-    pixelId = PIXEL_ID_DA;
-  }
+
+  let pixelId: string | undefined = PIXEL_ID_DEFAULT;
+  if (isDaRouteSecond) pixelId = PIXEL_ID_DA_SECOND;
+  else if (isDaRoute || isDaCourse) pixelId = PIXEL_ID_DA;
 
   const isPageViewRoute = PAGE_VIEW_ROUTES.includes(location.pathname);
   const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
 
-  if (!pixelId) return null;
+  useEffect(() => {
+    if (!pixelId) return;
 
-  return (
-    <Helmet>
-      <script>
-        {`
-          if (!window.fbqInitialized) {
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${pixelId}');
-            window.fbqInitialized = true;
-          }
+    const triggerEvents = () => {
+      if (!window.fbq) return;
+      if (!window.fbqInitialized) {
+        window.fbq("init", pixelId);
+        window.fbqInitialized = true;
+      }
+      if (isPageViewRoute) window.fbq("track", "PageView");
+      if (isLeadRoute) window.fbq("track", "Lead");
+    };
 
-          ${isPageViewRoute ? "fbq('track', 'PageView');" : ""}
-          ${isLeadRoute ? "fbq('track', 'Lead');" : ""}
-        `}
-      </script>
+    const existing = document.getElementById("fb-pixel-script") as HTMLScriptElement | null;
+    if (existing) {
+      // Script already present; just trigger events for this route
+      triggerEvents();
+      return;
+    }
 
-      <noscript>
-        {`<img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1"/>`}
-      </noscript>
-    </Helmet>
-  );
+    const script = document.createElement("script");
+    script.id = "fb-pixel-script";
+    script.async = true;
+    script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    script.onload = triggerEvents;
+    // Defer injection slightly to keep critical path clean
+    const inject = () => document.head.appendChild(script);
+    if (document.readyState === "complete") setTimeout(inject, 0);
+    else window.addEventListener("load", inject, { once: true });
+  }, [pixelId, isPageViewRoute, isLeadRoute]);
+
+  return null;
 };

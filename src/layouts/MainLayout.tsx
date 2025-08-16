@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 // import ChatWidget from "../components/ChatWidget";
-import EnrollmentModal from "../components/EnrollmentModal";
-import Loader from "../components/Loader";
-import GoogleTranslate from "../components/GoogleTranslate";
+// import Loader from "../components/Loader";
 import { getRouteLayout } from "../utils/layoutUtils";
+
+const Footer = lazy(() => import("../components/Footer"));
+const EnrollmentModal = lazy(() => import("../components/EnrollmentModal"));
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -14,7 +14,6 @@ interface MainLayoutProps {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
   // const handleEnrollClick = () => {
@@ -25,15 +24,6 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
     setEnrollmentModalOpen(false);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <Loader />;
-  }
-
   const { showNavbar, showFooter } = getRouteLayout(location.pathname);
 
   return (
@@ -43,14 +33,20 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       {/* Google Translate Widget */}
       {/* <GoogleTranslate /> */}
 
-      <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
+      {isEnrollmentModalOpen && (
+        <Suspense fallback={null}>
+          <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
+        </Suspense>
+      )}
 
       <main className="min-h-screen">{children}</main>
 
       {showFooter && (
         <>
           {/* <ChatWidget /> */}
-          <Footer />
+          <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+            <Footer />
+          </Suspense>
         </>
       )}
     </div>
