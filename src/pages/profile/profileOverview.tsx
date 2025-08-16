@@ -206,8 +206,7 @@ export default function Profile() {
 
       // Update local storage with flattened structure
       const updatedUser = { ...user, ...data };
-      localStorage.setItem("userData", JSON.stringify(updatedUser));
-      // otplessAuth.setUser(updatedUser);
+      localStorage.setItem("userData", JSON.stringify(updatedUser)); 
 
       setIsEditing(false);
     } catch (error) {

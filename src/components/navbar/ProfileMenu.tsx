@@ -21,10 +21,7 @@ export default function ProfileMenu() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleLogout = () => {
-    // otplessAuth.logout();
-    // updateAuthState();
-    // setIsOpen(false);
+  const handleLogout = () => { 
     logout();
     navigate("/");
   };

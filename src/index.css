@@ -397,7 +397,7 @@ html {
     }
   }
 
-  @keyframes draw {
+  /* @keyframes draw {
     from {
       stroke-dashoffset: 1000;
     }
@@ -405,7 +405,7 @@ html {
     to {
       stroke-dashoffset: 0;
     }
-  }
+  } */
 
   @keyframes float {
 

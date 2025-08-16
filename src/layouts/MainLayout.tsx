@@ -41,7 +41,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       {showNavbar && <Navbar />}
 
       {/* Google Translate Widget */}
-      <GoogleTranslate />
+      {/* <GoogleTranslate /> */}
 
       <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
 

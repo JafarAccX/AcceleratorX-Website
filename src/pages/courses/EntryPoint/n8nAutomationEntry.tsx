@@ -3,7 +3,7 @@ import React from "react";
 const N8nAutomationEntry = () => {
   return (
     <div
-      className="min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat bg-[url('/n8n-commingsoon.jpg')] sm:bg-[url('/n8n-commingsoon.jpg')] bg-[url('/n8n-mobile.jpg')]"
+      className="min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat bg-[url('/n8n-commingsoon.webp')] sm:bg-[url('/n8n-commingsoon.webp')] bg-[url('/n8n-mobile.webp')]"
     >
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSeJxgV3bMDrcy4m8bGdEIHqR0GLZrvVeZ5QF0itPIQqgDaC2g/viewform?usp=sharing&ouid=112961186201792362694"
