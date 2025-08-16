@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from "react-router-dom"; 
+import n8nComingSoon from "../../public/n8n-commingsoon.webp";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -135,11 +136,10 @@ export default function Hero() {
           >
             <div className="relative flex flex-col items-center justify-center">
               <img
-                src="/n8n-commingsoon.webp"
+                src={n8nComingSoon}
                 alt="n8n Coming Soon"
                 className="w-full max-w-md rounded-xl shadow-lg object-cover"
                 fetchPriority="high"
-                
               />
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeJxgV3bMDrcy4m8bGdEIHqR0GLZrvVeZ5QF0itPIQqgDaC2g/viewform?usp=sharing&ouid=112961186201792362694"
