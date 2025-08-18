@@ -24,7 +24,7 @@ const WSTestimonial = () => {
     <div className="relative bg-gradient-to-b from-[#0A1A2A] via-[#091E2D] to-[#061625] py-16 lg:py-20 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/assets/patterns/grid.svg')] bg-repeat opacity-5"></div>
+        <div className="absolute inset-0   bg-repeat opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/15 via-cyan-400/10 to-emerald-400/15 mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(16,185,129,0.2),rgba(0,0,0,0))]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(79,70,229,0.15),rgba(0,0,0,0))]"></div>

@@ -19,7 +19,7 @@ const WSHero = () => {
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#0A1A2A] to-[#061625]">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/assets/patterns/grid.svg')] bg-repeat opacity-5"></div>
+        <div className="absolute inset-0  bg-repeat opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/15 via-cyan-400/10 to-emerald-400/15"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.2),rgba(0,0,0,0))]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(79,70,229,0.15),rgba(0,0,0,0))]"></div>

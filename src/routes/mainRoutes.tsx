@@ -32,7 +32,7 @@ const AdminDashboard = lazy(() => import("../pages/admin/AdminDashboard"));
 const EnrollmentDashboard = lazy(() => import("../pages/admin/AdminPage"));
 const OtherEnquiries = lazy(() => import("../pages/admin/OtherEnquiries"));
 const AdAnalysis = lazy(() => import("../pages/admin/AdAnalysis"));
-const ScholarshipDetails = lazy(() => import("../pages/admin/ScholarshipDetails"));
+// const ScholarshipDetails = lazy(() => import("../pages/admin/ScholarshipDetails"));
 const WorkshopDetails = lazy(() => import("../pages/admin/WorkshopDetails"));
 
 // Blog Admin Routes
@@ -94,14 +94,14 @@ export const mainRoutes = [
       </RoleProtectedRoute>
     }
   />,
-  <Route
-    path="/admin/scholarships"
-    element={
-      <RoleProtectedRoute>
-        <ScholarshipDetails />
-      </RoleProtectedRoute>
-    }
-  />,
+  // <Route
+  //   path="/admin/scholarships"
+  //   element={
+  //     <RoleProtectedRoute>
+  //       <ScholarshipDetails />
+  //     </RoleProtectedRoute>
+  //   }
+  // />,
   <Route
     path="/admin/workshop-details"
     element={
