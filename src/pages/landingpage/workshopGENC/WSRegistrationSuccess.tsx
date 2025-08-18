@@ -55,7 +55,7 @@ const WSRegistrationSuccess = () => {
     }
 
     // Default fallback
-    return "https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ";
+    return "https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B";
   };
 
   // Social media links

@@ -139,7 +139,7 @@ export default function ThankYouPage({ courseName }: ThankYouPageProps) {
           <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
             {/* WhatsApp Button */}
             <motion.a
-              href="https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ"
+              href="https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-xl p-0.5 transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_#25D366] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900"
