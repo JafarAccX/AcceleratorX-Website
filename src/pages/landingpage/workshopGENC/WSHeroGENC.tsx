@@ -41,7 +41,7 @@ const WSHeroGENC = () => {
       >
         <div className="container mx-auto   py-4 flex justify-between items-center">
           <div className="w-44 md:w-52 hover:scale-105 transition-transform duration-300">
-            <img src="/assets/companylogo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
+            <img src="/companylogo.webp" alt="AcceleratorX Logo" className="w-full h-auto" />
           </div>
         </div>
       </motion.div>

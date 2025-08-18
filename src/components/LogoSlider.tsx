@@ -3,12 +3,10 @@ import { motion, useInView } from "framer-motion";
 import { Users } from "lucide-react";
 
 const companies = [
-  { name: "Adobe", logo: "/assets/companyLogos/adobe.png" },
-  { name: "Walmart", logo: "/assets/companyLogos/Walmart_logo.png" },
-  { name: "HP", logo: "/assets/companyLogos/HP.png" },
-  { name: "Licious", logo: "/assets/companyLogos/Licious-Logo.png" },
-  { name: "Tracxn", logo: "/assets/companyLogos/TRACXN.png" },
-  { name: "Times Internet", logo: "/assets/companyLogos/TIMES.png" },
+  { name: "Adobe", logo: "/assets/companyLogos/adobe.webp" },
+  { name: "Walmart", logo: "/assets/companyLogos/walmart.webp" },
+  { name: "HP", logo: "/assets/companyLogos/HP.webp" }, 
+  { name: "Tracxn", logo: "/assets/companyLogos/TRACXN.png" }, 
   { name: "PayU", logo: "/assets/companyLogos/PAY U.png" },
   { name: "VMware", logo: "https://cdn.worldvectorlogo.com/logos/vmware-1.svg" },
   { name: "Cars24", logo: "/assets/companyLogos/CARS24.png" },

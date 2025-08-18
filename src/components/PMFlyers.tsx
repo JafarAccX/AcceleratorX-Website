@@ -120,8 +120,7 @@ function PMFlyers() {
               <div className="flex items-center space-x-3">
                 <div className="flex flex-col">
                   <img
-                    src="/assets/companylogo.png"
-                    alt="AcceleratorX Logo"
+                    src="/companylogo.webp"                    alt="AcceleratorX Logo"
                     className="w-48 h-auto"
                   />
                 </div>

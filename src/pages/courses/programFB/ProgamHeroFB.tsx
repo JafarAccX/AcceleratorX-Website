@@ -70,7 +70,7 @@ export default function ProgramHeroFB() {
       <nav className="bg-black flex flex-row items-center py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto ">
           <img
-            src="/companylogo.png"
+            src="/companylogo.webp"
             alt="AcceleratorX Logo"
             className="w-auto h-20 text-center"
           />
@@ -173,7 +173,7 @@ export default function ProgramHeroFB() {
                     />
                     <LogoItem src="/assets/cequens.png" alt="Company Logo 2" />
                     <LogoItem src="/assets/paypal.webp" alt="Company Logo 3" />
-                    <LogoItem src="/assets/walmart.webp" alt="Company Logo 4" />
+                    <LogoItem src="/assets/companyLogos/walmart.webp" alt="Company Logo 4" />
                   </div>
                 </div>
               </motion.div>

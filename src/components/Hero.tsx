@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from "react-router-dom"; 
-import n8nComingSoon from "../../public/n8n-commingsoon.webp";
+import n8nComingSoon from "/n8n-commingsoon.webp";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ export default function Hero() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("/hero-bg.jpg")' }}
+        style={{ backgroundImage: 'url("/hero-bg.webp")' }}
       >
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-black/60" />
