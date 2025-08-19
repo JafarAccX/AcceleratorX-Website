@@ -11,10 +11,8 @@ const RegistrationSuccess = lazy(() => import("../pages/events/registration-succ
 
 // Lazy imports for main routes
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
-const AboutPage = lazy(() => import("../pages/courses/EntryPoint/AboutPage"));
-const HireHero = lazy(() => import("../pages/hirewithus/HireHero"));
-const BecomeAMentor = lazy(() => import("../pages/becomeamentor/BecomeAMentor"));
-const Blogs = lazy(() => import("../pages/blogs/Blogs"));
+const AboutPage = lazy(() => import("../pages/courses/EntryPoint/AboutPage")); 
+// const Blogs = lazy(() => import("../pages/blogs/Blogs"));
 const Login = lazy(() => import("../pages/auth/Login"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy"));
 const Terms = lazy(() => import("../pages/Terms/Terms"));
@@ -33,10 +31,8 @@ const Events = lazy(() => import("../pages/events/Events"));
 
 export const mainRoutes = [
   <Route path="/" element={<HomePage />} />,
-  <Route path="/about-us" element={<AboutPage />} />,
-  <Route path="/hire-with-us" element={<HireHero />} />,
-  <Route path="/become-a-mentor" element={<BecomeAMentor />} />,
-  <Route path="/blogs" element={<Blogs />} />,
+  <Route path="/about-us" element={<AboutPage />} />, 
+  // <Route path="/blogs" element={<Blogs />} />,
   <Route path="/login" element={<Login />} />,
   <Route path="/privacy-policy" element={<Privacy />} />,
   <Route path="/terms-and-conditions" element={<Terms />} />,
