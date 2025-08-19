@@ -6,7 +6,6 @@ import { ThankYouPageWrapper } from "./utils/routeUtils";
 // // Lazy-load heavy pages that were previously imported eagerly
 const WorkshopPaymentSuccess = lazy(() => import("../pages/workshop-payment/Success"));
 const XSATEntry = lazy(() => import("../pages/courses/EntryPoint/XSATEntry"));
-const PerformanceAnalytics = lazy(() => import("../pages/admin/PerformanceAnalytics"));
 const EventManagementPage = lazy(() => import("../pages/events/event"));
 const RegistrationSuccess = lazy(() => import("../pages/events/registration-successful"));
 
@@ -26,14 +25,6 @@ const GenAICourse = lazy(() => import("../pages/courses/EntryPoint/GenAIEntry"))
 const GenAICourseAD = lazy(() => import("../pages/courses/EntryPoint/GenAIAd"));
 const DMAICourse = lazy(() => import("../pages/courses/EntryPoint/DigitalMarketingEntry"));
 const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
-
-// Admin Routes
-const AdminDashboard = lazy(() => import("../pages/admin/AdminDashboard"));
-const EnrollmentDashboard = lazy(() => import("../pages/admin/AdminPage"));
-const OtherEnquiries = lazy(() => import("../pages/admin/OtherEnquiries"));
-const AdAnalysis = lazy(() => import("../pages/admin/AdAnalysis"));
-// const ScholarshipDetails = lazy(() => import("../pages/admin/ScholarshipDetails"));
-const WorkshopDetails = lazy(() => import("../pages/admin/WorkshopDetails"));
 
 // Blog Admin Routes
 const BlogDashboard = lazy(() => import("../pages/blogs/BlogDashboard"));
@@ -59,57 +50,7 @@ export const mainRoutes = [
   <Route path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
   <Route path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
   <Route path="/courses/data-analytics" element={<DataAnalyticsPage />} />,
-
-  // Admin Routes
-  <Route
-    path="/admin"
-    element={
-      <RoleProtectedRoute>
-        <AdminDashboard />
-      </RoleProtectedRoute>
-    }
-  />,
-  <Route
-    path="/admin/enrollments"
-    element={
-      <RoleProtectedRoute>
-        <EnrollmentDashboard />
-      </RoleProtectedRoute>
-    }
-  />,
-  <Route path="/admin/other-enquiries" element={<OtherEnquiries />} />,
-  <Route
-    path="/admin/analytics"
-    element={
-      <RoleProtectedRoute requiredRole={["admin", "sales"]}>
-        <PerformanceAnalytics />
-      </RoleProtectedRoute>
-    }
-  />,
-  <Route
-    path="/admin/analytics/adanalysis"
-    element={
-      <RoleProtectedRoute>
-        <AdAnalysis />
-      </RoleProtectedRoute>
-    }
-  />,
-  // <Route
-  //   path="/admin/scholarships"
-  //   element={
-  //     <RoleProtectedRoute>
-  //       <ScholarshipDetails />
-  //     </RoleProtectedRoute>
-  //   }
-  // />,
-  <Route
-    path="/admin/workshop-details"
-    element={
-      <RoleProtectedRoute requiredRole={["sales", "performance_marketer"]}>
-        <WorkshopDetails />
-      </RoleProtectedRoute>
-    }
-  />,
+ 
 
   // Blog Admin Routes
   <Route
