@@ -21,6 +21,7 @@ const PAGE_VIEW_ROUTES = [
   "/courses/product-management-program-eie",
   "/courses/data-analytics-program-eie",
   "/courses/generative-ai-fb",
+  "/courses/generative-ai-fb-b",
   "/workshop/pm-masterclass",
   "/workshop/dm-masterclass",
   "/workshop/gen-ai-masterclass-bxwcy",
@@ -33,7 +34,7 @@ const PAGE_VIEW_ROUTES = [
 const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
 
 const DA_ROUTES = ["/courses/data-analytics-program-fb", "/courses/data-analytics"];
-const DA_ROUTES_SECOND = ["/courses/data-analytics-program-fb-b"];
+const DA_ROUTES_SECOND = ["/courses/data-analytics-program-fb-b", "/courses/generative-ai-fb-b"];
 
 export const MetaPixel = () => {
   const location = useLocation();

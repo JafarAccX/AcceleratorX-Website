@@ -60,6 +60,7 @@ export const courseRoutes = [
     element={<DataAnalyticsAd />}
   />,
   <Route path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
+  <Route path="/courses/generative-ai-fb-b" element={<GenAICourseAD />} />,
   <Route
     path="/courses/n8n-automation"
     element={<N8nAutomationEntry />}
