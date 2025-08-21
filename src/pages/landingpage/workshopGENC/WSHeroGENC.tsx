@@ -124,7 +124,7 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "19 August",
+                  value: "29 August",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,

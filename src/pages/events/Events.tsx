@@ -12,9 +12,9 @@ const Events = () => {
     {
       name: "Context Engineering",
       mode: "Online (Zoom)",
-      time: "Aug 19, 2025  9:00 PM",
+      time: "Aug 29, 2025  9:00 PM",
       link: "/workshop/gen-ai-masterclass-thidtx",
-      completed: true,
+      completed: false,
     },
     {
       name: "Learn everything n8n !",

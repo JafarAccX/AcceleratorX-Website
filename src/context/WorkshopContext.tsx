@@ -68,7 +68,7 @@ const GENAICZoomDetails: ZoomMeetingDetails = {
   title: "Context Engineering",
   link: "https://zoom.us/meeting/register/4YGe_5nRSLyEvVfDF2MS5g",
   meetingId: "4YGe_5nRSLyEvVfDF2MS5g",
-  time: "19 Aug, 2025 09:00 PM India",
+  time: "29 Aug, 2025 09:00 PM India",
   meetingCode: "91498721077",
 };
 
