@@ -107,12 +107,17 @@ export const trackFormSubmission = async (
       hashData(name.split(" ")[0]),
     ]);
 
+    // Get event_id from frontend (window.__META_EVENT_ID__) for deduplication
+    const eventId = (window as any).__META_EVENT_ID__;
+
+    console.log("MetaPixel - Event ID:", eventId);
     const payload = {
       data: [
         {
           event_name: "CompleteRegistration",
           event_time: Math.floor(Date.now() / 1000),
           action_source: "website",
+          event_id: eventId,
           user_data: {
             em: hashedEmail,
             ph: hashedPhone,

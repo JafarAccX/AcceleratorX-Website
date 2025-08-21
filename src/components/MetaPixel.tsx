@@ -1,4 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+// Utility to generate a UUID (for event_id deduplication)
+function generateEventId() {
+  if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+  // Fallback for older browsers
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 import { useLocation } from "react-router-dom";
 import { useCourseContext } from "../context/courseContext";
 
@@ -10,6 +20,7 @@ declare global {
   interface Window {
     fbq?: (command: string, eventOrId: string, params?: unknown) => void;
     fbqInitialized?: boolean;
+    __META_EVENT_ID__?: string;
   }
 }
 
@@ -32,6 +43,7 @@ const PAGE_VIEW_ROUTES = [
 ];
 
 const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
+const COMPLETE_REGISTRATION_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
 
 const DA_ROUTES = ["/courses/data-analytics-program-fb", "/courses/data-analytics"];
 const DA_ROUTES_SECOND = ["/courses/data-analytics-program-fb-b", "/courses/generative-ai-fb-b"];
@@ -50,11 +62,23 @@ export const MetaPixel = () => {
 
   const isPageViewRoute = PAGE_VIEW_ROUTES.includes(location.pathname);
   const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
+  const isCompleteRegistrationRoute = COMPLETE_REGISTRATION_ROUTES.includes(location.pathname);
+
+  // Store event_id in ref so it persists across renders for deduplication
+  const eventIdRef = useRef<string | null>(null);
+  if (isCompleteRegistrationRoute && !eventIdRef.current) {
+    eventIdRef.current = generateEventId();
+    // Optionally, store in sessionStorage/localStorage if you want to persist across reloads
+  }
+
+  console.log("__META_EVENT_ID__", window.__META_EVENT_ID__);
+  console.log("MetaPixel - Event ID:", eventIdRef.current);
+  console.log("MetaPixel - Event ID (window):", window.__META_EVENT_ID__);
+  console.log("MetaPixel - Pixel ID:", pixelId);
 
   useEffect(() => {
     if (!pixelId) return;
 
-    // Polyfill fbq as a no-op to prevent ReferenceError if fbevents.js runs before our script sets fbq
     if (!window.fbq) {
       window.fbq = function () { return; };
     }
@@ -67,11 +91,13 @@ export const MetaPixel = () => {
       }
       if (isPageViewRoute) window.fbq("track", "PageView");
       if (isLeadRoute) window.fbq("track", "Lead");
+      if (isCompleteRegistrationRoute && eventIdRef.current) {
+        window.fbq("track", "CompleteRegistration", { event_id: eventIdRef.current });
+      }
     };
 
     const existing = document.getElementById("fb-pixel-script") as HTMLScriptElement | null;
     if (existing) {
-      // Script already present; just trigger events for this route
       triggerEvents();
       return;
     }
@@ -81,11 +107,18 @@ export const MetaPixel = () => {
     script.async = true;
     script.src = "https://connect.facebook.net/en_US/fbevents.js";
     script.onload = triggerEvents;
-    // Defer injection slightly to keep critical path clean
     const inject = () => document.head.appendChild(script);
     if (document.readyState === "complete") setTimeout(inject, 0);
     else window.addEventListener("load", inject, { once: true });
-  }, [pixelId, isPageViewRoute, isLeadRoute]);
+  }, [pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute]);
+
+
+  // Expose event_id for backend use (e.g., via window or context)
+  useEffect(() => {
+    if (isCompleteRegistrationRoute && eventIdRef.current) {
+      window.__META_EVENT_ID__ = eventIdRef.current;
+    }
+  }, [isCompleteRegistrationRoute]);
 
   return null;
 };
