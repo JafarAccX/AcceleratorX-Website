@@ -13,7 +13,7 @@ const ProgramHeroEIE = lazy(() => import("../productmanagement/EIE/ProgamHeroEIE
 const ProgramCertificateEIE = lazy(() => import("../productmanagement/EIE/ProgramCertificateEIE"));
 const ProgramHighlightsEIE = lazy(() => import("../productmanagement/EIE/ProgramHighlightsEIE"));
 const SkillsAndToolsEIE = lazy(() => import("../productmanagement/EIE/SkillsAndToolsEIE"));
-const SkillsAssessmentEIE = lazy(() => import("../productmanagement/EIE/SkillsAssessmentEIE"));
+// const SkillsAssessmentEIE = lazy(() => import("../productmanagement/EIE/SkillsAssessmentEIE"));
 
 const ProductManagementEIE = () => {
   const {
@@ -37,7 +37,7 @@ const ProductManagementEIE = () => {
         <ProgramCertificateEIE />
         <MentorsEIE />
         <SkillsAndToolsEIE />
-        <SkillsAssessmentEIE />
+        {/* <SkillsAssessmentEIE /> */}
         <PricingEIE />
         <FAQEIE />
         <StickyBookNav />
