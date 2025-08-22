@@ -1,6 +1,6 @@
 import { Loader } from "lucide-react";
 import { useEffect, Suspense } from "react";
-import BecomeAMentorFeatures from "../../../components/BecomeAMentorFeatures";
+// import BecomeAMentorFeatures from "../../../components/BecomeAMentorFeatures";
 import CTA from "../../../components/CTA";
 import Features from "../../../components/Features";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
@@ -21,7 +21,7 @@ const HomePage = () => {
       <LogoSlider />
       <Features />
       <HeroWithAbouv />
-      <BecomeAMentorFeatures />
+      {/* <BecomeAMentorFeatures /> */}
       <CTA />
     </Suspense>
   );

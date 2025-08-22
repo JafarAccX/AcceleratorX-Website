@@ -1,4 +1,3 @@
- import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 export default function CTA() {
@@ -49,13 +48,10 @@ export default function CTA() {
 
           {/* Decorative Divider */}
           <div className="mt-12">
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+            <div
+              
               className="mx-auto w-16 h-1 bg-gradient-to-r from-blue-500 to-blue-600"
-            ></motion.div>
+            ></div>
           </div>
         </div>
       </div>

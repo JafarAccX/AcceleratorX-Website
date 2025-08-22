@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Maximize2, Zap, Wand2, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,15 +7,15 @@ const containerAnimation = {
   visible: { opacity: 1, y: 0 },
 };
 
-const cardAnimation = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+// const cardAnimation = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { opacity: 1, y: 0 },
+// };
 
 // Feature Card Component for better organization
 const FeatureCard = ({
   feature,
-  index,
+  // index,
 }: {
   feature: (typeof features)[0];
   index: number;
@@ -24,12 +23,9 @@ const FeatureCard = ({
   const navigate = useNavigate();
 
   return (
-    <motion.div
+    <div
       key={feature.title}
-      variants={cardAnimation}
-      initial="hidden"
-      whileInView="visible"
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+       
       className="flex-none w-full md:w-[300px] snap-center"
     >
       <div className="relative h-[400px] p-6 rounded-2xl bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 border-r-2 border-b-2 border-r-blue-500/20 border-b-blue-500/20 transition-colors group">
@@ -54,20 +50,18 @@ const FeatureCard = ({
         </div>
 
         {/* Learn More Button */}
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+        <button
           onClick={() => navigate(feature.path)}
           className="absolute bottom-6 left-6 right-6 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors text-sm font-medium"
         >
           Learn More
           <ArrowRight className="w-4 h-4" />
-        </motion.button>
+        </button>
 
         {/* Hover Gradient Effect */}
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -78,7 +72,7 @@ const features = [
     description:
       "Our program empowers you to lead with data-driven insights and real-world strategies, making complex product management accessible. Gain hands-on experience in crafting products that resonate with users and drive measurable growth.",
     image: (
-      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+      <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
           <pattern
             id="grid"
@@ -97,26 +91,15 @@ const features = [
         </defs>
         <rect width="200" height="200" fill="url(#grid)" />
 
-        <motion.g
+        <g
           stroke="currentColor"
           fill="none"
           strokeWidth="1.5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+           
         >
           {/* Main diamond container */}
-          <motion.path
+          <path
             d="M100 50L150 100L100 150L50 100Z"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{
-              duration: 2,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "loop",
-              repeatDelay: 1,
-            }}
           />
 
           {/* Four circles in corners */}
@@ -126,20 +109,12 @@ const features = [
             { cx: 130, cy: 130, delay: 1 },
             { cx: 70, cy: 130, delay: 1.5 },
           ].map((circle, index) => (
-            <motion.circle
+            <circle
               key={index}
               cx={circle.cx}
               cy={circle.cy}
               r="20"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                duration: 1,
-                delay: circle.delay,
-                repeat: Infinity,
-                repeatType: "reverse",
-                repeatDelay: 1,
-              }}
+               
             />
           ))}
 
@@ -150,24 +125,17 @@ const features = [
             { cx: 130, cy: 130, delay: 1 },
             { cx: 70, cy: 130, delay: 1.5 },
           ].map((dot, index) => (
-            <motion.circle
+            <circle
               key={`dot-${index}`}
               cx={dot.cx}
               cy={dot.cy}
               r="3"
               fill="currentColor"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: [0, 1, 0], opacity: [0, 1, 0] }}
-              transition={{
-                duration: 2,
-                delay: dot.delay,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
+               
             />
           ))}
-        </motion.g>
-      </motion.svg>
+        </g>
+      </svg>
     ),
     path: "/courses/product-management",
   },
@@ -177,7 +145,7 @@ const features = [
     description:
       "Unlock the power of data to drive product success. This program equips you with essential analytics skills and deep insights into product metrics, user behavior, and retention strategies, preparing you to make impactful product decisions.",
     image: (
-      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+      <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
           <pattern
             id="grid2"
@@ -196,30 +164,19 @@ const features = [
         </defs>
         <rect width="200" height="200" fill="url(#grid2)" />
 
-        <motion.g
+        <g
           stroke="currentColor"
           fill="none"
           strokeWidth="1.5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+           
         >
           {/* Concentric circles */}
           {[60, 45, 30].map((radius, index) => (
-            <motion.circle
+            <circle
               key={`circle-${index}`}
               cx="100"
               cy="100"
               r={radius}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                duration: 1.5,
-                delay: index * 0.3,
-                repeat: Infinity,
-                repeatType: "reverse",
-                repeatDelay: 0.5,
-              }}
             />
           ))}
 
@@ -228,59 +185,34 @@ const features = [
             const x = 100 + 60 * Math.cos((angle * Math.PI) / 180);
             const y = 100 + 60 * Math.sin((angle * Math.PI) / 180);
             return (
-              <motion.g key={`orbit-${index}`}>
-                <motion.circle
+              <g key={`orbit-${index}`}>
+                <circle
                   cx={x}
                   cy={y}
                   r="3"
                   fill="currentColor"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{
-                    scale: [0, 1, 0],
-                    opacity: [0, 1, 0],
-                    rotate: 360,
-                  }}
-                  transition={{
-                    duration: 2,
-                    delay: index * 0.2,
-                    repeat: Infinity,
-                    repeatDelay: 0.5,
-                  }}
                 />
-                <motion.line
+                <line
                   x1="100"
                   y1="100"
                   x2={x}
                   y2={y}
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: [0, 0.2, 0] }}
-                  transition={{
-                    duration: 2,
-                    delay: index * 0.2,
-                    repeat: Infinity,
-                    repeatDelay: 0.5,
-                  }}
+                   
                 />
-              </motion.g>
+              </g>
             );
           })}
 
           {/* Center point */}
-          <motion.circle
+          <circle
             cx="100"
             cy="100"
             r="4"
             fill="currentColor"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 0.5, 1] }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
+             
           />
-        </motion.g>
-      </motion.svg>
+        </g>
+      </svg>
     ),
     path: "/courses/data-analytics",
   },
@@ -290,7 +222,7 @@ const features = [
   //   description:
   //     "Master the art of building powerful applications without writing code. Learn to leverage modern no-code platforms to create scalable solutions, automate workflows, and bring your ideas to life faster than ever before.",
   //   image: (
-  //     <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+  //     <svg className="w-full h-full" viewBox="0 0 200 200">
   //       <defs>
   //         <pattern
   //           id="grid3"
@@ -309,7 +241,7 @@ const features = [
   //       </defs>
   //       <rect width="200" height="200" fill="url(#grid3)" />
 
-  //       <motion.g
+  //       <g
   //         stroke="currentColor"
   //         fill="none"
   //         strokeWidth="1.5"
@@ -324,7 +256,7 @@ const features = [
   //           "M50,110 h40 v40 h-40 Z",
   //           "M110,110 h40 v40 h-40 Z",
   //         ].map((path, index) => (
-  //           <motion.path
+  //           <path
   //             key={`puzzle-${index}`}
   //             d={path}
   //             initial={{ pathLength: 0, opacity: 0 }}
@@ -346,7 +278,7 @@ const features = [
   //           "M130,90 v20",
   //           "M90,130 h20",
   //         ].map((path, index) => (
-  //           <motion.path
+  //           <path
   //             key={`connection-${index}`}
   //             d={path}
   //             initial={{ pathLength: 0, opacity: 0 }}
@@ -367,7 +299,7 @@ const features = [
   //           { cx: 130, cy: 90 },
   //           { cx: 90, cy: 130 },
   //         ].map((pos, index) => (
-  //           <motion.circle
+  //           <circle
   //             key={`dot-${index}`}
   //             cx={pos.cx}
   //             cy={pos.cy}
@@ -383,8 +315,8 @@ const features = [
   //             }}
   //           />
   //         ))}
-  //       </motion.g>
-  //     </motion.svg>
+  //       </g>
+  //     </svg>
   //   ),
   //   path: "/courses/no-code-tool-program",
   // },
@@ -394,7 +326,7 @@ const features = [
     description:
       "Dive into the revolutionary world of Generative AI. Learn to harness the power of large language models, create AI-powered applications, and understand the principles behind neural networks that are reshaping the future of technology.",
     image: (
-      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+      <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
           <pattern
             id="grid4"
@@ -413,13 +345,11 @@ const features = [
         </defs>
         <rect width="200" height="200" fill="url(#grid4)" />
 
-        <motion.g
+        <g
           stroke="currentColor"
           fill="none"
           strokeWidth="1.5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+           
         >
           {/* Neural network nodes */}
           {[
@@ -430,20 +360,12 @@ const features = [
             [100, 120],
             [150, 100],
           ].map(([cx, cy], index) => (
-            <motion.circle
+            <circle
               key={`node-${index}`}
               cx={cx}
               cy={cy}
               r="8"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                duration: 1,
-                delay: index * 0.2,
-                repeat: Infinity,
-                repeatType: "reverse",
-                repeatDelay: 0.5,
-              }}
+              
             />
           ))}
 
@@ -458,20 +380,13 @@ const features = [
             [100, 80, 150, 100],
             [100, 120, 150, 100],
           ].map(([x1, y1, x2, y2], index) => (
-            <motion.line
+            <line
               key={`connection-${index}`}
               x1={x1}
               y1={y1}
               x2={x2}
               y2={y2}
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0, 0.3, 0] }}
-              transition={{
-                duration: 2,
-                delay: index * 0.1,
-                repeat: Infinity,
-                repeatDelay: 0.5,
-              }}
+               
             />
           ))}
 
@@ -484,24 +399,17 @@ const features = [
             [100, 120],
             [150, 100],
           ].map(([cx, cy], index) => (
-            <motion.circle
+            <circle
               key={`pulse-${index}`}
               cx={cx}
               cy={cy}
               r="4"
               fill="currentColor"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: [0, 1.5, 0], opacity: [0, 1, 0] }}
-              transition={{
-                duration: 2,
-                delay: index * 0.3,
-                repeat: Infinity,
-                repeatDelay: 0.5,
-              }}
+               
             />
           ))}
-        </motion.g>
-      </motion.svg>
+        </g>
+      </svg>
     ),
     path: "/courses/generative-ai",
   },
@@ -511,7 +419,7 @@ const features = [
     description:
       "Explore how AI transforms digital marketing by automating analytics, personalizing campaigns, and optimizing customer engagement through data-driven insights.",
     image: (
-      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+      <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
           <pattern
             id="grid4"
@@ -530,10 +438,8 @@ const features = [
         </defs>
         <rect width="200" height="200" fill="url(#grid4)" />
 
-        <motion.g
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <g
+          
         >
           {/* Animated Bar Chart Representing Digital Marketing Metrics */}
           {[
@@ -543,41 +449,25 @@ const features = [
             { x: 110, initialHeight: 35, targetHeight: 65, delay: 0.3 },
             { x: 140, initialHeight: 20, targetHeight: 50, delay: 0.4 },
           ].map(({ x, initialHeight, targetHeight, delay }, index) => (
-            <motion.rect
+            <rect
               key={`bar-${index}`}
               x={x}
               width="10"
-              initial={{ height: initialHeight, y: 170 - initialHeight }}
-              animate={{ height: targetHeight, y: 170 - targetHeight }}
-              transition={{
-                duration: 1,
-                delay,
-                repeat: Infinity,
-                repeatType: "reverse",
-                repeatDelay: 0.5,
-              }}
+               
               fill="currentColor"
             />
           ))}
 
           {/* Animated Polyline Connecting the Top Centers of the Bars */}
-          <motion.polyline
+          <polyline
             points="25,110 55,100 85,115 115,105 145,120"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{
-              duration: 2,
-              delay: 0.5,
-              repeat: Infinity,
-              repeatType: "reverse",
-              repeatDelay: 0.5,
-            }}
+             
             stroke="currentColor"
             fill="none"
             strokeWidth="1.5"
           />
-        </motion.g>
-      </motion.svg>
+        </g>
+      </svg>
     ),
     path: "/courses/advance-performance-marketing-with-ai",
   },
@@ -594,11 +484,8 @@ export default function Features() {
 
       <div className="relative max-w-7xl mx-auto py-12">
         {/* Section Header */}
-        <motion.div
-          variants={containerAnimation}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5 }}
+        <div
+          
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white pb-2">
@@ -610,7 +497,7 @@ export default function Features() {
           <p className="text-gray-400 text-lg">
             Master the skills that shape tomorrow's technology landscape
           </p>
-        </motion.div>
+        </div>
 
         {/* Feature Cards Container */}
         <div className="flex flex-col md:flex-row flex-nowrap gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">

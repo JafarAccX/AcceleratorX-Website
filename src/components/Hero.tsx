@@ -14,13 +14,12 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background Image */}
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url("/hero-bg.webp")' }}
-      >
-        {/* Dark overlay to ensure text readability */}
+      > 
         <div className="absolute inset-0 bg-black/60" />
-      </div>
+      </div> */}
 
       {/* Background Elements - Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80">

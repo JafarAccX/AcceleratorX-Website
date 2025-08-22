@@ -26,7 +26,7 @@ const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 
 // Blog Admin Routes
 const BlogDashboard = lazy(() => import("../pages/blogs/BlogDashboard"));
-const BlogForm = lazy(() => import("../pages/blogs/BlogForm"));
+// const BlogForm = lazy(() => import("../pages/blogs/BlogForm"));
 const Events = lazy(() => import("../pages/events/Events"));
 
 export const mainRoutes = [
@@ -57,22 +57,22 @@ export const mainRoutes = [
       </RoleProtectedRoute>
     }
   />,
-  <Route
-    path="/admin/blogs/new"
-    element={
-      <RoleProtectedRoute requiredRole="blog_user">
-        <BlogForm onClose={() => {}} onSuccess={() => {}} />
-      </RoleProtectedRoute>
-    }
-  />,
-  <Route
-    path="/admin/blogs/edit/:id"
-    element={
-      <RoleProtectedRoute requiredRole="blog_user">
-        <BlogForm onClose={() => {}} onSuccess={() => {}} />
-      </RoleProtectedRoute>
-    }
-  />,
+  // <Route
+  //   path="/admin/blogs/new"
+  //   element={
+  //     <RoleProtectedRoute requiredRole="blog_user">
+  //       <BlogForm onClose={() => {}} onSuccess={() => {}} />
+  //     </RoleProtectedRoute>
+  //   }
+  // />,
+  // <Route
+  //   path="/admin/blogs/edit/:id"
+  //   element={
+  //     <RoleProtectedRoute requiredRole="blog_user">
+  //       <BlogForm onClose={() => {}} onSuccess={() => {}} />
+  //     </RoleProtectedRoute>
+  //   }
+  // />,
 
   // Thank You Page
   <Route path="/thank-you" element={<ThankYouPageWrapper />} />,
