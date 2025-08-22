@@ -573,14 +573,6 @@ export const dataAnalyticsmodules = [
 
 export const dataAnalyticsTools = [
   {
-    name: "Excel",
-    image: "/assets/dataTools/excel.svg",
-  },
-  {
-    name: "SQL",
-    image: "/assets/dataTools/sql.webp",
-  },
-  {
     name: "Tableau",
     image: "/assets/dataTools/tableu.webp",
   },

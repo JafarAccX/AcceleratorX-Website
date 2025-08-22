@@ -18,7 +18,7 @@ const DMMarketingTools = () => {
         },
         {
           name: "Meta Ads",
-          logo: "/assets/dmAITools/meta.svg",
+          logo: "/assets/dmAITools/meta.webp",
         },
         {
           name: "Adzooma",
@@ -48,7 +48,7 @@ const DMMarketingTools = () => {
       items: [
         {
           name: "HubSpot AI",
-          logo: "/assets/dmAITools/HubSpot.svg",
+          logo: "/assets/dmAITools/HubSpot.webp",
         },
         {
           name: "Active Campaign",

@@ -26,7 +26,7 @@ const WSAboutGENB = () => {
     { name: "CrewAI", img: "/assets/genAITools/crewai.webp" },
     { name: "AutoGen", img: "/assets/genAITools/autogen.webp" },
     { name: "RAG", img: "/assets/genAITools/rag.webp" },
-    { name: "Hugging Face", img: "/assets/genAITools/huggingface.svg" },
+    { name: "Hugging Face", img: "/assets/genAITools/huggingface.webp" },
     { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
   ];
 

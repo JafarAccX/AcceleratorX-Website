@@ -195,7 +195,7 @@ const GENToolsYouWillLearnAd = () => {
     {
       name: "Hugging Face",
       description: "Platform for sharing and deploying AI models",
-      image: "/assets/genAITools/huggingface.svg",
+      image: "/assets/genAITools/huggingface.webp",
       category: "AI Deployment & Integration",
     },
     {
@@ -213,7 +213,7 @@ const GENToolsYouWillLearnAd = () => {
     {
       name: "OpenAI API",
       description: "API access to OpenAI's powerful AI models",
-      image: "/assets/genAITools/openai-logomark.svg",
+      image: "/assets/genAITools/openai-logomark.webp",
       category: "AI Deployment & Integration",
     },
 

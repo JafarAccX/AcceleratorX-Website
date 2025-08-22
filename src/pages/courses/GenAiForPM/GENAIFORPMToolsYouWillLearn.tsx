@@ -116,7 +116,7 @@ const GENToolsYouWillLearn = () => {
     {
       name: "OpenAI API",
       description: "API access to advanced GenAI models for PM tools",
-      image: "/assets/genAITools/openai-logomark.svg",
+      image: "/assets/genAITools/openai-logomark.webp",
       category: "AI Deployment",
     },
     {
