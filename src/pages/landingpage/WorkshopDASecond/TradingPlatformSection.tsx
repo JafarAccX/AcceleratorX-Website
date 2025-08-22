@@ -37,7 +37,7 @@ const TradingPlatformSection: React.FC = () => {
           {/* Right Image Instead of Trading Interface */}
             <div className="relative">
               <img
-                src="/Data-Analytics.png"
+                src="/Data-Analytics.webp"
                 alt="Data Analytics Illustration"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border border-slate-700/50"
               />

@@ -258,7 +258,7 @@ const WSAbout = () => {
                 <div className="md:block w-32 h-32 rounded-lg bg-gradient-to-br from-emerald-500 to-indigo-500 p-0.5">
                   <div className="w-full h-full bg-white rounded-lg p-1">
                     <img
-                      src="/assets/mentor/akash.png"
+                      src="/assets/mentor/akash.webp"
                       alt={instructorDetails.name}
                       className="w-full h-full object-cover rounded-lg"
                     />

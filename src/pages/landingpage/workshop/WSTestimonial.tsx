@@ -1,11 +1,11 @@
 const WSTestimonial = () => {
   // Testimonial logo images
   const testimonialLogos = [
-    "/assets/testimonialsLogo/feedback1.png",
-    "/assets/testimonialsLogo/feedback2.png",
-    "/assets/testimonialsLogo/feedback4.png",
-    "/assets/testimonialsLogo/feedback5.png",
-    "/assets/testimonialsLogo/feedback6.png",
+    "/assets/testimonialsLogo/feedback1.webp",
+    "/assets/testimonialsLogo/feedback2.webp",
+    "/assets/testimonialsLogo/feedback4.webp",
+    "/assets/testimonialsLogo/feedback5.webp",
+    "/assets/testimonialsLogo/feedback6.webp",
   ];
 
   const scrollToForm = () => {

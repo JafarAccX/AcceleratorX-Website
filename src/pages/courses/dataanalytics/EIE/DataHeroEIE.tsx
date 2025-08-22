@@ -173,7 +173,7 @@ export default function DataHeroEIE() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/60 to-[#96E072]/30 rounded-lg blur-md opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <img
-                src="/assets/daBanner.jpg"
+                src="/assets/daBanner.webp"
                 alt="Data Analytics Program"
                 className="relative w-full rounded-lg shadow-2xl transform group-hover:scale-[1.01] transition-transform duration-500"
               />

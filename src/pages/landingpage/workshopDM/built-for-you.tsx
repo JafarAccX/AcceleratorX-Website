@@ -44,7 +44,7 @@ export default function BuiltForYou() {
      <div
         className="absolute inset-0 bg-cover bg-center opacity-40"
         style={{
-          backgroundImage: `url('/backgrounds/bg1-.png')`,
+          backgroundImage: `url('/backgrounds/bg1-.webp')`,
         }}
       />
 

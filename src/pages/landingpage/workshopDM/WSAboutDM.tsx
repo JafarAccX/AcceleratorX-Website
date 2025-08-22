@@ -214,7 +214,7 @@ const WSAboutDM = () => {
                 <div className="md:block w-48 h-48 rounded-2xl bg-gradient-to-br from-blue-500 to-green-500 p-0.5 transform hover:scale-[1.02] transition-all duration-300">
                   <div className="w-full h-full bg-white rounded-2xl p-1">
                     <img
-                      src="/assets/mentor/ankitadas.jpeg"
+                      src="/assets/mentor/ankitadas.webp"
                       alt={instructorDetails.name}
                       className="w-full h-full object-cover rounded-xl"
                     />

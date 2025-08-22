@@ -196,7 +196,7 @@ const WSAboutGEN = () => {
                       <motion.div className="flex flex-col items-start gap-3 mb-4" whileHover={{ gap: "0.875rem" }}>
                         <div className="w-20 h-20 flex items-center justify-center bg-white rounded-lg">
                           <img
-                            src={"/assets/genAITools/n8n-seeklogo.png"}
+                            src={"/assets/genAITools/n8n-seeklogo.webp"}
                             alt={"n8n"}
                             className="w-12 h-12 object-scale-down"
                           />

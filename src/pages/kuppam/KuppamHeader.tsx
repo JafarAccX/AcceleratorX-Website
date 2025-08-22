@@ -25,7 +25,7 @@ const KuppamHeader = () => {
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
         <div className="absolute inset-0">
-          <img src="/pmbg.jpg" alt="Background" className="w-full h-full object-cover" />
+          <img src="/pmbg.webp" alt="Background" className="w-full h-full object-cover" />
           {/* Darker overlay for better contrast */}
           <div className="absolute inset-0 bg-black/70" />
         </div>

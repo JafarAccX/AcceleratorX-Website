@@ -116,7 +116,7 @@ export default function RichTextEditor({ content, onChange }: RichTextEditorProp
     e.preventDefault();
     const url = window.prompt('Enter image URL');
     if (url) {
-      if (url.match(/^https?:\/\/.+\.(jpg|jpeg|png|webp|gif)$/i)) {
+      if (url.match(/^https?:\/\/.+\.(.webp|jpeg|png|webp|gif)$/i)) {
         editor.chain().focus().setImage({ src: url }).run();
       } else {
         toast.error('Please enter a valid image URL');

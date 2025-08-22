@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Wrench, Code, Video, Cloud, Brain, Rocket } from "lucide-react";
+import { Wrench, Code, Cloud, Brain, Rocket } from "lucide-react";
 
 interface Tool {
   name: string;
@@ -86,7 +86,7 @@ const GENToolsYouWillLearn = () => {
     {
       name: "LangChain",
       description: "Framework for building GenAI-powered PM applications",
-      image: "/assets/genAITools/langchain.png",
+      image: "/assets/genAITools/langchain.webp",
       category: "AI Agent Building",
     },
     {
@@ -98,13 +98,13 @@ const GENToolsYouWillLearn = () => {
     {
       name: "AutoGen",
       description: "Tool for building autonomous GenAI agents for PM tasks",
-      image: "/assets/genAITools/autogen.jpeg",
+      image: "/assets/genAITools/autogen.webp",
       category: "AI Agent Building",
     },
     {
       name: "n8n",
       description: "No-code automation platform for product ops and GenAI integration",
-      image: "/assets/genAITools/n8n-seeklogo.png",
+      image: "/assets/genAITools/n8n-seeklogo.webp",
       category: "No-Code & Automation",
     },
     {
@@ -131,12 +131,7 @@ const GENToolsYouWillLearn = () => {
       image: "/assets/caseStudiesLogo/slack.webp",
       category: "Collaboration & Reporting",
     },
-    {
-      name: "Notion AI",
-      description: "GenAI for product documentation and knowledge management",
-      image: "/assets/dataTools/notion.webp",
-      category: "Collaboration & Reporting",
-    },
+
   ];
 
   return (

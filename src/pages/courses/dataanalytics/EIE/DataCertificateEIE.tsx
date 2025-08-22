@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import dataCertificate from "/assets/programcertificates/DACertificate.png";
+import dataCertificate from "/assets/programcertificates/DACertificate.webp";
 
 const DataCertificateEIE = () => {
   // Initialize cache mechanism

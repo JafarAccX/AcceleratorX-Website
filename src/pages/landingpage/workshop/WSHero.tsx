@@ -55,7 +55,7 @@ const WSHero = () => {
           <div className="w-40 md:w-48 relative group">
             <div className="absolute inset-0 blur-xl bg-gradient-to-r from-emerald-500/40 via-indigo-400/30 to-cyan-400/40 rounded-full group-hover:scale-110 transition-all duration-300"></div>
             <div className="relative bg-[#061625]/90 backdrop-blur-xl rounded-2xl p-3 shadow-2xl border border-emerald-500/20 hover:border-indigo-400/30 transition-all duration-300">
-              <img src="/assets/logo/logo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
+              <img src="/assets/logo/logo.webp" alt="AcceleratorX Logo" className="w-full h-auto" />
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ const WSHero = () => {
               {/* Mentor Badge */}
               <div className="mt-6 flex items-center space-x-3 bg-gradient-to-r from-emerald-900/40 to-indigo-900/30 px-4 py-2 rounded-lg border border-emerald-500/30 w-fit mx-auto lg:mx-0 hover:shadow-lg transition-all duration-300">
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-400 flex-shrink-0 shadow-md">
-                  <img src="/assets/mentor/akash.png" alt="Aakash Maurya" className="w-full h-full object-cover" />
+                  <img src="/assets/mentor/akash.webp" alt="Aakash Maurya" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <div className="flex items-center">

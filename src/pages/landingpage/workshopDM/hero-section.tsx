@@ -23,7 +23,7 @@ export default function HeroSection() {
           <div className="max-w-[180px] relative">
             <div className="relative bg-[#0A0F1C]/90 backdrop-blur-lg rounded-xl p-3 border border-white/10 shadow-lg">
               <img
-                src="/assets/logo/logo.png"
+                src="/assets/logo/logo.webp"
                 alt="AcceleratorX Logo"
                 className="w-full h-auto transform will-change-transform"
                 loading="lazy"
@@ -38,7 +38,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center opacity-40"
         style={{
-          backgroundImage: `url('/backgrounds/bg1-.png')`,
+          backgroundImage: `url('/backgrounds/bg1-.webp')`,
         }}
       />
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">

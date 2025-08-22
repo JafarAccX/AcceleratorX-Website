@@ -61,7 +61,7 @@
 //       return;
 //     }
 //     if (imageError) {
-//       toast.error('Please provide a valid image file (PNG, JPG, JPEG)');
+//       toast.error('Please provide a valid image file (PNG, .webp, JPEG)');
 //       return;
 //     }
 
@@ -108,7 +108,7 @@
 
 //     const file = e.dataTransfer.files[0];
 //     if (file) {
-//       if (file.type.match(/^image\/(jpeg|jpg|png)$/i)) {
+//       if (file.type.match(/^image\/(jpeg|.webp|png)$/i)) {
 //         const reader = new FileReader();
 //         reader.onload = (event) => {
 //           if (event.target?.result) {
@@ -117,7 +117,7 @@
 //         };
 //         reader.readAsDataURL(file);
 //       } else {
-//         toast.error('Please drop a valid image file (PNG, JPG, or JPEG)');
+//         toast.error('Please drop a valid image file (PNG, .webp, or JPEG)');
 //       }
 //     }
 //   }, []);
@@ -219,7 +219,7 @@
 //                 >
 //                   <input
 //                     type="file"
-//                     accept="image/png,image/jpeg,image/jpg"
+//                     accept="image/png,image/jpeg,image/.webp"
 //                     onChange={(e) => {
 //                       const file = e.target.files?.[0];
 //                       if (file) {

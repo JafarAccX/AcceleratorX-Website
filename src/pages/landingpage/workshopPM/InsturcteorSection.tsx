@@ -49,7 +49,7 @@ const InstructorSection = () => {
                   <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-gradient-to-r from-blue-500 to-violet-500 p-1">
                     <div className="w-full h-full bg-gray-900 rounded-xl p-1">
                       <img
-                        src="/assets/mentor/subhasis.png"
+                        src="/assets/mentor/subhasis.webp"
                         alt={instructorDetails.name}
                         className="w-full h-full object-cover rounded-lg"
                       />

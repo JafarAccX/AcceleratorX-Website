@@ -30,52 +30,52 @@ export const modules = [
   {
     title: "Industry Ready.",
     description: " Industry Verified Certification.",
-    image: "/assets/program/security.png",
+    image: "/assets/program/security.webp",
   },
   {
     title: "Learn By Doing.",
     description: "Apply your knowledge, Learn by Building your dream product",
-    image: "/assets/program/learning.png",
+    image: "/assets/program/learning.webp",
   },
   {
     title: "Real World Case Studies.",
     description: " Case Studies That actually matter",
-    image: "/assets/program/file-case.png",
+    image: "/assets/program/file-case.webp",
   },
   {
     title: "Interview Prep",
     description:
       "Ace your interviews. Get expert guidance from seasoned product leaders.",
-    image: "/assets/program/mentorship.png",
+    image: "/assets/program/mentorship.webp",
   },
   {
     title: "Mock Interview",
     description: "Refine your skills with realistic mock interviews.",
-    image: "/assets/program/meeting.png",
+    image: "/assets/program/meeting.webp",
   },
 
   {
     title: "Dedicated Job Portal",
     description:
       "Your career launchpad. Access exclusive job opportunities and connect with top companies.",
-    image: "/assets/program/job-portal.png",
+    image: "/assets/program/job-portal.webp",
   },
   {
     title: "Wide pool of network",
     description:
       "Connect with a thriving community of ambitious product professionals.",
-    image: "/assets/program/networking.png",
+    image: "/assets/program/networking.webp",
   },
   {
     title: "Showcase your product sense",
     description:
       "Shine bright. Present your own product and impress potential employers.",
-    image: "/assets/program/state.png",
+    image: "/assets/program/state.webp",
   },
   {
     title: "Life Time Access To Content and Videos",
     description: "Get updated content as you go",
-    image: "/assets/program/exclusive.png",
+    image: "/assets/program/exclusive.webp",
   },
 ];
 
@@ -111,61 +111,61 @@ export const tools: Tool[] = [
   {
     name: "Notion",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
+      "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.webp",
     description: "Documentation & Knowledge Base",
     category: "Documentation",
   },
   {
     name: "Miro",
-    image: "/assets/logo/Miro.png",
+    image: "/assets/logo/Miro.webp",
     description: "Visual Collaboration",
     category: "Collaboration",
   },
   {
     name: "Asana",
-    image: "/assets/logo/Asana.png",
+    image: "/assets/logo/Asana.webp",
     description: "Visual Collaboration",
     category: "Collaboration",
   },
   {
     name: "Github",
-    image: "/assets/logo/github.png",
+    image: "/assets/logo/github.webp",
     description: "Visual Collaboration",
     category: "Technical",
   },
   {
     name: "MixPanel",
-    image: "/assets/logo/Mixpanel.png",
+    image: "/assets/logo/Mixpanel.webp",
     description: "Visual Collaboration",
     category: "Analytics",
   },
   {
     name: "Amplitude",
-    image: "/assets/logo/Amplitude.png",
+    image: "/assets/logo/Amplitude.webp",
     description: "Visual Collaboration",
     category: "Analytics",
   },
   {
     name: "Postman",
-    image: "/assets/logo/Postman.png",
+    image: "/assets/logo/Postman.webp",
     description: "Visual Collaboration",
     category: "Technical",
   },
   {
     name: "Whimsical",
-    image: "/assets/logo/Whimsical.png",
+    image: "/assets/logo/Whimsical.webp",
     description: "Visual Collaboration",
     category: "UI/UX",
   },
   {
     name: "MySQL",
-    image: "/assets/logo/Mysql.png",
+    image: "/assets/logo/Mysql.webp",
     description: "Visual Collaboration",
     category: "Analytics",
   },
   {
     name: "User testing",
-    image: "/assets/logo/UserTesting.png",
+    image: "/assets/logo/UserTesting.webp",
     description: "Visual Collaboration",
     category: "Feedback Collection",
   },
@@ -281,7 +281,7 @@ export const mentors = [
     name: "Swati Sinha",
     role: "Senior PM at Walmart",
     experience: "10+ years",
-    image: "/assets/mentor/swati.jpg",
+    image: "/assets/mentor/swati.webp",
     linkedin: "https://www.linkedin.com/in/swati-sinha-471644125",
     transitions: "Over 100+",
   },
@@ -289,7 +289,7 @@ export const mentors = [
   //   name: "Subhasis Chandra",
   //   role: "Senior PM at Publicis Sapient",
   //   experience: "10+ Years",
-  //   image: "/assets/mentor/subhasis.png",
+  //   image: "/assets/mentor/subhasis.webp",
   //   linkedin: "https://www.linkedin.com/in/subhasis-chandra",
   //   transitions: "Over 500+",
   // },
@@ -297,7 +297,7 @@ export const mentors = [
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",
     experience: "5 years",
-    image: "/assets/mentor/ravi.png",
+    image: "/assets/mentor/ravi.webp",
     linkedin: "https://www.linkedin.com/in/raviahlawat09/",
     transitions: "Over 350+",
   },
@@ -305,7 +305,7 @@ export const mentors = [
     name: "Ruchir Rana",
     role: "PM at AcceleratorX",
     experience: "3 years",
-    image: "/assets/mentor/ruchir.png",
+    image: "/assets/mentor/ruchir.webp",
     linkedin: "https://www.linkedin.com/in/ruchir-rana007",
     transitions: "Over 100+",
   },
@@ -320,8 +320,8 @@ export const weeklyData = [
       "Product Critique",
     ],
     skills: ["Product Sense", "User Research", "Product Critique"],
-    image: "/assets/week1.png",
-    caseStudies: ["/assets/caseStudiesLogo/tesla.png"],
+    image: "/assets/week1.webp",
+    caseStudies: ["/assets/caseStudiesLogo/tesla.webp"],
   },
   {
     week: 2,
@@ -337,11 +337,11 @@ export const weeklyData = [
       "User Journey Mapping",
       "Guesstimation",
     ],
-    image: "/assets/week2.png",
+    image: "/assets/week2.webp",
     caseStudies: [
-      "/assets/caseStudiesLogo/uber.png",
-      "/assets/caseStudiesLogo/Google_Maps.png",
-      "/assets/caseStudiesLogo/samsung.png",
+      "/assets/caseStudiesLogo/uber.webp",
+      "/assets/caseStudiesLogo/Google_Maps.webp",
+      "/assets/caseStudiesLogo/samsung.webp",
     ],
   },
   {
@@ -352,8 +352,8 @@ export const weeklyData = [
       "Build Your Dream Product",
     ],
     skills: ["Competitor Analysis", "Product Strategy", "Problem Framing"],
-    image: "/assets/week3.png",
-    caseStudies: ["/assets/caseStudiesLogo/reliance.png"],
+    image: "/assets/week3.webp",
+    caseStudies: ["/assets/caseStudiesLogo/reliance.webp"],
   },
   {
     week: 4,
@@ -367,7 +367,7 @@ export const weeklyData = [
       "Roadmapping",
       "PRD Documentation",
     ],
-    image: "/assets/week4.png",
+    image: "/assets/week4.webp",
     caseStudies: ["/assets/caseStudiesLogo/netflix.webp"],
   },
   {
@@ -379,7 +379,7 @@ export const weeklyData = [
       "Industry Session",
     ],
     skills: ["UI/UX Design", "Wireframing", "Feature Prioritization"],
-    image: "/assets/week5.png",
+    image: "/assets/week5.webp",
     caseStudies: ["/assets/caseStudiesLogo/cred.webp"],
   },
   {
@@ -391,14 +391,14 @@ export const weeklyData = [
       "Usability Testing",
     ],
     skills: ["MVP Development", "Product Metrics", "Usability Testing"],
-    image: "/assets/week6.png",
+    image: "/assets/week6.webp",
     caseStudies: ["/assets/caseStudiesLogo/slack.webp"],
   },
   {
     week: 7,
     topics: ["Product Teardown", "Case Study and Q&A", "Product Marketing"],
     skills: ["Product Teardown", "Product Marketing", "Functional Analysis"],
-    image: "/assets/week7.png",
+    image: "/assets/week7.webp",
     caseStudies: ["/assets/caseStudiesLogo/tata-motors.webp"],
   },
   {
@@ -410,7 +410,7 @@ export const weeklyData = [
       "Industry Session",
     ],
     skills: ["Go-to-Market (GTM) Strategy", "Product Presentation"],
-    image: "/assets/week8.png",
+    image: "/assets/week8.webp",
     caseStudies: ["/assets/caseStudiesLogo/instagram.webp"],
   },
   {
@@ -422,14 +422,14 @@ export const weeklyData = [
       "Interview Session",
     ],
     skills: ["Product Launch", "User Segmentation", "Cohort Analysis"],
-    image: "/assets/week9.png",
+    image: "/assets/week9.webp",
     caseStudies: ["/assets/caseStudiesLogo/apple.webp"],
   },
   {
     week: 10,
     topics: ["GTM Strategy Presentation", "A/B Testing", "Product Analytics"],
     skills: ["GTM Strategy", "A/B Testing", "Product Analytics"],
-    image: "/assets/week10.png",
+    image: "/assets/week10.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/flipkart-logo.webp",
       "/assets/caseStudiesLogo/amazon.webp",
@@ -445,7 +445,7 @@ export const weeklyData = [
       "Mock Interview",
     ],
     skills: ["Product Analytics", "Technical Foundations", "Google Analytics"],
-    image: "/assets/week11.png",
+    image: "/assets/week11.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/paytm.webp",
       "/assets/caseStudiesLogo/phonepe.webp",
@@ -460,7 +460,7 @@ export const weeklyData = [
       "SQL Practice",
     ],
     skills: ["APIs", "Postman Testing", "SQL for Product Managers"],
-    image: "/assets/week12.png",
+    image: "/assets/week12.webp",
     caseStudies: ["/assets/caseStudiesLogo/nestle.webp"],
   },
   {
@@ -476,7 +476,7 @@ export const weeklyData = [
       "Monetization",
       "Growth (AARRR Framework)",
     ],
-    image: "/assets/week13.png",
+    image: "/assets/week13.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/primevideo.webp",
       "/assets/caseStudiesLogo/jiocinema.webp",
@@ -487,7 +487,7 @@ export const weeklyData = [
     week: 14,
     topics: ["Product-Led Growth", "Mock Interview - 2"],
     skills: ["Product-Led Growth", "Presentation Skills"],
-    image: "/assets/week14.png",
+    image: "/assets/week14.webp",
     caseStudies: ["/assets/caseStudiesLogo/airbnb.webp"],
   },
   {
@@ -498,7 +498,7 @@ export const weeklyData = [
       "Refining Product Vision",
     ],
     skills: ["Advanced Strategy", "Team Collaboration", "Product Refinement"],
-    image: "/assets/week15.png",
+    image: "/assets/week15.webp",
     caseStudies: ["/assets/caseStudiesLogo/spotify.webp"],
   },
   {
@@ -509,7 +509,7 @@ export const weeklyData = [
       "Industry Panel",
     ],
     skills: ["Global Product Scaling", "Best Design Practices", "Networking"],
-    image: "/assets/week16.png",
+    image: "/assets/week16.webp",
     caseStudies: ["/assets/caseStudiesLogo/instagram.webp"],
   },
 ];
@@ -519,55 +519,55 @@ export const dataAnalyticsmodules = [
     title: "Industry-Recognized Professional Certification",
     description:
       "Earn cutting-edge certifications powered by AI-driven learning—trusted by top employers and designed to showcase your real-world data skills.",
-    image: "/assets/program/security.png",
+    image: "/assets/program/security.webp",
   },
   {
     title: "AI-Powered Tools & Tech Training",
     description:
       "Master the latest AI-driven tools and platforms used by leading companies to analyse data, build insights, and automate solutions.",
-    image: "/assets/program/learning.png",
+    image: "/assets/program/learning.webp",
   },
   {
     title: "Hands-On, AI-Integrated Learning from Day One",
     description:
       "Work on live projects from day one, using AI-enhanced methods to solve real-world data challenges in business and product roles.",
-    image: "/assets/program/file-case.png",
+    image: "/assets/program/file-case.webp",
   },
   {
     title: "Comprehensive Interview Preparation",
     description:
       "Gain expert guidance from experienced product leaders to ace your interviews confidently.",
-    image: "/assets/program/mentorship.png",
+    image: "/assets/program/mentorship.webp",
   },
   {
     title: "Mock Interviews with Real-Time Feedback",
     description:
       "Refine your interview skills with tailored mock interviews and constructive feedback.",
-    image: "/assets/program/meeting.png",
+    image: "/assets/program/meeting.webp",
   },
   {
     title: "Priority Access to Job Opportunities",
     description:
       "Discover exclusive job opportunities and connect with top employers to launch your career.",
-    image: "/assets/program/job-portal.png",
+    image: "/assets/program/job-portal.webp",
   },
   {
     title: "Thriving Professional Network",
     description:
       "Join a diverse community of ambitious product professionals eager to connect and collaborate.",
-    image: "/assets/program/networking.png",
+    image: "/assets/program/networking.webp",
   },
   {
     title: "Bi-weekly Career Review Calls",
     description:
       "Get personalized career advice and insights from seasoned leaders.",
-    image: "/assets/program/state.png",
+    image: "/assets/program/state.webp",
   },
   {
     title: "Chance to win Industry Internship",
     description:
       "Enjoy lifetime access to all course materials, with updates to stay ahead in your career.",
-    image: "/assets/program/exclusive.png",
+    image: "/assets/program/exclusive.webp",
   },
 ];
 
@@ -578,7 +578,7 @@ export const dataAnalyticsTools = [
   },
   {
     name: "SQL",
-    image: "/assets/dataTools/sql.png",
+    image: "/assets/dataTools/sql.webp",
   },
   {
     name: "Tableau",
@@ -586,7 +586,7 @@ export const dataAnalyticsTools = [
   },
   {
     name: "Power BI",
-    image: "/assets/dataTools/powerbi.png",
+    image: "/assets/dataTools/powerbi.webp",
   },
   {
     name: "Python",
@@ -607,12 +607,9 @@ export const dataAnalyticsTools = [
   },
   {
     name: "Matplotlib",
-    image: "/assets/dataTools/matplotlib.jpg",
+    image: "/assets/dataTools/matplotlib.webp",
   },
-  {
-    name: "Notion",
-    image: "/assets/dataTools/notion.webp",
-  },
+
   {
     name: "Keras",
     image: "/assets/dataTools/keras.webp",
@@ -643,7 +640,7 @@ export const dataAnalyticsTools = [
   },
   {
     name: "Mixpanel",
-    image: "/assets/logo/Mixpanel.png",
+    image: "/assets/logo/Mixpanel.webp",
   },
 ];
 
@@ -1138,7 +1135,7 @@ export const noCodetools = [
   {
     name: "Figma",
     description: "Prototyping and wireframing",
-    logo: "/assets/logo/Figma.png",
+    logo: "/assets/logo/Figma.webp",
     emoji: "✨",
     bgColor: "from-pink-500/10 to-pink-600/10",
     borderColor: "group-hover:border-pink-500",

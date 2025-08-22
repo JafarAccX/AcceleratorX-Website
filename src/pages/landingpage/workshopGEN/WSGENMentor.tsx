@@ -9,7 +9,7 @@ const WSGENMentor = () => {
     //   designation: "Assistant Professor at Parul University",
     //   description: "Ph.D. in Computer Science, University Gold Medalist",
     //   linkedin: "https://www.linkedin.com/in/prashant-sahatiya/",
-    //   image: "/assets/mentor/prashant.jpeg",
+    //   image: "/assets/mentor/prashant.webp",
     //   experience: "5+ Years",
     // },
     // {
@@ -17,7 +17,7 @@ const WSGENMentor = () => {
     //   designation: "Generative AI Engineer Flooid.in ",
     //   description: "Expert in AI implementation and automation",
     //   linkedin: "https://www.linkedin.com/in/sagrrajput/",
-    //   image: "/assets/mentor/sagar.png",
+    //   image: "/assets/mentor/sagar.webp",
     //   experience: "5+ Years",
     // },
 
@@ -26,7 +26,7 @@ const WSGENMentor = () => {
       designation: "Software Developer, MD at GrowSharp Technologies",
       description: "Expert in AI implementation and automation",
       linkedin: "https://www.linkedin.com/in/nitish-m-l-shetty-7a0206192",
-      image: "/assets/mentor/nitish.jpg",
+      image: "/assets/mentor/nitish.webp",
       experience: "5+ Years",
     },
   ];

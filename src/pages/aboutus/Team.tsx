@@ -137,7 +137,7 @@ const Team = () => {
           <LeaderCard
             name="Shahid Naseem"
             role="Founder & CEO"
-            image="/assets/founder/Sahid.jpg"
+            image="/assets/founder/Sahid.webp"
             linkedin="https://www.linkedin.com/in/shahid-naseem-a16220144"
             title="Words from our Founder"
             quote="Innovation in education is not just about technology; it's about creating opportunities that transform lives and shape futures. At AcceleratorX, we're committed to empowering the next generation with the tools and knowledge they need to succeed in an ever-evolving digital world."
@@ -147,7 +147,7 @@ const Team = () => {
           <LeaderCard
             name="Misba Muskaan"
             role="Director"
-            image="/assets/founder/Muskaan.jpg"
+            image="/assets/founder/Muskaan.webp"
             linkedin="https://www.linkedin.com/in/misba-muskaan-560567254"
             title="Words from our Director"
             quote="At AcceleratorX, we believe in nurturing talent and fostering an environment where innovation thrives. Our mission is to bridge the gap between education and industry, creating pathways for success in the digital age."
@@ -165,7 +165,7 @@ const Team = () => {
           <div className="relative rounded-2xl overflow-hidden border border-blue-500/30">
             <div className="aspect-w-16 aspect-h-7">
               <img
-                src="/assets/team.jpg"
+                src="/assets/team.webp"
                 alt="AcceleratorX Team"
                 className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
               />
@@ -193,7 +193,7 @@ const Team = () => {
               <div className="relative rounded-2xl overflow-hidden border border-blue-500/30">
                 <div className="w-180 h-144 mx-auto">
                   <img
-                    src="/assets/group.jpg"
+                    src="/assets/group.webp"
                     alt="AcceleratorX Team"
                     className="w-full h-full object-cover transform transition-transform duration-700"
                   />

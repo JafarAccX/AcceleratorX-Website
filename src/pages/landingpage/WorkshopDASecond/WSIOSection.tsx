@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 
 export default function WSFIOSection() {
   const testimonials = [
-    { image: "/assets/testimonialsLogo/feedback1.png" },
-    { image: "/assets/testimonialsLogo/feedback2.png" },
-    { image: "/assets/testimonialsLogo/feedback3.jpg" },
-    { image: "/assets/testimonialsLogo/feedback4.png" },
-    { image: "/assets/testimonialsLogo/feedback5.png" },
-    { image: "/assets/testimonialsLogo/feedback6.png" },
-    { image: "/assets/testimonialsLogo/feedback7.jpeg" },
+    { image: "/assets/testimonialsLogo/feedback1.webp" },
+    { image: "/assets/testimonialsLogo/feedback2.webp" },
+    { image: "/assets/testimonialsLogo/feedback3.webp" },
+    { image: "/assets/testimonialsLogo/feedback4.webp" },
+    { image: "/assets/testimonialsLogo/feedback5.webp" },
+    { image: "/assets/testimonialsLogo/feedback6.webp" },
+    { image: "/assets/testimonialsLogo/feedback7.webp" },
   ];
 
   return (

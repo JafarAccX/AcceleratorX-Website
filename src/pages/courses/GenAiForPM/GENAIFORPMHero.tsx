@@ -44,7 +44,7 @@ const GENHero = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <img src="/backgrounds/bg1-.png" alt="GenAI for PM Hero" className="absolute w-full h-full object-cover opacity-40" />
+          <img src="/backgrounds/bg1-.webp" alt="GenAI for PM Hero" className="absolute w-full h-full object-cover opacity-40" />
         </div>
 
         {/* Content */}

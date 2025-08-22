@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 import { Phone, Users } from "lucide-react";
-import productPageBannerEIE from "/assets/productpageBannerEIE.png";
+import productPageBannerEIE from "/assets/productpageBannerEIE.webp";
 
 const navLinks = [
   { name: "Highlights", id: "highlights" },

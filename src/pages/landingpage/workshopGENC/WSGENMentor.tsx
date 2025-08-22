@@ -31,7 +31,7 @@ const WSGENCMentor = () => {
               <div className="relative">
                 <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
                   <img
-                    src="/assets/mentor/prashant.jpeg"
+                    src="/assets/mentor/prashant.webp"
                     alt="Prashant Sahatiya"
                     className="w-full h-full object-cover"
                   />

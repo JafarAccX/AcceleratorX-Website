@@ -87,7 +87,7 @@ const WSGENWhoShouldEnrollC = () => {
 
           <div className="relative w-full rounded-2xl overflow-hidden">
             <img
-              src="/make-trigger-action-l.jpeg"
+              src="/make-trigger-action-l.webp"
               alt="Students learning together"
               className="object-contain w-full rounded-md  transform group-hover:scale-105 transition-transform duration-500"
             />
@@ -106,7 +106,7 @@ const WSGENWhoShouldEnrollC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
           <div className="relative w-full rounded-2xl overflow-hidden">
             <img
-              src="/make-renderform-setup-l.jpeg"
+              src="/make-renderform-setup-l.webp"
               alt="Students learning together"
               className="object-contain w-full rounded-md  transform group-hover:scale-105 transition-transform duration-500"
             />

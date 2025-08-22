@@ -13,7 +13,7 @@ const WSAboutGENC = () => {
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3  gap-4 items-center justify-center ">
-          <img src="/langchain.jpg" alt="AI Workshop" className="  rounded-2xl shadow-2xl" />
+          <img src="/langchain.webp" alt="AI Workshop" className="  rounded-2xl shadow-2xl" />
 
           <motion.div
             className="w-full  space-y-8 col-span-2"

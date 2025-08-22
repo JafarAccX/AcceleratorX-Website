@@ -31,7 +31,7 @@ const DMMarketingTools = () => {
       items: [
         {
           name: "SEMRush",
-          logo: "/assets/dmAITools/semrush.png",
+          logo: "/assets/dmAITools/semrush.webp",
         },
         {
           name: "Surfer SEO",
@@ -39,7 +39,7 @@ const DMMarketingTools = () => {
         },
         {
           name: "Jasper AI",
-          logo: "/assets/dmAITools/jasper.jpeg",
+          logo: "/assets/dmAITools/jasper.webp",
         },
       ],
     },
@@ -56,7 +56,7 @@ const DMMarketingTools = () => {
         },
         {
           name: "Drift AI",
-          logo: "/assets/dmAITools/drift.png",
+          logo: "/assets/dmAITools/drift.webp",
         },
       ],
     },
@@ -65,7 +65,7 @@ const DMMarketingTools = () => {
       items: [
         {
           name: "Google Analytics 4",
-          logo: "/assets/dmAITools/googleanalytics.png",
+          logo: "/assets/dmAITools/googleanalytics.webp",
         },
         {
           name: "Tableau",
@@ -73,7 +73,7 @@ const DMMarketingTools = () => {
         },
         {
           name: "IBM Watson",
-          logo: "/assets/dmAITools/imwatson.png",
+          logo: "/assets/dmAITools/imwatson.webp",
         },
       ],
     },

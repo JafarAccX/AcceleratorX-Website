@@ -12,7 +12,7 @@ const KuppamTopics = () => {
             <div className="relative   backdrop-blur-lg rounded-2xl p-1 h-full">
               <div className="bg-[#0A0F1D]/80 rounded-xl overflow-hidden h-full">
                 <img
-                  src="/workflownew.png"
+                  src="/workflownew.webp"
                   alt="Program Workflow"
                   className="w-full h-auto object-cover rounded-xl transform group-hover:scale-105 transition-transform duration-300"
                 />
@@ -31,7 +31,7 @@ const KuppamTopics = () => {
                 <div className="bg-[#0A0F1D]/90 rounded-xl overflow-hidden h-full relative">
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-xl"></div>
                   <img
-                    src="/vibe_code.png"
+                    src="/vibe_code.webp"
                     alt="Program Workflow"
                     className="w-full h-auto object-cover rounded-xl transform group-hover:scale-105 transition-transform duration-300 brightness-75"
                   />

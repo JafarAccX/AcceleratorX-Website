@@ -161,7 +161,7 @@ export default function ProgramHeroFB() {
                 className="relative mt-8 lg:mt-0 flex flex-col gap-6"
               >
                 <img
-                  src="/assets/productpagebanneraccex.png"
+                  src="/assets/productpagebanneraccex.webp"
                   alt="Product Management Workshop"
                   className="w-full rounded-lg shadow-2xl"
                 />
@@ -171,7 +171,7 @@ export default function ProgramHeroFB() {
                       src="/assets/caseStudiesLogo/paytm.webp"
                       alt="Company Logo 1"
                     />
-                    <LogoItem src="/assets/cequens.png" alt="Company Logo 2" />
+                    <LogoItem src="/assets/cequens.webp" alt="Company Logo 2" />
                     <LogoItem src="/assets/paypal.webp" alt="Company Logo 3" />
                     <LogoItem src="/assets/companyLogos/walmart.webp" alt="Company Logo 4" />
                   </div>

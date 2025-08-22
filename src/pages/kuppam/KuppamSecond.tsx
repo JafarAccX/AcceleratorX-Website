@@ -6,7 +6,7 @@ const KuppamSecond = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
-          <img src="/kuppam-tools.png" alt="Background" className="w-full h-full object-cover" />
+          <img src="/kuppam-tools.webp" alt="Background" className="w-full h-full object-cover" />
           {/* Dark overlay for better text contrast */}
           <div className="absolute inset-0 bg-black/80" />
           {/* Blur effect */}

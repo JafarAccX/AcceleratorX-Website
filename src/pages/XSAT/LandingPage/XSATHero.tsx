@@ -10,7 +10,7 @@ export const XSATHero = () => {
       "/assets/xsatLogo/hp.webp",
       "/assets/xsatLogo/microsoft.webp",
       "/assets/xsatLogo/juniper.webp",
-      "/assets/xsatLogo/obeya.png",
+      "/assets/xsatLogo/obeya.webp",
     ],
     row2: [
       "/assets/xsatLogo/aruba.webp",
@@ -25,7 +25,7 @@ export const XSATHero = () => {
       "/assets/xsatLogo/vi.webp",
       "/assets/xsatLogo/tata.webp",
       "/assets/xsatLogo/redhat.webp",
-      "/assets/xsatLogo/coworks.png",
+      "/assets/xsatLogo/coworks.webp",
     ],
   };
 
@@ -145,7 +145,7 @@ export const XSATHero = () => {
             <div className="text-center mb-8 md:mb-12 relative z-20">
               <div className="flex flex-col items-center justify-center gap-4 mb-2">
                 <img
-                  src="/a2m.png"
+                  src="/a2m.webp"
                   alt="AcceleratorX Logo"
                   className="h-16 md:h-20 lg:h-24 object-contain"
                 />

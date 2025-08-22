@@ -26,7 +26,7 @@ const testimonials = [
     company: "Cequens",
     testimonial:
       "The most rewarding part of mentoring here is seeing participants take ownership of building their product. It transforms abstract concepts into a tangible, impactful learning experience.",
-    image: "/assets/mentor/anurag.png",
+    image: "/assets/mentor/anurag.webp",
     rating: 5,
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     company: "Paytm",
     testimonial:
       "What I admire about AcceleratorX is the focus on impact. Seeing participants succeed, from acing interviews to thriving in PM roles, makes mentoring here deeply fulfilling.",
-    image: "/assets/mentor/ravi.png",
+    image: "/assets/mentor/ravi.webp",
     rating: 5,
   },
   {
@@ -44,7 +44,7 @@ const testimonials = [
     company: "M3 Inc",
     testimonial:
       "It’s amazing to see a program that balances hard skills like roadmapping with soft skills like stakeholder communication. Mentoring at AcceleratorX feels meaningful because the growth is so well-rounded.",
-    image: "/assets/mentor/udit.png",
+    image: "/assets/mentor/udit.webp",
     rating: 5,
   },
 ];

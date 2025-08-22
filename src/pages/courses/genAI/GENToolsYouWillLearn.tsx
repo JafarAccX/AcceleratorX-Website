@@ -80,13 +80,13 @@ const GENToolsYouWillLearn = () => {
     {
       name: "LLaMA",
       description: "Open-source language model for diverse AI applications",
-      image: "/assets/genAITools/ollama.png",
+      image: "/assets/genAITools/ollama.webp",
       category: "Text & Language Models",
     },
     {
       name: "Falcon",
       description: "High-performance language model for various text tasks",
-      image: "/assets/genAITools/falcon.png",
+      image: "/assets/genAITools/falcon.webp",
       category: "Text & Language Models",
     },
     {
@@ -110,7 +110,7 @@ const GENToolsYouWillLearn = () => {
     {
       name: "Stable Diffusion",
       description: "Open-source image generation model for diverse visual content",
-      image: "/assets/genAITools/stability-ai.png",
+      image: "/assets/genAITools/stability-ai.webp",
       category: "Image & Video AI",
     },
     {
@@ -152,13 +152,13 @@ const GENToolsYouWillLearn = () => {
     {
       name: "Magenta",
       description: "Google's creative tool for music and art generation",
-      image: "/assets/genAITools/magenta.png",
+      image: "/assets/genAITools/magenta.webp",
       category: "Speech & Audio AI",
     },
     {
       name: "LangChain",
       description: "Framework for building LLM-powered applications",
-      image: "/assets/genAITools/langchain.png",
+      image: "/assets/genAITools/langchain.webp",
       category: "AI Agent Building",
     },
     {
@@ -170,7 +170,7 @@ const GENToolsYouWillLearn = () => {
     {
       name: "AutoGen",
       description: "Tool for building autonomous AI agents",
-      image: "/assets/genAITools/autogen.jpeg",
+      image: "/assets/genAITools/autogen.webp",
       category: "AI Agent Building",
     },
     {
@@ -183,13 +183,13 @@ const GENToolsYouWillLearn = () => {
     {
       name: "n8n",
       description: "Automation platform  for building AI workflows",
-      image: "/assets/genAITools/n8n-seeklogo.png",
+      image: "/assets/genAITools/n8n-seeklogo.webp",
       category: "AI Deployment & Integration",
     },
     {
       name: "langchain",
       description: "Powerful framework for building AI applications",
-      image: "/assets/genAITools/langchain-seeklogo.png",
+      image: "/assets/genAITools/langchain-seeklogo.webp",
       category: "AI Deployment & Integration",
     },
     {
@@ -201,7 +201,7 @@ const GENToolsYouWillLearn = () => {
     {
       name: "AWS",
       description: "Cloud platform for AI deployment and scaling",
-      image: "/assets/genAITools/aws.png",
+      image: "/assets/genAITools/aws.webp",
       category: "AI Deployment & Integration",
     },
     {

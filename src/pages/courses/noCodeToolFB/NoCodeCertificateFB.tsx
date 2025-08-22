@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import noCodeCertificate from "/assets/programcertificates/na.jpg";
+import noCodeCertificate from "/assets/programcertificates/na.webp";
 
 const NoCodeCertificateFB = () => {
   // Initialize cache mechanism

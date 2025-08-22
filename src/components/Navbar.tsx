@@ -74,7 +74,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
             <div className="text-2xl mt-2 font-bold text-white">
               <Link to="https://acceleratorx.org/" className={`${hoverTransition} hover:opacity-90`}>
-                <img src="/xsat-bg.png" alt="xsat" className="w-auto h-10" />
+                <img src="/xsat-bg.webp" alt="xsat" className="w-auto h-10" />
               </Link>
             </div>
 

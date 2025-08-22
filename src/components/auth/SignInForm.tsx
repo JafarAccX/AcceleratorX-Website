@@ -130,7 +130,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
         <div className="relative w-full flex items-center justify-center max-w-[600px]">
           <div className="absolute inset-0 bg-white/10 rounded-3xl blur-3xl"></div>
           <img
-            src="/assets/signup.png"
+            src="/assets/signup.webp"
             alt="People Illustration"
             className="relative z-10 w-full drop-shadow-2xl"
             onError={(e) => {

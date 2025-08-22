@@ -58,10 +58,10 @@ const WSAboutDASecond = () => {
 
       {/* Floating Purple Blobs (optional) */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2">
-        <img src="/assets/workshop-blobs/3d-delivery-robot-working.png" alt="left-decor" className="w-32 opacity-60" />
+        <img src="/assets/workshop-blobs/3d-delivery-robot-working.webp" alt="left-decor" className="w-32 opacity-60" />
       </div>
       <div className="absolute right-0 top-1/2 -translate-y-1/2">
-        <img src="/assets/workshop-blobs/3d-delivery-robot-working.png"  alt="right-decor" className="w-32 opacity-60" />
+        <img src="/assets/workshop-blobs/3d-delivery-robot-working.webp"  alt="right-decor" className="w-32 opacity-60" />
       </div>
     </section>
      

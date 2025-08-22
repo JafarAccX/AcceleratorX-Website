@@ -7,14 +7,14 @@ const mentors = [
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",
     experience: "5 years",
-    image: "/assets/mentor/ravi.png",
+    image: "/assets/mentor/ravi.webp",
     transitions: "Over 350+",
   },
   {
     name: "Aakash Maurya",
     role: "Sr. ML Engineer at Nagarro",
     experience: "7 years",
-    image: "/assets/mentor/akash.png",
+    image: "/assets/mentor/akash.webp",
     transitions: "Over 300+",
   },
 ];

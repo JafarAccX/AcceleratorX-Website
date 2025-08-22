@@ -7,21 +7,21 @@ const GENMentors = () => {
       name: "Sagar Rajput",
       designation: "Generative AI Engineer Flooid.in",
       linkedin: "https://www.linkedin.com/in/sagrrajput/",
-      image: "/assets/mentor/sagar.png",
+      image: "/assets/mentor/sagar.webp",
       experience: "5+ Years",
     },
     {
       name: "Pranali Bose",
       designation: "Software Engineer (Data Science), Ex-Walmart",
       linkedin: "https://www.linkedin.com/in/pranalibose",
-      image: "/assets/mentor/pranali.jpg",
+      image: "/assets/mentor/pranali.webp",
       experience: "7+ Years",
     },
     {
       name: "Nitish M L Setty",
       designation: "Software Developer, MD at GrowSharp Technologies",
       linkedin: "https://www.linkedin.com/in/nitish-m-l-shetty-7a0206192",
-      image: "/assets/mentor/nitish.jpg",
+      image: "/assets/mentor/nitish.webp",
       experience: "5+ Years",
     },
     {
@@ -62,7 +62,7 @@ const GENMentors = () => {
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      target.src = "/assets/images/placeholder-avatar.png";
+                      target.src = "/assets/mentor/dummyuser.webp";
                     }}
                   />
                 </div>

@@ -26,7 +26,7 @@ const CryptoHeroSection: React.FC = () => {
       <div
         className="absolute inset-0 bg-cover bg-center opacity-[0.15]"
         style={{
-          backgroundImage: `url('/backgrounds/1_s.png')`,
+          backgroundImage: `url('/backgrounds/1_s.webp')`,
         }}
       />
       {/* Circular Gradient Blobs */}
