@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Blog } from '../../utils/types';
 import { blogService } from '../../services/blogService';
 import { authService } from '../../services/authService';
-import BlogForm from './BlogForm';
+// import BlogForm from './BlogForm';
 import toast from 'react-hot-toast';
 
 const ITEMS_PER_PAGE = 10;
@@ -103,11 +103,11 @@ export default function BlogDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {showForm ? (
           <div className="bg-white rounded-lg shadow-md p-6">
-            <BlogForm
+            {/* <BlogForm
               blog={editingBlog}
               onClose={handleFormClose}
               onSuccess={handleFormSuccess}
-            />
+            /> */}
           </div>
         ) : (
           <>

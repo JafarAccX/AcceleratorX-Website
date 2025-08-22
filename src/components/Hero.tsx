@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useNavigate } from "react-router-dom"; 
 import n8nComingSoon from "/n8n-commingsoon.webp";
@@ -33,24 +32,15 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex min-h-screen flex-col-reverse items-center justify-center gap-12 py-12 lg:flex-row lg:justify-between lg:py-20">
           {/* Left Content */}
-          <motion.div
+          <div
             className="w-full lg:w-1/2 space-y-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            
           >
             {/* Heading with Type Animation */}
             <div className="relative">
-              <motion.div
+              <div
                 className="absolute -left-4 -top-4 h-20 w-20 rounded-full bg-blue-500/10 blur-2xl"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
+                
               />
               <TypeAnimation
                 sequence={["Build", 1000, "Lead", 1000, "Succeed", 1000]}
@@ -63,16 +53,16 @@ export default function Hero() {
             </div>
 
             {/* Subtitle */}
-            <motion.p
+            <p
               {...fadeInUp}
               className="max-w-xl text-lg text-gray-100 leading-relaxed"
             >
               Transform your ideas into action. Accelerating ideas into
               impactful solutions that shape the future.
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div
+            <div
               className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
               {...fadeInUp}
             >
@@ -124,15 +114,13 @@ export default function Hero() {
                   </svg>
                 </span>
               </button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Right Content - n8n Coming Soon */}
-          <motion.div
+          <div
             className="relative w-full lg:w-1/2 flex flex-col items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+             
           >
             <div className="relative flex flex-col items-center justify-center">
               <img
@@ -150,7 +138,7 @@ export default function Hero() {
                 Join the Waitlist
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

@@ -167,7 +167,7 @@ const features = [
     description: "Learn from experts with real-world experience.",
     size: "large",
     image: (
-      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+      <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
           <pattern
             id="gridPattern3"
@@ -225,7 +225,7 @@ const features = [
             style={{ transformOrigin: "100px 100px" }}
           />
         </motion.g>
-      </motion.svg>
+      </svg>
     ),
   },
   {
@@ -235,7 +235,7 @@ const features = [
       "Comprehensive career assistance to land your dream job confidently.",
     size: "small",
     image: (
-      <motion.svg className="w-full h-full" viewBox="0 0 200 200">
+      <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
           <pattern
             id="gridPattern4"
@@ -281,7 +281,7 @@ const features = [
             />
           ))}
         </motion.g>
-      </motion.svg>
+      </svg>
     ),
   },
 ];
@@ -292,24 +292,26 @@ export default function BecomeAMentorFeatures() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+        <div
           className="text-center mb-16"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+          <h2
             className="mt-6 text-4xl md:text-5xl font-bold"
           >
             <span className="text-white">Revolutionizing the Way </span>
             <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
               You Learn
             </span>
-          </motion.h2>
-        </motion.div>
+          </h2>
+          <h2
+            className="mt-6 text-4xl md:text-5xl font-bold"
+          >
+            <span className="text-white">Revolutionizing the Way </span>
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
+              You Learn
+            </span>
+          </h2>
+        </div>
 
         {/* Bento Grid Container */}
         <div className="relative max-w-5xl mx-auto">

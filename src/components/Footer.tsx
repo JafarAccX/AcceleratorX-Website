@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import companyLogo from "/companylogo.webp";
-import { Link, useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 import {
   Linkedin,
   Instagram,
@@ -103,28 +103,27 @@ const footerLinks: {
 };
 
 export default function Footer() {
-  const location = useLocation();
+  // const location = useLocation();
 
-  useEffect(() => {
-    const sitesealContainer = document.getElementById("siteseal");
-
-    if (location.pathname === "/") {
-      if (sitesealContainer && !document.getElementById("siteseal-script")) {
-        const script = document.createElement("script");
-        script.id = "siteseal-script";
-        script.async = true;
-        script.type = "text/javascript";
-        script.src =
-          "https://seal.starfieldtech.com/getSeal?sealID=I0Pkklr2oFJr6LRUc174f6BxE8hDE1T0lghkh2Wng6oca8kd7FoaY1IUHwLT";
-        sitesealContainer.appendChild(script);
-      }
-    } else {
-      const script = document.getElementById("siteseal-script");
-      if (script) {
-        script.remove();
-      }
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   const sitesealContainer = document.getElementById("siteseal");
+  //   if (location.pathname === "/") {
+  //     if (sitesealContainer && !document.getElementById("siteseal-script")) {
+  //       const script = document.createElement("script");
+  //       script.id = "siteseal-script";
+  //       script.async = true;
+  //       script.type = "text/javascript";
+  //       script.src =
+  //         "https://seal.starfieldtech.com/getSeal?sealID=I0Pkklr2oFJr6LRUc174f6BxE8hDE1T0lghkh2Wng6oca8kd7FoaY1IUHwLT";
+  //       sitesealContainer.appendChild(script);
+  //     }
+  //   } else {
+  //     const script = document.getElementById("siteseal-script");
+  //     if (script) {
+  //       script.remove();
+  //     }
+  //   }
+  // }, [location]);
 
   return (
     <footer className="bg-gradient-to-b from-[#0B1120] to-[#070914] text-gray-400 py-16 relative overflow-hidden">
@@ -230,7 +229,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} AcceleratorX. All rights
               reserved.
             </p>
-            <div id="siteseal" className="flex items-center space-x-4"></div>
+            {/* <div id="siteseal" className="flex items-center space-x-4"></div> */}
           </div>
         </div>
       </div>
