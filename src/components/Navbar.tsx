@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import companyLogo from "/companylogo.webp";
+import companyLogo from "/companylogo-new.webp";
 import { useUser } from "../context/UserContext";
 import ProfileMenu from "./navbar/ProfileMenu";
 

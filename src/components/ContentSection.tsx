@@ -21,14 +21,12 @@ export default function ContentSection({
         <Icon className="h-8 w-8 text-indigo-500 mr-3" />
         <h2 className="text-2xl font-bold">{title}</h2>
       </div>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.3 }}
+      <p
+          
         className="text-gray-300 leading-relaxed text-lg"
       >
         {content}
-      </motion.p>
+      </p>
     </div>
   );
 }

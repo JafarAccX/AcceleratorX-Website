@@ -1,13 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 interface ThankYouPageProps {
   courseName: string;
 }
 
 export default function ThankYouPage({ courseName }: ThankYouPageProps) {
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -32,20 +29,10 @@ export default function ThankYouPage({ courseName }: ThankYouPageProps) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-900 flex items-center justify-center px-4"
-    >
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
       <div className="max-w-2xl w-full text-center space-y-8">
         {/* Success Icon */}
-        <motion.div
-          className="flex justify-center"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-        >
+        <div className="flex justify-center">
           <div className="w-24 h-24 rounded-full bg-green-500/20 flex items-center justify-center">
             <svg
               className="w-16 h-16 text-green-500"
@@ -53,101 +40,55 @@ export default function ThankYouPage({ courseName }: ThankYouPageProps) {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <motion.path
+              <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M5 13l4 4L19 7"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
               />
             </svg>
           </div>
-        </motion.div>
+        </div>
 
         {/* Thank You Message */}
-        <motion.div
-          className="space-y-4"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
+        <div className="space-y-4">
           <h1 className="text-4xl font-bold text-white">Thank You!</h1>
           <p className="text-xl text-gray-300">
             Your enrollment for {courseName} has been successfully submitted.
           </p>
-          <p className="text-gray-400">
-            Our team will contact you shortly with further details.
-          </p>
-        </motion.div>
+          <p className="text-gray-400">Our team will contact you shortly with further details.</p>
+        </div>
 
         {/* Course Info */}
-        <motion.div
-          className="bg-gray-800 p-6 rounded-xl max-w-md mx-auto"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
+        <div className="bg-gray-800 p-6 rounded-xl max-w-md mx-auto">
           <p className="text-gray-300 text-lg">
             Get ready to start your journey with
-            <span className="text-white font-semibold block mt-2">
-              {courseName}
-            </span>
+            <span className="text-white font-semibold block mt-2">{courseName}</span>
           </p>
-        </motion.div>
+        </div>
 
         {/* Know More Button */}
-        <motion.button
-          onClick={() => window.location.href = "https://acceleratorx.org"}
+        <button
+          onClick={() => (window.location.href = "https://acceleratorx.org")}
           className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
           Know More About Us
-        </motion.button>
+        </button>
 
         {/* Join Our Community Section */}
-        <motion.div
-          className="space-y-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-lg rounded-2xl p-8 border border-gray-700/30"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.0 }}
-        >
+        <div className="space-y-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-lg rounded-2xl p-8 border border-gray-700/30">
           <div className="text-center space-y-2">
-            <motion.h2 
-              className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-              initial={{ y: -20 }}
-              animate={{ y: 0 }}
-              transition={{ delay: 1.2, type: "spring", stiffness: 100 }}
-            >
-              Join Our Community
-            </motion.h2>
-            <motion.p 
-              className="text-gray-400"
-              initial={{ y: -20 }}
-              animate={{ y: 0 }}
-              transition={{ delay: 1.3, type: "spring", stiffness: 100 }}
-            >
-              Connect with us and other learners
-            </motion.p>
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Join Our Community</h2>
+            <p className="text-gray-400">Connect with us and other learners</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
             {/* WhatsApp Button */}
-            <motion.a
+            <a
               href="https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-xl p-0.5 transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_#25D366] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ x: -50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 1.4 }}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-500" />
               <div className="relative flex items-center gap-4 bg-gray-900 p-4 rounded-[10px] transition-all duration-300 group-hover:bg-gray-900/80">
@@ -161,19 +102,14 @@ export default function ThankYouPage({ courseName }: ThankYouPageProps) {
                   <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Get Daily Updates</span>
                 </div>
               </div>
-            </motion.a>
+            </a>
 
             {/* Discord Button */}
-            <motion.a
+            <a
               href="https://discord.gg/WKAdQuuv"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-xl p-0.5 transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_#5865F2] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ x: 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 1.5 }}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-500" />
               <div className="relative flex items-center gap-4 bg-gray-900 p-4 rounded-[10px] transition-all duration-300 group-hover:bg-gray-900/80">
@@ -187,10 +123,10 @@ export default function ThankYouPage({ courseName }: ThankYouPageProps) {
                   <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">For Job Opportunities</span>
                 </div>
               </div>
-            </motion.a>
+            </a>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

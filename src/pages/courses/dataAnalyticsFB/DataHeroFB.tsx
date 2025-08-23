@@ -82,7 +82,7 @@ export default function DataHeroFB() {
           <nav className="bg-[#0B1120] flex flex-row items-center py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-[40]">
             <div className="max-w-7xl mx-auto ">
               <img
-                src="/companylogo.webp"
+                src="/companylogo-new.webp"
                 alt="AcceleratorX Logo"
                 className="w-auto h-20 text-center"
               />

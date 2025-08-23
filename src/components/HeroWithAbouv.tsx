@@ -22,7 +22,7 @@ const HeroWithAbouv = ({
               {/* Left section - Logos */}
               <div className="flex items-center justify-center space-x-4 md:justify-start">
                 <img
-                  src="/companylogo.webp"                  alt="AcceleratorX"
+                  src="/companylogo-new.webp"                  alt="AcceleratorX"
                   className="h-12 w-auto object-contain transition-transform hover:scale-105 md:h-12 lg:h-14"
                 />
                 <div className="h-8 w-px bg-gray-400/20 md:h-10 lg:h-12" />

@@ -1,5 +1,4 @@
 import { Lightbulb, Calculator, ClipboardCheck, BarChart } from "lucide-react";
-import { motion } from "framer-motion";
 
 const capeSteps = [
   {
@@ -39,36 +38,22 @@ export default function CAPE() {
 
       {/* Content Layer */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <motion.span
-            className="text-blue-400 text-lg font-semibold mb-4 block"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+        <div className="text-center mb-20">
+          <span className="text-blue-400 text-lg font-semibold mb-4 block">
             Your Learning Journey
-          </motion.span>
+          </span>
           <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 text-transparent bg-clip-text mb-6">
             Build Your CAP Portfolio
           </h2>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             A Portfolio That Speaks for You – Build Skills That Stand Out
           </p>
-        </motion.div>
+  </div>
 
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {capeSteps.map((step, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
               className="relative p-8 rounded-3xl bg-[#0F172A] border border-blue-500/10 hover:border-blue-400/50 transition-all duration-500 group backdrop-blur-sm hover:transform hover:-translate-y-2"
             >
               <div className="inline-block p-4 bg-blue-500/10 rounded-2xl mb-6 transform transition-transform duration-500 group-hover:scale-110">
@@ -84,54 +69,37 @@ export default function CAPE() {
               <p className="text-sm text-blue-400 font-medium">
                 {step.duration}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 p-10 rounded-3xl bg-[#0F172A] border border-blue-500/10"
-        >
+  <div className="mt-20 p-10 rounded-3xl bg-[#0F172A] border border-blue-500/10">
           <h3 className="text-2xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
             What You'll Achieve
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <motion.div
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
+      <div className="text-center transform transition-transform duration-300 hover:scale-105">
               <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text mb-4">
                 Portfolio
               </div>
               <p className="text-gray-400">A real product in your portfolio</p>
-            </motion.div>
-            <motion.div
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
+      </div>
+      <div className="text-center transform transition-transform duration-300 hover:scale-105">
               <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text mb-4">
                 Experience
               </div>
               <p className="text-gray-400">
                 Hands-on product development experience
               </p>
-            </motion.div>
-            <motion.div
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
+      </div>
+      <div className="text-center transform transition-transform duration-300 hover:scale-105">
               <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text mb-4">
                 Network
               </div>
               <p className="text-gray-400">Connect with industry experts</p>
-            </motion.div>
+      </div>
           </div>
-        </motion.div>
+    </div>
       </div>
     </div>
   );

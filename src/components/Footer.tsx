@@ -1,5 +1,5 @@
 import React from "react";
-import companyLogo from "/companylogo.webp";
+import companyLogo from "/companylogo-new.webp";
 import { Link} from "react-router-dom";
 import {
   Linkedin,
