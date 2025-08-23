@@ -95,7 +95,7 @@ export default function RegistrationSuccess() {
             <motion.a
               href="https://chat.whatsapp.com/IRvuHFHrx8P7AU4QduC37L"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="group relative overflow-hidden rounded-xl p-0.5 transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_#25D366] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 max-w-[400px] mx-auto"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

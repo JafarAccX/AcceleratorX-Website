@@ -161,7 +161,7 @@ export default function Footer() {
                     key={link.label}
                     href={link.url}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="bg-white/5 p-2.5 rounded-lg hover:bg-blue-500/20 transition-all duration-300 group"
                     aria-label={link.label}
                   >

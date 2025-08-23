@@ -29,7 +29,7 @@ const HeroWithAbouv = ({
                 <a
                   href={abouv_link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="group rounded-lg bg-white p-2 transition-all hover:bg-white hover:shadow-lg hover:shadow-blue-500/20 md:p-3"
                 >
                   <img

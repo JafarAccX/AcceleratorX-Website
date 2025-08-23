@@ -57,10 +57,11 @@ const LeaderCard = ({
         <div className="text-center">
           <h3 className="text-white text-2xl font-bold mb-2">{name}</h3>
           <p className="text-blue-400 font-semibold mb-4">{role}</p>
+          {/* add no follow tag in the a tag */}
           <a
             href={linkedin}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors bg-blue-500/10 px-4 py-2 rounded-full"
           >
             <Linkedin className="w-5 h-5" />

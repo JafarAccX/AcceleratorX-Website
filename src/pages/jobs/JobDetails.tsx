@@ -247,7 +247,7 @@ export default function JobDetails() {
                     <a
                       href={job.CompanyURL}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm transition"
                     >
                       <Globe className="h-4 w-4" />

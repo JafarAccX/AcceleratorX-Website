@@ -76,7 +76,7 @@ const GENMentors = () => {
                   <a
                     href={mentor.linkedin}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     <Linkedin className="w-4 h-4" />

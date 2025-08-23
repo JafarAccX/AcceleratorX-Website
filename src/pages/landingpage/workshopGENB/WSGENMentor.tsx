@@ -40,7 +40,7 @@ const WSGENMentor = () => {
                   <a
                     href="https://www.linkedin.com/in/prashant-sahatiya/"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="text-white hover:text-blue-100 transition-colors"
                   >
                     <Linkedin className="w-5 h-5" />

@@ -127,7 +127,7 @@ export default function DataMentorsEIE() {
                     <motion.a
                       href={mentor.linkedin}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="mt-6 flex items-center justify-center w-full bg-[#1A5D1A] text-white py-3 rounded-xl font-medium hover:bg-[#1A5D1A]/90 transition-colors duration-200"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}

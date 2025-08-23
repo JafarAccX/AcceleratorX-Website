@@ -128,7 +128,7 @@ const WSRegistrationSuccess = () => {
                   <a
                     href={state.zoomDetails.link}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     Join Meeting
@@ -144,7 +144,7 @@ const WSRegistrationSuccess = () => {
                   <a
                     href={getWhatsAppLink()}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
                   >
                     Join Group
@@ -195,7 +195,7 @@ const WSRegistrationSuccess = () => {
                   key={index}
                   href={social.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className={`${social.color} text-white p-3 rounded-full hover:opacity-90 transition-opacity flex items-center justify-center group`}
                   aria-label={`Follow us on ${social.name}`}
                 >

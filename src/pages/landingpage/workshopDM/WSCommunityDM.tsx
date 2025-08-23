@@ -42,7 +42,7 @@ const WSCommunityDM = () => {
                 key={index}
                 href={link.href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className={`flex items-center space-x-2 px-4 py-2 bg-white/10 rounded-lg ${link.color} transition-colors`}
               >
                 {link.icon}
