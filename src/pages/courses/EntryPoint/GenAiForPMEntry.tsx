@@ -13,6 +13,7 @@ import GENPricing from "../GenAiForPM/GENAIFORPMPricing";
 import GENFAQ from "../GenAiForPM/GENAIFORPMFAQ";
 import GENMarketScope from "../GenAiForPM/GENAIFORPMMarketScope";
 import GENLearningJourney from "../GenAiForPM/GENAIFORPMLearningJourney";
+import { SEO } from "../../../components/SEO";
 const GenAiForPMEntry = () => {
   const {
     setSelectedCourse,
@@ -25,6 +26,7 @@ const GenAiForPMEntry = () => {
 
   return (
     <Suspense fallback={<Loader />}>
+      <SEO />
       <GENHero />
       <GENIntroduction />
       <GENWhoShouldEnroll />

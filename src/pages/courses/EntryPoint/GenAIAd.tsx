@@ -1,6 +1,7 @@
 import { useEffect, Suspense, lazy } from "react";
 import HeaderEIE from "../../../components/HeaderEIE";
 import { useCourseContext } from "../../../context/courseContext";
+import { SEO } from "../../../components/SEO";
 
 const GENBYOAAd = lazy(() => import("../genAIAD/GENBYOAAd"));
 const GENFAQAd = lazy(() => import("../genAIAD/GENFAQAd"));
@@ -9,7 +10,7 @@ const GENIntroductionAd = lazy(() => import("../genAIAD/GENIntroductionAd"));
 const GENLearningJourneyAd = lazy(() => import("../genAIAD/GENLearningJourneyAd"));
 const GENMarketScopeAd = lazy(() => import("../genAIAD/GENMarketScopeAd"));
 const GENToolsYouWillLearnAd = lazy(() => import("../genAIAD/GENToolsYouWillLearnAd"));
-const GENWhoShouldEnrollAd = lazy(() => import("../genAIAD/GENWhoShouldEnrollAd"));
+const GENWhoShouldEnrollAd = lazy(() => import("../genAIAD/GENWhoShouldEnrollAd")); 
 
 const GenAICourseAD = () => {
   const {
@@ -23,6 +24,7 @@ const GenAICourseAD = () => {
 
   return (
     <>
+    <SEO />
       <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <GENHeroAd />

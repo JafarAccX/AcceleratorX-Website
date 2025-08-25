@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
+import { SEO } from "../components/SEO";
 
 // Lazily loaded Workshop B (GENB) sections
 const GENCTAB = lazy(() => import("../pages/landingpage/workshopGENB/GENCTAB"));
@@ -63,6 +64,7 @@ const GENCTAC = lazy(() => import("../pages/landingpage/workshopGENC/GENCTAC"));
 // Workshop Pages
 const WorkshopPageDA = () => (
   <>
+  <SEO />
     <WSHeroDA />
     <WSAboutDA />
     <WSTestimonialDA />
@@ -71,6 +73,7 @@ const WorkshopPageDA = () => (
 
 const WorkshopPageDASecond = () => (
   <>
+  <SEO />
     <WSHeroDASecond />
     <ProductsSection /> 
     <TradingPlatformSection />
@@ -82,6 +85,7 @@ const WorkshopPageDASecond = () => (
 
 const WorkshopPagePM = () => (
   <>
+  <SEO />
     <WSHeroPM />
     <WSAboutPM />
     <WSTestimonialPM />
@@ -90,6 +94,7 @@ const WorkshopPagePM = () => (
 
 const WorkshopPageGEN = () => (
   <>
+    <SEO />
     <WSHeroGEN />
     <WSAboutGEN />
     <WSGENIntroduction />
@@ -101,6 +106,7 @@ const WorkshopPageGEN = () => (
 
 const WorkshopPageGENBTest = () => (
   <>
+    <SEO />
     <WSHeroGENB />
     <WSAboutGENB />
     <WSGENWhoShouldEnrollB />
@@ -112,6 +118,7 @@ const WorkshopPageGENBTest = () => (
 
 const WorkshopPageGENC = () => (
   <>
+    <SEO />
     <WSHeroGENC />
     <WSAboutGENC />
     <WSGENIntroductionC />
@@ -124,6 +131,7 @@ const WorkshopPageGENC = () => (
 const WorkshopPageDM = () => (
   <>
 
+    <SEO />
     <HeroSection />
     <WSHeroDM />
     <WorkshopHighlights />

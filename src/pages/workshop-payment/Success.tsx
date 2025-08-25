@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
-import { CheckCircle, Calendar, Video, Copy, Download } from "lucide-react";
+import { CheckCircle, Calendar,  Copy } from "lucide-react";
 import toast from "react-hot-toast";
 import { WORKSHOP_PRICE } from "../../utils/constants_price";
 
@@ -81,62 +81,62 @@ const Success = () => {
     toast.success("Copied to clipboard!");
   };
 
-  const downloadInvoice = async () => {
-    try {
-      // Log the API URL and orderId for debuggin
+  // const downloadInvoice = async () => {
+  //   try {
+  //     // Log the API URL and orderId for debuggin
 
-      // Ensure we have the required values
-      if (!import.meta.env.VITE_API_URL) {
-        throw new Error("API URL is not configured");
-      }
+  //     // Ensure we have the required values
+  //     if (!import.meta.env.VITE_API_URL) {
+  //       throw new Error("API URL is not configured");
+  //     }
 
-      if (!orderId) {
-        throw new Error("Order ID is missing");
-      }
+  //     if (!orderId) {
+  //       throw new Error("Order ID is missing");
+  //     }
 
-      const apiUrl = `${import.meta.env.VITE_API_URL}/api/invoice/${orderId}`;
+  //     const apiUrl = `${import.meta.env.VITE_API_URL}/api/invoice/${orderId}`;
 
-      const response = await fetch(apiUrl, {
-        method: "GET",
-        headers: {
-          Accept: "application/pdf",
-        },
-      });
+  //     const response = await fetch(apiUrl, {
+  //       method: "GET",
+  //       headers: {
+  //         Accept: "application/pdf",
+  //       },
+  //     });
 
-      if (!response.ok) {
-        const errorData = await response.text();
-        console.error("Invoice API Error:", {
-          status: response.status,
-          statusText: response.statusText,
-          errorData,
-          url: apiUrl,
-        });
-        throw new Error(`Failed to generate invoice: ${response.status} ${response.statusText}`);
-      }
+  //     if (!response.ok) {
+  //       const errorData = await response.text();
+  //       console.error("Invoice API Error:", {
+  //         status: response.status,
+  //         statusText: response.statusText,
+  //         errorData,
+  //         url: apiUrl,
+  //       });
+  //       throw new Error(`Failed to generate invoice: ${response.status} ${response.statusText}`);
+  //     }
 
-      // Create a blob from the PDF stream
-      const blob = await response.blob();
+  //     // Create a blob from the PDF stream
+  //     const blob = await response.blob();
 
-      // Verify blob content
-      if (blob.size === 0) {
-        throw new Error("Generated PDF is empty");
-      }
+  //     // Verify blob content
+  //     if (blob.size === 0) {
+  //       throw new Error("Generated PDF is empty");
+  //     }
 
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `invoice-${paymentDetails?.razorpay_payment_id}.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+  //     const url = window.URL.createObjectURL(blob);
+  //     const link = document.createElement("a");
+  //     link.href = url;
+  //     link.download = `invoice-${paymentDetails?.razorpay_payment_id}.pdf`;
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //     window.URL.revokeObjectURL(url);
 
-      toast.success("Invoice downloaded successfully");
-    } catch (error) {
-      console.error("Error downloading invoice:", error);
-      toast.error(error instanceof Error ? error.message : "Failed to download invoice");
-    }
-  };
+  //     toast.success("Invoice downloaded successfully");
+  //   } catch (error) {
+  //     console.error("Error downloading invoice:", error);
+  //     toast.error(error instanceof Error ? error.message : "Failed to download invoice");
+  //   }
+  // };
 
   if (loading) {
     return (

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, MapPin, Users, Award, Clock, Zap, Star } from "lucide-react";
 import CreateEventPage from "./eventForm";
+import { SEO } from "../../components/SEO";
 
 export default function EventManagementPage() {
   // const [activeTab, setActiveTab] = useState<string>("Overview");
@@ -10,6 +11,7 @@ export default function EventManagementPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br relative mt-14 from-gray-900 to-black text-white">
+      <SEO />
       <div className="max-w-6xl mx-auto p-6">
         {/* Header */}
         <motion.div

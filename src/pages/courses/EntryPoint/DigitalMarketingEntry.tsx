@@ -1,5 +1,6 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
+import { SEO } from "../../../components/SEO";
 
 const DMCourseBenefits = lazy(() => import("../dmAI/DMCourseBenefits"));
 const DMCourseOverview = lazy(() => import("../dmAI/DMCourseOverview"));
@@ -23,18 +24,21 @@ const DMAICourse = () => {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-      <DMHero />
-      <DMMarketInsights />
-      <DMWhoShouldEnroll />
-      <DMCourseOverview />
-      <DMHandsOnProjects />
-      <DMMarketingTools />
-      <DMCourseSyllabus />
-      <DMCourseBenefits />
-      <DMPricing />
-      <DMFAQs />
-    </Suspense>
+    <>
+      <SEO />
+      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+        <DMHero />
+        <DMMarketInsights />
+        <DMWhoShouldEnroll />
+        <DMCourseOverview />
+        <DMHandsOnProjects />
+        <DMMarketingTools />
+        <DMCourseSyllabus />
+        <DMCourseBenefits />
+        <DMPricing />
+        <DMFAQs />
+      </Suspense>
+    </>
   );
 };
 

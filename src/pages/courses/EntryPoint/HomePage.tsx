@@ -7,6 +7,7 @@ import HeroWithAbouv from "../../../components/HeroWithAbouv";
 import LogoSlider from "../../../components/LogoSlider";
 import { useCourseContext } from "../../../context/courseContext";
 import Hero from "../../../components/Hero";
+import { SEO } from "../../../components/SEO";
 
 const HomePage = () => {
   const { setSelectedCourse } = useCourseContext();
@@ -16,14 +17,17 @@ const HomePage = () => {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<Loader />}>
-      <Hero />
-      <LogoSlider />
-      <Features />
-      <HeroWithAbouv />
-      {/* <BecomeAMentorFeatures /> */}
-      <CTA />
-    </Suspense>
+    <>
+      <SEO />
+      <Suspense fallback={<Loader />}>
+        <Hero />
+        <LogoSlider />
+        <Features />
+        <HeroWithAbouv />
+        {/* <BecomeAMentorFeatures /> */}
+        <CTA />
+      </Suspense>
+    </>
   );
 };
 

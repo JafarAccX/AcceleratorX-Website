@@ -1,8 +1,10 @@
-import React from "react";
+import { SEO } from "../../components/SEO";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 py-24">
+    <>
+      <SEO />
+      <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white">
@@ -141,6 +143,7 @@ export default function PrivacyPolicy() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

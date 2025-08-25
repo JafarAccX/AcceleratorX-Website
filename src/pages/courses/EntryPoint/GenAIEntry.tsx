@@ -1,5 +1,6 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
+import { SEO } from "../../../components/SEO";
 
 const GENBYOA = lazy(() => import("../genAI/GENBYOA"));
 const GENFAQ = lazy(() => import("../genAI/GENFAQ"));
@@ -25,20 +26,23 @@ const GenAICourse = () => {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-      <GENHero />
-      <GENIntroduction />
-      <GENWhoShouldEnroll />
-      <GENBYOA />
-      <GENMarketScope />
-      <GENWhyLearnAI />
-      <GENLearningJourney />
-      <GENMentors />
-      <GENToolsYouWillLearn />
-      <GENProjectsAndOutcomes />
-      <GENPricing />
-      <GENFAQ />
-    </Suspense>
+    <>
+      <SEO />
+      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+        <GENHero />
+        <GENIntroduction />
+        <GENWhoShouldEnroll />
+        <GENBYOA />
+        <GENMarketScope />
+        <GENWhyLearnAI />
+        <GENLearningJourney />
+        <GENMentors />
+        <GENToolsYouWillLearn />
+        <GENProjectsAndOutcomes />
+        <GENPricing />
+        <GENFAQ />
+      </Suspense>
+    </>
   );
 };
 

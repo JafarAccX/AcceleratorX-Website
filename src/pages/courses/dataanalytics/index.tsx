@@ -2,6 +2,7 @@ import { Suspense, useEffect, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
 import StickyBookNav from "../../../components/StickyBookNav";
+import { SEO } from "../../../components/SEO";
 
 // Import EIE components lazily
 const DataHeroEIE = lazy(() => import("./EIE/DataHeroEIE"));
@@ -24,6 +25,7 @@ const DataAnalyticsPage = () => {
   return (
     <>
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+      <SEO />
         <DataHeroEIE />
         <HeroWithAbouv />
         <WhoIsThisContentForEIE />

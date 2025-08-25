@@ -3,6 +3,7 @@ import HeaderEIE from "../../../components/HeaderEIE";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
 import StickyBookNav from "../../../components/StickyBookNav";
 import { useCourseContext } from "../../../context/courseContext";
+import { SEO } from "../../../components/SEO";
 
 const BenefitsGridEIE = lazy(() => import("../productmanagement/EIE/BenefitsGridEIE"));
 const FAQEIE = lazy(() => import("../productmanagement/EIE/FAQEIE"));
@@ -27,6 +28,7 @@ const ProductManagementEIE = () => {
 
   return (
     <>
+    <SEO />
       <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <ProgramHeroEIE />

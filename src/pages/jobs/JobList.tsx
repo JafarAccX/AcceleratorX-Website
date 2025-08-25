@@ -3,6 +3,7 @@ import { Search, Filter, Briefcase, MapPin, Clock, DollarSign, X, ChevronLeft, C
 import JobCard from "./JobCard";
 
 import { useGetAllJobs } from "../../hooks/jobs";
+import { SEO } from "../../components/SEO";
 
 export interface Job {
   Id: string;
@@ -254,6 +255,7 @@ const JobList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 mt-16">
+      <SEO />
       {/* Search and Filter Header */}
       <div className="mb-8">
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">

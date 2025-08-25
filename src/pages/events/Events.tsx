@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check, Clock, MapPin } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 const Events = () => {
   const [activeTab, setActiveTab] = useState<"events" | "workshops">("events");
@@ -189,6 +190,7 @@ const Events = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+      <SEO />
       <div className=" mt-10 md:mt-4 max-w-screen-lg mx-auto p-4 md:p-8">
         <div className="min-h-screen  text-white md:p-6">
           <div className="max-w-4xl mx-auto mt-10">

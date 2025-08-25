@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaDownload, FaSpinner, FaExclamationCircle } from 'react-icons/fa';
 import certificateApi, { CertificateData } from '../api/certificateApi';
+import { SEO } from '../components/SEO';
 
 const CertificateDisplayPage: React.FC = () => {
   const { certificateId } = useParams<{ certificateId: string }>();
@@ -68,7 +69,9 @@ const CertificateDisplayPage: React.FC = () => {
   }
 
   return (
-    <div style={styles.page}>
+    <>
+      <SEO />
+      <div style={styles.page}>
         <div style={styles.card}>
             <h1 style={styles.header}>Certificate of Completion</h1>
 
@@ -85,6 +88,7 @@ const CertificateDisplayPage: React.FC = () => {
             </button>
         </div>
     </div>
+    </>
   );
 };
 

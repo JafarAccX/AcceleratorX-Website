@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Sparkles, Send, Cpu, Clock, Users, Award, CalendarDays } from "lucide-react";
+import { Sparkles, Send, Cpu } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { useCourseContext } from "../context/courseContext";
+import { SEO } from "./SEO";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -82,7 +83,9 @@ function GENAIFlyers() {
   };
 
   return (
-    <div className="min-h-screen bg-[#001219] relative overflow-hidden">
+    <>
+      <SEO />
+      <div className="min-h-screen bg-[#001219] relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 cyber-grid"></div>
 
@@ -338,7 +341,8 @@ function GENAIFlyers() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

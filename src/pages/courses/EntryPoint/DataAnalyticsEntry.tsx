@@ -3,6 +3,7 @@ import HeaderEIE from "../../../components/HeaderEIE";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
 import StickyBookNav from "../../../components/StickyBookNav";
 import { useCourseContext } from "../../../context/courseContext";
+import { SEO } from "../../../components/SEO";
 
 const CAPEEIE = lazy(() => import("../dataanalytics/EIE/CAPEEIE"));
 const DataCertificateEIE = lazy(() => import("../dataanalytics/EIE/DataCertificateEIE"));
@@ -27,6 +28,7 @@ const DataAnalyticsEntry = () => {
 
   return (
     <>
+      <SEO />
       <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <DataHeroEIE />

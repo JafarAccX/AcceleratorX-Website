@@ -1,18 +1,20 @@
-import React from "react";
+import { SEO } from "../../components/SEO";
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white">
-            Terms & <span className="text-blue-500">Conditions</span>
-          </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Please read these terms and conditions carefully before using our
-            services. These terms outline your rights and responsibilities as a
-            user of our platform.
-          </p>
+    <>
+      <SEO />
+      <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white">
+              Terms & <span className="text-blue-500">Conditions</span>
+            </h1>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Please read these terms and conditions carefully before using our
+              services. These terms outline your rights and responsibilities as a
+              user of our platform.
+            </p>
           <p className="text-sm text-gray-500 mt-4">Last Updated: 2024-10-18</p>
         </div>
 
@@ -174,5 +176,6 @@ export default function Terms() {
         </div>
       </div>
     </div>
+    </>
   );
 }
