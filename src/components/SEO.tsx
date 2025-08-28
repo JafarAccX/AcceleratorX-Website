@@ -30,7 +30,7 @@ export function SEO({
   const finalOgTitle = ogTitle || defaultMetadata.ogTitle;
   const finalOgDescription = ogDescription || defaultMetadata.ogDescription;
   const finalOgImage = ogImage || defaultMetadata.ogImage || '/companylogo-new.webp';
-  const finalCanonicalUrl = canonicalUrl || `https://acceleratorx.org${location.pathname}`;
+  const finalCanonicalUrl = canonicalUrl || defaultMetadata.canonicalUrl;
 
   return (
     <Helmet>

@@ -1,7 +1,7 @@
 import { Loader } from "lucide-react";
 import { useEffect, Suspense } from "react";
 // import BecomeAMentorFeatures from "../../../components/BecomeAMentorFeatures";
-import CTA from "../../../components/CTA";
+// import CTA from "../../../components/CTA";
 import Features from "../../../components/Features";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
 import LogoSlider from "../../../components/LogoSlider";
@@ -25,7 +25,7 @@ const HomePage = () => {
         <Features />
         <HeroWithAbouv />
         {/* <BecomeAMentorFeatures /> */}
-        <CTA />
+        {/* <CTA /> */}
       </Suspense>
     </>
   );
