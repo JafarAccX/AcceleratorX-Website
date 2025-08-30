@@ -12,14 +12,13 @@ const WSGENMentor = () => {
     //   image: "/assets/mentor/prashant.webp",
     //   experience: "5+ Years",
     // },
-    // {
-    //   name: "Sagar Rajput",
-    //   designation: "Generative AI Engineer Flooid.in ",
-    //   description: "Expert in AI implementation and automation",
-    //   linkedin: "https://www.linkedin.com/in/sagrrajput/",
-    //   image: "/assets/mentor/sagar.webp",
-    //   experience: "5+ Years",
-    // },
+    {
+      name: "Anjali Sharma",
+      designation: "AI Product Manager at Mesha",
+      linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
+      image: "/assets/mentor/anjali.webp",
+      experience: "10+ Years",
+    },
 
     {
       name: "Nitish M L Setty",

@@ -2,13 +2,13 @@ import { Linkedin } from "lucide-react";
 
 const GENMentors = () => {
   const mentors = [
-    // {
-    //   name: "Sagar Rajput",
-    //   designation: "Generative AI Engineer Flooid.in",
-    //   linkedin: "https://www.linkedin.com/in/sagrrajput/",
-    //   image: "/assets/mentor/sagar.webp",
-    //   experience: "5+ Years",
-    // },
+    {
+      name: "Anjali Sharma",
+      designation: "AI Product Manager at Mesha",
+      linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
+      image: "/assets/mentor/anjali.webp",
+      experience: "10+ Years",
+    },
     {
       name: "Pranali Bose",
       designation: "Software Engineer (Data Science), Ex-Walmart",
