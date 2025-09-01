@@ -41,11 +41,11 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "Data Analysis with AI",
-  link: "https://zoom.us/meeting/register/sM7Gq-jLQxuGa3qLIV3Eog",
-  meetingId: "sM7Gq-jLQxuGa3qLIV3Eog",
-  time: "Aug 13, 2025 8:00 PM India",
-  meetingCode: "98309274658",
+  title: "Automating SQL queries for Data Analysis",
+  link: "https://zoom.us/meeting/register/vFGlGA7jSH-6Razbad2szw",
+  meetingId: "vFGlGA7jSH-6Razbad2szw",
+  time: "Sep 6, 2025 8:30 PM India",
+  meetingCode: "95353095584",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {

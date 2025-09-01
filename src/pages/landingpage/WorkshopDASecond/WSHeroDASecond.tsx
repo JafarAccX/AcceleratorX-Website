@@ -66,19 +66,20 @@ const CryptoHeroSection: React.FC = () => {
              
             {/* Main Heading */}
             <div className="space-y-2">
-              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">Data Analysis with <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
-                AI
-              </span>     </h1>
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">Automating <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
+                SQL Queries
+              </span> for Data Analysis</h1>
               
             </div>
 
             {/* Subtext */}
             <div className="space-y-4 text-slate-300 text-lg max-w-lg">
-              <p className="font-medium">Learn How to Turn Raw Data into Smart Decisions — With Zero Coding! </p>
-              {/* <p>
-               But for many, it feels confusing. This workshop makes it simple to understand and present data—no code needed.
-
-              </p> */}
+              <p className="font-medium">Learn how to save hours of manual work by automating your SQL queries — smarter, faster, and without complex coding!</p>
+              <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-3 mt-4">
+                <p className="text-yellow-200 text-sm font-medium">
+                  ⚠️ Note: This is a live-only workshop. No recordings will be provided.
+                </p>
+              </div>
             </div>
           </div>
 

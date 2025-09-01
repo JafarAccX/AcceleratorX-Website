@@ -60,39 +60,23 @@ const AIToolsIllustration: React.FC = () => (
   </div>
 )
 
-const TemplatesIllustration: React.FC = () => (
-  <div className="relative">
-    <div className="w-20 h-24 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex flex-col justify-center items-center text-white text-xl">
-      📄
-    </div>
-    <div className="absolute -top-3 -left-3 w-6 h-6 bg-pink-400 rounded-full text-white text-sm flex items-center justify-center">⏱️</div>
-    <div className="absolute top-1 right-1 w-4 h-4 bg-green-400 rounded-full" />
-    <div className="absolute bottom-0 left-6 text-yellow-300 text-xs">⚡</div>
-  </div>
-)
-
 const ProductsSection: React.FC = () => {
   const products = [
     {
-      title: "Data Visualization",
-      description: "How to turn raw data into visual stories that drive insights.",
+      title: "SQL Query Automation",
+      description: "Discover how to write queries once and automate repetitive tasks with ease.",
       illustration: <DataVizIllustration />,
     },
     {
-      title: "No-Code Dashboards",
-      description: "Learn tools to create live dashboards without writing code.",
+      title: "Data Analysis Made Faster",
+      description: "Learn practical shortcuts to extract, clean, and analyze data in minutes instead of hours.",
       illustration: <NoCodeIllustration />,
     },
     {
-      title: "AI Productivity Tools",
-      description: "Use tools like ChatGPT to automate tasks and simplify analysis.",
+      title: "Smart AI + SQL Hacks",
+      description: "Use AI-assisted tools to optimize queries, debug errors, and build workflows that run on autopilot.",
       illustration: <AIToolsIllustration />,
     },
-    // {
-    //   title: "Smart Templates",
-    //   description: "Save time with prebuilt templates for dashboards and reports.",
-    //   illustration: <TemplatesIllustration />,
-    // },
   ]
 
   return (

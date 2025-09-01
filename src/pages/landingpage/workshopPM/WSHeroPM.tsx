@@ -65,7 +65,7 @@ const WSHeroPM = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700/50 bg-gray-800/50 backdrop-blur-sm mb-8"
           >
             <Globe className="w-4 h-4 text-gray-300" />
-            <span className="text-gray-300 text-sm font-medium">Live Workshop | 3-Hour AI Marathon</span>
+            <span className="text-gray-300 text-sm font-medium">Live Bootcamp | 3-Hour Intensive</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -75,7 +75,7 @@ const WSHeroPM = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            Build AI Products That Actually Work!
+            Idea to Product Live (Bootcamp)
           </motion.h1>
 
           {/* Subheading */}
@@ -83,10 +83,22 @@ const WSHeroPM = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-6 leading-relaxed"
           >
-            From idea to deployment, learn how real-world AI products are built (and shipped).
+            Turn your idea into a product that works in the real world. From validation to launch, learn the exact steps to transform raw ideas into real, usable products.
           </motion.p>
+
+          {/* Note */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+            className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-3 mb-10 max-w-lg mx-auto"
+          >
+            <p className="text-yellow-200 text-sm font-medium">
+              ⚠️ Note: This is a live-only workshop. No recordings will be provided.
+            </p>
+          </motion.div>
 
           {/* CTA Buttons */}
 
@@ -147,14 +159,13 @@ const WSHeroPM = () => {
               <div className="space-y-4">
                 <h1 className="text-3xl md:text-5xl font-bold">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">
-                    About the Workshop
+                    About the Bootcamp
                   </span>
                 </h1>
 
                 <h2 className="text-2xl lg:text-3xl font-semibold">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
-                    High-impact, practical training to help you ship AI products that solve real problems in the real
-                    world.
+                    High-impact training to take your idea from thought to launch.
                   </span>
                 </h2>
               </div>

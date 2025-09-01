@@ -93,7 +93,7 @@ export default function WSTestimonialDASecond() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      Let’s build something powerful together.
+      Let’s take SQL from manual to automatic — together.
     </motion.h2>
 
     <motion.p
@@ -102,7 +102,7 @@ export default function WSTestimonialDASecond() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.6 }}
     >
-      Start creating with AI—not someday, but today.
+      Start building smarter workflows with SQL Automation — not someday, but today.
     </motion.p>
 
     <motion.div
