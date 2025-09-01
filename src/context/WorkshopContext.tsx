@@ -25,11 +25,11 @@ interface WorkshopContextType {
 }
 
 const PMZoomDetails: ZoomMeetingDetails = {
-  title: "Building AI Products (Marathon Session - 3 Hr ) ",
-  link: "https://zoom.us/meeting/register/ASxjF13aRdW4_fMzjx5OcQ",
-  meetingId: "ASxjF13aRdW4_fMzjx5OcQ",
-  time: "July 13, 2025 11:00 AM India",
-  meetingCode: "93044155126",
+  title: "Idea to Product Live (Bootcamp) ",
+  link: "https://zoom.us/meeting/register/8ZFQPIulS9KJH3xIxR9uuA",
+  meetingId: "8ZFQPIulS9KJH3xIxR9uuA",
+  time: "Sep 07, 2025 12:30 PM India",
+  meetingCode: "99321184046",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {

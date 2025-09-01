@@ -3,10 +3,10 @@ import { Check } from "lucide-react";
 
 const WhoShouldAttendSection = () => {
   const targetAudience = [
-    "Product Managers & Founders",
-    "Designers, Analysts, and Tech Leads",
+    "Founders & Product Managers",
+    "Designers, Analysts & Tech Leads",
     "Hackers & Indie Builders",
-    "Anyone curious about building with GenAI",
+    "Anyone curious about turning ideas into products",
   ];
 
   const containerVariants = {
@@ -48,7 +48,7 @@ const WhoShouldAttendSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Who Is This For</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            This isn’t just for engineers. It’s for anyone building the future, like you.
+            This bootcamp is for anyone who wants to build and launch real products.
           </p>
         </motion.div>
 

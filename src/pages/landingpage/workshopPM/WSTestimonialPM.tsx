@@ -45,7 +45,7 @@ const WSTestimonialPM = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Limited Seats.
+          Seats are limited. Don’t let your idea stay just an idea.
         </motion.p>
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
@@ -53,7 +53,7 @@ const WSTestimonialPM = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Reserve Yours Now.
+          Register Now — It’s Free
         </motion.h2>
 
         <motion.p
@@ -62,7 +62,7 @@ const WSTestimonialPM = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          This is a live, interactive session, not just a passive lecture. We keep it small so everyone gets value.
+          Live, focused, and built for action. Join us and start moving your idea forward.
         </motion.p>
 
         <motion.div
@@ -83,7 +83,7 @@ const WSTestimonialPM = () => {
             }}
             className="rounded-full px-6 py-3 text-sm font-semibold text-black bg-gray-200 shadow-md hover:bg-white transition"
           >
-            Register Now—It's Free ↗
+            Register Now — It’s Free ↗
           </button>
         </motion.div>
       </div>

@@ -1,9 +1,9 @@
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 import { Star } from "lucide-react";
 import WSFormFree from "../workshopGENB/WSFormFree";
-import { FaCalendarAlt, FaClock, FaLevelUpAlt, FaUserGraduate } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
+import { FaCalendarAlt, FaClock, FaLevelUpAlt, FaUserGraduate } from "react-icons/fa";
 
 const WSHeroPM = () => {
   const scrollToForm = () => {
@@ -171,9 +171,7 @@ const WSHeroPM = () => {
               </div>
 
               <p className="text-gray-400   leading-relaxed">
-                In today’s AI gold rush, everyone’s building, but few know how to build right. This 3-hour live workshop
-                is for builders, founders, PMs, and creators who want to go beyond GPT demos and actually create usable,
-                scalable, AI-first products.
+                 Most ideas never make it beyond the notebook. This live bootcamp helps you change that. In just 3 hours, learn a proven process to validate your ideas, shape them into real products, and avoid the traps that kill most launches.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
@@ -182,14 +180,14 @@ const WSHeroPM = () => {
                   {
                     icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "July 13",
+                    value: "Sept 7, 2025",
                   },
                   {
                     icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
-                    label: "time",
-                    value: "11:00 AM IST",
+                    label: "Time",
+                    value: "8:00 PM IST",
                   },
-                  { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
+                  { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "Beginner–Advanced" },
                 ].map((item, index) => (
                   <div
                     key={index}

@@ -3,8 +3,8 @@ import { ArrowRight, Award } from "lucide-react";
 
 const InstructorSection = () => {
   const instructorDetails = {
-    name: "Subhas Chand",
-    title: "Senior Product Manager",
+    name: "Anjali",
+    title: "Product Strategist & Mentor",
   };
 
   const scrollToForm = () => {
@@ -72,9 +72,9 @@ const InstructorSection = () => {
                     </div>
 
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      Dynamic product leader with expertise in driving innovation across edtech and SaaS. Specializes in
-                      business strategy, product development, and user experience with a passion for creating impactful
-                      solutions that bridge technology and user needs.
+                      Anjali has guided startups and teams in turning rough concepts into scalable products. With deep
+                      expertise in strategy, product design, and execution, she helps you cut through noise and focus on
+                      what really matters—shipping your product.
                     </p>
                   </motion.div>
 
@@ -124,12 +124,12 @@ const InstructorSection = () => {
               </div>
 
               <p className="text-blue-100 mb-4 text-lg">
-                All attendees will receive an official certificate from AcceleratorX!
+                All attendees who complete the bootcamp will receive an official certificate of participation.
               </p>
 
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <p className="text-gray-300 text-sm">
-                  💡 <strong>Note:</strong> Please attend the entire session to qualify for the certificate.
+                  💡 <strong>Note:</strong> You must attend the full session to qualify.
                 </p>
               </div>
             </div>

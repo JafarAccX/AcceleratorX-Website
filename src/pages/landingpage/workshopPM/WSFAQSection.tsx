@@ -8,19 +8,15 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "Do I need to know how to code?",
-      answer: "No. The session is designed for non-coders and technical folks alike.",
+      answer: "No. This session is designed for both coders and non‑coders.",
     },
     {
       question: "Will it be hands-on?",
-      answer: " Yes—we’ll walk you through real frameworks and tools step by step.",
-    },
-    {
-      question: "How do I join?",
-      answer: "Once you register, you’ll receive a Zoom link + calendar invite.",
+      answer: "Yes, you’ll learn frameworks you can apply immediately.",
     },
     {
       question: "Is it really free?",
-      answer: " Yes. 100%. No hidden fees.",
+      answer: "Yes! Seats are limited, so make sure to grab yours.",
     },
   ];
 
