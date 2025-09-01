@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
+import { generateFormEventId } from "../../../utils/unifiedTracking";
 import { registerForZoomMeeting } from "../../../routes/utils/registration";
 import { createWorkshopRegistration, WorkshopRegistrationData } from "../../../api/workshopApi";
 import axios from "axios";
@@ -178,6 +179,7 @@ const WSFormFree = () => {
 
       // Track form submission with Meta Pixel
       try {
+        const eventId = generateFormEventId();
         const trackingFormData = new FormData();
         trackingFormData.append("name", formData.name);
         trackingFormData.append("email", formData.email);
@@ -187,6 +189,7 @@ const WSFormFree = () => {
         trackingFormData.append("course", workshopType || "");
         trackingFormData.append("workExperience", formData.yearsOfExperience);
         trackingFormData.append("yearsOfPassing", formData.yearsOfPassing);
+        trackingFormData.append("eventId", eventId);
         await trackFormSubmission(trackingFormData);
       } catch (trackingError) {
         console.error("Error tracking form submission:", trackingError);

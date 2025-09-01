@@ -7,6 +7,7 @@ import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate } from "react-router-dom";
 import { WORKSHOP_PRICE } from "../../../utils/constants_price";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
+import { generateFormEventId } from "../../../utils/unifiedTracking";
 import { registerForZoomMeeting } from "../../../routes/utils/registration";
 
 const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
@@ -285,17 +286,20 @@ const WSForm = () => {
               if (verificationData.success) {
                 // console.log("Payment verified successfully");
                 setPaymentVerified(true);
-                // Redirect to success page
-                await trackFormSubmission({
-                  name: formData.name,
-                  email: formData.email,
-                  phone: formData.phone,
-                  education: formData.education,
-                  designation: formData.designation,
-                  course: workshopType,
-                  workExperience: formData.yearsOfExperience,
-                  yearsOfPassing: formData.yearsOfPassing,
-                } as any);
+                // Redirect to success page with consistent event tracking
+                const eventId = generateFormEventId();
+                const trackingFormData = new FormData();
+                trackingFormData.append("name", formData.name);
+                trackingFormData.append("email", formData.email);
+                trackingFormData.append("phone", formData.phone);
+                trackingFormData.append("education", formData.education);
+                trackingFormData.append("designation", formData.designation);
+                trackingFormData.append("course", workshopType);
+                trackingFormData.append("workExperience", formData.yearsOfExperience);
+                trackingFormData.append("yearsOfPassing", formData.yearsOfPassing);
+                trackingFormData.append("eventId", eventId);
+                
+                await trackFormSubmission(trackingFormData);
 
                 await registerForZoomMeeting(
                   formData.name,

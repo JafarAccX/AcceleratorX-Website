@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import { useLocation } from "react-router-dom";
 import { trackFormSubmission } from "../utils/metaPixel";
+import { generateFormEventId } from "../utils/unifiedTracking";
 import { shouldShowChatWidget } from "../utils/chatWidgetUtils";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -74,10 +75,15 @@ export default function ChatWidget() {
       if (error) throw error;
 
       // Track form submission with Meta Pixel after successful submission
-      trackFormSubmission({
-        ...formData,
-        course: isHomePage ? formData.course : selectedCourse || "Unknown",
-      });
+      const eventId = generateFormEventId();
+      const trackingFormData = new FormData();
+      trackingFormData.append("name", formData.name);
+      trackingFormData.append("email", formData.email);  
+      trackingFormData.append("phone", formData.phone);
+      trackingFormData.append("course", isHomePage ? formData.course : selectedCourse || "Unknown");
+      trackingFormData.append("eventId", eventId);
+      
+      trackFormSubmission(trackingFormData);
 
       setIsSubmitted(true);
       setTimeout(() => {

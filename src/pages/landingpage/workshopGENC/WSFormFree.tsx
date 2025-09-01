@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
 import { useNavigate } from "react-router-dom";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
+import { generateFormEventId } from "../../../utils/unifiedTracking";
 import { registerForZoomMeeting } from "../../../routes/utils/registration";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -193,16 +194,19 @@ const WSFormFree = () => {
               // Continue with successful registration flow below
               // Track form submission with Meta Pixel
               try {
-                await trackFormSubmission({
-                  name: formData.name,
-                  email: formData.email, // Use original email for tracking
-                  phone: formData.phone,
-                  education: formData.education,
-                  designation: formData.designation,
-                  course: workshopType,
-                  workExperience: formData.yearsOfExperience,
-                  yearsOfPassing: formData.yearsOfPassing,
-                });
+                const eventId = generateFormEventId();
+                const trackingFormData = new FormData();
+                trackingFormData.append("name", formData.name);
+                trackingFormData.append("email", formData.email);
+                trackingFormData.append("phone", formData.phone);
+                trackingFormData.append("education", formData.education);
+                trackingFormData.append("designation", formData.designation);
+                trackingFormData.append("course", workshopType);
+                trackingFormData.append("workExperience", formData.yearsOfExperience);
+                trackingFormData.append("yearsOfPassing", formData.yearsOfPassing);
+                trackingFormData.append("eventId", eventId);
+                
+                await trackFormSubmission(trackingFormData);
               } catch (trackingError) {
                 console.error("Error tracking form submission:", trackingError);
               }
@@ -302,16 +306,19 @@ const WSFormFree = () => {
       console.log("masterclass titile", zoomMeetingDetails.title);
       // Track form submission with Meta Pixel
       try {
-        await trackFormSubmission({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          education: formData.education,
-          designation: formData.designation,
-          course: workshopType, // Use workshop type as course
-          workExperience: formData.yearsOfExperience,
-          yearsOfPassing: formData.yearsOfPassing,
-        });
+        const eventId = generateFormEventId();
+        const trackingFormData = new FormData();
+        trackingFormData.append("name", formData.name);
+        trackingFormData.append("email", formData.email);
+        trackingFormData.append("phone", formData.phone);
+        trackingFormData.append("education", formData.education);
+        trackingFormData.append("designation", formData.designation);
+        trackingFormData.append("course", workshopType);
+        trackingFormData.append("workExperience", formData.yearsOfExperience);
+        trackingFormData.append("yearsOfPassing", formData.yearsOfPassing);
+        trackingFormData.append("eventId", eventId);
+        
+        await trackFormSubmission(trackingFormData);
         // console.log("Form submission tracked successfully");
       } catch (trackingError) {
         console.error("Error tracking form submission:", trackingError);

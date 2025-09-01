@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { MetaPixel } from "./components/MetaPixel";
 import { trackViewContent } from "./utils/metaPixel";
 import ScrollToTop from "./components/ScrollToTop";
+import { MetaTrackingDebugger } from "./components/MetaTrackingDebugger";
 
 import { MainLayout } from "./layouts/MainLayout";
 import { RouteLogic } from "./routes/utils/routeUtils";
@@ -94,6 +95,7 @@ function App() {
         <CourseProvider>
           <UserProvider>
             <AppContent />
+            <MetaTrackingDebugger />
           </UserProvider>
         </CourseProvider>
       </HelmetProvider>

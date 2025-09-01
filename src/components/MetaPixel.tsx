@@ -1,16 +1,13 @@
 import { useEffect, useRef } from "react";
-// Utility to generate a UUID (for event_id deduplication)
-function generateEventId() {
-  if (window.crypto?.randomUUID) return window.crypto.randomUUID();
-  // Fallback for older browsers
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = Math.random() * 16 | 0;
-    const v = c === 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
 import { useLocation } from "react-router-dom";
 import { useCourseContext } from "../context/courseContext";
+import { 
+  trackPageView, 
+  trackLead, 
+  trackCompleteRegistration, 
+  generateFormEventId,
+  getTrackingDebugInfo 
+} from "../utils/unifiedTracking";
 
 const PIXEL_ID_DEFAULT = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
 const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT as string | undefined;
@@ -64,61 +61,55 @@ export const MetaPixel = () => {
   const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
   const isCompleteRegistrationRoute = COMPLETE_REGISTRATION_ROUTES.includes(location.pathname);
 
-  // Store event_id in ref so it persists across renders for deduplication
+  // Store event_id in ref for CompleteRegistration events
   const eventIdRef = useRef<string | null>(null);
-  if (isCompleteRegistrationRoute && !eventIdRef.current) {
-    eventIdRef.current = generateEventId();
-    // Optionally, store in sessionStorage/localStorage if you want to persist across reloads
-  }
+  
+  // Generate event ID for registration routes
+  useEffect(() => {
+    if (isCompleteRegistrationRoute && !eventIdRef.current) {
+      eventIdRef.current = generateFormEventId();
+    }
+  }, [isCompleteRegistrationRoute]);
 
-  console.log("__META_EVENT_ID__", window.__META_EVENT_ID__);
-  console.log("MetaPixel - Event ID:", eventIdRef.current);
-  console.log("MetaPixel - Event ID (window):", window.__META_EVENT_ID__);
-  console.log("MetaPixel - Pixel ID:", pixelId);
+  // Debug logging
+  console.log("MetaPixel Debug:", {
+    route: location.pathname,
+    pixelId,
+    isPageViewRoute,
+    isLeadRoute,
+    isCompleteRegistrationRoute,
+    eventId: eventIdRef.current,
+    trackingDebug: getTrackingDebugInfo()
+  });
 
   useEffect(() => {
-    if (!pixelId) return;
-
-    if (!window.fbq) {
-      window.fbq = function () { return; };
-    }
-
-    const triggerEvents = () => {
-      if (!window.fbq) return;
-      if (!window.fbqInitialized) {
-        window.fbq("init", pixelId);
-        window.fbqInitialized = true;
-      }
-      if (isPageViewRoute) window.fbq("track", "PageView");
-      if (isLeadRoute) window.fbq("track", "Lead");
-      if (isCompleteRegistrationRoute && eventIdRef.current) {
-        window.fbq("track", "CompleteRegistration", { event_id: eventIdRef.current });
-      }
-    };
-
-    const existing = document.getElementById("fb-pixel-script") as HTMLScriptElement | null;
-    if (existing) {
-      triggerEvents();
+    if (!pixelId) {
+      console.warn('No pixel ID available for route:', location.pathname);
       return;
     }
 
-    const script = document.createElement("script");
-    script.id = "fb-pixel-script";
-    script.async = true;
-    script.src = "https://connect.facebook.net/en_US/fbevents.js";
-    script.onload = triggerEvents;
-    const inject = () => document.head.appendChild(script);
-    if (document.readyState === "complete") setTimeout(inject, 0);
-    else window.addEventListener("load", inject, { once: true });
-  }, [pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute]);
-
-
-  // Expose event_id for backend use (e.g., via window or context)
-  useEffect(() => {
-    if (isCompleteRegistrationRoute && eventIdRef.current) {
-      window.__META_EVENT_ID__ = eventIdRef.current;
+    // Ensure fbq is available
+    if (!window.fbq) {
+      console.warn('Facebook Pixel not loaded');
+      return;
     }
-  }, [isCompleteRegistrationRoute]);
+
+    // Track events using unified service
+    if (isPageViewRoute) {
+      trackPageView(pixelId);
+    }
+    
+    if (isLeadRoute) {
+      trackLead(pixelId);
+    }
+    
+    if (isCompleteRegistrationRoute && eventIdRef.current) {
+      trackCompleteRegistration(pixelId, eventIdRef.current, { 
+        event_id: eventIdRef.current 
+      });
+    }
+
+  }, [pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute, location.pathname]);
 
   return null;
 };

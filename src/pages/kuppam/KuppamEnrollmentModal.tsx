@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { trackFormSubmission, getUTMDataForDB } from "../../utils/metaPixel";
+import { generateFormEventId } from "../../utils/unifiedTracking";
 import { useNavigate } from "react-router-dom";
 import { createEnrollment } from "../../api/enrollmentApi";
 
@@ -145,6 +146,7 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
       });
 
       const trackingFormData = new FormData();
+      const eventId = generateFormEventId();
       trackingFormData.append("name", formData.name);
       trackingFormData.append("email", formData.email);
       trackingFormData.append("phone", formData.phone);
@@ -152,6 +154,7 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
       trackingFormData.append("designation", formData.designation);
       trackingFormData.append("course", formData.course);
       trackingFormData.append("workExperience", formData.workExperience);
+      trackingFormData.append("eventId", eventId);
       await trackFormSubmission(trackingFormData);
 
       toast.success(" enrollment submitted successfully!");

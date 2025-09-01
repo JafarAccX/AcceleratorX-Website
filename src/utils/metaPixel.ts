@@ -1,4 +1,28 @@
 // src/utils/metaPixel.ts
+import { trackingService } from './unifiedTracking';
+
+interface ConversionAPIPayload {
+  data: Array<{
+    event_name: string;
+    event_time: number;
+    action_source?: string;
+    event_id?: string;
+    user_data?: {
+      em?: string;
+      ph?: string;
+      fn?: string;
+      client_user_agent?: string;
+      fbc?: string;
+      fbp?: string;
+      external_id?: string[];
+    };
+    custom_data?: {
+      [key: string]: string | number | undefined;
+    };
+  }>;
+  access_token: string;
+}
+
 const META_CONVERSION_API_URL = "https://graph.facebook.com/v17.0";
 
 const DEFAULT_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
@@ -107,10 +131,15 @@ export const trackFormSubmission = async (
       hashData(name.split(" ")[0]),
     ]);
 
-    // Get event_id from frontend (window.__META_EVENT_ID__) for deduplication
-    const eventId = (window as any).__META_EVENT_ID__;
+    // Get event_id from unified tracking service for deduplication
+    const eventId = trackingService.getStoredEventId();
 
-    console.log("MetaPixel - Event ID:", eventId);
+    if (!eventId) {
+      console.warn('No event ID found for server-side tracking');
+      return;
+    }
+
+    console.log("Server-side tracking - Event ID:", eventId);
     const payload = {
       data: [
         {
@@ -131,7 +160,7 @@ export const trackFormSubmission = async (
           custom_data: {
             content_name: "registration_form",
             status: "complete",
-            course: formData.course,
+            course: formData.get("course") as string,
             browser_id: navigator.userAgent,
             click_id:
               trackingData.fbclid ||
