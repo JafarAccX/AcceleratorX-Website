@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useCourseContext } from "../context/courseContext";
 import toast from "react-hot-toast";
-import { trackUnifiedFormSubmission, createFormSubmissionData, getFormTrackingData } from "../utils/unifiedFormTracking";
 import { useNavigate } from "react-router-dom";
 import { createEnrollment } from "../api/enrollmentApi";
+import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 
 const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
 
@@ -118,7 +118,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
     setIsSubmitting(true);
 
     try {
-      const utmData = getFormTrackingData();
+      const utmData = getUTMDataForDB();
       const submissionData = {
         full_name: formData.name,
         phone_number: formData.phone,
@@ -155,17 +155,16 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
         broucher: broucherData,
       });
 
-      // Use unified tracking for Meta Pixel
-      const trackingData = createFormSubmissionData({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        education: formData.education,
-        designation: formData.designation,
-        course: formData.course || selectedCourse || "",
-        workExperience: formData.workExperience,
-      });
-      await trackUnifiedFormSubmission(trackingData);
+      // Track form submission with Meta Pixel (Conversion API only)
+      const trackingFormData = new FormData();
+      trackingFormData.append("name", formData.name);
+      trackingFormData.append("email", formData.email);
+      trackingFormData.append("phone", formData.phone);
+      trackingFormData.append("education", formData.education);
+      trackingFormData.append("designation", formData.designation);
+      trackingFormData.append("course", formData.course || selectedCourse || "");
+      trackingFormData.append("workExperience", formData.workExperience);
+      await trackFormSubmission(trackingFormData);
 
       toast.success("Enrollment submitted successfully!");
 

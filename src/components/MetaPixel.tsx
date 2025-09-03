@@ -1,13 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useCourseContext } from "../context/courseContext";
-import { 
-  trackPageView, 
-  trackLead, 
-  trackCompleteRegistration, 
-  generateFormEventId,
-  getTrackingDebugInfo 
-} from "../utils/unifiedTracking";
 
 const PIXEL_ID_DEFAULT = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
 const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT as string | undefined;
@@ -15,11 +8,51 @@ const PIXEL_ID_DA_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND a
 
 declare global {
   interface Window {
-    fbq?: (command: string, eventOrId: string, params?: unknown) => void;
+    fbq?: (...args: unknown[]) => void;
     fbqInitialized?: boolean;
     __META_EVENT_ID__?: string;
+    _fbq?: unknown;
   }
 }
+
+// Load Facebook Pixel script if not already loaded
+const loadFacebookPixel = () => {
+  if (window.fbq) return;
+  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (function(f: any, b: any, e: any, v: any, n: any, t: any, s: any) {
+    if (f.fbq) return;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    n = f.fbq = function(...args: any[]) {
+      if (n.callMethod) {
+        n.callMethod(...args);
+      } else {
+        n.queue.push(args);
+      }
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = true;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = true;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', null, null, null);
+};
+
+const initializePixel = (pixelId: string) => {
+  if (!window.fbq) {
+    console.warn('Facebook Pixel not loaded');
+    return;
+  }
+  
+  // Initialize the pixel
+  window.fbq('init', pixelId);
+  console.log(`Meta Pixel initialized: ${pixelId}`);
+};
 
 console.log("Meta Pixel IDs:", {
   default: PIXEL_ID_DEFAULT,
@@ -54,6 +87,7 @@ const DA_ROUTES_SECOND = ["/courses/data-analytics-program-fb-b", "/courses/gene
 export const MetaPixel = () => {
   const location = useLocation();
   const { selectedCourse } = useCourseContext();
+  const initializedPixelsRef = useRef<Set<string>>(new Set());
 
   const isDaRoute = DA_ROUTES.includes(location.pathname);
   const isDaRouteSecond = DA_ROUTES_SECOND.includes(location.pathname);
@@ -67,16 +101,6 @@ export const MetaPixel = () => {
   const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
   const isCompleteRegistrationRoute = COMPLETE_REGISTRATION_ROUTES.includes(location.pathname);
 
-  // Store event_id in ref for CompleteRegistration events
-  const eventIdRef = useRef<string | null>(null);
-  
-  // Generate event ID for registration routes
-  useEffect(() => {
-    if (isCompleteRegistrationRoute && !eventIdRef.current) {
-      eventIdRef.current = generateFormEventId();
-    }
-  }, [isCompleteRegistrationRoute]);
-
   // Debug logging
   console.log("MetaPixel Debug:", {
     route: location.pathname,
@@ -84,9 +108,13 @@ export const MetaPixel = () => {
     isPageViewRoute,
     isLeadRoute,
     isCompleteRegistrationRoute,
-    eventId: eventIdRef.current,
-    trackingDebug: getTrackingDebugInfo()
+    fbqAvailable: !!window.fbq
   });
+
+  useEffect(() => {
+    // Load Facebook Pixel script
+    loadFacebookPixel();
+  }, []);
 
   useEffect(() => {
     if (!pixelId) {
@@ -94,26 +122,37 @@ export const MetaPixel = () => {
       return;
     }
 
-    // Ensure fbq is available
-    if (!window.fbq) {
-      console.warn('Facebook Pixel not loaded');
-      return;
-    }
+    // Wait for fbq to be available
+    const checkFbq = () => {
+      if (!window.fbq) {
+        setTimeout(checkFbq, 100);
+        return;
+      }
 
-    // Track events using unified service
-    if (isPageViewRoute) {
-      trackPageView(pixelId);
-    }
-    
-    if (isLeadRoute) {
-      trackLead(pixelId);
-    }
-    
-    if (isCompleteRegistrationRoute && eventIdRef.current) {
-      trackCompleteRegistration(pixelId, eventIdRef.current, { 
-        event_id: eventIdRef.current 
-      });
-    }
+      // Initialize pixel if not already initialized
+      if (!initializedPixelsRef.current.has(pixelId)) {
+        initializePixel(pixelId);
+        initializedPixelsRef.current.add(pixelId);
+      }
+
+      // Track events
+      if (isPageViewRoute) {
+        console.log(`Tracking PageView for pixel: ${pixelId}`);
+        window.fbq('track', 'PageView');
+      }
+      
+      if (isLeadRoute) {
+        console.log(`Tracking Lead for pixel: ${pixelId}`);
+        window.fbq('track', 'Lead');
+      }
+      
+      if (isCompleteRegistrationRoute) {
+        console.log(`Tracking CompleteRegistration for pixel: ${pixelId}`);
+        window.fbq('track', 'CompleteRegistration');
+      }
+    };
+
+    checkFbq();
 
   }, [pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute, location.pathname]);
 

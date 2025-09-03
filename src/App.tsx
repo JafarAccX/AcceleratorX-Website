@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Loader from "./components/Loader";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
-import { Toaster } from "react-hot-toast";
-import { UnifiedMetaPixel } from "./components/UnifiedMetaPixel";
+import { Toaster } from "react-hot-toast"; 
 import ScrollToTop from "./components/ScrollToTop";
 import { MetaTrackingDebugger } from "./components/MetaTrackingDebugger";
 
@@ -21,6 +20,7 @@ const SignInForm = lazy(() => import("./components/auth/SignInForm").then(m => (
 import { UserProvider, useUser } from "./context/UserContext";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MetaPixel } from "./components/MetaPixel";
 const JobApplication = lazy(() => import("./pages/jobs/JobApplication"));
 const JobDetails = lazy(() => import("./pages/jobs/JobDetails"));
 const JobList = lazy(() => import("./pages/jobs/JobList"));
@@ -34,19 +34,14 @@ function AppContent() {
   const { setSelectedCourse } = useCourseContext();
   const { isLoading } = useUser();
 
-  // Remove the old trackViewContent call as it's now handled by UnifiedMetaPixel
-  // useEffect(() => {
-  //   trackViewContent();
-  // }, []);
-
   if (isLoading) {
     return <Loader />;
   }
 
   return (
     <Router basename="/">
-      <ScrollToTop />
-      <UnifiedMetaPixel />
+      <ScrollToTop /> 
+      <MetaPixel />
       <Toaster
         position="bottom-right"
         toastOptions={{
