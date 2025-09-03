@@ -21,6 +21,12 @@ declare global {
   }
 }
 
+console.log("Meta Pixel IDs:", {
+  default: PIXEL_ID_DEFAULT,
+  da: PIXEL_ID_DA,
+  daSecond: PIXEL_ID_DA_SECOND
+});
+
 const PAGE_VIEW_ROUTES = [
   "/courses/product-management-program-fb",
   "/courses/data-analytics-program-fb",
