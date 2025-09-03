@@ -4,8 +4,7 @@ import { MessageCircle, X, Send, MessageCircleHeart } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import { useLocation } from "react-router-dom";
-import { trackFormSubmission } from "../utils/metaPixel";
-import { generateFormEventId } from "../utils/unifiedTracking";
+import { trackUnifiedFormSubmission, createFormSubmissionData } from "../utils/unifiedFormTracking";
 import { shouldShowChatWidget } from "../utils/chatWidgetUtils";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -74,16 +73,16 @@ export default function ChatWidget() {
 
       if (error) throw error;
 
-      // Track form submission with Meta Pixel after successful submission
-      const eventId = generateFormEventId();
-      const trackingFormData = new FormData();
-      trackingFormData.append("name", formData.name);
-      trackingFormData.append("email", formData.email);  
-      trackingFormData.append("phone", formData.phone);
-      trackingFormData.append("course", isHomePage ? formData.course : selectedCourse || "Unknown");
-      trackingFormData.append("eventId", eventId);
+      // Track form submission with unified Meta Pixel tracking
+      const submissionData = createFormSubmissionData({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        course: isHomePage ? formData.course : selectedCourse || "Unknown"
+      });
       
-      trackFormSubmission(trackingFormData);
+      // Use unified tracking instead of old method
+      await trackUnifiedFormSubmission(submissionData);
 
       setIsSubmitted(true);
       setTimeout(() => {

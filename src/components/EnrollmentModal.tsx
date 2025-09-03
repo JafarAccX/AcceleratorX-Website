@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useCourseContext } from "../context/courseContext";
 import toast from "react-hot-toast";
-import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
-import { generateFormEventId } from "../utils/unifiedTracking";
+import { trackUnifiedFormSubmission, createFormSubmissionData, getFormTrackingData } from "../utils/unifiedFormTracking";
 import { useNavigate } from "react-router-dom";
 import { createEnrollment } from "../api/enrollmentApi";
 
@@ -119,7 +118,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
     setIsSubmitting(true);
 
     try {
-      const utmData = getUTMDataForDB();
+      const utmData = getFormTrackingData();
       const submissionData = {
         full_name: formData.name,
         phone_number: formData.phone,
@@ -156,19 +155,17 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
         broucher: broucherData,
       });
 
-      // Generate consistent event ID for both client and server tracking
-      const eventId = generateFormEventId();
-
-      const trackingFormData = new FormData();
-      trackingFormData.append("name", formData.name);
-      trackingFormData.append("email", formData.email);
-      trackingFormData.append("phone", formData.phone);
-      trackingFormData.append("education", formData.education);
-      trackingFormData.append("designation", formData.designation);
-      trackingFormData.append("course", formData.course || selectedCourse || "");
-      trackingFormData.append("workExperience", formData.workExperience);
-      trackingFormData.append("eventId", eventId);
-      await trackFormSubmission(trackingFormData);
+      // Use unified tracking for Meta Pixel
+      const trackingData = createFormSubmissionData({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        education: formData.education,
+        designation: formData.designation,
+        course: formData.course || selectedCourse || "",
+        workExperience: formData.workExperience,
+      });
+      await trackUnifiedFormSubmission(trackingData);
 
       toast.success("Enrollment submitted successfully!");
 

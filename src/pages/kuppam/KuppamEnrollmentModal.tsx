@@ -2,8 +2,7 @@ import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { trackFormSubmission, getUTMDataForDB } from "../../utils/metaPixel";
-import { generateFormEventId } from "../../utils/unifiedTracking";
+import { trackUnifiedFormSubmission, createFormSubmissionData, getFormTrackingData } from "../../utils/unifiedFormTracking";
 import { useNavigate } from "react-router-dom";
 import { createEnrollment } from "../../api/enrollmentApi";
 
@@ -101,7 +100,7 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
     setIsSubmitting(true);
 
     try {
-      const utmData = getUTMDataForDB();
+      const utmData = getFormTrackingData();
       const submissionData = {
         full_name: formData.name,
         phone_number: formData.phone,
@@ -145,17 +144,17 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
         broucher: selectedBroucher,
       });
 
-      const trackingFormData = new FormData();
-      const eventId = generateFormEventId();
-      trackingFormData.append("name", formData.name);
-      trackingFormData.append("email", formData.email);
-      trackingFormData.append("phone", formData.phone);
-      trackingFormData.append("education", formData.education);
-      trackingFormData.append("designation", formData.designation);
-      trackingFormData.append("course", formData.course);
-      trackingFormData.append("workExperience", formData.workExperience);
-      trackingFormData.append("eventId", eventId);
-      await trackFormSubmission(trackingFormData);
+      // Use unified tracking for Meta Pixel
+      const trackingData = createFormSubmissionData({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        education: formData.education,
+        designation: formData.designation,
+        course: formData.course,
+        workExperience: formData.workExperience,
+      });
+      await trackUnifiedFormSubmission(trackingData);
 
       toast.success(" enrollment submitted successfully!");
 

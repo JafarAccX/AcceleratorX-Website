@@ -1,11 +1,10 @@
-import { Suspense, useEffect, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Loader from "./components/Loader";
 import { CourseProvider, useCourseContext } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
-import { MetaPixel } from "./components/MetaPixel";
-import { trackViewContent } from "./utils/metaPixel";
+import { UnifiedMetaPixel } from "./components/UnifiedMetaPixel";
 import ScrollToTop from "./components/ScrollToTop";
 import { MetaTrackingDebugger } from "./components/MetaTrackingDebugger";
 
@@ -35,9 +34,10 @@ function AppContent() {
   const { setSelectedCourse } = useCourseContext();
   const { isLoading } = useUser();
 
-  useEffect(() => {
-    trackViewContent();
-  }, []);
+  // Remove the old trackViewContent call as it's now handled by UnifiedMetaPixel
+  // useEffect(() => {
+  //   trackViewContent();
+  // }, []);
 
   if (isLoading) {
     return <Loader />;
@@ -46,7 +46,7 @@ function AppContent() {
   return (
     <Router basename="/">
       <ScrollToTop />
-      <MetaPixel />
+      <UnifiedMetaPixel />
       <Toaster
         position="bottom-right"
         toastOptions={{
