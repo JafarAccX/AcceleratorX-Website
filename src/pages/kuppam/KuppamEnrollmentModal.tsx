@@ -1,10 +1,10 @@
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import toast from "react-hot-toast";
-import { trackUnifiedFormSubmission, createFormSubmissionData, getFormTrackingData } from "../../utils/unifiedFormTracking";
+import toast from "react-hot-toast"; 
 import { useNavigate } from "react-router-dom";
 import { createEnrollment } from "../../api/enrollmentApi";
+import { getUTMDataForDB, trackFormSubmission } from "../../utils/metaPixel";
 
 const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
 
@@ -100,7 +100,7 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
     setIsSubmitting(true);
 
     try {
-      const utmData = getFormTrackingData();
+      const utmData = getUTMDataForDB();
       const submissionData = {
         full_name: formData.name,
         phone_number: formData.phone,
@@ -144,17 +144,17 @@ export default function KuppamEnrollmentModal({ isOpen, onClose, onSubmit }: Kup
         broucher: selectedBroucher,
       });
 
-      // Use unified tracking for Meta Pixel
-      const trackingData = createFormSubmissionData({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        education: formData.education,
-        designation: formData.designation,
-        course: formData.course,
-        workExperience: formData.workExperience,
-      });
-      await trackUnifiedFormSubmission(trackingData);
+      // Track form submission with Meta Pixel
+      const trackingFormData = new FormData();
+      trackingFormData.append('name', formData.name);
+      trackingFormData.append('email', formData.email);
+      trackingFormData.append('phone', formData.phone);
+      trackingFormData.append('education', formData.education);
+      trackingFormData.append('designation', formData.designation);
+      trackingFormData.append('course', formData.course);
+      trackingFormData.append('workExperience', formData.workExperience);
+      
+      await trackFormSubmission(trackingFormData);
 
       toast.success(" enrollment submitted successfully!");
 
