@@ -2270,7 +2270,7 @@ const RegistrationSuccess = lazy(() => import("./assets/registration-successful-
 const HomePage = lazy(() => import("./assets/HomePage-Dv8g1_kB.js"));
 const AboutPage = lazy(() => import("./assets/AboutPage-CF6n_aQO.js"));
 const Login = lazy(() => import("./assets/Login-Cjvjn9Ry.js"));
-const Privacy = lazy(() => import("./assets/Privacy-B8_2pljG.js"));
+const Privacy = lazy(() => import("./assets/Privacy-ChfnCDxr.js"));
 const Terms = lazy(() => import("./assets/Terms-B7ZIFCQ7.js"));
 const Refund = lazy(() => import("./assets/Refund-UBIn7owS.js"));
 const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-Czlidv2g.js"));
