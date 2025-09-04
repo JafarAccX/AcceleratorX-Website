@@ -193,7 +193,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black/70 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
         >
-          <div className="relative w-full max-w-md mx-auto mt-auto md:mt-0 bg-gray-800/95 rounded-xl shadow-xl overflow-y-auto md:my-6 ">
+          <div className="relative w-full max-w-md mx-auto mt-10 md:mt-0 bg-gray-800/95 rounded-xl shadow-xl overflow-y-auto md:my-6 ">
             <div className="h-[85vh] md:h-auto flex flex-col">
               <div className="sticky top-0 bg-gray-800/95 px-4 py-3 border-b border-gray-700 z-10">
                 <button
