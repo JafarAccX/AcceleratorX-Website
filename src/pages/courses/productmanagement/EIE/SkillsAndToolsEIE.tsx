@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import {  AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Skill, Tool } from "../../../../utils/types";
 import { tools, skills } from "../../../../utils/constants";
@@ -20,15 +20,8 @@ interface ToolCardProps {
 }
 
 const SkillCard = ({ skill, index }: SkillCardProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{
-      duration: 0.5,
-      delay: index * 0.1,
-      ease: "easeOut",
-    }}
-    viewport={{ once: true }}
+  <div
+    
     className="group"
   >
     <div className="p-6 bg-[#0F0F0F] border border-white/10 rounded-2xl backdrop-blur-sm transition-all duration-300 hover:border-[#5CB338]/50 hover:shadow-lg hover:shadow-[#5CB338]/5">
@@ -46,37 +39,29 @@ const SkillCard = ({ skill, index }: SkillCardProps) => (
         </div>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 const TabButton = ({ active, children, onClick }: TabButtonProps) => (
-  <motion.button
+  <button
     onClick={onClick}
     className={`px-6 py-2.5 rounded-xl text-sm border border-[#5CB338] font-medium transition-all duration-300 ${
       active
         ? "bg-[#5CB338] text-black shadow-lg  shadow-[#5CB338]/20"
         : "bg-white/5 text-black"
     }`}
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
+     
   >
     {children}
-  </motion.button>
+  </button>
 );
 
 const ToolCard = ({ tool, index }: ToolCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: "easeOut",
-      }}
-      viewport={{ once: true }}
+    <div
+      
       className="relative group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -97,20 +82,17 @@ const ToolCard = ({ tool, index }: ToolCardProps) => {
           </h3>
           <AnimatePresence>
             {isHovered && (
-              <motion.p
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.2 }}
+              <p
+                
                 className="text-gray-400 text-sm text-center"
               >
                 {tool.description}
-              </motion.p>
+              </p>
             )}
           </AnimatePresence>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -146,31 +128,24 @@ export default function SkillsAndToolsEIE() {
 
         <AnimatePresence mode="wait">
           {activeTab === "skills" ? (
-            <motion.div
+            <div
               key="skills"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+             
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               {skills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
-            </motion.div>
+            </div>
           ) : (
-            <motion.div
-              key="tools"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+            <div
+              key="tools" 
               className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
             >
               {tools.map((tool, index) => (
                 <ToolCard key={tool.name} tool={tool} index={index} />
               ))}
-            </motion.div>
+            </div>
           )}
         </AnimatePresence>
       </div>

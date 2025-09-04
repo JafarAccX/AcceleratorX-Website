@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react"; 
 import { Check } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 
@@ -45,10 +44,8 @@ export default function PricingEIE() {
 
         {/* Pricing Card */}
         <div className="max-w-md mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+          <div
+            
             className={`relative rounded-3xl p-8 ${"bg-[#1a365d]"}`}
           >
             {/* Header */}
@@ -62,7 +59,7 @@ export default function PricingEIE() {
                   ₹{pricingData.price} text-gray-400 text-sm line-through 
                 </span> */}
                 <div className="text-center">
-                  <span className="text-4xl font-bold text-white">₹{pricingData.mrp}</span>
+                  <span className="text-4xl font-bold flex gap-2 items-center justify-center text-white">₹{pricingData.mrp}<span className="block text-base text-gray-400 mt-1">+ GST</span></span>
                 </div>
               </div>
             </div>
@@ -97,7 +94,7 @@ export default function PricingEIE() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

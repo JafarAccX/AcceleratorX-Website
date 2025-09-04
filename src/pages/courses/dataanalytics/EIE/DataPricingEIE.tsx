@@ -61,8 +61,10 @@ export default function DataPricingEIE() {
 
               <div className="flex flex-col items-center gap-2 mb-2">
                 <div className="text-center">
-                  <span className="text-4xl font-bold text-white">₹{pricingData.currentPrice}</span>
+                  <span className="text-4xl flex gap-2 items-center font-bold text-white">₹{pricingData.currentPrice} <span className="block text-base text-gray-400 mt-1">+ GST</span> </span>
                 </div>
+
+                 
               </div>
             </div>
 

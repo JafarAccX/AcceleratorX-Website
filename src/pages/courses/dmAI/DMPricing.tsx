@@ -12,23 +12,23 @@ const DMPricing = () => {
   });
 
   const plans = [
-    {
-      name: "Early Bird",
-      price: 34999,
-      description: "Limited time offer",
-      features: [
-        "Full Course Access",
-        "AI Tools Access",
-        "Live Sessions",
-        "Project Reviews",
-        "Certification",
-        "Community Access",
-        "Priority Placement Support",
-        "Internship Opportunities",
-        "Hackathons & Competitions",
-      ],
-      highlighted: true,
-    },
+    // {
+    //   name: "Early Bird",
+    //   price: 34999,
+    //   description: "Limited time offer",
+    //   features: [
+    //     "Full Course Access",
+    //     "AI Tools Access",
+    //     "Live Sessions",
+    //     "Project Reviews",
+    //     "Certification",
+    //     "Community Access",
+    //     "Priority Placement Support",
+    //     "Internship Opportunities",
+    //     "Hackathons & Competitions",
+    //   ],
+    //   highlighted: true,
+    // },
     {
       name: "Regular",
       price: 44999,
@@ -78,8 +78,8 @@ const DMPricing = () => {
                   <p className="text-neutral-100/70 font-mono mb-4">
                     {plan.description}
                   </p>
-                  <div className="text-4xl font-mono font-bold text-neon-pink mb-2">
-                    ₹{plan.price}
+                  <div className="text-4xl flex gap-2 items-center  font-mono font-bold text-neon-pink mb-2">
+                    ₹{plan.price} <span className="block text-base text-gray-400 mt-1">+ GST</span> 
                   </div>
                 </div>
 

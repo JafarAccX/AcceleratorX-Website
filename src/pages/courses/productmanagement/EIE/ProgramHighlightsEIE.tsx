@@ -1,9 +1,5 @@
-import React, { useState } from "react";
-import {
-  Sparkles,
-  Target,
-  Users,
-  Code,
+import  { useState } from "react";
+import { 
   Lightbulb,
   Rocket,
   Workflow,
@@ -44,8 +40,7 @@ const features = [
 const sections = {
   highlights: {
     title: "Key Highlights",
-    content: [
-      "EIE Malta Certificate",
+    content: [ 
       "PM Toolbox & Templates",
       "Assignment Feedback",
       "Build Your Dream Product (BYDP)",
@@ -159,12 +154,10 @@ export default function ProgramHighlightsEIE() {
   );
 
   return (
-    <section id={activeSection} className="py-24 bg-white text-white">
+    <section id={activeSection} className="py-24 bg-gray-700/10 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <h2 className="text-2xl font-medium text-black mb-4">
-            Key Highlights Of <span className="text-black font-semibold">EIE European Business School Product Management Program</span>
-          </h2>
+           
           <div className="flex flex-col gap-2">
             <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338]">
               What does this{" "}

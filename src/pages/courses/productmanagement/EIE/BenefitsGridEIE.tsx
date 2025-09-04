@@ -1,12 +1,11 @@
-import React from 'react';
+ 
 import { motion } from 'framer-motion';
 import { 
   Trophy, 
   Users, 
   Target, 
   Briefcase,
-  BookOpen,
-  LineChart,
+  BookOpen, 
   Network,
   Star,
   Brain,
@@ -93,12 +92,8 @@ export default function BenefitsGridEIE() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
               className="group relative bg-[#0F0F0F] rounded-xl p-6 border border-white/10 hover:border-[#5CB338]/50 transition-all duration-300"
             >
               {/* Glow effect */}
@@ -125,7 +120,7 @@ export default function BenefitsGridEIE() {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

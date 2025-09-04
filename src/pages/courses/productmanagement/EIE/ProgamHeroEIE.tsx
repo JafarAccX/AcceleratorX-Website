@@ -78,22 +78,17 @@ export default function ProgramHeroEIE() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <div
+             
               className="bg-[#5CB338]/20 backdrop-blur-sm px-4 py-2 rounded-md inline-block mb-6 border border-[#5CB338]"
             >
               <span className="text-[#fff] font-semibold text-sm sm:text-base">
                 #1 IN EXECUTIVE EDUCATION
               </span>
-            </motion.div>
+            </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               Professional Certificate in
@@ -122,17 +117,15 @@ export default function ProgramHeroEIE() {
               </div>
             </div>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 md:gap-6 items-start">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
+                 
                 className="w-full sm:w-auto bg-[#5CB338] text-white font-semibold px-8 md:px-10 py-3 rounded-md hover:bg-[#FFD700] transition flex items-center justify-center"
                 onClick={() => setIsModalOpen(true)}
               >
                 Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              </button>
+              <button
+                
                 className="w-full sm:w-auto border-2 border-[#5CB338] text-[#5CB338] px-8 md:px-10 py-3 rounded-md hover:bg-[#5CB338]/10 transition font-semibold"
                 onClick={() => {
                   setIsModalOpen(true);
@@ -140,7 +133,7 @@ export default function ProgramHeroEIE() {
                 }}
               >
                 Download Syllabus
-              </motion.button>
+              </button>
             </div>
             <div className="mt-8 flex items-center gap-4 text-white">
               <Phone className="h-5 w-5 text-[#5CB338]" />
@@ -150,12 +143,10 @@ export default function ProgramHeroEIE() {
               <Users className="h-5 w-5 text-[#5CB338]" />
               <span>50+ people have already enrolled in the last 2 Months</span>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <div
+             
             className="relative mt-8 lg:mt-0"
           >
             <div className="relative rounded-lg overflow-hidden">
@@ -174,7 +165,7 @@ export default function ProgramHeroEIE() {
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

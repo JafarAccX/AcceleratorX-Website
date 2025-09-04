@@ -59,8 +59,8 @@ const GENPricing = () => {
 
                   <div className="flex items-baseline justify-center gap-1 mb-2">
                     <span className="text-3xl font-bold text-white">₹</span>
-                    <span className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">
-                      {plan.currentPrice}
+                    <span className="text-4xl flex gap-2 items-center font-bold bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">
+                      {plan.currentPrice} <span className="block text-base text-gray-400 mt-1">+ GST</span>
                     </span>
                   </div>
                 </div>

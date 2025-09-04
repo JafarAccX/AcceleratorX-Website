@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+
 import { Users, Linkedin } from "lucide-react";
 
 const mentors = [
@@ -39,24 +38,20 @@ export default function DataMentorsEIE() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <div
+           
           className="text-center mb-8"
         >
           {/* Icon Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+          <div
+ 
             className="relative inline-block mb-4"
           >
             <div className="absolute -inset-4 bg-[#96E072]/20 rounded-3xl blur-xl"></div>
             <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#96E072]/20 to-[#96E072]/5 border border-[#96E072]/20">
               <Users className="w-10 h-10 text-[#96E072]" />
             </div>
-          </motion.div>
+          </div>
 
           {/* Title Section */}
           <div className="relative">
@@ -69,17 +64,14 @@ export default function DataMentorsEIE() {
           <p className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto backdrop-blur-sm">
             Connect with seasoned professionals who have transformed careers
           </p>
-        </motion.div>
+        </div>
 
         <div className="flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {mentors.map((mentor, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                 
                 className="group relative"
               >
                 {/* Card Container */}
@@ -124,20 +116,18 @@ export default function DataMentorsEIE() {
                     </div>
 
                     {/* LinkedIn Button */}
-                    <motion.a
+                    <a
                       href={mentor.linkedin}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
                       className="mt-6 flex items-center justify-center w-full bg-[#1A5D1A] text-white py-3 rounded-xl font-medium hover:bg-[#1A5D1A]/90 transition-colors duration-200"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
                     >
                       <Linkedin className="w-5 h-5 mr-2" />
                       Connect on LinkedIn
-                    </motion.a>
+                    </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
