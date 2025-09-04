@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "acceleratorx-ssr",
+      "script": "server.js",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 3000
+      },
+      "error_file": "/var/log/pm2/acceleratorx-error.log",
+      "out_file": "/var/log/pm2/acceleratorx-out.log",
+      "log_file": "/var/log/pm2/acceleratorx-combined.log",
+      "time": true
+    }
+  ]
+}

@@ -96,8 +96,9 @@ async function createServer() {
   return app
 }
 
-createServer().then(app =>
-  app.listen(5173, () => {
-    console.log('Server running at http://localhost:5173')
+createServer().then(app => {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`)
   })
-)
+})
