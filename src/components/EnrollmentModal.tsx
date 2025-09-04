@@ -213,10 +213,10 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
               </div>
 
               <div className=" shadow-2xl p-6 w-full border border-gray-800/30" id={"course-form"}>
-                <form onSubmit={handleSubmit} className="p-4 space-y-3">
+                <form onSubmit={handleSubmit} className="p-4 space-y-3 flex flex-col gap-4">
                   <div className="space-y-3">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                    <div className="flex gap-2 items-center ">
+                      <label htmlFor="name" className="block min-w-[100px] text-sm font-medium text-gray-300 mb-1">
                         Full Name
                       </label>
                       <input
@@ -230,8 +230,8 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
                       />
                     </div>
 
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                    <div className="flex gap-2 items-center">
+                      <label htmlFor="email" className="block min-w-[100px] text-sm font-medium text-gray-300 mb-1">
                         Email Address
                       </label>
                       <input
@@ -245,12 +245,12 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
                       />
                     </div>
 
-                    <div>
+                    <div className="flex gap-2 items-center">
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
                         Phone Number
                       </label>
                       <div className="flex">
-                        <span className=" bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm">
+                        <span className=" bg-transparent text-white px-2 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm">
                           +91
                         </span>
                         <input
@@ -267,8 +267,8 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
                         />
                       </div>
                     </div>
-                    <div>
-                      <label htmlFor="designation" className="block text-sm font-medium text-gray-300 mb-1">
+                    <div className="flex gap-2 items-center">
+                      <label htmlFor="designation" className="block min-w-[100px] text-sm font-medium text-gray-300 mb-1">
                         Designation
                       </label>
                       <input
