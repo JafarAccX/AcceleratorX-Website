@@ -1,12 +1,21 @@
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 // import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 import WSFormFree from "../workshopGENB/WSFormFree";
+import { SEO } from "../../../components/SEO";
 import type React from "react"
 import StatsSection from "./StatsSection";
 
 const CryptoHeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden " >
+    <>
+      <SEO 
+        title="Free Data Analytics Workshop - Build AI Agents | AcceleratorX"
+        description="Join our free hands-on Data Analytics workshop on September 6th, 2025. Learn to build AI agents using no-code tools like LangChain and GPT. Beginner to intermediate level."
+        ogTitle="Free Data Analytics Workshop - Build AI Agents"
+        ogDescription="Master Data Analytics and AI in our free workshop. Learn practical skills with real-world projects."
+        ogImage="/Data-Analytics.webp"
+      />
+      <section className="relative min-h-screen overflow-hidden " >
        {/* Logo Section */}
       <div className="absolute top-0 left-0 w-full z-20">
         <div className="container mx-auto px-4 py-6">
@@ -164,6 +173,7 @@ const CryptoHeroSection: React.FC = () => {
 
 
     </section>
+    </>
   )
 }
 

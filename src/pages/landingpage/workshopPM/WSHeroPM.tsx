@@ -4,6 +4,7 @@ import WSFormFree from "../workshopGENB/WSFormFree";
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
 import { FaCalendarAlt, FaClock, FaLevelUpAlt, FaUserGraduate } from "react-icons/fa";
+import { SEO } from "../../../components/SEO";
 
 const WSHeroPM = () => {
   const scrollToForm = () => {
@@ -35,7 +36,15 @@ const WSHeroPM = () => {
   };
 
   return (
-    <div className="relative bg-[#0A0F1D] min-h-screen overflow-x-hidden">
+    <>
+      <SEO 
+        title="Free Product Management Workshop - Idea to Product Live | AcceleratorX"
+        description="Join our free Product Management workshop on September 7th, 2025. Learn frameworks to turn ideas into products. Perfect for founders, PMs, designers, and tech leads."
+        ogTitle="Free Product Management Workshop - Idea to Product Live"
+        ogDescription="Master Product Management in our free workshop. Learn practical frameworks for building successful products."
+        ogImage="/pmbg.webp"
+      />
+      <div className="relative bg-[#0A0F1D] min-h-screen overflow-x-hidden">
       {/* Logo Section */}
       <div className="absolute top-0 left-0 w-full z-20">
         <div className="container mx-auto px-4 py-6">
@@ -234,6 +243,7 @@ const WSHeroPM = () => {
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/20 via-violet-500/10 to-transparent rounded-bl-full pointer-events-none blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-violet-500/20 via-indigo-500/10 to-transparent rounded-tr-full pointer-events-none blur-3xl"></div>
     </div>
+    </>
   );
 };
 

@@ -1,10 +1,23 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+const container = document.getElementById("root")!;
+
+if (container.innerHTML) {
+  // SSR mode: hydrate the server-rendered content
+  hydrateRoot(
+    container,
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+} else {
+  // Client-only mode: render normally
+  createRoot(container).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+}
