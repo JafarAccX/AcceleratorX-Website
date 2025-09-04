@@ -42,9 +42,16 @@ async function createServer() {
       // Import and use the metadata function to get page-specific data
       let pageMetadata;
       try {
-        const metadataModule = await vite.ssrLoadModule('/src/utils/metadata.ts');
+        let metadataModule;
+        if (!isProduction && vite) {
+          metadataModule = await vite.ssrLoadModule('/src/utils/metadata.ts');
+        } else {
+          metadataModule = await import('./dist/server/utils/metadata.js');
+        }
         pageMetadata = metadataModule.getPageMetadata(url);
+        console.log(`SSR: Loading metadata for URL: ${url}`, pageMetadata);
       } catch (e) {
+        console.error('Error loading metadata:', e);
         // Fallback metadata if import fails
         pageMetadata = {
           title: "AcceleratorX | Learn Product, AI & Data Skills",
@@ -56,28 +63,32 @@ async function createServer() {
         };
       }
       
-      // Inject meta tags into template
-      const metaTags = `
-        <meta name="description" content="${pageMetadata.description}" />
-        <link rel="canonical" href="${pageMetadata.canonicalUrl}" />
-        <meta property="og:title" content="${pageMetadata.ogTitle}" />
-        <meta property="og:description" content="${pageMetadata.ogDescription}" />
-        <meta property="og:image" content="https://acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />
-        <meta property="og:url" content="${pageMetadata.canonicalUrl}" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="${pageMetadata.ogTitle}" />
-        <meta name="twitter:description" content="${pageMetadata.ogDescription}" />
-        <meta name="twitter:image" content="https://acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />
-      `
+      // Replace the existing meta tags with page-specific ones
+      let html = template
+        // Replace title
+        .replace(/<title>.*?<\/title>/, `<title>${pageMetadata.title}</title>`)
+        // Replace meta name="title"
+        .replace(/<meta name="title"[^>]*>/g, `<meta name="title" content="${pageMetadata.ogTitle}" />`)
+        // Replace meta name="description"
+        .replace(/<meta name="description"[^>]*>/g, `<meta name="description" content="${pageMetadata.description}" />`)
+        // Replace Open Graph tags
+        .replace(/<meta property="og:title"[^>]*>/g, `<meta property="og:title" content="${pageMetadata.ogTitle}" />`)
+        .replace(/<meta property="og:description"[^>]*>/g, `<meta property="og:description" content="${pageMetadata.ogDescription}" />`)
+        .replace(/<meta property="og:url"[^>]*>/g, `<meta property="og:url" content="${pageMetadata.canonicalUrl}" />`)
+        .replace(/<meta property="og:image"[^>]*>/g, `<meta property="og:image" content="https://acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />`)
+        // Replace Twitter tags
+        .replace(/<meta property="twitter:title"[^>]*>/g, `<meta property="twitter:title" content="${pageMetadata.ogTitle}" />`)
+        .replace(/<meta property="twitter:description"[^>]*>/g, `<meta property="twitter:description" content="${pageMetadata.ogDescription}" />`)
+        .replace(/<meta property="twitter:url"[^>]*>/g, `<meta property="twitter:url" content="${pageMetadata.canonicalUrl}" />`)
+        .replace(/<meta property="twitter:image"[^>]*>/g, `<meta property="twitter:image" content="https://acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />`)
       
-      // Replace the title and add meta tags
-      let html = template.replace(/<title>.*?<\/title>/, `<title>${pageMetadata.title}</title>`)
-      
-      // Add meta tags before </head>
-      const headEndIndex = html.indexOf('</head>')
-      if (headEndIndex !== -1) {
-        html = html.slice(0, headEndIndex) + metaTags + html.slice(headEndIndex)
+      // Add canonical link after viewport meta tag
+      const viewportIndex = html.indexOf('<meta name="viewport"');
+      if (viewportIndex !== -1) {
+        const insertAfter = html.indexOf('>', viewportIndex) + 1;
+        html = html.slice(0, insertAfter) + 
+               `\n    <link rel="canonical" href="${pageMetadata.canonicalUrl}" />` + 
+               html.slice(insertAfter);
       }
       
       // Replace the SSR outlet
