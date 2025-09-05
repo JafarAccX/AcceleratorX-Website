@@ -65,7 +65,7 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "AI Agent building Bootcamp (2 HR) (For Mentor ref. Build 1 Agent Using Lyzr & other one Langchain, crewAI /n8n)",
+  title: "AI Agent building Bootcamp (2 HR)",
   link: "https://zoom.us/meeting/register/FnvYydkmTrOc1dowwPAE8A",
   meetingId: "FnvYydkmTrOc1dowwPAE8A",
   time: "10 Sep, 2025 09:00 PM India",
