@@ -83,12 +83,6 @@ const N8nAutomationEntry = () => {
                 🎯 Secure Your Spot
               </button>
               
-              <button
-                onClick={() => window.location.href = 'mailto:info@acceleratorx.org'}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-purple-400 border-2 border-purple-400 hover:bg-purple-400 hover:text-white rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black active:scale-95"
-              >
-                📧 Contact Us
-              </button>
             </div>
             
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">

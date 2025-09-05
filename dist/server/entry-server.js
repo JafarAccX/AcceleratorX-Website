@@ -1765,7 +1765,7 @@ function Navbar() {
     return /* @__PURE__ */ jsx(
       "header",
       {
-        className: `fixed top-4 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"}`,
+        className: `fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"}`,
         children: /* @__PURE__ */ jsxs("div", { className: "container mx-auto px-4", children: [
           /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between h-20", children: [
             /* @__PURE__ */ jsx("div", { className: "text-2xl mt-2 font-bold text-white", children: /* @__PURE__ */ jsx(Link, { to: "https://acceleratorx.org/", className: `${hoverTransition} hover:opacity-90`, children: /* @__PURE__ */ jsx("img", { src: "/xsat-bg.webp", alt: "xsat", className: "w-auto h-10" }) }) }),
@@ -1817,7 +1817,7 @@ function Navbar() {
   return /* @__PURE__ */ jsxs(
     "nav",
     {
-      className: `fixed w-full top-6 z-[9999] backdrop-blur-md bg-black/95 border-b border-white/10 ${menuTransition}`,
+      className: `fixed w-full z-[9999] backdrop-blur-md bg-black/95 border-b border-white/10 ${menuTransition}`,
       children: [
         /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between h-16", children: [
           /* @__PURE__ */ jsx(Link, { to: "/", className: `flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`, children: /* @__PURE__ */ jsx("img", { src: companyLogo, alt: "company logo", className: "w-auto h-16 object-contain" }) }),
@@ -2832,7 +2832,7 @@ const DataAnalyticsPage = lazy(() => import("./assets/index-BCQrd_Qd.js"));
 const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-De0RZupa.js")
 );
-const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-h6ae1Znk.js"));
+const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-jrXANw9y.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
