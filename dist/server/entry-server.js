@@ -2832,7 +2832,7 @@ const DataAnalyticsPage = lazy(() => import("./assets/index-BCQrd_Qd.js"));
 const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-De0RZupa.js")
 );
-const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-5IZfDjqm.js"));
+const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-h6ae1Znk.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
