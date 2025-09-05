@@ -25,6 +25,9 @@ export default function Navbar() {
   const isXSATRoute = location.pathname === "/xsat";
 
   useEffect(() => {
+    // Skip on server-side
+    if (typeof window === 'undefined') return;
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -35,6 +38,9 @@ export default function Navbar() {
 
   const scrollToSection = (href: string) => {
     setIsOpen(false);
+    // Skip on server-side
+    if (typeof window === 'undefined') return;
+    
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

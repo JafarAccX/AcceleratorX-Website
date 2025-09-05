@@ -17,7 +17,8 @@ declare global {
 
 // Load Facebook Pixel script if not already loaded
 const loadFacebookPixel = () => {
-  if (window.fbq) return;
+  // Skip on server-side
+  if (typeof window === 'undefined' || window.fbq) return;
   
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (function(f: any, b: any, e: any, v: any, n: any, t: any, s: any) {
@@ -44,7 +45,8 @@ const loadFacebookPixel = () => {
 };
 
 const initializePixel = (pixelId: string) => {
-  if (!window.fbq) {
+  // Skip on server-side
+  if (typeof window === 'undefined' || !window.fbq) {
     console.warn('Facebook Pixel not loaded');
     return;
   }
@@ -89,6 +91,9 @@ export const MetaPixel = () => {
   const { selectedCourse } = useCourseContext();
   const initializedPixelsRef = useRef<Set<string>>(new Set());
 
+  // Skip all logic on server-side, but keep hooks consistent
+  const isClient = typeof window !== 'undefined';
+
   const isDaRoute = DA_ROUTES.includes(location.pathname);
   const isDaRouteSecond = DA_ROUTES_SECOND.includes(location.pathname);
   const isDaCourse = selectedCourse === "Data Analytics";
@@ -102,23 +107,31 @@ export const MetaPixel = () => {
   const isCompleteRegistrationRoute = COMPLETE_REGISTRATION_ROUTES.includes(location.pathname);
 
   // Debug logging
-  console.log("MetaPixel Debug:", {
-    route: location.pathname,
-    pixelId,
-    isPageViewRoute,
-    isLeadRoute,
-    isCompleteRegistrationRoute,
-    fbqAvailable: !!window.fbq
-  });
+  useEffect(() => {
+    if (!isClient) return;
+    
+    console.log("MetaPixel Debug:", {
+      route: location.pathname,
+      pixelId,
+      isPageViewRoute,
+      isLeadRoute,
+      isCompleteRegistrationRoute,
+      fbqAvailable: !!window.fbq
+    });
+  }, [isClient, location.pathname, pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute]);
 
   useEffect(() => {
+    if (!isClient) return;
+    
     // Load Facebook Pixel script
     loadFacebookPixel();
-  }, []);
+  }, [isClient]);
 
   useEffect(() => {
-    if (!pixelId) {
-      console.warn('No pixel ID available for route:', location.pathname);
+    if (!isClient || !pixelId) {
+      if (!pixelId) {
+        console.warn('No pixel ID available for route:', location.pathname);
+      }
       return;
     }
 
@@ -154,7 +167,7 @@ export const MetaPixel = () => {
 
     checkFbq();
 
-  }, [pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute, location.pathname]);
+  }, [isClient, pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute, location.pathname]);
 
   return null;
 };

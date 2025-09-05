@@ -49,6 +49,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    // Skip initialization on server-side
+    if (typeof window === 'undefined') {
+      setIsLoading(false);
+      return;
+    }
+
     const initAuth = async () => {
       setIsLoading(true);
       try {

@@ -1,40 +1,24 @@
-import { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Loader from "./components/Loader";
-import { CourseProvider, useCourseContext } from "./context/courseContext";
+import { CourseProvider } from "./context/courseContext";
 import { Toaster } from "react-hot-toast"; 
 import ScrollToTop from "./components/ScrollToTop";
 import { MetaTrackingDebugger } from "./components/MetaTrackingDebugger";
-
-import { MainLayout } from "./layouts/MainLayout";
-import { RouteLogic } from "./routes/utils/routeUtils";
-import { mainRoutes } from "./routes/mainRoutes";
-import { workshopRoutes } from "./routes/workshopRoutes";
-import { flyerRoutes } from "./routes/flyerRoutes";
-import { courseRoutes } from "./routes/courseRoutes";
-// Lazy-loaded routes and pages
-const ProfileRoutes = lazy(() => import("./routes/profileRoutes").then(m => ({ default: m.ProfileRoutes })));
-const SignUpForm = lazy(() => import("./components/auth/SignUpForm"));
-const SignInForm = lazy(() => import("./components/auth/SignInForm").then(m => ({ default: m.SignInForm })));
+import { AppRoutes } from "./components/AppRoutes";
 import { UserProvider, useUser } from "./context/UserContext";
-import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MetaPixel } from "./components/MetaPixel";
-const JobApplication = lazy(() => import("./pages/jobs/JobApplication"));
-const JobDetails = lazy(() => import("./pages/jobs/JobDetails"));
-const JobList = lazy(() => import("./pages/jobs/JobList"));
-const MyApplications = lazy(() => import("./pages/jobs/MyApplications"));
-const CertificateDisplayPage = lazy(() => import("./pages/CertificateDisplayPage"));
 
 // Create a client outside of the component to prevent re-creation on re-renders
 const queryClient = new QueryClient();
 
 function AppContent() {
-  const { setSelectedCourse } = useCourseContext();
   const { isLoading } = useUser();
 
-  if (isLoading) {
+  // Only show loader on client-side when actually loading
+  if (typeof window !== 'undefined' && isLoading) {
     return <Loader />;
   }
 
@@ -50,35 +34,7 @@ function AppContent() {
           },
         }}
       />
-
-      <RouteLogic setSelectedCourse={setSelectedCourse} />
-
-      <MainLayout>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            {mainRoutes}
-            {workshopRoutes}
-            {flyerRoutes}
-            {courseRoutes}
-            <Route path="/sign-up" element={<SignUpForm />} />
-            <Route path="/sign-in" element={<SignInForm />} />
-
-            {/* Public Job Routes */}
-            <Route path="/jobs" element={<JobList />} />
-            <Route path="/jobs/:id" element={<JobDetails />} />
-
-            {/* Public Certificate Route */}
-            <Route path="/certificate/:certificateId" element={<CertificateDisplayPage />} />
-
-            {/* Protected Routes */}
-            <Route element={<ProtectedRoute />}>
-              <Route path="/profile/*" element={<ProfileRoutes />} />
-              <Route path="/jobs/:id/apply" element={<JobApplication />} /> 
-              <Route path="/my-applications" element={<MyApplications />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </MainLayout>
+      <AppRoutes />
     </Router>
   );
 }
@@ -89,7 +45,9 @@ function App() {
       <HelmetProvider>
         <CourseProvider>
           <UserProvider>
-            <AppContent />
+            <Suspense fallback={<Loader />}>
+              <AppContent />
+            </Suspense>
             <MetaTrackingDebugger />
           </UserProvider>
         </CourseProvider>

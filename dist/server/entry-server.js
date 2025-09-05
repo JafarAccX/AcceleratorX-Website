@@ -1,18 +1,17 @@
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import * as React from "react";
-import React__default, { Component, createContext, useContext, useState, useEffect, useCallback, useRef, lazy, Suspense, StrictMode } from "react";
+import React__default, { Component, createContext, useContext, useState, useCallback, useEffect, useRef, lazy, Suspense, StrictMode } from "react";
 import { renderToString } from "react-dom/server";
-import { stripBasename, UNSAFE_warning, UNSAFE_invariant, matchPath, joinPaths, createBrowserHistory, Action } from "@remix-run/router";
-import { UNSAFE_NavigationContext, useHref, useNavigate, useLocation, useResolvedPath, createPath, UNSAFE_DataRouterStateContext, UNSAFE_useRouteId, UNSAFE_RouteContext, UNSAFE_DataRouterContext, UNSAFE_logV6DeprecationWarnings, Router, parsePath, Navigate, Route, Outlet, Routes } from "react-router";
-import "react-dom";
+import { stripBasename, UNSAFE_warning, UNSAFE_invariant, matchPath, joinPaths, Action } from "@remix-run/router";
+import { UNSAFE_NavigationContext, useHref, useNavigate, useLocation, useResolvedPath, createPath, UNSAFE_DataRouterStateContext, UNSAFE_useRouteId, UNSAFE_RouteContext, UNSAFE_DataRouterContext, parsePath, Router, Navigate, Route, Outlet, Routes } from "react-router";
 import fastCompare from "react-fast-compare";
 import invariant from "invariant";
 import shallowEqual from "shallowequal";
-import { Toaster } from "react-hot-toast";
-import { User, Briefcase, LogOut, X, Menu, ChevronDown } from "lucide-react";
 import axios from "axios";
-import { PiFilmScriptFill } from "react-icons/pi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { User, Briefcase, LogOut, X, Menu, ChevronDown } from "lucide-react";
+import "react-dom";
+import { PiFilmScriptFill } from "react-icons/pi";
 /**
  * React Router DOM v6.30.1
  *
@@ -166,44 +165,6 @@ if (process.env.NODE_ENV !== "production") {
 const FetchersContext = /* @__PURE__ */ React.createContext(/* @__PURE__ */ new Map());
 if (process.env.NODE_ENV !== "production") {
   FetchersContext.displayName = "Fetchers";
-}
-const START_TRANSITION = "startTransition";
-const startTransitionImpl = React[START_TRANSITION];
-function BrowserRouter(_ref4) {
-  let {
-    basename,
-    children,
-    future,
-    window: window2
-  } = _ref4;
-  let historyRef = React.useRef();
-  if (historyRef.current == null) {
-    historyRef.current = createBrowserHistory({
-      window: window2,
-      v5Compat: true
-    });
-  }
-  let history = historyRef.current;
-  let [state, setStateImpl] = React.useState({
-    action: history.action,
-    location: history.location
-  });
-  let {
-    v7_startTransition
-  } = future || {};
-  let setState = React.useCallback((newState) => {
-    v7_startTransition && startTransitionImpl ? startTransitionImpl(() => setStateImpl(newState)) : setStateImpl(newState);
-  }, [setStateImpl, v7_startTransition]);
-  React.useLayoutEffect(() => history.listen(setState), [history, setState]);
-  React.useEffect(() => UNSAFE_logV6DeprecationWarnings(future), [future]);
-  return /* @__PURE__ */ React.createElement(Router, {
-    basename,
-    children,
-    location: state.location,
-    navigationType: state.action,
-    navigator: history,
-    future
-  });
 }
 if (process.env.NODE_ENV !== "production") ;
 const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
@@ -1398,9 +1359,6 @@ var Helmet = class extends Component {
     return helmetData ? /* @__PURE__ */ React__default.createElement(HelmetDispatcher, { ...newProps, context: helmetData.value }) : /* @__PURE__ */ React__default.createElement(Context.Consumer, null, (context) => /* @__PURE__ */ React__default.createElement(HelmetDispatcher, { ...newProps, context }));
   }
 };
-const Loader = () => {
-  return /* @__PURE__ */ jsx("div", { className: "fixed inset-0 flex items-center justify-center bg-black z-50", children: /* @__PURE__ */ jsx("div", { className: "relative", children: /* @__PURE__ */ jsx("div", { className: "h-16 w-16 rounded-full border-t-4 border-b-4 border-blue-500 animate-spin" }) }) });
-};
 const CourseContext = createContext({
   selectedCourse: null,
   setSelectedCourse: () => {
@@ -1411,156 +1369,6 @@ const CourseProvider = ({ children }) => {
   return /* @__PURE__ */ jsx(CourseContext.Provider, { value: { selectedCourse, setSelectedCourse }, children });
 };
 const useCourseContext = () => useContext(CourseContext);
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
-class UnifiedTrackingService {
-  eventCache = /* @__PURE__ */ new Map();
-  CACHE_DURATION = 5 * 60 * 1e3;
-  // 5 minutes
-  pixelsInitialized = /* @__PURE__ */ new Set();
-  // Clean old events from cache
-  cleanCache() {
-    const now = Date.now();
-    for (const [key, event] of this.eventCache.entries()) {
-      if (now - event.timestamp > this.CACHE_DURATION) {
-        this.eventCache.delete(key);
-      }
-    }
-  }
-  // Generate consistent event ID
-  generateEventId() {
-    if (window.crypto?.randomUUID) {
-      return window.crypto.randomUUID();
-    }
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
-      const r = Math.random() * 16 | 0;
-      const v = c === "x" ? r : r & 3 | 8;
-      return v.toString(16);
-    });
-  }
-  // Check if event already fired
-  hasEventFired(eventType, eventId, pixelId) {
-    this.cleanCache();
-    const cacheKey = `${eventType}_${eventId}_${pixelId}`;
-    return this.eventCache.has(cacheKey);
-  }
-  // Mark event as fired
-  markEventFired(eventType, eventId, pixelId, route) {
-    const cacheKey = `${eventType}_${eventId}_${pixelId}`;
-    this.eventCache.set(cacheKey, {
-      eventType,
-      eventId,
-      timestamp: Date.now(),
-      pixelId,
-      route
-    });
-  }
-  // Initialize pixel safely
-  initializePixel(pixelId) {
-    if (!pixelId || this.pixelsInitialized.has(pixelId)) {
-      return;
-    }
-    if (!window.fbq) {
-      console.warn("Facebook Pixel not loaded");
-      return;
-    }
-    try {
-      window.fbq("init", pixelId);
-      this.pixelsInitialized.add(pixelId);
-      console.log(`✅ Meta Pixel initialized: ${pixelId}`);
-    } catch (error) {
-      console.error(`❌ Failed to initialize pixel ${pixelId}:`, error);
-    }
-  }
-  // Track event with deduplication
-  trackEvent(eventType, pixelId, eventId, parameters) {
-    if (!pixelId || !window.fbq) {
-      console.warn("Cannot track event: Missing pixel ID or fbq");
-      return;
-    }
-    const finalEventId = eventId || this.generateEventId();
-    const route = window.location.pathname;
-    if (this.hasEventFired(eventType, finalEventId, pixelId)) {
-      console.warn(`🚫 Duplicate event prevented: ${eventType} for pixel ${pixelId}`);
-      return;
-    }
-    try {
-      this.initializePixel(pixelId);
-      if (parameters && Object.keys(parameters).length > 0) {
-        window.fbq("track", eventType, parameters);
-      } else {
-        window.fbq("track", eventType);
-      }
-      this.markEventFired(eventType, finalEventId, pixelId, route);
-      console.log(`✅ Event tracked: ${eventType} | Pixel: ${pixelId} | Route: ${route} | EventID: ${finalEventId}`);
-    } catch (error) {
-      console.error(`❌ Failed to track ${eventType}:`, error);
-    }
-  }
-  // Get cache status for debugging
-  getCacheStatus() {
-    this.cleanCache();
-    return {
-      cachedEvents: this.eventCache.size,
-      initializedPixels: Array.from(this.pixelsInitialized),
-      events: Array.from(this.eventCache.entries())
-    };
-  }
-  // Clear cache (for testing/debugging)
-  clearCache() {
-    this.eventCache.clear();
-    console.log("🗑️ Tracking cache cleared");
-  }
-  // Store event ID globally for server-side tracking
-  storeEventId(eventId) {
-    window.__META_EVENT_ID__ = eventId;
-    try {
-      sessionStorage.setItem("meta_event_id", eventId);
-    } catch (error) {
-      console.warn("Cannot store event ID in sessionStorage:", error);
-    }
-  }
-  // Retrieve stored event ID
-  getStoredEventId() {
-    if (window.__META_EVENT_ID__) {
-      return window.__META_EVENT_ID__;
-    }
-    try {
-      return sessionStorage.getItem("meta_event_id");
-    } catch (error) {
-      console.warn("Cannot retrieve event ID from sessionStorage:", error);
-      return null;
-    }
-  }
-}
-const trackingService = new UnifiedTrackingService();
-const generateFormEventId = () => {
-  const eventId = trackingService.generateEventId();
-  trackingService.storeEventId(eventId);
-  return eventId;
-};
-const getTrackingDebugInfo = () => {
-  return trackingService.getCacheStatus();
-};
-const MetaTrackingDebugger = () => {
-  const [debugInfo, setDebugInfo] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDebugInfo(getTrackingDebugInfo());
-    }, 2e3);
-    return () => clearInterval(interval);
-  }, []);
-  {
-    return null;
-  }
-};
-const companyLogo = "/companylogo-new.webp";
 const api = axios.create({
   baseURL: "https://api.acceleratorx.org/",
   withCredentials: true
@@ -1588,6 +1396,10 @@ function UserProvider({ children }) {
     }
   }, []);
   useEffect(() => {
+    if (typeof window === "undefined") {
+      setIsLoading(false);
+      return;
+    }
     const initAuth = async () => {
       setIsLoading(true);
       try {
@@ -1612,6 +1424,10 @@ function useUser() {
   }
   return context;
 }
+const Loader = () => {
+  return /* @__PURE__ */ jsx("div", { className: "fixed inset-0 flex items-center justify-center bg-black z-50", children: /* @__PURE__ */ jsx("div", { className: "relative", children: /* @__PURE__ */ jsx("div", { className: "h-16 w-16 rounded-full border-t-4 border-b-4 border-blue-500 animate-spin" }) }) });
+};
+const companyLogo = "/companylogo-new.webp";
 function ProfileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -1728,6 +1544,7 @@ function Navbar() {
   const location = useLocation();
   const isXSATRoute = location.pathname === "/xsat";
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -1736,6 +1553,7 @@ function Navbar() {
   }, []);
   const scrollToSection = (href) => {
     setIsOpen(false);
+    if (typeof window === "undefined") return;
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -2038,8 +1856,8 @@ const getRouteLayout = (pathname) => {
   }
   return defaultLayout;
 };
-const Footer = lazy(() => import("./assets/Footer-DvLZr_O9.js"));
-const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-whirT4v9.js"));
+const Footer = lazy(() => import("./assets/Footer-BK4rZELS.js"));
+const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-CSR6VAAb.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
   const location = useLocation();
@@ -2264,21 +2082,21 @@ const RoleProtectedRoute = ({
   return /* @__PURE__ */ jsx(Fragment, { children });
 };
 const WorkshopPaymentSuccess = lazy(() => import("./assets/Success-N-b6YkOf.js"));
-const XSATEntry = lazy(() => import("./assets/XSATEntry-BL0dcL_M.js"));
-const EventManagementPage = lazy(() => import("./assets/event-Dq7AAOZX.js"));
+const XSATEntry = lazy(() => import("./assets/XSATEntry-BQcfWLtv.js"));
+const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
 const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
-const HomePage = lazy(() => import("./assets/HomePage-Dv8g1_kB.js"));
-const AboutPage = lazy(() => import("./assets/AboutPage-CF6n_aQO.js"));
-const Login = lazy(() => import("./assets/Login-Cjvjn9Ry.js"));
-const Privacy = lazy(() => import("./assets/Privacy-ChfnCDxr.js"));
-const Terms = lazy(() => import("./assets/Terms-B7ZIFCQ7.js"));
-const Refund = lazy(() => import("./assets/Refund-UBIn7owS.js"));
-const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-18vugzN7.js"));
-const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-Cv3Vq4F7.js"));
-const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-Bq11qRdu.js"));
-const DataAnalyticsPage$1 = lazy(() => import("./assets/index-BCQrd_Qd.js"));
-const BlogDashboard = lazy(() => import("./assets/BlogDashboard-B9_-nvKa.js"));
-const Events = lazy(() => import("./assets/Events-CX1Qvf93.js"));
+const HomePage = lazy(() => import("./assets/HomePage-Ch8Nh3Wh.js"));
+const AboutPage = lazy(() => import("./assets/AboutPage-CAGT1wqA.js"));
+const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
+const Privacy = lazy(() => import("./assets/Privacy-B0nb9emf.js"));
+const Terms = lazy(() => import("./assets/Terms-8YhsueH8.js"));
+const Refund = lazy(() => import("./assets/Refund-CZXw7VQO.js"));
+const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-BdmXWgVu.js"));
+const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-w1rJiXto.js"));
+const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-CYuzK7D9.js"));
+const DataAnalyticsPage$1 = lazy(() => import("./assets/index-kZpRIyEP.js"));
+const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DKCOTU7S.js"));
+const Events = lazy(() => import("./assets/Events-CbuIpW6c.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/about-us", element: /* @__PURE__ */ jsx(AboutPage, {}) }),
@@ -2704,10 +2522,10 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-8E_nhoP2.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-C9zZKXdr.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-C6QWJXtf.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-BaBX_4l4.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-CKLnXai1.js"));
-const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cd-ICFR-.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-LZpBVY5d.js"));
+const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-wXzYWYsd.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-lmYtlyuW.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-BAWmGSXF.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-DDKeF2fm.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
 const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-D8AnvHc3.js"));
 const AIEcosystem = lazy(() => import("./assets/AIEcosystem-CJ5s9T03.js"));
@@ -2720,19 +2538,19 @@ const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNz
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
 const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-BTYXtLLv.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-C2-u2dqk.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
-const WSHeroPM = lazy(() => import("./assets/WSHeroPM-CmPO_mcO.js"));
+const WSHeroPM = lazy(() => import("./assets/WSHeroPM-Y2ZtLntf.js"));
 const WSAboutPM = lazy(() => import("./assets/WSAboutPM-auJqqH0N.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-CYPk9VUt.js"));
-const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-CY9FE8VG.js"));
+const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-C27nuHBw.js"));
 const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-D-A-yjpa.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-C8jQ4uQO.js"));
-const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-2-1W5F0H.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-BBLXF0H0.js"));
+const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-DxhqxVVr.js"));
 const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-Da-sHrkX.js"));
 const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-C4hyEjQM.js"));
 const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-BCFnqjTv.js"));
@@ -2806,33 +2624,33 @@ const workshopRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-thidtx", element: /* @__PURE__ */ jsx(WorkshopPageGENC, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) })
 ];
-const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-DfE0tPyf.js"));
-const DMFlyers = lazy(() => import("./assets/DMFlyers-DSVyLT7T.js"));
-const PMFlyers = lazy(() => import("./assets/PMFlyers-DplqNANO.js"));
-const DAFlyers = lazy(() => import("./assets/DAFlyers-DbGUexbg.js"));
+const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-CHhu4G38.js"));
+const DMFlyers = lazy(() => import("./assets/DMFlyers-8Tt-Q3R6.js"));
+const PMFlyers = lazy(() => import("./assets/PMFlyers-DKp5EuRP.js"));
+const DAFlyers = lazy(() => import("./assets/DAFlyers-NJPFvSJJ.js"));
 const flyerRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/gen-ai", element: /* @__PURE__ */ jsx(GENAIFlyers, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/pm", element: /* @__PURE__ */ jsx(PMFlyers, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/dm", element: /* @__PURE__ */ jsx(DMFlyers, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/da", element: /* @__PURE__ */ jsx(DAFlyers, {}) })
 ];
-const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-D6FqBFqH.js"));
-const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-Cg2gRb0n.js"));
-const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-n_yIo-5s.js"));
-const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-BQiejY_R.js"));
-const KuppamCourses = lazy(() => import("./assets/KuppamCourses-CBwDe4Ma.js"));
+const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-PDfNHzed.js"));
+const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-MiKjt3P7.js"));
+const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-B7BSrqA7.js"));
+const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-cQS5BwBD.js"));
+const KuppamCourses = lazy(() => import("./assets/KuppamCourses-B9JtIDvf.js"));
 const GenAICourse = lazy(
-  () => import("./assets/GenAIEntry-18vugzN7.js")
+  () => import("./assets/GenAIEntry-BdmXWgVu.js")
 );
-const GenAICourseAD = lazy(() => import("./assets/GenAIAd-Cv3Vq4F7.js"));
+const GenAICourseAD = lazy(() => import("./assets/GenAIAd-w1rJiXto.js"));
 const DMAICourse = lazy(
-  () => import("./assets/DigitalMarketingEntry-Bq11qRdu.js")
+  () => import("./assets/DigitalMarketingEntry-CYuzK7D9.js")
 );
-const DataAnalyticsPage = lazy(() => import("./assets/index-BCQrd_Qd.js"));
+const DataAnalyticsPage = lazy(() => import("./assets/index-kZpRIyEP.js"));
 const ProductManagementPageEIE = lazy(
-  () => import("./assets/ProductManagementEIE-De0RZupa.js")
+  () => import("./assets/ProductManagementEIE-BGhi2hPa.js")
 );
-const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-jrXANw9y.js"));
+const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-DIQS52aS.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
@@ -2915,150 +2733,17 @@ const ProtectedRoute = () => {
   }
   return /* @__PURE__ */ jsx(Outlet, {});
 };
-const PIXEL_ID_DEFAULT = "1605858166968597";
-const PIXEL_ID_DA = "1605858166968597";
-const PIXEL_ID_DA_SECOND = "1357550371980921";
-const loadFacebookPixel = () => {
-  if (window.fbq) return;
-  (function(f, b, e, v, n, t, s) {
-    if (f.fbq) return;
-    n = f.fbq = function(...args) {
-      if (n.callMethod) {
-        n.callMethod(...args);
-      } else {
-        n.queue.push(args);
-      }
-    };
-    if (!f._fbq) f._fbq = n;
-    n.push = n;
-    n.loaded = true;
-    n.version = "2.0";
-    n.queue = [];
-    t = b.createElement(e);
-    t.async = true;
-    t.src = v;
-    s = b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t, s);
-  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js", null, null, null);
-};
-const initializePixel = (pixelId) => {
-  if (!window.fbq) {
-    console.warn("Facebook Pixel not loaded");
-    return;
-  }
-  window.fbq("init", pixelId);
-  console.log(`Meta Pixel initialized: ${pixelId}`);
-};
-console.log("Meta Pixel IDs:", {
-  default: PIXEL_ID_DEFAULT,
-  da: PIXEL_ID_DA,
-  daSecond: PIXEL_ID_DA_SECOND
-});
-const PAGE_VIEW_ROUTES = [
-  "/courses/product-management-program-fb",
-  "/courses/data-analytics-program-fb",
-  "/courses/data-analytics-program-fb-b",
-  "/courses/no-code-tool-program-fb",
-  "/courses/product-management-program-eie",
-  "/courses/data-analytics-program-eie",
-  "/courses/generative-ai-fb",
-  "/courses/generative-ai-fb-b",
-  "/workshop/pm-masterclass",
-  "/workshop/dm-masterclass",
-  "/workshop/gen-ai-masterclass-bxwcy",
-  "/workshop/gen-ai-masterclass",
-  "/workshop/da-masterclass",
-  "/workshop/da-masterclass-bxwxy",
-  "/courses/gen-ai-for-pms"
-];
-const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
-const COMPLETE_REGISTRATION_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
-const DA_ROUTES = ["/courses/data-analytics-program-fb", "/courses/data-analytics"];
-const DA_ROUTES_SECOND = ["/courses/data-analytics-program-fb-b", "/courses/generative-ai-fb-b"];
-const MetaPixel = () => {
-  const location = useLocation();
-  const { selectedCourse } = useCourseContext();
-  const initializedPixelsRef = useRef(/* @__PURE__ */ new Set());
-  const isDaRoute = DA_ROUTES.includes(location.pathname);
-  const isDaRouteSecond = DA_ROUTES_SECOND.includes(location.pathname);
-  const isDaCourse = selectedCourse === "Data Analytics";
-  let pixelId = PIXEL_ID_DEFAULT;
-  if (isDaRouteSecond) pixelId = PIXEL_ID_DA_SECOND;
-  else if (isDaRoute || isDaCourse) pixelId = PIXEL_ID_DA;
-  const isPageViewRoute = PAGE_VIEW_ROUTES.includes(location.pathname);
-  const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
-  const isCompleteRegistrationRoute = COMPLETE_REGISTRATION_ROUTES.includes(location.pathname);
-  console.log("MetaPixel Debug:", {
-    route: location.pathname,
-    pixelId,
-    isPageViewRoute,
-    isLeadRoute,
-    isCompleteRegistrationRoute,
-    fbqAvailable: !!window.fbq
-  });
-  useEffect(() => {
-    loadFacebookPixel();
-  }, []);
-  useEffect(() => {
-    if (!pixelId) {
-      console.warn("No pixel ID available for route:", location.pathname);
-      return;
-    }
-    const checkFbq = () => {
-      if (!window.fbq) {
-        setTimeout(checkFbq, 100);
-        return;
-      }
-      if (!initializedPixelsRef.current.has(pixelId)) {
-        initializePixel(pixelId);
-        initializedPixelsRef.current.add(pixelId);
-      }
-      if (isPageViewRoute) {
-        console.log(`Tracking PageView for pixel: ${pixelId}`);
-        window.fbq("track", "PageView");
-      }
-      if (isLeadRoute) {
-        console.log(`Tracking Lead for pixel: ${pixelId}`);
-        window.fbq("track", "Lead");
-      }
-      if (isCompleteRegistrationRoute) {
-        console.log(`Tracking CompleteRegistration for pixel: ${pixelId}`);
-        window.fbq("track", "CompleteRegistration");
-      }
-    };
-    checkFbq();
-  }, [pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute, location.pathname]);
-  return null;
-};
-const ProfileRoutes = lazy(() => import("./assets/profileRoutes-D_PSXuXW.js").then((m) => ({ default: m.ProfileRoutes })));
-const SignUpForm = lazy(() => import("./assets/SignUpForm-y1SC53SG.js"));
-const SignInForm = lazy(() => import("./assets/SignInForm-Jpx-NlEs.js").then((m) => ({ default: m.SignInForm })));
-const JobApplication = lazy(() => import("./assets/JobApplication-CslaK8rf.js"));
-const JobDetails = lazy(() => import("./assets/JobDetails-C7pO_Tz-.js"));
-const JobList = lazy(() => import("./assets/JobList-CQtBNBYa.js"));
-const MyApplications = lazy(() => import("./assets/MyApplications-CijtwRpg.js"));
-const CertificateDisplayPage = lazy(() => import("./assets/CertificateDisplayPage-CB00ywC0.js"));
-const queryClient = new QueryClient();
-function AppContent() {
+const ProfileRoutes = lazy(() => import("./assets/profileRoutes-CpTktpDf.js").then((m) => ({ default: m.ProfileRoutes })));
+const SignUpForm = lazy(() => import("./assets/SignUpForm-DJ-gbKyO.js"));
+const SignInForm = lazy(() => import("./assets/SignInForm-CxwH1DeT.js").then((m) => ({ default: m.SignInForm })));
+const JobApplication = lazy(() => import("./assets/JobApplication-CZYz9G5J.js"));
+const JobDetails = lazy(() => import("./assets/JobDetails-CkI3ZZh7.js"));
+const JobList = lazy(() => import("./assets/JobList-BhDbq14K.js"));
+const MyApplications = lazy(() => import("./assets/MyApplications-CELsNg53.js"));
+const CertificateDisplayPage = lazy(() => import("./assets/CertificateDisplayPage-36BIWb1A.js"));
+const AppRoutes = () => {
   const { setSelectedCourse } = useCourseContext();
-  const { isLoading } = useUser();
-  if (isLoading) {
-    return /* @__PURE__ */ jsx(Loader, {});
-  }
-  return /* @__PURE__ */ jsxs(BrowserRouter, { basename: "/", children: [
-    /* @__PURE__ */ jsx(ScrollToTop, {}),
-    /* @__PURE__ */ jsx(MetaPixel, {}),
-    /* @__PURE__ */ jsx(
-      Toaster,
-      {
-        position: "bottom-right",
-        toastOptions: {
-          style: {
-            zIndex: 9999
-          }
-        }
-      }
-    ),
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(RouteLogic, { setSelectedCourse }),
     /* @__PURE__ */ jsx(MainLayout, { children: /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loader, {}), children: /* @__PURE__ */ jsxs(Routes, { children: [
       mainRoutes,
@@ -3077,18 +2762,21 @@ function AppContent() {
       ] })
     ] }) }) })
   ] });
-}
-function App() {
-  return /* @__PURE__ */ jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsx(HelmetProvider, { children: /* @__PURE__ */ jsx(CourseProvider, { children: /* @__PURE__ */ jsxs(UserProvider, { children: [
-    /* @__PURE__ */ jsx(AppContent, {}),
-    /* @__PURE__ */ jsx(MetaTrackingDebugger, {})
-  ] }) }) }) });
-}
+};
 function render(url, context = {}) {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: Infinity,
+        retry: false
+      }
+    }
+  });
+  const helmetContext = {};
   const html = renderToString(
-    /* @__PURE__ */ jsx(StrictMode, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, children: /* @__PURE__ */ jsx(App, {}) }) })
+    /* @__PURE__ */ jsx(StrictMode, { children: /* @__PURE__ */ jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsx(HelmetProvider, { context: helmetContext, children: /* @__PURE__ */ jsx(CourseProvider, { children: /* @__PURE__ */ jsx(UserProvider, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, children: /* @__PURE__ */ jsx(AppRoutes, {}) }) }) }) }) }) })
   );
-  return { html, context };
+  return { html, context: { ...context, helmet: helmetContext } };
 }
 export {
   Link as L,
@@ -3097,8 +2785,6 @@ export {
   useCourseContext as b,
   companyLogo as c,
   authService as d,
-  generateFormEventId as g,
   render,
-  trackingService as t,
   useUser as u
 };
