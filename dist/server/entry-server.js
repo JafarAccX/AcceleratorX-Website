@@ -2278,7 +2278,7 @@ const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-Cv3Vq4F7.js"));
 const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-Bq11qRdu.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-BCQrd_Qd.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-B9_-nvKa.js"));
-const Events = lazy(() => import("./assets/Events-COs-wClX.js"));
+const Events = lazy(() => import("./assets/Events-CX1Qvf93.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/about-us", element: /* @__PURE__ */ jsx(AboutPage, {}) }),
@@ -2704,10 +2704,10 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-8E_nhoP2.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-C9zZKXdr.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-C6QWJXtf.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-BaBX_4l4.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-cDOlHmI1.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-CKLnXai1.js"));
 const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cd-ICFR-.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-lmYtlyuW.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-Cje8z0fk.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-BAWmGSXF.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
 const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-D8AnvHc3.js"));
 const AIEcosystem = lazy(() => import("./assets/AIEcosystem-CJ5s9T03.js"));
@@ -2720,23 +2720,23 @@ const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNz
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
 const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-DtTTBRFU.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-BTYXtLLv.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
-const WSHeroPM = lazy(() => import("./assets/WSHeroPM-Bh1McnEI.js"));
+const WSHeroPM = lazy(() => import("./assets/WSHeroPM-CmPO_mcO.js"));
 const WSAboutPM = lazy(() => import("./assets/WSAboutPM-auJqqH0N.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-CYPk9VUt.js"));
-const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-Bu73L0HR.js"));
+const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-CY9FE8VG.js"));
 const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-D-A-yjpa.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-WvLdp7Hj.js"));
-const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-CikbyCI8.js"));
-const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-DXPd9Ezi.js"));
-const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-B90YZ1Rv.js"));
-const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-CKn-qV5G.js"));
-const GENCTAC = lazy(() => import("./assets/GENCTAC-B81ftq0k.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-C8jQ4uQO.js"));
+const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-2-1W5F0H.js"));
+const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-Da-sHrkX.js"));
+const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-C4hyEjQM.js"));
+const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-BCFnqjTv.js"));
+const GENCTAC = lazy(() => import("./assets/GENCTAC-C_8ItGl_.js"));
 const WorkshopPageDA = () => /* @__PURE__ */ jsxs(Fragment, { children: [
   /* @__PURE__ */ jsx(SEO, {}),
   /* @__PURE__ */ jsx(WSHeroDA, {}),
