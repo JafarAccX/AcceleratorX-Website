@@ -22,6 +22,8 @@ interface WorkshopFormData {
 
 const WSFormFree = () => {
   const { workshopType, zoomMeetingDetails } = useWorkshop();
+  console.log("WSFormFree render with workshopType:", workshopType);
+  console.log("zoomMeetingDetails:", zoomMeetingDetails);
   const navigate = useNavigate();
   const location = useLocation(); // Added this line
   const [formData, setFormData] = useState<WorkshopFormData>({

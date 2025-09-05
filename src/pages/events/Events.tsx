@@ -11,11 +11,33 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "AI Agent building Bootcamp (2 HR)",
+      mode: "Online (Zoom)",
+      time: "Sep 10, 2025 7:00 PM",
+      link: "/workshop/gen-ai-masterclass-thidtx",
+      completed: false,
+    },
+    {
+      name: "Idea to Product Live (Bootcamp)",
+      mode: "Online (Zoom)",
+      time: "Sep 7, 2025 12:30 PM",
+      link: "/workshop/pm-masterclass",
+      completed: true,
+    },
+    {
+      name: "Automating SQL queries for Data Analysis",
+      mode: "Online (Zoom)",
+      time: "Sep 6, 2025 8:30 PM",
+      link: "/workshop/da-masterclass-bxwxy",
+      completed: true,
+    },
+    
+    {
       name: "Context Engineering",
       mode: "Online (Zoom)",
       time: "Aug 29, 2025  9:00 PM",
       link: "/workshop/gen-ai-masterclass-thidtx",
-      completed: false,
+      completed: true,
     },
     {
       name: "Learn everything n8n !",

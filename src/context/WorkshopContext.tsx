@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Context Engineering",
-  link: "https://zoom.us/meeting/register/4YGe_5nRSLyEvVfDF2MS5g",
-  meetingId: "4YGe_5nRSLyEvVfDF2MS5g",
-  time: "29 Aug, 2025 09:00 PM India",
-  meetingCode: "91498721077",
+  title: "AI Agent building Bootcamp (2 HR) (For Mentor ref. Build 1 Agent Using Lyzr & other one Langchain, crewAI /n8n)",
+  link: "https://zoom.us/meeting/register/FnvYydkmTrOc1dowwPAE8A",
+  meetingId: "FnvYydkmTrOc1dowwPAE8A",
+  time: "10 Sep, 2025 09:00 PM India",
+  meetingCode: "98712946803",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {
