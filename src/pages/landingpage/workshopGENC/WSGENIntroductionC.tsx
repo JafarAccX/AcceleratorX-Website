@@ -4,15 +4,15 @@ const WSGENIntroductionC = () => {
   const stats = [
     {
       value: "89%",
-      label: "of past attendees said they could start building apps the same day.",
+      label: "of past attendees said they could start building agents the same day.",
     },
     {
       value: "93%",
       label: "felt more confident using AI after the workshop.",
     },
     {
-      value: "Zero Coding Stress",
-      label: "We make it simple. No fluff. No theory overload.",
+      value: "Zero coding stress",
+      label: "We keep it simple and hands-on.",
     },
   ];
 
@@ -20,17 +20,17 @@ const WSGENIntroductionC = () => {
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
       title: "RAG Workflows Made Easy",
-      description: "No confusing setups. Just drag, drop, connect, and see results.",
+      description: "No confusing setups. Just connect, run, and see results.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
       title: "Live & Interactive",
-      description: "Work alongside your mentor. Ask questions. Get instant feedback.",
+      description: "Build alongside your mentor, ask questions, and get instant feedback.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
       title: "Smart Creativity",
-      description: "Use AI to make your work faster, more accurate, and more impactful.",
+      description: "Use AI to make your work faster, sharper, and more impactful.",
     },
   ];
 
@@ -72,17 +72,17 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">AI-Powered Apps = Practical, Useful, Yours</span>
+            <span className="text-sm text-blue-400 font-medium">AI-Powered Agents = Practical, Useful, Yours</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            AI-Powered Apps <span className="text-blue-500"> =</span> Practical, Useful, Yours
+            AI-Powered Agents <span className="text-blue-500"> =</span> Practical, Useful, Yours
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This isn’t about theory, it’s about apps you can actually use. Whether you’re working in tech, business, or studying, you’ll walk away with an AI tool you built yourself.
+            This isn’t about slides or theory. You’ll walk away with two working AI Agents you built yourself.
           </p>
 
           {/* Stats Grid */}

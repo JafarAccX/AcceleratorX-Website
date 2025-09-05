@@ -77,12 +77,12 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Understand what Context Engineering is and why it matters.",
-                        "Build your own context-aware AI app step-by-step.",
-                        "Connect real-world data (documents, PDFs, websites) into your app.",
-                        "Teach your AI to remember and respond smarter.",
-                        "Deploy your app and test it live.",
-                        "Get access to templates, resources, and tools to keep building.",
+                        "Understand what AI Agents are and why they matter.",
+                        "Build your first AI Agent with Lyzr (step by step).",
+                        "Create another Agent using LangChain, CrewAI / n8n.",
+                        "Teach your Agents to connect with real data and respond smarter.",
+                        "Deploy your Agent and test it live.",
+                        "Take away templates, resources, and tools to keep building.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -119,11 +119,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "How to make AI respond relevantly instead of generically.",
-                        "Techniques to feed your AI real, useful data.",
-                        "Context-handling workflows used by AI pros.",
+                        "How AI Agents work and where you can use them.",
+                        "Step-by-step methods to build working AI Agents without confusion.",
+                        "Workflows top AI builders use to make smarter apps.",
                         "How to deploy without advanced coding.",
-                        "Real-world examples: smarter customer support, research tools, internal assistants.",
+                        "Real-world examples – customer support bots, research tools, personal assistants.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

@@ -26,7 +26,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build Your First Context-Aware AI App
+              Build Your First AI Agent – Live in 2 Hours
             </motion.h2>
 
             {/* Badge */}
@@ -52,17 +52,17 @@ const GENCTAC = () => {
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-green-400">Use Your Own Data</p>
-                  <p className="text-sm text-gray-400">PDFs, notes, websites, databases.</p>
+                  <p className="text-sm text-gray-400">PDFs, notes, websites, databases</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-purple-400">Step-by-Step Guidance</p>
-                  <p className="text-sm text-gray-400">From blank page to working app.</p>
+                  <p className="text-sm text-gray-400">From blank page to working Agent</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-blue-400">Smart Responses, Your Way</p>
-                  <p className="text-sm text-gray-400">AI that knows what you mean, not just what you type.</p>
+                  <p className="text-sm text-gray-400">Agents that know what you mean, not just what you type</p>
                 </div>
               </div>
             </motion.div>
@@ -75,10 +75,10 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p className="bg-blue-500/10 rounded-full px-6 py-2 text-lg font-bold text-white">
-                Are You Ready to Build With AI — and Actually Enjoy It?
+                Hands-On. No Pressure. Real Skills.
               </p>
-              <p>100+ beginners have built with us. Now it’s your turn.</p>
-              <p>Click below. Join the live workshop. Build something real.</p>
+              <p>100+ beginners have already built with us. Now it’s your turn.</p>
+              <p>Click Register Now – Join the live bootcamp and build your first AI Agents!</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}

@@ -1,4 +1,4 @@
-import React from "react";
+ 
 import { Users, Briefcase, Brain, Code, Laptop } from "lucide-react";
 
 const WSGENWhoShouldEnrollC = () => {
@@ -6,26 +6,22 @@ const WSGENWhoShouldEnrollC = () => {
     {
       icon: Briefcase,
       title: "Professionals",
-      description:
-        "Looking to build intelligent bots, research tools, or smarter internal apps.",
+      description: "Build internal tools, research bots, or smarter apps.",
     },
     {
       icon: Laptop,
       title: "Students",
-      description:
-        " Eager to get hands-on with AI and build real-world tech for future careers.",
+      description: "Gain hands-on skills for AI careers.",
     },
     {
       icon: Code,
       title: "Entrepreneurs",
-      description:
-        "Want to build their own AI product, MVP, or personal assistant app.",
+      description: "Build your own MVP or assistant app.",
     },
     {
       icon: Brain,
       title: "Creatives",
-      description:
-        "Explore how to turn content, notes, and documents into searchable, intelligent tools.",
+      description: "Turn content, notes, and documents into intelligent tools.",
     },
   ];
 
@@ -45,8 +41,8 @@ const WSGENWhoShouldEnrollC = () => {
             <Users className="w-4 h-4 text-blue-600" />
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
-          <h2 className="text-3xl  l font-bold mb-3">
-            <span className="text-white">This is for you if you’ve ever thought: “AI is powerful, but I don’t know where to start.”</span>
+          <h2 className="text-3xl font-bold mb-3">
+            <span className="text-white">This bootcamp is for you if you’ve ever thought:<br/>“AI is powerful, but I don’t know where to start.”</span>
           </h2>
         </div>
 
@@ -74,7 +70,7 @@ const WSGENWhoShouldEnrollC = () => {
           <div className="flex-1 relative">
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <img
-                src="/genai.svg"
+                src="/genai.webp"
                 alt="Students learning together"
                 className="object-cover w-full h-full rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
               />

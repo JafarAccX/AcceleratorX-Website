@@ -56,6 +56,7 @@ const WSHeroGENC = () => {
             // className="w-full lg:w-1/2 space-y-8 px-4 sm:px-0"
             className="flex flex-col gap-4 col-span-3"
           >
+
             {/* Pre-title with AI animation */}
             <motion.div
               initial={{ y: 20, opacity: 0 }}
@@ -91,9 +92,9 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      Learn Context Engineering – Build AI Apps That Understand You
+                      AI Agent Building Bootcamp – Build Your First AI Agents in Just 2 Hours
                     </span>{" "}
-                    <br />– Smarter, Faster, Context-Aware AI in Just 2 Hours
+                    <br />– Smarter, Faster, Hands-on Learning
                   </span>
 
                   <motion.div
@@ -109,10 +110,10 @@ const WSHeroGENC = () => {
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
                 <p className="  text-gray-400 max-w-xl">
-                  AI is powerful, but without context, it’s like talking to someone who’s forgotten the conversation.
+                  AI is powerful, but knowing how to build your own AI Agent makes it truly exciting.
                 </p>
                 <p className="  text-gray-400 max-w-xl">
-                  In this beginner-friendly workshop, you’ll discover how to make AI apps that truly understand your needs, by adding context, memory, and intelligence. No fluff. No theory overload. Just real, usable skills you can apply instantly.
+                  In this beginner-friendly bootcamp, you’ll learn to create two real AI agents step by step – one with Lyzr and another using LangChain, CrewAI / n8n. No fluff. No heavy theory. Just real, usable skills you can apply instantly.
                 </p>
               </motion.div>
             </div>
@@ -124,12 +125,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "29 August",
+                  value: "10th Sep 2025",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "Time",
-                  value: "09:00 PM",
+                  value: "07:00 PM",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (
