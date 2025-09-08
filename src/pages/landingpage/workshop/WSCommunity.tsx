@@ -20,7 +20,7 @@ const WSCommunity = () => {
       icon: <FaWhatsapp className="w-5 h-5" />,
       label: "WhatsApp",
       color: "hover:text-green-400",
-      href: "https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B",
+      href: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
     },
     {
       icon: <FaInstagram className="w-5 h-5" />,

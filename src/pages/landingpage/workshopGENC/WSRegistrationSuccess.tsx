@@ -49,13 +49,13 @@ const WSRegistrationSuccess = () => {
       // return "https://chat.whatsapp.com/Hl7nzEfchrR1I4ea4h04J5";
       return "https://chat.whatsapp.com/F37nunVbnd3BWRjcA4Bt9Q";
     } else if (workshopType.includes("gen") || workshopType.includes("ai")) {
-      return "https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B";
+      return "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L";
     } else if (workshopType.includes("pm") || workshopType.includes("product")) {
       return "https://chat.whatsapp.com/IaFM3xfYfmRBO0jwiaDIHN";
     }
 
     // Default fallback
-    return "https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B";
+    return "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L";
   };
 
   // Social media links

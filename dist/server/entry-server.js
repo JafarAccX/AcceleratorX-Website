@@ -1935,7 +1935,7 @@ function ThankYouPage({ courseName }) {
         /* @__PURE__ */ jsxs(
           "a",
           {
-            href: "https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B",
+            href: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
             target: "_blank",
             rel: "noopener noreferrer",
             className: "group relative overflow-hidden rounded-xl p-0.5 transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_#25D366] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900",
@@ -2523,7 +2523,7 @@ const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-C9zZKXdr.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-C6QWJXtf.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-BaBX_4l4.js"));
 const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-DDW2wjsI.js"));
-const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-wXzYWYsd.js"));
+const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-NuN_OR8U.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-lmYtlyuW.js"));
 const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-6YLeX0Jd.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));

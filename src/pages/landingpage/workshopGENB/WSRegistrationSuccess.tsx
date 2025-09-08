@@ -65,7 +65,7 @@ const WSRegistrationSuccess = () => {
     {
       name: "Whatsapp",
       icon: <FaWhatsapp className="w-5 h-5" />,
-      url: "https://chat.whatsapp.com/Kh9z1TWzXC3HryD31Sl24B",
+      url: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
       color: "bg-[#0077B5]"
     },
     {
