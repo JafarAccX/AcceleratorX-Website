@@ -47,8 +47,8 @@ const WSAboutGENB = () => {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Automation Workshop: Learn n8n by Doing
-                </h2>
+                {/* <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Automation Workshop: Learn n8n by Doing
+                </h2> */}
 
                 {/* Workshop Info */}
 
@@ -64,10 +64,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Learn to build real workflow automations.",
-                        "Instantly deploy automations with no coding.",
-                        "Connect your favorite tools like Gmail, Notion, Slack, and ChatGPT.",
-                        "Build flows you can use in your daily work.",
+                        "Learn how Generative AI can boost your marketing results",
+                        "See real-world examples of AI-powered campaigns",
+                        "Explore tools to create content, ads, and reports faster",
+                        "Build marketing workflows you can start using immediately",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -87,10 +87,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to automate manual tasks and save hours",
-                        "Building workflows using triggers, actions, and conditions",
-                        "Using n8n with tools like Google Sheets, APIs, Slack, CRM",
-                        "Supercharging workflows using GenAI (ChatGPT, LangChain)",
+                        "How to save hours by automating marketing tasks",
+                        "Using AI to create high-performing content and ads",
+                        "Smart tools for email, social media, and lead generation",
+                        "How to use Generative AI for campaign ideas, insights, and growth",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>

@@ -57,11 +57,11 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  title: "Learn everything n8n!",
-  link: "https://zoom.us/meeting/register/a6NlhxHhTfylhGtXvf8qiA",
-  meetingId: "a6NlhxHhTfylhGtXvf8qiA",
-  time: "5th Aug, 2025 07:00 PM India",
-  meetingCode: "97843712816",
+  title: "Generative AI for Marketing ",
+  link: "https://zoom.us/meeting/register/LZWIgBbnQvSkzh9q2-u-8A",
+  meetingId: "LZWIgBbnQvSkzh9q2-u-8A",
+  time: "19th Sep, 2025 07:00 PM India",
+  meetingCode: "99622428256",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {

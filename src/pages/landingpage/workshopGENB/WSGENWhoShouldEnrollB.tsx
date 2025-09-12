@@ -4,23 +4,23 @@ const WSGENWhoShouldEnrollB = () => {
   const targetAudience = [
     {
       icon: Users,
-      title: "Solopreneurs & Founders",
-      description: "Automate client onboarding, emails, and backend operations",
+      title: "Entrepreneurs & Startups",
+      description: "Grow faster with AI-powered campaigns",
     },
     {
       icon: Briefcase,
       title: "Marketers & Content Teams",
-      description: "Streamline social media, lead management, and reporting",
+      description: "Save time and boost creativity",
     },
     {
       icon: Megaphone,
-      title: "Operations & Admin Roles",
-      description: "Eliminate repetitive tasks and reduce manual work",
+      title: "Students & Freshers",
+      description: "Learn skills that companies are hiring for",
     },
     {
       icon: Brain,
       title: "No-Code Enthusiasts",
-      description: "Take your no-code skills to the next level by learning workflow automation",
+      description: "Take your AI + marketing game to the next level",
     },
   ];
 
@@ -53,7 +53,7 @@ const WSGENWhoShouldEnrollB = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Master the art of workflow automation with n8n, all without writing a single line of code.
+              Anyone looking to grow faster, save time, boost creativity, and gain in-demand AI marketing skills can benefit from this webinar.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ const WSGENWhoShouldEnrollB = () => {
             {/* Image Section */}
             <div className="w-full lg:w-2/5">
               <div className="relative rounded-lg overflow-hidden">
-                <img src="/genai.svg" alt="AI Workflow Automation" className="w-full h-auto object-cover" />
+                <img src="/genai.webp" alt="AI Workflow Automation" className="w-full h-auto object-cover" />
               </div>
             </div>
           </div>

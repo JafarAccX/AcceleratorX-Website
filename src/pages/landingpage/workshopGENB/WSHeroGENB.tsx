@@ -48,14 +48,13 @@ const WSHeroGENB = () => {
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-              Automate Anything with n8n in Just 90 Minutes
+               Transform Your Marketing with Generative AI in Just 90 Minutes
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-            Build Real-World AI-Powered Workflows Without Writing a Single Line of Code.
- Discover how to connect your favorite tools, automate your daily tasks, and bring your smartest ideas to life using the powerful no-code automation platform: n8n.
+            Discover how AI is changing marketing forever. In this live workshop, learn how to use Generative AI to create smarter campaigns, automate tasks, and get results faster. You don’t need to be a tech expert — just bring your curiosity!
 
             </p>
 
@@ -78,11 +77,11 @@ const WSHeroGENB = () => {
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
                 { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Aug 5th" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Sep 19th" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "time",
-                  value: "07:00 pm",
+                  value: "12:00 pm",
                 },
                 { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

@@ -4,36 +4,36 @@ const WSGENIntroductionB = () => {
   const stats = [
     {
       value: "Zero",
-      label: "Coding Knowledge Required",
+      label: "coding or tech knowledge required",
     },
     {
       value: "100%",
-      label: "Hands-on Learning Experience",
+      label: "practical learning",
     },
     {
       value: "Free",
-      label: "Creative Workshop",
+      label: "value-packed workshop",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Workflow Design Mastery",
+      title: "AI Content Mastery",
       description:
-        "Learn how to map out and structure powerful automations that streamline tasks across tools and platforms",
+        "Generate ads, blogs, and posts in minutes",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Automation Without Code",
+      title: "Marketing Automation",
       description:
-        "Discover techniques to create end-to-end workflows using visual tools—no technical background needed",
+        "Streamline campaigns without manual effort",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Idea-to-Automation Blueprint",
+      title: "AI Growth Blueprint",
       description:
-        "Develop a repeatable system to turn manual processes into efficient, scalable automations in minutes",
+        "A clear path to apply AI in your daily work",
     },
   ];
 
@@ -55,19 +55,18 @@ const WSGENIntroductionB = () => {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
+            {/* <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Brain className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 text-sm font-medium">Automate Repetitive Tasks Without Writing Code</span>
-            </div>
+              <span className="text-blue-400 text-sm font-medium">Automate & Create Smarter with Generative AI</span>
+            </div> */}
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              <span className="text-blue-500">Automate</span> anything with n8n
+             
+              <span className="text-blue-500">Automate & Create Smarter</span> with Generative AI
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Discover how to turn time-consuming tasks into powerful automated flows. This hands-on workshop teaches
-              you how to use n8n to automate everything from data collection to communication—without writing a single
-              line of code.
+              Learn how to automate, create, and grow smarter with Generative AI in this free, hands-on marketing workshop—no coding required.
             </p>
           </div>
 
