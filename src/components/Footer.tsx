@@ -12,9 +12,11 @@ import {
   Youtube,
 } from "lucide-react";
 
-type FooterLink =
-  | { label: string; url: string }
-  | { label: string; url: string; icon?: React.ReactNode };
+type FooterLink = {
+  label: string;
+  url: string;
+  icon?: React.ReactNode;
+};
 
 const footerLinks: {
   [key: string]: {
@@ -164,10 +166,12 @@ export default function Footer() {
                     rel="noopener noreferrer nofollow"
                     className="bg-white/5 p-2.5 rounded-lg hover:bg-blue-500/20 transition-all duration-300 group"
                     aria-label={link.label}
+                    title={link.label}
                   >
-                    <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
+                    <span className="text-gray-400 group-hover:text-white transition-colors duration-300" aria-hidden="true">
                       {link.icon}
                     </span>
+                    <span className="sr-only" role="text">{link.label}</span>
                   </a>
                 ))}
               </div>
