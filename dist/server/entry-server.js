@@ -1856,7 +1856,7 @@ const getRouteLayout = (pathname) => {
   }
   return defaultLayout;
 };
-const Footer = lazy(() => import("./assets/Footer-CrpzLYFs.js"));
+const Footer = lazy(() => import("./assets/Footer-rAqZPOED.js"));
 const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-CSR6VAAb.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
@@ -1937,7 +1937,7 @@ function ThankYouPage({ courseName }) {
           {
             href: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
             target: "_blank",
-            rel: "noopener noreferrer",
+            rel: "noopener noreferrer nofollow",
             className: "group relative overflow-hidden rounded-xl p-0.5 transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_#25D366] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900",
             children: [
               /* @__PURE__ */ jsx("span", { className: "absolute inset-0 bg-gradient-to-r from-green-600 to-green-500" }),
@@ -1956,7 +1956,7 @@ function ThankYouPage({ courseName }) {
           {
             href: "https://discord.gg/WKAdQuuv",
             target: "_blank",
-            rel: "noopener noreferrer",
+            rel: "noopener noreferrer nofollow",
             className: "group relative overflow-hidden rounded-xl p-0.5 transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_#5865F2] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900",
             children: [
               /* @__PURE__ */ jsx("span", { className: "absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-500" }),

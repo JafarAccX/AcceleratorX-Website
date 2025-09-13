@@ -212,7 +212,7 @@ export default function Footer() {
                   <a
                     href={link.url}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group"
                   >
                     <span className="mt-1 text-blue-400 flex-shrink-0">

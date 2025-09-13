@@ -39,7 +39,7 @@ export const DMHero = () => {
             {/* <a 
               href="/assets/brochures/dm-curriculum.pdf" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="bg-transparent border-2 border-neon-yellow text-neon-yellow font-mono font-bold px-6 py-3 rounded-lg hover:bg-neon-yellow hover:text-neutral-900 transition-all duration-300 transform hover:-translate-y-1">
               Download Brochure
             </a> */}
