@@ -1562,20 +1562,20 @@ function Navbar() {
   const menuItems = [
     { label: "About", path: "/about-us" },
     // { label: "Blog", path: "/blogs" },
-    { label: "Jobs", path: "/jobs" },
-    { label: "EVENTS", path: "/Events" }
+    { label: "Jobs Portal", path: "/jobs" },
+    { label: "New Events", path: "/events" }
   ];
   const courses = [
-    { label: "Product Management", path: "/courses/product-management" },
-    { label: "Gen AI for PMs", path: "/courses/gen-ai-for-pms" },
-    { label: "Data Analytics", path: "/courses/data-analytics" },
-    { label: "GenAI", path: "/courses/generative-ai" },
+    { label: "AI Product Management", path: "/courses/product-management" },
+    { label: "Generative AI for Project Managers", path: "/courses/gen-ai-for-pms" },
+    { label: "AI Data Analytics", path: "/courses/data-analytics" },
+    { label: "Generative AI", path: "/courses/generative-ai" },
     {
-      label: "Advance Performance Marketing With AI",
+      label: "AI Performance Marketing",
       path: "/courses/advance-performance-marketing-with-ai"
     },
     {
-      label: "n8n Automation",
+      label: "Automation with n8n",
       path: "/courses/n8n-automation"
     }
   ];
@@ -1856,7 +1856,7 @@ const getRouteLayout = (pathname) => {
   }
   return defaultLayout;
 };
-const Footer = lazy(() => import("./assets/Footer-rAqZPOED.js"));
+const Footer = lazy(() => import("./assets/Footer-BC99T08z.js"));
 const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-CSR6VAAb.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
