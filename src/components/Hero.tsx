@@ -1,5 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
-import { useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -47,8 +47,14 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-              < button
-                
+              <button
+                type="button"
+                onClick={() => {
+                  const section = document.getElementById("features");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="group inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-white font-medium shadow-lg hover:shadow-xl transition-all"
                 aria-label="Explore Courses"
               >
@@ -62,7 +68,7 @@ export default function Hero() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </ button>
+              </button>
 
               < button
                  
