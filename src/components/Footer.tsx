@@ -28,14 +28,14 @@ const footerLinks: {
     title: "Courses",
     links: [
       {
-        label: "Product Management Program",
+        label: "AI Product Management",
         url: "/courses/product-management",
       },
-      { label: "Data Analytics Program", url: "/courses/data-analytics" },
+      { label: "AI Data Analytics", url: "/courses/data-analytics" },
       // { label: "No-Code Development", url: "/courses/no-code-tool-program" },
-      { label: "Gen AI", url: "/courses/generative-ai" },
+      { label: "Generative AI", url: "/courses/generative-ai" },
       {
-        label: "Advance Performance Marketing With AI",
+        label: "AI Performance Marketing",
         url: "/courses/advance-performance-marketing-with-ai",
       },
     ],
