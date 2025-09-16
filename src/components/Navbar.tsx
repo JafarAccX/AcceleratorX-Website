@@ -91,7 +91,6 @@ export default function Navbar() {
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
                   className={`text-white/90 hover:text-white ${hoverTransition} relative group py-2`}
-                  aria-label={item.label}
                 >
                   {item.label}
                   <span
@@ -141,7 +140,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className={`flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`}>
-            <img src={companyLogo} alt="AcceleratorX company logo" className="w-auto h-16 object-contain" />
+            <img src={companyLogo} alt="company logo" className="w-auto h-16 object-contain" />
           </Link>
 
           {/* Desktop Menu */}
@@ -176,8 +175,6 @@ export default function Navbar() {
                       key={course.label}
                       to={course.path}
                       className={`block px-4 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 ${hoverTransition} text-sm font-medium`}
-                      aria-label={course.label}
-                      rel={['/courses/gen-ai-for-pms','/courses/data-analytics','/courses/generative-ai'].includes(course.path) ? 'noopener noreferrer' : undefined}
                     >
                       {course.label}
                     </Link>
@@ -196,8 +193,6 @@ export default function Navbar() {
                     ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
                     : "text-gray-300 hover:text-white py-2"
                 }`}
-                aria-label={item.label}
-                rel="noopener noreferrer"
               >
                 {item.label}
                 {item.label === "XSAT" ||
@@ -227,22 +222,12 @@ export default function Navbar() {
               <ProfileMenu />
             ) : (
               <div className="flex items-center space-x-4">
-                <Link to="/sign-in" className={`text-gray-300 hover:text-white ${hoverTransition} py-2 px-4`} aria-label="Sign In" rel="noopener noreferrer">
+                <Link to="/sign-in" className={`text-gray-300 hover:text-white ${hoverTransition} py-2 px-4`}>
                   Login
                 </Link>
                 <Link
                   to="/sign-up"
                   className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
-                  aria-label="Sign Up for AcceleratorX"
-                  rel="noopener noreferrer"
-                >
-                  Sign Up
-                </Link>
-                <Link
-                  to="/sign-up"
-                  className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
-                  aria-label="Sign Up"
-                  rel="noopener noreferrer"
                 >
                   Sign Up
                 </Link>
@@ -295,8 +280,6 @@ export default function Navbar() {
                     to={course.path}
                     className={`block py-2 text-gray-300 hover:text-white ${hoverTransition} text-sm font-medium`}
                     onClick={() => setIsOpen(false)}
-                    aria-label={course.label} 
-                    rel={['/courses/gen-ai-for-pms','/courses/data-analytics','/courses/generative-ai'].includes(course.path) ? 'noopener noreferrer' : undefined}
                   >
                     {course.label}
                   </Link>

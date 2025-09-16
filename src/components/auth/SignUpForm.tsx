@@ -610,7 +610,6 @@ export const SignUpForm = () => {
                 <Link
                   to="/sign-in" 
                   className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200 underline decoration-2 underline-offset-4 hover:decoration-blue-600"
-                  rel="noopener noreferrer"
                 >
                   Sign In
                 </Link>

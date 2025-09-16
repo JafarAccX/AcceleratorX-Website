@@ -344,7 +344,6 @@ export default function CreateEventPage() {
               <Link
                 to="/"
                 className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors duration-300 text-gray-300"
-                rel="noopener noreferrer"
               >
                 Cancel
               </Link>
