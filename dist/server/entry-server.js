@@ -1496,6 +1496,7 @@ function ProfileMenu() {
           to: "/jobs",
           className: "flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100",
           onClick: () => setIsOpen(false),
+          rel: "noopener noreferrer",
           children: [
             /* @__PURE__ */ jsx(Briefcase, { className: "mr-3 h-5 w-5 text-gray-400" }),
             "Jobs"
@@ -1592,6 +1593,7 @@ function Navbar() {
               {
                 onClick: () => scrollToSection(item.href),
                 className: `text-white/90 hover:text-white ${hoverTransition} relative group py-2`,
+                "aria-label": item.label,
                 children: [
                   item.label,
                   /* @__PURE__ */ jsx(
@@ -1638,7 +1640,7 @@ function Navbar() {
       className: `fixed w-full z-[9999] backdrop-blur-md bg-black/95 border-b border-white/10 ${menuTransition}`,
       children: [
         /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between h-16", children: [
-          /* @__PURE__ */ jsx(Link, { to: "/", className: `flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`, children: /* @__PURE__ */ jsx("img", { src: companyLogo, alt: "company logo", className: "w-auto h-16 object-contain" }) }),
+          /* @__PURE__ */ jsx(Link, { to: "/", className: `flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`, children: /* @__PURE__ */ jsx("img", { src: companyLogo, alt: "AcceleratorX company logo", className: "w-auto h-16 object-contain" }) }),
           /* @__PURE__ */ jsxs("div", { className: "hidden md:flex items-center space-x-8", children: [
             /* @__PURE__ */ jsxs(
               "div",
@@ -1675,6 +1677,8 @@ function Navbar() {
                         {
                           to: course.path,
                           className: `block px-4 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 ${hoverTransition} text-sm font-medium`,
+                          "aria-label": course.label,
+                          rel: ["/courses/gen-ai-for-pms", "/courses/data-analytics", "/courses/generative-ai"].includes(course.path) ? "noopener noreferrer" : void 0,
                           children: course.label
                         },
                         course.label
@@ -1689,6 +1693,8 @@ function Navbar() {
               {
                 to: item.path,
                 className: `relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40" : "text-gray-300 hover:text-white py-2"}`,
+                "aria-label": item.label,
+                rel: "noopener noreferrer",
                 children: [
                   item.label,
                   item.label === "XSAT" || item.label === "EVENTS" && /* @__PURE__ */ jsxs("span", { className: "relative flex h-2 w-2", children: [
@@ -1706,12 +1712,24 @@ function Navbar() {
               item.label
             )),
             isAuthenticated ? /* @__PURE__ */ jsx(ProfileMenu, {}) : /* @__PURE__ */ jsxs("div", { className: "flex items-center space-x-4", children: [
-              /* @__PURE__ */ jsx(Link, { to: "/sign-in", className: `text-gray-300 hover:text-white ${hoverTransition} py-2 px-4`, children: "Login" }),
+              /* @__PURE__ */ jsx(Link, { to: "/sign-in", className: `text-gray-300 hover:text-white ${hoverTransition} py-2 px-4`, "aria-label": "Sign In", rel: "noopener noreferrer", children: "Login" }),
               /* @__PURE__ */ jsx(
                 Link,
                 {
                   to: "/sign-up",
                   className: `bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`,
+                  "aria-label": "Sign Up for AcceleratorX",
+                  rel: "noopener noreferrer",
+                  children: "Sign Up"
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                Link,
+                {
+                  to: "/sign-up",
+                  className: `bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`,
+                  "aria-label": "Sign Up",
+                  rel: "noopener noreferrer",
                   children: "Sign Up"
                 }
               )
@@ -1762,6 +1780,8 @@ function Navbar() {
                         to: course.path,
                         className: `block py-2 text-gray-300 hover:text-white ${hoverTransition} text-sm font-medium`,
                         onClick: () => setIsOpen(false),
+                        "aria-label": course.label,
+                        rel: ["/courses/gen-ai-for-pms", "/courses/data-analytics", "/courses/generative-ai"].includes(course.path) ? "noopener noreferrer" : void 0,
                         children: course.label
                       },
                       course.label
@@ -1856,7 +1876,7 @@ const getRouteLayout = (pathname) => {
   }
   return defaultLayout;
 };
-const Footer = lazy(() => import("./assets/Footer-rAqZPOED.js"));
+const Footer = lazy(() => import("./assets/Footer-CfbpuIuV.js"));
 const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-CSR6VAAb.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
@@ -2083,9 +2103,9 @@ const RoleProtectedRoute = ({
 };
 const WorkshopPaymentSuccess = lazy(() => import("./assets/Success-N-b6YkOf.js"));
 const XSATEntry = lazy(() => import("./assets/XSATEntry-BQcfWLtv.js"));
-const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
+const EventManagementPage = lazy(() => import("./assets/event-BJAC51eQ.js"));
 const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
-const HomePage = lazy(() => import("./assets/HomePage-Ch8Nh3Wh.js"));
+const HomePage = lazy(() => import("./assets/HomePage-BzSY7Udc.js"));
 const AboutPage = lazy(() => import("./assets/AboutPage-CAGT1wqA.js"));
 const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-B0nb9emf.js"));
@@ -2734,7 +2754,7 @@ const ProtectedRoute = () => {
   return /* @__PURE__ */ jsx(Outlet, {});
 };
 const ProfileRoutes = lazy(() => import("./assets/profileRoutes-CpTktpDf.js").then((m) => ({ default: m.ProfileRoutes })));
-const SignUpForm = lazy(() => import("./assets/SignUpForm-DJ-gbKyO.js"));
+const SignUpForm = lazy(() => import("./assets/SignUpForm-By8dcr4B.js"));
 const SignInForm = lazy(() => import("./assets/SignInForm-CxwH1DeT.js").then((m) => ({ default: m.SignInForm })));
 const JobApplication = lazy(() => import("./assets/JobApplication-CZYz9G5J.js"));
 const JobDetails = lazy(() => import("./assets/JobDetails-CkI3ZZh7.js"));
