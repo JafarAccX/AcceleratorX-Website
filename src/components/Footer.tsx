@@ -191,6 +191,7 @@ export default function Footer() {
                       <Link
                         to={link.url}
                         className="text-gray-400 hover:text-white transition-colors duration-300"
+                        aria-label={link.label}
                       >
                         {link.label}
                       </Link>
@@ -214,6 +215,8 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group"
+                    aria-label={link.label}
+                    title={link.label}
                   >
                     <span className="mt-1 text-blue-400 flex-shrink-0">
                       {link.icon}

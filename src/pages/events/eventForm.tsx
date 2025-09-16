@@ -196,6 +196,7 @@ export default function CreateEventPage() {
         participant3: "",
         participantsnumber3: "",
       });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error("Error creating event:", error);
       setFormError(error.message || "Failed to create event. Please try again.");
@@ -343,6 +344,7 @@ export default function CreateEventPage() {
               <Link
                 to="/"
                 className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors duration-300 text-gray-300"
+                rel="noopener noreferrer"
               >
                 Cancel
               </Link>

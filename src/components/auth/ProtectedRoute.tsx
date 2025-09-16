@@ -15,8 +15,8 @@ export const ProtectedRoute = () => {
 
   // Check if user is not authenticated
   if (!isAuthenticated) {
-    // Redirect to register page if not authenticated
-    return <Navigate to="/sign-in" replace />;
+  // Redirect to register page if not authenticated
+  return <Navigate to="/sign-in" replace />;
   }
 
   // If authenticated, render the nested child routes
