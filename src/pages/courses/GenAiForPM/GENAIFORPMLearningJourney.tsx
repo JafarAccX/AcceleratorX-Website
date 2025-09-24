@@ -215,7 +215,7 @@ const GENLearningJourney = () => {
               <Calendar className="w-4 h-4 text-blue-600" />
               <span className="text-blue-600 text-sm font-medium">Learning Journey</span>
             </div>
-            <p className="text-3xl md:text-4xl font-bold text-white mb-3">Your GenAI PM Learning Path</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">Your GenAI PM Learning Path</h3>
             <p className="text-gray-300 text-lg max-w-2xl">
               An 8-week intensive journey to master GenAI for product management and accelerate your PM career
             </p>

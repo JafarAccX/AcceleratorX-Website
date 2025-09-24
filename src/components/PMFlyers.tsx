@@ -142,7 +142,7 @@ function PMFlyers() {
               <div className="grid grid-cols-3 gap-4 mt-8">
                 <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">
                   <Clock className="w-6 h-6 text-purple-400 mb-2" />
-                  <h3 className="text-white font-semibold">Duration</h3>
+                  <p className="text-white font-semibold">Duration</p>
                   <p className="text-purple-200">4 Months</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm">

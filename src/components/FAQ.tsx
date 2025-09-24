@@ -104,12 +104,12 @@ export default function FAQ() {
         <div
            
         >
-          <h2
+          <h3
             className="text-4xl font-bold mb-4"
              
           >
             Your Questions Answered
-          </h2>
+          </h3>
           <p
             className="text-gray-400 mb-12"
           

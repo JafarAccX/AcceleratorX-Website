@@ -27,14 +27,14 @@ function NoCodeTool() {
           className="space-y-12 relative z-10"
         >
           <div className="text-center space-y-4">
-            <motion.h2
+            <motion.p
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
             >
               Tools You'll Use
-            </motion.h2>
+            </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

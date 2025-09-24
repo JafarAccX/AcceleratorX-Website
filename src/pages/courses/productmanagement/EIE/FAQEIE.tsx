@@ -107,7 +107,7 @@ export default function FAQEIE() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.h2
+          <motion.h3
             className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export default function FAQEIE() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             Your Questions Answered
-          </motion.h2>
+          </motion.h3>
           <motion.p
             className="text-gray-400 mb-12"
             initial={{ opacity: 0, y: 20 }}

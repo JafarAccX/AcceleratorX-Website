@@ -151,9 +151,9 @@ export default function DataSkillsToolsEIE() {
           >
             <div className="relative inline-flex items-center">
               <div className="absolute inset-0 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg"></div>
-              <h3 className="relative text-2xl font-bold text-white">
+              <p className="relative text-2xl font-bold text-white">
                 Tools You'll Master
-              </h3>
+              </p>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -172,9 +172,9 @@ export default function DataSkillsToolsEIE() {
           >
             <div className="relative inline-flex items-center">
               <div className="absolute inset-0 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg"></div>
-              <h3 className="relative text-2xl font-bold text-white">
+              <p className="relative text-2xl font-bold text-white">
                 Skills You'll Develop
-              </h3>
+              </p>
             </div>
             
             <div className="space-y-4">

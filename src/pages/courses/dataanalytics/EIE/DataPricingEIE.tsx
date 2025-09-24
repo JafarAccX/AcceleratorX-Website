@@ -34,7 +34,7 @@ export default function DataPricingEIE() {
   return (
     <section id="pricing" className="py-24 bg-black">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Learning Path</h2>
+        <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Learning Path</h3>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
           Select the plan that best fits your learning goals and career aspirations
         </p>
@@ -56,7 +56,7 @@ export default function DataPricingEIE() {
             {/* Header */}
             <div className="mb-6">
               <div className="text-center">
-                <h3 className="text-2xl mt-2 font-bold text-white mb-4">{pricingData.title}</h3>
+                <p className="text-2xl mt-2 font-bold text-white mb-4">{pricingData.title}</p>
               </div>
 
               <div className="flex flex-col items-center gap-2 mb-2">

@@ -203,9 +203,9 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="md:col-span-4">
-            <h3 className="font-semibold text-white mb-4 text-lg">
+            <p className="font-semibold text-white mb-4 text-lg">
               {footerLinks.contact.title}
-            </h3>
+            </p>
             <ul className="space-y-4">
               {footerLinks.contact.links.map((link) => (
                 <li key={link.label}>

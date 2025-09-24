@@ -45,9 +45,9 @@ const LogoSlider: React.FC = () => {
                 <Users className="w-8 h-8 text-blue-400" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold text-white mb-4">
               Trusted by Industry Leaders
-            </h2>
+            </h1>
             <p className="text-lg text-blue-200/80 max-w-2xl mx-auto">
               Join hands with companies worldwide that trust our resources.
             </p>

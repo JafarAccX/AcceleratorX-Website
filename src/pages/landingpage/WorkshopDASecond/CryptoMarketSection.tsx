@@ -95,7 +95,7 @@ const CryptoMarketSection: React.FC = () => {
       <div className="relative z-10 container mx-auto px-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Tools you will learn</h2>
+          <p className="text-3xl md:text-4xl font-bold text-white">Tools you will learn</p>
           <button className="text-slate-400 hover:text-teal-400 transition-colors text-sm md:text-base">
             View all 700+ coins
           </button>

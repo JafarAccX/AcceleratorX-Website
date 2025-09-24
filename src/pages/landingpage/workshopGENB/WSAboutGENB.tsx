@@ -113,7 +113,7 @@ const WSAboutGENB = () => {
 
             {/* Tools Section - Simplified */}
             <div ref={toolsRef} className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20">
-              <h2 className="text-xl font-bold text-white mb-4">Creative Tools You'll Master</h2>
+              <p className="text-xl font-bold text-white mb-4">Creative Tools You'll Master</p>
               <div className="relative overflow-hidden">
                 <div className="flex overflow-hidden">
                   <motion.div

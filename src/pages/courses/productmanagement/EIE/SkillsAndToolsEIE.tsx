@@ -77,9 +77,9 @@ const ToolCard = ({ tool, index }: ToolCardProps) => {
               className="relative w-12 h-12 object-contain transform transition-all duration-300 group-hover:scale-110"
             />
           </div>
-          <h3 className="text-white font-medium text-center group-hover:text-[#5CB338] transition-colors duration-300">
+          <p className="text-white font-medium text-center group-hover:text-[#5CB338] transition-colors duration-300">
             {tool.name}
-          </h3>
+          </p>
           <AnimatePresence>
             {isHovered && (
               <p
