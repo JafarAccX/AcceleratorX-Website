@@ -90,7 +90,7 @@ const GENMarketScope = () => {
                   <div className="p-2 rounded-lg bg-white/10">{stat.icon}</div>
                   <div className="text-2xl font-bold text-white">{stat.value}</div>
                 </div>
-                <h3 className="text-sm font-semibold text-gray-300 mb-2">{stat.label}</h3>
+                <h4 className="text-sm font-semibold text-gray-300 mb-2">{stat.label}</h4>
                 <p className="text-sm text-gray-400">{stat.description}</p>
               </div>
             ))}
@@ -98,7 +98,7 @@ const GENMarketScope = () => {
 
           {/* Career Opportunities */}
           <div className="backdrop-blur-sm rounded-2xl  ">
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">High-Paying PM Roles in GenAI</h3>
+            <h4 className="text-2xl font-bold text-white mb-8 text-center">High-Paying PM Roles in GenAI</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/5 ">
               {opportunities.map((job, index) => (
                 <div

@@ -1,7 +1,7 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import { CheckCircle, Calendar, Video, Copy } from "lucide-react";
-import { FaLinkedin, FaTwitter, FaInstagram, FaYoutube, FaDiscord, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaYoutube, FaDiscord, FaWhatsapp } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useLocation, Link } from "react-router-dom";
 
@@ -185,7 +185,7 @@ const WSRegistrationSuccess = () => {
 
           {/* Social Media Links */}
           <div className="px-8 py-8 border-t border-gray-200">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Connect With Us</h3>
+            <p className="text-lg font-medium text-gray-900 mb-4">Connect With Us</p>
             <p className="text-gray-600 mb-6">
               Follow us on social media to stay updated with our latest workshops and AI content
             </p>

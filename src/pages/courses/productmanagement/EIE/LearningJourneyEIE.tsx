@@ -32,9 +32,9 @@ export default function LearningJourneyEIE() {
                     <module.icon className="w-6 h-6 text-[#5CB338]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-2 group-hover:text-[#5CB338] transition-colors">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-[#5CB338] transition-colors">
                       {module.title}
-                    </h4>
+                    </h3>
                     <p className="text-gray-400 text-sm">{module.description}</p>
                   </div>
                 </div>

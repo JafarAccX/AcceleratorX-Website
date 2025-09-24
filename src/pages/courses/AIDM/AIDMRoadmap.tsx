@@ -64,7 +64,7 @@ const AIDMRoadmap: React.FC = () => {
               key={index}
               className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700/50 hover:border-indigo-500/50 transition-colors duration-300"
             >
-              <h3 className="font-bold text-lg text-blue-400 mb-2">{month.title}</h3>
+              <p className="font-bold text-lg text-blue-400 mb-2">{month.title}</p>
               <p className="text-gray-300">{month.description}</p>
             </div>
           ))}

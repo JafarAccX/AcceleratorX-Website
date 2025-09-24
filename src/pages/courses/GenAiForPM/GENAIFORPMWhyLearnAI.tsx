@@ -55,10 +55,10 @@ const GENWhyLearnAI = () => {
               <Brain className="w-4 h-4 text-blue-600" />
               <span className="text-blue-600 text-base font-medium">GenAI Challenges & Solutions for PMs</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3">
               <span className="text-white">Why PMs Need </span>
               <span className="text-blue-500">GenAI Skills</span>
-            </h2>
+            </h3>
             <p className="text-lg text-blue-100">
               See how GenAI addresses the biggest challenges in product management and opens new career paths
             </p>
@@ -78,7 +78,7 @@ const GENWhyLearnAI = () => {
                     </div>
                     <div>
                       <div className="text-base font-bold text-blue-600 tracking-wider  mb-1">{challenge.stat}</div>
-                      <h3 className="text-base font-semibold  mb-1">{challenge.title}</h3>
+                      <h4 className="text-base font-semibold  mb-1">{challenge.title}</h4>
                       <p className="text-base  ">{challenge.description}</p>
                     </div>
                   </div>
@@ -98,7 +98,7 @@ const GENWhyLearnAI = () => {
                       <solution.icon className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold  mb-1">{solution.title}</h3>
+                      <h4 className="text-base font-semibold  mb-1">{solution.title}</h4>
                       <p className="text-base ">{solution.description}</p>
                     </div>
                   </div>

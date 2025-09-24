@@ -72,9 +72,9 @@ const DMPricing = () => {
                 `}
               >
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-mono font-bold text-neon-yellow mb-2 group-hover:text-neon-pink transition-colors duration-300">
+                  <p className="text-2xl font-mono font-bold text-neon-yellow mb-2 group-hover:text-neon-pink transition-colors duration-300">
                     {plan.name}
-                  </h3>
+                  </p>
                   <p className="text-neutral-100/70 font-mono mb-4">
                     {plan.description}
                   </p>

@@ -1,6 +1,6 @@
-import React from "react";
+
 import { motion } from "framer-motion";
-import { Users, Linkedin } from "lucide-react";
+import { Users } from "lucide-react";
 import { mentors } from "../../../utils/constants";
 
 export default function MentorsFB() {
@@ -18,9 +18,9 @@ export default function MentorsFB() {
               <Users className="w-8 h-8 text-blue-500" />
             </div>
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+          <h3 className="text-4xl font-bold text-white mb-4 tracking-tight">
             Learn from Industry Experts
-          </h2>
+          </h3>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Connect with seasoned professionals who have transformed careers
           </p>

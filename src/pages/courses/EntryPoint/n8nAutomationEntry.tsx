@@ -68,9 +68,9 @@ const N8nAutomationEntry = () => {
         {/* Bottom CTA Section */}
         <div className="relative bg-gradient-to-r from-gray-900 to-black py-20">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Master <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">n8n Automation</span>?
-            </h2>
+            </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of professionals who are already transforming their careers with workflow automation
             </p>

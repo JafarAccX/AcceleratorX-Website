@@ -116,9 +116,9 @@ const GENMarketScopeAd = () => {
 
           {/* Career Opportunities */}
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">
+            <p className="text-2xl font-bold text-white mb-8 text-center">
               High-Paying Career Opportunities
-            </h3>
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {opportunities.map((job, index) => (
                 <div

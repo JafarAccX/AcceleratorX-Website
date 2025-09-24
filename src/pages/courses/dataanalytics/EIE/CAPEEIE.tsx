@@ -122,9 +122,9 @@ export default function CAPEEIE() {
 
           <div className="relative p-12 rounded-3xl bg-gradient-to-b from-[#0A0F1E] to-[#141B2E] border border-[#96E072]/20 backdrop-blur-sm">
             <div className="mb-8">
-              <h3 className="text-3xl font-bold text-center bg-gradient-to-r from-[#96E072] to-[#96E072]/90 text-transparent bg-clip-text pb-2">
+              <p className="text-3xl font-bold text-center bg-gradient-to-r from-[#96E072] to-[#96E072]/90 text-transparent bg-clip-text pb-2">
                 What You'll Achieve
-              </h3>
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

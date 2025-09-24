@@ -145,7 +145,7 @@ const GENToolsYouWillLearn = () => {
                 <Rocket className="w-3.5 h-3.5 text-blue-600" />
                 <span className="text-blue-600 text-xs font-medium">Hands-on Projects</span>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold  mb-2">Build Real GenAI Solutions for PMs</h2>
+              <h3 className="text-2xl md:text-3xl font-bold  mb-2">Build Real GenAI Solutions for PMs</h3>
               <p className="text-gray-400 text-base max-w-2xl mx-auto">
                 Apply your skills through practical projects that solve real product management problems
               </p>
@@ -173,7 +173,7 @@ const GENToolsYouWillLearn = () => {
               <Wrench className="w-3.5 h-3.5 text-blue-600" />
               <span className="text-blue-600 text-xs font-medium">Tools & Technologies</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold   mb-2">Master GenAI Tools for Product Management</h2>
+            <h3 className="text-2xl md:text-3xl font-bold   mb-2">Master GenAI Tools for Product Management</h3>
             <p className="text-gray-600 text-base max-w-2xl mx-auto">
               Get hands-on experience with the most powerful GenAI tools for PMs
             </p>

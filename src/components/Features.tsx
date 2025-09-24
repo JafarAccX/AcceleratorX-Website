@@ -1,12 +1,6 @@
 import { Maximize2, Zap, Wand2, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-// Animation variants for better reusability
-const containerAnimation = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 // const cardAnimation = {
 //   hidden: { opacity: 0, y: 20 },
 //   visible: { opacity: 1, y: 0 },
@@ -448,7 +442,7 @@ const features = [
             { x: 80, initialHeight: 25, targetHeight: 55, delay: 0.2 },
             { x: 110, initialHeight: 35, targetHeight: 65, delay: 0.3 },
             { x: 140, initialHeight: 20, targetHeight: 50, delay: 0.4 },
-          ].map(({ x, initialHeight, targetHeight, delay }, index) => (
+          ].map(({ x }, index) => (
             <rect
               key={`bar-${index}`}
               x={x}
@@ -488,12 +482,12 @@ export default function Features() {
           
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white pb-2">
+          <p className="text-3xl md:text-4xl font-bold text-white pb-2">
             Explore Our{" "}
             <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
               Courses
             </span>
-          </h2>
+          </p>
           <p className="text-gray-400 text-lg">
             Master the skills that shape tomorrow's technology landscape
           </p>

@@ -154,9 +154,9 @@ export default function Footer() {
             </p>
             {/* Social Media Icons */}
             <div className="pt-4">
-              <h3 className="font-semibold text-white mb-4 text-lg">
+              <p className="font-semibold text-white mb-4 text-lg">
                 Connect With Us
-              </h3>
+              </p>
               <div className="flex items-center gap-4">
                 {footerLinks.social.links.map((link) => (
                   <a
@@ -182,9 +182,9 @@ export default function Footer() {
           <div className="md:col-span-4 grid grid-cols-2 gap-8">
             {["services", "company"].map((key) => (
               <div key={key}>
-                <h3 className="font-semibold text-white mb-4 text-lg">
+                <p className="font-semibold text-white mb-4 text-lg">
                   {footerLinks[key].title}
-                </h3>
+                </p>
                 <ul className="space-y-3">
                   {footerLinks[key].links.map((link) => (
                     <li key={link.label}>

@@ -78,7 +78,7 @@ const GENWhyLearnAI = () => {
                     </div>
                     <div>
                       <div className="text-base font-bold text-blue-600 tracking-wider  mb-1">{challenge.stat}</div>
-                      <h3 className="text-base font-semibold  mb-1">{challenge.title}</h3>
+                      <p className="text-base font-semibold  mb-1">{challenge.title}</p>
                       <p className="text-base  ">{challenge.description}</p>
                     </div>
                   </div>
@@ -98,7 +98,7 @@ const GENWhyLearnAI = () => {
                       <solution.icon className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold  mb-1">{solution.title}</h3>
+                      <p className="text-base font-semibold  mb-1">{solution.title}</p>
                       <p className="text-base ">{solution.description}</p>
                     </div>
                   </div>

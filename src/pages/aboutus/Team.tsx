@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Quote } from "lucide-react";
 
@@ -77,7 +77,7 @@ const LeaderCard = ({
         <Quote className="w-20 h-20" />
       </div>
       <div className="relative z-10 text-gray-300 backdrop-blur-sm bg-black/30 p-8 rounded-2xl border border-blue-500/20">
-        <h4 className="text-2xl font-semibold text-blue-400 mb-6">{title}</h4>
+        <h3 className="text-2xl font-semibold text-blue-400 mb-6">{title}</h3>
         <p className="text-lg leading-relaxed italic">
           <TypewriterEffect text={quote} />
         </p>

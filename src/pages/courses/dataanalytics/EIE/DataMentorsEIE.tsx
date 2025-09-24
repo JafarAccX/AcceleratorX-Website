@@ -94,7 +94,7 @@ export default function DataMentorsEIE() {
 
                     {/* Name and Role */}
                     <div className="text-center mt-4 px-6">
-                      <h3 className="text-2xl font-bold text-[#1A5D1A]">{mentor.name}</h3>
+                      <p className="text-2xl font-bold text-[#1A5D1A]">{mentor.name}</p>
                       <p className="text-[#2E5D1E] mt-1 font-medium">{mentor.role}</p>
                     </div>
                   </div>

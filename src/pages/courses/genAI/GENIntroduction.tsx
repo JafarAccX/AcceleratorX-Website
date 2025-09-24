@@ -60,9 +60,9 @@ const GENIntroduction = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl text-white md:text-5xl font-bold mb-4">
             Launch Your <span className="text-blue-500">AI Career</span> Without Coding
-          </h1>
+          </h2>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">

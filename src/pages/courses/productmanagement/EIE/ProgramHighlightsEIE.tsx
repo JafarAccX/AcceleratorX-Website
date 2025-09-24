@@ -192,9 +192,9 @@ export default function ProgramHighlightsEIE() {
               renderBYDPSection()
             ) : (
               <div className="bg-[#0F0F0F] rounded-xl p-8 border border-white/10">
-                <h3 className="text-2xl font-bold mb-8">
+                <p className="text-2xl font-bold mb-8">
                   {sections[activeSection].title}
-                </h3>
+                </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                   {sections[activeSection].content.map((item, index) => (
                     <div key={index} className="flex items-center gap-3">

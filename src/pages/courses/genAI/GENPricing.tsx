@@ -54,7 +54,7 @@ const GENPricing = () => {
                 }`}
               >
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <p className="text-2xl font-bold text-white mb-2">{plan.name}</p>
                   <p className="text-gray-400 mb-4">{plan.description}</p>
 
                   <div className="flex items-baseline justify-center gap-1 mb-2">
