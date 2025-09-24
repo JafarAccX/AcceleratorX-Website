@@ -66,6 +66,7 @@
     "serve-static": "^1.15.0",
     "sirv": "^3.0.1",
     "swiper": "^11.2.1",
+    "tailwind-merge": "^3.3.1",
     "tsparticles": "^3.2.2"
   },
   "devDependencies": {
