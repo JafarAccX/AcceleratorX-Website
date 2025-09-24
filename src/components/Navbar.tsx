@@ -56,7 +56,8 @@ export default function Navbar() {
 
   const courses = [
     { label: "AI Product Management", path: "/courses/product-management" },
-    { label: "Generative AI for Project Managers", path: "/courses/gen-ai-for-pms" },
+    { label: "Generative AI for Product Managers", path: "/courses/gen-ai-for-pms" },
+    { label: "AI Digital Marketing", path: "/courses/ai-digital-marketing" },
     { label: "AI Data Analytics", path: "/courses/data-analytics" },
     { label: "Generative AI", path: "/courses/generative-ai" },
     {

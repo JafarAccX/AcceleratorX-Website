@@ -68,9 +68,9 @@ const TestimonialsFB = () => {
       >
         {/* Header Section */}
         <motion.div variants={itemVariants} className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
             Trusted by Industry Leaders
-          </h2>
+          </h1>
           <p className="text-xl text-white max-w-2xl mx-auto leading-relaxed">
             Join hundreds of satisfied clients who have transformed their
             businesses with our solutions

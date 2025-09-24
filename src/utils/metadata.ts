@@ -152,6 +152,14 @@ export const pageMetadata: Record<string, PageMetadata> = {
     canonicalUrl: "https://www.acceleratorx.org/courses/gen-ai-for-pms"
   },
 
+  "/courses/ai-digital-marketing": {
+    title: "AI-Powered Digital Marketing Nano-Degree | AcceleratorX",
+    description: "Become the marketer every company wants in 2025. Master AI tools, automation, and growth strategies in our 16-week program with job assistance.",
+    ogTitle: "AI Digital Marketing Nano-Degree | AcceleratorX",
+    ogDescription: "16-week AI marketing program with live training, automation tools, and career support. Join 2500+ alumni network.",
+    canonicalUrl: "https://www.acceleratorx.org/courses/ai-digital-marketing"
+  },
+
   "/courses/product-management-program-fb": {
     title: "Product Management Program (Fast-Track) | AcceleratorX",
     description: "Enroll in AcceleratorX's fast-track Product Management program designed to help professionals gain PM skills quickly and effectively.",
