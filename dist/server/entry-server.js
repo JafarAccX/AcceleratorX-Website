@@ -1567,7 +1567,8 @@ function Navbar() {
   ];
   const courses = [
     { label: "AI Product Management", path: "/courses/product-management" },
-    { label: "Generative AI for Project Managers", path: "/courses/gen-ai-for-pms" },
+    { label: "Generative AI for Product Managers", path: "/courses/gen-ai-for-pms" },
+    { label: "AI Digital Marketing", path: "/courses/ai-digital-marketing" },
     { label: "AI Data Analytics", path: "/courses/data-analytics" },
     { label: "Generative AI", path: "/courses/generative-ai" },
     {
@@ -2270,6 +2271,13 @@ const pageMetadata = {
     ogDescription: "Discover Generative AI applications tailored for Product Managers.",
     canonicalUrl: "https://www.acceleratorx.org/courses/gen-ai-for-pms"
   },
+  "/courses/ai-digital-marketing": {
+    title: "AI-Powered Digital Marketing Nano-Degree | AcceleratorX",
+    description: "Become the marketer every company wants in 2025. Master AI tools, automation, and growth strategies in our 16-week program with job assistance.",
+    ogTitle: "AI Digital Marketing Nano-Degree | AcceleratorX",
+    ogDescription: "16-week AI marketing program with live training, automation tools, and career support. Join 2500+ alumni network.",
+    canonicalUrl: "https://www.acceleratorx.org/courses/ai-digital-marketing"
+  },
   "/courses/product-management-program-fb": {
     title: "Product Management Program (Fast-Track) | AcceleratorX",
     description: "Enroll in AcceleratorX's fast-track Product Management program designed to help professionals gain PM skills quickly and effectively.",
@@ -2651,6 +2659,7 @@ const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-BGhi2hPa.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-DIQS52aS.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-DnF0YGvL.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
@@ -2663,6 +2672,7 @@ const courseRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/courses/data-analytics", element: /* @__PURE__ */ jsx(DataAnalyticsEntry, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse, {}) }),
   /* @__PURE__ */ jsx(Route, { path: "/courses/gen-ai-for-pms", element: /* @__PURE__ */ jsx(GenAiForPMEntry, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/ai-digital-marketing", element: /* @__PURE__ */ jsx(AIDMEntry, {}) }),
   /* @__PURE__ */ jsx(
     Route,
     {
