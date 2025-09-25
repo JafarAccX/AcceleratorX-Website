@@ -34,10 +34,11 @@ const footerLinks: {
       { label: "AI Data Analytics", url: "/courses/data-analytics" },
       // { label: "No-Code Development", url: "/courses/no-code-tool-program" },
       { label: "Generative AI", url: "/courses/generative-ai" },
-      {
-        label: "AI Performance Marketing",
-        url: "/courses/advance-performance-marketing-with-ai",
-      },
+      // {
+      //   label: "AI Performance Marketing",
+      //   url: "/courses/advance-performance-marketing-with-ai",
+      // },
+       { label: "AI Digital Marketing", url: "/courses/ai-digital-marketing" },
     ],
   },
   company: {

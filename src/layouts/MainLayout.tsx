@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 // import ChatWidget from "../components/ChatWidget";
@@ -24,6 +24,18 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
     setEnrollmentModalOpen(false);
   };
 
+  // Single source of truth for opening/closing EnrollmentModal via window events
+  useEffect(() => {
+    const openHandler = () => setEnrollmentModalOpen(true);
+    const closeHandler = () => setEnrollmentModalOpen(false);
+    window.addEventListener("open-enrollment-modal", openHandler as EventListener);
+    window.addEventListener("close-enrollment-modal", closeHandler as EventListener);
+    return () => {
+      window.removeEventListener("open-enrollment-modal", openHandler as EventListener);
+      window.removeEventListener("close-enrollment-modal", closeHandler as EventListener);
+    };
+  }, []);
+
   const { showNavbar, showFooter } = getRouteLayout(location.pathname);
 
   return (
@@ -33,11 +45,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       {/* Google Translate Widget */}
       {/* <GoogleTranslate /> */}
 
-      {isEnrollmentModalOpen && (
-        <Suspense fallback={null}>
-          <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
-        </Suspense>
-      )}
+      <Suspense fallback={null}>
+        <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
+      </Suspense>
 
       <main className="min-h-screen">{children}</main>
 

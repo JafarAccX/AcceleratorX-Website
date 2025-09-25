@@ -1,6 +1,13 @@
 import React from 'react';
+import { useCourseContext } from '../../../context/courseContext';
 
 const AIDMCareerOutcomes: React.FC = () => {
+  const { setSelectedCourse } = useCourseContext();
+
+  const handleRegister = () => {
+    setSelectedCourse('AI Digital Marketing');
+    window.dispatchEvent(new Event('open-enrollment-modal'));
+  };
   return (
     <section className="relative py-24 px-4 ">
       {/* Background Gradient Blob */}
@@ -37,7 +44,7 @@ const AIDMCareerOutcomes: React.FC = () => {
         </div>
         
         <div className="text-center">
-          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg shadow-blue-500/25">
+          <button onClick={handleRegister} className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg shadow-blue-500/25">
             Register Now!
           </button>
         </div>

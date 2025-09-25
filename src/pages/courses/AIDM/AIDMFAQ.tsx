@@ -49,7 +49,7 @@ const AIDMFAQ: React.FC = () => {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            "Still Have Questions? We've Got Answers."
+            Still Have Questions? We've Got Answers.
           </h2>
         </div>
         

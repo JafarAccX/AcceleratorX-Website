@@ -1571,10 +1571,10 @@ function Navbar() {
     { label: "AI Digital Marketing", path: "/courses/ai-digital-marketing" },
     { label: "AI Data Analytics", path: "/courses/data-analytics" },
     { label: "Generative AI", path: "/courses/generative-ai" },
-    {
-      label: "AI Performance Marketing",
-      path: "/courses/advance-performance-marketing-with-ai"
-    },
+    // {
+    //   label: "AI Performance Marketing",
+    //   path: "/courses/advance-performance-marketing-with-ai",
+    // },
     {
       label: "Automation with n8n",
       path: "/courses/n8n-automation"
@@ -1857,7 +1857,7 @@ const getRouteLayout = (pathname) => {
   }
   return defaultLayout;
 };
-const Footer = lazy(() => import("./assets/Footer-DHmD8x1c.js"));
+const Footer = lazy(() => import("./assets/Footer-BJgVHy6n.js"));
 const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-CSR6VAAb.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
@@ -1865,10 +1865,20 @@ const MainLayout = ({ children }) => {
   const handleCloseModal = () => {
     setEnrollmentModalOpen(false);
   };
+  useEffect(() => {
+    const openHandler = () => setEnrollmentModalOpen(true);
+    const closeHandler = () => setEnrollmentModalOpen(false);
+    window.addEventListener("open-enrollment-modal", openHandler);
+    window.addEventListener("close-enrollment-modal", closeHandler);
+    return () => {
+      window.removeEventListener("open-enrollment-modal", openHandler);
+      window.removeEventListener("close-enrollment-modal", closeHandler);
+    };
+  }, []);
   const { showNavbar, showFooter } = getRouteLayout(location.pathname);
   return /* @__PURE__ */ jsxs("div", { className: "relative", children: [
     showNavbar && /* @__PURE__ */ jsx(Navbar, {}),
-    isEnrollmentModalOpen && /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(EnrollmentModal, { isOpen: isEnrollmentModalOpen, onClose: handleCloseModal }) }),
+    /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(EnrollmentModal, { isOpen: isEnrollmentModalOpen, onClose: handleCloseModal }) }),
     /* @__PURE__ */ jsx("main", { className: "min-h-screen", children }),
     showFooter && /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx("div", { className: "py-8 text-center", children: "Loading…" }), children: /* @__PURE__ */ jsx(Footer, {}) }) })
   ] });
@@ -2659,7 +2669,7 @@ const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-zkGoir6e.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CvgfDuRU.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-C7OICoOx.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-DMNFmxRn.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(

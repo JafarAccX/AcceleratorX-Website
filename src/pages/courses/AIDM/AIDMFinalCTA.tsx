@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useCourseContext } from '../../../context/courseContext';
-import EnrollmentModal from '../../../components/EnrollmentModal';
 
 const AIDMFinalCTA: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { setSelectedCourse } = useCourseContext();
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleModalSubmit = () => {
-    // Handle enrollment submission if needed
-  };
 
   const handleEnrollClick = () => {
     setSelectedCourse("AI Digital Marketing");
-    setIsModalOpen(true);
+    window.dispatchEvent(new Event('open-enrollment-modal'));
   };
   return (
     <section className="relative py-24 px-4 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white overflow-hidden">
@@ -27,7 +17,7 @@ const AIDMFinalCTA: React.FC = () => {
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            "Your Next Job, Client, or Growth Opportunity Starts Here — Reserve Your Seat Today"
+            Your Next Job, Client, or Growth Opportunity Starts Here — Reserve Your Seat Today
           </h2>
           <p className="text-xl mb-8 opacity-90">
             Get instant access to syllabus, tool checklist, and early-bird executive pricing.
@@ -41,12 +31,7 @@ const AIDMFinalCTA: React.FC = () => {
         </div>
       </div>
 
-      {/* Enrollment Modal */}
-      <EnrollmentModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        onSubmit={handleModalSubmit}
-      />
+  {/* Enrollment Modal is rendered globally in MainLayout */}
     </section>
   );
 };

@@ -60,10 +60,10 @@ export default function Navbar() {
     { label: "AI Digital Marketing", path: "/courses/ai-digital-marketing" },
     { label: "AI Data Analytics", path: "/courses/data-analytics" },
     { label: "Generative AI", path: "/courses/generative-ai" },
-    {
-      label: "AI Performance Marketing",
-      path: "/courses/advance-performance-marketing-with-ai",
-    },
+    // {
+    //   label: "AI Performance Marketing",
+    //   path: "/courses/advance-performance-marketing-with-ai",
+    // },
     {
       label: "Automation with n8n",
       path: "/courses/n8n-automation",
