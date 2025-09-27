@@ -1858,7 +1858,7 @@ const getRouteLayout = (pathname) => {
   return defaultLayout;
 };
 const Footer = lazy(() => import("./assets/Footer-BJgVHy6n.js"));
-const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-CSR6VAAb.js"));
+const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-D8ozUqkn.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
   const location = useLocation();
@@ -2096,41 +2096,42 @@ const WorkshopPaymentSuccess = lazy(() => import("./assets/Success-N-b6YkOf.js")
 const XSATEntry = lazy(() => import("./assets/XSATEntry-2c-t-ywQ.js"));
 const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
 const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
-const HomePage = lazy(() => import("./assets/HomePage-Bsx3dK-X.js"));
+const HomePage = lazy(() => import("./assets/HomePage-Ch_2q5At.js"));
 const AboutPage = lazy(() => import("./assets/AboutPage-DzBDEdUw.js"));
 const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-B0nb9emf.js"));
 const Terms = lazy(() => import("./assets/Terms-8YhsueH8.js"));
 const Refund = lazy(() => import("./assets/Refund-CZXw7VQO.js"));
-const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-mBEYvYaj.js"));
-const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-BBk-HUpv.js"));
-const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-B8qJR_W6.js"));
-const DataAnalyticsPage$1 = lazy(() => import("./assets/index-BdVjp3oH.js"));
+const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-B6Ut7Lz9.js"));
+const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-DRfX8S9d.js"));
+const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-BbIjU7L9.js"));
+const DataAnalyticsPage$1 = lazy(() => import("./assets/index-B0BeXRsk.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DKCOTU7S.js"));
 const Events = lazy(() => import("./assets/Events-KOHmoLH0.js"));
 const mainRoutes = [
-  /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/about-us", element: /* @__PURE__ */ jsx(AboutPage, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }, "home"),
+  /* @__PURE__ */ jsx(Route, { path: "/about-us", element: /* @__PURE__ */ jsx(AboutPage, {}) }, "about"),
   // <Route path="/blogs" element={<Blogs />} />,
-  /* @__PURE__ */ jsx(Route, { path: "/login", element: /* @__PURE__ */ jsx(Login, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/privacy-policy", element: /* @__PURE__ */ jsx(Privacy, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/terms-and-conditions", element: /* @__PURE__ */ jsx(Terms, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/refund-policy", element: /* @__PURE__ */ jsx(Refund, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/xsat", element: /* @__PURE__ */ jsx(XSATEntry, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/events", element: /* @__PURE__ */ jsx(Events, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/event/PMtakedown/view", element: /* @__PURE__ */ jsx(EventManagementPage, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/login", element: /* @__PURE__ */ jsx(Login, {}) }, "login"),
+  /* @__PURE__ */ jsx(Route, { path: "/privacy-policy", element: /* @__PURE__ */ jsx(Privacy, {}) }, "privacy"),
+  /* @__PURE__ */ jsx(Route, { path: "/terms-and-conditions", element: /* @__PURE__ */ jsx(Terms, {}) }, "terms"),
+  /* @__PURE__ */ jsx(Route, { path: "/refund-policy", element: /* @__PURE__ */ jsx(Refund, {}) }, "refund"),
+  /* @__PURE__ */ jsx(Route, { path: "/xsat", element: /* @__PURE__ */ jsx(XSATEntry, {}) }, "xsat"),
+  /* @__PURE__ */ jsx(Route, { path: "/events", element: /* @__PURE__ */ jsx(Events, {}) }, "events"),
+  /* @__PURE__ */ jsx(Route, { path: "/event/PMtakedown/view", element: /* @__PURE__ */ jsx(EventManagementPage, {}) }, "event-pm"),
   // Course Routes
-  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse$1, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb", element: /* @__PURE__ */ jsx(GenAICourseAD$1, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/advance-performance-marketing-with-ai", element: /* @__PURE__ */ jsx(DMAICourse$1, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/data-analytics", element: /* @__PURE__ */ jsx(DataAnalyticsPage$1, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse$1, {}) }, "gen-ai"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb", element: /* @__PURE__ */ jsx(GenAICourseAD$1, {}) }, "gen-ai-fb"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/advance-performance-marketing-with-ai", element: /* @__PURE__ */ jsx(DMAICourse$1, {}) }, "digital-marketing"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/data-analytics", element: /* @__PURE__ */ jsx(DataAnalyticsPage$1, {}) }, "data-analytics"),
   // Blog Admin Routes
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/admin/blogs",
       element: /* @__PURE__ */ jsx(RoleProtectedRoute, { requiredRole: "blog_user", children: /* @__PURE__ */ jsx(BlogDashboard, {}) })
-    }
+    },
+    "blog-admin"
   ),
   // <Route
   //   path="/admin/blogs/new"
@@ -2149,10 +2150,10 @@ const mainRoutes = [
   //   }
   // />,
   // Thank You Page
-  /* @__PURE__ */ jsx(Route, { path: "/thank-you", element: /* @__PURE__ */ jsx(ThankYouPageWrapper, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/registration-sucessfull", element: /* @__PURE__ */ jsx(RegistrationSuccess, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/thank-you", element: /* @__PURE__ */ jsx(ThankYouPageWrapper, {}) }, "thank-you"),
+  /* @__PURE__ */ jsx(Route, { path: "/registration-sucessfull", element: /* @__PURE__ */ jsx(RegistrationSuccess, {}) }, "registration-success"),
   // Workshop Payment Success
-  /* @__PURE__ */ jsx(Route, { path: "/workshop-payment/success/:orderId", element: /* @__PURE__ */ jsx(WorkshopPaymentSuccess, {}) })
+  /* @__PURE__ */ jsx(Route, { path: "/workshop-payment/success/:orderId", element: /* @__PURE__ */ jsx(WorkshopPaymentSuccess, {}) }, "workshop-payment-success")
 ];
 const pageMetadata = {
   // Homepage
@@ -2632,44 +2633,44 @@ const WorkshopPageDM = () => /* @__PURE__ */ jsxs(Fragment, { children: [
   /* @__PURE__ */ jsx(LeadEngineCTA, {})
 ] });
 const workshopRoutes = [
-  /* @__PURE__ */ jsx(Route, { path: "/workshop/pm-masterclass", element: /* @__PURE__ */ jsx(WorkshopPagePM, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/pm-masterclass", element: /* @__PURE__ */ jsx(WorkshopPagePM, {}) }, "workshop-pm"),
   // <Route path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
-  /* @__PURE__ */ jsx(Route, { path: "/workshop/dm-masterclass", element: /* @__PURE__ */ jsx(WorkshopPageDM, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/workshop/da-masterclass", element: /* @__PURE__ */ jsx(WorkshopPageDA, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/workshop/da-masterclass-bxwxy", element: /* @__PURE__ */ jsx(WorkshopPageDASecond, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass", element: /* @__PURE__ */ jsx(WorkshopPageGEN, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-bxwcy", element: /* @__PURE__ */ jsx(WorkshopPageGENBTest, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-thidtx", element: /* @__PURE__ */ jsx(WorkshopPageGENC, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) })
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/dm-masterclass", element: /* @__PURE__ */ jsx(WorkshopPageDM, {}) }, "workshop-dm"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/da-masterclass", element: /* @__PURE__ */ jsx(WorkshopPageDA, {}) }, "workshop-da"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/da-masterclass-bxwxy", element: /* @__PURE__ */ jsx(WorkshopPageDASecond, {}) }, "workshop-da-second"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass", element: /* @__PURE__ */ jsx(WorkshopPageGEN, {}) }, "workshop-gen"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-bxwcy", element: /* @__PURE__ */ jsx(WorkshopPageGENBTest, {}) }, "workshop-genb"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-thidtx", element: /* @__PURE__ */ jsx(WorkshopPageGENC, {}) }, "workshop-genc"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) }, "workshop-success")
 ];
 const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-CHhu4G38.js"));
 const DMFlyers = lazy(() => import("./assets/DMFlyers-8Tt-Q3R6.js"));
 const PMFlyers = lazy(() => import("./assets/PMFlyers-BdJ0x-2F.js"));
 const DAFlyers = lazy(() => import("./assets/DAFlyers-JGvQQSTv.js"));
 const flyerRoutes = [
-  /* @__PURE__ */ jsx(Route, { path: "/fa-register/gen-ai", element: /* @__PURE__ */ jsx(GENAIFlyers, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/fa-register/pm", element: /* @__PURE__ */ jsx(PMFlyers, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/fa-register/dm", element: /* @__PURE__ */ jsx(DMFlyers, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/fa-register/da", element: /* @__PURE__ */ jsx(DAFlyers, {}) })
+  /* @__PURE__ */ jsx(Route, { path: "/fa-register/gen-ai", element: /* @__PURE__ */ jsx(GENAIFlyers, {}) }, "flyer-genai"),
+  /* @__PURE__ */ jsx(Route, { path: "/fa-register/pm", element: /* @__PURE__ */ jsx(PMFlyers, {}) }, "flyer-pm"),
+  /* @__PURE__ */ jsx(Route, { path: "/fa-register/dm", element: /* @__PURE__ */ jsx(DMFlyers, {}) }, "flyer-dm"),
+  /* @__PURE__ */ jsx(Route, { path: "/fa-register/da", element: /* @__PURE__ */ jsx(DAFlyers, {}) }, "flyer-da")
 ];
-const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-Cr3LyPsI.js"));
-const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-Rup6duMx.js"));
-const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-DzxBsxnH.js"));
-const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-BdYA5JQ4.js"));
+const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-CgiBaqoL.js"));
+const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-DxPKTYwG.js"));
+const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-XhArx52Z.js"));
+const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-DFGGEayb.js"));
 const KuppamCourses = lazy(() => import("./assets/KuppamCourses-B9JtIDvf.js"));
 const GenAICourse = lazy(
-  () => import("./assets/GenAIEntry-mBEYvYaj.js")
+  () => import("./assets/GenAIEntry-B6Ut7Lz9.js")
 );
-const GenAICourseAD = lazy(() => import("./assets/GenAIAd-BBk-HUpv.js"));
+const GenAICourseAD = lazy(() => import("./assets/GenAIAd-DRfX8S9d.js"));
 const DMAICourse = lazy(
-  () => import("./assets/DigitalMarketingEntry-B8qJR_W6.js")
+  () => import("./assets/DigitalMarketingEntry-BbIjU7L9.js")
 );
-const DataAnalyticsPage = lazy(() => import("./assets/index-BdVjp3oH.js"));
+const DataAnalyticsPage = lazy(() => import("./assets/index-B0BeXRsk.js"));
 const ProductManagementPageEIE = lazy(
-  () => import("./assets/ProductManagementEIE-zkGoir6e.js")
+  () => import("./assets/ProductManagementEIE-DSX9rR8R.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CvgfDuRU.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-DMNFmxRn.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-BOPDqKHc.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
@@ -2677,18 +2678,20 @@ const courseRoutes = [
     {
       path: "/courses/product-management",
       element: /* @__PURE__ */ jsx(ProductManagementEntry, {})
-    }
+    },
+    "course-pm"
   ),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/data-analytics", element: /* @__PURE__ */ jsx(DataAnalyticsEntry, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/gen-ai-for-pms", element: /* @__PURE__ */ jsx(GenAiForPMEntry, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/ai-digital-marketing", element: /* @__PURE__ */ jsx(AIDMEntry, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/data-analytics", element: /* @__PURE__ */ jsx(DataAnalyticsEntry, {}) }, "course-da-entry"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse, {}) }, "course-genai-entry"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/gen-ai-for-pms", element: /* @__PURE__ */ jsx(GenAiForPMEntry, {}) }, "course-genai-pm"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/ai-digital-marketing", element: /* @__PURE__ */ jsx(AIDMEntry, {}) }, "course-aidm"),
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/courses/advance-performance-marketing-with-ai",
       element: /* @__PURE__ */ jsx(DMAICourse, {})
-    }
+    },
+    "course-dmai"
   ),
   // Ad Course Routes
   /* @__PURE__ */ jsx(
@@ -2696,51 +2699,58 @@ const courseRoutes = [
     {
       path: "/courses/product-management-program-fb",
       element: /* @__PURE__ */ jsx(ProductManagementPageEIE, {})
-    }
+    },
+    "course-pm-fb"
   ),
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/courses/data-analytics-program-fb",
       element: /* @__PURE__ */ jsx(DataAnalyticsPage, {})
-    }
+    },
+    "course-da-fb"
   ),
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/courses/data-analytics-program-fb-b",
       element: /* @__PURE__ */ jsx(DataAnalyticsPage, {})
-    }
+    },
+    "course-da-fb-b"
   ),
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/courses/product-management-program-eie",
       element: /* @__PURE__ */ jsx(ProductManagementPageEIE, {})
-    }
+    },
+    "course-pm-eie"
   ),
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/courses/data-analytics-program-eie",
       element: /* @__PURE__ */ jsx(DataAnalyticsAd, {})
-    }
+    },
+    "course-da-eie"
   ),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb", element: /* @__PURE__ */ jsx(GenAICourseAD, {}) }),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb-b", element: /* @__PURE__ */ jsx(GenAICourseAD, {}) }),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb", element: /* @__PURE__ */ jsx(GenAICourseAD, {}) }, "course-genai-fb"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb-b", element: /* @__PURE__ */ jsx(GenAICourseAD, {}) }, "course-genai-fb-b"),
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/courses/n8n-automation",
       element: /* @__PURE__ */ jsx(N8nAutomationEntry, {})
-    }
+    },
+    "course-n8n"
   ),
   /* @__PURE__ */ jsx(
     Route,
     {
       path: "/courses/onsite-workshopz",
       element: /* @__PURE__ */ jsx(KuppamCourses, {})
-    }
+    },
+    "course-kuppam"
   )
 ];
 const ProtectedRoute = () => {
@@ -2770,16 +2780,16 @@ const AppRoutes = () => {
       workshopRoutes,
       flyerRoutes,
       courseRoutes,
-      /* @__PURE__ */ jsx(Route, { path: "/sign-up", element: /* @__PURE__ */ jsx(SignUpForm, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/sign-in", element: /* @__PURE__ */ jsx(SignInForm, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/jobs", element: /* @__PURE__ */ jsx(JobList, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/jobs/:id", element: /* @__PURE__ */ jsx(JobDetails, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/certificate/:certificateId", element: /* @__PURE__ */ jsx(CertificateDisplayPage, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/sign-up", element: /* @__PURE__ */ jsx(SignUpForm, {}) }, "sign-up"),
+      /* @__PURE__ */ jsx(Route, { path: "/sign-in", element: /* @__PURE__ */ jsx(SignInForm, {}) }, "sign-in"),
+      /* @__PURE__ */ jsx(Route, { path: "/jobs", element: /* @__PURE__ */ jsx(JobList, {}) }, "jobs"),
+      /* @__PURE__ */ jsx(Route, { path: "/jobs/:id", element: /* @__PURE__ */ jsx(JobDetails, {}) }, "job-details"),
+      /* @__PURE__ */ jsx(Route, { path: "/certificate/:certificateId", element: /* @__PURE__ */ jsx(CertificateDisplayPage, {}) }, "certificate"),
       /* @__PURE__ */ jsxs(Route, { element: /* @__PURE__ */ jsx(ProtectedRoute, {}), children: [
-        /* @__PURE__ */ jsx(Route, { path: "/profile/*", element: /* @__PURE__ */ jsx(ProfileRoutes, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/jobs/:id/apply", element: /* @__PURE__ */ jsx(JobApplication, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/my-applications", element: /* @__PURE__ */ jsx(MyApplications, {}) })
-      ] })
+        /* @__PURE__ */ jsx(Route, { path: "/profile/*", element: /* @__PURE__ */ jsx(ProfileRoutes, {}) }, "profile"),
+        /* @__PURE__ */ jsx(Route, { path: "/jobs/:id/apply", element: /* @__PURE__ */ jsx(JobApplication, {}) }, "job-apply"),
+        /* @__PURE__ */ jsx(Route, { path: "/my-applications", element: /* @__PURE__ */ jsx(MyApplications, {}) }, "my-applications")
+      ] }, "protected")
     ] }) }) })
   ] });
 };
