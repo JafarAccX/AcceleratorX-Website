@@ -34,9 +34,7 @@ const AIDMHero: React.FC = () => {
               ease: 'easeOut',
             }}
           >
-            <div className="inline-block mb-4 px-3 py-1 rounded-md bg-[#5CB338]/20 border border-[#5CB338]">
-              <span className="text-[#fff] font-semibold text-sm sm:text-base">#1 IN AI MARKETING</span>
-            </div>
+            
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               AI-Powered Digital Marketing

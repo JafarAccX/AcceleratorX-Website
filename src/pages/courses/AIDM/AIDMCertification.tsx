@@ -87,7 +87,7 @@ const AIDMCertification: React.FC = () => {
                   <div className="w-6 h-6 rounded-full bg-[#5CB338]/10 flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="w-4 h-4 text-[#5CB338]" />
                   </div>
-                  <span className="text-gray-700">{feature}</span>
+                  <span className="text-gray-200">{feature}</span>
                 </motion.div>
               ))}
             </div>
