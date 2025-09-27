@@ -1,5 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -21,12 +21,12 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="flex min-h-screen flex-col-reverse items-center justify-center gap-12 py-12 lg:flex-row lg:justify-between lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="flex  min-h-screen h-full flex-col-reverse items-center justify-center gap-12 py-12 lg:flex-row lg:justify-between lg:py-20">
           
           {/* Left */}
           < div
-            className="w-full lg:w-1/2 space-y-8"
+            className="w-full lg:w-1/2  flex flex-col items-start justify-center space-y-6 text-center lg:text-left"
           >
             <div className="relative">
               <div className="absolute -left-4 -top-4 h-20 w-20 rounded-full bg-blue-500/20 blur-3xl animate-pulse" />
@@ -56,9 +56,9 @@ export default function Hero() {
                   }
                 }}
                 className="group inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-white font-medium shadow-lg hover:shadow-xl transition-all"
-                aria-label="Explore Courses"
+                aria-label="Explore Programs"
               >
-                Explore Courses
+                Explore Programs
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
@@ -92,27 +92,24 @@ export default function Hero() {
 
           {/* Right */}
           < div
-            className="w-full lg:w-1/2 flex flex-col items-center justify-center"
+            className="w-full lg:w-1/2 flex flex-col items-center justify-centername relative"
           >
             <img
-              src='/n8n-commingsoon.webp'
-              alt="/n8n Coming Soon"
-              className="w-full max-w-md rounded-xl shadow-2xl object-cover"
+              src='/assets/ai-digital-m/nano_degree.webp'
+              alt="AI-Powered Digital Marketing Nano Degree"
+              className="w-full  rounded-xl shadow-2xl object-cover"
               loading="eager"
               decoding="async"
-              width={600}
-              height={400}
+              width={800}
+              height={600}
               fetchPriority="high"
             />
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeJxgV3bMDrcy4m8bGdEIHqR0GLZrvVeZ5QF0itPIQqgDaC2g/viewform?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="mt-8 px-10 py-4 text-lg font-semibold text-white bg-[#1a71f6] hover:bg-[#1558b0] rounded-xl shadow-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 w-[90vw] max-w-xs text-center"
-            >
-              Join the Waitlist
-            </a>
-          </ div>
+            <Link to="/courses/ai-digital-marketing" className="absolute bottom-2  left-6">
+                  <button className="mt-4 px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-green-400/40 to-emerald-500/40 hover:from-green-500 hover:to-emerald-600 rounded-lg shadow-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 ">
+                    Get Started
+                  </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

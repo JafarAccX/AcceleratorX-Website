@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useCourseContext } from '../../../context/courseContext';
 import EnrollmentModal from '../../../components/EnrollmentModal';
-import { Spotlight } from '../../../components/Spotlight';
-import { BackgroundLines } from '../../../components/background-animations/background-lines';
+import { WorldMap } from '../../../components/background-animations/world-map';
+// import { Spotlight } from '../../../components/Spotlight';
+// import { BackgroundLines } from '../../../components/background-animations/background-lines';
 
 const AIDMHero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,95 +18,132 @@ const AIDMHero: React.FC = () => {
 
   const handleModalSubmit = () => {
     if (isDownload) {
-      // Handle download if needed
+      // handle file download if necessary
     }
+    handleModalClose();
   };
 
-  const handleEnrollClick = () => {
+  const handleEnrollClick = (download = false) => {
     setSelectedCourse("AI Digital Marketing");
+    setIsDownload(download);
     setIsModalOpen(true);
-    setIsDownload(false);
   };
-  return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex items-center">
-      {/* Background Image */}
-       
 
-      <Spotlight
-        className="-top-40 left-0 md:-top-20 md:left-60"
-        fill="white"
-      />
-      
-      {/* Background Gradient Blobs */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-indigo-500/15 to-blue-500/15 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
+  return (
+    <section className="relative py-12 border-b border-green-900 bg-black overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center justify-center">
+
+      <div className="absolute inset-0 opacity-50 top-20 bottom-0 left-0 right-0" >
+
+        <WorldMap
+          dots={[
+            {
+              start: {
+                lat: 64.2008,
+                lng: -149.4937,
+              }, // Alaska (Fairbanks)
+              end: {
+                lat: 34.0522,
+                lng: -118.2437,
+              }, // Los Angeles
+            },
+            {
+              start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
+              end: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+            },
+            {
+              start: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+              end: { lat: 38.7223, lng: -9.1393 }, // Lisbon
+            },
+            {
+              start: { lat: 51.5074, lng: -0.1278 }, // London
+              end: { lat: 28.6139, lng: 77.209 }, // New Delhi
+            },
+            {
+              start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+              end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok
+            },
+            {
+              start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+              end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+            },
+          ]}
+        />
       </div>
 
-      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
-      <motion.div 
-        className="max-w-7xl mx-auto px-4 relative z-10"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="text-center">
-          <h1 
-            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4"
+        <div className="grid lg:grid-cols-2 gap-8 items-center z-20">
+          {/* Left: Text */}
+          <motion.div
+            className="text-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            Nano-Degree in AI-Powered Digital Marketing
-          </h1>
-          <p 
-            className="text-2xl md:text-3xl font-semibold text-blue-300 mb-6"
-             
-          >
-            Become the Marketer Every Company Wants in 2025
-          </p>
-          <div 
-            className="flex justify-center items-center gap-4 mb-8 flex-wrap"
-            
-          >
-            <span className="bg-gradient-to-r from-blue-600/80 to-indigo-600/80 backdrop-blur-sm text-white px-4 py-2 rounded-full font-medium border border-blue-400/30">
-              16 weeks
-            </span>
-            <span className="bg-gradient-to-r from-blue-600/80 to-indigo-600/80 backdrop-blur-sm text-white px-4 py-2 rounded-full font-medium border border-blue-400/30">
-              100% live
-            </span>
-            <span className="bg-gradient-to-r from-blue-600/80 to-indigo-600/80 backdrop-blur-sm text-white px-4 py-2 rounded-full font-medium border border-blue-400/30">
-              Job assistance
-            </span>
-          </div>
-          <p 
-            className="text-gray-300 mb-8"
-             
-          >
-            Recognised by India's top recruiters and agencies
-          </p>
-          <div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-             
-          >
-            <button 
-              onClick={handleEnrollClick}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg shadow-blue-500/25"
-            >
-              Reserve My Seat
-            </button>
-            <button 
-              onClick={handleEnrollClick}
-              className="border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 font-bold py-3 px-8 rounded-lg transition duration-300"
-            >
-              Next Cohort Starts: Jan 2025
-            </button>
-          </div>
-        </div>
-      </motion.div>
-    </BackgroundLines>
-      
-     
+            <div className="inline-block mb-4 px-3 py-1 rounded-md bg-[#5CB338]/20 border border-[#5CB338]">
+              <span className="text-[#fff] font-semibold text-sm sm:text-base">#1 IN AI MARKETING</span>
+            </div>
 
-      {/* Enrollment Modal */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+              AI-Powered Digital Marketing
+              <span className="bg-[#5CB338] bg-clip-text text-transparent"> Nano-Degree</span>
+            </h2>
+
+            <p className="text-gray-300 mb-6">
+              Master AI-first growth, automation and performance marketing with real projects and capstone.
+            </p>
+
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              <div>
+                <p className="text-[#5CB338] font-bold">Duration</p>
+                <p className="text-gray-300">16 weeks</p>
+              </div>
+              <div>
+                <p className="text-[#5CB338] font-bold">Mode</p>
+                <p className="text-gray-300">100% live</p>
+              </div>
+              <div>
+                <p className="text-[#5CB338] font-bold">Placement</p>
+                <p className="text-gray-300">Job assistance</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={() => handleEnrollClick(false)}
+                className="w-full sm:w-auto bg-[#5CB338] text-black font-semibold px-8 py-3 rounded-md hover:bg-[#4fb02f] transition"
+              >
+                Apply Now
+              </button>
+              <button
+                onClick={() => handleEnrollClick(true)}
+                className="w-full sm:w-auto border-2 border-[#5CB338] text-[#5CB338] px-8 py-3 rounded-md hover:bg-[#5CB338]/10 transition font-semibold"
+              >
+                Download Syllabus
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Right: Image */}
+          <motion.div
+            className="relative mt-6 lg:mt-0 flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <div className="rounded-lg overflow-hidden shadow-2xl">
+              {/* Reuse Spotlight or BackgroundLines if desired; keeping simple image */}
+              <img
+                src="/assets/ai-digital-m/nano_degree.webp"
+                alt="AI Digital Marketing"
+                className="w-full max-w-md object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
       <EnrollmentModal
         isOpen={isModalOpen}
         onClose={handleModalClose}
