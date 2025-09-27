@@ -93,7 +93,7 @@ const AIDMRoadmap: React.FC = () => {
             onClick={handleEnrollClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#5CB338] hover:bg-[#5CB338]/90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-[#5CB338]/25"
+            className="bg-[#5CB338] relative hover:bg-[#5CB338]/90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-[#5CB338]/25"
           >
             Download Full Curriculum
           </motion.button>
