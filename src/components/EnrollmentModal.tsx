@@ -15,20 +15,39 @@ interface EnrollmentModalProps {
   onSubmit?: () => void;
 }
 
-const daBroucher = {
-  title: "AI Powered Data Analytics",
-  url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AI%20Powered%20DA%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FJIFBvd2VyZWQgREEgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzQ2Mjc3MTU1LCJleHAiOjE4NzI0MjExNTV9.NWSk8RPs_nwupsr5Wfu6-EGpUzFFaVPrMKOVZmICPgw",
+// Central brochure map (updated to use provided Firebase Storage links)
+const BROCHURES: Record<string, { title: string; url: string }> = {
+  "AI Digital Marketing": {
+    title: "AI Digital Marketing Syllabus",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758802254913_notes_new_nano_19th_Sept%2C_2025-compressed.pdf?alt=media&token=42c3ad1b-7519-461b-aad6-ea9f4f5c7be7",
+  },
+  "Product Management": {
+    title: "Product Management",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293860223_notes_AcceleratorX_PM_Brochure.pdf?alt=media&token=3afeb532-fe27-4551-8baf-0ae6a7ba0780",
+  },
+  "Generative AI": {
+    title: "Generative AI",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293563847_notes_AcceleratorX_Gen_AI_Brochure.pdf?alt=media&token=7e7d534d-a40f-4adf-9833-abb476d0c061",
+  },
+  "Gen AI for PMs": {
+    title: "Gen AI for PMs",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758294289672_notes_Gen_ai_pm.pdf?alt=media&token=c84b8402-1bc1-40be-8baa-e00c0a4fff36",
+  },
+  "Data Analytics": {
+    title: "AI Powered Data Analytics",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293290835_notes_AI_Powered_DA_Brochure.pdf?alt=media&token=1bbeb25b-e1aa-49e2-8752-3e7a6b7b4e52",
+  },
 };
 
-const genAiBroucher = {
-  title: "Generative AI",
-  url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Gen%20AI.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBHZW4gQUkucGRmIiwiaWF0IjoxNzQ2NDQwMTE0LCJleHAiOjE4MDk1MTIxMTR9.AFFhiMscFVvpzecvbkax-r6zDxugIz2LPmabyvm9m7o",
-};
-
-const pmAiBroucher = {
-  title: "Product Management",
-  url: "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20PM%20Brochure.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80Njc1NTVlNS1jOGMxLTQwOTYtYmQxMC03YzkzODVjZWEyMjQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBQTSBCcm9jaHVyZS5wZGYiLCJpYXQiOjE3NTE4NzI1NjYsImV4cCI6MTc4MzQwODU2Nn0.5EEcYzrdRpA7nqzfqWvOjyM4zV9Di4JKpcx7n6qS898",
-};
+// Helper to resolve brochure by (possibly varied) course name
+function resolveBrochure(course?: string | null) {
+  if (!course) return BROCHURES["AI Digital Marketing"]; // default
+  // exact match first
+  if (BROCHURES[course]) return BROCHURES[course];
+  const lower = course.toLowerCase();
+  const foundKey = Object.keys(BROCHURES).find(k => k.toLowerCase() === lower);
+  return foundKey ? BROCHURES[foundKey] : BROCHURES["AI Digital Marketing"];
+}
 
 async function sendWhatsAppMessage({
   phone,
@@ -101,6 +120,22 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // helper to open brochure in new tab
+  const openBrochure = (courseName?: string | null) => {
+    try {
+      const { url } = resolveBrochure(courseName);
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (err) {
+      console.error("Failed to open brochure:", err);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -142,12 +177,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
 
       await createEnrollment(submissionData);
 
-      const broucherData =
-        selectedCourse === "Data Analytics"
-          ? daBroucher
-          : selectedCourse === "Product Management"
-          ? pmAiBroucher
-          : genAiBroucher;
+  const broucherData = resolveBrochure(selectedCourse);
 
       await sendWhatsAppMessage({
         phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
@@ -166,14 +196,17 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
       trackingFormData.append("workExperience", formData.workExperience);
       await trackFormSubmission(trackingFormData);
 
-      toast.success("Enrollment submitted successfully!");
+      toast.success("Enrollment submitted successfully! Opening brochure...");
+
+      // open brochure after success
+      openBrochure(selectedCourse);
 
       if (onSubmit) onSubmit();
 
       setTimeout(() => {
         onClose();
         navigate("/thank-you", { state: { courseName: formData.course } });
-      }, 1000);
+      }, 800);
 
     } catch (error) {
       console.error("Error submitting form:", error);

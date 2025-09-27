@@ -29,11 +29,8 @@ const modules = [
 
 const AIDMRoadmap: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [downloadOnOpen, setDownloadOnOpen] = useState(false);
   const { setSelectedCourse } = useCourseContext();
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
 
   const handleModalSubmit = () => {
     // Handle enrollment submission if needed
@@ -41,7 +38,8 @@ const AIDMRoadmap: React.FC = () => {
 
   const handleEnrollClick = () => {
     setSelectedCourse("AI Digital Marketing");
-    setIsModalOpen(true);
+  setDownloadOnOpen(true);
+  setIsModalOpen(true);
   };
 
   return (
@@ -103,8 +101,12 @@ const AIDMRoadmap: React.FC = () => {
       {/* Enrollment Modal */}
       <EnrollmentModal
         isOpen={isModalOpen}
-        onClose={handleModalClose}
+        onClose={() => {
+          setIsModalOpen(false);
+          setDownloadOnOpen(false);
+        }}
         onSubmit={handleModalSubmit}
+        downloadOnOpen={downloadOnOpen}
       />
     </section>
   );

@@ -7,19 +7,16 @@ import EnrollmentModal from '../../../components/EnrollmentModal';
 
 const AIDMHero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [downloadOnOpen, setDownloadOnOpen] = useState(false);
   // const [isDownload, setIsDownload] = useState(false);
   const { setSelectedCourse } = useCourseContext(); 
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    // setIsDownload(false);
-  };
 
   const handleEnrollClick = (download = false) => {
     console.log("Download:", download);
     setSelectedCourse("AI Digital Marketing");
     // setIsDownload(download);
-    setIsModalOpen(true);
+  setDownloadOnOpen(download);
+  setIsModalOpen(true);
   };
 
   return (
@@ -102,7 +99,11 @@ const AIDMHero: React.FC = () => {
 
       <EnrollmentModal
         isOpen={isModalOpen}
-        onClose={handleModalClose}
+        onClose={() => {
+          setIsModalOpen(false);
+          setDownloadOnOpen(false);
+        }}
+        downloadOnOpen={downloadOnOpen}
       />
     </section>
   );
