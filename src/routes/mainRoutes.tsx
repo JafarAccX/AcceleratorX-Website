@@ -30,26 +30,27 @@ const BlogDashboard = lazy(() => import("../pages/blogs/BlogDashboard"));
 const Events = lazy(() => import("../pages/events/Events"));
 
 export const mainRoutes = [
-  <Route path="/" element={<HomePage />} />,
-  <Route path="/about-us" element={<AboutPage />} />, 
+  <Route key="home" path="/" element={<HomePage />} />,
+  <Route key="about" path="/about-us" element={<AboutPage />} />, 
   // <Route path="/blogs" element={<Blogs />} />,
-  <Route path="/login" element={<Login />} />,
-  <Route path="/privacy-policy" element={<Privacy />} />,
-  <Route path="/terms-and-conditions" element={<Terms />} />,
-  <Route path="/refund-policy" element={<Refund />} />,
-  <Route path="/xsat" element={<XSATEntry />} />,
-  <Route path="/events" element={<Events />} />,
-  <Route path="/event/PMtakedown/view" element={<EventManagementPage />} />,
+  <Route key="login" path="/login" element={<Login />} />,
+  <Route key="privacy" path="/privacy-policy" element={<Privacy />} />,
+  <Route key="terms" path="/terms-and-conditions" element={<Terms />} />,
+  <Route key="refund" path="/refund-policy" element={<Refund />} />,
+  <Route key="xsat" path="/xsat" element={<XSATEntry />} />,
+  <Route key="events" path="/events" element={<Events />} />,
+  <Route key="event-pm" path="/event/PMtakedown/view" element={<EventManagementPage />} />,
 
   // Course Routes
-  <Route path="/courses/generative-ai" element={<GenAICourse />} />,
-  <Route path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
-  <Route path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
-  <Route path="/courses/data-analytics" element={<DataAnalyticsPage />} />,
+  <Route key="gen-ai" path="/courses/generative-ai" element={<GenAICourse />} />,
+  <Route key="gen-ai-fb" path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
+  <Route key="digital-marketing" path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
+  <Route key="data-analytics" path="/courses/data-analytics" element={<DataAnalyticsPage />} />,
  
 
   // Blog Admin Routes
   <Route
+    key="blog-admin"
     path="/admin/blogs"
     element={
       <RoleProtectedRoute requiredRole="blog_user">
@@ -75,9 +76,9 @@ export const mainRoutes = [
   // />,
 
   // Thank You Page
-  <Route path="/thank-you" element={<ThankYouPageWrapper />} />,
-  <Route path="/registration-sucessfull" element={<RegistrationSuccess />} />,
+  <Route key="thank-you" path="/thank-you" element={<ThankYouPageWrapper />} />,
+  <Route key="registration-success" path="/registration-sucessfull" element={<RegistrationSuccess />} />,
 
   // Workshop Payment Success
-  <Route path="/workshop-payment/success/:orderId" element={<WorkshopPaymentSuccess />} />,
+  <Route key="workshop-payment-success" path="/workshop-payment/success/:orderId" element={<WorkshopPaymentSuccess />} />,
 ];

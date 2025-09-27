@@ -1,6 +1,31 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Brain, BarChart3, Zap, Rocket } from 'lucide-react';
 import { useCourseContext } from '../../../context/courseContext';
 import EnrollmentModal from '../../../components/EnrollmentModal';
+
+const modules = [
+  {
+    title: "Month 1 — Foundations & AI Content",
+    description: "Funnels, personas, copy frameworks, AI visuals, GA4 basics",
+    icon: Brain
+  },
+  {
+    title: "Month 2 — Performance Marketing & Analytics",
+    description: "Google & Meta Ads, social strategy, A/B testing, CRO",
+    icon: BarChart3
+  },
+  {
+    title: "Month 3 — Automation & B2B Growth",
+    description: "n8n workflows, email drips, lead enrichment, CRM integration",
+    icon: Zap
+  },
+  {
+    title: "Month 4 — Full-Funnel Integration & Capstone",
+    description: "B2B outreach, heatmaps, full-funnel automation, capstone demo day",
+    icon: Rocket
+  }
+];
 
 const AIDMRoadmap: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,65 +43,60 @@ const AIDMRoadmap: React.FC = () => {
     setSelectedCourse("AI Digital Marketing");
     setIsModalOpen(true);
   };
-  const months = [
-    {
-      title: "Month 1 — Foundations & AI Content",
-      description: "Funnels, personas, copy frameworks, AI visuals, GA4 basics"
-    },
-    {
-      title: "Month 2 — Performance Marketing & Analytics",
-      description: "Google & Meta Ads, social strategy, A/B testing, CRO"
-    },
-    {
-      title: "Month 3 — Automation & B2B Growth (n8n focus)",
-      description: "n8n workflows, email drips, lead enrichment, CRM integration"
-    },
-    {
-      title: "Month 4 — Full-Funnel Integration & Capstone",
-      description: "B2B outreach, heatmaps, full-funnel automation, capstone demo day"
-    }
-  ];
 
   return (
-    <section className="relative py-24 px-4 my-20">
-        <div className="absolute inset-0">
-        <img 
-          src="/backgrounds/bg-bar.webp" 
-          alt="AI Digital Marketing Background" 
-          className="w-full h-full object-cover opacity-40"
-        />
-        {/* Dark overlay to maintain readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
-      </div>
-      {/* Background Gradient Blob */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            A Journey from Scratch to becoming an AI-First Marketer
+    <section className="py-24 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl font-medium text-gray-400 mb-4">
+            Learning Journey
           </h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338] mb-6">
+            From Scratch to{" "}
+            <span className="text-[#5CB338]">AI-First Marketer</span>
+          </h3>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            A structured 16-week program designed to transform you into an AI-powered marketing professional
+          </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {months.map((month, index) => (
-            <div
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {modules.map((module, index) => (
+            <motion.div
               key={index}
-              className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700/50 hover:border-indigo-500/50 transition-colors duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group p-6 bg-[#0F0F0F] rounded-xl border border-white/10 hover:border-[#5CB338]/50 transition-all duration-300"
             >
-              <p className="font-bold text-lg text-blue-400 mb-2">{month.title}</p>
-              <p className="text-gray-300">{month.description}</p>
-            </div>
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-[#5CB338]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              <div className="flex items-start gap-4 relative z-10">
+                <div className="w-12 h-12 rounded-lg bg-[#5CB338]/10 flex items-center justify-center flex-shrink-0">
+                  <module.icon className="w-6 h-6 text-[#5CB338]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#5CB338] transition-colors">
+                    {module.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{module.description}</p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
         
         <div className="text-center">
-          <button 
+          <motion.button 
             onClick={handleEnrollClick}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg shadow-blue-500/25"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#5CB338] hover:bg-[#5CB338]/90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-[#5CB338]/25"
           >
             Download Full Curriculum
-          </button>
+          </motion.button>
         </div>
       </div>
 

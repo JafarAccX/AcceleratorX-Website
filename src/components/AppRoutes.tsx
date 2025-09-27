@@ -33,21 +33,21 @@ export const AppRoutes = () => {
             {workshopRoutes}
             {flyerRoutes}
             {courseRoutes}
-            <Route path="/sign-up" element={<SignUpForm />} />
-            <Route path="/sign-in" element={<SignInForm />} />
+            <Route key="sign-up" path="/sign-up" element={<SignUpForm />} />
+            <Route key="sign-in" path="/sign-in" element={<SignInForm />} />
 
             {/* Public Job Routes */}
-            <Route path="/jobs" element={<JobList />} />
-            <Route path="/jobs/:id" element={<JobDetails />} />
+            <Route key="jobs" path="/jobs" element={<JobList />} />
+            <Route key="job-details" path="/jobs/:id" element={<JobDetails />} />
 
             {/* Public Certificate Route */}
-            <Route path="/certificate/:certificateId" element={<CertificateDisplayPage />} />
+            <Route key="certificate" path="/certificate/:certificateId" element={<CertificateDisplayPage />} />
 
             {/* Protected Routes */}
-            <Route element={<ProtectedRoute />}>
-              <Route path="/profile/*" element={<ProfileRoutes />} />
-              <Route path="/jobs/:id/apply" element={<JobApplication />} /> 
-              <Route path="/my-applications" element={<MyApplications />} />
+            <Route key="protected" element={<ProtectedRoute />}>
+              <Route key="profile" path="/profile/*" element={<ProfileRoutes />} />
+              <Route key="job-apply" path="/jobs/:id/apply" element={<JobApplication />} /> 
+              <Route key="my-applications" path="/my-applications" element={<MyApplications />} />
             </Route>
           </Routes>
         </Suspense>

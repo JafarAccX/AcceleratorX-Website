@@ -145,13 +145,13 @@ const WorkshopPageDM = () => (
 );
 
 export const workshopRoutes = [
-  <Route path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
+  <Route key="workshop-pm" path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
   // <Route path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
-  <Route path="/workshop/dm-masterclass" element={<WorkshopPageDM />} />,
-  <Route path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
-  <Route path="/workshop/da-masterclass-bxwxy" element={<WorkshopPageDASecond />} />,
-  <Route path="/workshop/gen-ai-masterclass" element={<WorkshopPageGEN />} />,
-  <Route path="/workshop/gen-ai-masterclass-bxwcy" element={<WorkshopPageGENBTest />} />,
-  <Route path="/workshop/gen-ai-masterclass-thidtx" element={<WorkshopPageGENC />} />,
-  <Route path="/workshop-registration/success" element={<WSRegistrationSuccess />} />,
+  <Route key="workshop-dm" path="/workshop/dm-masterclass" element={<WorkshopPageDM />} />,
+  <Route key="workshop-da" path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
+  <Route key="workshop-da-second" path="/workshop/da-masterclass-bxwxy" element={<WorkshopPageDASecond />} />,
+  <Route key="workshop-gen" path="/workshop/gen-ai-masterclass" element={<WorkshopPageGEN />} />,
+  <Route key="workshop-genb" path="/workshop/gen-ai-masterclass-bxwcy" element={<WorkshopPageGENBTest />} />,
+  <Route key="workshop-genc" path="/workshop/gen-ai-masterclass-thidtx" element={<WorkshopPageGENC />} />,
+  <Route key="workshop-success" path="/workshop-registration/success" element={<WSRegistrationSuccess />} />,
 ];

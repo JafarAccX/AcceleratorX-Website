@@ -1,55 +1,109 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Award, CheckCircle, Shield, Trophy } from 'lucide-react';
+
+const certificationFeatures = [
+  "Industry-recognized AI Digital Marketing certification",
+  "Verified badge + unique verification URL",
+  "Digital certificate for LinkedIn and resume",
+  "Trusted by 2500+ companies and agencies", 
+  "AI Capstone Projects portfolio",
+  "Lifetime alumni network access"
+];
 
 const AIDMCertification: React.FC = () => {
   return (
-    <section className="relative py-24 px-4">
-      {/* Background Gradient Blob */}
-      <div className="absolute top-20 right-1/4 w-64 h-64 bg-gradient-to-r from-green-500/20 to-teal-500/20 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Earn a Verified Degree trusted by more than 2500+ companies and agencies.
-          </h2>
-          <p className="text-xl text-gray-300">
-            Showcase results of AI in Marketing That Speak Louder Than Words
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-400/30">
-              <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
+    <section className="py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Certificate Preview */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            {/* Certificate Frame */}
+            <div className="relative border-4 border-[#5CB338] aspect-[4/3] rounded-2xl overflow-hidden">
+              {/* Certificate Image */}
+              <div className="absolute inset-0 bg-[#0F0F0F] flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-20 h-20 bg-[#5CB338]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-10 h-10 text-[#5CB338]" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-2">AI Digital Marketing</h4>
+                  <p className="text-[#5CB338] font-semibold">Nano-Degree Certificate</p>
+                  <p className="text-gray-400 text-sm mt-4">AcceleratorX</p>
+                </div>
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+              </div>
             </div>
-            <h3 className="font-bold text-lg text-blue-400 mb-2">Digital Certificate</h3>
-            <p className="text-gray-300">Verified badge + unique verification URL</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-400/30">
-              <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg text-blue-400 mb-2">AI Capstone Projects</h3>
-            <p className="text-gray-300">Restricted to active cohort participants</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-400/30">
-              <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg text-blue-400 mb-2">Industry Recognition</h3>
-            <p className="text-gray-300">Trusted by 2500+ companies and agencies</p>
-          </div>
 
-          <div className="col-span-1">
-            <img src="/backgrounds/grapbg-.png" alt="Digital Marketing Graph" className="object-fill w-full h-full" />
-          </div>
+            {/* Floating Elements */}
+            <motion.div
+              className="absolute -top-4 -right-4  backdrop-blur-sm border border-[#5CB338]/20 rounded-lg p-3 shadow-lg"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <Shield className="w-6 h-6 text-[#5CB338]" />
+            </motion.div>
+            <motion.div
+              className="absolute -bottom-4 -left-4  backdrop-blur-lg border border-[#5CB338]/20 rounded-lg p-3 shadow-lg"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+            >
+              <Trophy className="w-6 h-6 text-[#5CB338]" />
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center"
+          >
+            <h2 className="text-2xl font-medium text-gray-400 mb-4">
+              Program Certificate
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338] mb-8">
+              Earn a <span className="text-[#5CB338]">Verified Degree</span>
+            </h3>
+            <p className="text-xl text-gray-600 mb-8">
+              Showcase results of AI in Marketing that speak louder than words
+            </p>
+            
+            <div className="space-y-4 mb-8">
+              {certificationFeatures.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-3"
+                >
+                  <div className="w-6 h-6 rounded-full bg-[#5CB338]/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 text-[#5CB338]" />
+                  </div>
+                  <span className="text-gray-700">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Statistics */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="text-center p-4 bg-[#0F0F0F] rounded-xl border border-white/10">
+                <div className="text-2xl font-bold text-[#5CB338] mb-1">2500+</div>
+                <div className="text-gray-400 text-sm">Companies Trust Us</div>
+              </div>
+              <div className="text-center p-4 bg-[#0F0F0F] rounded-xl border border-white/10">
+                <div className="text-2xl font-bold text-[#5CB338] mb-1">100%</div>
+                <div className="text-gray-400 text-sm">Verified Credentials</div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
