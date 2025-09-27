@@ -4,36 +4,37 @@ import { Users, Linkedin } from "lucide-react";
 
 const mentors = [
   {
-    name: "Rajesh Kumar",
-    role: "Marketing Director at TechCorp",
-    company: "TechCorp",
-    bio: "10+ years in digital marketing with expertise in AI automation and growth strategies.",
-    experience: "10+ Years",
-    transitions: "50+ Businesses",
-    image: "/mentors/rajesh-kumar.jpg", // You'll need to add actual images
-    linkedin: "https://linkedin.com/in/rajesh-kumar"
+    name: "Kumar Savino",
+    role: "Associate Director - Growth (D2C)",
+    company: "DrinkPrime",
+    bio: "9+ years in performance-led digital strategies across FMCG, FEC, and tech consumer brands. Specializes in lifecycle marketing, CRM, automation, and full-funnel growth campaigns.",
+    experience: "9+ Years",
+    transitions: "Scaled multiple D2C brands",
+    image: "/assets/mentor/kumar.webp", // add image manually
+    linkedin: "https://www.linkedin.com/in/kumar-savino/"
   },
   {
-    name: "Priya Sharma", 
-    role: "AI Marketing Consultant",
-    company: "AI Solutions Inc",
-    bio: "Specialized in AI-powered content creation and marketing automation workflows.",
-    experience: "8+ Years",
-    transitions: "1000+ Marketers",
-    image: "/mentors/priya-sharma.jpg",
-    linkedin: "https://linkedin.com/in/priya-sharma"
+    name: "Yash Manghnani",
+    role: "Founder",
+    company: "Neuwriter.ai",
+    bio: "Helps PMs and teams build AI-powered products. Known for saving 20+ hours/week on content workflows using AI automation.",
+    experience: "Product & AI Consulting",
+    transitions: "Enabled 50+ PMs into AI Builders",
+    image: "/assets/mentor/yash-manghnani.webp",
+    linkedin: "https://www.linkedin.com/in/yash-manghnani/"
   },
   {
-    name: "Arjun Patel",
-    role: "Growth Hacking Expert",
-    company: "Growth Labs",
-    bio: "Focus on data-driven marketing strategies and AI optimization techniques.",
-    experience: "12+ Years", 
-    transitions: "$10M+ Revenue",
-    image: "/mentors/arjun-patel.jpg",
-    linkedin: "https://linkedin.com/in/arjun-patel"
+    name: "Ankita Das",
+    role: "B2B Product Marketer",
+    company: "Ex-TargetG", 
+    bio: "B2B Product Marketer for Brands That Don't Want Boring | Help early stage startups to mid-size company Founders Scale with Strategy, Content & Personal Branding That Converts",
+    experience: "9+ Years",
+    transitions: "6,891 followers • 500+ connections",
+    image: "/assets/mentor/ankita.webp",
+    linkedin: "https://www.linkedin.com/in/ankita-das/" // You'll need to get the exact LinkedIn URL
   }
 ];
+
 
 const AIDMMentors: React.FC = () => {
   return (
@@ -70,12 +71,8 @@ const AIDMMentors: React.FC = () => {
             >
               <div className="relative bg-[#0F0F0F] rounded-2xl border border-white/10 group-hover:border-[#5CB338]/50 transition-all duration-500 overflow-hidden group-hover:shadow-lg group-hover:shadow-[#5CB338]/10 group-hover:-translate-y-1">
                 {/* Image Section */}
-                <div className="relative h-52 overflow-hidden bg-gradient-to-br from-[#5CB338]/20 to-[#5CB338]/5 flex items-center justify-center">
-                  <div className="w-24 h-24 bg-gradient-to-r from-[#5CB338]/20 to-[#5CB338]/40 rounded-full flex items-center justify-center border border-[#5CB338]/30">
-                    <span className="text-[#5CB338] text-2xl font-bold">
-                      {mentor.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-[#5CB338]/20 to-[#5CB338]/5 flex items-center justify-center">
+                    <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover object-center" />
                 </div>
 
                 {/* Company Badge - Slides in from left */}
