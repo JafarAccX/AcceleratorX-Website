@@ -28,12 +28,16 @@ const META_CONVERSION_API_URL = "https://graph.facebook.com/v17.0";
 const DEFAULT_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
 const DA_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
 const DA_PIXEL_ID_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND;
+const AIDM_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_AI_DIGITAL_MARKETING;
 
 const DEFAULT_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
 const DA_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT;
 const DA_ACCESS_TOKEN_SECOND = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT_SECOND;
+const AIDM_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_AI_DIGITAL_MARKETING;
 
 const DA_COURSE_NAMES = ["Data Analytics"]; // You can also match by route if needed
+const AIDM_COURSE_NAMES = ["AI Digital Marketing"];
+const AIDM_ROUTES = ["/courses/ai-digital-marketing"];
 
 const hashData = async (data: string): Promise<string> => {
   const hashBuffer = await window.crypto.subtle.digest(
@@ -83,25 +87,19 @@ export const getUTMDataForDB = () => {
 const getMetaConfig = (course?: string) => {
   const isDA = DA_COURSE_NAMES.includes(course || "");
   const isDASecondRoute = window.location.pathname === "/courses/data-analytics-program-fb-b";
+  const isAIDM = AIDM_COURSE_NAMES.includes(course || "");
+  const isAIDMRoute = AIDM_ROUTES.includes(window.location.pathname);
   
   if (isDASecondRoute) {
-    return {
-      pixelId: DA_PIXEL_ID_SECOND,
-      accessToken: DA_ACCESS_TOKEN_SECOND,
-    };
+    return { pixelId: DA_PIXEL_ID_SECOND, accessToken: DA_ACCESS_TOKEN_SECOND };
   }
-  
   if (isDA) {
-    return {
-      pixelId: DA_PIXEL_ID,
-      accessToken: DA_ACCESS_TOKEN,
-    };
+    return { pixelId: DA_PIXEL_ID, accessToken: DA_ACCESS_TOKEN };
   }
-  
-  return {
-    pixelId: DEFAULT_PIXEL_ID,
-    accessToken: DEFAULT_ACCESS_TOKEN,
-  };
+  if (isAIDM || isAIDMRoute) {
+    return { pixelId: AIDM_PIXEL_ID, accessToken: AIDM_ACCESS_TOKEN };
+  }
+  return { pixelId: DEFAULT_PIXEL_ID, accessToken: DEFAULT_ACCESS_TOKEN };
 };
 
 export const trackFormSubmission = async (
