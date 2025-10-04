@@ -25,19 +25,18 @@ const AIDMCertification: React.FC = () => {
           >
             {/* Certificate Frame */}
             <div className="relative border-4 border-[#5CB338] aspect-[4/3] rounded-2xl overflow-hidden">
-              {/* Certificate Image */}
-              <div className="absolute inset-0 bg-[#0F0F0F] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-[#5CB338]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="w-10 h-10 text-[#5CB338]" />
+                {/* Certificate Image */}
+                <div className="absolute inset-0 bg-gray-500/50 flex items-center justify-center">
+                  <div className="w-full h-full flex items-center justify-center p-6">
+                    <img
+                      src="/assets/certificates/Nano_Degree_in_DM.webp"
+                      alt="AI Digital Marketing Nano-Degree Certificate"
+                      className="max-w-full max-h-full object-contain rounded-xl shadow-lg"
+                    />
                   </div>
-                  <h4 className="text-2xl font-bold text-white mb-2">AI Digital Marketing</h4>
-                  <p className="text-[#5CB338] font-semibold">Nano-Degree Certificate</p>
-                  <p className="text-gray-400 text-sm mt-4">AcceleratorX</p>
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
                 </div>
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-              </div>
             </div>
 
             {/* Floating Elements */}

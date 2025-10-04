@@ -13,7 +13,7 @@ const Events = () => {
     {
       name: "Generative AI for Marketing ",
       mode: "Online (Zoom)",
-      time: "Sep 19, 2025 7:00 PM",
+      time: "Oct 11, 2025 7:00 PM",
       link: "/workshop/gen-ai-masterclass-bxwcy",
       completed: false,
     },

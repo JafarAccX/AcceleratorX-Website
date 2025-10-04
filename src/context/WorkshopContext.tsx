@@ -58,10 +58,10 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
   title: "Generative AI for Marketing ",
-  link: "https://zoom.us/meeting/register/LZWIgBbnQvSkzh9q2-u-8A",
-  meetingId: "LZWIgBbnQvSkzh9q2-u-8A",
-  time: "19th Sep, 2025 07:00 PM India",
-  meetingCode: "99622428256",
+  link: "https://zoom.us/meeting/register/bvfutHmQQKWX_STHghYjJw",
+  meetingId: "bvfutHmQQKWX_STHghYjJw",
+  time: "11th Oct, 2025 07:00 PM India",
+  meetingCode: "93361635932",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
