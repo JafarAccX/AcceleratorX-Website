@@ -2541,7 +2541,7 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-B6VvE2pe.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-DE8tZQox.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DhJgW_6H.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-DN1ln4T3.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-B0brHOpI.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-Bb32MN7_.js"));
 const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cam4KhoN.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-lmYtlyuW.js"));
 const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-B8CFFARE.js"));

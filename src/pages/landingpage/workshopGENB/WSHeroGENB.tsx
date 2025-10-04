@@ -77,11 +77,11 @@ const WSHeroGENB = () => {
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
                 { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Sep 19th" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Oct 11th" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "time",
-                  value: "12:00 pm",
+                  value: "07:00 pm",
                 },
                 { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (
