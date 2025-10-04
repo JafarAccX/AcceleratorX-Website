@@ -2107,7 +2107,7 @@ const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-CtLQbKsg.js"));
 const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-FiZTQHjS.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-DNb7ancx.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DKCOTU7S.js"));
-const Events = lazy(() => import("./assets/Events-KOHmoLH0.js"));
+const Events = lazy(() => import("./assets/Events-B3xbW4J1.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }, "home"),
   /* @__PURE__ */ jsx(Route, { path: "/about-us", element: /* @__PURE__ */ jsx(AboutPage, {}) }, "about"),
@@ -2541,10 +2541,10 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-B6VvE2pe.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-DE8tZQox.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DhJgW_6H.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-DN1ln4T3.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-IHipU710.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-B0brHOpI.js"));
 const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cam4KhoN.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-lmYtlyuW.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-FX4j54N7.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-B8CFFARE.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
 const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-D8AnvHc3.js"));
 const AIEcosystem = lazy(() => import("./assets/AIEcosystem-CJ5s9T03.js"));
@@ -2557,19 +2557,19 @@ const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNz
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
 const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-B_YDbbac.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-BU6IwAYr.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
-const WSHeroPM = lazy(() => import("./assets/WSHeroPM-CMCFWElj.js"));
+const WSHeroPM = lazy(() => import("./assets/WSHeroPM-Cs0obUPo.js"));
 const WSAboutPM = lazy(() => import("./assets/WSAboutPM-auJqqH0N.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-CYPk9VUt.js"));
-const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-I_bpUDW8.js"));
+const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-D4rtMzHk.js"));
 const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-D-A-yjpa.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-DXWtmS8u.js"));
-const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-aVzFvCGB.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-CZRC-3ZH.js"));
+const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-BWMIpmze.js"));
 const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-Da-sHrkX.js"));
 const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-C4hyEjQM.js"));
 const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-BCFnqjTv.js"));
@@ -2670,7 +2670,7 @@ const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-D3hkIoy6.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CvgfDuRU.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Cv2u5_ZO.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Bz4VUR6M.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
