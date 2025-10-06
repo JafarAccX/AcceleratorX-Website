@@ -25,11 +25,11 @@ interface WorkshopContextType {
 }
 
 const PMZoomDetails: ZoomMeetingDetails = {
-  title: "Idea to Product Live (Bootcamp) ",
-  link: "https://zoom.us/meeting/register/8ZFQPIulS9KJH3xIxR9uuA",
-  meetingId: "8ZFQPIulS9KJH3xIxR9uuA",
-  time: "Sep 07, 2025 12:30 PM India",
-  meetingCode: "99321184046",
+  title: "AI Product Management Mastery Class",
+  link: "https://zoom.us/meeting/register/PmLITMVBQ6a9E9uZ5CySBw",
+  meetingId: "97348431386",
+  time: "10/15/2025 7:00 PM India",
+  meetingCode: "97348431386",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
@@ -45,7 +45,7 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
   link: "https://zoom.us/meeting/register/b_CgAZvOT0WPuW9DG-10mg",
   meetingId: "b_CgAZvOT0WPuW9DG-10mg",
   time: "10/13/2025 7:30 PM India",
-  meetingCode: "b_CgAZvOT0WPuW9DG-10mg",
+  meetingCode: "96501815272",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {

@@ -39,13 +39,13 @@ const WSTestimonialPM = () => {
       <FAQSection />
 
       <div className="relative z-10 py-20 max-w-3xl mx-auto text-center">
-        <motion.p
+                <motion.p
           className="mt-4 text-lg text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Seats are limited. Don’t let your idea stay just an idea.
+          Seats are limited. Don't let your AI product idea stay just an idea.
         </motion.p>
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
@@ -53,7 +53,7 @@ const WSTestimonialPM = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Register Now — It’s Free
+          Register Now — It's Free
         </motion.h2>
 
         <motion.p
@@ -62,7 +62,7 @@ const WSTestimonialPM = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Live, focused, and built for action. Join us and start moving your idea forward.
+          Live, focused, and built for AI innovation. Join us and start building your AI product.
         </motion.p>
 
         <motion.div

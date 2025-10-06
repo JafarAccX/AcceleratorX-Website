@@ -145,8 +145,7 @@ const WorkshopPageDM = () => (
 );
 
 export const workshopRoutes = [
-  <Route key="workshop-pm" path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
-  // <Route path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
+  <Route key="workshop-pm" path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />, 
   <Route key="workshop-dm" path="/workshop/dm-masterclass" element={<WorkshopPageDM />} />,
   <Route key="workshop-da" path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
   <Route key="workshop-da-second" path="/workshop/da-masterclass-bxwxy" element={<WorkshopPageDASecond />} />,

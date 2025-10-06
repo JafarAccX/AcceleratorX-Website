@@ -38,10 +38,10 @@ const WSHeroPM = () => {
   return (
     <>
       <SEO 
-        title="Free Product Management Workshop - Idea to Product Live | AcceleratorX"
-        description="Join our free Product Management workshop on September 7th, 2025. Learn frameworks to turn ideas into products. Perfect for founders, PMs, designers, and tech leads."
-        ogTitle="Free Product Management Workshop - Idea to Product Live"
-        ogDescription="Master Product Management in our free workshop. Learn practical frameworks for building successful products."
+        title="Free AI Product Management Workshop - AI Product Management Mastery Class | AcceleratorX"
+        description="Join our free AI Product Management workshop on October 15th, 2025. Learn frameworks to build AI-powered products. Perfect for founders, PMs, designers, and tech leads."
+        ogTitle="Free AI Product Management Workshop - AI Product Management Mastery Class"
+        ogDescription="Master AI Product Management in our free workshop. Learn practical frameworks for building successful AI products."
         ogImage="/pmbg.webp"
       />
       <div className="relative bg-[#0A0F1D] min-h-screen overflow-x-hidden">
@@ -84,7 +84,7 @@ const WSHeroPM = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            Idea to Product Live (Bootcamp)
+            AI Product Management Mastery Class
           </motion.h1>
 
           {/* Subheading */}
@@ -94,7 +94,7 @@ const WSHeroPM = () => {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-6 leading-relaxed"
           >
-            Turn your idea into a product that works in the real world. From validation to launch, learn the exact steps to transform raw ideas into real, usable products.
+            Master AI product management from ideation to deployment. Learn how to build, launch, and scale AI-powered products that deliver real value.
           </motion.p>
 
           {/* Note */}
@@ -180,7 +180,7 @@ const WSHeroPM = () => {
               </div>
 
               <p className="text-gray-400   leading-relaxed">
-                 Most ideas never make it beyond the notebook. This live bootcamp helps you change that. In just 3 hours, learn a proven process to validate your ideas, shape them into real products, and avoid the traps that kill most launches.
+                 AI products require a different approach. This mastery class equips you with the frameworks to build, manage, and scale AI-powered products successfully.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
@@ -189,12 +189,12 @@ const WSHeroPM = () => {
                   {
                     icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "Sept 7, 2025",
+                    value: "15th Oct 2025",
                   },
                   {
                     icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                     label: "Time",
-                    value: "8:00 PM IST",
+                    value: "7:00 PM IST",
                   },
                   { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "Beginner–Advanced" },
                 ].map((item, index) => (
