@@ -26,16 +26,28 @@ const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000 }) => {
     <AnimatePresence>
       {visible && (
         <motion.div
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.12}
+          onDragEnd={(_, info) => {
+            const horizontal = info.offset.x
+            const velocity = Math.abs(info.velocity.x)
+            const threshold = 120
+            const velocityThreshold = 800
+            if (Math.abs(horizontal) > threshold || velocity > velocityThreshold) {
+              setVisible(false)
+            }
+          }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.28 }}
-          className="fixed right-6 bottom-6 z-50 max-w-sm w-[90vw] sm:w-[360px]"
+          className="fixed right-6 bottom-6 z-50 max-w-sm w-[90vw] sm:w-[360px] cursor-grab"
           role="dialog"
           aria-modal="true"
         >
           <div className="bg-gradient-to-br from-[#10204a] via-black to-[#10204a] border border-white/10 rounded-2xl shadow-2xl p-4 text-white backdrop-blur-sm">
-            <div className="flex flex-col items-start justify-center gap-3">
+            <div className="flex flex-col items-start justify-center gap-3 mt-10">
               <div className="flex items-center gap-3 flex-1">
                 <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-blue-700 flex items-center justify-center">
                   <img
