@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { User, Briefcase, LogOut, X, Menu, ChevronDown } from "lucide-react";
 import "react-dom";
 import { PiFilmScriptFill } from "react-icons/pi";
+import { AnimatePresence, motion } from "framer-motion";
 /**
  * React Router DOM v6.30.1
  *
@@ -1813,6 +1814,102 @@ function Navbar() {
     }
   );
 }
+const AppDownloadPOP = ({ delayMs = 2e3 }) => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const timer = window.setTimeout(() => {
+      setVisible(true);
+    }, delayMs);
+    return () => clearTimeout(timer);
+  }, [delayMs]);
+  const handleClose = () => setVisible(false);
+  return /* @__PURE__ */ jsx(AnimatePresence, { children: visible && /* @__PURE__ */ jsx(
+    motion.div,
+    {
+      drag: "x",
+      dragConstraints: { left: 0, right: 0 },
+      dragElastic: 0.12,
+      onDragEnd: (_, info) => {
+        const horizontal = info.offset.x;
+        const velocity = Math.abs(info.velocity.x);
+        const threshold = 120;
+        const velocityThreshold = 800;
+        if (Math.abs(horizontal) > threshold || velocity > velocityThreshold) {
+          setVisible(false);
+        }
+      },
+      initial: { opacity: 0, y: 10 },
+      animate: { opacity: 1, y: 0 },
+      exit: { opacity: 0, y: 10 },
+      transition: { duration: 0.28 },
+      className: "fixed right-6 bottom-6 z-50 max-w-sm w-[90vw] sm:w-[360px] cursor-grab",
+      role: "dialog",
+      "aria-modal": "true",
+      children: /* @__PURE__ */ jsx("div", { className: "bg-gradient-to-br from-[#10204a] via-black to-[#10204a] border border-white/10 rounded-2xl shadow-2xl p-4 text-white backdrop-blur-sm", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-start justify-center gap-3 mt-10", children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 flex-1", children: [
+          /* @__PURE__ */ jsx("div", { className: "w-12 h-12 flex-shrink-0 rounded-lg bg-blue-700 flex items-center justify-center", children: /* @__PURE__ */ jsx(
+            "img",
+            {
+              src: "/app/accapplogo.png",
+              alt: "AcceleratorX",
+              className: "rounded-md object-contain"
+            }
+          ) }),
+          /* @__PURE__ */ jsx("div", { className: "min-w-0", children: /* @__PURE__ */ jsx("h4", { className: "text-white font-semibold text-lg", children: "AcceleratorX — Learn Product, AI & Data Skills" }) })
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "text-sm text-white/80 mt-1", children: "Future-ready courses in Product, AI and Data — now in your pocket." }),
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: handleClose,
+            "aria-label": "Close app popup",
+            className: "p-2 absolute top-4 right-4 rounded-md text-white/80 hover:text-white hover:bg-white/5",
+            children: /* @__PURE__ */ jsx(X, { className: "w-4 h-4" })
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "flex-1 w-full", children: /* @__PURE__ */ jsxs("div", { className: "mt-4 flex gap-4 items-center justify-center", children: [
+          /* @__PURE__ */ jsx(
+            "a",
+            {
+              href: "https://apps.apple.com/in/app/acceleratorx-learning/id6753216468",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "inline-block",
+              "aria-label": "Download on the App Store",
+              children: /* @__PURE__ */ jsx(
+                "img",
+                {
+                  src: "/app/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",
+                  alt: "Download on the App Store",
+                  className: "block h-12 max-w-[110px] object-contain"
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            "a",
+            {
+              href: "https://play.google.com/store/apps/details?id=com.acceleratorx.acceleratorx",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "inline-block",
+              "aria-label": "Get it on Google Play",
+              children: /* @__PURE__ */ jsx(
+                "img",
+                {
+                  src: "/app/GetItOnGooglePlay_Badge_Digital_color_Finnish.png",
+                  alt: "Get it on Google Play",
+                  className: "block h-12 max-w-[170px] object-contain"
+                }
+              )
+            }
+          )
+        ] }) })
+      ] }) })
+    }
+  ) });
+};
 const defaultLayout = {
   showNavbar: true,
   showFooter: true
@@ -1857,7 +1954,7 @@ const getRouteLayout = (pathname) => {
   }
   return defaultLayout;
 };
-const Footer = lazy(() => import("./assets/Footer-BJgVHy6n.js"));
+const Footer = lazy(() => import("./assets/Footer-BXd2HvJg.js"));
 const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-6kiK3aSg.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
@@ -1880,7 +1977,8 @@ const MainLayout = ({ children }) => {
     showNavbar && /* @__PURE__ */ jsx(Navbar, {}),
     /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(EnrollmentModal, { isOpen: isEnrollmentModalOpen, onClose: handleCloseModal }) }),
     /* @__PURE__ */ jsx("main", { className: "min-h-screen", children }),
-    showFooter && /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx("div", { className: "py-8 text-center", children: "Loading…" }), children: /* @__PURE__ */ jsx(Footer, {}) }) })
+    showFooter && /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx("div", { className: "py-8 text-center", children: "Loading…" }), children: /* @__PURE__ */ jsx(Footer, {}) }) }),
+    /* @__PURE__ */ jsx(AppDownloadPOP, {})
   ] });
 };
 function ThankYouPage({ courseName }) {
@@ -2096,17 +2194,17 @@ const WorkshopPaymentSuccess = lazy(() => import("./assets/Success-N-b6YkOf.js")
 const XSATEntry = lazy(() => import("./assets/XSATEntry-2c-t-ywQ.js"));
 const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
 const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
-const HomePage = lazy(() => import("./assets/HomePage-Ch_2q5At.js"));
-const AboutPage = lazy(() => import("./assets/AboutPage-DzBDEdUw.js"));
+const HomePage = lazy(() => import("./assets/HomePage-B_6-mZsx.js"));
+const AboutPage = lazy(() => import("./assets/AboutPage-XD57gdmt.js"));
 const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
-const Privacy = lazy(() => import("./assets/Privacy-B0nb9emf.js"));
-const Terms = lazy(() => import("./assets/Terms-8YhsueH8.js"));
-const Refund = lazy(() => import("./assets/Refund-CZXw7VQO.js"));
-const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-CRnuYFdp.js"));
-const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-CtLQbKsg.js"));
-const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-FiZTQHjS.js"));
-const DataAnalyticsPage$1 = lazy(() => import("./assets/index-DNb7ancx.js"));
-const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DKCOTU7S.js"));
+const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
+const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
+const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
+const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-D3c0YoEK.js"));
+const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-CddiQYUJ.js"));
+const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-BOVpIhd3.js"));
+const DataAnalyticsPage$1 = lazy(() => import("./assets/index-Cnd78UlT.js"));
+const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DJAOD0Ae.js"));
 const Events = lazy(() => import("./assets/Events-B3xbW4J1.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }, "home"),
@@ -2541,10 +2639,10 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-B6VvE2pe.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-DE8tZQox.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DhJgW_6H.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-DN1ln4T3.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-Bb32MN7_.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-Z9zNVr_R.js"));
 const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cam4KhoN.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-lmYtlyuW.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-B8CFFARE.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-D6tq6ama.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
 const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-D8AnvHc3.js"));
 const AIEcosystem = lazy(() => import("./assets/AIEcosystem-CJ5s9T03.js"));
@@ -2557,7 +2655,7 @@ const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNz
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
 const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-BU6IwAYr.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-BwKGC0HY.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
 const WSHeroPM = lazy(() => import("./assets/WSHeroPM-Cs0obUPo.js"));
@@ -2568,7 +2666,7 @@ const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-D-A-yjpa.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-CZRC-3ZH.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-Ckr4ATZl.js"));
 const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-BWMIpmze.js"));
 const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-Da-sHrkX.js"));
 const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-C4hyEjQM.js"));
@@ -2643,10 +2741,10 @@ const workshopRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-thidtx", element: /* @__PURE__ */ jsx(WorkshopPageGENC, {}) }, "workshop-genc"),
   /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) }, "workshop-success")
 ];
-const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-CHhu4G38.js"));
-const DMFlyers = lazy(() => import("./assets/DMFlyers-8Tt-Q3R6.js"));
-const PMFlyers = lazy(() => import("./assets/PMFlyers-BdJ0x-2F.js"));
-const DAFlyers = lazy(() => import("./assets/DAFlyers-JGvQQSTv.js"));
+const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-6IwfCUx2.js"));
+const DMFlyers = lazy(() => import("./assets/DMFlyers-Dh-Emtdy.js"));
+const PMFlyers = lazy(() => import("./assets/PMFlyers-CHq_AjPm.js"));
+const DAFlyers = lazy(() => import("./assets/DAFlyers-CLB6YZZD.js"));
 const flyerRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/gen-ai", element: /* @__PURE__ */ jsx(GENAIFlyers, {}) }, "flyer-genai"),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/pm", element: /* @__PURE__ */ jsx(PMFlyers, {}) }, "flyer-pm"),
@@ -2659,18 +2757,18 @@ const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-BU26BlYk.js"
 const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-BeAaID56.js"));
 const KuppamCourses = lazy(() => import("./assets/KuppamCourses-BB7igBRu.js"));
 const GenAICourse = lazy(
-  () => import("./assets/GenAIEntry-CRnuYFdp.js")
+  () => import("./assets/GenAIEntry-D3c0YoEK.js")
 );
-const GenAICourseAD = lazy(() => import("./assets/GenAIAd-CtLQbKsg.js"));
+const GenAICourseAD = lazy(() => import("./assets/GenAIAd-CddiQYUJ.js"));
 const DMAICourse = lazy(
-  () => import("./assets/DigitalMarketingEntry-FiZTQHjS.js")
+  () => import("./assets/DigitalMarketingEntry-BOVpIhd3.js")
 );
-const DataAnalyticsPage = lazy(() => import("./assets/index-DNb7ancx.js"));
+const DataAnalyticsPage = lazy(() => import("./assets/index-Cnd78UlT.js"));
 const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-D3hkIoy6.js")
 );
-const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CvgfDuRU.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Bz4VUR6M.js"));
+const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CD3It4KS.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Dxqn770P.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
@@ -2763,14 +2861,14 @@ const ProtectedRoute = () => {
   }
   return /* @__PURE__ */ jsx(Outlet, {});
 };
-const ProfileRoutes = lazy(() => import("./assets/profileRoutes-CpTktpDf.js").then((m) => ({ default: m.ProfileRoutes })));
-const SignUpForm = lazy(() => import("./assets/SignUpForm-DJ-gbKyO.js"));
-const SignInForm = lazy(() => import("./assets/SignInForm-CxwH1DeT.js").then((m) => ({ default: m.SignInForm })));
-const JobApplication = lazy(() => import("./assets/JobApplication-CZYz9G5J.js"));
-const JobDetails = lazy(() => import("./assets/JobDetails-CkI3ZZh7.js"));
-const JobList = lazy(() => import("./assets/JobList-BhDbq14K.js"));
-const MyApplications = lazy(() => import("./assets/MyApplications-CELsNg53.js"));
-const CertificateDisplayPage = lazy(() => import("./assets/CertificateDisplayPage-36BIWb1A.js"));
+const ProfileRoutes = lazy(() => import("./assets/profileRoutes-MziAOv75.js").then((m) => ({ default: m.ProfileRoutes })));
+const SignUpForm = lazy(() => import("./assets/SignUpForm-Da6zcl7r.js"));
+const SignInForm = lazy(() => import("./assets/SignInForm-C5kTGL8Z.js").then((m) => ({ default: m.SignInForm })));
+const JobApplication = lazy(() => import("./assets/JobApplication-CQ5Wr2C5.js"));
+const JobDetails = lazy(() => import("./assets/JobDetails-CvY6X425.js"));
+const JobList = lazy(() => import("./assets/JobList-BGBauKJk.js"));
+const MyApplications = lazy(() => import("./assets/MyApplications-UiZRox88.js"));
+const CertificateDisplayPage = lazy(() => import("./assets/CertificateDisplayPage-Cc1A1PW1.js"));
 const AppRoutes = () => {
   const { setSelectedCourse } = useCourseContext();
   return /* @__PURE__ */ jsxs(Fragment, { children: [
