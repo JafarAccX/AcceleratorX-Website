@@ -63,18 +63,18 @@ const AIToolsIllustration: React.FC = () => (
 const ProductsSection: React.FC = () => {
   const products = [
     {
-      title: "SQL Query Automation",
-      description: "Discover how to write queries once and automate repetitive tasks with ease.",
+      title: "Creating Interactive Dashboards",
+      description: "Discover how to build dynamic dashboards that respond to user interactions and data changes.",
       illustration: <DataVizIllustration />,
     },
     {
-      title: "Data Analysis Made Faster",
-      description: "Learn practical shortcuts to extract, clean, and analyze data in minutes instead of hours.",
+      title: "Data Visualization Made Powerful",
+      description: "Learn advanced visualization techniques to turn raw data into compelling stories and insights.",
       illustration: <NoCodeIllustration />,
     },
     {
-      title: "Smart AI + SQL Hacks",
-      description: "Use AI-assisted tools to optimize queries, debug errors, and build workflows that run on autopilot.",
+      title: "PowerBI Best Practices",
+      description: "Master DAX formulas, data modeling, and performance optimization for professional dashboards.",
       illustration: <AIToolsIllustration />,
     },
   ]

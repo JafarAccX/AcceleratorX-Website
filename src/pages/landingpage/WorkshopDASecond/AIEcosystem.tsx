@@ -92,7 +92,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Data Analysis with AI
+          PowerBI Dashboarding Ecosystem
         </motion.h2>
         <motion.p
           className="mt-4 text-gray-400 max-w-xl mx-auto text-base md:text-lg"
@@ -100,7 +100,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Master the ecosystem of tools to create intelligent, autonomous, and real-world AI agents.
+          Master the ecosystem of tools to create stunning, interactive, and insightful PowerBI dashboards.
         </motion.p>
       </div>
 

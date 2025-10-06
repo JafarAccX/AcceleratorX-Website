@@ -41,11 +41,11 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "Automating SQL queries for Data Analysis",
-  link: "https://zoom.us/meeting/register/vFGlGA7jSH-6Razbad2szw",
-  meetingId: "vFGlGA7jSH-6Razbad2szw",
-  time: "Sep 6, 2025 8:30 PM India",
-  meetingCode: "95353095584",
+  title: "Dashboarding with PowerBi",
+  link: "https://zoom.us/meeting/register/b_CgAZvOT0WPuW9DG-10mg",
+  meetingId: "b_CgAZvOT0WPuW9DG-10mg",
+  time: "10/13/2025 7:30 PM India",
+  meetingCode: "b_CgAZvOT0WPuW9DG-10mg",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {

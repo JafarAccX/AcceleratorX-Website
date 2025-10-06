@@ -9,10 +9,10 @@ const CryptoHeroSection: React.FC = () => {
   return (
     <>
       <SEO 
-        title="Free Data Analytics Workshop - Build AI Agents | AcceleratorX"
-        description="Join our free hands-on Data Analytics workshop on September 6th, 2025. Learn to build AI agents using no-code tools like LangChain and GPT. Beginner to intermediate level."
-        ogTitle="Free Data Analytics Workshop - Build AI Agents"
-        ogDescription="Master Data Analytics and AI in our free workshop. Learn practical skills with real-world projects."
+        title="Free PowerBI Dashboarding Workshop | AcceleratorX"
+        description="Join our free hands-on PowerBI workshop on October 13th, 2025. Learn to create interactive dashboards and visualize data effectively. Beginner to intermediate level."
+        ogTitle="Free PowerBI Dashboarding Workshop"
+        ogDescription="Master PowerBI dashboarding in our free workshop. Learn practical skills with real-world projects."
         ogImage="/Data-Analytics.webp"
       />
       <section className="relative min-h-screen overflow-hidden " >
@@ -75,15 +75,15 @@ const CryptoHeroSection: React.FC = () => {
              
             {/* Main Heading */}
             <div className="space-y-2">
-              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">Automating <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
-                SQL Queries
-              </span> for Data Analysis</h1>
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">Dashboarding with <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
+                PowerBI
+              </span></h1>
               
             </div>
 
             {/* Subtext */}
             <div className="space-y-4 text-slate-300 text-lg max-w-lg">
-              <p className="font-medium">Learn how to save hours of manual work by automating your SQL queries — smarter, faster, and without complex coding!</p>
+              <p className="font-medium">Learn how to create stunning interactive dashboards with PowerBI — visualize data, gain insights, and make data-driven decisions!</p>
               <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-3 mt-4">
                 <p className="text-yellow-200 text-sm font-medium">
                   ⚠️ Note: This is a live-only workshop. No recordings will be provided.

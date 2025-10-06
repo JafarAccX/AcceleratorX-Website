@@ -41,16 +41,16 @@ const TradingPlatformSection: React.FC = () => {
               Why Attend This Workshop?
               </h2>
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-              "SQL is the backbone of data. Automation is the accelerator."
+              "Dashboards are the face of data. PowerBI is the accelerator."
               </p>
 
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
               Whether you're a student, analyst, or working professional, this session will help you:
               </p>
               <ul className="text-slate-300 text-lg leading-relaxed max-w-lg list-disc pl-6 space-y-2">
-                <li>Eliminate repetitive query writing.</li>
-                <li>Automate reporting and analysis workflows.</li>
-                <li>Free up time to focus on insights and decision-making.</li>
+                <li>Create professional-looking dashboards.</li>
+                <li>Build interactive reports that engage users.</li>
+                <li>Share data insights with stakeholders effectively.</li>
               </ul>
             </div>
           </div>
