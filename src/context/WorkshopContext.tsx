@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "AI Agent building Bootcamp (2 HR)",
-  link: "https://zoom.us/meeting/register/FnvYydkmTrOc1dowwPAE8A",
-  meetingId: "FnvYydkmTrOc1dowwPAE8A",
-  time: "10 Sep, 2025 09:00 PM India",
-  meetingCode: "98712946803",
+  title: "Build & Deploy your own AI Applications",
+  link: "https://zoom.us/meeting/register/KzSCTcEeSqGdDxUKaOm8TQ",
+  meetingId: "KzSCTcEeSqGdDxUKaOm8TQ",
+  time: "10/16/2025 6:00 PM India",
+  meetingCode: "96356122146",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

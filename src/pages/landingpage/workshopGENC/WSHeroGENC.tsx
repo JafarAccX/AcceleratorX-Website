@@ -92,9 +92,9 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      AI Agent Building Bootcamp – Build Your First AI Agents in Just 2 Hours
+                      Build & Deploy 
                     </span>{" "}
-                    <br />– Smarter, Faster, Hands-on Learning
+                    <br />your own AI Applications
                   </span>
 
                   <motion.div
@@ -110,10 +110,10 @@ const WSHeroGENC = () => {
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
                 <p className="  text-gray-400 max-w-xl">
-                  AI is powerful, but knowing how to build your own AI Agent makes it truly exciting.
+                  Learn to build and deploy your own AI applications from scratch.
                 </p>
                 <p className="  text-gray-400 max-w-xl">
-                  In this beginner-friendly bootcamp, you’ll learn to create two real AI agents step by step – one with Lyzr and another using LangChain, CrewAI / n8n. No fluff. No heavy theory. Just real, usable skills you can apply instantly.
+                  In this hands-on workshop, you'll create real AI applications step by step. No fluff. No heavy theory. Just practical skills you can apply instantly.
                 </p>
               </motion.div>
             </div>
@@ -125,12 +125,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "10th Sep 2025",
+                  value: "16th Oct 2025",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "Time",
-                  value: "07:00 PM",
+                  value: "6:00 PM",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

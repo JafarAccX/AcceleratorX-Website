@@ -4,33 +4,33 @@ const WSGENIntroductionC = () => {
   const stats = [
     {
       value: "89%",
-      label: "of past attendees said they could start building agents the same day.",
+      label: "of past attendees said they could start building applications the same day.",
     },
     {
       value: "93%",
-      label: "felt more confident using AI after the workshop.",
+      label: "felt more confident deploying AI after the workshop.",
     },
     {
-      value: "Zero coding stress",
-      label: "We keep it simple and hands-on.",
+      value: "Zero deployment stress",
+      label: "We guide you through every step of building and deploying.",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "RAG Workflows Made Easy",
-      description: "No confusing setups. Just connect, run, and see results.",
+      title: "AI Application Development Made Easy",
+      description: "No confusing setups. Just build, deploy, and see results.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
       title: "Live & Interactive",
-      description: "Build alongside your mentor, ask questions, and get instant feedback.",
+      description: "Build and deploy alongside your mentor, ask questions, and get instant feedback.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Smart Creativity",
-      description: "Use AI to make your work faster, sharper, and more impactful.",
+      title: "Practical Deployment",
+      description: "Learn to deploy AI applications that work in the real world.",
     },
   ];
 
@@ -72,17 +72,17 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">AI-Powered Agents = Practical, Useful, Yours</span>
+            <span className="text-sm text-blue-400 font-medium">AI Applications = Practical, Deployable, Yours</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            AI-Powered Agents <span className="text-blue-500"> =</span> Practical, Useful, Yours
+            AI Applications <span className="text-blue-500"> =</span> Practical, Deployable, Yours
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This isn’t about slides or theory. You’ll walk away with two working AI Agents you built yourself.
+            This isn’t about slides or theory. You’ll walk away with a working AI application you built and deployed yourself.
           </p>
 
           {/* Stats Grid */}

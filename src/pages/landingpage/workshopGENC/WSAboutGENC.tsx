@@ -77,12 +77,12 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Understand what AI Agents are and why they matter.",
-                        "Build your first AI Agent with Lyzr (step by step).",
-                        "Create another Agent using LangChain, CrewAI / n8n.",
-                        "Teach your Agents to connect with real data and respond smarter.",
-                        "Deploy your Agent and test it live.",
-                        "Take away templates, resources, and tools to keep building.",
+                        "Understand AI applications and their real-world impact.",
+                        "Build your first AI application from scratch (step by step).",
+                        "Learn to deploy AI applications on various platforms.",
+                        "Integrate AI models into practical applications.",
+                        "Test and optimize your AI applications for performance.",
+                        "Take away templates and best practices for future projects.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -119,11 +119,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "How AI Agents work and where you can use them.",
-                        "Step-by-step methods to build working AI Agents without confusion.",
-                        "Workflows top AI builders use to make smarter apps.",
-                        "How to deploy without advanced coding.",
-                        "Real-world examples – customer support bots, research tools, personal assistants.",
+                        "How AI applications work and where to apply them.",
+                        "Step-by-step methods to build AI applications without confusion.",
+                        "Best practices for deploying AI solutions.",
+                        "Integration techniques for AI models in applications.",
+                        "Real-world examples – chatbots, recommendation systems, automation tools.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

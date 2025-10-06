@@ -34,7 +34,7 @@ const WSGENWhoShouldEnrollC = () => {
       </div>
 
       <div className="container mx-auto px-3 relative z-10">
-        <div className="max-w-screen-md items-center">
+        <div className=" items-center">
           {/* Content Section */}
           {/* Section Header */}
           <div className="inline-flex items-center gap-2 flex-1 bg-white rounded-full px-4 py-2 mb-3 transform hover:scale-105 transition-all">
@@ -42,7 +42,7 @@ const WSGENWhoShouldEnrollC = () => {
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
           <h2 className="text-3xl font-bold mb-3">
-            <span className="text-white">This bootcamp is for you if you’ve ever thought:<br/>“AI is powerful, but I don’t know where to start.”</span>
+            <span className="text-white">This workshop is for you if you’ve ever thought:<br/>“AI applications are powerful, but I don’t know how to build and deploy them.”</span>
           </h2>
         </div>
 

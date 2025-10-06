@@ -26,7 +26,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build Your First AI Agent – Live in 2 Hours
+              Build & Deploy your own AI Applications – Live Workshop
             </motion.h2>
 
             {/* Badge */}
@@ -51,18 +51,18 @@ const GENCTAC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-green-400">Use Your Own Data</p>
-                  <p className="text-sm text-gray-400">PDFs, notes, websites, databases</p>
+                  <p className="text-lg font-bold text-green-400">Build Deployable Apps</p>
+                  <p className="text-sm text-gray-400">From concept to live application</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-purple-400">Step-by-Step Guidance</p>
-                  <p className="text-sm text-gray-400">From blank page to working Agent</p>
+                  <p className="text-lg font-bold text-purple-400">Step-by-Step Deployment</p>
+                  <p className="text-sm text-gray-400">From development to production</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-blue-400">Smart Responses, Your Way</p>
-                  <p className="text-sm text-gray-400">Agents that know what you mean, not just what you type</p>
+                  <p className="text-lg font-bold text-blue-400">Functional AI Applications</p>
+                  <p className="text-sm text-gray-400">Applications that solve real problems</p>
                 </div>
               </div>
             </motion.div>
@@ -77,8 +77,8 @@ const GENCTAC = () => {
               <p className="bg-blue-500/10 rounded-full px-6 py-2 text-lg font-bold text-white">
                 Hands-On. No Pressure. Real Skills.
               </p>
-              <p>100+ beginners have already built with us. Now it’s your turn.</p>
-              <p>Click Register Now – Join the live bootcamp and build your first AI Agents!</p>
+              <p>100+ beginners have already built and deployed AI applications with us. Now it’s your turn.</p>
+              <p>Click Register Now – Join the live workshop and build & deploy your own AI applications!</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}
