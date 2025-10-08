@@ -1856,9 +1856,9 @@ const AppDownloadPOP = ({ delayMs = 2e3 }) => {
               className: "rounded-md object-contain"
             }
           ) }),
-          /* @__PURE__ */ jsx("div", { className: "min-w-0", children: /* @__PURE__ */ jsx("h4", { className: "text-white font-semibold text-lg", children: "AcceleratorX — Learn Product, AI & Data Skills" }) })
+          /* @__PURE__ */ jsx("div", { className: "min-w-0", children: /* @__PURE__ */ jsx("h4", { className: "text-white font-semibold text-lg", children: "Master AI, Product, Data & Marketing." }) })
         ] }),
-        /* @__PURE__ */ jsx("p", { className: "text-sm text-white/80 mt-1", children: "Future-ready courses in Product, AI and Data — now in your pocket." }),
+        /* @__PURE__ */ jsx("p", { className: "text-sm text-white/80 mt-1", children: "Download our app and access 3,000+ AI jobs curated for you." }),
         /* @__PURE__ */ jsx(
           "button",
           {
@@ -2760,7 +2760,7 @@ const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-D3hkIoy6.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CD3It4KS.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-DjyOmDgd.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Qy2ob5Xz.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
