@@ -2760,7 +2760,7 @@ const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-D3hkIoy6.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CD3It4KS.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Dxqn770P.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-DjyOmDgd.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
