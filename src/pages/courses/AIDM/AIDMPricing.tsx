@@ -7,7 +7,7 @@ import EnrollmentModal from '../../../components/EnrollmentModal';
 const pricingOptions = [
   {
     title: "Early-bird",
-    price: "₹29,999",
+    price: "₹29,999 + GST",
     originalPrice: "₹49,999",
     description: "full program",
     highlight: true,
@@ -15,7 +15,7 @@ const pricingOptions = [
   },
   {
     title: "Standard",
-    price: "₹39,999",
+    price: "₹39,999 + GST",
     originalPrice: "₹49,999",
     description: "full program",
     highlight: false,
@@ -23,11 +23,11 @@ const pricingOptions = [
   },
   {
     title: "Instalments",
-    price: "3 × ₹13,999/month",
+    price: "₹39,999 + GST",
     originalPrice: "",
     description: "full program",
     highlight: false,
-    discount: "(no-cost EMI)"
+    discount: "(18 months no cost EMI)"
   }
 ];
 
