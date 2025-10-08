@@ -5,35 +5,72 @@ import { FileText, Image, TrendingUp, BarChart, Zap } from 'lucide-react';
 const toolCategories = [
   {
     category: "Content & Copy",
-    tools: "ChatGPT, Claude.ai, Copy.ai, Jasper, Grammarly, Notion AI",
+    items: [
+      { name: "ChatGPT", logo: "/assets/genAITools/gpt4.webp" },
+      { name: "Claude.ai", logo: "/assets/genAITools/claude.webp" },
+      { name: "Copy.ai", logo: "/assets/aidmtools/copy.ai.svg" },
+      { name: "Jasper", logo: "/assets/dmAITools/jasper.webp" },
+      { name: "Grammarly", logo: "/assets/aidmtools/png-transparent-grammarly-hd-logo-thumbnail.webp" },
+      { name: "Notion AI", logo: "/assets/n8n/notion.webp" }
+    ],
     icon: FileText,
     color: "text-blue-400"
   },
   {
     category: "Visuals & Media",
-    tools: "Canva, SDXL, Ideogram, Leonardo.ai, Runway, Pika Labs, Veo3, Nano Banana",
+    items: [
+      { name: "Canva", logo: "/assets/aidmtools/canva.webp" },
+      { name: "SDXL", logo: "/assets/genAITools/stability-ai.webp" },
+      { name: "Ideogram", logo: "/assets/aidmtools/ido.webp" },
+      { name: "Leonardo.ai", logo: "/assets/aidmtools/leo.webp" },
+      { name: "Runway", logo: "/assets/genAITools/runway.webp" },
+      { name: "Pika Labs", logo: "/assets/genAITools/pika.webp" },
+      { name: "Veo3", logo: "/assets/aidmtools/Veo3.webp" },
+      { name: "Nano Banana", logo: "/assets/aidmtools/nano-banana-icon.webp" }
+    ],
     icon: Image,
     color: "text-purple-400"
   },
   {
     category: "Ads & Growth", 
-    tools: "Google Ads Sandbox, Meta Ads Manager, AdCreative.ai, Modash, Mesa.ai",
+    items: [
+      { name: "Google Ads Sandbox", logo: "/assets/dmAITools/googleads.webp" },
+      { name: "Meta Ads Manager", logo: "/assets/dmAITools/meta.webp" },
+      { name: "AdCreative.ai", logo: "/assets/aidmtools/AdCreative.ai.svg" },
+      { name: "Modash", logo: "/assets/aidmtools/Modash.webp" },
+      { name: "Mesa.ai", logo: "" }
+    ],
     icon: TrendingUp,
     color: "text-green-400"
   },
   {
     category: "Analytics & CRO",
-    tools: "GA4, Microsoft Clarity, HotJar, GrowthBook",
+    items: [
+      { name: "GA4", logo: "/assets/dmAITools/googleanalytics.webp" },
+      { name: "Microsoft Clarity", logo: "/assets/aidmtools/Clarity.webp" },
+      { name: "HotJar", logo: "/assets/aidmtools/HotJar.webp" },
+      { name: "GrowthBook", logo: "/assets/aidmtools/GrowthBook.webp" }
+    ],
     icon: BarChart,
     color: "text-orange-400"
   },
   {
     category: "Automation & CRM",
-    tools: "n8n, Make.com, HubSpot, Mailchimp, Clay, Apollo.io",
+    items: [
+      { name: "n8n", logo: "/assets/genAITools/n8n-seeklogo.webp" },
+      { name: "Make.com", logo: "/make.webp" },
+      { name: "HubSpot", logo: "/assets/dmAITools/HubSpot.webp" },
+      { name: "Mailchimp", logo: "/assets/aidmtools/Mailchimp.webp" },
+      { name: "Clay", logo: "/assets/aidmtools/Clay_Logo_Tertiary_Wht.svg" },
+      { name: "Apollo.io", logo: "/assets/aidmtools/Apollo.io.webp" }
+    ],
     icon: Zap,
     color: "text-cyan-400"
   }
 ];
+
+
+
 
 const AIDMTools: React.FC = () => {
   return (
@@ -61,18 +98,26 @@ const AIDMTools: React.FC = () => {
               transition={{ delay: index * 0.1 }}
               className="group"
             >
-              <div className="p-6 bg-[#0F0F0F] border border-white/10 rounded-2xl backdrop-blur-sm transition-all duration-300 hover:border-[#5CB338]/50 hover:shadow-lg hover:shadow-[#5CB338]/5">
+              <div className="p-6 bg-[#0F0F0F] hover:border border-transparent rounded-2xl backdrop-blur-sm transition-all duration-300 hover:border-[#5CB338]/50 hover:shadow-lg hover:shadow-[#5CB338]/5">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#5CB338]/10 flex items-center justify-center flex-shrink-0">
-                    <category.icon className="w-6 h-6 text-[#5CB338]" />
-                  </div>
+                  
                   <div className="flex-1 space-y-2">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-[#5CB338] transition-colors duration-300">
-                      {category.category}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {category.tools}
-                    </p>
+                    <div className='flex gap-4 items-center '>
+                      <div className="w-12 h-12 rounded-lg bg-[#5CB338]/10 flex items-center justify-center flex-shrink-0">
+                        <category.icon className="w-6 h-6 text-[#5CB338]" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-[#5CB338] transition-colors duration-300">
+                        {category.category}
+                      </h3>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 mt-4">
+                      {category.items.map((tool, toolIndex) => (
+                        <div key={toolIndex} className="flex items-center gap-2 p-2 bg-gray-800/10 rounded-lg hover:bg-gray-700/50 transition-colors">
+                          <img src={tool.logo} alt={tool.name} className="w-6 h-6 object-contain" />
+                          <span className="text-xs text-gray-300">{tool.name}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

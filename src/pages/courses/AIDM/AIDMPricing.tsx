@@ -8,24 +8,21 @@ const pricingOptions = [
   {
     title: "Early-bird",
     price: "₹29,999 + GST",
-    originalPrice: "₹49,999",
-    description: "full program",
+    originalPrice: "₹49,999", 
     highlight: true,
     discount: "40% Off"
   },
   {
     title: "Standard",
     price: "₹39,999 + GST",
-    originalPrice: "₹49,999",
-    description: "full program",
+    originalPrice: "₹49,999", 
     highlight: false,
     discount: "20% Off"
   },
   {
     title: "Instalments",
     price: "₹39,999 + GST",
-    originalPrice: "",
-    description: "full program",
+    originalPrice: "", 
     highlight: false,
     discount: "(18 months no cost EMI)"
   }
@@ -119,7 +116,7 @@ const AIDMPricing: React.FC = () => {
                     <span className="text-lg text-gray-400 line-through">{option.originalPrice}</span>
                   )}
                 </div>
-                <p className="text-gray-400 text-sm">{option.description}</p>
+
               </div>
 
               {/* CTA Button */}

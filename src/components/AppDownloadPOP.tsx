@@ -57,10 +57,10 @@ const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000 }) => {
                   />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-white font-semibold text-lg">AcceleratorX — Learn Product, AI & Data Skills</h4>
+                  <h4 className="text-white font-semibold text-lg">Master AI, Product, Data & Marketing.</h4>
                 </div>
               </div>
-                <p className="text-sm text-white/80 mt-1">Future-ready courses in Product, AI and Data — now in your pocket.</p>
+                <p className="text-sm text-white/80 mt-1">Download our app and access 3,000+ AI jobs curated for you.</p>
                 <button
                 onClick={handleClose}
                 aria-label="Close app popup"
