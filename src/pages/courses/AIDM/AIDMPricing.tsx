@@ -21,7 +21,7 @@ const pricingOptions = [
   },
   {
     title: "Instalments",
-    price: "₹39,999 + GST",
+    price: "₹1,967*",
     originalPrice: "", 
     highlight: false,
     discount: "(18 months no cost EMI)"

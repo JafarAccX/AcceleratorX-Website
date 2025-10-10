@@ -13,9 +13,9 @@ const GenAICourse = lazy(
   () => import("../pages/courses/EntryPoint/GenAIEntry")
 );
 const GenAICourseAD = lazy(() => import("../pages/courses/EntryPoint/GenAIAd"));
-const DMAICourse = lazy(
-  () => import("../pages/courses/EntryPoint/DigitalMarketingEntry")
-);
+// const DMAICourse = lazy(
+//   () => import("../pages/courses/EntryPoint/DigitalMarketingEntry")
+// );
 const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 
 const ProductManagementPageEIE = lazy(
@@ -36,11 +36,11 @@ export const courseRoutes = [
   <Route key="course-genai-entry" path="/courses/generative-ai" element={<GenAICourse />} />,
   <Route key="course-genai-pm" path="/courses/gen-ai-for-pms" element={<GenAiForPMEntry />} />,
   <Route key="course-aidm" path="/courses/ai-digital-marketing" element={<AIDMEntry />} />,
-  <Route
-    key="course-dmai"
-    path="/courses/advance-performance-marketing-with-ai"
-    element={<DMAICourse />}
-  />,
+  // <Route
+  //   key="course-dmai"
+  //   path="/courses/advance-performance-marketing-with-ai"
+  //   element={<DMAICourse />}
+  // />,
 
   // Ad Course Routes
   <Route

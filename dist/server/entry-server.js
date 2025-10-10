@@ -2202,7 +2202,7 @@ const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
 const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
 const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-D3c0YoEK.js"));
 const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-CddiQYUJ.js"));
-const DMAICourse$1 = lazy(() => import("./assets/DigitalMarketingEntry-BOVpIhd3.js"));
+const DMAICourse = lazy(() => import("./assets/DigitalMarketingEntry-BOVpIhd3.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-Cnd78UlT.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DJAOD0Ae.js"));
 const Events = lazy(() => import("./assets/Events-B3xbW4J1.js"));
@@ -2220,7 +2220,7 @@ const mainRoutes = [
   // Course Routes
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse$1, {}) }, "gen-ai"),
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb", element: /* @__PURE__ */ jsx(GenAICourseAD$1, {}) }, "gen-ai-fb"),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/advance-performance-marketing-with-ai", element: /* @__PURE__ */ jsx(DMAICourse$1, {}) }, "digital-marketing"),
+  /* @__PURE__ */ jsx(Route, { path: "/courses/advance-performance-marketing-with-ai", element: /* @__PURE__ */ jsx(DMAICourse, {}) }, "digital-marketing"),
   /* @__PURE__ */ jsx(Route, { path: "/courses/data-analytics", element: /* @__PURE__ */ jsx(DataAnalyticsPage$1, {}) }, "data-analytics"),
   // Blog Admin Routes
   /* @__PURE__ */ jsx(
@@ -2752,15 +2752,12 @@ const GenAICourse = lazy(
   () => import("./assets/GenAIEntry-D3c0YoEK.js")
 );
 const GenAICourseAD = lazy(() => import("./assets/GenAIAd-CddiQYUJ.js"));
-const DMAICourse = lazy(
-  () => import("./assets/DigitalMarketingEntry-BOVpIhd3.js")
-);
 const DataAnalyticsPage = lazy(() => import("./assets/index-Cnd78UlT.js"));
 const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-D3hkIoy6.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CD3It4KS.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Qy2ob5Xz.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-LVXzNq1e.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
@@ -2775,14 +2772,11 @@ const courseRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse, {}) }, "course-genai-entry"),
   /* @__PURE__ */ jsx(Route, { path: "/courses/gen-ai-for-pms", element: /* @__PURE__ */ jsx(GenAiForPMEntry, {}) }, "course-genai-pm"),
   /* @__PURE__ */ jsx(Route, { path: "/courses/ai-digital-marketing", element: /* @__PURE__ */ jsx(AIDMEntry, {}) }, "course-aidm"),
-  /* @__PURE__ */ jsx(
-    Route,
-    {
-      path: "/courses/advance-performance-marketing-with-ai",
-      element: /* @__PURE__ */ jsx(DMAICourse, {})
-    },
-    "course-dmai"
-  ),
+  // <Route
+  //   key="course-dmai"
+  //   path="/courses/advance-performance-marketing-with-ai"
+  //   element={<DMAICourse />}
+  // />,
   // Ad Course Routes
   /* @__PURE__ */ jsx(
     Route,
