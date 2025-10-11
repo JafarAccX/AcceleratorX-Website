@@ -21,7 +21,7 @@ const Refund = lazy(() => import("../pages/refund/Refund"));
 // Course Routes
 const GenAICourse = lazy(() => import("../pages/courses/EntryPoint/GenAIEntry"));
 const GenAICourseAD = lazy(() => import("../pages/courses/EntryPoint/GenAIAd"));
-const DMAICourse = lazy(() => import("../pages/courses/EntryPoint/DigitalMarketingEntry"));
+// const DMAICourse = lazy(() => import("../pages/courses/EntryPoint/DigitalMarketingEntry"));
 const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 
 // Blog Admin Routes
@@ -44,7 +44,7 @@ export const mainRoutes = [
   // Course Routes
   <Route key="gen-ai" path="/courses/generative-ai" element={<GenAICourse />} />,
   <Route key="gen-ai-fb" path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
-  <Route key="digital-marketing" path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
+  // <Route key="digital-marketing" path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
   <Route key="data-analytics" path="/courses/data-analytics" element={<DataAnalyticsPage />} />,
  
 

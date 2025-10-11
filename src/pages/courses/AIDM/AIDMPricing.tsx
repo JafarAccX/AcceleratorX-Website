@@ -20,7 +20,7 @@ const pricingOptions = [
     discount: "20% Off"
   },
   {
-    title: "Instalments",
+    title: "Installments",
     price: "₹1,967*",
     originalPrice: "", 
     highlight: false,

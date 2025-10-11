@@ -2194,15 +2194,14 @@ const WorkshopPaymentSuccess = lazy(() => import("./assets/Success-N-b6YkOf.js")
 const XSATEntry = lazy(() => import("./assets/XSATEntry-2c-t-ywQ.js"));
 const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
 const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
-const HomePage = lazy(() => import("./assets/HomePage-B_6-mZsx.js"));
+const HomePage = lazy(() => import("./assets/HomePage-CAgwU5BA.js"));
 const AboutPage = lazy(() => import("./assets/AboutPage-XD57gdmt.js"));
 const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
 const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
-const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-D3c0YoEK.js"));
+const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-CTku7IC_.js"));
 const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-CddiQYUJ.js"));
-const DMAICourse = lazy(() => import("./assets/DigitalMarketingEntry-BOVpIhd3.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-Cnd78UlT.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DJAOD0Ae.js"));
 const Events = lazy(() => import("./assets/Events-B3xbW4J1.js"));
@@ -2220,7 +2219,7 @@ const mainRoutes = [
   // Course Routes
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai", element: /* @__PURE__ */ jsx(GenAICourse$1, {}) }, "gen-ai"),
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb", element: /* @__PURE__ */ jsx(GenAICourseAD$1, {}) }, "gen-ai-fb"),
-  /* @__PURE__ */ jsx(Route, { path: "/courses/advance-performance-marketing-with-ai", element: /* @__PURE__ */ jsx(DMAICourse, {}) }, "digital-marketing"),
+  // <Route key="digital-marketing" path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
   /* @__PURE__ */ jsx(Route, { path: "/courses/data-analytics", element: /* @__PURE__ */ jsx(DataAnalyticsPage$1, {}) }, "data-analytics"),
   // Blog Admin Routes
   /* @__PURE__ */ jsx(
@@ -2749,7 +2748,7 @@ const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-BU26BlYk.js"
 const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-BeAaID56.js"));
 const KuppamCourses = lazy(() => import("./assets/KuppamCourses-BB7igBRu.js"));
 const GenAICourse = lazy(
-  () => import("./assets/GenAIEntry-D3c0YoEK.js")
+  () => import("./assets/GenAIEntry-CTku7IC_.js")
 );
 const GenAICourseAD = lazy(() => import("./assets/GenAIAd-CddiQYUJ.js"));
 const DataAnalyticsPage = lazy(() => import("./assets/index-Cnd78UlT.js"));
@@ -2757,7 +2756,7 @@ const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-D3hkIoy6.js")
 );
 const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CD3It4KS.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-LVXzNq1e.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Cn_qXqcA.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(

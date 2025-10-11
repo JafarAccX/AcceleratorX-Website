@@ -409,7 +409,7 @@ const features = [
   },
   {
     icon: <Wand2 className="w-8 h-8" />,
-    title: "Advance Performance Marketing With AI",
+    title: "AI Digital Marketing",
     description:
       "Explore how AI transforms digital marketing by automating analytics, personalizing campaigns, and optimizing customer engagement through data-driven insights.",
     image: (
@@ -463,7 +463,7 @@ const features = [
         </g>
       </svg>
     ),
-    path: "/courses/advance-performance-marketing-with-ai",
+    path: "/courses/ai-digital-marketing",
   },
 ];
 
