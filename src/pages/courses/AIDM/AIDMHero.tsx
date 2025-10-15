@@ -20,7 +20,7 @@ const AIDMHero: React.FC = () => {
   };
 
   return (
-    <section className="relative  border-b border-green-900 bg-black overflow-hidden" >
+    <section className="relative mt-20 md:mt-0 border-b border-green-900 bg-black overflow-hidden" >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center justify-center" >
 
         <div className="grid lg:grid-cols-2 gap-8 items-center z-20">
