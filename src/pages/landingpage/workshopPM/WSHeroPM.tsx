@@ -189,7 +189,7 @@ const WSHeroPM = () => {
                   {
                     icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "15th Oct 2025",
+                    value: "25th Oct 2025",
                   },
                   {
                     icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
