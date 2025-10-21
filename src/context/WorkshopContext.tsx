@@ -28,7 +28,7 @@ const PMZoomDetails: ZoomMeetingDetails = {
   title: "AI Product Management Mastery Class",
   link: "https://zoom.us/meeting/register/PmLITMVBQ6a9E9uZ5CySBw",
   meetingId: "97348431386",
-  time: "10/15/2025 7:00 PM India",
+  time: "25/15/2025 7:00 PM India",
   meetingCode: "97348431386",
 };
 
