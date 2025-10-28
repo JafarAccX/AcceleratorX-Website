@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Brain, Target, Zap, Users, BarChart } from "lucide-react";
 import NeuralNetworkAnimation from "../../../components/NeuralNetworkAnimation";
 
@@ -6,20 +6,20 @@ const GENWhyLearnAI = () => {
   const marketChallenges = [
     {
       icon: Users,
-      title: "Skill Gap",
-      description: "High demand, but few skilled professionals in AI expertise",
+      title: "Shortage of talent",
+      description: "Few Skilled professionals with proper AI skills",
       stat: "Critical",
     },
     {
       icon: Target,
-      title: "Job Evolution",
-      description: "Automation replacing jobs - AI skills necessary to stay relevant",
+      title: "Future of work",
+      description: "AUtomation is replacing jobs. AI skills are necessary to stay relevant",
       stat: "Urgent",
     },
     {
       icon: BarChart,
-      title: "Scalability",
-      description: "Businesses struggling with manual processes and efficiency",
+      title: "Growth Potential",
+      description: "Businesses are struggling without AI",
       stat: "High Impact",
     },
   ];
@@ -28,17 +28,17 @@ const GENWhyLearnAI = () => {
     {
       icon: Brain,
       title: "Task Automation",
-      description: "Automates repetitive tasks, allowing focus on strategy & creativity",
+      description: "Strategy and creativity focus allows to automate repetitive tasks using AI Automation.",
     },
     {
       icon: Zap,
-      title: "Enhanced Productivity",
-      description: "Streamlines content creation, customer support, and marketing",
+      title: "Optimized Results",
+      description: "Drives efficiency across content, support, and marketing operations.",
     },
     {
       icon: Target,
-      title: "New Opportunities",
-      description: "Creates AI-driven roles like automation consultants and strategists",
+      title: "Fresh Avenues",
+      description: "Introduces specialised AI roles, including automation consultants, strategists and many more.",
     },
   ];
 
@@ -56,11 +56,11 @@ const GENWhyLearnAI = () => {
               <span className="text-blue-600 text-base font-medium">Market Problems & Solutions</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              <span className="text-white">The Current </span>
-              <span className="text-blue-500">Market Challenge</span>
+              <span className="text-white">Current Market </span>
+              <span className="text-blue-500">Reality in Generative AI domain.</span>
             </h2>
             <p className="text-lg text-blue-100">
-              Discover how Generative AI solves critical business challenges and creates new opportunities
+              Uncover how Generative AI solves crucial challenges and develops new opportunities. 
             </p>
           </div>
 
@@ -111,12 +111,17 @@ const GENWhyLearnAI = () => {
               <h3 className="text-xl font-bold text-blue-900 mb-4">Industries Adopting AI</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
-                  "Marketing & Content Creation",
-                  "Customer Support",
-                  "E-Commerce & Retail",
-                  "Healthcare",
-                  "Finance & Banking",
-                  "Education & Training",
+                  "Financial Services and Banking",
+                  "Healthcare and Life Sciences",
+                  "Manufacturing",
+                  "Retail and E-commerce",
+                  "Technology, Media, and Telecommunications (TMT)",
+                  "Automotive and Transportation/Logistics",
+                  'Professional Services (e.g., Consulting, Legal)',
+                  'Energy and Utilities',
+                  'Education',
+                  'Cybersecurity',
+                  'Marketing and content creation'
                 ].map((industry, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-600"></div>

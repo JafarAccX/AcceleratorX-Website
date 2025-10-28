@@ -3,23 +3,23 @@ import { Rocket } from "lucide-react";
 const GENProjectsAndOutcomes = () => {
   const projects = [
     {
-      title: "AI-powered content automation tool",
-      description: "Build a tool that automates content creation using LLMs and prompt engineering",
+      title: "Smart Content Automation Tool",
+      description: "Develop a system that automates content creation using LLMs and prompt engineering, saving time and boosting creativity.",
       delay: 100,
     },
     {
-      title: "AI-driven chatbots and virtual assistants",
-      description: "Develop intelligent chatbots using advanced language models and conversation design",
+      title: "Intelligent Chatbots & Virtual Assistants",
+      description: "Build AI-powered conversational agents using advanced language models and conversation design to deliver seamless interactions.",
       delay: 200,
     },
     {
-      title: "Multi-agent AI automation workflows",
-      description: "Create automated workflows using multiple AI agents working together",
+      title: "Collaborative Multi-Agent AI Workflows",
+      description: "Create automated workflows where multiple AI agents work together to handle complex tasks efficiently.",
       delay: 300,
     },
     {
-      title: "Capstone Project: AI-powered SaaS tool",
-      description: "Develop and launch your own AI-powered SaaS solution",
+      title: "Capstone: AI-powered SaaS Solution",
+      description: "Bring your skills together to design, build, and launch a full-fledged AI SaaS product, from prototyping to deployment.",
       delay: 400,
     },
   ];
@@ -46,10 +46,13 @@ const GENProjectsAndOutcomes = () => {
                   <span className="text-blue-600 text-xs font-medium">Projects & Outcomes</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold  mb-2 animate-fade-in">
-                  Hands-on Learning Through Real AI Applications
+                  Focus on real-world AI Automation rather than theory.
                 </h2>
                 <p className="text-gray-600 text-base max-w-2xl animate-fade-in">
-                  Apply your skills through practical projects that solve real-world problems
+                   Learn by Creating Real-World AI Solutions
+                </p>
+                <p className="text-gray-600 text-base max-w-2xl animate-fade-in">
+Turn theory into practice with projects that solve real problems and showcase your AI expertise.
                 </p>
               </div>
 

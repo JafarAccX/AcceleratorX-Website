@@ -105,7 +105,7 @@ const GENWhoShouldEnrollAd = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
                   <p className="text-blue-900 font-medium">
-                    "Join a community of learners and build your AI career together!"
+                    "Build your Future with AI: Learn, connect, and grow with our community."
                   </p>
                 </div>
               </div>

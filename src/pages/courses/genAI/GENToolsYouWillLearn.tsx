@@ -19,20 +19,20 @@ const GENToolsYouWillLearn = () => {
 
   const projects = [
     {
-      title: "AI-powered content automation tool",
-      description: "Build a tool that automates content creation using LLMs and prompt engineering",
+      title: "AI-driven content automation tool",
+      description: "Develop content Automation AI tools to streamline and scale content creation effortlessly.",
     },
     {
-      title: "AI-driven chatbots and virtual assistants",
-      description: "Develop intelligent chatbots using advanced language models and conversation design",
+      title: "AI-powered chatbots and virtual assistants",
+      description: "Create natural, context-aware interactive AI Chatbots by combining advanced language models with smart conversation design.",
     },
     {
-      title: "Multi-agent AI automation workflows",
-      description: "Create automated workflows using multiple AI agents working together",
+      title: "Multi-agent AI automation systems",
+      description: "Build seamless collaboration between multiple AI agents to execute complex workflows intelligently and efficiently.",
     },
     {
-      title: "Capstone Project: AI-powered SaaS tool",
-      description: "Develop and launch your own AI-powered SaaS solution",
+      title: "AI-powered SaaS product",
+      description: "Take an idea end-to-end by designing the UI/UX, integrating scalable LLMs, deploying a production-ready backend, and executing a go-to-market and monetisation strategy.",
     },
   ];
 
@@ -236,9 +236,10 @@ const GENToolsYouWillLearn = () => {
                 <Rocket className="w-3.5 h-3.5 text-blue-600" />
                 <span className="text-blue-600 text-xs font-medium">Hands-on Projects</span>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold  mb-2">Learn by Building Real AI Applications</h2>
+              <h2 className="text-2xl md:text-3xl font-bold  mb-2">Learn by developing AI applications.</h2>
               <p className="text-gray-400 text-base max-w-2xl mx-auto">
-                Apply your skills through practical projects that solve real-world problems
+                 Let's solve real-world problems by applying skills on building practical project.s
+
               </p>
             </div>
 

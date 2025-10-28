@@ -1,27 +1,26 @@
-import React from "react";
 import { Users, Briefcase, Megaphone, Brain } from "lucide-react";
 
 const GENWhoShouldEnroll = () => {
   const targetAudience = [
     {
       icon: Users,
-      title: "Beginners & Business Professionals",
-      description: "No prior technical background required",
+      title: "Beginners & Business Owners",
+      description: "No prior knowledge required",
     },
     {
       icon: Briefcase,
       title: "Entrepreneurs & Freelancers",
-      description: "Learn to build and monetize AI-powered solutions",
+      description: "Uncover how to build AI solutions and generate revenue with AI-powered solutions.",
     },
     {
       icon: Megaphone,
       title: "Marketing & Content Creators",
-      description: "Automate content workflows with AI",
+      description: "Automate content workflow with AI",
     },
     {
       icon: Brain,
-      title: "AI Enthusiasts & Job Seekers",
-      description: "Gain skills to stand out in the AI job market",
+      title: "AI Enthusiast & Job Hunters",
+      description: "Upgrade AI skills and become a part of the AI Hiring landscape.",
     },
   ];
 
@@ -46,11 +45,11 @@ const GENWhoShouldEnroll = () => {
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">
                   <span className="text-white">Who Should Take </span>
-                  <span className="text-blue-500">This Course</span>
+                  <span className="text-blue-500">this AI Program</span>
                   <span className="text-white">?</span>
                 </h2>
                 <p className="text-lg text-blue-100">
-                  Designed for professionals and beginners looking to master AI without coding
+                  Curated for freshers, working professionals, freelancers and founders to master without coding.
                 </p>
               </div>
 
@@ -87,7 +86,7 @@ const GENWhoShouldEnroll = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl">
                   <p className="text-blue-900 font-medium">
-                    "Join a community of learners and build your AI career together!"
+                    "Build your Future with AI: Learn, connect, and grow with our community."
                   </p>
                 </div>
               </div>

@@ -8,15 +8,14 @@ const GENPricing = () => {
   // const [isScholarshipModalOpen, setIsScholarshipModalOpen] = useState(false);
 
   const features = [
-    "3-month intensive program",
-    "Live instructor-led sessions",
-    "Real-world AI projects",
-    "Industry-recognized certification",
-    "Lifetime access to course content",
-    "AI community membership",
-    "Career guidance and support",
-    "Project portfolio development",
-    "Interview preparation",
+    "3-month intensive, live instructor-led training",
+    "Hands-on projects tackling real-world AI challenges",
+    "Industry-recognised certification",
+    "Lifetime access to all program materials",
+    "Exclusive AI community membership",
+    "Career mentorship and guidance",
+    "Build a strong project portfolio",
+    "Interview preparation for AI roles",
   ];
 
   const plans = [
@@ -35,8 +34,9 @@ const GENPricing = () => {
 
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Invest in Your AI Future</h2>
-        <p className="text-gray-400 text-sm">Join our comprehensive AI program and master the future of technology</p>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Make an Investment for the AI Ready Future
+</h2>
+        <p className="text-gray-400 text-sm">  Enrol in our AI program and master the technology shaping tomorrow.</p>
       </div>
 
       <div className="container grid grid-cols-1 gap-4 items-start js px-4 relative z-10">

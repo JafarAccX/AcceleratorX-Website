@@ -297,7 +297,7 @@ const GENWhoShouldEnroll = () => {
           }
         ),
         /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" }),
-        /* @__PURE__ */ jsx("div", { className: "absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl", children: /* @__PURE__ */ jsx("p", { className: "text-blue-900 font-medium", children: '"Join a community of learners and build your AI career together!"' }) })
+        /* @__PURE__ */ jsx("div", { className: "absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm rounded-xl", children: /* @__PURE__ */ jsx("p", { className: "text-blue-900 font-medium", children: '"Build your Future with AI: Learn, connect, and grow with our community."' }) })
       ] }) })
     ] }) }) })
   ] });

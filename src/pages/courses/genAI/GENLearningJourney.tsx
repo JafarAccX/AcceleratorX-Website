@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Calendar, BookOpen, Cloud, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface MonthData {
@@ -22,33 +22,37 @@ const GENLearningJourney = () => {
         {
           title: "Week 1: Introduction to Generative AI & Machine Learning Basics",
           content: [
+            " Introduction to Generative AI & Machine Learning Basics",
             "Understanding AI, ML, and Generative AI fundamentals",
             "Hands-on with ChatGPT, DeepSeek, Midjourney, DALL·E",
-            "Setting up development environment and tools",
+            "Setting up the development environment and tools"
           ],
         },
         {
           title: "Week 2: Large Language Models (LLMs) & Text Generation",
           content: [
+            "Large Language Models (LLMs) & Text Generation",
             "Working with Chat-GPT, DeepSeek, Claude, Gemini",
             "Mastering prompt engineering techniques",
-            "API integration and fine-tuning",
+            'API integration and fine-tuning'
           ],
         },
         {
           title: "Week 3: Image & Video Generation",
           content: [
+            "Image & Video Generation",
             "Understanding GANs and Diffusion Models",
             "Creating with Midjourney, DALL·E, Stable Diffusion",
-            "Video generation with Runway ML",
+            "Video generation with Runway ML"
           ],
         },
         {
           title: "Week 4: Speech & Audio Generation",
           content: [
+            "Speech & Audio Generation",
             "Text-to-speech and voice cloning",
             "AI music generation and audio synthesis",
-            "Building audio applications",
+            'Building audio applications'
           ],
         },
       ],
@@ -60,22 +64,28 @@ const GENLearningJourney = () => {
         {
           title: "Week 5: Responsible AI & Ethical Considerations",
           content: [
+            "Responsible AI & Ethical Considerations",
             "Understanding AI ethics and bias",
             "Regulatory compliance and safety",
-            "Best practices in AI deployment",
+            "Best practices in AI deployment"
           ],
         },
+
         {
           title: "Week 6: Deploying & Scaling AI Models",
           content: [
+            "Deploying & Scaling AI Models",
             "Cloud deployment on AWS, GCP, Azure",
             "Model optimization and monitoring",
-            "Building scalable AI solutions",
+            "Building scalable AI solutions"
           ],
         },
+
+
         {
           title: "Week 7: Introduction to AI Agent Building",
           content: [
+            "Introduction to AI Agent Building",
             "Understanding AI agents and architectures",
             "LangChain, AutoGen, and CrewAI development",
             "Building autonomous AI systems",
@@ -84,6 +94,7 @@ const GENLearningJourney = () => {
         {
           title: "Week 8: Advanced AI Agent Development",
           content: [
+            'Advanced AI Agent Development',
             "Multi-agent system development",
             "Real-world AI agent applications",
             "Integration with external systems",
@@ -95,13 +106,15 @@ const GENLearningJourney = () => {
       title: "Month 3: Building AI-Powered Applications & Capstone Project",
       goal: "Apply AI skills to build full-fledged applications using Generative AI and AI agents.",
       weeks: [
+
         {
           title: "Weeks 9-10: Capstone Project Development",
-          content: ["Project planning and architecture", "Development and testing", "Performance optimization"],
+          content: ["Capstone Project Development", "Project planning and architecture", "Development and testing", "Performance optimization"],
         },
         {
           title: "Weeks 11-12: Final Presentation & Career Guidance",
           content: [
+            'Final Presentation & Career Guidance',
             "Project showcase and presentation",
             "Career path planning",
             "Freelancing and business opportunities",
@@ -144,7 +157,7 @@ const GENLearningJourney = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Your Path to AI Mastery</h2>
             <p className="text-gray-300 text-lg max-w-2xl">
-              A comprehensive 3-month journey to master Generative AI and build real-world applications
+               A 3-month roadmap to master Generative AI and AI Agent Building
             </p>
           </div>
 

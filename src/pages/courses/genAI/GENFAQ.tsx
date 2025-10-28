@@ -11,37 +11,24 @@ const GENFAQ = () => {
 
   const faqs: FAQItem[] = [
     {
-      question:
-        "I'm new to AI and have no technical background. Will I be able to understand this course?",
-      answer:
-        "Yes! This course is designed for beginners with no coding or AI experience. We start with the basics and gradually move to advanced applications, using a hands-on approach to make AI learning simple and practical. By the end of the course, you'll be able to build AI-powered tools and automation solutions with ease.",
+      question: "Can I take this Generative AI and Agentic AI program if I'm new to AI?",
+      answer: "Yes! You don't need any prior experience. We guide you from the basics to advanced AI concepts step by step.",
     },
     {
-      question: "What kind of real-world projects will I be working on?",
-      answer:
-        "Unlike most AI courses that focus on theory or require coding, this program is entirely hands-on and beginner-friendly. It covers Generative AI, AI agents, automation, and cloud deployment using 25+ AI tools. You’ll also learn monetization strategies, making it ideal for both professionals and entrepreneurs",
+      question: "What kind of AI projects will I work on?",
+      answer: "You will be solving real-world problem with AI while building projects like AI content automation, smart chatbots, multi-agent workflows, capstone AI SaaS product and many more.",
     },
     {
-      question: "Will I get a certification after completing the course?",
-      answer:
-        "Yes, you will receive an industry-recognized certification in Generative AI & AI Agent Building upon completing the course and final project. This certification adds value to your resume and portfolio, helping you stand out in job applications and freelancing opportunities.",
+      question: "Do I get a certification for this Gen AI & AI Agent No-Code Automation Program?",
+      answer: "Yes! Once you complete the program, you will receive an industry-recognised AI certification to showcase your skills.",
     },
     {
-      question:
-        "I’m interested in AI for career growth. How will this course help me professionally?",
-      answer:
-        "This course provides job-ready AI skills that are in high demand. You’ll gain hands-on experience with AI tools, learn automation strategies, and build a portfolio of real-world projects, making you a strong candidate for AI-related roles or freelancing opportunities.",
+      question: "How will this program boost my career?",
+      answer: "You will gain hands-on experience on building AI solutions and, solving complex problem using AI. You will build a strong project portfolio, get interview prep, and receive career guidance for India's top mentors in AI domain to land AI roles.",
     },
     {
-      question:
-        "Will I get support during the course if I have questions or get stuck?",
-      answer:
-        "Yes, you’ll have access to live sessions, Q&A support, and a learning community to assist you. Even after completing the course, you’ll retain lifetime access to materials and updates, keeping you up to date with AI advancements.",
-    },
-    {
-      question: "Can I get a refund if I'm not satisfied?",
-      answer:
-        "Yes, We offer a 15 days refund policy if you're not satisfied and made full payment with the course content or experience depending on the terms and conditions.",
+      question: "What if I get stuck?",
+      answer: "All the learners will have access to our exclusive AI community for doubt clearing anytime you need help and there's is a mandatory QNA session in the end of each session for better understanding of each topic.",
     },
   ];
 
@@ -61,7 +48,7 @@ const GENFAQ = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-gray-400 text-sm">
-              Get answers to common questions about our AI program
+              Your Questions About Our AI Program, Answered
             </p>
           </div>
 
