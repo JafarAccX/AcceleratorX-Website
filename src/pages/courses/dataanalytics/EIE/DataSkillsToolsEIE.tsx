@@ -136,7 +136,7 @@ export default function DataSkillsToolsEIE() {
           </h2>
           
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Master the essential skills and tools used by top Data Analysts
+            Master the skills and learn tools that top data analysts rely on to drive business success.
           </p>
         </motion.div>
 

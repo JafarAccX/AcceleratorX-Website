@@ -36,19 +36,19 @@ const DataProgramEIE = () => {
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/60 to-[#96E072]/30 rounded-full blur opacity-75"></div>
             <span className="relative text-[#96E072] text-lg font-semibold px-6 py-2 rounded-full border border-[#96E072]/20">
-              Your Journey to Success
+              Core Benefits
             </span>
           </motion.div>
 
           <div className="mt-8 relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg opacity-50"></div>
             <h2 className="relative text-5xl sm:text-6xl font-bold bg-gradient-to-r from-[#96E072] to-[#96E072]/90 text-transparent bg-clip-text mb-10 pb-3">
-              Program Highlights
+              Your Path to AI Data Analytics Mastery
             </h2>
           </div>
 
           <p className="text-gray-300 max-w-2xl mx-auto text-lg relative backdrop-blur-sm">
-            Master the essential skills and tools needed to become a successful data analyst
+            Gain the essential skills and tools to excel as a data analyst.
           </p>
         </motion.div>
 
@@ -134,8 +134,8 @@ const DataProgramEIE = () => {
                     <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#96E072]/30 to-transparent"></div>
                     <h3 className="text-2xl font-bold text-[#96E072]/90">
                       {startIndex === 0
-                        ? "Doorway to your first data analyst role"
-                        : "Gear Up for your next data analyst role"}
+                        ? "Your Roadmap to an AI Data Analyst career."
+                        : "Level up your Career in Data Analytics."}
                     </h3>
                     <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#96E072]/30 to-transparent"></div>
                   </div>

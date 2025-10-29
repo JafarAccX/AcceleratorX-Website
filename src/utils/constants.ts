@@ -516,57 +516,57 @@ export const weeklyData = [
 
 export const dataAnalyticsmodules = [
   {
-    title: "Industry-Recognized Professional Certification",
+    title: "Industry Certification",
     description:
-      "Earn cutting-edge certifications powered by AI-driven learning—trusted by top employers and designed to showcase your real-world data skills.",
+      "Earn AI-powered certifications recognised by 2200+ companies globally. Designed to prove your expertise in the AI-powered data analytics domain and boost your employability.",
     image: "/assets/program/security.webp",
   },
   {
-    title: "AI-Powered Tools & Tech Training",
+    title: "AI Tools & Tech Training",
     description:
-      "Master the latest AI-driven tools and platforms used by leading companies to analyse data, build insights, and automate solutions.",
+      "Gain hands-on experience with the latest AI tools and analytics platforms used by top data analysts in product-based companies to analyse, visualise, and automate data.",
     image: "/assets/program/learning.webp",
   },
   {
-    title: "Hands-On, AI-Integrated Learning from Day One",
+    title: "Practical AI Learning",
     description:
-      "Work on live projects from day one, using AI-enhanced methods to solve real-world data challenges in business and product roles.",
+      "Learn by working on live capstone projects from day one, and apply AI-driven analytics to solve real business and product challenges.",
     image: "/assets/program/file-case.webp",
   },
   {
-    title: "Comprehensive Interview Preparation",
+    title: "Interview readiness",
     description:
-      "Gain expert guidance from experienced product leaders to ace your interviews confidently.",
+      "Get expert guidance from industry leaders from top companies (Delloite, Walmart, Paytm and many more) to prepare strategically and ace every interview with confidence.",
     image: "/assets/program/mentorship.webp",
   },
   {
-    title: "Mock Interviews with Real-Time Feedback",
+    title: "Mock interview feedback",
     description:
-      "Refine your interview skills with tailored mock interviews and constructive feedback.",
+      "Practice through real-time mock interviews and receive personalised feedback from experts having 10+ years of experience in the AI Data Analytics field to sharpen your communication and problem-solving skills.",
     image: "/assets/program/meeting.webp",
   },
   {
-    title: "Priority Access to Job Opportunities",
+    title: "Exclusive Job Access",
     description:
-      "Discover exclusive job opportunities and connect with top employers to launch your career.",
+      "Unlock priority access to more than 3527+ hiring partners, 4+ hiring channels, exclusive job openings, and placement opportunities to launch your career in data analytics.",
     image: "/assets/program/job-portal.webp",
   },
   {
-    title: "Thriving Professional Network",
+    title: "Professional Network",
     description:
-      "Join a diverse community of ambitious product professionals eager to connect and collaborate.",
+      "Join a invite-only community of 2500+ AI, data and product professionals who connect, collaborate, buil and grow together.",
     image: "/assets/program/networking.webp",
   },
   {
-    title: "Bi-weekly Career Review Calls",
+    title: "Career Mentorship Calls",
     description:
-      "Get personalized career advice and insights from seasoned leaders.",
+      "Receive personalised career guidance and actionable insights from experienced industry mentors in bi-weekly sessions.",
     image: "/assets/program/state.webp",
   },
   {
-    title: "Chance to win Industry Internship",
+    title: "Industry Internship Opportunities",
     description:
-      "Enjoy lifetime access to all course materials, with updates to stay ahead in your career.",
+      "Get a chance to win exclusive data analytics internships, plus lifetime access to updated learning resources to keep advancing your career in AI Data Analytics.",
     image: "/assets/program/exclusive.webp",
   },
 ];

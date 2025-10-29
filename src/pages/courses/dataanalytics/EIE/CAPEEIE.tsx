@@ -5,25 +5,25 @@ const capeSteps = [
   {
     icon: <Lightbulb className="h-6 w-6 text-[#96E072]" />,
     title: "Data Fundamentals",
-    description: "Organise raw data into actionable insights with the help of AI-assisted data processing.",
+    description: "Transform raw data into actionable insights using AI-assisted data processing and modern analytics tools.",
     duration: "",
   },
   {
     icon: <BarChart className="h-6 w-6 text-[#96E072]" />,
     title: "Visual Storytelling",
-    description: "Use AI tools to turn complex data into compelling, interactive visuals.",
+    description: "Turn complex datasets into engaging, interactive visuals through AI-powered storytelling techniques.",
     duration: "",
   },
   {
     icon: <Calculator className="h-6 w-6 text-[#96E072]" />,
     title: "Analytical Skills",
-    description: "Leverage AI-powered statistical techniques to uncover patterns and predict outcomes.",
+    description: "Use AI-driven statistical methods to identify patterns, forecast trends, and make smarter decisions as data analyst.",
     duration: "",
   },
   {
     icon: <ClipboardCheck className="h-6 w-6 text-[#96E072]" />,
     title: "CAP Project",
-    description: "Apply everything you've learnt in an AI-integrated custom project that proves your expertise.",
+    description: "Bring it all together in a custom AI-integrated project that demonstrates your data expertise and creativity.",
     duration: "",
   },
 ];
@@ -67,12 +67,12 @@ export default function CAPEEIE() {
           <div className="relative mt-8">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#1A5D1A]/20 to-transparent blur-lg opacity-50"></div>
             <h2 className="relative text-5xl font-bold text-[#1A5D1A] text-transparent bg-clip-text pb-3">
-              Build Your CAP Portfolio
+              Build Your Data Analyst Portfolio
             </h2>
           </div>
 
           <p className="mt-6 text-xl text-black max-w-2xl mx-auto backdrop-blur-sm">
-            A Portfolio That Speaks for You – Build Skills That Stand Out
+            Create a portfolio that speaks for you, showcasing the real-world data analytics skills that gets you hired.
           </p>
         </motion.div>
 
@@ -130,16 +130,16 @@ export default function CAPEEIE() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  title: "Portfolio",
-                  description: "A real product in your portfolio",
+                  title: "AI Portfolio",
+                  description: "Build a real, job-ready AI Data Analytics project that showcases your skills.",
                 },
                 {
                   title: "Experience",
-                  description: "Hands-on product development experience",
+                  description: "Gain hands-on experience solving real business challenges using AI-powered data analytics with Data Analysts working in top product companies.",
                 },
                 {
                   title: "Network",
-                  description: "Connect with industry experts",
+                  description: "Grow your professional network by connecting with mentors and industry experts.",
                 },
               ].map((achievement, index) => (
                 <motion.div

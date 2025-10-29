@@ -57,12 +57,12 @@ export default function DataMentorsEIE() {
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg opacity-50"></div>
             <h2 className="relative text-4xl font-bold mb-4 bg-gradient-to-r from-[#96E072] to-[#96E072]/80 text-transparent bg-clip-text">
-              Learn from Industry Experts
+              Learn and Build with Industry Experts.
             </h2>
           </div>
           
           <p className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto backdrop-blur-sm">
-            Connect with seasoned professionals who have transformed careers
+            Network with leaders redefining careers and transitions in data analytics.
           </p>
         </div>
 

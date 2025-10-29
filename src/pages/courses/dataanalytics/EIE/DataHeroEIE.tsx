@@ -93,26 +93,23 @@ export default function DataHeroEIE() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg opacity-50"></div>
               <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Master
+                Stay Ahead in Your Career with 
                 <span className="relative">
                   <span className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg"></span>
                   <span className="relative bg-gradient-to-r from-[#96E072] to-[#96E072]/90 bg-clip-text text-transparent ml-2">
-                    AI Powered Data Analytics{" "}
+                   AI Data Analytics
                   </span>
                 </span>
                 {/* with an AI-Powered Program Built for the Future */}
               </h1>
             </div>
             <p className="mt-8 text-lg text-gray-300 leading-relaxed backdrop-blur-sm">
-              An industry-leading, AI-powered Data Analytics training customised for driven professionals will help you
-              to realise your potential. This innovative program provides you with the newest tools, methods, and
-              practical skills to lead in data-driven positions, meant to help you flourish in the era of automation and
-              smart insights.
+              Accelerate your career with AI-driven data analytics. Obtain experiential learning in AI analytics, data storytelling, visualization, and an analytical tool designed for professionals. Build an AI-powered dashboard, a data analyst portfolio that helps you get hired in data analyst, business analyst, financial analyst, market analyst, and HR analyst roles.
             </p>
             <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
               <p className="text-sm font-medium text-amber-400">
-                Designed with artificial intelligence at the centre, work quicker, lead better, and learn smarter.
+                Backed by an AI-centered approach to help you build faster, analyze quicker, and get hired with AI.
               </p>
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
             </div>
