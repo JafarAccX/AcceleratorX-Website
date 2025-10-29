@@ -3,18 +3,18 @@
 import { Users } from "lucide-react";
 
 const companies = [
-  { name: "Adobe", logo: "/assets/companyLogos/adobe.webp" },
-  { name: "Walmart", logo: "/assets/companyLogos/walmart.webp" },
-  { name: "HP", logo: "/assets/companyLogos/HP.webp" }, 
-  { name: "Tracxn", logo: "/assets/companyLogos/TRACXN.webp" }, 
-  { name: "PayU", logo: "/assets/companyLogos/PAY U.webp" }, 
-  { name: "Cars24", logo: "/assets/companyLogos/CARS24.webp" },
-  { name: "Pine Labs", logo: "/assets/companyLogos/pinelabs.webp" },
-  { name: "Unacademy", logo: "/assets/companyLogos/Unacademy-Symbol.webp" },
-  { name: "ANQ", logo: "/assets/companyLogos/anqfinance_logo.webp" },
-  { name: "Showtime", logo: "/assets/companyLogos/Showtime.webp" },
-  { name: "PeakMind", logo: "/assets/companyLogos/PEAKMIND.webp" },
-  { name: "Junglee Games", logo: "/assets/companyLogos/jungle_games.webp" },
+  { name: "Adobe", logo: "/assets/companyLogos/adobe.webp", alt: "Adobe company logo for product management" },
+  { name: "Walmart", logo: "/assets/companyLogos/walmart.webp", alt: "Walmart company logo for product data management" },
+  { name: "HP", logo: "/assets/companyLogos/HP.webp", alt: "HP company logo - product management courses" }, 
+  { name: "Tracxn", logo: "/assets/companyLogos/TRACXN.webp", alt: "Tracxn company logo - data product management" }, 
+  { name: "PayU", logo: "/assets/companyLogos/PAY U.webp", alt: "PayU company logo for product management certification" }, 
+  { name: "Cars24", logo: "/assets/companyLogos/CARS24.webp", alt: "Cars24 company logo - product management" },
+  { name: "Pine Labs", logo: "/assets/companyLogos/pinelabs.webp", alt: "PineLabs company logo - product management certification" },
+  { name: "Unacademy", logo: "/assets/companyLogos/Unacademy-Symbol.webp", alt: "Unacademy logo - product management courses partner" },
+  { name: "ANQ", logo: "/assets/companyLogos/anqfinance_logo.webp", alt: "ANQ company logo" },
+  { name: "Showtime", logo: "/assets/companyLogos/Showtime.webp", alt: "Showtime company logo for product management" },
+  { name: "PeakMind", logo: "/assets/companyLogos/PEAKMIND.webp", alt: "PeakMind company logo for digital product management" },
+  { name: "Junglee Games", logo: "/assets/companyLogos/jungle_games.webp", alt: "Junglee Games company logo" },
 ];
 
 const LogoSlider: React.FC = () => {
@@ -70,7 +70,7 @@ const LogoSlider: React.FC = () => {
                 >
                   <img
                     src={company.logo}
-                    alt={company.name}
+                    alt={company.alt}
                     className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
                     loading="lazy"
                     decoding="async"
@@ -85,7 +85,7 @@ const LogoSlider: React.FC = () => {
                 >
                   <img
                     src={company.logo}
-                    alt={company.name}
+                    alt={company.alt}
                     className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
                     loading="lazy"
                     decoding="async"

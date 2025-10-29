@@ -141,7 +141,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className={`flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`}>
-            <img src={companyLogo} alt="company logo" className="w-auto h-16 object-contain" />
+            <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-16 object-contain" />
           </Link>
 
           {/* Desktop Menu */}

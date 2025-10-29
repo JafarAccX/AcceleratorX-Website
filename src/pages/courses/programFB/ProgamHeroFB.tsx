@@ -71,7 +71,7 @@ export default function ProgramHeroFB() {
         <div className="max-w-7xl mx-auto ">
           <img
             src="/companylogo-new.webp"
-            alt="AcceleratorX Logo"
+            alt="AcceleratorX company new logo - best product management courses"
             className="w-auto h-20 text-center"
           />
         </div>

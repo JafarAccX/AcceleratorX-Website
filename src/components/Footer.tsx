@@ -144,7 +144,7 @@ export default function Footer() {
             <Link to="/" className="inline-block">
               <img
                 src={companyLogo}
-                alt="AcceleratorX logo"
+                alt="AcceleratorX company new logo - best product management courses"
                 className="w-auto h-14 object-contain text-left"
               />
             </Link>
