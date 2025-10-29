@@ -9,21 +9,20 @@ const acceleratorPricingData = {
   discount: "12",
   features: [
     { name: "BYDP", included: true },
-
     { name: "PM Toolbox & Templates", included: true },
     { name: "Assignment Feedback", included: true },
     { name: "Growth Product Management Specialization", included: true },
     { name: "Mock Interviews", included: true, detail: "Group" },
-    { name: "Personalized Skill Report", included: false },
-    { name: "AcceleratorX Job Priority Access", included: false },
+    { name: "Personalized Skill Report", included: true },
+    { name: "AcceleratorX Job Priority Access", included: true },
     { name: "Alumni Access & Exclusive Content", included: true },
     { name: "Project-Based Mini Challenges", included: true },
     { name: "Exclusive PM Workshops & Events", included: true },
-    { name: "Bi-Weekly Career Review Calls", included: false },
-    { name: "Chance to win Industry Internship", included: false },
-    { name: "Business Pitch & Investor Workshop", included: false },
-    { name: "Product Showcase on Wall of Product", included: true },
-    { name: "Ask Doubt (1:1 with Mentor on demand)", included: false },
+    { name: "Bi-Weekly Career Review Calls", included: true },
+    { name: "Chance to win an Industry Internship", included: true },
+    { name: "Business Pitch & Investor Workshop", included: true },
+    { name: "Product Showcase on the Wall of Products", included: true },
+    { name: "Ask Doubt (1:1 with Mentor on demand)", included: true },
   ],
 };
 

@@ -91,20 +91,19 @@ export default function ProgramHeroEIE() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              Professional Certificate in
+              Stay Ahead in Your Career with
               <span className="bg-[#5CB338] bg-clip-text text-transparent">
                 {" "}
-                Product Management
+                AI Product Management 
+
               </span>
             </h1>
             <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-300">
-              Get Certified and Master the fundamentals of product management
-              with the most hands-on product management program. Build Your
-              Dream Product (BYDP) as part of the program.
+             Master AI product management with India’s top AI Product Management Program. Dive into AI Product Management, leverage product management tools, gain real-world experience, Build Your Own Product and take your product management career to the next level.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-6 mb-8">
               <div className="border-r border-[#5CB338]/30">
-                <p className="text-[#5CB338] font-bold">Type</p>
+                <p className="text-[#5CB338] font-bold">Category</p>
                 <p className="text-gray-300">Professional Certificate</p>
               </div>
               {/* <div className="border-r border-[#5CB338]/30">
@@ -141,7 +140,7 @@ export default function ProgramHeroEIE() {
             </div>
             <div className="mt-4 flex items-center gap-4 text-white">
               <Users className="h-5 w-5 text-[#5CB338]" />
-              <span>50+ people have already enrolled in the last 2 Months</span>
+              <span>150+ AI Product Managers have already graduated in the last 3 months</span>
             </div>
           </div>
 
@@ -160,7 +159,7 @@ export default function ProgramHeroEIE() {
               <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                 <p className="text-sm font-medium text-amber-400">
-                  *15 Days Money Back Guarantee Program
+                  Join our hands-on AI Product Management Program worry-free. Satisfaction guaranteed or get your money back!
                 </p>
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
               </div>

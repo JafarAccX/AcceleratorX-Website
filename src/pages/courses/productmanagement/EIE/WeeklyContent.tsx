@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Crown } from "lucide-react";
 
@@ -10,7 +10,7 @@ const weeklyContent = [
   },
   {
     week: 2,
-    title: "User Journey & Market Research",
+    title: "User Journey and Market Research",
     content: [
       "Exploring Product Adoption Life Cycle",
       "Mapping User Journeys",
@@ -20,12 +20,12 @@ const weeklyContent = [
   },
   {
     week: 3,
-    title: "Competitor Analysis & Strategy",
+    title: "Competitor Analysis& Strategies",
     content: ["Understanding Competitor Analysis", "Building Product Strategy", "Creating Your Dream Product"],
   },
   {
     week: 4,
-    title: "Development & Roadmapping",
+    title: "Developing & Road mapping",
     content: [
       "Exploring Development Methodologies",
       "Defining Product Vision and Roadmap",
@@ -34,7 +34,7 @@ const weeklyContent = [
   },
   {
     week: 5,
-    title: "Wireframes & Prioritization",
+    title: "wireframes& Prioritization",
     content: [
       "Designing High-Fidelity Wireframes",
       "Utilizing UI/UX Tools",
@@ -44,7 +44,7 @@ const weeklyContent = [
   },
   {
     week: 6,
-    title: "MVP & Usability Testing",
+    title: "MVP & usability testing",
     content: [
       "Developing MVPs",
       "Defining Metrics",
@@ -54,7 +54,7 @@ const weeklyContent = [
   },
   {
     week: 7,
-    title: "Product Teardown & Marketing",
+    title: "product teardown& Marketing",
     content: [
       "Performing Product Teardowns",
       "Engaging in Case Study and Q&A",
@@ -63,7 +63,7 @@ const weeklyContent = [
   },
   {
     week: 8,
-    title: "Go-to-Market Strategy",
+    title: "Go to Market strategy",
     content: [
       "Presenting Product Teardowns",
       "Learning GTM Strategy",
@@ -73,7 +73,7 @@ const weeklyContent = [
   },
   {
     week: 9,
-    title: "Launch & User Segmentation",
+    title: "Lauch& Testing",
     content: [
       "Preparing Launch Checklists",
       "Segmenting Users",
@@ -83,12 +83,12 @@ const weeklyContent = [
   },
   {
     week: 10,
-    title: "Analytics & Testing",
+    title: "Analytics&Testing",
     content: ["Presenting GTM Strategy", "Practicing A/B Testing", "Exploring Product Analytics"],
   },
   {
     week: 11,
-    title: "Technical Foundations & Analytics",
+    title: "Technical Foundation& Analytics",
     content: [
       "Understanding Google Analytics",
       "Tech 101 for PMs",
@@ -98,7 +98,7 @@ const weeklyContent = [
   },
   {
     week: 12,
-    title: "APIs & Databases",
+    title: "APIs& Databases",
     content: [
       "Learning APIs and Postman",
       "Engaging in Industry Sessions",
@@ -108,7 +108,7 @@ const weeklyContent = [
   },
   {
     week: 13,
-    title: "Retention & Monetization",
+    title: "Retension & Montization",
     content: [
       "Exploring Retention Techniques",
       "Learning Monetization Strategies",
@@ -118,7 +118,7 @@ const weeklyContent = [
   },
   {
     week: 14,
-    title: "Product-Led Growth",
+    title: "Product-led Growth",
     content: ["Exploring Product-Led Growth", "Participating in Mock Interviews"],
   },
   {
@@ -135,7 +135,7 @@ const weeklyContent = [
   },
   {
     week: 17,
-    title: "Final Project Presentation",
+    title: "Financial project presentation",
     content: ["Finalizing BYDP Projects", "Mock Interviews - 4", "Q&A Sessions", "Planning Your Career Roadmap"],
   },
 ];
