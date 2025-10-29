@@ -21,8 +21,7 @@ const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 const ProductManagementPageEIE = lazy(
   () => import("../pages/courses/EntryPoint/ProductManagementEIE")
 );
-
-const N8nAutomationEntry = lazy(() => import("../pages/courses/EntryPoint/n8nAutomationEntry"));
+ 
 const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
 
 export const courseRoutes = [
@@ -70,11 +69,7 @@ export const courseRoutes = [
   />,
   <Route key="course-genai-fb" path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
   <Route key="course-genai-fb-b" path="/courses/generative-ai-fb-b" element={<GenAICourseAD />} />,
-  <Route
-    key="course-n8n"
-    path="/courses/n8n-automation"
-    element={<N8nAutomationEntry />}
-  />,
+
   <Route
     key="course-kuppam"
     path="/courses/onsite-workshopz"

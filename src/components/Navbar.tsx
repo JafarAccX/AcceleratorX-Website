@@ -64,10 +64,10 @@ export default function Navbar() {
     //   label: "AI Performance Marketing",
     //   path: "/courses/advance-performance-marketing-with-ai",
     // },
-    {
-      label: "Automation with n8n",
-      path: "/courses/n8n-automation",
-    },
+    // {
+    //   label: "Automation with n8n",
+    //   path: "/courses/n8n-automation",
+    // },
   ];
 
   if (isXSATRoute) {
