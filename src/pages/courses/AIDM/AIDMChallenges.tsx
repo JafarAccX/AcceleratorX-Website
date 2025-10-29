@@ -4,20 +4,20 @@ import { AlertTriangle, Clock, TrendingUp } from 'lucide-react';
 
 const challenges = [
   {
-    title: "Repetitive & Error-Prone Tasks",
-    description: "Most marketing tasks are often repetitive, slow, and prone to errors.",
+    title: "Repetitive tasks overloaded",
+    description: "Reports, A/B tests, market research and content edits consume valuable hours.",
     icon: AlertTriangle,
     color: "from-red-500/20 to-orange-500/20"
   },
   {
-    title: "Time-Wasting Low-Impact Work", 
-    description: "Teams lose hours on low-impact work (copy, A/B setups, manual reports, scripts, etc.).",
+    title: "Insignificant result",
+    description: "Teams spend hours on tasks that barely complete the work.",
     icon: Clock,
     color: "from-orange-500/20 to-yellow-500/20"
   },
   {
     title: "AI-First Demand",
-    description: "Companies now prefer AI-first marketers who can automate, optimise, and deliver measurable ROI faster.",
+    description: "Companies now hire marketers who can automate, analyse, and deliver Measurable results using AI marketing.",
     icon: TrendingUp,
     color: "from-yellow-500/20 to-green-500/20"
   }
@@ -32,11 +32,10 @@ const AIDMChallenges: React.FC = () => {
             The Challenge
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338] mb-6">
-            In 2025, Marketing Is{" "}
-             Broken Without AI
+            Why Marketing Jobs are Broken without AI in 2025
           </h3>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Here's why traditional marketing approaches are failing:
+            Traditional marketing jobs don't work the way they used to.
           </p>
         </div>
 

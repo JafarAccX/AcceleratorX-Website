@@ -52,10 +52,10 @@ const AIDMMentors: React.FC = () => {
             </div>
           </div>
           <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
-            Learn from <span className="text-[#5CB338]">Industry Experts</span>
+            Master skills with <span className="text-[#5CB338]">Industry Experts</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Learn directly from marketing leaders with 10+ years of experience
+            Meet the AI Marketers having more than 10+ years of experience, guiding you through the program.
           </p>
         </motion.div>
 

@@ -177,11 +177,13 @@ const AIDMRoadmap: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl font-medium text-gray-400 mb-4">
-            Learning Journey
+             Your 16 Weeks of learning Journey
+
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338] mb-6">
-            From Scratch to{" "}
-            <span className="text-[#5CB338]">AI-First Marketer</span>
+          <h3 className="text-4xl md:text-5xl font-bold mb-6">
+            The roadmap to becoming an
+
+            <span className="text-[#5CB338]"> AI Marketer.</span>
           </h3>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             A structured 16-week program designed to transform you into an AI-powered marketing professional

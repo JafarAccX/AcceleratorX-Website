@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Award, CheckCircle, Shield, Trophy } from 'lucide-react';
 
 const certificationFeatures = [
-  "Industry-recognized AI Digital Marketing certification",
-  "Verified badge + unique verification URL",
-  "Digital certificate for LinkedIn and resume",
-  "Trusted by 2500+ companies and agencies", 
-  "AI Capstone Projects portfolio",
-  "Lifetime alumni network access"
+  "Industry-recognized Nano Degree in AI Digital Marketing",
+  "Verified badge + unique verification ID",
+  "Digital AI Marketing Nano Degree for LinkedIn and resume",
+  "Trusted by 2500+ companies and agencies",
+  "AI Marketing Projects portfolio",
+  "Lifetime exclusive alumni community access"
 ];
 
 const AIDMCertification: React.FC = () => {
@@ -64,13 +64,13 @@ const AIDMCertification: React.FC = () => {
             className="flex flex-col justify-center"
           >
             <h2 className="text-2xl font-medium text-gray-400 mb-4">
-              Program Certificate
+              Unlock Your Nano Degree
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338] mb-8">
-              Earn a <span className="text-[#5CB338]">Verified Degree</span>
+              Get Your Nano-Degree in AI Marketing.
             </h3>
             <p className="text-xl text-gray-600 mb-8">
-              Showcase results of AI in Marketing that speak louder than words
+              Show the world your expertise in AI Marketing and stand out in a competitive AI Marketing jobs and get hired easily.
             </p>
             
             <div className="space-y-4 mb-8">
@@ -95,11 +95,11 @@ const AIDMCertification: React.FC = () => {
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-4 bg-[#0F0F0F] rounded-xl border border-white/10">
                 <div className="text-2xl font-bold text-[#5CB338] mb-1">2500+</div>
-                <div className="text-gray-400 text-sm">Companies Trust Us</div>
+                <div className="text-gray-400 text-sm">Companies Trust Us.</div>
               </div>
               <div className="text-center p-4 bg-[#0F0F0F] rounded-xl border border-white/10">
                 <div className="text-2xl font-bold text-[#5CB338] mb-1">100%</div>
-                <div className="text-gray-400 text-sm">Verified Credentials</div>
+                <div className="text-gray-400 text-sm">Verified Credentials.</div>
               </div>
             </div>
           </motion.div>

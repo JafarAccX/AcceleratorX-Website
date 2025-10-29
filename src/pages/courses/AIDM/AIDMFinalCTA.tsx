@@ -17,10 +17,11 @@ const AIDMFinalCTA: React.FC = () => {
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Your Next Job, Client, or Growth Opportunity Starts Here — Reserve Your Seat Today
+            Your future begins here. Join today
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Get instant access to syllabus, tool checklist, and early-bird executive pricing.
+            Get quick access to syllabus, tool checklist, and earlybird executive pricing.
+
           </p>
           <button 
             onClick={handleEnrollClick}

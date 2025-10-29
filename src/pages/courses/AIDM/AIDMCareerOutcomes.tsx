@@ -3,31 +3,16 @@ import { motion } from 'framer-motion';
 import { 
   Trophy, 
   Users, 
-  Target, 
-  Briefcase,
-  Star,
-  Brain
+  Briefcase
 } from 'lucide-react';
 import { useCourseContext } from '../../../context/courseContext';
 
 const benefits = [
   {
     title: "Get Hired",
-    description: "AI Marketing Specialist, Campaign Manager, Marketing Automation Specialist, Growth Consultant",
+    description: "AI Marketing Specialist, Campaign Manager, Marketing Automation Specialist, Growth Consultant and many more",
     icon: Trophy,
-    highlight: "High-Demand Roles"
-  },
-  {
-    title: "Unlock AI Skills",
-    description: "AI-first campaign design, automation, CRO, B2B outreach, analytics",
-    icon: Brain,
-    highlight: "Future-Ready Skills"
-  },
-  {
-    title: "Portfolio ROI",
-    description: "Portfolio-ready capstone projects that demonstrate measurable impact to recruiters and clients",
-    icon: Target,
-    highlight: "Measurable Results"
+    highlight: "High-demand marketing roles"
   },
   {
     title: "Industry Network",
@@ -37,15 +22,9 @@ const benefits = [
   },
   {
     title: "Career Support",
-    description: "100% job assistance with personalized career guidance and interview preparation",
+    description: "100% job assistance with personalised career guidance and interview preparation",
     icon: Briefcase,
-    highlight: "Career Guarantee"
-  },
-  {
-    title: "Certification",
-    description: "Industry-recognized AI Digital Marketing certification from AcceleratorX",
-    icon: Star,
-    highlight: "Certified Professional"
+    highlight: "Career guarantee"
   }
 ];
 
@@ -62,13 +41,13 @@ const AIDMCareerOutcomes: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl font-medium text-gray-400 mb-4">
-            Career Outcomes
+            Career Outcome
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338]">
-            Where This Nano-Degree Takes You
+            Where does this Nano Degree in AI Digital Marketing take you?
           </h3>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
-            Discover the roles, skills, and ROI that await you after completing our program
+            After completing this Nano Degree in AI Digital Marketing, you will be ready for AI Marketing jobs, freelancing projects, AI Marketing Consultant and many other fast-growing roles in marketing.
           </p>
         </div>
 

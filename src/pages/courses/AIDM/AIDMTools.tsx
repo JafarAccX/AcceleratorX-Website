@@ -81,10 +81,10 @@ const AIDMTools: React.FC = () => {
             AI Tools & Technologies
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            The <span className="text-[#5CB338]">AI Stack</span> Top Recruiters Want
+            The <span className="text-[#5CB338]">AI Marketing Tools</span>  You Will Master 
           </h3>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Master the essential AI tools and technologies that industry leaders are looking for
+            You will get hands-on 20+ top AI Marketing tools that today's marketers rely on.
           </p>
         </div>
 

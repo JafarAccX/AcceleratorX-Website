@@ -16,12 +16,11 @@ const AIDMFAQ: React.FC = () => {
   };
 
   const faqs = [
-    { question: 'Do I need coding skills?', answer: 'No, this is a low-code / no-code AI Marketing program, designed for beginners, marketers, career switchers and founders.' },
-    { question: 'Will the AI Marketing sessions be recorded?', answer: 'Yes, you will get sessions recordings, AI Marketing labs and ready to use templates to practice anytime.' },
-    { question: 'Will I get placement support or career support in the AI Marketing certification?', answer: "Yes, you'll build a capstone portfolio in AI-powered digital marketing, receive mentor reviews, and get selective industry introductions" },
-    { question: 'What if I miss a live AI Marketing class?', answer: 'No worries, you can always watch the recording, complete the lab submission, and also join weekly mentor office hours.' },
-    { question: "What's the refund policy for the AI Marketing program?", answer: "We offer a 7-day money-back guarantee if you're not satisfied with the program quality. Contact our support team for assistance." },
-    { question: 'What AI tools will I learn in this program?', answer: "You'll master 20+ AI tools including ChatGPT, Claude.ai, n8n, Google Ads, Meta Ads, Canva, SDXL, Runway, Apollo.io, HubSpot, and many more industry-leading platforms." }
+    { question: 'Do I need prior coding knowledge?', answer: 'No, this Nano Degrees in AI Digital Marketing is a beginner-friendly and no-code AI marketing program.' },
+    { question: 'Are the sessions recorded or live?', answer: 'This AI Marketing Nano Degree program is 100% live, and you will get recordings access of all the lectures' },
+    { question: 'Is placement support included in this AI Marketing Nano Degree?', answer: 'Yes, we provide 100% AI Marketing job assistance and career support until you land your next marketing opportunity.' },
+    { question: 'What happens if I miss a class?', answer: 'You can rewatch anytime from your student portal.' },
+    { question: 'Which AI Marketing tool will I learn?', answer: 'Over 20+ industry-standard AI Marketing tools, including ChatGPT, Jasper, n8n, HubSpot, GA4, and more.' }
   ];
 
   return (
@@ -85,8 +84,9 @@ const AIDMFAQ: React.FC = () => {
 
         {/* Footer CTA */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-12 p-8 bg-[#0F0F0F] rounded-xl border border-white/10">
-          <h4 className="text-2xl font-bold text-white mb-4">Still have questions?</h4>
-          <p className="text-gray-400 mb-6">Can't find the answer you're looking for? Please chat with our team.</p>
+          <h4 className="text-2xl font-bold text-white mb-4">Want to know more about AI digital marketing?</h4>
+          <p className="text-gray-400 mb-6">Please chat with our team. Get in touch with us.
+</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

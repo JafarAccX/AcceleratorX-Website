@@ -4,22 +4,22 @@ import { Target, Rocket, Settings } from 'lucide-react';
 
 const solutions = [
   {
-    title: "Executive-Level Training",
-    description: "Executive-level training + hands-on AI labs",
+    title: "Executive-level learning",
+    description: "Learn directly from marketing professionals",
     icon: Target,
-    highlight: "Industry Expert Training"
+    highlight: "10+ years of marketing experience"
   },
   {
-    title: "Real-World Projects",
-    description: "Recruiter-ready live capstone projects aligned with real hiring needs",
+    title: "Hands-on experience",
+    description: "AI marketing projects that get you hired",
     icon: Rocket,
-    highlight: "Portfolio-Ready Projects"
+    highlight: "AI Marketing Portfolio-ready projects"
   },
   {
-    title: "AI Tool Mastery",
-    description: "Tool-first learning: n8n, GA4, Meta Ads, Google Ads, Stable Diffusion, Runway, Apollo.io, Mailchimp and many more.",
+    title: "AI Marketing Tools Mastery",
+    description: "Most in-demand AI marketing Tool",
     icon: Settings,
-    highlight: "10+ AI Marketing Tools"
+    highlight: "10+ AI marketing tools"
   }
 ];
 
@@ -29,13 +29,13 @@ const AIDMSolution: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl font-medium text-gray-400 mb-4">
-            The Solution
+            The solution.
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            A High-End <span className="text-[#5CB338]">AI Marketing Solution</span>
+            Learn AI Marketing the Right Way
           </h3>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            That enables Freelance Success, Career Growth and Business Scale
+            This is not another AI course; it's a complete AI Marketing learning experience.
           </p>
         </div>
 

@@ -30,14 +30,14 @@ const pricingOptions = [
 
 const pricingFeatures = [
   "16-Week AI Marketing Program",
-  "20+ AI Tool Mastery",
-  "Live Capstone Projects",
+  "20+ AI Marketing Tool Mastery",
+  "Live AI Marketing Capstone Projects",
   "1:1 Mentor Support",
-  "Job Placement Assistance",
+  "AI Marketing Job Placement Assistance",
   "Industry Certification",
   "Alumni Network Access",
-  "n8n Automation Workshop",
-  "Portfolio Development",
+  "n8n Automation Workshops",
+  "AI Marketing Portfolio Development",
   "Career Review Calls"
 ];
 
@@ -66,10 +66,11 @@ const AIDMPricing: React.FC = () => {
             Investment
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Choose Your Learning Path
+            Start You AI Marketing Journey Today
+
           </h3>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            High-ROS (Return on Skills) that pays back in multiples
+            We have designed a flexible enrolment plans so you can start learning without financial commitment.
           </p>
         </div>
 

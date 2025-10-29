@@ -37,13 +37,14 @@ const AIDMHero: React.FC = () => {
             
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              AI-Powered Digital Marketing
+              Nano-Degree in AI Digital Marketing
               {/* <span className="bg-[#5CB338] bg-clip-text text-transparent"> Nano-Degree</span> */}
             </h2>
+            <p>16-Week Live Program with Job Assistance</p> <br/>
 
             <p className="text-gray-300 mb-6">
-              Master AI-first growth, automation and performance marketing with real projects and capstone.
-            </p>
+             This Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.
+</p>
 
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div>
