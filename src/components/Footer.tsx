@@ -149,9 +149,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-400 max-w-md">
-              Empowering professionals with industry-relevant skills through
-              expert-led programs in Product Management, Data Analytics &
-              Generative AI.
+              Advance your career with industry-driven programs in Data Analytics, Product                             Management, and Generative AI, designed by experts for real-world success.
             </p>
             {/* Social Media Icons */}
             <div className="pt-4">

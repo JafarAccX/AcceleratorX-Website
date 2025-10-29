@@ -46,10 +46,10 @@ const LogoSlider: React.FC = () => {
               </div>
             </div>
             <h1 className="text-4xl font-bold text-white mb-4">
-              Trusted by Industry Leaders
+              Trusted by 1700+ Organisations For Your AI Career
             </h1>
             <p className="text-lg text-blue-200/80 max-w-2xl mx-auto">
-              Join hands with companies worldwide that trust our resources.
+              Our Partners & Hiring Network:
             </p>
           </div>
 

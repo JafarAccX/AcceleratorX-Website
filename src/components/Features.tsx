@@ -62,9 +62,9 @@ const FeatureCard = ({
 const features = [
   {
     icon: <Maximize2 className="w-8 h-8" />,
-    title: "Product Management",
+    title: "AI Product Management",
     description:
-      "Our program empowers you to lead with data-driven insights and real-world strategies, making complex product management accessible. Gain hands-on experience in crafting products that resonate with users and drive measurable growth.",
+      "Drive with data, develop with clarity, and innovate with impact. This program combines AI product frameworks, analytics, and growth strategy to help you design scalable products from scratch that users love.",
     image: (
       <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
@@ -135,9 +135,9 @@ const features = [
   },
   {
     icon: <Zap className="w-8 h-8" />,
-    title: "Data Analytics",
+    title: "AI Data Analytics",
     description:
-      "Unlock the power of data to drive product success. This program equips you with essential analytics skills and deep insights into product metrics, user behavior, and retention strategies, preparing you to make impactful product decisions.",
+      "Modify data into insights. Develop thoughtful expertise in AI analytics and storytelling, encouraging you to make AI Analytical decisions that drive growth.",
     image: (
       <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
@@ -318,7 +318,7 @@ const features = [
     icon: <Wand2 className="w-8 h-8" />,
     title: "Generative AI",
     description:
-      "Dive into the revolutionary world of Generative AI. Learn to harness the power of large language models, create AI-powered applications, and understand the principles behind neural networks that are reshaping the future of technology.",
+      "Scale in your future with Generative AI. Learn how to use language models, prompt engineering, and AI automation to create solutions without writing a single line of code.",
     image: (
       <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
@@ -411,7 +411,7 @@ const features = [
     icon: <Wand2 className="w-8 h-8" />,
     title: "AI Digital Marketing",
     description:
-      "Explore how AI transforms digital marketing by automating analytics, personalizing campaigns, and optimizing customer engagement through data-driven insights.",
+      "Reshape your Creativity with AI Digital Marketing Learn the art of AI-powered automation, personalisation, and performance optimisation to craft that truly converts.",
     image: (
       <svg className="w-full h-full" viewBox="0 0 200 200">
         <defs>
@@ -465,6 +465,99 @@ const features = [
     ),
     path: "/courses/ai-digital-marketing",
   },
+  {
+    icon: <Wand2 className="w-8 h-8" />,
+    title: "GenAI for Product Managers",
+    description:
+      "Understand how to use GenAI for Product Managers and become an AI-Powered Product Manager that builds and ships AI products end-to-end. Build your own real project, Automate workflows, and make smarter product decisions, no coding required.",
+    image: (
+      <svg className="w-full h-full" viewBox="0 0 200 200">
+        <defs>
+          <pattern
+            id="grid5"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M 20 0 L 0 0 0 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              strokeOpacity="0.1"
+            />
+          </pattern>
+        </defs>
+        <rect width="200" height="200" fill="url(#grid5)" />
+
+        <g
+          stroke="currentColor"
+          fill="none"
+          strokeWidth="1.5"
+           
+        >
+          {/* Neural network nodes */}
+          {[
+            [50, 60],
+            [50, 100],
+            [50, 140],
+            [100, 80],
+            [100, 120],
+            [150, 100],
+          ].map(([cx, cy], index) => (
+            <circle
+              key={`node-${index}`}
+              cx={cx}
+              cy={cy}
+              r="8"
+              
+            />
+          ))}
+
+          {/* Neural network connections */}
+          {[
+            [50, 60, 100, 80],
+            [50, 60, 100, 120],
+            [50, 100, 100, 80],
+            [50, 100, 100, 120],
+            [50, 140, 100, 80],
+            [50, 140, 100, 120],
+            [100, 80, 150, 100],
+            [100, 120, 150, 100],
+          ].map(([x1, y1, x2, y2], index) => (
+            <line
+              key={`connection-${index}`}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+               
+            />
+          ))}
+
+          {/* Pulse effect */}
+          {[
+            [50, 60],
+            [50, 100],
+            [50, 140],
+            [100, 80],
+            [100, 120],
+            [150, 100],
+          ].map(([cx, cy], index) => (
+            <circle
+              key={`pulse-${index}`}
+              cx={cx}
+              cy={cy}
+              r="4"
+              fill="currentColor"
+               
+            />
+          ))}
+        </g>
+      </svg>
+    ),
+    path: "/courses/genai-for-product-managers",
+  },
 ];
 
 export default function Features() {
@@ -483,13 +576,10 @@ export default function Features() {
           className="text-center mb-12"
         >
           <p className="text-3xl md:text-4xl font-bold text-white pb-2">
-            Explore Our{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
-              Courses
-            </span>
+            Browse Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">AI Career Programs</span> 
           </p>
           <p className="text-gray-400 text-lg">
-            Master the skills that shape tomorrow's technology landscape
+            Learn the Skills that will shape your career
           </p>
         </div>
 

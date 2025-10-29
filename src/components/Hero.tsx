@@ -41,8 +41,8 @@ export default function Hero() {
             </div>
 
             <p className="max-w-xl text-lg text-gray-100 leading-relaxed">
-              Transform your ideas into action. Accelerating ideas into
-              impactful solutions that shape the future.
+             Accelerate your career with a job-ready AI program. Learn how Data Analytics, Generative AI, and Digital Marketing Automation work through hands-on experience. Gain practical skills, get job-ready for high demand in AI Job roles.
+
             </p>
 
             {/* CTAs */}

@@ -43,13 +43,13 @@ const HeroWithAbouv = ({
               {/* Right section - Text content */}
               <div className="flex flex-col items-center space-y-2 text-center md:items-start md:space-y-3 md:text-left lg:space-y-4">
                 <p className="text-sm font-medium text-blue-400 md:text-base lg:text-lg">
-                  Accelerate your career with us
+                  We Go Beyond Learning
                 </p>
                 <div className="flex items-center space-x-2">
                   <p className="text-sm font-light text-gray-200 md:text-base lg:text-lg">
-                    We take care of your{" "}
+                    We Accelerate Your {" "}
                     <span className="animate-pulse text-lg font-semibold text-yellow-400 md:text-xl lg:text-2xl">
-                      Placements
+                      AI Transformation.
                     </span>
                   </p>
                 </div>
