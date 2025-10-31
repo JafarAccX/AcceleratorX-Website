@@ -41,16 +41,16 @@ const TradingPlatformSection: React.FC = () => {
               Why Attend This Workshop?
               </h2>
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-              "Dashboards are the face of data. PowerBI is the accelerator."
+              "Data is the new oil. AI is the refinery."
               </p>
 
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-              Whether you're a student, analyst, or working professional, this session will help you:
+              Whether you’re an aspiring data analyst, a career switcher, or a working professional — this crash course is designed to help you:
               </p>
               <ul className="text-slate-300 text-lg leading-relaxed max-w-lg list-disc pl-6 space-y-2">
-                <li>Create professional-looking dashboards.</li>
-                <li>Build interactive reports that engage users.</li>
-                <li>Share data insights with stakeholders effectively.</li>
+                <li>Understand how AI transforms traditional data analysis.</li>
+                <li>Learn to automate repetitive analysis tasks.</li>
+                <li>Make sense of data faster and communicate insights effectively.</li>
               </ul>
             </div>
           </div>

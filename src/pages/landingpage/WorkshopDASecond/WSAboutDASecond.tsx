@@ -8,26 +8,24 @@ const WSAboutDASecond = () => {
       icon: <FiDollarSign className="text-white text-xl" />,
       title: "Limited Spots. High Impact.",
       description:
-        "We keep it small and focused so you get real interaction, not just another crowded webinar.",
+        "We keep it focused and practical — you'll work on real examples and get direct interaction with the instructor.",
       highlight: true,
     },
     {
       icon: <FiKey className="text-white text-xl" />,
       title: "Real Projects. Real Skills.",
       description:
-        'You’ll build a usable AI agent during the session — not just watch someone else do it.',
+        'Apply what you learn during the session. Build a mini AI-powered analysis workflow — not just watch someone else do it.',
         highlight: true,
     },
     {
   icon: <FiCpu className="text-white text-xl" />,
-  title: "Learn AI by Building Real Projects.",
+  title: "Build Confidence for a Data Career.",
   description:
-    "A hands-on course designed for anyone who wants to master practical AI skills through real-world applications.",
+    "Perfect for anyone planning to enter data analytics, upskill for better roles, or understand AI's real use in business analytics.",
   highlight: true,
 }
-  ];
-
- 
+  ]; 
 
   return (
     <>
@@ -90,7 +88,7 @@ const WSAboutDASecond = () => {
                   // console.error('WSAbout: Form element not found with ID "workshop-registration-form"');
                 }
               }}
-            >Claim Your Free Spot ↗</button>
+            >Claim Your Free Spot →</button>
  
   </motion.div>
 </div>

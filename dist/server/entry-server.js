@@ -1571,15 +1571,15 @@ function Navbar() {
     { label: "Generative AI for Product Managers", path: "/courses/gen-ai-for-pms" },
     { label: "AI Digital Marketing", path: "/courses/ai-digital-marketing" },
     { label: "AI Data Analytics", path: "/courses/data-analytics" },
-    { label: "Generative AI", path: "/courses/generative-ai" },
+    { label: "Generative AI", path: "/courses/generative-ai" }
     // {
     //   label: "AI Performance Marketing",
     //   path: "/courses/advance-performance-marketing-with-ai",
     // },
-    {
-      label: "Automation with n8n",
-      path: "/courses/n8n-automation"
-    }
+    // {
+    //   label: "Automation with n8n",
+    //   path: "/courses/n8n-automation",
+    // },
   ];
   if (isXSATRoute) {
     return /* @__PURE__ */ jsx(
@@ -1955,7 +1955,7 @@ const getRouteLayout = (pathname) => {
   return defaultLayout;
 };
 const Footer = lazy(() => import("./assets/Footer-D_ONcEvi.js"));
-const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-6kiK3aSg.js"));
+const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-C4zUhI_e.js"));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
   const location = useLocation();
@@ -2200,11 +2200,11 @@ const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
 const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
-const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-D0X8eUBm.js"));
-const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-DxavIm8M.js"));
-const DataAnalyticsPage$1 = lazy(() => import("./assets/index-FRjLvqXs.js"));
+const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-BjR0hu1F.js"));
+const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-jE6EurlT.js"));
+const DataAnalyticsPage$1 = lazy(() => import("./assets/index-DnNh3jZc.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DJAOD0Ae.js"));
-const Events = lazy(() => import("./assets/Events-B3xbW4J1.js"));
+const Events = lazy(() => import("./assets/Events-DsOF2GFL.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }, "home"),
   /* @__PURE__ */ jsx(Route, { path: "/about-us", element: /* @__PURE__ */ jsx(AboutPage, {}) }, "about"),
@@ -2627,19 +2627,19 @@ function SEO({
     /* @__PURE__ */ jsx("link", { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon.svg" })
   ] });
 }
-const GENCTAB = lazy(() => import("./assets/GENCTAB-B6VvE2pe.js"));
-const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-DE8tZQox.js"));
-const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DhJgW_6H.js"));
-const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-DN1ln4T3.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-BGugE00N.js"));
+const GENCTAB = lazy(() => import("./assets/GENCTAB-Cotp03vr.js"));
+const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-C69ZjsrG.js"));
+const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DHvUDhr8.js"));
+const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-CVckR0qQ.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-CKH4LK2N.js"));
 const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cam4KhoN.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-lmYtlyuW.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-CrjVa660.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-B-Wc-_1O.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
-const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-D8AnvHc3.js"));
-const AIEcosystem = lazy(() => import("./assets/AIEcosystem-DzUHGcwm.js"));
-const ProductsSection = lazy(() => import("./assets/ProductsSection-BxvRRkDo.js"));
-const TradingPlatformSection = lazy(() => import("./assets/TradingPlatformSection-Dlc9n7vF.js"));
+const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-CsYRdvME.js"));
+const AIEcosystem = lazy(() => import("./assets/AIEcosystem-BDMYK8Rq.js"));
+const ProductsSection = lazy(() => import("./assets/ProductsSection-DEeHbDIH.js"));
+const TradingPlatformSection = lazy(() => import("./assets/TradingPlatformSection-CzIYbwS3.js"));
 const HeroSection = lazy(() => import("./assets/hero-section-C4LbdtLk.js"));
 const WorkshopHighlights = lazy(() => import("./assets/workshop-highlights-AebuLKUO.js"));
 const BuiltForYou = lazy(() => import("./assets/built-for-you-BXvtmGiy.js"));
@@ -2647,19 +2647,19 @@ const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNz
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
 const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-CRoJzr_B.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-DpiuT-cT.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
-const WSHeroPM = lazy(() => import("./assets/WSHeroPM-BsVPEdfW.js"));
+const WSHeroPM = lazy(() => import("./assets/WSHeroPM-k8g_oHl0.js"));
 const WSAboutPM = lazy(() => import("./assets/WSAboutPM-DbXrK7-b.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-CIFM4TvQ.js"));
-const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-BGR_HnWA.js"));
+const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-TthglFEs.js"));
 const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-D-A-yjpa.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-DkhFGda9.js"));
-const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-CYXIu0uF.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-Cm9WqVYz.js"));
+const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-_p3plLsR.js"));
 const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-BHuekcFE.js"));
 const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-CoOZkJ1F.js"));
 const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-64jSD0Wf.js"));
@@ -2742,21 +2742,20 @@ const flyerRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/dm", element: /* @__PURE__ */ jsx(DMFlyers, {}) }, "flyer-dm"),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/da", element: /* @__PURE__ */ jsx(DAFlyers, {}) }, "flyer-da")
 ];
-const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-U61IYu9k.js"));
-const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-OuPS64Fq.js"));
-const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-DMAKv4hH.js"));
-const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-DWaofIl2.js"));
+const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-vFyF-O_P.js"));
+const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-CvNcZc-r.js"));
+const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-CqekDxSa.js"));
+const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-C9fvA0D4.js"));
 const KuppamCourses = lazy(() => import("./assets/KuppamCourses-BB7igBRu.js"));
 const GenAICourse = lazy(
-  () => import("./assets/GenAIEntry-D0X8eUBm.js")
+  () => import("./assets/GenAIEntry-BjR0hu1F.js")
 );
-const GenAICourseAD = lazy(() => import("./assets/GenAIAd-DxavIm8M.js"));
-const DataAnalyticsPage = lazy(() => import("./assets/index-FRjLvqXs.js"));
+const GenAICourseAD = lazy(() => import("./assets/GenAIAd-jE6EurlT.js"));
+const DataAnalyticsPage = lazy(() => import("./assets/index-DnNh3jZc.js"));
 const ProductManagementPageEIE = lazy(
-  () => import("./assets/ProductManagementEIE-BmhCDWAn.js")
+  () => import("./assets/ProductManagementEIE-C_nKEAuI.js")
 );
-const N8nAutomationEntry = lazy(() => import("./assets/n8nAutomationEntry-CD3It4KS.js"));
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-CzzLWSGq.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-D1A5D65w.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
@@ -2819,14 +2818,6 @@ const courseRoutes = [
   ),
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb", element: /* @__PURE__ */ jsx(GenAICourseAD, {}) }, "course-genai-fb"),
   /* @__PURE__ */ jsx(Route, { path: "/courses/generative-ai-fb-b", element: /* @__PURE__ */ jsx(GenAICourseAD, {}) }, "course-genai-fb-b"),
-  /* @__PURE__ */ jsx(
-    Route,
-    {
-      path: "/courses/n8n-automation",
-      element: /* @__PURE__ */ jsx(N8nAutomationEntry, {})
-    },
-    "course-n8n"
-  ),
   /* @__PURE__ */ jsx(
     Route,
     {

@@ -4,7 +4,7 @@ const WSGENIntroductionB = () => {
   const stats = [
     {
       value: "Zero",
-      label: "coding or tech knowledge required",
+      label: "coding knowledge needed",
     },
     {
       value: "100%",
@@ -12,28 +12,28 @@ const WSGENIntroductionB = () => {
     },
     {
       value: "Free",
-      label: "value-packed workshop",
+      label: "live automation workshop",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "AI Content Mastery",
+      title: "Marketing Workflow Automation",
       description:
-        "Generate ads, blogs, and posts in minutes",
+        "From leads to analytics — auto-run everything.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "Marketing Automation",
+      title: "AI Content Automation",
       description:
-        "Streamline campaigns without manual effort",
+        "Generate and schedule posts or emails instantly.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "AI Growth Blueprint",
+      title: "Growth Blueprint",
       description:
-        "A clear path to apply AI in your daily work",
+        "Apply automation to scale your work every day.",
     },
   ];
 
@@ -62,11 +62,11 @@ const WSGENIntroductionB = () => {
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
              
-              <span className="text-blue-500">Automate & Create Smarter</span> with Generative AI
+              <span className="text-blue-500">Automate & Grow Smarter</span> with AI
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Learn how to automate, create, and grow smarter with Generative AI in this free, hands-on marketing workshop—no coding required.
+              Learn to automate, create, and scale smarter — without touching a line of code. This live, hands-on session gives you everything you need to build real workflows that save time and drive results.
             </p>
           </div>
 

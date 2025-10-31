@@ -24,12 +24,12 @@ const GENCTAB = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                Smarter Marketing — No Code Needed
+                Smarter Marketing — Fully Automated
               </motion.h2>
 
               <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-4">
                 <span className="text-base text-blue-400 font-medium">
-                  Register Now for Hands-On Learning with Generative AI
+                  Register now for hands-on learning in Marketing Automation
                 </span>
               </div>
             </div>
@@ -38,19 +38,19 @@ const GENCTAB = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10 text-center">
                 <p className="text-xl font-bold text-blue-400 mb-1">AI-Powered</p>
-                <p className="text-sm text-gray-400">Marketing Tools</p>
+                <p className="text-sm text-gray-400">Tools that think for you.</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
                 <p className="text-xl font-bold text-green-400 mb-1">Effortless</p>
-                <p className="text-sm text-gray-400">Content & Campaign Creation</p>
+                <p className="text-sm text-gray-400">Execute campaigns automatically.</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
                 <p className="text-xl font-bold text-green-400 mb-1">Smart</p>
-                <p className="text-sm text-gray-400">Automation for Marketers</p>
+                <p className="text-sm text-gray-400">Workflows built for marketers.</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
                 <p className="text-xl font-bold text-blue-400 mb-1">Build & Launch</p>
-                <p className="text-sm text-gray-400">Ideas That Save Time & Drive Results</p>
+                <p className="text-sm text-gray-400">Automation that drives measurable results.</p>
               </div>
             </div>
 

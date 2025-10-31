@@ -27,7 +27,7 @@ const BROCHURES: Record<string, { title: string; url: string }> = {
   },
   "Generative AI": {
     title: "Generative AI",
-    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293563847_notes_AcceleratorX_Gen_AI_Brochure.pdf?alt=media&token=7e7d534d-a40f-4adf-9833-abb476d0c061",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1761905010664_notes_new_AcceleratorX_Gen_AI_Brochure-compressed.pdf?alt=media&token=53d0ad2d-4d03-435c-8d31-4c03fc476c78",
   },
   "Gen AI for PMs": {
     title: "Gen AI for PMs",

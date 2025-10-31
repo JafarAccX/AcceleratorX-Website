@@ -41,10 +41,10 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title: "Dashboarding with PowerBi",
+  title: "AI Data Analysis Crash Course",
   link: "https://zoom.us/meeting/register/b_CgAZvOT0WPuW9DG-10mg",
   meetingId: "b_CgAZvOT0WPuW9DG-10mg",
-  time: "10/13/2025 7:30 PM India",
+  time: "11/06/2025 7:30 PM India",
   meetingCode: "96501815272",
 };
 
@@ -57,11 +57,11 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
-  title: "Generative AI for Marketing ",
-  link: "https://zoom.us/meeting/register/bvfutHmQQKWX_STHghYjJw",
-  meetingId: "bvfutHmQQKWX_STHghYjJw",
+  title: "Marketing Automation",
+  link: "https://zoom.us/meeting/register/ebn6odaVTHSWMNOkvpNayw",
+  meetingId: "ebn6odaVTHSWMNOkvpNayw",
   time: "11th Oct, 2025 07:00 PM India",
-  meetingCode: "93361635932",
+  meetingCode: "92965681534",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {

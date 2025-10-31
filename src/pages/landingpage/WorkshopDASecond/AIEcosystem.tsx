@@ -92,7 +92,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          PowerBI Dashboarding Ecosystem
+          AI Data Analysis Ecosystem
         </motion.h2>
         <motion.p
           className="mt-4 text-gray-400 max-w-xl mx-auto text-base md:text-lg"
@@ -100,13 +100,13 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Master the ecosystem of tools to create stunning, interactive, and insightful PowerBI dashboards.
+          Master how AI integrates with tools you already use — Google Sheets, Notion, Excel, PowerBI, ChatGPT, Slack, and more — to create a seamless data workflow from raw input to powerful dashboards.
         </motion.p>
       </div>
 
       {/* Tool Grid */}
       <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 px-4 max-w-6xl mx-auto">
-        {aiTools.map((tool, index) => (
+        {aiTools.map((tool) => (
           <motion.div
             key={tool.name}
             className="group relative flex flex-col items-center text-center transition-transform duration-300"

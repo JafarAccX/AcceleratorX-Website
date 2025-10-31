@@ -53,7 +53,7 @@ const WSGENWhoShouldEnrollB = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Anyone looking to grow faster, save time, boost creativity, and gain in-demand AI marketing skills can benefit from this webinar.
+              Anyone looking to grow faster, save time, boost creativity, and gain in-demand AI marketing skills can benefit from this workshop.
             </p>
           </div>
 

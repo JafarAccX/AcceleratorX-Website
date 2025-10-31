@@ -16,7 +16,7 @@ const StatItem: React.FC<StatItemProps> = ({ number, label }) => {
 
 const StatsSection: React.FC = () => {
   const stats = [
-    { number: "13th Oct 2025", label: "Date" },
+    { number: "06th Nov 2025", label: "Date" },
     { number: "7:30 PM IST", label: "Time" },
     { number: "Beginner to Intermediate", label: "Level" }, 
   ]

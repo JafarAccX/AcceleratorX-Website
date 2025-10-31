@@ -11,11 +11,18 @@ const Events = () => {
 
   const AllworkshopsDetails = [
     {
+      name: "Marketing Automation",
+      mode: "Online (Zoom)",
+      time: "Oct 11, 2025 7:00 PM",
+      link: "/workshop/gen-ai-masterclass-bxwcy",
+      completed: true,
+    },
+    {
       name: "Generative AI for Marketing ",
       mode: "Online (Zoom)",
       time: "Oct 11, 2025 7:00 PM",
       link: "/workshop/gen-ai-masterclass-bxwcy",
-      completed: false,
+      completed: true,
     },
     {
       name: "AI Agent building Bootcamp (2 HR)",

@@ -9,10 +9,10 @@ const CryptoHeroSection: React.FC = () => {
   return (
     <>
       <SEO 
-        title="Free PowerBI Dashboarding Workshop | AcceleratorX"
-        description="Join our free hands-on PowerBI workshop on October 13th, 2025. Learn to create interactive dashboards and visualize data effectively. Beginner to intermediate level."
-        ogTitle="Free PowerBI Dashboarding Workshop"
-        ogDescription="Master PowerBI dashboarding in our free workshop. Learn practical skills with real-world projects."
+        title="AI Data Analysis Crash Course | AcceleratorX"
+        description="Join our free hands-on AI Data Analysis Crash Course. Learn how to use AI-driven data tools to uncover insights, automate analysis, and make smarter business decisions."
+        ogTitle="AI Data Analysis Crash Course"
+        ogDescription="Get hands-on experience turning raw data into real insights with AI. Learn to lead the change in data analysis."
         ogImage="/Data-Analytics.webp"
       />
       <section className="relative min-h-screen overflow-hidden " >
@@ -75,77 +75,25 @@ const CryptoHeroSection: React.FC = () => {
              
             {/* Main Heading */}
             <div className="space-y-2">
-              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">Dashboarding with <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
-                PowerBI
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">AI Data Analysis <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
+                Crash Course
               </span></h1>
               
             </div>
 
             {/* Subtext */}
             <div className="space-y-4 text-slate-300 text-lg max-w-lg">
-              <p className="font-medium">Learn how to create stunning interactive dashboards with PowerBI — visualize data, gain insights, and make data-driven decisions!</p>
+              <p className="font-medium">Learn how to use AI-driven data tools to uncover insights, automate analysis, and make smarter business decisions — faster and better than ever before.</p>
+
+              {/* <p>Get hands-on experience turning raw data into real insights with AI. Whether you’re from tech, marketing, finance, or operations — this crash course will show you how AI is reshaping data analysis and how you can lead the change.</p> */}
+
               <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-3 mt-4">
                 <p className="text-yellow-200 text-sm font-medium">
-                  ⚠️ Note: This is a live-only workshop. No recordings will be provided.
+                  ⚠️ Note: This is a live-only session. No recordings will be shared.
                 </p>
               </div>
             </div>
           </div>
-
-          {/* Right Illustration */}
-          {/* <div className="relative flex justify-center lg:justify-end">
-            <div className="relative">
-               
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
- 
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-800 rounded-3xl shadow-2xl transform rotate-12">
-                  <div className="p-6 h-full flex flex-col justify-center items-center">
-                    <div className="w-full h-32 bg-gradient-to-r from-pruple-400/20 to-emerald-400/20 rounded-xl mb-4"></div>
-                    <div className="space-y-2 w-full">
-                      <div className="h-3 bg-slate-600 rounded w-3/4"></div>
-                      <div className="h-3 bg-slate-600 rounded w-1/2"></div>
-                    </div>
-                  </div>
-                </div>
-
-                
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
-                  ₿
-                </div>
-
-                <div className="absolute top-8 -right-8 w-10 h-10 bg-gradient-to-br from-pruple-400 to-cyan-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
-                  $
-                </div>
-
-                <div className="absolute -bottom-2 -left-8 w-8 h-8 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">
-                  Ξ
-                </div>
-
-                <div className="absolute bottom-12 -right-6 w-6 h-6 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full shadow-lg"></div>
-
-                
-                <div className="absolute -top-8 right-8 transform -rotate-12">
-                  <div className="w-16 h-20 bg-gradient-to-b from-pruple-400 to-emerald-500 rounded-t-full relative">
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-4 bg-gradient-to-b from-orange-400 to-red-500 rounded-b-full"></div>
-                    <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-
-                 
-                <div className="absolute top-1/4 left-8 grid grid-cols-3 gap-1">
-                  {[...Array(9)].map((_, i) => (
-                    <div key={i} className="w-1 h-1 bg-pruple-400 rounded-full opacity-60"></div>
-                  ))}
-                </div>
-
-                <div className="absolute bottom-1/4 right-4 grid grid-cols-2 gap-1">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="w-1 h-1 bg-emerald-400 rounded-full opacity-60"></div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div> */}
 
           <div className="w-full ">
             <div className="relative">

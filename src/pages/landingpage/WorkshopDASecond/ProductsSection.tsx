@@ -63,18 +63,18 @@ const AIToolsIllustration: React.FC = () => (
 const ProductsSection: React.FC = () => {
   const products = [
     {
-      title: "Creating Interactive Dashboards",
-      description: "Discover how to build dynamic dashboards that respond to user interactions and data changes.",
+      title: "AI-Powered Data Exploration",
+      description: "Learn how AI can clean, process, and visualize your data — automatically. Discover how to ask the right data questions and get instant insights.",
       illustration: <DataVizIllustration />,
     },
     {
-      title: "Data Visualization Made Powerful",
-      description: "Learn advanced visualization techniques to turn raw data into compelling stories and insights.",
+      title: "Building Smart Dashboards",
+      description: "Create interactive dashboards that not only visualize but also interpret data patterns and trends.",
       illustration: <NoCodeIllustration />,
     },
     {
-      title: "PowerBI Best Practices",
-      description: "Master DAX formulas, data modeling, and performance optimization for professional dashboards.",
+      title: "From Data to Decisions",
+      description: "Understand how to use AI to forecast outcomes, make recommendations, and improve business decisions.",
       illustration: <AIToolsIllustration />,
     },
   ]
@@ -95,7 +95,7 @@ const ProductsSection: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             What You’ll Learn
             <br />
-            <span className="text-white">At a Glance</span>
+            <span className="text-white">at a Glance</span>
           </h2>
         </div>
 

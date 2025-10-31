@@ -64,10 +64,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Learn how Generative AI can boost your marketing results",
-                        "See real-world examples of AI-powered campaigns",
-                        "Explore tools to create content, ads, and reports faster",
-                        "Build marketing workflows you can start using immediately",
+                        "Learn how AI-driven automation transforms your marketing performance.",
+                        "Watch real examples of end-to-end automated marketing workflows.",
+                        "Explore tools to auto-create content, emails, and reports in seconds.",
+                        "Set up your first automated marketing system during the workshop.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -87,10 +87,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to save hours by automating marketing tasks",
-                        "Using AI to create high-performing content and ads",
-                        "Smart tools for email, social media, and lead generation",
-                        "How to use Generative AI for campaign ideas, insights, and growth",
+                        "How to automate repetitive marketing tasks that drain your time.",
+                        "How to create lead-generation and nurturing workflows with zero code.",
+                        "How to connect tools like ChatGPT, Zapier, and Sheets for full automation.",
+                        "How to build a scalable marketing engine that runs 24/7.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
