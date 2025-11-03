@@ -115,7 +115,7 @@ export default function WSTools() {
             onMouseLeave={() => setHovered(null)}
           >
             <div className="rounded-2xl p-2 backdrop-blur-md shadow-lg transition-all hover:border-white/20 w-full max-w-[60px] h-[60px] flex flex-col items-center justify-center">
-              <img src={tool.logo} alt={tool.name} className=" object-fill mb-2" />
+              <img src={tool.logo} alt={`${tool.name} - ${tool.description}`} className=" object-fill mb-2" />
             </div>
             <p className="text-white text-sm font-medium">{tool.name}</p>
 

@@ -73,7 +73,7 @@ const ToolCard = ({ tool, index }: ToolCardProps) => {
             <div className="absolute inset-0 bg-[#5CB338]/5 rounded-xl transform rotate-3 transition-transform duration-300 group-hover:-rotate-6" />
             <img
               src={tool.image}
-              alt={tool.name}
+              alt={`${tool.name} - ${tool.description}`}
               className="relative w-12 h-12 object-contain transform transition-all duration-300 group-hover:scale-110"
             />
           </div>

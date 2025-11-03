@@ -30,7 +30,7 @@ export default function ProgramCertificateEIE() {
               <div className="absolute inset-0 bg-[#0F0F0F]">
                 <img 
                   src="/assets/programcertificates/PM_Cert_EIE.webp"
-                  alt="Product Management Certificate"
+                  alt="professional certificate in product management EIE"
                   className="w-full h-full object-cover opacity-90"
                 />
                 {/* Overlay gradient */}

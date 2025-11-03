@@ -92,7 +92,7 @@ const GENCTAC = () => {
             {/* Footer Section */}
             <div className="mt-8 flex flex-col items-center space-y-4">
               <div className="flex items-center justify-center space-x-2">
-                <img src="/favicon.svg" alt="AcceleratorX" className="h-6 w-6" />
+                <img src="/favicon.svg" alt="product management certification courses icon" className="h-6 w-6" />
                 <span className="text-white font-medium">AcceleratorX</span>
               </div>
               <p className="text-gray-400 text-sm">{currentYear} AcceleratorX. All rights reserved.</p>

@@ -86,7 +86,7 @@ export default function DataMentorsEIE() {
                       <div className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-[#1A5D1A]/20 shadow-lg">
                         <img
                           src={mentor.image}
-                          alt={mentor.name}
+                          alt={`Product management courses with certificate mentor ${mentor.name}`}
                           className="w-full h-full object-cover"
                         />
                       </div>

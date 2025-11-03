@@ -70,7 +70,7 @@ const GENCTAB = () => {
           {/* Footer section */}
           <div className="mt-8 flex flex-col items-center space-y-2 text-center">
             <div className="flex items-center justify-center space-x-2">
-              <img src="/favicon.svg" alt="AcceleratorX" className="h-5 w-5" />
+              <img src="/favicon.svg" alt="product management certification courses icon" className="h-5 w-5" />
               <span className="text-white text-sm font-medium">AcceleratorX</span>
             </div>
             <p className="text-gray-500 text-xs">{currentYear} AcceleratorX. All rights reserved.</p>

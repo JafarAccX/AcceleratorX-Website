@@ -118,61 +118,61 @@ export const tools: Tool[] = [
   {
     name: "Miro",
     image: "/assets/logo/Miro.webp",
-    description: "Visual Collaboration",
+    description: "Online collaborative whiteboard platform",
     category: "Collaboration",
   },
   {
     name: "Asana",
     image: "/assets/logo/Asana.webp",
-    description: "Visual Collaboration",
+    description: "Work management platform for teams",
     category: "Collaboration",
   },
   {
     name: "Github",
     image: "/assets/logo/github.webp",
-    description: "Visual Collaboration",
+    description: "Version control and collaboration platform for developers",
     category: "Technical",
   },
   {
     name: "MixPanel",
     image: "/assets/logo/Mixpanel.webp",
-    description: "Visual Collaboration",
+    description: "Product analytics platform for user behavior tracking",
     category: "Analytics",
   },
   {
     name: "Amplitude",
     image: "/assets/logo/Amplitude.webp",
-    description: "Visual Collaboration",
+    description: "Product intelligence platform for user analytics",
     category: "Analytics",
   },
   {
     name: "Postman",
     image: "/assets/logo/Postman.webp",
-    description: "Visual Collaboration",
+    description: "API development and testing platform",
     category: "Technical",
   },
   {
     name: "Whimsical",
     image: "/assets/logo/Whimsical.webp",
-    description: "Visual Collaboration",
+    description: "All-in-one design tool for wireframes and diagrams",
     category: "UI/UX",
   },
   {
     name: "MySQL",
     image: "/assets/logo/Mysql.webp",
-    description: "Visual Collaboration",
+    description: "Open-source relational database management system",
     category: "Analytics",
   },
   {
     name: "User testing",
     image: "/assets/logo/UserTesting.webp",
-    description: "Visual Collaboration",
+    description: "User research and usability testing platform",
     category: "Feedback Collection",
   },
   {
     name: "Optimizely",
     image: "/assets/logo/optimizely.webp",
-    description: "Visual Collaboration",
+    description: "Digital experience platform for experimentation and personalization",
     category: "A/B Testing",
   },
 ];
@@ -282,6 +282,7 @@ export const mentors = [
     role: "Senior PM at Walmart",
     experience: "10+ years",
     image: "/assets/mentor/swati.webp",
+    alt: "product management certification mentor Swati",
     linkedin: "https://www.linkedin.com/in/swati-sinha-471644125",
     transitions: "Over 100+",
   },
@@ -298,6 +299,7 @@ export const mentors = [
     role: "Senior PM at Paytm",
     experience: "5 years",
     image: "/assets/mentor/ravi.webp",
+    alt: "Ravi Ahlawat - Senior PM at Paytm",
     linkedin: "https://www.linkedin.com/in/raviahlawat09/",
     transitions: "Over 350+",
   },
@@ -306,6 +308,7 @@ export const mentors = [
     role: "PM at AcceleratorX",
     experience: "3 years",
     image: "/assets/mentor/ruchir.webp",
+    alt: "Ruchir Rana - PM at AcceleratorX",
     linkedin: "https://www.linkedin.com/in/ruchir-rana007",
     transitions: "Over 100+",
   },
@@ -575,64 +578,78 @@ export const dataAnalyticsTools = [
   {
     name: "Tableau",
     image: "/assets/dataTools/tableu.webp",
+    description: "Business intelligence and data visualization platform",
   },
   {
     name: "Power BI",
     image: "/assets/dataTools/powerbi.webp",
+    description: "Microsoft's business analytics and data visualization tool",
   },
   {
     name: "Python",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Python.svg",
+    description: "High-level programming language for data analysis and machine learning",
   },
   {
     name: "Jupyter Notebook",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg",
+    description: "Interactive computing environment for data science and analysis",
   },
   {
     name: "Google Analytics",
     image: "/assets/dataTools/google-analytics.webp",
+    description: "Web analytics service for tracking and reporting website traffic",
   },
   {
     name: "Looker",
     image: "/assets/dataTools/looker.webp",
+    description: "Business intelligence and data analytics platform",
   },
   {
     name: "Matplotlib",
     image: "/assets/dataTools/matplotlib.webp",
+    description: "Python library for creating static, animated, and interactive visualizations",
   },
-
   {
     name: "Keras",
     image: "/assets/dataTools/keras.webp",
+    description: "Deep learning API for building and training neural networks",
   },
   {
     name: "Numpy",
     image: "/assets/dataTools/numpy.webp",
+    description: "Python library for numerical computing and array operations",
   },
   {
     name: "Pandas",
     image: "/assets/dataTools/pandas.webp",
+    description: "Python library for data manipulation and analysis",
   },
   {
     name: "R",
     image: "/assets/dataTools/r.webp",
+    description: "Programming language for statistical computing and graphics",
   },
   {
     name: "Scikit Learn",
     image: "/assets/dataTools/scikit-learn-logo.webp",
+    description: "Python machine learning library with classification and regression algorithms",
   },
   {
     name: "Tensorflow",
     image: "/assets/dataTools/Tensorflow_logo.webp",
+    description: "Open-source machine learning framework for building AI models",
   },
   {
     name: "Github",
     image: "/assets/dataTools/github.webp",
+    description: "Version control and collaboration platform for developers",
   },
   {
     name: "Mixpanel",
     image: "/assets/logo/Mixpanel.webp",
+    description: "Product analytics platform for user behavior tracking",
   },
 ];
 
@@ -668,6 +685,7 @@ export const dataAnalyticsMentors = [
     role: "Lead Data Analyst",
     image:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "Sarah Chen - Lead Data Analyst at Goldman Sachs",
     experience: "12+ years",
     specialization: "Financial Analytics",
     students: "500+",
@@ -679,6 +697,7 @@ export const dataAnalyticsMentors = [
     role: "Senior Data Scientist",
     image:
       "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "Marcus Rodriguez - Senior Data Scientist at Microsoft",
     experience: "8+ years",
     specialization: "Machine Learning",
     students: "350+",
@@ -690,6 +709,7 @@ export const dataAnalyticsMentors = [
     role: "Analytics Manager",
     image:
       "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "Priya Patel - Analytics Manager at Deloitte",
     experience: "10+ years",
     specialization: "Business Intelligence",
     students: "400+",
@@ -701,6 +721,7 @@ export const dataAnalyticsMentors = [
     role: "Data Analytics Lead",
     image:
       "https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "David Kim - Data Analytics Lead at Amazon",
     experience: "15+ years",
     specialization: "Big Data Analytics",
     students: "600+",

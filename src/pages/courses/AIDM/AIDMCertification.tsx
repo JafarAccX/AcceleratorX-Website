@@ -30,7 +30,7 @@ const AIDMCertification: React.FC = () => {
                   <div className="w-full h-full flex items-center justify-center p-6">
                     <img
                       src="/assets/certificates/Nano_Degree_in_DM.webp"
-                      alt="AI Digital Marketing Nano-Degree Certificate"
+                      alt="Nano Degree certificate in best ai digital marketing"
                       className="max-w-full max-h-full object-contain rounded-xl shadow-lg"
                     />
                   </div>

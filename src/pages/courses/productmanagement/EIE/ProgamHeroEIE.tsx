@@ -151,7 +151,7 @@ export default function ProgramHeroEIE() {
             <div className="relative rounded-lg overflow-hidden">
               <img
                 src={productPageBannerEIE}
-                alt="Product Management Workshop"
+                alt="best product management certification program banner"
                 className="w-full rounded-lg shadow-2xl"
               />
             </div>

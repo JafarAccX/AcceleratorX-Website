@@ -11,6 +11,7 @@ interface ToolCardProps {
   tool: {
     name: string;
     image: string;
+    description: string;
   };
   index: number;
 }
@@ -37,7 +38,7 @@ export const ToolCard = ({ tool, index }: ToolCardProps) => {
             <div className="absolute inset-0 bg-gradient-to-br from-[#96E072]/20 to-transparent rounded-full animate-pulse"></div>
             <img
               src={tool.image}
-              alt={tool.name}
+              alt={`${tool.name} - ${tool.description}`}
               className="relative w-full h-full object-contain p-2 drop-shadow-[0_0_10px_rgba(150,224,114,0.3)]"
             />
           </div>

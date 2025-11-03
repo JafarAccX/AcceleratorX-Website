@@ -14,6 +14,7 @@ interface ToolCardProps {
   tool: {
     name: string;
     image: string;
+    description: string;
   };
   index: number;
 }
@@ -31,7 +32,7 @@ export const ToolCard = ({ tool, index }: ToolCardProps) => {
       <div className="relative p-4 bg-navy-900/50 border border-blue-500/10 rounded-xl backdrop-blur-sm transition-all duration-300 group-hover:border-blue-500/30">
         <img
           src={tool.image}
-          alt={tool.name}
+          alt={`${tool.name} - ${tool.description}`}
           className="h-14 w-14 mx-auto object-contain filter brightness-90 group-hover:brightness-100"
         />
         <p className="mt-2 text-center text-sm text-white">{tool.name}</p>

@@ -62,7 +62,7 @@ const WSGENMentor = () => {
                   {/* Mentor Image */}
                   <div className="relative">
                     <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
-                      <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover" />
+                      <img src={mentor.image} alt={`generative ai program mentor ${mentor.name} for product managers`} className="w-full h-full object-cover" />
                     </div>
                     <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-lg">
                       <a

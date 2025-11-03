@@ -6,12 +6,12 @@ const toolCategories = [
   {
     category: "Content & Copy",
     items: [
-      { name: "ChatGPT", logo: "/assets/genAITools/gpt4.webp" },
-      { name: "Claude.ai", logo: "/assets/genAITools/claude.webp" },
-      { name: "Copy.ai", logo: "/assets/aidmtools/copy.ai.svg" },
-      { name: "Jasper", logo: "/assets/dmAITools/jasper.webp" },
-      { name: "Grammarly", logo: "/assets/aidmtools/png-transparent-grammarly-hd-logo-thumbnail.webp" },
-      { name: "Notion AI", logo: "/assets/n8n/notion.webp" }
+      { name: "ChatGPT", logo: "/assets/genAITools/gpt4.webp", description: "AI language model for content creation and copywriting" },
+      { name: "Claude.ai", logo: "/assets/genAITools/claude.webp", description: "Advanced AI assistant for writing and analysis" },
+      { name: "Copy.ai", logo: "/assets/aidmtools/copy.ai.svg", description: "AI-powered copywriting and content generation tool" },
+      { name: "Jasper", logo: "/assets/dmAITools/jasper.webp", description: "AI content writing platform for marketers" },
+      { name: "Grammarly", logo: "/assets/aidmtools/png-transparent-grammarly-hd-logo-thumbnail.webp", description: "AI writing assistant for grammar and style" },
+      { name: "Notion AI", logo: "/assets/n8n/notion.webp", description: "AI-enhanced workspace for notes and documentation" }
     ],
     icon: FileText,
     color: "text-blue-400"
@@ -19,14 +19,14 @@ const toolCategories = [
   {
     category: "Visuals & Media",
     items: [
-      { name: "Canva", logo: "/assets/aidmtools/canva.webp" },
-      { name: "SDXL", logo: "/assets/genAITools/stability-ai.webp" },
-      { name: "Ideogram", logo: "/assets/aidmtools/ido.webp" },
-      { name: "Leonardo.ai", logo: "/assets/aidmtools/leo.webp" },
-      { name: "Runway", logo: "/assets/genAITools/runway.webp" },
-      { name: "Pika Labs", logo: "/assets/genAITools/pika.webp" },
-      { name: "Veo3", logo: "/assets/aidmtools/Veo3.webp" },
-      { name: "Nano Banana", logo: "/assets/aidmtools/nano-banana-icon.webp" }
+      { name: "Canva", logo: "/assets/aidmtools/canva.webp", description: "Design platform with AI-powered templates and tools" },
+      { name: "SDXL", logo: "/assets/genAITools/stability-ai.webp", description: "AI image generation model for creative visuals" },
+      { name: "Ideogram", logo: "/assets/aidmtools/ido.webp", description: "AI-powered logo and brand design platform" },
+      { name: "Leonardo.ai", logo: "/assets/aidmtools/leo.webp", description: "AI art generation and creative design tool" },
+      { name: "Runway", logo: "/assets/genAITools/runway.webp", description: "AI video editing and creative suite" },
+      { name: "Pika Labs", logo: "/assets/genAITools/pika.webp", description: "AI video generation and editing platform" },
+      { name: "Veo3", logo: "/assets/aidmtools/Veo3.webp", description: "Advanced AI video creation and editing tool" },
+      { name: "Nano Banana", logo: "/assets/aidmtools/nano-banana-icon.webp", description: "AI-powered creative content generation platform" }
     ],
     icon: Image,
     color: "text-purple-400"
@@ -34,11 +34,11 @@ const toolCategories = [
   {
     category: "Ads & Growth", 
     items: [
-      { name: "Google Ads Sandbox", logo: "/assets/dmAITools/googleads.webp" },
-      { name: "Meta Ads Manager", logo: "/assets/dmAITools/meta.webp" },
-      { name: "AdCreative.ai", logo: "/assets/aidmtools/AdCreative.ai.svg" },
-      { name: "Modash", logo: "/assets/aidmtools/Modash.webp" },
-      { name: "Mesa.ai", logo: "" }
+      { name: "Google Ads Sandbox", logo: "/assets/dmAITools/googleads.webp", description: "Google's advertising platform for campaign management" },
+      { name: "Meta Ads Manager", logo: "/assets/dmAITools/meta.webp", description: "Facebook and Instagram advertising management tool" },
+      { name: "AdCreative.ai", logo: "/assets/aidmtools/AdCreative.ai.svg", description: "AI-powered ad creative generation platform" },
+      { name: "Modash", logo: "/assets/aidmtools/Modash.webp", description: "AI marketing dashboard and analytics platform" },
+      { name: "Mesa.ai", logo: "", description: "AI-powered advertising optimization tool" }
     ],
     icon: TrendingUp,
     color: "text-green-400"
@@ -46,10 +46,10 @@ const toolCategories = [
   {
     category: "Analytics & CRO",
     items: [
-      { name: "GA4", logo: "/assets/dmAITools/googleanalytics.webp" },
-      { name: "Microsoft Clarity", logo: "/assets/aidmtools/Clarity.webp" },
-      { name: "HotJar", logo: "/assets/aidmtools/HotJar.webp" },
-      { name: "GrowthBook", logo: "/assets/aidmtools/GrowthBook.webp" }
+      { name: "GA4", logo: "/assets/dmAITools/googleanalytics.webp", description: "Google Analytics 4 for website and user behavior tracking" },
+      { name: "Microsoft Clarity", logo: "/assets/aidmtools/Clarity.webp", description: "User experience analytics and session recordings" },
+      { name: "HotJar", logo: "/assets/aidmtools/HotJar.webp", description: "Website heatmaps and user feedback platform" },
+      { name: "GrowthBook", logo: "/assets/aidmtools/GrowthBook.webp", description: "A/B testing and feature experimentation platform" }
     ],
     icon: BarChart,
     color: "text-orange-400"
@@ -57,12 +57,12 @@ const toolCategories = [
   {
     category: "Automation & CRM",
     items: [
-      { name: "n8n", logo: "/assets/genAITools/n8n-seeklogo.webp" },
-      { name: "Make.com", logo: "/make.webp" },
-      { name: "HubSpot", logo: "/assets/dmAITools/HubSpot.webp" },
-      { name: "Mailchimp", logo: "/assets/aidmtools/Mailchimp.webp" },
-      { name: "Clay", logo: "/assets/aidmtools/Clay_Logo_Tertiary_Wht.svg" },
-      { name: "Apollo.io", logo: "/assets/aidmtools/Apollo.io.webp" }
+      { name: "n8n", logo: "/assets/genAITools/n8n-seeklogo.webp", description: "Workflow automation platform with AI integrations" },
+      { name: "Make.com", logo: "/make.webp", description: "Visual workflow automation and integration platform" },
+      { name: "HubSpot", logo: "/assets/dmAITools/HubSpot.webp", description: "CRM and marketing automation platform" },
+      { name: "Mailchimp", logo: "/assets/aidmtools/Mailchimp.webp", description: "Email marketing and automation platform" },
+      { name: "Clay", logo: "/assets/aidmtools/Clay_Logo_Tertiary_Wht.svg", description: "AI-powered lead enrichment and data platform" },
+      { name: "Apollo.io", logo: "/assets/aidmtools/Apollo.io.webp", description: "Sales intelligence and lead generation platform" }
     ],
     icon: Zap,
     color: "text-cyan-400"
@@ -113,7 +113,7 @@ const AIDMTools: React.FC = () => {
                     <div className="grid grid-cols-2 gap-2 mt-4">
                       {category.items.map((tool, toolIndex) => (
                         <div key={toolIndex} className="flex items-center gap-2 p-2 bg-gray-800/10 rounded-lg hover:bg-gray-700/50 transition-colors">
-                          <img src={tool.logo} alt={tool.name} className="w-6 h-6 object-contain" />
+                          <img src={tool.logo} alt={`${tool.name} - ${tool.description}`} className="w-6 h-6 object-contain" />
                           <span className="text-xs text-gray-300">{tool.name}</span>
                         </div>
                       ))}

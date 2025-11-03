@@ -115,7 +115,7 @@ export default function AIEcosystem() {
             onMouseLeave={() => setHovered(null)}
           >
             <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-md shadow-lg transition-all hover:border-white/20 w-full max-w-[120px] h-[120px] flex flex-col items-center justify-center">
-              <img src={tool.logo} alt={tool.name} className="w-10 h-10 object-contain mb-2" />
+              <img src={tool.logo} alt={`${tool.name} - ${tool.description}`} className="w-10 h-10 object-contain mb-2" />
               <p className="text-white text-sm font-medium">{tool.name}</p>
             </div>
 

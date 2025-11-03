@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Users, Linkedin } from "lucide-react";
 
@@ -64,7 +63,7 @@ export default function DataMentors() {
                 <div className="h-3/4 overflow-hidden bg-gray-900 flex items-center justify-center">
                   <img
                     src={mentor.image}
-                    alt={mentor.name}
+                    alt={`Data Analytics courses with certificate mentor ${mentor.name}`}
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>

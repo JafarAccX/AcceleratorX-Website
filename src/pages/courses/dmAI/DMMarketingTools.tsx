@@ -15,14 +15,17 @@ const DMMarketingTools = () => {
         {
           name: "Google Ads",
           logo: "/assets/dmAITools/googleads.webp",
+          description: "Online advertising platform by Google for search, display, and video ads",
         },
         {
           name: "Meta Ads",
           logo: "/assets/dmAITools/meta.webp",
+          description: "Facebook and Instagram advertising platform for social media marketing",
         },
         {
           name: "Adzooma",
           logo: "/assets/dmAITools/adzooma.webp",
+          description: "PPC management and optimization platform for paid search campaigns",
         },
       ],
     },
@@ -32,14 +35,17 @@ const DMMarketingTools = () => {
         {
           name: "SEMRush",
           logo: "/assets/dmAITools/semrush.webp",
+          description: "Comprehensive SEO and content marketing toolkit for digital marketing",
         },
         {
           name: "Surfer SEO",
           logo: "/assets/dmAITools/surfer.webp",
+          description: "SEO content optimization platform with data-driven insights",
         },
         {
           name: "Jasper AI",
           logo: "/assets/dmAITools/jasper.webp",
+          description: "AI-powered content creation platform for marketing copy and blogs",
         },
       ],
     },
@@ -49,14 +55,17 @@ const DMMarketingTools = () => {
         {
           name: "HubSpot AI",
           logo: "/assets/dmAITools/HubSpot.webp",
+          description: "Marketing automation and CRM platform with AI-powered insights",
         },
         {
           name: "Active Campaign",
           logo: "/assets/dmAITools/activecampaign.webp",
+          description: "Email marketing and automation platform for customer engagement",
         },
         {
           name: "Drift AI",
           logo: "/assets/dmAITools/drift.webp",
+          description: "Conversational marketing platform for live chat and AI assistants",
         },
       ],
     },
@@ -66,14 +75,17 @@ const DMMarketingTools = () => {
         {
           name: "Google Analytics 4",
           logo: "/assets/dmAITools/googleanalytics.webp",
+          description: "Web analytics and tracking platform for user behavior analysis",
         },
         {
           name: "Tableau",
           logo: "/assets/dataTools/tableu.webp",
+          description: "Business intelligence and data visualization platform",
         },
         {
           name: "IBM Watson",
           logo: "/assets/dmAITools/imwatson.webp",
+          description: "AI and data analytics platform for advanced insights",
         },
       ],
     },
@@ -114,7 +126,7 @@ const DMMarketingTools = () => {
                       <div className="bg-gradient-to-br from-white to-neutral-100 rounded-lg p-3 w-16 h-16 flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
                         <img
                           src={tool.logo}
-                          alt={tool.name}
+                          alt={`${tool.name} - ${tool.description}`}
                           className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>

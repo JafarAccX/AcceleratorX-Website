@@ -1,10 +1,8 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Brain, Target } from "lucide-react";
+import { motion } from "framer-motion";
 
 const WSAboutGEN = () => {
-  const toolsRef = useRef(null);
-  const isInView = useInView(toolsRef, { once: false, margin: "-100px" });
+  // const toolsRef = useRef(null);
+  // const isInView = useInView(toolsRef, { once: false, margin: "-100px" });
 
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -12,19 +10,19 @@ const WSAboutGEN = () => {
     transition: { duration: 0.6 },
   };
 
-  const allTools = [
-    // { name: "Slack", img: "/assets/n8n/slack.webp" },
-    // { name: "Gmail", img: "/assets/n8n/gmail.webp" },
-    // { name: "Google Sheets", img: "/assets/n8n/sheets.webp" },
-    // { name: "Airtable", img: "/assets/n8n/airtable.webp" },
-    // { name: "Notion", img: "/assets/n8n/notion.webp" },
-    // { name: "Trello", img: "/assets/n8n/trello.webp" },
-    // { name: "ClickUp", img: "/assets/n8n/clickup.webp" },
-    // { name: "HubSpot", img: "/assets/n8n/hubspot.webp" },
-    // { name: "Stripe", img: "/assets/n8n/stripe.webp" },
-    // { name: "OpenAI", img: "/assets/n8n/openai.webp" },
-    { name: "Make", img: "/make.webp" },
-  ];
+  // const allTools = [
+  //   // { name: "Slack", img: "/assets/n8n/slack.webp" },
+  //   // { name: "Gmail", img: "/assets/n8n/gmail.webp" },
+  //   // { name: "Google Sheets", img: "/assets/n8n/sheets.webp" },
+  //   // { name: "Airtable", img: "/assets/n8n/airtable.webp" },
+  //   // { name: "Notion", img: "/assets/n8n/notion.webp" },
+  //   // { name: "Trello", img: "/assets/n8n/trello.webp" },
+  //   // { name: "ClickUp", img: "/assets/n8n/clickup.webp" },
+  //   // { name: "HubSpot", img: "/assets/n8n/hubspot.webp" },
+  //   // { name: "Stripe", img: "/assets/n8n/stripe.webp" },
+  //   // { name: "OpenAI", img: "/assets/n8n/openai.webp" },
+  //   { name: "Make", img: "/make.webp" },
+  // ];
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
@@ -158,7 +156,7 @@ const WSAboutGEN = () => {
                     >
                       <motion.div className="flex flex-col items-start gap-3 mb-4" whileHover={{ gap: "0.875rem" }}>
                         <div className="w-20 h-20 flex items-center justify-center bg-white rounded-lg">
-                          <img src={"/make.webp"} alt={"make.com"} className="w-12 h-12 object-contain" />
+                          <img src={"/make.webp"} alt={"automation platform Make.com for no-code workflows"} className="w-12 h-12 object-contain" />
                         </div>
                         <h3 className="font-semibold text-white">Make.com</h3>
                       </motion.div>
@@ -197,7 +195,7 @@ const WSAboutGEN = () => {
                         <div className="w-20 h-20 flex items-center justify-center bg-white rounded-lg">
                           <img
                             src={"/assets/genAITools/n8n-seeklogo.webp"}
-                            alt={"n8n"}
+                            alt={"automation platform n8n for low-code integrations"}
                             className="w-12 h-12 object-scale-down"
                           />
                         </div>

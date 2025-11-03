@@ -57,7 +57,7 @@ const GENMentors = () => {
                 <div className="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
                   <img
                     src={mentor.image}
-                    alt={mentor.name}
+                    alt={`generative ai program mentor ${mentor.name} for product managers`}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;

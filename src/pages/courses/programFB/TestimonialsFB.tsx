@@ -105,7 +105,7 @@ const TestimonialsFB = () => {
                   <div className="relative flex-shrink-0">
                     <img
                       src={testimonial.image}
-                      alt={testimonial.name}
+                      alt={`Product management courses with certificate mentor ${testimonial.name}`}
                       className="w-12 h-12 rounded-full object-cover ring-2 ring-blue-100"
                     />
                     <div className="absolute inset-0 rounded-full shadow-inner" />

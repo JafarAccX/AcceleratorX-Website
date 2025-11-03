@@ -111,7 +111,7 @@ function GENAIFlyers() {
                   <Cpu className="w-10 h-10 text-cyan-400 p-2 logo-glow animate-spin-slow relative z-10" />
                 </div>
                 <div className="flex flex-col">
-                  <img src="/companylogo-new.webp" alt="AcceleratorX Logo" className="w-48 h-auto" />
+                  <img src="/companylogo-new.webp" alt="company logo - professional certificate in product management online" className="w-48 h-auto" />
                 </div>
               </div>
             </div>

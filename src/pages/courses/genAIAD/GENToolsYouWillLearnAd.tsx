@@ -311,7 +311,7 @@ const GENToolsYouWillLearnAd = () => {
                   >
                     <img
                       src={tool.image}
-                      alt={tool.name}
+                      alt={`Generative AI tool - ${tool.name}`}
                       className="w-[75%] h-[75%] object-contain filter group-hover:brightness-110 transition-all duration-300"
                     />
                   </div>

@@ -52,7 +52,7 @@ const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000 }) => {
                 <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-blue-700 flex items-center justify-center">
                   <img
                     src="/app/accapplogo.png"
-                    alt="AcceleratorX"
+                    alt="AcceleratorX app logo for ai integrated digital marketing"
                     className="rounded-md object-contain"
                   />
                 </div>

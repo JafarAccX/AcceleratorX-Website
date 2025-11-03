@@ -82,7 +82,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
             <div className="flex flex-col items-center justify-center h-full space-y-3">
               <img
                 src={tool.image}
-                alt={tool.name}
+                alt={`${tool.name} - ${tool.description}`}
                 className="h-12 w-12 object-contain filter brightness-100"
               />
               <h3 className="text-sm font-medium text-white text-center">
