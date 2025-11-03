@@ -2200,7 +2200,7 @@ const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
 const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
-const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-Bd2S4dwT.js"));
+const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-De3q3U0R.js"));
 const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-BUXVxoRs.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-DP0POvBB.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DJAOD0Ae.js"));
@@ -2732,7 +2732,7 @@ const workshopRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-thidtx", element: /* @__PURE__ */ jsx(WorkshopPageGENC, {}) }, "workshop-genc"),
   /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) }, "workshop-success")
 ];
-const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-D1tskAfA.js"));
+const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-Dxs1c69-.js"));
 const DMFlyers = lazy(() => import("./assets/DMFlyers-Dh-Emtdy.js"));
 const PMFlyers = lazy(() => import("./assets/PMFlyers-CHq_AjPm.js"));
 const DAFlyers = lazy(() => import("./assets/DAFlyers-CLB6YZZD.js"));
@@ -2748,7 +2748,7 @@ const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-CaBg9iwQ.js"
 const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-VQPsDLND.js"));
 const KuppamCourses = lazy(() => import("./assets/KuppamCourses-BB7igBRu.js"));
 const GenAICourse = lazy(
-  () => import("./assets/GenAIEntry-Bd2S4dwT.js")
+  () => import("./assets/GenAIEntry-De3q3U0R.js")
 );
 const GenAICourseAD = lazy(() => import("./assets/GenAIAd-BUXVxoRs.js"));
 const DataAnalyticsPage = lazy(() => import("./assets/index-DP0POvBB.js"));

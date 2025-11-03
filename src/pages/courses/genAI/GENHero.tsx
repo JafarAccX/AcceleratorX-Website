@@ -73,7 +73,7 @@ const GENHero = () => {
 
             {/* Title */}
             <h1 className="text-4xl md:text-6xl font-bold mb-6 pb-4 bg-white text-transparent bg-clip-text">
-              Master Generative AI & AI Agent No-Code Automation Program in 12 weeks.
+              Master Generative AI & AI Agent No-Code Automation Program in 14 weeks.
             </h1>
 
             {/* Subtitle */}

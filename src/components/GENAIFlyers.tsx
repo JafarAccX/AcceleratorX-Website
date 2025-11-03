@@ -118,7 +118,7 @@ function GENAIFlyers() {
 
             <div className="space-y-4">
               <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                Master the Art of <span className="text-cyan-300">Generative AI</span> in 12 Weeks
+                Master the Art of <span className="text-cyan-300">Generative AI</span> in 14 Weeks
               </h1>
 
               <p className="text-lg text-gray-300 max-w-xl">
