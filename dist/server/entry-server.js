@@ -2201,7 +2201,7 @@ const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
 const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
 const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-De3q3U0R.js"));
-const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-BUXVxoRs.js"));
+const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-BoAD2qUG.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-DP0POvBB.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-DJAOD0Ae.js"));
 const Events = lazy(() => import("./assets/Events-DsOF2GFL.js"));
@@ -2750,7 +2750,7 @@ const KuppamCourses = lazy(() => import("./assets/KuppamCourses-BB7igBRu.js"));
 const GenAICourse = lazy(
   () => import("./assets/GenAIEntry-De3q3U0R.js")
 );
-const GenAICourseAD = lazy(() => import("./assets/GenAIAd-BUXVxoRs.js"));
+const GenAICourseAD = lazy(() => import("./assets/GenAIAd-BoAD2qUG.js"));
 const DataAnalyticsPage = lazy(() => import("./assets/index-DP0POvBB.js"));
 const ProductManagementPageEIE = lazy(
   () => import("./assets/ProductManagementEIE-BpAvciTX.js")
