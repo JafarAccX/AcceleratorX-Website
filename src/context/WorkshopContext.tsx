@@ -42,10 +42,10 @@ const DAZoomDetails: ZoomMeetingDetails = {
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
   title: "AI Data Analysis Crash Course",
-  link: "https://zoom.us/meeting/register/b_CgAZvOT0WPuW9DG-10mg",
+  link: "https://zoom.us/meeting/register/ZSZw9J88Qmacj-FO7KWh4w",
   meetingId: "b_CgAZvOT0WPuW9DG-10mg",
-  time: "11/06/2025 7:30 PM India",
-  meetingCode: "96501815272",
+  time: "11/10/2025 7:00 PM India",
+  meetingCode: "99801086032",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
