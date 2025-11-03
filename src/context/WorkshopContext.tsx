@@ -60,7 +60,7 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
   title: "Marketing Automation",
   link: "https://zoom.us/meeting/register/ebn6odaVTHSWMNOkvpNayw",
   meetingId: "ebn6odaVTHSWMNOkvpNayw",
-  time: "11th Oct, 2025 07:00 PM India",
+  time: "09th Nov, 2025 11:00 AM India",
   meetingCode: "92965681534",
 };
 
