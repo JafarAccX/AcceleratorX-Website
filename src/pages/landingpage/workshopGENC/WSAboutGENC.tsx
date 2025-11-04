@@ -77,12 +77,12 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Understand AI applications and their real-world impact.",
-                        "Build your first AI application from scratch (step by step).",
-                        "Learn to deploy AI applications on various platforms.",
-                        "Integrate AI models into practical applications.",
-                        "Test and optimize your AI applications for performance.",
-                        "Take away templates and best practices for future projects.",
+                        "Understand how Flowise enables automation through visual workflows.",
+                        "Build your first automation from scratch — connect AI tools, APIs, and triggers.",
+                        "Learn to integrate Flowise with OpenAI, webhooks, and custom data sources.",
+                        "Create intelligent, automated pipelines that actually save time.",
+                        "Test, optimize, and deploy your automation to production.",
+                        "Take away reusable templates for future projects and real-life workflows.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -119,11 +119,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "How AI applications work and where to apply them.",
-                        "Step-by-step methods to build AI applications without confusion.",
-                        "Best practices for deploying AI solutions.",
-                        "Integration techniques for AI models in applications.",
-                        "Real-world examples – chatbots, recommendation systems, automation tools.",
+                        "The fundamentals of no-code and low-code automation using Flowise.",
+                        "How to build automation systems using AI and logic-based nodes.",
+                        "Best practices for connecting APIs, chatbots, and AI models.",
+                        "Real-world automation examples — customer support, data processing, lead management.",
+                        "How to scale your automations across tools and platforms effortlessly.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

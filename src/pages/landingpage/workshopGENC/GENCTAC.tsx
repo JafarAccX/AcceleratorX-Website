@@ -26,7 +26,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build & Deploy your own AI Applications – Live Workshop
+              Build & Automate with Flowise – Live Workshop
             </motion.h2>
 
             {/* Badge */}
@@ -51,18 +51,18 @@ const GENCTAC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-green-400">Build Deployable Apps</p>
-                  <p className="text-sm text-gray-400">From concept to live application</p>
+                  <p className="text-lg font-bold text-green-400">Create Automation Flows</p>
+                  <p className="text-sm text-gray-400">From idea to working system</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-purple-400">Step-by-Step Deployment</p>
-                  <p className="text-sm text-gray-400">From development to production</p>
+                  <p className="text-lg font-bold text-purple-400">Step-by-Step Guidance</p>
+                  <p className="text-sm text-gray-400">From visual nodes to deployment</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-blue-400">Functional AI Applications</p>
-                  <p className="text-sm text-gray-400">Applications that solve real problems</p>
+                  <p className="text-lg font-bold text-blue-400">Functional AI Automation</p>
+                  <p className="text-sm text-gray-400">Real workflows that solve real problems</p>
                 </div>
               </div>
             </motion.div>
@@ -77,8 +77,8 @@ const GENCTAC = () => {
               <p className="bg-blue-500/10 rounded-full px-6 py-2 text-lg font-bold text-white">
                 Hands-On. No Pressure. Real Skills.
               </p>
-              <p>100+ beginners have already built and deployed AI applications with us. Now it’s your turn.</p>
-              <p>Click Register Now – Join the live workshop and build & deploy your own AI applications!</p>
+              <p>100+ beginners have already automated their workflows with Flowise. Now it's your turn.</p>
+              <p>Click Register Now and start your automation journey today!</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}

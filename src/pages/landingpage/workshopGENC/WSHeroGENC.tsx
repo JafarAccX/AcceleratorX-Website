@@ -78,7 +78,7 @@ const WSHeroGENC = () => {
               >
                 <span className="text-blue-400">⚡</span>
               </motion.div>
-              <span className="text-blue-400 font-medium">Hands-on AI Workshop</span>
+              <span className="text-blue-400 font-medium">Hands-on Automation Workshop</span>
             </motion.div>
 
             {/* Main Title & Content */}
@@ -92,9 +92,9 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      Build & Deploy 
+                      Start Your Automation 
                     </span>{" "}
-                    <br />your own AI Applications
+                    <br />with Flowise
                   </span>
 
                   <motion.div
@@ -110,10 +110,10 @@ const WSHeroGENC = () => {
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
                 <p className="  text-gray-400 max-w-xl">
-                  Learn to build and deploy your own AI applications from scratch.
+                  Learn how to automate workflows and build your own AI-driven systems using Flowise — no coding expertise required.
                 </p>
                 <p className="  text-gray-400 max-w-xl">
-                  In this hands-on workshop, you'll create real AI applications step by step. No fluff. No heavy theory. Just practical skills you can apply instantly.
+                  In this hands-on workshop, you'll learn how to create smart, automated flows step-by-step and deploy them instantly. No fluff. No theory. Just real-world automation you can implement right away.
                 </p>
               </motion.div>
             </div>
@@ -125,12 +125,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "16th Oct 2025",
+                  value: "10th Nov 2025",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "Time",
-                  value: "6:00 PM",
+                  value: "7:00 PM",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

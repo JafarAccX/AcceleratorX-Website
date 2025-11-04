@@ -65,11 +65,11 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Build & Deploy your own AI Applications",
-  link: "https://zoom.us/meeting/register/KzSCTcEeSqGdDxUKaOm8TQ",
-  meetingId: "KzSCTcEeSqGdDxUKaOm8TQ",
-  time: "10/16/2025 6:00 PM India",
-  meetingCode: "96356122146",
+  title: "Start your automation with Flowise",
+  link: "https://zoom.us/meeting/register/v6X24VyqSt26UvcxfL7J3g",
+  meetingId: "v6X24VyqSt26UvcxfL7J3g",
+  time: "10th Nov, 2025 07:00 PM India",
+  meetingCode: "99613499939",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

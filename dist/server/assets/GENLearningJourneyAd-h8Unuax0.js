@@ -159,7 +159,7 @@ const GENLearningJourneyAd = () => {
           goal: "Combine AI + Agents + Automation into deployable solutions.",
           content: [
             "Session 37: n8n workflow - 2",
-            "Session 38: Flowwise - 1",
+            "Session 38: Flowise - 1",
             "Session 39: Mini Project Discussion: 'AI Copilot'"
           ]
         },

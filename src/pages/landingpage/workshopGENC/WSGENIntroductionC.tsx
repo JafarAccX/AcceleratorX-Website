@@ -3,34 +3,34 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionC = () => {
   const stats = [
     {
-      value: "89%",
-      label: "of past attendees said they could start building applications the same day.",
+      value: "88%",
+      label: "of past learners said they could create automations the same day.",
     },
     {
-      value: "93%",
-      label: "felt more confident deploying AI after the workshop.",
+      value: "95%",
+      label: "reported improved productivity and understanding of AI automation.",
     },
     {
-      value: "Zero deployment stress",
-      label: "We guide you through every step of building and deploying.",
+      value: "Zero Complexity",
+      label: "Build, connect, and deploy in minutes.",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "AI Application Development Made Easy",
-      description: "No confusing setups. Just build, deploy, and see results.",
+      title: "Automation Development Made Easy",
+      description: "No code, no chaos. Just drag, connect, and automate.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
       title: "Live & Interactive",
-      description: "Build and deploy alongside your mentor, ask questions, and get instant feedback.",
+      description: "Build alongside your mentor and get instant feedback.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
       title: "Practical Deployment",
-      description: "Learn to deploy AI applications that work in the real world.",
+      description: "Launch workflows that actually perform real tasks.",
     },
   ];
 
@@ -72,17 +72,17 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">AI Applications = Practical, Deployable, Yours</span>
+            <span className="text-sm text-blue-400 font-medium">Flowise = Automation Made Simple</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            AI Applications <span className="text-blue-500"> =</span> Practical, Deployable, Yours
+            Flowise <span className="text-blue-500"> =</span> Automation Made Simple
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This isn’t about slides or theory. You’ll walk away with a working AI application you built and deployed yourself.
+            This workshop is not about watching slides — it's about building. By the end, you'll have your first Flowise automation running live.
           </p>
 
           {/* Stats Grid */}

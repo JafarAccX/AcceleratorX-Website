@@ -6,22 +6,22 @@ const WSGENWhoShouldEnrollC = () => {
     {
       icon: Briefcase,
       title: "Professionals",
-      description: "Build internal tools, research bots, or smarter apps.",
+      description: "Automate routine work and save hours every week.",
     },
     {
       icon: Laptop,
       title: "Students",
-      description: "Gain hands-on skills for AI careers.",
+      description: "Learn the tools shaping the future of AI-driven productivity.",
     },
     {
       icon: Code,
       title: "Entrepreneurs",
-      description: "Build your own MVP or assistant app.",
+      description: "Automate leads, marketing, and customer engagement.",
     },
     {
       icon: Brain,
       title: "Creatives",
-      description: "Turn content, notes, and documents into intelligent tools.",
+      description: "Build custom assistants and tools that simplify your workflow.",
     },
   ];
 
@@ -42,7 +42,7 @@ const WSGENWhoShouldEnrollC = () => {
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
           <h2 className="text-3xl font-bold mb-3">
-            <span className="text-white">This workshop is for you if you’ve ever thought:<br/>“AI applications are powerful, but I don’t know how to build and deploy them.”</span>
+            <span className="text-white">This workshop is for you if you've ever thought:<br/>"Automation sounds great, but I don't know where to start."</span>
           </h2>
         </div>
 
