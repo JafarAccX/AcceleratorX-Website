@@ -7,7 +7,7 @@ const mentors = [
     role: "Senior PM at Paytm",
     experience: "5 years",
     image: "/assets/mentor/ravi.webp",
-    linkedin: "https://www.linkedin.com/in/raviahlawat09/",
+    linkedin: "https://www.linkedin.com/in/raviahlawat09",
     transitions: "Over 350+",
   },
   {
@@ -15,8 +15,40 @@ const mentors = [
     role: "Sr. ML Engineer at Nagarro",
     experience: "7 years",
     image: "/assets/mentor/akash.webp",
-    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164/",
+    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164",
     transitions: "Over 300+",
+  },
+  {
+    name: "Nitish Setty",
+    role: "Analytics Lead at DataFlow",
+    experience: "8 years",
+    image: "/assets/mentor/nitish.webp",
+    linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192",
+    transitions: "Over 400+",
+  },
+  {
+    name: "Shubham Swaraj",
+    role: "BI Developer at InsightTech",
+    experience: "5 years",
+    image: "/assets/mentor/Shubham.webp",
+    linkedin: "https://www.linkedin.com/in/shubham-swaraj-2b9457172",
+    transitions: "Over 250+",
+  },
+  {
+    name: "Himangi Sharma",
+    role: "Data Analyst at Fortune 500 Company",
+    experience: "4 years",
+    image: "/assets/mentor/himangi.webp",
+    linkedin: "https://www.linkedin.com/in/himangi-sharma",
+    transitions: "Over 200+",
+  },
+  {
+    name: "Preeti Kumari",
+    role: "ML Engineer at InnoTech",
+    experience: "6 years",
+    image: "/assets/mentor/preeti.webp",
+    linkedin: "https://www.linkedin.com/in/preeti-kumari-877413113",
+    transitions: "Over 320+",
   },
 ];
 
@@ -37,7 +69,7 @@ export default function DataMentorsEIE() {
         {/* Premium grid pattern */}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="p-4 w-full mx-auto px-4 relative z-10">
         <div
            
           className="text-center mb-8"
@@ -67,7 +99,7 @@ export default function DataMentorsEIE() {
         </div>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
             {mentors.map((mentor, index) => (
               <div
                 key={index}

@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 
@@ -24,7 +23,7 @@ const WSGENMentor = () => {
       name: "Nitish M L Setty",
       designation: "Software Developer, MD at GrowSharp Technologies",
       description: "Expert in AI implementation and automation",
-      linkedin: "https://www.linkedin.com/in/nitish-m-l-shetty-7a0206192",
+      linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192",
       image: "/assets/mentor/nitish.webp",
       experience: "5+ Years",
     },
