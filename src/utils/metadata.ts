@@ -307,6 +307,14 @@ export const pageMetadata: Record<string, PageMetadata> = {
     canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-thidtx"
   },
 
+  "/workshop/gen-ai-masterclass-four": {
+    title: "Flowwise Automation Workshop | AcceleratorX",
+    description: "Join AcceleratorX's hands-on Flowwise workshop to learn no-code AI automation, workflow design, and deployment strategies.",
+    ogTitle: "AcceleratorX Flowwise Automation Workshop",
+    ogDescription: "Master no-code AI automation with Flowwise at AcceleratorX's live workshop.",
+    canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-four"
+  },
+
   "/workshop-registration/success": {
     title: "Workshop Registration Success | AcceleratorX",
     description: "Your workshop registration at AcceleratorX is successful. Get ready to join expert-led sessions in Product, Data, Marketing, and AI.",

@@ -36,6 +36,15 @@ const TechStackSection = lazy(() => import("../pages/landingpage/workshopDM/tech
 // Lazily loaded Workshop C (GENC) sections
 const WSGENCMentor = lazy(() => import("../pages/landingpage/workshopGENC/WSGENMentor"));
 
+// Lazily loaded Workshop D (GEND) sections
+const WSHeroGEND = lazy(() => import("../pages/landingpage/workshopGEND/WSHeroGEND"));
+const WSAboutGEND = lazy(() => import("../pages/landingpage/workshopGEND/WSAboutGEND"));
+const WSGENWhoShouldEnrollD = lazy(() => import("../pages/landingpage/workshopGEND/WSGENWhoShouldEnrollD"));
+const WSGENIntroductionD = lazy(() => import("../pages/landingpage/workshopGEND/WSGENIntroductionD"));
+const GENCTAD = lazy(() => import("../pages/landingpage/workshopGEND/GENCTAD"));
+const WSGENDMentor = lazy(() => import("../pages/landingpage/workshopGEND/WSGENDMentor"));
+const WSRegistrationSuccessD = lazy(() => import("../pages/landingpage/workshopGEND/WSRegistrationSuccessD"));
+
 // Workshop Components (already lazy)
 const WSHeroDA = lazy(() => import("../pages/landingpage/workshop/WSHero"));
 const WSAboutDA = lazy(() => import("../pages/landingpage/workshop/WSAbout"));
@@ -128,6 +137,18 @@ const WorkshopPageGENC = () => (
   </>
 );
 
+const WorkshopPageGEND = () => (
+  <>
+    <SEO />
+    <WSHeroGEND />
+    <WSAboutGEND />
+    <WSGENWhoShouldEnrollD />
+    <WSGENDMentor />
+    <WSGENIntroductionD />
+    <GENCTAD />
+  </>
+);
+
 const WorkshopPageDM = () => (
   <>
 
@@ -152,5 +173,7 @@ export const workshopRoutes = [
   <Route key="workshop-gen" path="/workshop/gen-ai-masterclass" element={<WorkshopPageGEN />} />,
   <Route key="workshop-genb" path="/workshop/gen-ai-masterclass-bxwcy" element={<WorkshopPageGENBTest />} />,
   <Route key="workshop-genc" path="/workshop/gen-ai-masterclass-thidtx" element={<WorkshopPageGENC />} />,
+  <Route key="workshop-gend" path="/workshop/gen-ai-masterclass-four" element={<WorkshopPageGEND />} />,
   <Route key="workshop-success" path="/workshop-registration/success" element={<WSRegistrationSuccess />} />,
+  <Route key="workshop-success-d" path="/workshop-registration/success-d" element={<WSRegistrationSuccessD />} />,
 ];
