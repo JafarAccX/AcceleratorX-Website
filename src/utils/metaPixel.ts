@@ -172,6 +172,8 @@ export const trackFormSubmission = async (
       access_token: accessToken,
     };
 
+    console.log("API Payload:", JSON.stringify(payload, null, 2));
+
     await fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
