@@ -74,11 +74,11 @@ const GENAICZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIDZoomDetails: ZoomMeetingDetails = {
-  title: "Start your automation with Flowwise",
-  link: "https://zoom.us/meeting/register/v6X24VyqSt26UvcxfL7J3g",
-  meetingId: "v6X24VyqSt26UvcxfL7J3g",
-  time: "10th Nov, 2025 07:00 PM India",
-  meetingCode: "99613499939",
+  title: "LLM Models & Fine tuning techniques",
+  link: "https://zoom.us/meeting/register/54eSRN5zS3e1zJLCgS-cKA",
+  meetingId: "54eSRN5zS3e1zJLCgS-cKA",
+  time: "11th Nov, 2025 07:00 PM India",
+  meetingCode: "97914767458",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

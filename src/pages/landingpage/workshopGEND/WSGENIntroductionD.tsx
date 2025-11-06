@@ -3,34 +3,34 @@ import { TrendingUp, Target, Brain } from "lucide-react";
 const WSGENIntroductionD = () => {
   const stats = [
     {
-      value: "88%",
-      label: "of past learners said they could create automations the same day.",
+      value: "92%",
+      label: "of past learners said they built a working AI project the same day.",
     },
     {
-      value: "95%",
-      label: "reported improved productivity and understanding of AI automation.",
+      value: "96%",
+      label: "reported a stronger understanding of fine-tuning workflows.",
     },
     {
       value: "Zero Complexity",
-      label: "Build, connect, and deploy in minutes.",
+      label: "— you'll see results in minutes.",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Automation Development Made Easy",
-      description: "No code, no chaos. Just drag, connect, and automate.",
+      title: "Hands-On Development",
+      description: "Real tasks, real data, real results.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
       title: "Live & Interactive",
-      description: "Build alongside your mentor and get instant feedback.",
+      description: "Learn directly from mentors, ask questions anytime.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Practical Deployment",
-      description: "Launch workflows that actually perform real tasks.",
+      title: "Instant Deployment",
+      description: "See your model come alive before the session ends.",
     },
   ];
 
@@ -72,17 +72,17 @@ const WSGENIntroductionD = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">Flowwise = Automation Made Simple</span>
+            <span className="text-sm text-blue-400 font-medium">LLMs = Custom Intelligence Made Simple</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Flowwise <span className="text-blue-500"> =</span> Automation Made Simple
+            LLMs <span className="text-blue-500"> =</span> Custom Intelligence Made Simple
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This workshop is not about watching slides — it's about building. By the end, you'll have your first Flowwise automation running live.
+            This is not a theory session — you'll actually train and test your own model live.
           </p>
 
           {/* Stats Grid */}

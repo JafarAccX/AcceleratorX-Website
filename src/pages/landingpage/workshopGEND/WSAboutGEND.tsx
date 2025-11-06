@@ -11,7 +11,7 @@ const WSAboutGEND = () => {
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center justify-center">
-          <img src="/langchain.webp" alt="Flowwise Workshop" className="rounded-2xl shadow-2xl" />
+          <img src="/langchain.webp" alt="LLM Models & Fine Tuning Workshop" className="rounded-2xl shadow-2xl" />
 
           <motion.div
             className="w-full space-y-8 col-span-2"
@@ -75,12 +75,12 @@ const WSAboutGEND = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Understand how Flowwise enables automation through visual workflows.",
-                        "Build your first automation from scratch — connect AI tools, APIs, and triggers.",
-                        "Learn to integrate Flowwise with OpenAI, webhooks, and custom data sources.",
-                        "Create intelligent, automated pipelines that actually save time.",
-                        "Test, optimize, and deploy your automation to production.",
-                        "Take away reusable templates for future projects and real-life workflows.",
+                        "Understand how LLMs work and what fine-tuning really means.",
+                        "Train your first model using open-source tools and datasets.",
+                        "Learn to fine-tune models like Mistral, Llama, or Falcon for custom tasks.",
+                        "Experiment with prompt-tuning and parameter-efficient techniques (LoRA, QLoRA).",
+                        "Evaluate and test model accuracy in real scenarios.",
+                        "Deploy your fine-tuned LLM for chatbots, assistants, and analytics tasks.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -117,11 +117,11 @@ const WSAboutGEND = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "The fundamentals of no-code and low-code automation using Flowwise.",
-                        "How to build automation systems using AI and logic-based nodes.",
-                        "Best practices for connecting APIs, chatbots, and AI models.",
-                        "Real-world automation examples — customer support, data processing, lead management.",
-                        "How to scale your automations across tools and platforms effortlessly.",
+                        "Core concepts of Large Language Models (LLMs).",
+                        "Step-by-step fine-tuning workflows for beginners.",
+                        "Techniques to improve model accuracy and reduce cost.",
+                        "Real-world applications: customer support, content generation, and automation.",
+                        "How to deploy and monitor your fine-tuned model safely.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

@@ -1924,6 +1924,7 @@ const routeLayouts = {
   "/workshop/pm-masterclass": { showNavbar: false, showFooter: false },
   "/workshop/gen-ai-masterclass": { showNavbar: false, showFooter: false },
   "/workshop/gen-ai-masterclass-bxwcy": { showNavbar: false, showFooter: false },
+  "/workshop/gen-ai-masterclass-four": { showNavbar: false, showFooter: false },
   // Course routes
   "/courses/generative-ai-fb": { showNavbar: false, showFooter: false },
   "/courses/product-management-program-fb": { showNavbar: false, showFooter: false },
@@ -2515,6 +2516,13 @@ const pageMetadata = {
     ogDescription: "Learn advanced AI models and workflows at AcceleratorX's GenAI workshop.",
     canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-thidtx"
   },
+  "/workshop/gen-ai-masterclass-four": {
+    title: "Flowwise Automation Workshop | AcceleratorX",
+    description: "Join AcceleratorX's hands-on Flowwise workshop to learn no-code AI automation, workflow design, and deployment strategies.",
+    ogTitle: "AcceleratorX Flowwise Automation Workshop",
+    ogDescription: "Master no-code AI automation with Flowwise at AcceleratorX's live workshop.",
+    canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-four"
+  },
   "/workshop-registration/success": {
     title: "Workshop Registration Success | AcceleratorX",
     description: "Your workshop registration at AcceleratorX is successful. Get ready to join expert-led sessions in Product, Data, Marketing, and AI.",
@@ -2631,10 +2639,10 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-kh2Tt5Zv.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-C69ZjsrG.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DHvUDhr8.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-CVckR0qQ.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-dBucjt8t.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-kStkpSnU.js"));
 const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cam4KhoN.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-EZsVJgMZ.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-D506NuM_.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-D706-TS9.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
 const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-CsYRdvME.js"));
 const AIEcosystem = lazy(() => import("./assets/AIEcosystem-C1i3iuzY.js"));
@@ -2647,19 +2655,26 @@ const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNz
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
 const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-D7VU9iLx.js"));
+const WSHeroGEND = lazy(() => import("./assets/WSHeroGEND-Cgyd6kJe.js"));
+const WSAboutGEND = lazy(() => import("./assets/WSAboutGEND-CIxp4d_N.js"));
+const WSGENWhoShouldEnrollD = lazy(() => import("./assets/WSGENWhoShouldEnrollD-enXu46W2.js"));
+const WSGENIntroductionD = lazy(() => import("./assets/WSGENIntroductionD-B9n7be7r.js"));
+const GENCTAD = lazy(() => import("./assets/GENCTAD-hnmhwvuL.js"));
+const WSGENDMentor = lazy(() => import("./assets/WSGENDMentor-BYcHXR1f.js"));
+const WSRegistrationSuccessD = lazy(() => import("./assets/WSRegistrationSuccessD-CnJEOw1A.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-NUqWM28L.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
-const WSHeroPM = lazy(() => import("./assets/WSHeroPM-Cxo7ke-G.js"));
+const WSHeroPM = lazy(() => import("./assets/WSHeroPM-B-b7r_F-.js"));
 const WSAboutPM = lazy(() => import("./assets/WSAboutPM-5Qeacfsd.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-CIFM4TvQ.js"));
-const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-CXTHZbus.js"));
+const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-VEuTE1Lt.js"));
 const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-gz2agjzY.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-B9vOFkHo.js"));
-const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-Dr_Rpkit.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-q3GoBBB-.js"));
+const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-Cx4KOyTZ.js"));
 const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-RepMJNvw.js"));
 const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-CzTA8TTt.js"));
 const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-CAyP_sUG.js"));
@@ -2712,6 +2727,15 @@ const WorkshopPageGENC = () => /* @__PURE__ */ jsxs(Fragment, { children: [
   /* @__PURE__ */ jsx(WSGENCMentor, {}),
   /* @__PURE__ */ jsx(GENCTAC, {})
 ] });
+const WorkshopPageGEND = () => /* @__PURE__ */ jsxs(Fragment, { children: [
+  /* @__PURE__ */ jsx(SEO, {}),
+  /* @__PURE__ */ jsx(WSHeroGEND, {}),
+  /* @__PURE__ */ jsx(WSAboutGEND, {}),
+  /* @__PURE__ */ jsx(WSGENWhoShouldEnrollD, {}),
+  /* @__PURE__ */ jsx(WSGENDMentor, {}),
+  /* @__PURE__ */ jsx(WSGENIntroductionD, {}),
+  /* @__PURE__ */ jsx(GENCTAD, {})
+] });
 const WorkshopPageDM = () => /* @__PURE__ */ jsxs(Fragment, { children: [
   /* @__PURE__ */ jsx(SEO, {}),
   /* @__PURE__ */ jsx(HeroSection, {}),
@@ -2730,7 +2754,9 @@ const workshopRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass", element: /* @__PURE__ */ jsx(WorkshopPageGEN, {}) }, "workshop-gen"),
   /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-bxwcy", element: /* @__PURE__ */ jsx(WorkshopPageGENBTest, {}) }, "workshop-genb"),
   /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-thidtx", element: /* @__PURE__ */ jsx(WorkshopPageGENC, {}) }, "workshop-genc"),
-  /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) }, "workshop-success")
+  /* @__PURE__ */ jsx(Route, { path: "/workshop/gen-ai-masterclass-four", element: /* @__PURE__ */ jsx(WorkshopPageGEND, {}) }, "workshop-gend"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) }, "workshop-success"),
+  /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success-d", element: /* @__PURE__ */ jsx(WSRegistrationSuccessD, {}) }, "workshop-success-d")
 ];
 const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-Dxs1c69-.js"));
 const DMFlyers = lazy(() => import("./assets/DMFlyers-Dh-Emtdy.js"));

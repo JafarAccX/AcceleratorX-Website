@@ -54,26 +54,26 @@ const WSGENDMentor = () => {
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-4">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-400 border border-blue-500/20">
                     <Server className="w-4 h-4" />
-                    Flowwise Expert
+                    LLM Expert
                   </span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-400 border border-purple-500/20">
                     <Github className="w-4 h-4" />
-                    Automation Specialist
+                    AI Researcher
                   </span>
                 </div>
 
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-start gap-2">
                     <Award className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
-                    <p>Ph.D. in Computer Science with expertise in AI Automation and Workflow Design</p>
+                    <p>Ph.D. in Computer Science with expertise in Large Language Models and Fine-tuning</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
-                    <p>Built custom automation workflows using Flowwise for multiple enterprises</p>
+                    <p>Fine-tuned multiple LLM models for enterprise applications and research projects</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <GraduationCap className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                    <p>Assistant Professor and AI Researcher at Parul University</p>
+                    <p>Assistant Professor and AI Researcher at Parul University specializing in NLP</p>
                   </div>
                 </div>
               </div>

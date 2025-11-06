@@ -5,22 +5,22 @@ const WSGENWhoShouldEnrollD = () => {
     {
       icon: Briefcase,
       title: "Professionals",
-      description: "Automate routine work and save hours every week.",
+      description: "Build AI tools tailored for your workflows.",
     },
     {
       icon: Laptop,
       title: "Students",
-      description: "Learn the tools shaping the future of AI-driven productivity.",
+      description: "Learn practical ML skills to stand out in projects and internships.",
     },
     {
       icon: Code,
-      title: "Entrepreneurs",
-      description: "Automate leads, marketing, and customer engagement.",
+      title: "Developers",
+      description: "Experiment with open models and custom datasets.",
     },
     {
       icon: Brain,
-      title: "Creatives",
-      description: "Build custom assistants and tools that simplify your workflow.",
+      title: "Entrepreneurs",
+      description: "Fine-tune LLMs for your product or startup use cases.",
     },
   ];
 
@@ -44,7 +44,7 @@ const WSGENWhoShouldEnrollD = () => {
             <span className="text-white">
               This workshop is for you if you've ever thought:
               <br />
-              "Automation sounds great, but I don't know where to start."
+              "I use ChatGPT, but I want to train my own version of it."
             </span>
           </h2>
         </div>

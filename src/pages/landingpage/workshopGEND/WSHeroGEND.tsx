@@ -40,30 +40,30 @@ const WSHeroGEND = () => {
           {/* Content Section */}
           <div className="w-full lg:w-1/2 space-y-6">
             {/* Pre-title */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-              <span className="text-green-400 font-medium text-sm">Hands-on Automation Workshop</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+              <span className="text-blue-400 font-medium text-sm">Hands-on AI Workshop</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-                <span className="text-yellow-400 underline">Start Your Automation</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-purple-100">
+                Master LLM Models & Fine-Tuning
                 <br />
-                with Flowwise
+                <span className="text-yellow-400">Train AI Models That Understand You</span>
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-              Learn how to automate workflows and build your own AI-driven systems using Flowwise — no coding expertise required.
+              Learn how to customize and fine-tune Large Language Models (LLMs) for your own use cases — no deep ML background needed.
             </p>
             <p className="text-lg text-gray-300 max-w-xl">
-              In this hands-on workshop, you'll learn how to create smart, automated flows step-by-step and deploy them instantly. No fluff. No theory. Just real-world automation you can implement right away.
+              In this hands-on workshop, you'll build and fine-tune an LLM step-by-step, test it on real data, and deploy it instantly. No heavy theory. Just practical learning and real-world AI implementation.
             </p>
 
             {/* Workshop Info Tag */}
-            <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg border border-green-500/20">
-              <div className="text-yellow-400 text-sm font-medium">Free Live Workshop – Build Real Automations</div>
+            <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
+              <div className="text-yellow-400 text-sm font-medium">Free Live Workshop – Master LLM Fine Tuning</div>
               <div className="block sm:hidden animate-pulse">
                 <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                   <circle cx="10" cy="10" r="8" />
@@ -78,7 +78,7 @@ const WSHeroGEND = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "10th Nov 2025",
+                  value: "11th Nov 2025",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
