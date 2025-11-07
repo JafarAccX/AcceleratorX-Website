@@ -10,6 +10,13 @@ const WSGENIntroductionB = lazy(() => import("../pages/landingpage/workshopGENB/
 const WSGENWhoShouldEnrollB = lazy(() => import("../pages/landingpage/workshopGENB/WSGENWhoShouldEnrollB"));
 const WSHeroGENB = lazy(() => import("../pages/landingpage/workshopGENB/WSHeroGENB"));
 
+// Lazily loaded Workshop E (GENE) sections
+const GENCTAE = lazy(() => import("../pages/landingpage/workshopGENE/GENCTAE"));
+const WSAboutGENE = lazy(() => import("../pages/landingpage/workshopGENE/WSAboutGENE"));
+const WSGENIntroductionE = lazy(() => import("../pages/landingpage/workshopGENE/WSGENIntroductionE"));
+const WSGENWhoShouldEnrollE = lazy(() => import("../pages/landingpage/workshopGENE/WSGENWhoShouldEnrollE"));
+const WSHeroGENE = lazy(() => import("../pages/landingpage/workshopGENE/WSHeroGENE"));
+
 // Lazily loaded Registration Success
 const WSRegistrationSuccess = lazy(() => import("../pages/landingpage/workshopGENC/WSRegistrationSuccess"));
 
@@ -149,6 +156,18 @@ const WorkshopPageGEND = () => (
   </>
 );
 
+const WorkshopPageGENETest = () => (
+  <>
+    <SEO />
+    <WSHeroGENE />
+    <WSAboutGENE />
+    <WSGENWhoShouldEnrollE />
+    <WSGENMentor />
+    <WSGENIntroductionE />
+    <GENCTAE />
+  </>
+);
+
 const WorkshopPageDM = () => (
   <>
 
@@ -174,6 +193,7 @@ export const workshopRoutes = [
   <Route key="workshop-genb" path="/workshop/gen-ai-masterclass-bxwcy" element={<WorkshopPageGENBTest />} />,
   <Route key="workshop-genc" path="/workshop/gen-ai-masterclass-thidtx" element={<WorkshopPageGENC />} />,
   <Route key="workshop-gend" path="/workshop/gen-ai-masterclass-four" element={<WorkshopPageGEND />} />,
+  <Route key="workshop-gene" path="/workshop/gen-ai-masterclass-fioth" element={<WorkshopPageGENETest />} />,
   <Route key="workshop-success" path="/workshop-registration/success" element={<WSRegistrationSuccess />} />,
   <Route key="workshop-success-d" path="/workshop-registration/success-d" element={<WSRegistrationSuccessD />} />,
 ];
