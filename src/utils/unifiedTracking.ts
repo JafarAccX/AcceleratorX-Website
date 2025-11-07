@@ -108,9 +108,9 @@ class UnifiedTrackingService {
 
       // Track the event
       if (parameters && Object.keys(parameters).length > 0) {
-        window.fbq('track', eventType, parameters, { eventID: finalEventId });
+        window.fbq('track', eventType, parameters);
       } else {
-        window.fbq('track', eventType, {}, { eventID: finalEventId });
+        window.fbq('track', eventType);
       }
 
       // Mark as fired

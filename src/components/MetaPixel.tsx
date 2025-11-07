@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useCourseContext } from "../context/courseContext";
-import { trackingService } from "../utils/unifiedTracking";
 
 const PIXEL_ID_DEFAULT = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
 const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT as string | undefined;
@@ -44,6 +43,18 @@ const loadFacebookPixel = () => {
     s = b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t, s);
   })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', null, null, null);
+};
+
+const initializePixel = (pixelId: string) => {
+  // Skip on server-side
+  if (typeof window === 'undefined' || !window.fbq) {
+    console.warn('Facebook Pixel not loaded');
+    return;
+  }
+  
+  // Initialize the pixel
+  window.fbq('init', pixelId);
+  console.log(`Meta Pixel initialized: ${pixelId}`);
 };
 
 console.log("Meta Pixel IDs:", {
@@ -143,29 +154,24 @@ export const MetaPixel = () => {
 
       // Initialize pixel if not already initialized
       if (!initializedPixelsRef.current.has(pixelId)) {
-        trackingService.initializePixel(pixelId);
+        initializePixel(pixelId);
         initializedPixelsRef.current.add(pixelId);
       }
 
       // Track events
       if (isPageViewRoute) {
         console.log(`Tracking PageView for pixel: ${pixelId}`);
-        trackingService.trackEvent('PageView', pixelId);
+        window.fbq('track', 'PageView');
       }
       
       if (isLeadRoute) {
         console.log(`Tracking Lead for pixel: ${pixelId}`);
-        trackingService.trackEvent('Lead', pixelId);
+        window.fbq('track', 'Lead');
       }
       
       if (isCompleteRegistrationRoute) {
-        const storedEventId = trackingService.getStoredEventId();
-        if (storedEventId) {
-          console.log(`Tracking CompleteRegistration for pixel: ${pixelId} with eventId: ${storedEventId}`);
-          trackingService.trackEvent('CompleteRegistration', pixelId, storedEventId);
-        } else {
-          console.warn('No stored eventId for CompleteRegistration');
-        }
+        console.log(`Tracking CompleteRegistration for pixel: ${pixelId}`);
+        window.fbq('track', 'CompleteRegistration');
       }
     };
 
