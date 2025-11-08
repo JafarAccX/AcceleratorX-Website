@@ -302,7 +302,7 @@ const BlogDetail: React.FC = () => {
                 className="w-10 h-10 rounded-full"
               />
             )}
-            <div>
+            <div className="flex gap-4 items-center">
               <p className="font-medium">{blog.Author?.FullName}</p>
               <p className="text-gray-400 text-sm">
                 {new Date(blog.CreatedAt).toLocaleDateString("en-US", {
