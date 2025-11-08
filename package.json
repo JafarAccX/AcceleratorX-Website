@@ -13,6 +13,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.31.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.18",
@@ -45,6 +46,7 @@
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
     "dotted-map": "^2.2.3",
+    "editorjs-html": "^4.0.5",
     "express": "^4.21.2",
     "framer-motion": "^11.18.2",
     "lottie-react": "^2.4.0",

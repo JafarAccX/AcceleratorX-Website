@@ -92,7 +92,6 @@ async function sendWhatsAppMessage({
       throw new Error("WhatsApp message sending failed");
     }
 
-    //       // console.log('WhatsApp message sent successfully!');
   } catch (error) {
     console.error("Error sending WhatsApp message:", error);
   }

@@ -54,14 +54,8 @@ const initializePixel = (pixelId: string) => {
   
   // Initialize the pixel
   window.fbq('init', pixelId);
-  console.log(`Meta Pixel initialized: ${pixelId}`);
 };
 
-console.log("Meta Pixel IDs:", {
-  default: PIXEL_ID_DEFAULT,
-  da: PIXEL_ID_DA,
-  daSecond: PIXEL_ID_DA_SECOND
-});
 
 const PAGE_VIEW_ROUTES = [
   "/courses/product-management-program-fb",
@@ -115,19 +109,7 @@ export const MetaPixel = () => {
   // Debug logging
   useEffect(() => {
     if (!isClient) return;
-    
-    console.log("MetaPixel Debug:", {
-      route: location.pathname,
-      pixelId,
-      isPageViewRoute,
-      isLeadRoute,
-      isCompleteRegistrationRoute,
-      isDaRoute,
-      isDaRouteSecond,
-      isAIDMRoute,
-      isAIDMCourse,
-      fbqAvailable: !!window.fbq
-    });
+
   }, [isClient, location.pathname, pixelId, isPageViewRoute, isLeadRoute, isCompleteRegistrationRoute, isDaRoute, isDaRouteSecond, isAIDMRoute, isAIDMCourse]);
 
   useEffect(() => {

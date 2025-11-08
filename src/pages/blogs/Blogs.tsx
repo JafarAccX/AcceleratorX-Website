@@ -1,13 +1,16 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { ChevronLeft, Calendar, Clock, User, ArrowLeft } from "lucide-react";
+import { useState, useCallback, useEffect } from "react";
+import { ChevronLeft, Calendar, User, ArrowLeft, Eye, Heart } from "lucide-react";
 import toast from "react-hot-toast";
-import { Blog } from "../../utils/types";
+import { BlogPost } from "../../utils/types";
 import { blogService } from "../../services/blogService";
+import EditorJSHTML from 'editorjs-html';
+import type { OutputData } from '@editorjs/editorjs';
+import './BlogContent.css';
 
 function Blogs() {
   const [state, setState] = useState<{
-    selectedBlog: Blog | null;
-    blogs: Blog[];
+    selectedBlog: BlogPost | null;
+    blogs: BlogPost[];
     loading: boolean;
   }>({
     selectedBlog: null,
@@ -21,26 +24,64 @@ function Blogs() {
 
   const fetchBlogs = async () => {
     try {
+      console.log('📰 [BLOGS PAGE] Starting to fetch blogs...');
       const blogs = await blogService.getBlogs();
+      console.log('📰 [BLOGS PAGE] ✅ Fetched blogs:', blogs.length);
+      console.log('📰 [BLOGS PAGE] First blog:', blogs[0]);
       setState((prev) => ({ ...prev, blogs, loading: false }));
     } catch (error) {
-      console.error("Error fetching blogs:", error);
+      console.error("📰 [BLOGS PAGE] ❌ Error fetching blogs:", error);
       toast.error("Failed to fetch blogs");
       setState((prev) => ({ ...prev, loading: false }));
     }
   };
 
-  const handleBlogClick = useCallback((blog: Blog | null) => {
+  const handleBlogClick = useCallback((blog: BlogPost | null) => {
     setState((prev) => ({ ...prev, selectedBlog: blog }));
   }, []);
 
-  const BlogPost = ({ blog, onBack }: { blog: Blog; onBack: () => void }) => (
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const renderContent = (content: Record<string, unknown> | unknown): string => {
+    if (!content) return '<p>No content available</p>';
+
+    try {
+      // If content is already a string (HTML), return it
+      if (typeof content === 'string') {
+        return content;
+      }
+
+      // If content is EditorJS format, parse it
+      if (content && typeof content === 'object' && 'blocks' in content) {
+        const editorjsHTML = EditorJSHTML();
+        const editorData = content as OutputData;
+        if (editorData.blocks && Array.isArray(editorData.blocks)) {
+          const htmlArray = editorjsHTML.parse(editorData);
+          return Array.isArray(htmlArray) ? htmlArray.join('') : String(htmlArray);
+        }
+      }
+
+      // Fallback: stringify the object
+      return `<pre>${JSON.stringify(content, null, 2)}</pre>`;
+    } catch (error) {
+      console.error('Error parsing blog content:', error);
+      return '<p>Error displaying content</p>';
+    }
+  };
+
+  const BlogPost = ({ blog, onBack }: { blog: BlogPost; onBack: () => void }) => (
     <article className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
       <div className="relative h-[400px]">
-        {blog.cover_image ? (
+        {blog.CoverImage ? (
           <img
-            src={blog.cover_image}
-            alt={blog.title}
+            src={blog.CoverImage}
+            alt={blog.Title}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -56,29 +97,43 @@ function Blogs() {
         </button>
       </div>
       <div className="p-8">
-        <h1 className="text-3xl font-bold mb-4 text-gray-900">{blog.title}</h1>
+        <h1 className="text-3xl font-bold mb-4 text-gray-900">{blog.Title}</h1>
         <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
-          {blog.date && (
+          {blog.PublishedAt && (
             <div className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
-              <span>{blog.date}</span>
+              <span>{formatDate(blog.PublishedAt)}</span>
             </div>
           )}
-          {blog.read_time && (
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              <span>{blog.read_time} min read</span>
-            </div>
-          )}
-          {blog.author && (
+          {blog.Author && (
             <div className="flex items-center gap-1">
               <User className="w-4 h-4" />
-              <span>{blog.author}</span>
+              <span>{blog.Author.FullName}</span>
             </div>
           )}
+          <div className="flex items-center gap-1">
+            <Eye className="w-4 h-4" />
+            <span>{blog.ViewsCount} views</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Heart className="w-4 h-4" />
+            <span>{blog.LikesCount} likes</span>
+          </div>
         </div>
+        {blog.Categories && blog.Categories.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {blog.Categories.map((category) => (
+              <span
+                key={category.Id}
+                className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+              >
+                {category.Name}
+              </span>
+            ))}
+          </div>
+        )}
         <div className="prose prose-lg max-w-none">
-          <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+          <div dangerouslySetInnerHTML={{ __html: renderContent(blog.Content) }} />
         </div>
       </div>
     </article>
@@ -114,15 +169,15 @@ function Blogs() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {state.blogs.map((blog) => (
               <div
-                key={blog.id}
+                key={blog.Id}
                 onClick={() => handleBlogClick(blog)}
                 className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl"
               >
                 <div className="relative h-48">
-                  {blog.cover_image ? (
+                  {blog.CoverImage ? (
                     <img
-                      src={blog.cover_image}
-                      alt={blog.title}
+                      src={blog.CoverImage}
+                      alt={blog.Title}
                       className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
                     />
                   ) : (
@@ -133,29 +188,41 @@ function Blogs() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                    {blog.date && (
+                    {blog.PublishedAt && (
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{blog.date}</span>
+                        <span>{formatDate(blog.PublishedAt)}</span>
                       </div>
                     )}
-                    {blog.read_time && (
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{blog.read_time} min read</span>
-                      </div>
-                    )}
+                    <div className="flex items-center gap-1">
+                      <Eye className="w-4 h-4" />
+                      <span>{blog.ViewsCount} views</span>
+                    </div>
                   </div>
                   <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
-                    {blog.title}
+                    {blog.Title}
                   </h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {blog.excerpt}
-                  </p>
-                  {blog.author && (
+                  {blog.Excerpt && (
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {blog.Excerpt}
+                    </p>
+                  )}
+                  {blog.Author && (
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <User className="w-4 h-4" />
-                      <span>{blog.author}</span>
+                      <span>{blog.Author.FullName}</span>
+                    </div>
+                  )}
+                  {blog.Categories && blog.Categories.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {blog.Categories.slice(0, 2).map((category) => (
+                        <span
+                          key={category.Id}
+                          className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+                        >
+                          {category.Name}
+                        </span>
+                      ))}
                     </div>
                   )}
                   <div className="mt-4 flex items-center text-blue-600 hover:text-blue-800 transition-colors">

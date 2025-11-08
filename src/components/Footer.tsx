@@ -45,7 +45,7 @@ const footerLinks: {
     title: "Company",
     links: [
       { label: "About", url: "/about-us" },
-      // { label: "Blog", url: "/blogs" },
+      { label: "Blog", url: "/blogs" },
       { label: "Privacy Policy", url: "/privacy-policy" },
       { label: "Terms & Conditions", url: "/terms-and-conditions" },
       { label: "Refund Policy", url: "/refund-policy" },

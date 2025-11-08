@@ -11,8 +11,9 @@ const RegistrationSuccess = lazy(() => import("../pages/events/registration-succ
 
 // Lazy imports for main routes
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
-const AboutPage = lazy(() => import("../pages/courses/EntryPoint/AboutPage")); 
-// const Blogs = lazy(() => import("../pages/blogs/Blogs"));
+const AboutPage = lazy(() => import("../pages/courses/EntryPoint/AboutPage"));
+const BlogList = lazy(() => import("../pages/blogs/BlogList"));
+const BlogDetail = lazy(() => import("../pages/blogs/BlogDetail"));
 const Login = lazy(() => import("../pages/auth/Login"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy"));
 const Terms = lazy(() => import("../pages/Terms/Terms"));
@@ -31,8 +32,9 @@ const Events = lazy(() => import("../pages/events/Events"));
 
 export const mainRoutes = [
   <Route key="home" path="/" element={<HomePage />} />,
-  <Route key="about" path="/about-us" element={<AboutPage />} />, 
-  // <Route path="/blogs" element={<Blogs />} />,
+  <Route key="about" path="/about-us" element={<AboutPage />} />,
+  <Route key="blogs" path="/blogs" element={<BlogList />} />,
+  <Route key="blog-detail" path="/blogs/:slug" element={<BlogDetail />} />,
   <Route key="login" path="/login" element={<Login />} />,
   <Route key="privacy" path="/privacy-policy" element={<Privacy />} />,
   <Route key="terms" path="/terms-and-conditions" element={<Terms />} />,

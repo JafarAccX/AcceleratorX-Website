@@ -49,7 +49,7 @@ export default function Navbar() {
 
   const menuItems = [
     { label: "About", path: "/about-us" },
-    // { label: "Blog", path: "/blogs" },
+    { label: "Blog", path: "/blogs" },
     { label: "Jobs Portal", path: "/jobs" },
     { label: "New Events", path: "/events" },
   ];
