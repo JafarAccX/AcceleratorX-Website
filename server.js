@@ -44,7 +44,7 @@ async function createServer() {
         const slug = blogSlugMatch[1];
         console.log(`🔍 [SSR] Detected blog route, fetching data for slug: ${slug}`);
         try {
-          const backendUrl = process.env.VITE_API_BASE_URL || 'http://localhost:3020';
+          const backendUrl = process.env.API_BASE_URL || 'http://localhost:3020';
           const response = await fetch(`${backendUrl}/api/blogs/${slug}`);
           if (response.ok) {
             const result = await response.json();
