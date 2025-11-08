@@ -1,7 +1,7 @@
 import { BlogPost, BlogCategory, BlogTag, BlogComment } from "../utils/types";
 
 // API base URL - adjust this to match your backend URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3020';
+const VITE_BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:3020';
 
 interface GetBlogPostsParams {
   page?: number;
@@ -30,8 +30,6 @@ interface ApiResponse<T = void> {
 export const blogService = {
   async getBlogs(params: GetBlogPostsParams = {}): Promise<BlogPost[]> {
     try {
-      console.log('🌐 [BLOG SERVICE] Fetching blogs with params:', params);
-      console.log('🌐 [BLOG SERVICE] API URL:', API_BASE_URL);
       
       const queryParams = new URLSearchParams();
       if (params.page) queryParams.append('page', params.page.toString());
@@ -41,28 +39,19 @@ export const blogService = {
       if (params.author) queryParams.append('author', params.author);
       if (params.search) queryParams.append('search', params.search);
 
-      const url = `${API_BASE_URL}api/blogs?${queryParams}`;
-      console.log('🌐 [BLOG SERVICE] Full URL:', url);
+      const url = `${VITE_BACKEND_URL}/api/blogs?${queryParams}`;
 
       const response = await fetch(url);
-      console.log('🌐 [BLOG SERVICE] Response status:', response.status);
-      console.log('🌐 [BLOG SERVICE] Response ok:', response.ok);
       
       const result: ApiResponse<GetBlogPostsResponse> = await response.json();
-      console.log('🌐 [BLOG SERVICE] Response data:', {
-        success: result.success,
-        message: result.message,
-        postsCount: result.data?.posts?.length || 0,
-        total: result.data?.total
-      });
+
 
       if (!result.success) {
         console.error('🌐 [BLOG SERVICE] ❌ API returned error:', result.message);
         throw new Error(result.message || 'Failed to fetch blogs');
       }
 
-      console.log('🌐 [BLOG SERVICE] ✅ Returning', result.data?.posts?.length || 0, 'blogs');
-      return result.data?.posts || [];
+    return result.data?.posts || [];
     } catch (error) {
       console.error('🌐 [BLOG SERVICE] ❌ Error fetching blogs:', error);
       throw error;
@@ -71,7 +60,7 @@ export const blogService = {
 
   async getBlogBySlug(slug: string): Promise<BlogPost | null> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/${slug}`);
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/${slug}`);
       const result: ApiResponse<BlogPost> = await response.json();
 
       if (!result.success) {
@@ -88,7 +77,7 @@ export const blogService = {
 
   async getBlogCategories(): Promise<BlogCategory[]> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/meta/categories`);
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/meta/categories`);
       const result: ApiResponse<BlogCategory[]> = await response.json();
 
       if (!result.success) {
@@ -104,7 +93,7 @@ export const blogService = {
 
   async getBlogTags(): Promise<BlogTag[]> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/meta/tags`);
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/meta/tags`);
       const result: ApiResponse<BlogTag[]> = await response.json();
 
       if (!result.success) {
@@ -120,7 +109,7 @@ export const blogService = {
 
   async getBlogComments(postId: string): Promise<BlogComment[]> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/${postId}/comments`);
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/${postId}/comments`);
       const result: ApiResponse<BlogComment[]> = await response.json();
 
       if (!result.success) {
@@ -136,7 +125,7 @@ export const blogService = {
 
   async createBlogView(postId: string, ipAddress?: string): Promise<void> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/views`, {
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/views`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +149,7 @@ export const blogService = {
 
   async createBlogLike(postId: string, userId?: string, ipAddress?: string): Promise<void> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/likes`, {
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/likes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -191,7 +180,7 @@ export const blogService = {
     parentId?: string
   ): Promise<BlogComment> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/comments`, {
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -224,7 +213,7 @@ export const blogService = {
     ipAddress?: string
   ): Promise<{ liked: boolean }> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/comments/likes`, {
+      const response = await fetch(`${VITE_BACKEND_URL}/api/blogs/comments/likes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
