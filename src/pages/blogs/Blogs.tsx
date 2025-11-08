@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { ChevronLeft, Calendar, User, ArrowLeft, Eye, Heart } from "lucide-react";
 import toast from "react-hot-toast";
 import { BlogPost } from "../../utils/types";
@@ -149,6 +150,72 @@ function Blogs() {
 
   return (
     <div className="min-h-screen bg-black">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Blog | AcceleratorX - Insights on AI, Data & Product Management</title>
+        <meta name="title" content="Blog | AcceleratorX - Insights on AI, Data & Product Management" />
+        <meta 
+          name="description" 
+          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing. Stay updated with the latest trends and best practices." 
+        />
+        <link rel="canonical" href="https://www.acceleratorx.org/blogs" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.acceleratorx.org/blogs" />
+        <meta property="og:title" content="Blog | AcceleratorX - Insights on AI, Data & Product Management" />
+        <meta 
+          property="og:description" 
+          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing." 
+        />
+        <meta property="og:image" content="https://www.acceleratorx.org/companylogo-new.webp" />
+        <meta property="og:site_name" content="AcceleratorX" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.acceleratorx.org/blogs" />
+        <meta property="twitter:title" content="Blog | AcceleratorX - Insights on AI, Data & Product Management" />
+        <meta 
+          property="twitter:description" 
+          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing." 
+        />
+        <meta property="twitter:image" content="https://www.acceleratorx.org/companylogo-new.webp" />
+
+        {/* Additional SEO Tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Structured Data - JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "AcceleratorX Blog",
+            "description": "Expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing",
+            "url": "https://www.acceleratorx.org/blogs",
+            "publisher": {
+              "@type": "Organization",
+              "name": "AcceleratorX",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.acceleratorx.org/companylogo-new.webp"
+              }
+            },
+            "blogPost": state.blogs.slice(0, 10).map(blog => ({
+              "@type": "BlogPosting",
+              "headline": blog.Title,
+              "description": blog.Excerpt || "",
+              "image": blog.CoverImage || "https://www.acceleratorx.org/companylogo-new.webp",
+              "datePublished": blog.PublishedAt || blog.CreatedAt,
+              "author": {
+                "@type": "Person",
+                "name": blog.Author?.FullName || "AcceleratorX"
+              },
+              "url": `https://www.acceleratorx.org/blogs/${blog.Slug}`
+            }))
+          })}
+        </script>
+      </Helmet>
+
       {state.selectedBlog ? (
         <div className="py-8 px-4">
           <BlogPost

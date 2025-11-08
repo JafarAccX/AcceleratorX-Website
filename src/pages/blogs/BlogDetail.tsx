@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import EditorJSHTML from "editorjs-html";
 import { OutputData } from "@editorjs/editorjs";
@@ -269,6 +270,10 @@ const BlogDetail: React.FC = () => {
   if (!blog)
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <Helmet>
+          <title>Blog Not Found | AcceleratorX</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Blog Not Found</h1>
           <Link to="/blogs" className="text-blue-400 hover:text-blue-300">
@@ -278,9 +283,96 @@ const BlogDetail: React.FC = () => {
       </div>
     );
 
+  // Prepare SEO data
+  const metaTitle = blog.SEO_MetaTitle || blog.Title || "Blog Post | AcceleratorX";
+  const metaDescription = blog.SEO_MetaDescription || blog.Excerpt || "Read this insightful blog post on AcceleratorX.";
+  const canonicalUrl = `https://www.acceleratorx.org/blogs/${blog.Slug}`;
+  const ogImage = blog.CoverImage || "https://www.acceleratorx.org/companylogo-new.webp";
+  const publishedDate = blog.PublishedAt ? new Date(blog.PublishedAt).toISOString() : new Date(blog.CreatedAt).toISOString();
+  const modifiedDate = blog.UpdatedAt ? new Date(blog.UpdatedAt).toISOString() : publishedDate;
+
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
-      <article className="max-w-4xl mx-auto px-4 py-12">
+    <>
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>{metaTitle}</title>
+        <meta name="title" content={metaTitle} />
+        <meta name="description" content={metaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:site_name" content="AcceleratorX" />
+        <meta property="article:published_time" content={publishedDate} />
+        <meta property="article:modified_time" content={modifiedDate} />
+        {blog.Author?.FullName && (
+          <meta property="article:author" content={blog.Author.FullName} />
+        )}
+        {blog.Categories && blog.Categories.length > 0 && (
+          <meta property="article:section" content={blog.Categories[0].Name} />
+        )}
+        {blog.Tags && blog.Tags.map((tag) => (
+          <meta key={tag.Id} property="article:tag" content={tag.Name} />
+        ))}
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalUrl} />
+        <meta property="twitter:title" content={metaTitle} />
+        <meta property="twitter:description" content={metaDescription} />
+        <meta property="twitter:image" content={ogImage} />
+
+        {/* Additional SEO Tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content={blog.Author?.FullName || "AcceleratorX"} />
+        {blog.Tags && blog.Tags.length > 0 && (
+          <meta name="keywords" content={blog.Tags.map(tag => tag.Name).join(", ")} />
+        )}
+
+        {/* Structured Data - JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": blog.Title,
+            "description": metaDescription,
+            "image": ogImage,
+            "datePublished": publishedDate,
+            "dateModified": modifiedDate,
+            "author": {
+              "@type": "Person",
+              "name": blog.Author?.FullName || "AcceleratorX",
+              ...(blog.Author?.ProfileImage && { "image": blog.Author.ProfileImage }),
+              ...(blog.Author?.Email && { "email": blog.Author.Email })
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AcceleratorX",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.acceleratorx.org/companylogo-new.webp"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": canonicalUrl
+            },
+            ...(blog.Categories && blog.Categories.length > 0 && {
+              "articleSection": blog.Categories.map(cat => cat.Name)
+            }),
+            ...(blog.Tags && blog.Tags.length > 0 && {
+              "keywords": blog.Tags.map(tag => tag.Name).join(", ")
+            })
+          })}
+        </script>
+      </Helmet>
+
+      <div className="min-h-screen bg-black text-white pt-20">
+        <article className="max-w-4xl mx-auto px-4 py-12">
         {blog.CoverImage && (
           <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden">
             <img
@@ -477,6 +569,7 @@ const BlogDetail: React.FC = () => {
         </div>
       </article>
     </div>
+    </>
   );
 };
 

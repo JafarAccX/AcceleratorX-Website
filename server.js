@@ -37,7 +37,235 @@ async function createServer() {
         render = (await import('./dist/server/entry-server.js')).render
       }
 
-      const { html: appHtml } = render(url, {})
+      // Fetch blog data on server-side if it's a blog route
+      let blogData = null;
+      const blogSlugMatch = url.match(/^\/blogs\/([^\/\?]+)/);
+      if (blogSlugMatch) {
+        const slug = blogSlugMatch[1];
+        console.log(`🔍 [SSR] Detected blog route, fetching data for slug: ${slug}`);
+        try {
+          const backendUrl = process.env.VITE_API_BASE_URL || 'http://localhost:3020';
+          const response = await fetch(`${backendUrl}/api/blogs/${slug}`);
+          if (response.ok) {
+            const result = await response.json();
+            blogData = result.data;
+            console.log(`✅ [SSR] Blog data fetched successfully:`, blogData?.Title);
+          } else {
+            console.log(`⚠️ [SSR] Blog not found for slug: ${slug}`);
+          }
+        } catch (error) {
+          console.error(`❌ [SSR] Error fetching blog data:`, error);
+        }
+      }
+
+      const { html: appHtml, context } = render(url, { blogData })
+      
+      // Extract helmet context for meta tags
+      const { helmet } = context || {};
+      const helmetData = helmet?.helmet || {};
+      
+      // If we have blog data, inject meta tags directly
+      let customMetaTags = '';
+      let blogContentHTML = '';
+      
+      if (blogData) {
+        const metaTitle = blogData.SEO_MetaTitle || blogData.Title || "Blog Post | AcceleratorX";
+        const metaDescription = blogData.SEO_MetaDescription || blogData.Excerpt || "Read this insightful blog post on AcceleratorX.";
+        const canonicalUrl = `https://www.acceleratorx.org/blogs/${blogData.Slug}`;
+        const ogImage = blogData.CoverImage || "https://www.acceleratorx.org/companylogo-new.webp";
+        const publishedDate = blogData.PublishedAt ? new Date(blogData.PublishedAt).toISOString() : new Date(blogData.CreatedAt).toISOString();
+        const modifiedDate = blogData.UpdatedAt ? new Date(blogData.UpdatedAt).toISOString() : publishedDate;
+
+        // Parse EditorJS content to HTML for SSR
+        let contentHTML = '';
+        if (blogData.Content) {
+          try {
+            if (typeof blogData.Content === 'string') {
+              contentHTML = blogData.Content;
+            } else if (blogData.Content.blocks && Array.isArray(blogData.Content.blocks)) {
+              // Simple EditorJS to HTML conversion for SSR
+              contentHTML = blogData.Content.blocks.map(block => {
+                switch(block.type) {
+                  case 'header':
+                    const level = block.data.level || 2;
+                    return `<h${level}>${block.data.text}</h${level}>`;
+                  case 'paragraph':
+                    return `<p>${block.data.text}</p>`;
+                  case 'list':
+                    const tag = block.data.style === 'ordered' ? 'ol' : 'ul';
+                    const items = block.data.items.map(item => `<li>${item}</li>`).join('');
+                    return `<${tag}>${items}</${tag}>`;
+                  case 'quote':
+                    return `<blockquote><p>${block.data.text}</p>${block.data.caption ? `<cite>${block.data.caption}</cite>` : ''}</blockquote>`;
+                  case 'code':
+                    return `<pre><code>${block.data.code}</code></pre>`;
+                  case 'delimiter':
+                    return `<hr />`;
+                  case 'image':
+                    return `<figure><img src="${block.data.file.url}" alt="${block.data.caption || ''}" />${block.data.caption ? `<figcaption>${block.data.caption}</figcaption>` : ''}</figure>`;
+                  default:
+                    return '';
+                }
+              }).join('\n');
+            }
+          } catch (error) {
+            console.error('Error parsing blog content for SSR:', error);
+            contentHTML = '<p>Content unavailable</p>';
+          }
+        }
+
+        // Generate blog content HTML for SSR
+        blogContentHTML = `
+          <article class="max-w-4xl mx-auto px-4 py-12">
+            ${blogData.CoverImage ? `
+            <div class="relative h-[400px] mb-8 rounded-xl overflow-hidden">
+              <img src="${blogData.CoverImage}" alt="${blogData.Title}" class="w-full h-full object-cover" />
+            </div>
+            ` : ''}
+            
+            <h1 class="text-4xl font-bold mb-4 text-white">${blogData.Title}</h1>
+            
+            <div class="flex items-center justify-between mb-8 pb-8 border-b border-gray-800">
+              <div class="flex items-center space-x-4 text-gray-400">
+                ${blogData.Author ? `
+                <div class="flex items-center space-x-2">
+                  ${blogData.Author.ProfileImage ? `<img src="${blogData.Author.ProfileImage}" alt="${blogData.Author.FullName}" class="w-10 h-10 rounded-full" />` : ''}
+                  <div>
+                    <p class="text-white font-medium">${blogData.Author.FullName}</p>
+                    <p class="text-sm">${new Date(blogData.PublishedAt || blogData.CreatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                  </div>
+                </div>
+                ` : ''}
+              </div>
+              <div class="flex items-center space-x-6 text-gray-400">
+                <div class="flex items-center space-x-2">
+                  <span>👁️</span>
+                  <span>${blogData.ViewsCount || 0} views</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span>❤️</span>
+                  <span>${blogData.LikesCount || 0}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="prose prose-lg prose-invert max-w-none BlogContent">
+              ${contentHTML}
+            </div>
+          </article>
+        `;
+
+        customMetaTags = `
+    <!-- SEO Meta Tags -->
+    <title>${metaTitle}</title>
+    <meta name="title" content="${metaTitle}" />
+    <meta name="description" content="${metaDescription}" />
+    <link rel="canonical" href="${canonicalUrl}" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="${canonicalUrl}" />
+    <meta property="og:title" content="${metaTitle}" />
+    <meta property="og:description" content="${metaDescription}" />
+    <meta property="og:image" content="${ogImage}" />
+    <meta property="og:site_name" content="AcceleratorX" />
+    <meta property="article:published_time" content="${publishedDate}" />
+    <meta property="article:modified_time" content="${modifiedDate}" />
+    ${blogData.Author?.FullName ? `<meta property="article:author" content="${blogData.Author.FullName}" />` : ''}
+    ${blogData.Categories && blogData.Categories.length > 0 ? `<meta property="article:section" content="${blogData.Categories[0].Name}" />` : ''}
+    ${blogData.Tags ? blogData.Tags.map(tag => `<meta property="article:tag" content="${tag.Name}" />`).join('\n    ') : ''}
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="${canonicalUrl}" />
+    <meta property="twitter:title" content="${metaTitle}" />
+    <meta property="twitter:description" content="${metaDescription}" />
+    <meta property="twitter:image" content="${ogImage}" />
+    
+    <!-- Additional SEO Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="${blogData.Author?.FullName || 'AcceleratorX'}" />
+    ${blogData.Tags && blogData.Tags.length > 0 ? `<meta name="keywords" content="${blogData.Tags.map(tag => tag.Name).join(', ')}" />` : ''}
+    
+    <!-- Structured Data - JSON-LD -->
+    <script type="application/ld+json">
+    ${JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": blogData.Title,
+      "description": metaDescription,
+      "image": ogImage,
+      "datePublished": publishedDate,
+      "dateModified": modifiedDate,
+      "author": {
+        "@type": "Person",
+        "name": blogData.Author?.FullName || "AcceleratorX",
+        ...(blogData.Author?.ProfileImage && { "image": blogData.Author.ProfileImage }),
+        ...(blogData.Author?.Email && { "email": blogData.Author.Email })
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AcceleratorX",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.acceleratorx.org/companylogo-new.webp"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      },
+      ...(blogData.Categories && blogData.Categories.length > 0 && {
+        "articleSection": blogData.Categories.map(cat => cat.Name)
+      }),
+      ...(blogData.Tags && blogData.Tags.length > 0 && {
+        "keywords": blogData.Tags.map(tag => tag.Name).join(", ")
+      })
+    })}
+    </script>`;
+      }
+      
+      // Inject helmet meta tags into the template
+      let htmlWithMeta = template;
+      
+      // If we have blog content HTML, inject it for SSR
+      if (blogContentHTML) {
+        // Replace ssr-outlet with actual blog content
+        htmlWithMeta = htmlWithMeta.replace(
+          '<!--ssr-outlet-->',
+          `<div class="min-h-screen bg-black text-white pt-20">
+            ${blogContentHTML}
+          </div>`
+        );
+        // Also replace app-html placeholder if it exists
+        htmlWithMeta = htmlWithMeta.replace('<!--app-html-->', '');
+      } else {
+        // No blog data, use the React app HTML
+        htmlWithMeta = htmlWithMeta.replace('<!--app-html-->', appHtml);
+      }
+      
+      // If we have custom meta tags from blog data, inject them
+      if (customMetaTags) {
+        htmlWithMeta = htmlWithMeta.replace(
+          '</head>',
+          `${customMetaTags}\n  </head>`
+        );
+      } else if (helmetData) {
+        // Otherwise use helmet data
+        const headTags = [
+          helmetData.title?.toString() || '',
+          helmetData.meta?.toString() || '',
+          helmetData.link?.toString() || '',
+          helmetData.script?.toString() || ''
+        ].filter(Boolean).join('\n');
+        
+        if (headTags) {
+          htmlWithMeta = htmlWithMeta.replace(
+            '</head>',
+            `${headTags}\n  </head>`
+          );
+        }
+      }
       
       // Import and use the metadata function to get page-specific data
       let pageMetadata;
@@ -379,36 +607,48 @@ async function createServer() {
         };
       }
       
-      // Replace the existing meta tags with page-specific ones
-      let html = template
-        // Replace title
-        .replace(/<title>.*?<\/title>/, `<title>${pageMetadata.title}</title>`)
-        // Replace meta name="title"
-        .replace(/<meta name="title"[^>]*>/g, `<meta name="title" content="${pageMetadata.ogTitle}" />`)
-        // Replace meta name="description"
-        .replace(/<meta name="description"[^>]*>/g, `<meta name="description" content="${pageMetadata.description}" />`)
-        // Replace Open Graph tags
-        .replace(/<meta property="og:title"[^>]*>/g, `<meta property="og:title" content="${pageMetadata.ogTitle}" />`)
-        .replace(/<meta property="og:description"[^>]*>/g, `<meta property="og:description" content="${pageMetadata.ogDescription}" />`)
-        .replace(/<meta property="og:url"[^>]*>/g, `<meta property="og:url" content="${pageMetadata.canonicalUrl}" />`)
-        .replace(/<meta property="og:image"[^>]*>/g, `<meta property="og:image" content="https://www.acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />`)
-        // Replace Twitter tags
-        .replace(/<meta property="twitter:title"[^>]*>/g, `<meta property="twitter:title" content="${pageMetadata.ogTitle}" />`)
-        .replace(/<meta property="twitter:description"[^>]*>/g, `<meta property="twitter:description" content="${pageMetadata.ogDescription}" />`)
-        .replace(/<meta property="twitter:url"[^>]*>/g, `<meta property="twitter:url" content="${pageMetadata.canonicalUrl}" />`)
-        .replace(/<meta property="twitter:image"[^>]*>/g, `<meta property="twitter:image" content="https://www.acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />`)
+      // Replace the existing meta tags with page-specific ones (only if we don't have blog data)
+      let html = htmlWithMeta;
+      if (!blogData && !customMetaTags) {
+        html = html
+          // Replace title (only if helmet didn't provide one)
+          .replace(/<title>.*?<\/title>/, helmetData.title?.toString() || `<title>${pageMetadata.title}</title>`)
+          // Replace meta name="title" (if not already in helmet)
+          .replace(/<meta name="title"[^>]*>/g, `<meta name="title" content="${pageMetadata.ogTitle}" />`)
+          // Replace meta name="description" (if not already in helmet)
+          .replace(/<meta name="description"[^>]*>/g, `<meta name="description" content="${pageMetadata.description}" />`)
+          // Replace Open Graph tags (if not already in helmet)
+          .replace(/<meta property="og:title"[^>]*>/g, `<meta property="og:title" content="${pageMetadata.ogTitle}" />`)
+          .replace(/<meta property="og:description"[^>]*>/g, `<meta property="og:description" content="${pageMetadata.ogDescription}" />`)
+          .replace(/<meta property="og:url"[^>]*>/g, `<meta property="og:url" content="${pageMetadata.canonicalUrl}" />`)
+          .replace(/<meta property="og:image"[^>]*>/g, `<meta property="og:image" content="https://www.acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />`)
+          // Replace Twitter tags (if not already in helmet)
+          .replace(/<meta property="twitter:title"[^>]*>/g, `<meta property="twitter:title" content="${pageMetadata.ogTitle}" />`)
+          .replace(/<meta property="twitter:description"[^>]*>/g, `<meta property="twitter:description" content="${pageMetadata.ogDescription}" />`)
+          .replace(/<meta property="twitter:url"[^>]*>/g, `<meta property="twitter:url" content="${pageMetadata.canonicalUrl}" />`)
+          .replace(/<meta property="twitter:image"[^>]*>/g, `<meta property="twitter:image" content="https://www.acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />`)
       
-      // Add canonical link after viewport meta tag
-      const viewportIndex = html.indexOf('<meta name="viewport"');
-      if (viewportIndex !== -1) {
-        const insertAfter = html.indexOf('>', viewportIndex) + 1;
-        html = html.slice(0, insertAfter) + 
-               `\n    <link rel="canonical" href="${pageMetadata.canonicalUrl}" />` + 
-               html.slice(insertAfter);
+        // If helmet didn't provide canonical, add it
+        if (!helmetData.link?.toString()?.includes('canonical')) {
+          const viewportIndex = html.indexOf('<meta name="viewport"');
+          if (viewportIndex !== -1) {
+            const insertAfter = html.indexOf('>', viewportIndex) + 1;
+            html = html.slice(0, insertAfter) + 
+                   `\n    <link rel="canonical" href="${pageMetadata.canonicalUrl}" />` + 
+                   html.slice(insertAfter);
+          }
+        }
       }
       
-      // Replace the SSR outlet
-      html = html.replace(`<!--ssr-outlet-->`, appHtml)
+      // Replace the SSR outlet (if not already replaced by blog content)
+      if (!blogContentHTML) {
+        if (html.includes('<!--ssr-outlet-->')) {
+          html = html.replace(`<!--ssr-outlet-->`, appHtml)
+        }
+        if (html.includes('<!--app-html-->')) {
+          html = html.replace(`<!--app-html-->`, appHtml)
+        }
+      }
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } catch (e) {
