@@ -2189,8 +2189,8 @@ const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
 const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
 const HomePage = lazy(() => import("./assets/HomePage-DLnXqsgc.js"));
 const AboutPage = lazy(() => import("./assets/AboutPage-XD57gdmt.js"));
-const BlogList = lazy(() => import("./assets/BlogList-VnPwJQ7-.js"));
-const BlogDetail = lazy(() => import("./assets/BlogDetail-jxaqm4Uu.js"));
+const BlogList = lazy(() => import("./assets/BlogList-1SNjSDGg.js"));
+const BlogDetail = lazy(() => import("./assets/BlogDetail-Dspj7q8N.js"));
 const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
@@ -2198,7 +2198,7 @@ const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
 const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-CDvgwvc_.js"));
 const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-c0VzSeA6.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-CrDHXtX3.js"));
-const BlogDashboard = lazy(() => import("./assets/BlogDashboard-D1fOz9mI.js"));
+const BlogDashboard = lazy(() => import("./assets/BlogDashboard-CeeFZG7J.js"));
 const Events = lazy(() => import("./assets/Events-DsOF2GFL.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }, "home"),

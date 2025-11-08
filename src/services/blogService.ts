@@ -41,7 +41,7 @@ export const blogService = {
       if (params.author) queryParams.append('author', params.author);
       if (params.search) queryParams.append('search', params.search);
 
-      const url = `${API_BASE_URL}/api/blogs?${queryParams}`;
+      const url = `${API_BASE_URL}api/blogs?${queryParams}`;
       console.log('🌐 [BLOG SERVICE] Full URL:', url);
 
       const response = await fetch(url);
