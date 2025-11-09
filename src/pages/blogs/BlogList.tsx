@@ -63,13 +63,13 @@ const BlogList: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12  border-blue-500"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white pt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -123,14 +123,14 @@ const BlogList: React.FC = () => {
             <Link
               key={blog.Id}
               to={`/blogs/${blog.Slug}`}
-              className="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+              className="bg-gray-900 rounded-xl overflow-hidden shadow-lg group"
             >
               <div className="relative h-48">
                 {blog.CoverImage ? (
                   <img
                     src={blog.CoverImage}
                     alt={blog.Title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
@@ -139,7 +139,7 @@ const BlogList: React.FC = () => {
                 )}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-semibold mb-2 line-clamp-2">
                   {blog.Title}
                 </h3>
                 {blog.Excerpt && (

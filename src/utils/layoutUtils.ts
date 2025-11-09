@@ -25,6 +25,7 @@ const routeLayouts: Record<string, RouteLayout> = {
   "/workshop/gen-ai-masterclass-thidtx": { showNavbar: false, showFooter: false },
   "/workshop/gen-ai-masterclass-four": { showNavbar: false, showFooter: false },
   "/workshop/gen-ai-masterclass-fioth": { showNavbar: false, showFooter: false },
+  "/workshop/ai-dm-fitm": { showNavbar: false, showFooter: false },
   
   // Course routes
   "/courses/generative-ai-fb": { showNavbar: false, showFooter: false },

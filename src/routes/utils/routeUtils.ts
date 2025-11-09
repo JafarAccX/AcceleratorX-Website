@@ -29,6 +29,7 @@ export const adRoutes = [
   "/workshop/gen-ai-masterclass-bxwcy",
   "/workshop/gen-ai-masterclass-four",
   "/workshop/gen-ai-masterclass-fioth",
+  "/workshop/ai-dm-fitm",
   "/workshop-payment/success/",
   "/admin/analytics",
   "/admin/analytics/adanalysis",

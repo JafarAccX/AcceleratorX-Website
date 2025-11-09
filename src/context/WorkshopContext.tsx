@@ -10,6 +10,7 @@ type WorkshopType =
   | "GENAICWorkshop"
   | "GENAIDWorkshop"
   | "GENAIEWorkshop"
+  | "AIDMWorkshop"
   | "DMWorkshop";
 
 interface ZoomMeetingDetails {
@@ -90,6 +91,14 @@ const GENAIEZoomDetails: ZoomMeetingDetails = {
   meetingCode: "97375135396",
 };
 
+const AIDMZoomDetails: ZoomMeetingDetails = {
+  title: "Conversion rate optimization with AI",
+  link: "https://zoom.us/meeting/register/7FhI--9PSHyw9CF27ihVcg",
+  meetingId: "7FhI--9PSHyw9CF27ihVcg",
+  time: "15 Nov, 2025 11:00 AM India",
+  meetingCode: "99909658988",
+};
+
 const DMZoomDetails: ZoomMeetingDetails = {
   title: "Learn to Automate your Lead Generation & Enrichment",
   link: "https://zoom.us/meeting/register/KVSQCqQxRl-OUCNUlS_NNw",
@@ -119,6 +128,8 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
       setWorkshopType("GENAIDWorkshop");
     } else if (location.pathname.includes("/gen-ai-masterclass-fioth")) {
       setWorkshopType("GENAIEWorkshop");
+    } else if (location.pathname.includes("/ai-dm-fitm")) {
+      setWorkshopType("AIDMWorkshop");
     } else if (location.pathname.includes("/gen-ai-masterclass")) {
       setWorkshopType("GENAIWorkshop");
     } else if (location.pathname.includes("/dm-masterclass")) {
@@ -139,6 +150,8 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
       ? GENAIDZoomDetails
       : workshopType === "GENAIEWorkshop"
       ? GENAIEZoomDetails
+      : workshopType === "AIDMWorkshop"
+      ? AIDMZoomDetails
       : workshopType === "DMWorkshop"
       ? DMZoomDetails
       : workshopType === "DASecondWorkshop"
