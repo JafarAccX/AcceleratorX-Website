@@ -67,6 +67,7 @@ export default function ThankYouPage({ courseName }: ThankYouPageProps) {
           </p>
         </div>
 
+        <div className="flex items-center gap-4 justify-center">
         {/* Know More Button */}
         <button
           onClick={() => (window.location.href = "https://acceleratorx.org")}
@@ -74,6 +75,17 @@ export default function ThankYouPage({ courseName }: ThankYouPageProps) {
         >
           Know More About Us
         </button>
+
+        {/* Book a Call Button */}
+        <button
+          onClick={() => window.open("https://calendly.com/digvijay-acceleratorx", "_blank")}
+          className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          📅 Book a Call with Our Expert
+        </button>
+
+        </div>
+
 
         {/* Join Our Community Section */}
         <div className="space-y-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-lg rounded-2xl p-8 border border-gray-700/30">

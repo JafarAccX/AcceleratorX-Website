@@ -2021,14 +2021,24 @@ function ThankYouPage({ courseName }) {
       "Get ready to start your journey with",
       /* @__PURE__ */ jsx("span", { className: "text-white font-semibold block mt-2", children: courseName })
     ] }) }),
-    /* @__PURE__ */ jsx(
-      "button",
-      {
-        onClick: () => window.location.href = "https://acceleratorx.org",
-        className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200",
-        children: "Know More About Us"
-      }
-    ),
+    /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 justify-center", children: [
+      /* @__PURE__ */ jsx(
+        "button",
+        {
+          onClick: () => window.location.href = "https://acceleratorx.org",
+          className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200",
+          children: "Know More About Us"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "button",
+        {
+          onClick: () => window.open("https://calendly.com/digvijay-acceleratorx", "_blank"),
+          className: "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl",
+          children: "📅 Book a Call with Our Expert"
+        }
+      )
+    ] }),
     /* @__PURE__ */ jsxs("div", { className: "space-y-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-lg rounded-2xl p-8 border border-gray-700/30", children: [
       /* @__PURE__ */ jsxs("div", { className: "text-center space-y-2", children: [
         /* @__PURE__ */ jsx("h2", { className: "text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent", children: "Join Our Community" }),
