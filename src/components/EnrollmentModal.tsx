@@ -23,7 +23,7 @@ const BROCHURES: Record<string, { title: string; url: string }> = {
   },
   "Product Management": {
     title: "Product Management",
-    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293860223_notes_AcceleratorX_PM_Brochure.pdf?alt=media&token=3afeb532-fe27-4551-8baf-0ae6a7ba0780",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1762861871432_notes_AcceleratorX_PM_Brochure-compressed.pdf?alt=media&token=f21f29c9-522a-4d26-a948-2ab6f19a4760",
   },
   "Generative AI": {
     title: "Generative AI",
