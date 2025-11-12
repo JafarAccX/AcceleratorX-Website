@@ -2208,7 +2208,7 @@ const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
 const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
 const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-C4x9P1rJ.js"));
 const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-D_2BfwtE.js"));
-const DataAnalyticsPage$1 = lazy(() => import("./assets/index-CE4Ceq5t.js"));
+const DataAnalyticsPage$1 = lazy(() => import("./assets/index-Bp1EGlrb.js"));
 const BlogDashboard = lazy(() => import("./assets/BlogDashboard-Oh7himwt.js"));
 const Events = lazy(() => import("./assets/Events-DsOF2GFL.js"));
 const mainRoutes = [
@@ -2805,18 +2805,18 @@ const flyerRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/dm", element: /* @__PURE__ */ jsx(DMFlyers, {}) }, "flyer-dm"),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/da", element: /* @__PURE__ */ jsx(DAFlyers, {}) }, "flyer-da")
 ];
-const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-CwUcxEYJ.js"));
-const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-B32HB87a.js"));
-const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-CTUck8Om.js"));
+const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-CkjUQocv.js"));
+const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-8YGFtteO.js"));
+const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-Dz2bO4rH.js"));
 const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-DOQF0swo.js"));
 const KuppamCourses = lazy(() => import("./assets/KuppamCourses-BB7igBRu.js"));
 const GenAICourse = lazy(
   () => import("./assets/GenAIEntry-C4x9P1rJ.js")
 );
 const GenAICourseAD = lazy(() => import("./assets/GenAIAd-D_2BfwtE.js"));
-const DataAnalyticsPage = lazy(() => import("./assets/index-CE4Ceq5t.js"));
+const DataAnalyticsPage = lazy(() => import("./assets/index-Bp1EGlrb.js"));
 const ProductManagementPageEIE = lazy(
-  () => import("./assets/ProductManagementEIE-CHpuUjcf.js")
+  () => import("./assets/ProductManagementEIE--anVJDTi.js")
 );
 const AIDMEntry = lazy(() => import("./assets/AIDMEntry-Cyf4fx2n.js"));
 const courseRoutes = [
