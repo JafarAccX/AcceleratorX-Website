@@ -2206,6 +2206,7 @@ const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
 const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
+const MentorPage = lazy(() => import("./assets/MentorPage-JC6F9nHL.js"));
 const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-C4x9P1rJ.js"));
 const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-D_2BfwtE.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-Bp1EGlrb.js"));
@@ -2257,7 +2258,9 @@ const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/thank-you", element: /* @__PURE__ */ jsx(ThankYouPageWrapper, {}) }, "thank-you"),
   /* @__PURE__ */ jsx(Route, { path: "/registration-sucessfull", element: /* @__PURE__ */ jsx(RegistrationSuccess, {}) }, "registration-success"),
   // Workshop Payment Success
-  /* @__PURE__ */ jsx(Route, { path: "/workshop-payment/success/:orderId", element: /* @__PURE__ */ jsx(WorkshopPaymentSuccess, {}) }, "workshop-payment-success")
+  /* @__PURE__ */ jsx(Route, { path: "/workshop-payment/success/:orderId", element: /* @__PURE__ */ jsx(WorkshopPaymentSuccess, {}) }, "workshop-payment-success"),
+  // Mentor Page
+  /* @__PURE__ */ jsx(Route, { path: "/mentor/:id", element: /* @__PURE__ */ jsx(MentorPage, {}) }, "mentor")
 ];
 const pageMetadata = {
   // Homepage
