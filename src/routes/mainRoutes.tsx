@@ -18,6 +18,7 @@ const Login = lazy(() => import("../pages/auth/Login"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy"));
 const Terms = lazy(() => import("../pages/Terms/Terms"));
 const Refund = lazy(() => import("../pages/refund/Refund"));
+const MentorPage = lazy(() => import("../pages/MentorPage"));
 
 // Course Routes
 const GenAICourse = lazy(() => import("../pages/courses/EntryPoint/GenAIEntry"));
@@ -83,4 +84,7 @@ export const mainRoutes = [
 
   // Workshop Payment Success
   <Route key="workshop-payment-success" path="/workshop-payment/success/:orderId" element={<WorkshopPaymentSuccess />} />,
+
+  // Mentor Page
+  <Route key="mentor" path="/mentor/:id" element={<MentorPage />} />,
 ];
