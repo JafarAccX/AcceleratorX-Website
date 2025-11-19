@@ -95,7 +95,7 @@ const AIDMZoomDetails: ZoomMeetingDetails = {
   title: "Conversion rate optimization with AI",
   link: "https://zoom.us/meeting/register/7FhI--9PSHyw9CF27ihVcg",
   meetingId: "7FhI--9PSHyw9CF27ihVcg",
-  time: "15 Nov, 2025 11:00 AM India",
+  time: "23 Nov, 2025 11:00 AM India",
   meetingCode: "99909658988",
 };
 

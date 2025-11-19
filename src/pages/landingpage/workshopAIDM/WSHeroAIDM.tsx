@@ -77,7 +77,7 @@ const WSHeroAIDM = () => {
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
                 { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Nov 15th" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Nov 23th" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "time",
