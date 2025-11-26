@@ -67,6 +67,7 @@ const PAGE_VIEW_ROUTES = [
   "/courses/generative-ai-fb",
   "/courses/generative-ai-fb-b",
   "/workshop/pm-masterclass",
+  "/workshop/pm-masterclass-bxwxy",
   "/workshop/dm-masterclass",
   "/workshop/gen-ai-masterclass-bxwcy",
   "/workshop/gen-ai-masterclass",

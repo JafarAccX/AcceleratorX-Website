@@ -3,29 +3,14 @@ import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 
 const WSGENMentor = () => {
   const mentors = [
-    // {
-    //   name: "Prashant Sahatiya",
-    //   designation: "Assistant Professor at Parul University",
-    //   description: "Ph.D. in Computer Science, University Gold Medalist",
-    //   linkedin: "https://www.linkedin.com/in/prashant-sahatiya/",
-    //   image: "/assets/mentor/prashant.webp",
-    //   experience: "5+ Years",
-    // },
     {
-      name: "Anjali Sharma",
-      designation: "AI Product Manager at Mesha",
-      linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
-      image: "/assets/mentor/anjali.webp",
-      experience: "10+ Years",
-    },
-
-    {
-      name: "Nitish M L Setty",
-      designation: "Software Developer, MD at GrowSharp Technologies",
-      description: "Expert in AI implementation and automation",
-      linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192",
-      image: "/assets/mentor/nitish.webp",
-      experience: "5+ Years",
+      name: "Ashu Mishra",
+      role: "Senior PM at Zigram",
+      experience: "10+ years",
+      image: "/assets/mentor/ashumish.jpeg",
+      alt: "product management certification mentor Ashu Mishra",
+      linkedin: "https://www.linkedin.com/in/ashumish/",
+      transitions: "Over 100+",
     },
   ];
 
@@ -61,7 +46,7 @@ const WSGENMentor = () => {
                   {/* Mentor Image */}
                   <div className="relative">
                     <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
-                      <img src={mentor.image} alt={`generative ai program mentor ${mentor.name} for product managers`} className="w-full h-full object-cover" />
+                      <img src={mentor.image} alt={mentor.alt} className="w-full h-full object-cover" />
                     </div>
                     <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-lg">
                       <a
@@ -88,11 +73,11 @@ const WSGENMentor = () => {
                     <div className="space-y-2 text-gray-300 text-sm">
                       <div className="flex items-start gap-2">
                         <Sparkles className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
-                        <p>{mentor.designation}</p>
+                        <p>{mentor.role}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <Award className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-                        <p>{mentor.description}</p>
+                        <p>{mentor.transitions} transitions</p>
                       </div>
                     </div>
                   </div>

@@ -5,6 +5,7 @@ type WorkshopType =
   | "DAWorkshop"
   | "DASecondWorkshop"
   | "PMWorkshop"
+  | "PMBWorkshop"
   | "GENAIWorkshop"
   | "GENAIBWorkshop"
   | "GENAICWorkshop"
@@ -33,6 +34,14 @@ const PMZoomDetails: ZoomMeetingDetails = {
   meetingId: "96828221429",
   time: "12/06/2025 8:00 PM India",
   meetingCode: "96828221429",
+};
+
+const PMBZoomDetails: ZoomMeetingDetails = {
+  title: "Master the art of coding, testing, deployment by single too",
+  link: "https://zoom.us/meeting/register/IcyRTbQSQzy3xYRY-qyPbg",
+  meetingId: "98301275850",
+  time: "11:00 AM",
+  meetingCode: "98301275850",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
@@ -114,7 +123,9 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.includes("/pm-masterclass")) {
+    if (location.pathname.includes("/pm-masterclass-bxwxy")) {
+      setWorkshopType("PMBWorkshop");
+    } else if (location.pathname.includes("/pm-masterclass")) {
       setWorkshopType("PMWorkshop");
     } else if (location.pathname.includes("/da-masterclass-bxwxy")) {
       setWorkshopType("DASecondWorkshop");
@@ -140,6 +151,8 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
   const zoomMeetingDetails =
     workshopType === "PMWorkshop"
       ? PMZoomDetails
+      : workshopType === "PMBWorkshop"
+      ? PMBZoomDetails
       : workshopType === "GENAIWorkshop"
       ? GENAIZoomDetails
       : workshopType === "GENAIBWorkshop"
