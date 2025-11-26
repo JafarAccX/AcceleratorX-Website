@@ -10,8 +10,8 @@ import toast from "react-hot-toast";
 import EditorJSHTML from "editorjs-html";
 import { OutputData } from "@editorjs/editorjs";
 import { blogService } from "../../services/blogService";
-import { BlogPost, BlogComment } from "../../utils/types";
-import CommentThread from "./CommentThread";
+import { BlogPost } from "../../utils/types";
+// import CommentThread from "./CommentThread";
 import "./BlogContent.css";
 
 const BlogDetail: React.FC = () => {
@@ -20,69 +20,69 @@ const BlogDetail: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(0);
-  const [comments, setComments] = useState<BlogComment[]>([]);
-  const [commentForm, setCommentForm] = useState({
-    authorName: "",
-    authorEmail: "",
-    content: "",
-  });
-  const [submittingComment, setSubmittingComment] = useState(false);
-  const [likedComments, setLikedComments] = useState<Set<string>>(new Set());
-  const [replyingTo, setReplyingTo] = useState<string | null>(null);
-  const [replyForm, setReplyForm] = useState({
-    authorName: "",
-    authorEmail: "",
-    content: "",
-  });
-  const [submittingReply, setSubmittingReply] = useState(false);
+  // const [comments, setComments] = useState<BlogComment[]>([]);
+  // const [commentForm, setCommentForm] = useState({
+  //   authorName: "",
+  //   authorEmail: "",
+  //   content: "",
+  // });
+  // const [submittingComment, setSubmittingComment] = useState(false);
+  // const [likedComments, setLikedComments] = useState<Set<string>>(new Set());
+  // const [replyingTo, setReplyingTo] = useState<string | null>(null);
+  // const [replyForm, setReplyForm] = useState({
+  //   authorName: "",
+  //   authorEmail: "",
+  //   content: "",
+  // });
+  // const [submittingReply, setSubmittingReply] = useState(false);
 
-  const loadUserData = useCallback(() => {
-    try {
-      const saved = localStorage.getItem("blogCommentUser");
-      if (saved) {
-        const userData = JSON.parse(saved);
-        setCommentForm((p) => ({
-          ...p,
-          authorName: userData.authorName || "",
-          authorEmail: userData.authorEmail || "",
-        }));
-        setReplyForm((p) => ({
-          ...p,
-          authorName: userData.authorName || "",
-          authorEmail: userData.authorEmail || "",
-        }));
-      }
+  // const loadUserData = useCallback(() => {
+  //   try {
+  //     const saved = localStorage.getItem("blogCommentUser");
+  //     if (saved) {
+  //       const userData = JSON.parse(saved);
+  //       setCommentForm((p) => ({
+  //         ...p,
+  //         authorName: userData.authorName || "",
+  //         authorEmail: userData.authorEmail || "",
+  //       }));
+  //       setReplyForm((p) => ({
+  //         ...p,
+  //         authorName: userData.authorName || "",
+  //         authorEmail: userData.authorEmail || "",
+  //       }));
+  //     }
 
-      const likedKey = `blogLikedComments_${slug}`;
-      const savedLiked = localStorage.getItem(likedKey);
-      if (savedLiked) {
-        const likedArray = JSON.parse(savedLiked);
-        setLikedComments(new Set(likedArray));
-      }
-    } catch (e) {
-      console.error("Error loading user data", e);
-    }
-  }, [slug]);
+  //     const likedKey = `blogLikedComments_${slug}`;
+  //     const savedLiked = localStorage.getItem(likedKey);
+  //     if (savedLiked) {
+  //       const likedArray = JSON.parse(savedLiked);
+  //       setLikedComments(new Set(likedArray));
+  //     }
+  //   } catch (e) {
+  //     console.error("Error loading user data", e);
+  //   }
+  // }, [slug]);
 
-  const saveLikedComments = (likedSet: Set<string>) => {
-    try {
-      const key = `blogLikedComments_${slug}`;
-      localStorage.setItem(key, JSON.stringify(Array.from(likedSet)));
-    } catch (e) {
-      console.error("Error saving liked comments", e);
-    }
-  };
+  // const saveLikedComments = (likedSet: Set<string>) => {
+  //   try {
+  //     const key = `blogLikedComments_${slug}`;
+  //     localStorage.setItem(key, JSON.stringify(Array.from(likedSet)));
+  //   } catch (e) {
+  //     console.error("Error saving liked comments", e);
+  //   }
+  // };
 
-  const saveUserData = (authorName: string, authorEmail?: string) => {
-    try {
-      localStorage.setItem(
-        "blogCommentUser",
-        JSON.stringify({ authorName, authorEmail })
-      );
-    } catch (e) {
-      console.error("Error saving user data", e);
-    }
-  };
+  // const saveUserData = (authorName: string, authorEmail?: string) => {
+  //   try {
+  //     localStorage.setItem(
+  //       "blogCommentUser",
+  //       JSON.stringify({ authorName, authorEmail })
+  //     );
+  //   } catch (e) {
+  //     console.error("Error saving user data", e);
+  //   }
+  // };
 
   const incrementView = useCallback(async (postId: string) => {
     try {
@@ -92,14 +92,14 @@ const BlogDetail: React.FC = () => {
     }
   }, []);
 
-  const fetchComments = async (postId: string) => {
-    try {
-      const data = await blogService.getBlogComments(postId);
-      setComments(data);
-    } catch (e) {
-      console.error("Error fetching comments", e);
-    }
-  };
+  // const fetchComments = async (postId: string) => {
+  //   try {
+  //     const data = await blogService.getBlogComments(postId);
+  //     setComments(data);
+  //   } catch (e) {
+  //     console.error("Error fetching comments", e);
+  //   }
+  // };
 
   const fetchBlog = useCallback(async () => {
     if (!slug) return;
@@ -112,7 +112,7 @@ const BlogDetail: React.FC = () => {
       setBlog(data);
       setLikesCount(data.LikesCount);
       await incrementView(data.Id);
-      await fetchComments(data.Id);
+      // await fetchComments(data.Id);
     } catch {
       toast.error("Failed to fetch blog");
     } finally {
@@ -122,8 +122,8 @@ const BlogDetail: React.FC = () => {
 
   useEffect(() => {
     fetchBlog();
-    loadUserData();
-  }, [fetchBlog, loadUserData]);
+    // loadUserData();
+  }, [fetchBlog]);
 
   const handleLike = async () => {
     if (!blog) return;
@@ -136,111 +136,111 @@ const BlogDetail: React.FC = () => {
     }
   };
 
-  const handleCommentSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!blog || !commentForm.authorName.trim() || !commentForm.content.trim()) {
-      toast.error("Fill required fields");
-      return;
-    }
-    setSubmittingComment(true);
-    try {
-      await blogService.createBlogComment(
-        blog.Id,
-        commentForm.content,
-        commentForm.authorName,
-        commentForm.authorEmail || undefined
-      );
-      saveUserData(commentForm.authorName, commentForm.authorEmail);
-      toast.success("Comment posted");
-      setCommentForm({ authorName: "", authorEmail: "", content: "" });
-      await fetchComments(blog.Id);
-    } catch {
-      toast.error("Failed to post comment");
-    } finally {
-      setSubmittingComment(false);
-    }
-  };
+  // const handleCommentSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!blog || !commentForm.authorName.trim() || !commentForm.content.trim()) {
+  //     toast.error("Fill required fields");
+  //     return;
+  //   }
+  //   setSubmittingComment(true);
+  //   try {
+  //     await blogService.createBlogComment(
+  //       blog.Id,
+  //       commentForm.content,
+  //       commentForm.authorName,
+  //       commentForm.authorEmail || undefined
+  //     );
+  //     saveUserData(commentForm.authorName, commentForm.authorEmail);
+  //     toast.success("Comment posted");
+  //     setCommentForm({ authorName: "", authorEmail: "", content: "" });
+  //     await fetchComments(blog.Id);
+  //   } catch {
+  //     toast.error("Failed to post comment");
+  //   } finally {
+  //     setSubmittingComment(false);
+  //   }
+  // };
 
-  const handleCommentLike = async (commentId: string) => {
-    if (likedComments.has(commentId)) {
-      toast("You already liked this");
-      return;
-    }
-    try {
-      await blogService.createBlogCommentLike(commentId);
-      const newSet = new Set(likedComments).add(commentId);
-      setLikedComments(newSet);
-      saveLikedComments(newSet);
-      setComments((prev) =>
-        prev.map((c) =>
-          c.Id === commentId ? { ...c, LikesCount: c.LikesCount + 1 } : c
-        )
-      );
-    } catch {
-      toast.error("Failed to like comment");
-    }
-  };
+  // const handleCommentLike = async (commentId: string) => {
+  //   if (likedComments.has(commentId)) {
+  //     toast("You already liked this");
+  //     return;
+  //   }
+  //   try {
+  //     await blogService.createBlogCommentLike(commentId);
+  //     const newSet = new Set(likedComments).add(commentId);
+  //     setLikedComments(newSet);
+  //     saveLikedComments(newSet);
+  //     setComments((prev) =>
+  //       prev.map((c) =>
+  //         c.Id === commentId ? { ...c, LikesCount: c.LikesCount + 1 } : c
+  //       )
+  //     );
+  //   } catch {
+  //     toast.error("Failed to like comment");
+  //   }
+  // };
 
-  const handleReplyClick = useCallback(
-    (commentId: string | null) => {
-      if (replyingTo === commentId) {
-        setReplyingTo(null);
-      } else {
-        const saved = localStorage.getItem("blogCommentUser");
-        let authorName = "";
-        let authorEmail = "";
-        if (saved) {
-          try {
-            const u = JSON.parse(saved);
-            authorName = u.authorName || "";
-            authorEmail = u.authorEmail || "";
-          } catch (error) {
-            console.error('Error parsing saved user data:', error);
-          }
-        }
-        setReplyForm({ authorName, authorEmail, content: "" });
-        setReplyingTo(commentId);
-      }
-    },
-    [replyingTo]
-  );
+  // const handleReplyClick = useCallback(
+  //   (commentId: string | null) => {
+  //     if (replyingTo === commentId) {
+  //       setReplyingTo(null);
+  //     } else {
+  //       const saved = localStorage.getItem("blogCommentUser");
+  //       let authorName = "";
+  //       let authorEmail = "";
+  //       if (saved) {
+  //         try {
+  //           const u = JSON.parse(saved);
+  //           authorName = u.authorName || "";
+  //           authorEmail = u.authorEmail || "";
+  //         } catch (error) {
+  //           console.error('Error parsing saved user data:', error);
+  //         }
+  //       }
+  //       setReplyForm({ authorName, authorEmail, content: "" });
+  //       setReplyingTo(commentId);
+  //     }
+  //   },
+  //   [replyingTo]
+  // );
 
-  const handleReplyFormChange = useCallback(
-    (field: string, value: string) => {
-      setReplyForm((p) => ({ ...p, [field]: value }));
-    },
-    []
-  );
+  // const handleReplyFormChange = useCallback(
+  //   (field: string, value: string) => {
+  //     setReplyForm((p) => ({ ...p, [field]: value }));
+  //   },
+  //   []
+  // );
 
-  const handleReplySubmit = async (
-    e: React.FormEvent,
-    parentCommentId: string | null
-  ) => {
-    e.preventDefault();
-    if (!blog || !replyForm.authorName.trim() || !replyForm.content.trim()) {
-      toast.error("Fill required fields");
-      return;
-    }
-    setSubmittingReply(true);
-    try {
-      await blogService.createBlogComment(
-        blog.Id,
-        replyForm.content,
-        replyForm.authorName,
-        replyForm.authorEmail || undefined,
-        parentCommentId || undefined
-      );
-      saveUserData(replyForm.authorName, replyForm.authorEmail);
-      toast.success("Reply posted");
-      setReplyForm({ authorName: "", authorEmail: "", content: "" });
-      setReplyingTo(null);
-      await fetchComments(blog.Id);
-    } catch {
-      toast.error("Failed to post reply");
-    } finally {
-      setSubmittingReply(false);
-    }
-  };
+  // const handleReplySubmit = async (
+  //   e: React.FormEvent,
+  //   parentCommentId: string | null
+  // ) => {
+  //   e.preventDefault();
+  //   if (!blog || !replyForm.authorName.trim() || !replyForm.content.trim()) {
+  //     toast.error("Fill required fields");
+  //     return;
+  //   }
+  //   setSubmittingReply(true);
+  //   try {
+  //     await blogService.createBlogComment(
+  //       blog.Id,
+  //       replyForm.content,
+  //       replyForm.authorName,
+  //       replyForm.authorEmail || undefined,
+  //       parentCommentId || undefined
+  //     );
+  //     saveUserData(replyForm.authorName, replyForm.authorEmail);
+  //     toast.success("Reply posted");
+  //     setReplyForm({ authorName: "", authorEmail: "", content: "" });
+  //     setReplyingTo(null);
+  //     await fetchComments(blog.Id);
+  //   } catch {
+  //     toast.error("Failed to post reply");
+  //   } finally {
+  //     setSubmittingReply(false);
+  //   }
+  // };
 
   const renderContent = (content: Record<string, unknown> | string | null | undefined): string => {
     try {
@@ -461,11 +461,10 @@ const BlogDetail: React.FC = () => {
           dangerouslySetInnerHTML={{ __html: renderContent(blog.Content) }}
         />
 
-        {/* Comments */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+
+        {/* <div className="mt-12 pt-8 border-t border-gray-800">
           
 
-          {/* Comment Form */}
           <form
             onSubmit={handleCommentSubmit}
             className="mt-6  rounded-2xl p-6 shadow-lg"
@@ -543,7 +542,6 @@ const BlogDetail: React.FC = () => {
             Comments ({comments.length})
           </h3>
 
-          {/* Threaded Comments */}
           <div className="space-y-6">
             {comments.length === 0 ? (
               <p className="text-gray-400 text-center py-8">
@@ -566,7 +564,7 @@ const BlogDetail: React.FC = () => {
               ))
             )}
           </div>
-        </div>
+        </div> */}
       </article>
     </div>
     </>

@@ -2201,7 +2201,7 @@ const RegistrationSuccess = lazy(() => import("./assets/registration-successful-
 const HomePage = lazy(() => import("./assets/HomePage-DLnXqsgc.js"));
 const AboutPage = lazy(() => import("./assets/AboutPage-XD57gdmt.js"));
 const BlogList = lazy(() => import("./assets/BlogList-DI-Ewtq_.js"));
-const BlogDetail = lazy(() => import("./assets/BlogDetail-BPPufdtS.js"));
+const BlogDetail = lazy(() => import("./assets/BlogDetail-6WteWCFB.js"));
 const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
