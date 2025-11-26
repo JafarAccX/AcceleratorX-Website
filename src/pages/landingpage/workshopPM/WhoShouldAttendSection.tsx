@@ -3,10 +3,10 @@ import { Check } from "lucide-react";
 
 const WhoShouldAttendSection = () => {
   const targetAudience = [
-    "Founders & Product Managers",
-    "Designers, Analysts & Tech Leads",
-    "Hackers & Indie Builders",
-    "Anyone curious about turning ideas into products",
+    "Product Managers & Founders",
+    "Designers & Tech Leads",
+    "AI learners, coders, and non-coders",
+    "Indie builders and automation creators",
   ];
 
   const containerVariants = {
@@ -48,7 +48,7 @@ const WhoShouldAttendSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Who Is This For</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            This bootcamp is for anyone who wants to build and launch real products.
+            Anyone who wants to build functional AI products, not just talk about them.
           </p>
         </motion.div>
 

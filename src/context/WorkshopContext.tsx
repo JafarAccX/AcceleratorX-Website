@@ -28,11 +28,11 @@ interface WorkshopContextType {
 }
 
 const PMZoomDetails: ZoomMeetingDetails = {
-  title: "AI Product Management Mastery Class",
-  link: "https://zoom.us/meeting/register/PmLITMVBQ6a9E9uZ5CySBw",
-  meetingId: "97348431386",
-  time: "25/15/2025 7:00 PM India",
-  meetingCode: "97348431386",
+  title: "Masterclass on Google Antigravity, Claude Coding and Cursor.",
+  link: "https://zoom.us/meeting/register/4rBm7lGrSH-hWZh481XWSQ",
+  meetingId: "96828221429",
+  time: "12/06/2025 8:00 PM India",
+  meetingCode: "96828221429",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {

@@ -38,10 +38,10 @@ const WSHeroPM = () => {
   return (
     <>
       <SEO 
-        title="Free AI Product Management Workshop - AI Product Management Mastery Class | AcceleratorX"
-        description="Join our free AI Product Management workshop on October 15th, 2025. Learn frameworks to build AI-powered products. Perfect for founders, PMs, designers, and tech leads."
-        ogTitle="Free AI Product Management Workshop - AI Product Management Mastery Class"
-        ogDescription="Master AI Product Management in our free workshop. Learn practical frameworks for building successful AI products."
+        title="Masterclass on Google Antigravity, Claude Coding & Cursor.ai | AcceleratorX"
+        description="Build real AI workflows using Google Antigravity, Claude coding, and Cursor.ai. Learn to design, prototype, test, and ship AI features in this live 3-hour intensive bootcamp."
+        ogTitle="Masterclass on Google Antigravity, Claude Coding & Cursor.ai"
+        ogDescription="Master AI workflows with Google Antigravity, Claude, and Cursor.ai. Build functional AI prototypes in 60 minutes."
         ogImage="/pmbg.webp"
       />
       <div className="relative bg-[#0A0F1D] min-h-screen overflow-x-hidden">
@@ -65,7 +65,7 @@ const WSHeroPM = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,9 +82,18 @@ const WSHeroPM = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl  font-bold text-white mb-6 leading-tight"
           >
-            AI Product Management Mastery Class
+            AI Workflow Mastery
+          </motion.h1>
+
+           <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
+          >
+             Masterclass on Google Antigravity, Claude Coding & Cursor.ai
           </motion.h1>
 
           {/* Subheading */}
@@ -94,7 +103,7 @@ const WSHeroPM = () => {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-6 leading-relaxed"
           >
-            Master AI product management from ideation to deployment. Learn how to build, launch, and scale AI-powered products that deliver real value.
+            Build real AI workflows using the most powerful modern tools. Learn how to design, prototype, test, and ship AI features using Google Gemini, Claude's coding capabilities, and Cursor for rapid development.
           </motion.p>
 
           {/* Note */}
@@ -105,7 +114,7 @@ const WSHeroPM = () => {
             className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-3 mb-10 max-w-lg mx-auto"
           >
             <p className="text-yellow-200 text-sm font-medium">
-              ⚠️ Note: This is a live-only workshop. No recordings will be provided.
+              ⚠️ Note: Live-only session. No recordings provided.
             </p>
           </motion.div>
 
@@ -160,7 +169,7 @@ const WSHeroPM = () => {
               <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-2">
                 <Star className="w-4 h-4 text-indigo-400" />
                 <span className="text-sm font-medium bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                  Limited Seats are available
+                  Only 10 seats are left
                 </span>
               </div>
 
@@ -180,7 +189,7 @@ const WSHeroPM = () => {
               </div>
 
               <p className="text-gray-400   leading-relaxed">
-                 AI products require a different approach. This mastery class equips you with the frameworks to build, manage, and scale AI-powered products successfully.
+                 A practical, execution-focused session where you learn to turn ideas into working AI systems faster and smarter. Most people "learn AI tools"; here you'll learn how to use them together to build end-to-end workflows that actually solve problems in real world.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
@@ -189,12 +198,12 @@ const WSHeroPM = () => {
                   {
                     icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                     label: "Date",
-                    value: "25th Oct 2025",
+                    value: "06th Dec 2025",
                   },
                   {
                     icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                     label: "Time",
-                    value: "7:00 PM IST",
+                    value: "8:00 PM IST",
                   },
                   { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "Beginner–Advanced" },
                 ].map((item, index) => (

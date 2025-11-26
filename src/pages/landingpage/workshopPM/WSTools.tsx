@@ -106,7 +106,7 @@ export default function WSTools() {
 
       {/* Tool Grid */}
       <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 px-4 max-w-6xl mx-auto">
-        {aiTools.map((tool, index) => (
+        {aiTools.map((tool) => (
           <motion.div
             key={tool.name}
             className="group relative flex flex-col items-center text-center transition-transform duration-300"

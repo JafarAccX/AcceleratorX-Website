@@ -191,7 +191,6 @@ const WorkshopPageAIDMTest = () => (
 
 const WorkshopPageDM = () => (
   <>
-
     <SEO />
     <HeroSection />
     <WSHeroDM />
@@ -200,8 +199,6 @@ const WorkshopPageDM = () => (
     <AutomationFeatures />
     <BuiltForYou />
     <LeadEngineCTA />
-
-    {/* <WSAboutDM /> */}
   </>
 );
 

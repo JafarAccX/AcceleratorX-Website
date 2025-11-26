@@ -8,15 +8,15 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "Do I need to know how to code?",
-      answer: "No. This session is designed for both coders and non‑coders.",
+      answer: "No — Claude and Cursor make prototyping incredibly accessible.",
     },
     {
       question: "Will it be hands-on?",
-      answer: "Yes, you’ll learn frameworks you can apply immediately.",
+      answer: "Yes. You will build, test, and ship workflows in real time.",
     },
     {
       question: "Is it really free?",
-      answer: "Yes! Seats are limited, so make sure to grab yours.",
+      answer: "Yes, but seats are fill fast. If you want to build real AI systems, don't wait.",
     },
   ];
 
