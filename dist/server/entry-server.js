@@ -2690,7 +2690,7 @@ const WSAboutPM = lazy(() => import("./assets/WSAboutPM-DnWLF5NK.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-DaIAvh3j.js"));
 const WSHeroPMB = lazy(() => import("./assets/WSHeroPMB-CzPOZpRl.js"));
 const WSAboutPMB = lazy(() => import("./assets/WSAboutPMB-Cf5PQ66f.js"));
-const WSGENWhoShouldEnrollPMB = lazy(() => import("./assets/WSGENWhoShouldEnrollPMB-0KA7N3oz.js"));
+const WSGENWhoShouldEnrollPMB = lazy(() => import("./assets/WSGENWhoShouldEnrollPMB-5EuNqCO0.js"));
 const WSGENIntroductionPMB = lazy(() => import("./assets/WSGENIntroductionPMB-N6Cnrp3_.js"));
 const GENCTAPMB = lazy(() => import("./assets/GENCTAPMB-DYPlXqY7.js"));
 const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-Cni5o0A2.js"));

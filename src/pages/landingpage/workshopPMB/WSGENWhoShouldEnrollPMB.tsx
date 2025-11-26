@@ -60,7 +60,7 @@ const WSGENWhoShouldEnrollPMB = () => {
           {/* Content Layout */}
           <div className="flex flex-col lg:flex-row gap-8 items-center">
             {/* Target Audience Grid */}
-            <div className="w-full lg:w-3/5">
+            <div className="w-full  mx-auto">
               <div className="grid sm:grid-cols-2 gap-4">
                 {targetAudience.map((audience, index) => (
                   <div
@@ -87,13 +87,6 @@ const WSGENWhoShouldEnrollPMB = () => {
                 >
                   Register Now
                 </button>
-              </div>
-            </div>
-
-            {/* Image Section */}
-            <div className="w-full lg:w-2/5">
-              <div className="relative rounded-lg overflow-hidden">
-                <img src="/pmbg.webp" alt="Development Workflow" className="w-full h-auto object-cover" />
               </div>
             </div>
           </div>
