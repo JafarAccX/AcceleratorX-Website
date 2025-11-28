@@ -32,15 +32,15 @@ const PMZoomDetails: ZoomMeetingDetails = {
   title: "Masterclass on Google Antigravity, Claude Coding and Cursor.",
   link: "https://zoom.us/meeting/register/4rBm7lGrSH-hWZh481XWSQ",
   meetingId: "96828221429",
-  time: "12/06/2025 8:00 PM India",
+  time: "06th Dec, 2025 11:00 AM India",
   meetingCode: "96828221429",
 };
 
 const PMBZoomDetails: ZoomMeetingDetails = {
-  title: "Master the art of coding, testing, deployment by single too",
+  title: "Master the art of coding, testing, deployment by single tool",
   link: "https://zoom.us/meeting/register/IcyRTbQSQzy3xYRY-qyPbg",
   meetingId: "98301275850",
-  time: "11:00 AM",
+  time: "07th Dec, 2025 11:00 AM India",
   meetingCode: "98301275850",
 };
 
@@ -56,7 +56,7 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
   title: "AI Data Analysis Crash Course",
   link: "https://zoom.us/meeting/register/ZSZw9J88Qmacj-FO7KWh4w",
   meetingId: "b_CgAZvOT0WPuW9DG-10mg",
-  time: "11/10/2025 7:00 PM India",
+  time: "10th Nov, 2025 08:00 PM India",
   meetingCode: "99801086032",
 };
 

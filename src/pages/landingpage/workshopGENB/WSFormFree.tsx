@@ -8,7 +8,7 @@ import { registerForZoomMeeting } from "../../../routes/utils/registration";
 import { createWorkshopRegistration, WorkshopRegistrationData } from "../../../api/workshopApi";
 import axios from "axios";
 
-const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
+const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
 
 interface WorkshopFormData {
   name: string;
@@ -71,16 +71,12 @@ const WSFormFree = () => {
   };
 
   async function sendWhatsAppMessage({
-    apiKey,
-    campaignName,
     phone,
     name,
     masterclass,
     sessionDate,
     link,
   }: {
-    apiKey: string;
-    campaignName: string;
     phone: string;
     name: string;
     masterclass: string;
@@ -92,33 +88,109 @@ const WSFormFree = () => {
       const [rawDate, time] = cleaned.split(/(?<=\d{4})\s/);
       const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
 
-    
-      const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
+      const response = await fetch("https://wb.omni.tatatelebusiness.com/whatsapp-cloud/messages", {
         method: "POST",
         headers: {
+          "accept": "application/json",
+          "Authorization": `Bearer ${omniAccessToken}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          apiKey: apiKey,
-          campaignName: campaignName,
-          destination: phone,
-          userName: name,
-          templateParams: ["$FirstName", masterclass, newdate, time, link],
-          source: "registration form",
-          paramsFallbackValue: {
-            FirstName: "user",
-            value: "fallback value",
+          "to": (() => {
+            const cleanedPhone = phone.replace(/^\+/, '');
+            // Assume India (+91) if 10 digits
+            return cleanedPhone.length === 10 ? `91${cleanedPhone}` : cleanedPhone;
+          })(),
+          "type": "template",
+          "source": "external",
+          "template": {
+            "name": "registration_confirmation",
+            "language": {
+              "code": "en"
+            },
+            "components": [
+              {
+                "type": "body",
+                "parameters": [
+                  {
+                    "type": "text",
+                    "text": name
+                  },
+                  {
+                    "type": "text",
+                    "text": masterclass
+                  },
+                  {
+                    "type": "text",
+                    "text": newdate
+                  },
+                  {
+                    "type": "text",
+                    "text": time
+                  },
+                  {
+                    "type": "text",
+                    "text": link
+                  }
+                ]
+              }
+            ]
           },
-          media: {},
-          buttons: [],
-          carouselCards: [],
-          location: {},
-          attributes: {},
+          "metaData": {
+            "custom_callback_data": ""
+          }
         }),
       });
 
+      console.log('body sent to WhatsApp API:', {
+        "to": phone,
+        "type": "template",
+        "source": "external",
+        "template": {
+          "name": "registration_confirmation",
+          "language": {
+            "code": "en"
+          },
+          "components": [
+            {
+              "type": "body",
+              "parameters": [
+                {
+                  "type": "text",
+                  "text": name
+                },
+                {
+                  "type": "text",
+                  "text": masterclass
+                },
+                {
+                  "type": "text",
+                  "text": newdate
+                },
+                {
+                  "type": "text",
+                  "text": time
+                },
+                {
+                  "type": "text",
+                  "text": link
+                }
+              ]
+            }
+          ]
+        },
+        "metaData": {
+          "custom_callback_data": ""
+        }
+      }); 
+
+      console.log("WhatsApp API response status:", response);
+
+      const responseData = await response.json();
+      console.log("WhatsApp API response data:", responseData);
+
       if (!response.ok) {
-        const err = await response.json();
+        const err = responseData;
         console.error("WhatsApp API error:", err);
         throw new Error("WhatsApp message sending failed");
       }
@@ -207,8 +279,6 @@ const WSFormFree = () => {
         );
         const zoomJoinLink = zoomData.join_url;
         await sendWhatsAppMessage({
-          apiKey: whatsappSerriApi,
-          campaignName: "registration_confirmation",
           phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
           name: formData.name,
           masterclass: zoomMeetingDetails.title,
