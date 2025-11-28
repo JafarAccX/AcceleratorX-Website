@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { createEnrollment } from "../api/enrollmentApi";
 import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 
-const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
+const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
 
 interface EnrollmentModalProps {
   isOpen: boolean;
@@ -58,36 +58,67 @@ async function sendWhatsAppMessage({
   name: string;
   broucher: { title: string; url: string };
 }) {
-  try { 
-    const response = await fetch("https://backend.api-wa.co/campaign/serri-india/api/v2", {
+  console.log("Sending WhatsApp message to:", phone);
+  try {
+    const response = await fetch("https://wb.omni.tatatelebusiness.com/whatsapp-cloud/messages", {
       method: "POST",
       headers: {
+        "accept": "application/json",
+        "Authorization": `Bearer ${omniAccessToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        apiKey: whatsappSerriApi,
-        campaignName: "course_reg_da_new",
-        destination: phone,
-        userName: name,
-        templateParams: ["$FirstName"],
-        source: "registration form",
-        media: {
-          url: broucher.url,
-          filename: broucher.title,
+        "to": (() => {
+          const cleaned = phone.replace(/^\+/, '');
+          // Assume India (+91) if 10 digits
+          return cleaned.length === 10 ? `91${cleaned}` : cleaned;
+        })(),
+        "type": "template",
+        "source": "external",
+        "template": {
+          "name": "registration_request_2",
+          "language": {
+            "code": "en"
+          },
+          
+          "components": [
+  {
+    "type": "header",
+    "parameters": [
+      {
+        "type": "document",
+        "document": {
+          "link": broucher.url,
+          "filename": broucher.title
+        }
+      }
+    ]
+  },
+  {
+    "type": "body",
+    "parameters": [
+      {
+        "type": "text",
+        "text": name
+      }
+    ]
+  }
+]
+
         },
-        paramsFallbackValue: {
-          FirstName: "user",
-          value: "fallback value",
-        },
-        buttons: [],
-        carouselCards: [],
-        location: {},
-        attributes: {},
+        "metaData": {
+          "custom_callback_data": ""
+        }
       }),
     });
 
+     console.log("WhatsApp API response status:", response);
+
+    const responseData = await response.json();
+    console.log("WhatsApp API response data:", responseData);
+
     if (!response.ok) {
-      const err = await response.json();
+      const err = responseData;
       console.error("WhatsApp API error:", err);
       throw new Error("WhatsApp message sending failed");
     }
@@ -177,6 +208,10 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
       await createEnrollment(submissionData);
 
   const broucherData = resolveBrochure(selectedCourse);
+
+  console.log("Brochure data resolved:", broucherData);
+  console.log("Form data being submitted:", submissionData);
+  console.log("sending WhatsApp message...");
 
       await sendWhatsAppMessage({
         phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
