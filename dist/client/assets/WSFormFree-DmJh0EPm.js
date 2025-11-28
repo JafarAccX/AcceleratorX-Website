@@ -1,0 +1,404 @@
+import { u as useNavigate, T as useLocation, r as reactExports, j as jsxRuntimeExports, c as _t, U as generateFormEventId, h as axios } from "./main-BzTttlQZ.js";
+import { u as useWorkshop, r as registerForZoomMeeting } from "./registration-BSWzq6ey.js";
+import { g as getUTMDataForDB, t as trackFormSubmission } from "./metaPixel-DE20CzjQ.js";
+import { c as createWorkshopRegistration } from "./workshopApi-D-n4k8nn.js";
+const omniAccessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTk4NDU4MjY5MjQiLCJwaG9uZU51bWJlcklkIjoiODM5NjYzMjE5MjMyMTU3IiwiaWF0IjoxNzYyMTUxNDYwfQ.OPvOT6OHp-gBBP7SX3J_Lp0YgS1z68aVtz_YSgXH2ZFNGYz0HCnGxkXrdV588i--n3znI7U9fbAlxZxkeWdowdnwPBM_k5qJ1be-CeguJ0Dp71nGcV025japy9H3cQz-aFYlFPU-zPGSyJNc0Yr2460eiR6y0ilQYxK2HtrvYdD8hxv7wEsepndeOEdJ7yJS2uzX37fZw2cQmszydRiC0enIwZWe293ROWyPIKvoMU_2_Wr532aj6cTEAiWfhR5YktlzVHoMwL6xtG3IU0lVfU8zuiznSk_MExpBToP7hw_aBcnr-HCbB15RQaIuRhYD9aUBeQoMMjokbHlOXcFGKYFqp6-aUbYoUv5xw_UkdbAky1HgwcdYzOI7Ke04NQm6Oh4VZEbTtQwjxzjrB0CYgpzbcdq6QP87-3_Fkzx_oojIjaFUE7k-QjN_j8bwMNYm-bQuL-KxqkVOGKji5jrd1AY779_Wmi-jMruWnVU_rL30SqIRJb25WDUbg2zJlu5jQpJ63-xaVDBlobnuGKY-QUwf9Uopd86pfgSiNJ1_7aRU-65JncRBrCFbqJ4emDLokzqxFJVDcdiT8bfEP8RvGUzztDY_3_0_qEUzmhidvoQ2Io3Ld-Zumk-EBZDNWEQBAHOEjIos-jMVqZ_zMiV3Fa1RRxafJVDQLNQT5j1U9pI";
+const WSFormFree = () => {
+  const { workshopType, zoomMeetingDetails } = useWorkshop();
+  console.log("WSFormFree render with workshopType:", workshopType);
+  console.log("zoomMeetingDetails:", zoomMeetingDetails);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [formData, setFormData] = reactExports.useState({
+    name: "",
+    email: "",
+    phone: "",
+    education: "",
+    designation: "",
+    yearsOfExperience: "",
+    yearsOfPassing: ""
+  });
+  const [isSubmitting, setIsSubmitting] = reactExports.useState(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+  const handleRedirect = (submissionData) => {
+    if (location.pathname === "/workshop/pm-masterclass") {
+      navigate("/registration-sucessfull");
+    } else {
+      navigate("/workshop-registration/success", {
+        state: {
+          registrationDetails: {
+            name: submissionData.name,
+            email: formData.email,
+            workshop_type: submissionData.workshop_type
+          },
+          zoomDetails: {
+            link: zoomMeetingDetails.link,
+            meetingId: zoomMeetingDetails.meetingId,
+            time: zoomMeetingDetails.time
+          }
+        }
+      });
+    }
+  };
+  async function sendWhatsAppMessage({
+    phone,
+    name,
+    masterclass,
+    sessionDate,
+    link
+  }) {
+    try {
+      const cleaned = sessionDate.replace("India", "").trim();
+      const [rawDate, time] = cleaned.split(new RegExp("(?<=\\d{4})\\s"));
+      const newdate = rawDate.replace(/(\d+)(st|nd|rd|th)/, "$1");
+      const response = await fetch("https://wb.omni.tatatelebusiness.com/whatsapp-cloud/messages", {
+        method: "POST",
+        headers: {
+          "accept": "application/json",
+          "Authorization": `Bearer ${omniAccessToken}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "to": (() => {
+            const cleanedPhone = phone.replace(/^\+/, "");
+            return cleanedPhone.length === 10 ? `91${cleanedPhone}` : cleanedPhone;
+          })(),
+          "type": "template",
+          "source": "external",
+          "template": {
+            "name": "registration_confirmation",
+            "language": {
+              "code": "en"
+            },
+            "components": [
+              {
+                "type": "body",
+                "parameters": [
+                  {
+                    "type": "text",
+                    "text": name
+                  },
+                  {
+                    "type": "text",
+                    "text": masterclass
+                  },
+                  {
+                    "type": "text",
+                    "text": newdate
+                  },
+                  {
+                    "type": "text",
+                    "text": time
+                  },
+                  {
+                    "type": "text",
+                    "text": link
+                  }
+                ]
+              }
+            ]
+          },
+          "metaData": {
+            "custom_callback_data": ""
+          }
+        })
+      });
+      console.log("body sent to WhatsApp API:", {
+        "to": phone,
+        "type": "template",
+        "source": "external",
+        "template": {
+          "name": "registration_confirmation",
+          "language": {
+            "code": "en"
+          },
+          "components": [
+            {
+              "type": "body",
+              "parameters": [
+                {
+                  "type": "text",
+                  "text": name
+                },
+                {
+                  "type": "text",
+                  "text": masterclass
+                },
+                {
+                  "type": "text",
+                  "text": newdate
+                },
+                {
+                  "type": "text",
+                  "text": time
+                },
+                {
+                  "type": "text",
+                  "text": link
+                }
+              ]
+            }
+          ]
+        },
+        "metaData": {
+          "custom_callback_data": ""
+        }
+      });
+      console.log("WhatsApp API response status:", response);
+      const responseData = await response.json();
+      console.log("WhatsApp API response data:", responseData);
+      if (!response.ok) {
+        const err = responseData;
+        console.error("WhatsApp API error:", err);
+        throw new Error("WhatsApp message sending failed");
+      }
+    } catch (error) {
+      console.error("Error sending WhatsApp message:", error);
+    }
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    if (!formData.email.includes("@") || !formData.email.includes(".")) {
+      _t.error("Please enter a valid email address");
+      return;
+    }
+    if (formData.phone.length !== 10 || !/^\d+$/.test(formData.phone)) {
+      _t.error("Please enter a valid 10-digit phone number");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const utmData = getUTMDataForDB();
+      const submissionData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        education: formData.education,
+        designation: formData.designation,
+        years_of_experience: formData.yearsOfExperience,
+        years_of_passing: formData.yearsOfPassing,
+        workshop_type: workshopType,
+        workshop_title: zoomMeetingDetails?.title || "Untitled",
+        created_at: (/* @__PURE__ */ new Date()).toISOString(),
+        is_free: true,
+        // Add UTM data
+        utm_source: utmData.utm_source,
+        utm_medium: utmData.utm_medium,
+        utm_campaign: utmData.utm_campaign,
+        utm_term: utmData.utm_term,
+        utm_content: utmData.utm_content,
+        referrer: utmData.referrer,
+        landing_page_url: utmData.landing_page_url,
+        fbclid: utmData.fbclid,
+        gclid: utmData.gclid,
+        ttclid: utmData.ttclid,
+        msclkid: utmData.msclkid
+      };
+      await createWorkshopRegistration(submissionData);
+      try {
+        const eventId = generateFormEventId();
+        const trackingFormData = new FormData();
+        trackingFormData.append("name", formData.name);
+        trackingFormData.append("email", formData.email);
+        trackingFormData.append("phone", formData.phone);
+        trackingFormData.append("education", formData.education);
+        trackingFormData.append("designation", formData.designation);
+        trackingFormData.append("course", workshopType || "");
+        trackingFormData.append("workExperience", formData.yearsOfExperience);
+        trackingFormData.append("yearsOfPassing", formData.yearsOfPassing);
+        trackingFormData.append("eventId", eventId);
+        await trackFormSubmission(trackingFormData);
+      } catch (trackingError) {
+        console.error("Error tracking form submission:", trackingError);
+      }
+      try {
+        const zoomData = await registerForZoomMeeting(
+          formData.name,
+          formData.email,
+          formData.phone,
+          zoomMeetingDetails.meetingCode
+        );
+        const zoomJoinLink = zoomData.join_url;
+        await sendWhatsAppMessage({
+          phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+          name: formData.name,
+          masterclass: zoomMeetingDetails.title,
+          sessionDate: zoomMeetingDetails.time,
+          link: zoomJoinLink
+        });
+      } catch (error) {
+        console.error("Error in post-registration actions:", error);
+      }
+      _t.success("Registration successful!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        education: "",
+        designation: "",
+        yearsOfExperience: "",
+        yearsOfPassing: ""
+      });
+      handleRedirect(submissionData);
+    } catch (error) {
+      console.error("Registration failed:", error);
+      if (axios.isAxiosError(error) && error.response?.status === 409) {
+        _t.error("This email or phone number is already registered.");
+      } else {
+        _t.error("Registration failed. Please try again later.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "workshop-form", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "text",
+          name: "name",
+          value: formData.name,
+          onChange: handleChange,
+          required: true,
+          className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+          placeholder: "Full Name"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "email",
+          name: "email",
+          value: formData.email,
+          onChange: handleChange,
+          required: true,
+          className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+          placeholder: "Email Address"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "tel",
+          name: "phone",
+          value: formData.phone,
+          onChange: handleChange,
+          required: true,
+          className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+          placeholder: "Phone Number"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "text",
+          name: "education",
+          value: formData.education,
+          onChange: handleChange,
+          required: true,
+          className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+          placeholder: "Education (Highest Qualification)"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "text",
+          name: "designation",
+          value: formData.designation,
+          onChange: handleChange,
+          required: true,
+          className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+          placeholder: "Current Designation"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "select",
+        {
+          name: "yearsOfExperience",
+          value: formData.yearsOfExperience,
+          onChange: handleChange,
+          required: true,
+          className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm appearance-none",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Years of Experience" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "0-1", children: "0-1 years" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "1-3", children: "1-3 years" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "3-5", children: "3-5 years" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "5-10", children: "5-10 years" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "10+", children: "10+ years" })
+          ]
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "select",
+        {
+          name: "yearsOfPassing",
+          value: formData.yearsOfPassing,
+          onChange: handleChange,
+          required: true,
+          className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm appearance-none",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Year of Passing" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "<2000", children: "Before 2000" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2000", children: "2000" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2001", children: "2001" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2002", children: "2002" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2003", children: "2003" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2004", children: "2004" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2005", children: "2005" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2006", children: "2006" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2007", children: "2007" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2008", children: "2008" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2009", children: "2009" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2010", children: "2010" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2011", children: "2011" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2012", children: "2012" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2013", children: "2013" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2014", children: "2014" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2015", children: "2015" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2016", children: "2016" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2017", children: "2017" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2018", children: "2018" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2019", children: "2019" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2020", children: "2020" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2021", children: "2021" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2022", children: "2022" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2023", children: "2023" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2024", children: "2024" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2025", children: "2025" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2026", children: "2026" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2027", children: "2027" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2028", children: "2028" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2029", children: "2029" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "2030", children: "2030" })
+          ]
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
+        type: "submit",
+        disabled: isSubmitting,
+        className: "w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-semibold py-2.5 rounded-lg transition-all duration-300 transform hover:translate-y-[-1px] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 text-sm flex items-center justify-center gap-2",
+        children: isSubmitting ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Registering..." })
+        ] }) : "Register Now"
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs md:text-sm text-gray-400 text-center", children: "By continuing, you agree to our Terms and Privacy Policy" })
+  ] }) });
+};
+export {
+  WSFormFree as W
+};

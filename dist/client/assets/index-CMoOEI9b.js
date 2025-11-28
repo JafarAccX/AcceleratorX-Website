@@ -1,0 +1,39 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/DataHeroEIE-MrpkN-TB.js","assets/main-BzTttlQZ.js","assets/main-Ce-Pe5sq.css","assets/EnrollmentModal-BJCfKPkC.js","assets/enrollmentApi-Csc-QPjD.js","assets/metaPixel-DE20CzjQ.js","assets/arrow-right-DMXoacG5.js","assets/DataProgramEIE-CAX7KyQ3.js","assets/constants-DXOhk-SF.js","assets/DataSkillsToolsEIE-CMqQSnjT.js","assets/DataMentorsEIE-DdO_-p65.js","assets/users-CEydn7JE.js","assets/linkedin--u34DzwF.js","assets/DataPricingEIE-fMO5MBf-.js","assets/check-CGr9u7rB.js","assets/CAPEEIE-DEYUCd0m.js","assets/lightbulb-iiEza9cC.js","assets/bar-chart-DZMCVAyB.js","assets/DataCertificateEIE-BrMaKWpV.js","assets/WhoIsThisContentForEIE-D--nSE7a.js","assets/DataAnalyticsFAQFB-DL4NA_po.js"])))=>i.map(i=>d[i]);
+import { l as useCourseContext, r as reactExports, j as jsxRuntimeExports, S as SEO, _ as __vitePreload } from "./main-BzTttlQZ.js";
+import { H as HeroWithAbouv } from "./HeroWithAbouv-B8ytbN5Q.js";
+import { S as StickyBookNav } from "./StickyBookNav-BX_iktTf.js";
+import "./EnrollmentModal-BJCfKPkC.js";
+import "./enrollmentApi-Csc-QPjD.js";
+import "./metaPixel-DE20CzjQ.js";
+const DataHeroEIE = reactExports.lazy(() => __vitePreload(() => import("./DataHeroEIE-MrpkN-TB.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6]) : void 0));
+const DataProgramEIE = reactExports.lazy(() => __vitePreload(() => import("./DataProgramEIE-CAX7KyQ3.js"), true ? __vite__mapDeps([7,1,2,8]) : void 0));
+const DataSkillsToolsEIE = reactExports.lazy(() => __vitePreload(() => import("./DataSkillsToolsEIE-CMqQSnjT.js"), true ? __vite__mapDeps([9,1,2,8]) : void 0));
+const DataMentorsEIE = reactExports.lazy(() => __vitePreload(() => import("./DataMentorsEIE-DdO_-p65.js"), true ? __vite__mapDeps([10,1,2,11,12]) : void 0));
+const DataPricingEIE = reactExports.lazy(() => __vitePreload(() => import("./DataPricingEIE-fMO5MBf-.js"), true ? __vite__mapDeps([13,1,2,3,4,5,14]) : void 0));
+const CAPEEIE = reactExports.lazy(() => __vitePreload(() => import("./CAPEEIE-DEYUCd0m.js"), true ? __vite__mapDeps([15,1,2,16,17]) : void 0));
+const DataCertificateEIE = reactExports.lazy(() => __vitePreload(() => import("./DataCertificateEIE-BrMaKWpV.js"), true ? __vite__mapDeps([18,1,2]) : void 0));
+const WhoIsThisContentForEIE = reactExports.lazy(() => __vitePreload(() => import("./WhoIsThisContentForEIE-D--nSE7a.js"), true ? __vite__mapDeps([19,1,2,14]) : void 0));
+const DataAnalyticsFAQFB = reactExports.lazy(() => __vitePreload(() => import("./DataAnalyticsFAQFB-DL4NA_po.js"), true ? __vite__mapDeps([20,1,2]) : void 0));
+const DataAnalyticsPage = () => {
+  const { setSelectedCourse } = useCourseContext();
+  reactExports.useEffect(() => {
+    setSelectedCourse("Data Analytics");
+  }, [setSelectedCourse]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "py-8 text-center", children: "Loading…" }), children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SEO, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DataHeroEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(HeroWithAbouv, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(WhoIsThisContentForEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DataProgramEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CAPEEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DataCertificateEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DataMentorsEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DataSkillsToolsEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DataPricingEIE, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DataAnalyticsFAQFB, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(StickyBookNav, {})
+  ] }) });
+};
+export {
+  DataAnalyticsPage as default
+};
