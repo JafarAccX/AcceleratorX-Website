@@ -64,6 +64,7 @@ const WSFormFree = () => {
             link: zoomMeetingDetails.link,
             meetingId: zoomMeetingDetails.meetingId,
             time: zoomMeetingDetails.time,
+            whatsappLink: zoomMeetingDetails.whatsappLink,
           },
         },
       });
