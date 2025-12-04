@@ -1361,7 +1361,7 @@ const CourseProvider = ({ children }) => {
 };
 const useCourseContext = () => useContext(CourseContext);
 const api = axios.create({
-  baseURL: "https://api.acceleratorx.org/",
+  baseURL: "http://localhost:3020",
   withCredentials: true
   // This is crucial for sending HttpOnly cookies
 });
@@ -2200,8 +2200,8 @@ const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
 const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
 const HomePage = lazy(() => import("./assets/HomePage-DLnXqsgc.js"));
 const AboutPage = lazy(() => import("./assets/AboutPage-XD57gdmt.js"));
-const BlogList = lazy(() => import("./assets/BlogList-DI-Ewtq_.js"));
-const BlogDetail = lazy(() => import("./assets/BlogDetail-6WteWCFB.js"));
+const BlogList = lazy(() => import("./assets/BlogList-ogM2H8gr.js"));
+const BlogDetail = lazy(() => import("./assets/BlogDetail-ZRsXvyQJ.js"));
 const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
 const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
 const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
@@ -2210,7 +2210,7 @@ const MentorPage = lazy(() => import("./assets/MentorPage-JC6F9nHL.js"));
 const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-o-VQm78W.js"));
 const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-CpP1f73l.js"));
 const DataAnalyticsPage$1 = lazy(() => import("./assets/index-Cq9TgxzE.js"));
-const BlogDashboard = lazy(() => import("./assets/BlogDashboard-Oh7himwt.js"));
+const BlogDashboard = lazy(() => import("./assets/BlogDashboard-D75P_PtJ.js"));
 const Events = lazy(() => import("./assets/Events-DsOF2GFL.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }, "home"),
@@ -2648,21 +2648,21 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-kh2Tt5Zv.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-C69ZjsrG.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DHvUDhr8.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-CVckR0qQ.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-CHdHRrWz.js"));
-const GENCTAE = lazy(() => import("./assets/GENCTAE-BBMexfuJ.js"));
-const WSAboutGENE = lazy(() => import("./assets/WSAboutGENE-DsED5oYg.js"));
-const WSGENIntroductionE = lazy(() => import("./assets/WSGENIntroductionE-BIyvk3CJ.js"));
-const WSGENWhoShouldEnrollE = lazy(() => import("./assets/WSGENWhoShouldEnrollE-Ce5Lp3QD.js"));
-const WSHeroGENE = lazy(() => import("./assets/WSHeroGENE-4U-rz8yq.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-Bxc2CLhg.js"));
+const GENCTAE = lazy(() => import("./assets/GENCTAE-VZCynsDS.js"));
+const WSAboutGENE = lazy(() => import("./assets/WSAboutGENE-BFB27fJJ.js"));
+const WSGENIntroductionE = lazy(() => import("./assets/WSGENIntroductionE-B6RYGsvb.js"));
+const WSGENWhoShouldEnrollE = lazy(() => import("./assets/WSGENWhoShouldEnrollE-Dna5n3mC.js"));
+const WSHeroGENE = lazy(() => import("./assets/WSHeroGENE-BaEiwFLt.js"));
 const GENCTAAIDM = lazy(() => import("./assets/GENCTAAIDM-D9RRHxE_.js"));
 const WSAboutAIDM = lazy(() => import("./assets/WSAboutAIDM-GIU3QDkD.js"));
 const WSGENIntroductionAIDM = lazy(() => import("./assets/WSGENIntroductionAIDM-DF_fl5od.js"));
 const WSGENWhoShouldEnrollAIDM = lazy(() => import("./assets/WSGENWhoShouldEnrollAIDM-BTRlG-WY.js"));
-const WSHeroAIDM = lazy(() => import("./assets/WSHeroAIDM-B7gP5pJt.js"));
+const WSHeroAIDM = lazy(() => import("./assets/WSHeroAIDM-CZeFyjF_.js"));
 const WSGENMentorAIDM = lazy(() => import("./assets/WSGENMentorAIDM-C_sG6uPz.js"));
-const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-Cam4KhoN.js"));
+const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-CtpWaqPr.js"));
 const WSGENMentor = lazy(() => import("./assets/WSGENMentor-Yf2ZPqrc.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-DwRHWi_D.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-C3OC55Za.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
 const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-CsYRdvME.js"));
 const AIEcosystem = lazy(() => import("./assets/AIEcosystem-C1i3iuzY.js"));
@@ -2675,31 +2675,31 @@ const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNz
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
 const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroGEND = lazy(() => import("./assets/WSHeroGEND-RqTG6cjl.js"));
+const WSHeroGEND = lazy(() => import("./assets/WSHeroGEND-DtVs0P-4.js"));
 const WSAboutGEND = lazy(() => import("./assets/WSAboutGEND-CIxp4d_N.js"));
 const WSGENWhoShouldEnrollD = lazy(() => import("./assets/WSGENWhoShouldEnrollD-enXu46W2.js"));
 const WSGENIntroductionD = lazy(() => import("./assets/WSGENIntroductionD-B9n7be7r.js"));
 const GENCTAD = lazy(() => import("./assets/GENCTAD-hnmhwvuL.js"));
 const WSGENDMentor = lazy(() => import("./assets/WSGENDMentor-BYcHXR1f.js"));
-const WSRegistrationSuccessD = lazy(() => import("./assets/WSRegistrationSuccessD-CnJEOw1A.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-BAm6p8u6.js"));
+const WSRegistrationSuccessD = lazy(() => import("./assets/WSRegistrationSuccessD-B1Np9XoJ.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-C8ISD9p8.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
-const WSHeroPM = lazy(() => import("./assets/WSHeroPM-DiJgLo1c.js"));
+const WSHeroPM = lazy(() => import("./assets/WSHeroPM-Cd8gugpz.js"));
 const WSAboutPM = lazy(() => import("./assets/WSAboutPM-DnWLF5NK.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-DaIAvh3j.js"));
-const WSHeroPMB = lazy(() => import("./assets/WSHeroPMB-DQof1eqb.js"));
+const WSHeroPMB = lazy(() => import("./assets/WSHeroPMB-D-1Zt9Lr.js"));
 const WSAboutPMB = lazy(() => import("./assets/WSAboutPMB-Cf5PQ66f.js"));
 const WSGENWhoShouldEnrollPMB = lazy(() => import("./assets/WSGENWhoShouldEnrollPMB-5EuNqCO0.js"));
 const WSGENIntroductionPMB = lazy(() => import("./assets/WSGENIntroductionPMB-N6Cnrp3_.js"));
 const GENCTAPMB = lazy(() => import("./assets/GENCTAPMB-DYPlXqY7.js"));
-const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-BJm-TaWM.js"));
+const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-DxYsmEbi.js"));
 const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-gz2agjzY.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-qLUhRbqJ.js"));
-const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-a6wdJfE2.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-Bkd-0zMG.js"));
+const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-CfHuxMSC.js"));
 const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-RepMJNvw.js"));
 const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-CzTA8TTt.js"));
 const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-CAyP_sUG.js"));
@@ -2918,13 +2918,13 @@ const ProtectedRoute = () => {
   }
   return /* @__PURE__ */ jsx(Outlet, {});
 };
-const ProfileRoutes = lazy(() => import("./assets/profileRoutes-MziAOv75.js").then((m) => ({ default: m.ProfileRoutes })));
-const SignUpForm = lazy(() => import("./assets/SignUpForm-Da6zcl7r.js"));
-const SignInForm = lazy(() => import("./assets/SignInForm-C5kTGL8Z.js").then((m) => ({ default: m.SignInForm })));
-const JobApplication = lazy(() => import("./assets/JobApplication-CQ5Wr2C5.js"));
-const JobDetails = lazy(() => import("./assets/JobDetails-CvY6X425.js"));
-const JobList = lazy(() => import("./assets/JobList-BGBauKJk.js"));
-const MyApplications = lazy(() => import("./assets/MyApplications-UiZRox88.js"));
+const ProfileRoutes = lazy(() => import("./assets/profileRoutes-CzPZDkrN.js").then((m) => ({ default: m.ProfileRoutes })));
+const SignUpForm = lazy(() => import("./assets/SignUpForm-DOZXbqg_.js"));
+const SignInForm = lazy(() => import("./assets/SignInForm-DOsN8jP8.js").then((m) => ({ default: m.SignInForm })));
+const JobApplication = lazy(() => import("./assets/JobApplication-DFk0xgCG.js"));
+const JobDetails = lazy(() => import("./assets/JobDetails-BzpkpRAf.js"));
+const JobList = lazy(() => import("./assets/JobList-De-YqZ9s.js"));
+const MyApplications = lazy(() => import("./assets/MyApplications-0M5VSvFJ.js"));
 const CertificateDisplayPage = lazy(() => import("./assets/CertificateDisplayPage-Cc1A1PW1.js"));
 const AppRoutes = () => {
   const { setSelectedCourse } = useCourseContext();
