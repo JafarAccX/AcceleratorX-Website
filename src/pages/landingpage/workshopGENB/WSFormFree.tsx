@@ -50,24 +50,24 @@ const WSFormFree = () => {
 
   // Added conditional redirect function
   const handleRedirect = (submissionData: WorkshopRegistrationData) => {
+    const stateData = {
+      registrationDetails: {
+        name: submissionData.name,
+        email: formData.email,
+        workshop_type: submissionData.workshop_type,
+      },
+      zoomDetails: {
+        link: zoomMeetingDetails.link,
+        meetingId: zoomMeetingDetails.meetingId,
+        time: zoomMeetingDetails.time,
+        whatsappLink: zoomMeetingDetails.whatsappLink,
+      },
+    };
+
     if (location.pathname === "/workshop/pm-masterclass") {
-      navigate("/registration-sucessfull");
+      navigate("/registration-sucessfull", { state: stateData });
     } else {
-      navigate("/workshop-registration/success", {
-        state: {
-          registrationDetails: {
-            name: submissionData.name,
-            email: formData.email,
-            workshop_type: submissionData.workshop_type,
-          },
-          zoomDetails: {
-            link: zoomMeetingDetails.link,
-            meetingId: zoomMeetingDetails.meetingId,
-            time: zoomMeetingDetails.time,
-            whatsappLink: zoomMeetingDetails.whatsappLink,
-          },
-        },
-      });
+      navigate("/workshop-registration/success", { state: stateData });
     }
   };
 
