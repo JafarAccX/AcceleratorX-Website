@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
 import { generateFormEventId } from "../../../utils/unifiedTracking";
 import { registerForZoomMeeting } from "../../../routes/utils/registration";
@@ -25,7 +25,6 @@ const WSFormFree = () => {
   console.log("WSFormFree render with workshopType:", workshopType);
   console.log("zoomMeetingDetails:", zoomMeetingDetails);
   const navigate = useNavigate();
-  const location = useLocation(); // Added this line
   const [formData, setFormData] = useState<WorkshopFormData>({
     name: "",
     email: "",
@@ -50,25 +49,22 @@ const WSFormFree = () => {
 
   // Added conditional redirect function
   const handleRedirect = (submissionData: WorkshopRegistrationData) => {
-    if (location.pathname === "/workshop/pm-masterclass") {
-      navigate("/registration-sucessfull");
-    } else {
-      navigate("/workshop-registration/success", {
-        state: {
-          registrationDetails: {
-            name: submissionData.name,
-            email: formData.email,
-            workshop_type: submissionData.workshop_type,
-          },
-          zoomDetails: {
-            link: zoomMeetingDetails.link,
-            meetingId: zoomMeetingDetails.meetingId,
-            time: zoomMeetingDetails.time,
-            whatsappLink: zoomMeetingDetails.whatsappLink,
-          },
-        },
-      });
-    }
+    const stateData = {
+      registrationDetails: {
+        name: submissionData.name,
+        email: formData.email,
+        workshop_type: submissionData.workshop_type,
+      },
+      zoomDetails: {
+        link: zoomMeetingDetails.link,
+        meetingId: zoomMeetingDetails.meetingId,
+        time: zoomMeetingDetails.time,
+        whatsappLink: zoomMeetingDetails.whatsappLink,
+      },
+    };
+
+    // All workshops now use the same success page with state data
+    navigate("/workshop-registration/success", { state: stateData });
   };
 
   async function sendWhatsAppMessage({

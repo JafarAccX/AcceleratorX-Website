@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useWorkshop } from "../../../context/WorkshopContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
 import { generateFormEventId } from "../../../utils/unifiedTracking";
 import { registerForZoomMeeting } from "../../../routes/utils/registration";
@@ -25,7 +25,6 @@ const WSFormFree = () => {
   console.log("WSFormFree render with workshopType:", workshopType);
   console.log("zoomMeetingDetails:", zoomMeetingDetails);
   const navigate = useNavigate();
-  const location = useLocation(); // Added this line
   const [formData, setFormData] = useState<WorkshopFormData>({
     name: "",
     email: "",
@@ -64,11 +63,8 @@ const WSFormFree = () => {
       },
     };
 
-    if (location.pathname === "/workshop/pm-masterclass") {
-      navigate("/registration-sucessfull", { state: stateData });
-    } else {
-      navigate("/workshop-registration/success", { state: stateData });
-    }
+    // All workshops now use the same success page with state data
+    navigate("/workshop-registration/success", { state: stateData });
   };
 
   async function sendWhatsAppMessage({
