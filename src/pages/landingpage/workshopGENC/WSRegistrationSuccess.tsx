@@ -15,6 +15,7 @@ interface LocationState {
     link: string;
     meetingId: string;
     time: string;
+    whatsappLink: string;
   };
 }
 
@@ -39,23 +40,6 @@ const WSRegistrationSuccess = () => {
   const handleCopyClick = (text: string) => {
     navigator.clipboard.writeText(text);
     toast.success("Copied to clipboard!");
-  };
-
-  // Get the appropriate WhatsApp group link based on workshop type
-  const getWhatsAppLink = () => {
-    const workshopType = state.registrationDetails.workshop_type.toLowerCase();
-
-    if (workshopType.includes("da") || workshopType.includes("data")) {
-      // return "https://chat.whatsapp.com/Hl7nzEfchrR1I4ea4h04J5";
-      return "https://chat.whatsapp.com/F37nunVbnd3BWRjcA4Bt9Q";
-    } else if (workshopType.includes("gen") || workshopType.includes("ai")) {
-      return "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L";
-    } else if (workshopType.includes("pm") || workshopType.includes("product")) {
-      return "https://chat.whatsapp.com/IaFM3xfYfmRBO0jwiaDIHN";
-    }
-
-    // Default fallback
-    return "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L";
   };
 
   // Social media links
@@ -142,7 +126,7 @@ const WSRegistrationSuccess = () => {
                   <h3 className="font-medium text-gray-900">Join WhatsApp Group</h3>
                   <p className="text-gray-600 mb-2">Connect with fellow participants and instructors</p>
                   <a
-                    href={getWhatsAppLink()}
+                    href={state.zoomDetails.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"

@@ -20,6 +20,7 @@ interface ZoomMeetingDetails {
   meetingId: string;
   time: string;
   meetingCode: string;
+  whatsappLink: string;
 }
 
 interface WorkshopContextType {
@@ -34,6 +35,7 @@ const PMZoomDetails: ZoomMeetingDetails = {
   meetingId: "96828221429",
   time: "06th Dec, 2025 11:00 AM India",
   meetingCode: "96828221429",
+  whatsappLink: "https://chat.whatsapp.com/JrurX5lYVTAEShCyIwWkIG",
 };
 
 const PMBZoomDetails: ZoomMeetingDetails = {
@@ -42,6 +44,7 @@ const PMBZoomDetails: ZoomMeetingDetails = {
   meetingId: "98301275850",
   time: "07th Dec, 2025 11:00 AM India",
   meetingCode: "98301275850",
+  whatsappLink: "https://chat.whatsapp.com/IaFM3xfYfmRBO0jwiaDIHN",
 };
 
 const DAZoomDetails: ZoomMeetingDetails = {
@@ -50,6 +53,7 @@ const DAZoomDetails: ZoomMeetingDetails = {
   meetingId: "9wz8unT2Q8iq9NX_4-Nr7Q",
   time: "23th May, 2025 08:00 PM India",
   meetingCode: "95277125074",
+  whatsappLink: "https://chat.whatsapp.com/F37nunVbnd3BWRjcA4Bt9Q",
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
@@ -58,6 +62,7 @@ const DASecondZoomDetails: ZoomMeetingDetails = {
   meetingId: "b_CgAZvOT0WPuW9DG-10mg",
   time: "10th Nov, 2025 08:00 PM India",
   meetingCode: "99801086032",
+  whatsappLink: "https://chat.whatsapp.com/F37nunVbnd3BWRjcA4Bt9Q",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
@@ -66,6 +71,7 @@ const GENAIZoomDetails: ZoomMeetingDetails = {
   meetingId: "_UMsYvzPRayKLzneFMoawQ",
   time: "29 Jun, 2025 11:00 AM India",
   meetingCode: "91800954050",
+  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
 };
 
 const GENAIBZoomDetails: ZoomMeetingDetails = {
@@ -74,6 +80,7 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
   meetingId: "ebn6odaVTHSWMNOkvpNayw",
   time: "09th Nov, 2025 11:00 AM India",
   meetingCode: "92965681534",
+  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
@@ -82,6 +89,7 @@ const GENAICZoomDetails: ZoomMeetingDetails = {
   meetingId: "v6X24VyqSt26UvcxfL7J3g",
   time: "10th Nov, 2025 07:00 PM India",
   meetingCode: "99613499939",
+  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
 };
 
 const GENAIDZoomDetails: ZoomMeetingDetails = {
@@ -90,14 +98,16 @@ const GENAIDZoomDetails: ZoomMeetingDetails = {
   meetingId: "54eSRN5zS3e1zJLCgS-cKA",
   time: "11th Nov, 2025 07:00 PM India",
   meetingCode: "97914767458",
+  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
 };
 
 const GENAIEZoomDetails: ZoomMeetingDetails = {
-  title: "Building first RAG Agent",
-  link: "https://zoom.us/meeting/register/mMMETQh6RL6PPUhjRjFC6w",
-  meetingId: "mMMETQh6RL6PPUhjRjFC6w",
-  time: "14 Nov, 2025 07:00 PM India",
-  meetingCode: "97375135396",
+  title: "Building Hybrid RAG Agent",
+  link: "https://zoom.us/meeting/register/_FDr05gPRkmsB1Sa6L7lNQ",
+  meetingId: "_FDr05gPRkmsB1Sa6L7lNQ",
+  time: "10 Dec, 2025 07:00 PM India",
+  meetingCode: "96507880613",
+  whatsappLink: "https://chat.whatsapp.com/Ke8ixVJH8qU2EHILrzX9zp",
 };
 
 const AIDMZoomDetails: ZoomMeetingDetails = {
@@ -106,6 +116,7 @@ const AIDMZoomDetails: ZoomMeetingDetails = {
   meetingId: "7FhI--9PSHyw9CF27ihVcg",
   time: "23 Nov, 2025 11:00 AM India",
   meetingCode: "99909658988",
+  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {
@@ -114,6 +125,7 @@ const DMZoomDetails: ZoomMeetingDetails = {
   meetingId: "KVSQCqQxRl-OUCNUlS_NNw",
   time: "July 24, 2025 08:30 PM India",
   meetingCode: "96633694839",
+  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
 };
 
 const WorkshopContext = createContext<WorkshopContextType | undefined>(undefined);

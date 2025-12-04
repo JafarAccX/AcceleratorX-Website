@@ -31,7 +31,7 @@ const WSGENWhoShouldEnrollE = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Anyone interested in building intelligent AI applications can benefit from this workshop. Whether you're a developer, data scientist, or tech enthusiast, learn how RAG agents can revolutionize how AI systems understand and respond to complex queries.
+              Anyone interested in building intelligent AI applications can benefit from this workshop. Whether you're a developer, data scientist, or tech enthusiast, learn how hybrid RAG agents combine multiple retrieval strategies to revolutionize how AI systems understand and respond to complex, multi-faceted queries.
             </p>
           </div>
 

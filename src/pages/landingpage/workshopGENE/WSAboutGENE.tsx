@@ -43,7 +43,7 @@ const WSAboutGENE = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-green-400 text-sm font-medium">RAG Agent Development Workshop</span>
+                  <span className="text-green-400 text-sm font-medium">Hybrid RAG Agent Development Workshop</span>
                 </div>
 
                 {/* Title */}
@@ -64,10 +64,10 @@ const WSAboutGENE = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Learn how AI-driven automation transforms your marketing performance.",
-                        "Watch real examples of end-to-end automated marketing workflows.",
-                        "Explore tools to auto-create content, emails, and reports in seconds.",
-                        "Set up your first automated marketing system during the workshop.",
+                        "Learn how hybrid retrieval combines sparse (BM25) and dense (embeddings) methods for superior results.",
+                        "Watch real examples of end-to-end hybrid RAG workflows with multiple data sources.",
+                        "Explore tools to build advanced RAG systems that handle complex, multi-faceted queries.",
+                        "Set up your first hybrid RAG agent during the workshop with hands-on coding.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -87,10 +87,10 @@ const WSAboutGENE = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to automate repetitive marketing tasks that drain your time.",
-                        "How to create lead-generation and nurturing workflows with zero code.",
-                        "How to connect tools like ChatGPT, Zapier, and Sheets for full automation.",
-                        "How to build a scalable marketing engine that runs 24/7.",
+                        "How to implement sparse retrieval (BM25) and dense retrieval (embeddings) techniques.",
+                        "How to combine multiple retrieval methods for optimal hybrid performance.",
+                        "How to connect vector databases and traditional search engines for hybrid RAG.",
+                        "How to build a scalable RAG system that handles complex, multi-domain queries.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -158,10 +158,10 @@ const WSAboutGENE = () => {
                 </div>
                 <p className="text-gray-200 mb-3 text-sm">
                   Upon completion of the workshop, you'll receive a professional certificate confirming your ability to
-                  create functional applications and websites without writing code using GenAI tools.
+                  build hybrid RAG agents using advanced retrieval techniques and vector databases.
                 </p>
                 <p className="text-gray-200 mb-3 text-sm">
-                  Earn an industry-recognized certificate showcasing your AI workflow automation skills!
+                  Earn an industry-recognized certificate showcasing your hybrid RAG development skills!
                 </p>
                 <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
                   ⚠️ Only those who attend the complete automation workshop will receive the official certification.

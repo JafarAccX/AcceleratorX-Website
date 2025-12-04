@@ -48,26 +48,26 @@ const WSHeroGENE = () => {
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-               Build Your First RAG Agent in Just 90 Minutes
+               Build Your First Hybrid RAG Agent in Just 90 Minutes
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-            Learn how to build Retrieval-Augmented Generation (RAG) agents from scratch. Discover the power of combining vector databases with large language models to create intelligent, context-aware AI applications that can answer questions and generate responses based on your custom data.
+            Learn how to build Hybrid Retrieval-Augmented Generation (RAG) agents that combine sparse and dense retrieval strategies for superior performance. Discover the power of combining BM25 search with vector embeddings and large language models to create intelligent, context-aware AI applications that excel at complex queries.
             </p>
 
             {/* Workshop Info Tag */}
             <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg border border-green-500/20">
               <div className="text-yellow-400 text-sm font-medium">
-                Learn RAG Agent Development for Free – No Experience Needed
+                Learn Hybrid RAG Agent Development for Free – No Experience Needed
               </div>
               <div className="block sm:hidden animate-pulse">
                 <button
                   onClick={scrollToForm}
                   className="px-3 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white text-xs font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Learn Automation for Free – No Experience Needed
+                  Learn Hybrid RAG for Free – No Experience Needed
                 </button>
               </div>
             </div>
@@ -75,8 +75,8 @@ const WSHeroGENE = () => {
             {/* Key Info */}
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
-                { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Nov 14th" },
+                { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "90 Minutes" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Dec 10th" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "time",
