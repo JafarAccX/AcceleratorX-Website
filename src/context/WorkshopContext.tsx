@@ -33,7 +33,7 @@ const PMZoomDetails: ZoomMeetingDetails = {
   title: "Masterclass on Google Antigravity, Claude Coding and Cursor.",
   link: "https://zoom.us/meeting/register/4rBm7lGrSH-hWZh481XWSQ",
   meetingId: "96828221429",
-  time: "06th Dec, 2025 11:00 AM India",
+  time: "06th Dec, 2025 08:00 AM India",
   meetingCode: "96828221429",
   whatsappLink: "https://chat.whatsapp.com/JrurX5lYVTAEShCyIwWkIG",
 };
