@@ -111,12 +111,12 @@ const GENAIEZoomDetails: ZoomMeetingDetails = {
 };
 
 const AIDMZoomDetails: ZoomMeetingDetails = {
-  title: "Conversion rate optimization with AI",
-  link: "https://zoom.us/meeting/register/7FhI--9PSHyw9CF27ihVcg",
-  meetingId: "7FhI--9PSHyw9CF27ihVcg",
-  time: "23 Nov, 2025 11:00 AM India",
-  meetingCode: "99909658988",
-  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
+  title: "Marketing Automation Crash Course",
+  link: "https://zoom.us/meeting/register/x54MqpmpSwK6ki3PO74V4A",
+  meetingId: "x54MqpmpSwK6ki3PO74V4A",
+  time: "12th Dec, 2025 08:00 PM India",
+  meetingCode: "96361463677",
+  whatsappLink: "https://chat.whatsapp.com/IRY3cWYHajY8wbQc2LX11m",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

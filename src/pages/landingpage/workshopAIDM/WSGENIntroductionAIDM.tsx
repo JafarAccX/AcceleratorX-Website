@@ -22,15 +22,15 @@ const WSGENIntroductionAIDM = () => {
           <div className="text-center mb-8">
             {/* <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Brain className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 text-sm font-medium">Optimize & Convert Smarter with AI</span>
+              <span className="text-blue-400 text-sm font-medium">Automate & Optimize with AI</span>
             </div> */}
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              <span className="text-blue-500">Master CRO</span> with AI-Powered Optimization
+              <span className="text-blue-500">Master Marketing Automation</span> with AI
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Learn to optimize conversion rates using cutting-edge AI tools and data-driven strategies. Master the art of analyzing user behavior, implementing A/B tests, and creating high-converting experiences.
+              Learn how to automate campaigns, optimize funnels, and run smarter marketing systems using AI tools.
             </p>
           </div>
 
@@ -38,16 +38,16 @@ const WSGENIntroductionAIDM = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {[
               {
-                value: "AI-CRO",
-                label: "AI-Powered Optimization",
-              },
-              {
                 value: "100%",
-                label: "hands-on learning",
+                label: "Hands-On Workshop",
               },
               {
                 value: "Free",
-                label: "live CRO workshop",
+                label: "Live Session",
+              },
+              {
+                value: "Practical",
+                label: "Learning You Can Apply Immediately",
               },
             ].map((stat, index) => (
               <div key={index} className="bg-[#0A1020] p-4 rounded-lg border border-blue-900/20 text-center">
@@ -62,21 +62,21 @@ const WSGENIntroductionAIDM = () => {
             {[
               {
                 icon: <BarChart3 className="w-5 h-5 text-blue-500" />,
-                title: "User Analytics",
+                title: "Automated User Journeys",
                 description:
-                  "Master Google Analytics, Hotjar, and AI-powered user behavior analysis tools.",
+                  "Build funnels using tools like HubSpot, ActiveCampaign & Zapier.",
               },
               {
                 icon: <Brain className="w-5 h-5 text-blue-500" />,
                 title: "AI Optimization",
                 description:
-                  "Use AI tools to identify conversion bottlenecks and optimization opportunities.",
+                  "Use ChatGPT, Claude, and AI engines to personalize communication.",
               },
               {
                 icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-                title: "Data-Driven Results",
+                title: "Performance Tracking",
                 description:
-                  "Implement conversion strategies that deliver measurable business impact.",
+                  "Automate your reports with Google Analytics and dashboards.",
               },
             ].map((feature, index) => (
               <div

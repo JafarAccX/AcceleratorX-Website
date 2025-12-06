@@ -23,7 +23,7 @@ const WSGENWhoShouldEnrollAIDM = () => {
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Users className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 text-sm font-medium">For Marketers & Growth Hackers</span>
+              <span className="text-blue-400 text-sm font-medium">For Marketers & Business Owners</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
               <span className="text-white">Who Can </span>
@@ -31,7 +31,7 @@ const WSGENWhoShouldEnrollAIDM = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Anyone interested in improving conversion rates and optimizing marketing performance can benefit from this workshop. Whether you're a marketer, entrepreneur, or growth specialist, learn how AI can revolutionize your conversion optimization strategies.
+              Anyone who wants to streamline marketing and drive better results using automation:
             </p>
           </div>
 
@@ -44,22 +44,22 @@ const WSGENWhoShouldEnrollAIDM = () => {
                   {
                     icon: Megaphone,
                     title: "Digital Marketers",
-                    description: "Optimize campaigns and landing pages for better conversions",
+                    description: "Automate repetitive tasks and scale campaigns.",
                   },
                   {
                     icon: Briefcase,
                     title: "E-commerce Owners",
-                    description: "Increase sales and revenue through data-driven optimization",
+                    description: "Improve customer journeys and increase repeat sales.",
                   },
                   {
                     icon: BarChart3,
                     title: "Growth Specialists",
-                    description: "Master advanced CRO techniques and A/B testing",
+                    description: "Leverage automation for faster experimentation.",
                   },
                   {
                     icon: TrendingUp,
                     title: "Business Owners",
-                    description: "Learn to maximize ROI from your marketing investments",
+                    description: "Save time and boost ROI through automated workflows.",
                   },
                 ].map((audience, index) => (
                   <div

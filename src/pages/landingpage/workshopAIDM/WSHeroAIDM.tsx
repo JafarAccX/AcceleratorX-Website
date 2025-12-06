@@ -49,26 +49,28 @@ const WSHeroAIDM = () => {
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-                Conversion Rate Optimization with AI
+                {/* Learn to automate your marketing, save hours of work, and boost performance using AI */}
+              Marketing Automation Crash Course
+
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-              Master the art of conversion rate optimization using cutting-edge AI tools and strategies. Learn how to analyze user behavior, optimize landing pages, and implement data-driven techniques to dramatically improve your conversion rates.
+              Mastering the fundamentals of AI-powered marketing automation help to automate campaigns, streamline workflows, personalize customer journeys, and use AI-driven insights to improve conversions.
             </p>
 
             {/* Workshop Info Tag */}
             <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg border border-green-500/20">
               <div className="text-yellow-400 text-sm font-medium">
-                Learn CRO with AI – Boost Your Conversion Rates
+                Master Marketing Automation with AI – Boost Productivity & Conversions
               </div>
               <div className="block sm:hidden animate-pulse">
                 <button
                   onClick={scrollToForm}
                   className="px-3 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white text-xs font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Learn CRO for Free – No Experience Needed
+                  Register Now
                 </button>
               </div>
             </div>
@@ -77,11 +79,11 @@ const WSHeroAIDM = () => {
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
                 { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Nov 23th" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Dec 12th" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
-                  label: "time",
-                  value: "11:00 AM",
+                  label: "Time",
+                  value: "8:00 PM",
                 },
                 { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

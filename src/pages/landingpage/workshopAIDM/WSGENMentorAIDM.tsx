@@ -3,29 +3,13 @@ import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 
 const WSGENMentorAIDM = () => {
   const mentors = [
-    // {
-    //   name: "Prashant Sahatiya",
-    //   designation: "Assistant Professor at Parul University",
-    //   description: "Ph.D. in Computer Science, University Gold Medalist",
-    //   linkedin: "https://www.linkedin.com/in/prashant-sahatiya/",
-    //   image: "/assets/mentor/prashant.webp",
-    //   experience: "5+ Years",
-    // },
     {
-      name: "Anjali Sharma",
-      designation: "AI Product Manager at Mesha",
-      linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
-      image: "/assets/mentor/anjali.webp",
-      experience: "10+ Years",
-    },
-
-    {
-      name: "Nitish M L Setty",
-      designation: "Software Developer, MD at GrowSharp Technologies",
-      description: "Expert in AI implementation and automation",
-      linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192",
-      image: "/assets/mentor/nitish.webp",
-      experience: "5+ Years",
+      name: "Kumar Savino",
+      designation: "AI Marketing Specialist",
+      description: "Expert in AI-driven automation, ad optimization, and workflow systems.",
+      linkedin: "https://www.linkedin.com/in/kumar-savino/",
+      image: "/assets/mentor/kumar.webp",
+      experience: "8+ Years",
     },
   ];
 
@@ -45,9 +29,10 @@ const WSGENMentorAIDM = () => {
           {/* Section Title */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Meet Your Mentors
+              AI Marketing Automation — Learn From Experts
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
+            <p className="text-gray-300 text-lg">Meet Your Mentor</p>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mt-4" />
           </div>
 
           {/* Mentors Grid */}

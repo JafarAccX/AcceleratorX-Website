@@ -18,16 +18,17 @@ const WSAboutAIDM = () => {
   const toolsRef = useRef(null);
 
   const allTools = [
+    { name: "HubSpot", img: "/assets/dataAnalyticsLogo/hubspot.webp" },
+    { name: "Mailchimp", img: "/assets/dataAnalyticsLogo/mailchimp.webp" },
+    { name: "Zapier", img: "/assets/dataAnalyticsLogo/zapier.webp" },
     { name: "Google Analytics", img: "/assets/dataAnalyticsLogo/google-analytics.webp" },
-    { name: "Hotjar", img: "/assets/dataAnalyticsLogo/hotjar.webp" },
-    { name: "Optimizely", img: "/assets/dataAnalyticsLogo/optimizely.webp" },
-    { name: "VWO", img: "/assets/dataAnalyticsLogo/vwo.webp" },
-    { name: "Google Optimize", img: "/assets/dataAnalyticsLogo/google-optimize.webp" },
-    { name: "Crazy Egg", img: "/assets/dataAnalyticsLogo/crazy-egg.webp" },
-    { name: "Mouseflow", img: "/assets/dataAnalyticsLogo/mouseflow.webp" },
-    { name: "Smartlook", img: "/assets/dataAnalyticsLogo/smartlook.webp" },
+    { name: "Notion", img: "/assets/dataAnalyticsLogo/notion.webp" },
+    { name: "ActiveCampaign", img: "/assets/dataAnalyticsLogo/activecampaign.webp" },
+    { name: "Make.com", img: "/assets/dataAnalyticsLogo/make.webp" },
     { name: "ChatGPT", img: "/assets/genAITools/gpt4.webp" },
     { name: "Claude", img: "/assets/genAITools/claude.webp" },
+    { name: "Meta Ads", img: "/assets/dataAnalyticsLogo/meta-ads.webp" },
+    { name: "Google Ads", img: "/assets/dataAnalyticsLogo/google-ads.webp" },
   ];
 
   return (
@@ -43,11 +44,11 @@ const WSAboutAIDM = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-green-400 text-sm font-medium">AI-Powered CRO Workshop</span>
+                  <span className="text-green-400 text-sm font-medium">AI-Powered Marketing Automation Workshop</span>
                 </div>
 
                 {/* Title */}
-                {/* <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI CRO Workshop: Master Conversion Optimization
+                {/* <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Marketing Automation Workshop
                 </h2> */}
 
                 {/* Workshop Info */}
@@ -64,11 +65,11 @@ const WSAboutAIDM = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Learn AI-driven conversion rate optimization techniques.",
-                        "Analyze user behavior with advanced analytics and heatmaps.",
-                        "Implement A/B testing frameworks powered by AI insights.",
-                        "Optimize landing pages and funnels for maximum conversions.",
-                        "Use predictive analytics to forecast conversion trends.",
+                        "Understand how AI transforms modern marketing workflows.",
+                        "Learn to automate repetitive tasks like emails, ads & reporting.",
+                        "Build automated customer journeys and funnels.",
+                        "Use AI tools to personalize campaigns at scale.",
+                        "Learn how to track performance and optimize with automation.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -88,11 +89,11 @@ const WSAboutAIDM = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to use AI tools to identify conversion bottlenecks.",
-                        "Advanced user behavior analysis and segmentation.",
-                        "Creating data-driven optimization hypotheses.",
-                        "Implementing AI-powered A/B testing strategies.",
-                        "Building conversion-focused landing pages with AI assistance.",
+                        "How to use AI tools to automate marketing processes.",
+                        "Setting up customer journeys, triggers, and automated workflows.",
+                        "Building smart segmentation & personalized messaging.",
+                        "Automating reporting, analytics & campaign optimization.",
+                        "Creating an end-to-end marketing automation system for your business.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -159,14 +160,13 @@ const WSAboutAIDM = () => {
                   <h3 className="text-xl font-bold">Certification Included</h3>
                 </div>
                 <p className="text-gray-200 mb-3 text-sm">
-                  Upon completion of the workshop, you'll receive a professional certificate confirming your expertise in
-                  AI-powered conversion rate optimization techniques and tools.
+                  After attending the complete workshop, you'll receive an official Professional Certificate in Marketing Automation—a strong proof of your AI digital marketing skills.
                 </p>
                 <p className="text-gray-200 mb-3 text-sm">
-                  Earn an industry-recognized certificate showcasing your CRO and AI marketing skills!
+                  Earn an industry-recognized certificate showcasing your automation expertise!
                 </p>
                 <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
-                  ⚠️ Only those who attend the complete CRO workshop will receive the official certification.
+                  ⚠️ Certificate is provided only to participants who attend the full workshop.
                 </div>
               </div>
             </div>
@@ -180,19 +180,19 @@ const WSAboutAIDM = () => {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  Hands-on experience with real CRO tools
+                  Hands-on practice with real marketing tools
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  AI-powered optimization strategies
+                  AI-based automation strategies
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  Industry best practices and case studies
+                  Practical industry case studies
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  Direct mentorship from CRO experts
+                  Live Q&A + mentorship from experts
                 </li>
               </ul>
             </div>
