@@ -78,7 +78,7 @@ const WSHeroGENC = () => {
               >
                 <span className="text-blue-400">⚡</span>
               </motion.div>
-              <span className="text-blue-400 font-medium">Reserve Your Spot Now! Limited seats available for this live session.</span>
+              <span className="text-blue-400 font-medium">Professional Certificate in Generative AI</span>
             </motion.div>
 
             {/* Main Title & Content */}
@@ -92,9 +92,8 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      Professional Certificate in Generative AI
-                    </span>{" "}
-                    <br />Hands-on LLM Fine-Tuning Workshop
+                        Hands-on LLM Fine-Tuning Workshop
+                    </span>
                   </span>
 
                   <motion.div
@@ -109,12 +108,7 @@ const WSHeroGENC = () => {
 
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
-                <p className="  text-gray-400 max-w-xl">
-                  Master LLM Fine-tuning & Evaluation – Step by Step
-                </p>
-                <p className="  text-gray-400 max-w-xl">
-                  Learn how to fine-tune Large Language Models and evaluate them accurately — even if you're not a technical expert.
-                </p>
+                
                 <p className="  text-gray-400 max-w-xl">
                   In this practical workshop, you’ll understand how modern LLMs are trained, how to fine-tune them for real use-cases, and how to measure the quality of your outputs with the right evaluation frameworks.
                 </p>
