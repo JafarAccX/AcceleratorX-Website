@@ -43,7 +43,7 @@ const WSAboutGENC = () => {
                   >
                     ⚡
                   </motion.span>
-                  Live Workshop
+                  AI Workshop
                 </motion.span>
               </motion.div>
 
@@ -77,12 +77,12 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Understand how Flowise enables automation through visual workflows.",
-                        "Build your first automation from scratch — connect AI tools, APIs, and triggers.",
-                        "Learn to integrate Flowise with OpenAI, webhooks, and custom data sources.",
-                        "Create intelligent, automated pipelines that actually save time.",
-                        "Test, optimize, and deploy your automation to production.",
-                        "Take away reusable templates for future projects and real-life workflows.",
+                        "Understand how LLM fine-tuning works and when you should use it.",
+                        "Learn step-by-step fine-tuning techniques using open-source models.",
+                        "Work with datasets, prompts, and evaluation metrics used in industry.",
+                        "Run hands-on fine-tuning for real-world use cases (support, content, Q&A, data tasks).",
+                        "Evaluate your model using standard benchmarks and scoring methods.",
+                        "Take home templates, datasets, and evaluation frameworks for future projects.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -119,11 +119,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "The fundamentals of no-code and low-code automation using Flowise.",
-                        "How to build automation systems using AI and logic-based nodes.",
-                        "Best practices for connecting APIs, chatbots, and AI models.",
-                        "Real-world automation examples — customer support, data processing, lead management.",
-                        "How to scale your automations across tools and platforms effortlessly.",
+                        "Core concepts of LLM fine-tuning, parameter-efficient training & dataset preparation.",
+                        "How to improve model accuracy using high-quality prompts and data strategies.",
+                        "Evaluation methods like BLEU, ROUGE, and LLM-as-a-judge frameworks.",
+                        "Industry examples — chatbots, automation, domain-specific assistants.",
+                        "How to deploy fine-tuned models efficiently for real use-cases.",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

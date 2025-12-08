@@ -41,26 +41,33 @@ const WSHeroGENE = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             {/* Pre-title */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-              <span className="text-green-400 font-medium text-sm"> No Code. No Complexity.
-              </span>
+              <span className="text-green-400 font-medium text-sm">AI Workshop Live Workshop</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-               Build Your First Hybrid RAG Agent in Just 90 Minutes
+                Professional Certificate in Generative AI
+                <br />
+                Hands-on LLM Fine-Tuning Workshop
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-            Learn how to build Hybrid Retrieval-Augmented Generation (RAG) agents that combine sparse and dense retrieval strategies for superior performance. Discover the power of combining BM25 search with vector embeddings and large language models to create intelligent, context-aware AI applications that excel at complex queries.
+              Master LLM Fine-tuning & Evaluation – Step by Step
+              <br />
+              Learn how to fine-tune Large Language Models and evaluate them accurately — even if you're not a technical expert.
+              <br />
+              In this practical workshop, you'll understand how modern LLMs are trained, how to fine-tune them for real use-cases, and how to measure the quality of your outputs with the right evaluation frameworks.
+              <br />
+              No confusing theory. No advanced coding. Just practical, real-world LLM fine-tuning.
             </p>
 
             {/* Workshop Info Tag */}
             <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg border border-green-500/20">
               <div className="text-yellow-400 text-sm font-medium">
-                Learn Hybrid RAG Agent Development for Free – No Experience Needed
+                Reserve Your Spot Now! Limited seats available for this live session.
               </div>
               <div className="block sm:hidden animate-pulse">
                 <button
@@ -75,12 +82,12 @@ const WSHeroGENE = () => {
             {/* Key Info */}
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
-                { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "90 Minutes" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "Dec 10th" },
+                { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "14th Dec 2025" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
-                  label: "time",
-                  value: "7:00 PM",
+                  label: "Time",
+                  value: "11:00 AM",
                 },
                 { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

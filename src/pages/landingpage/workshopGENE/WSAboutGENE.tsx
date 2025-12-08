@@ -43,7 +43,7 @@ const WSAboutGENE = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-green-400 text-sm font-medium">Hybrid RAG Agent Development Workshop</span>
+                  <span className="text-green-400 text-sm font-medium">Live Workshop – Highlights</span>
                 </div>
 
                 {/* Title */}
@@ -64,10 +64,12 @@ const WSAboutGENE = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Learn how hybrid retrieval combines sparse (BM25) and dense (embeddings) methods for superior results.",
-                        "Watch real examples of end-to-end hybrid RAG workflows with multiple data sources.",
-                        "Explore tools to build advanced RAG systems that handle complex, multi-faceted queries.",
-                        "Set up your first hybrid RAG agent during the workshop with hands-on coding.",
+                        "Understand how LLM fine-tuning works and when you should use it.",
+                        "Learn step-by-step fine-tuning techniques using open-source models.",
+                        "Work with datasets, prompts, and evaluation metrics used in industry.",
+                        "Run hands-on fine-tuning for real-world use cases (support, content, Q&A, data tasks).",
+                        "Evaluate your model using standard benchmarks and scoring methods.",
+                        "Take home templates, datasets, and evaluation frameworks for future projects.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -87,10 +89,11 @@ const WSAboutGENE = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to implement sparse retrieval (BM25) and dense retrieval (embeddings) techniques.",
-                        "How to combine multiple retrieval methods for optimal hybrid performance.",
-                        "How to connect vector databases and traditional search engines for hybrid RAG.",
-                        "How to build a scalable RAG system that handles complex, multi-domain queries.",
+                        "Core concepts of LLM fine-tuning, parameter-efficient training & dataset preparation.",
+                        "How to improve model accuracy using high-quality prompts and data strategies.",
+                        "Evaluation methods like BLEU, ROUGE, and LLM-as-a-judge frameworks.",
+                        "Industry examples — chatbots, automation, domain-specific assistants.",
+                        "How to deploy fine-tuned models efficiently for real use-cases.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -98,6 +101,42 @@ const WSAboutGENE = () => {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                </div>
+
+                {/* Additional Benefits Section */}
+                <div className="mt-6 space-y-4">
+                  <h3 className="text-xl font-bold text-white">Fine-tuning = Smarter AI Models</h3>
+                  <p className="text-gray-300">
+                    This workshop is fully practical — you will build and evaluate your own LLM workflow by the end of the session.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10">
+                      <p className="text-green-400 font-semibold">90% of previous learners</p>
+                      <p className="text-gray-300 text-sm">said they understood LLM fine-tuning in a single day.</p>
+                    </div>
+                    <div className="bg-[#111827] p-4 rounded-md border border-green-500/10">
+                      <p className="text-green-400 font-semibold">92% reported improved confidence</p>
+                      <p className="text-gray-300 text-sm">in using Generative AI for real projects.</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-[#111827] p-4 rounded-md border border-purple-500/10">
+                      <h4 className="text-purple-400 font-semibold mb-2">Zero Complexity</h4>
+                      <p className="text-gray-300 text-sm">Simple, structured steps anyone can follow.</p>
+                    </div>
+                    <div className="bg-[#111827] p-4 rounded-md border border-purple-500/10">
+                      <h4 className="text-purple-400 font-semibold mb-2">AI Development Made Easy</h4>
+                      <p className="text-gray-300 text-sm">Clear explanations, real examples, and hands-on guidance.</p>
+                    </div>
+                    <div className="bg-[#111827] p-4 rounded-md border border-purple-500/10">
+                      <h4 className="text-purple-400 font-semibold mb-2">Live & Interactive</h4>
+                      <p className="text-gray-300 text-sm">Learn, practice, and get feedback instantly.</p>
+                    </div>
+                    <div className="bg-[#111827] p-4 rounded-md border border-purple-500/10">
+                      <h4 className="text-purple-400 font-semibold mb-2">Practical Deployment</h4>
+                      <p className="text-gray-300 text-sm">Understand how to use and deploy your fine-tuned model.</p>
+                    </div>
                   </div>
                 </div>
 

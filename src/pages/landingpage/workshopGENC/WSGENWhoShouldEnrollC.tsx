@@ -6,22 +6,22 @@ const WSGENWhoShouldEnrollC = () => {
     {
       icon: Briefcase,
       title: "Professionals",
-      description: "Automate routine work and save hours every week.",
+      description: "Automate work, build smarter tools, and upskill in AI quickly.",
     },
     {
       icon: Laptop,
       title: "Students",
-      description: "Learn the tools shaping the future of AI-driven productivity.",
+      description: "Learn one of the most in-demand skills in the AI industry.",
     },
     {
       icon: Code,
       title: "Entrepreneurs",
-      description: "Automate leads, marketing, and customer engagement.",
+      description: "Build custom AI models for your product, users, and business workflows.",
     },
     {
       icon: Brain,
       title: "Creatives",
-      description: "Build custom assistants and tools that simplify your workflow.",
+      description: "Train models that understand your writing, style, or content needs.",
     },
   ];
 
@@ -42,7 +42,7 @@ const WSGENWhoShouldEnrollC = () => {
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
           <h2 className="text-3xl font-bold mb-3">
-            <span className="text-white">This workshop is for you if you've ever thought:<br/>"Automation sounds great, but I don't know where to start."</span>
+            <span className="text-white">This workshop is for you if you've ever thought:<br/>"I want to build powerful AI systems, but I don’t know where to start."</span>
           </h2>
         </div>
 

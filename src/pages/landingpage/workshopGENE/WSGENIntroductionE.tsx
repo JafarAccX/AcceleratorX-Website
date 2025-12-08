@@ -27,11 +27,19 @@ const WSGENIntroductionE = () => {
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
              
-              <span className="text-blue-500">Master Hybrid RAG Agents</span> & Build Intelligent AI Apps
+              <span className="text-blue-500">Build & Fine-Tune Your First LLM</span> – Live Workshop
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Learn to build Hybrid Retrieval-Augmented Generation (RAG) agents that combine sparse and dense retrieval strategies for enhanced accuracy. Create AI applications that can understand and respond based on your custom data sources with superior performance.
+              Hands-On. Beginner-Friendly. Practical Skills.
+              <br />
+              Learn Fine-Tuning Techniques From dataset prep to training.
+              <br />
+              Step-by-Step Guidance Follow along and build with your mentor.
+              <br />
+              Real AI Applications Fine-tune models for real business problems.
+              <br />
+              200+ learners have already built their first AI models with us. Now it's your turn.
             </p>
           </div>
 
@@ -39,16 +47,16 @@ const WSGENIntroductionE = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {[
               {
-                value: "Hybrid RAG",
-                label: "Sparse + Dense Retrieval",
+                value: "LLM Fine-tuning",
+                label: "Hands-on workshop",
               },
               {
-                value: "100%",
-                label: "hands-on learning",
+                value: "Beginner-Friendly",
+                label: "No advanced coding needed",
               },
               {
-                value: "Free",
-                label: "live Hybrid RAG workshop",
+                value: "Real Projects",
+                label: "Build actual AI models",
               },
             ].map((stat, index) => (
               <div key={index} className="bg-[#0A1020] p-4 rounded-lg border border-blue-900/20 text-center">
@@ -63,21 +71,21 @@ const WSGENIntroductionE = () => {
             {[
               {
                 icon: <Target className="w-5 h-5 text-blue-500" />,
-                title: "Hybrid Retrieval",
+                title: "Dataset Preparation",
                 description:
-                  "Combine BM25 sparse search with dense vector embeddings for optimal retrieval performance.",
+                  "Learn how to prepare and format datasets for effective LLM fine-tuning.",
               },
               {
                 icon: <Brain className="w-5 h-5 text-blue-500" />,
-                title: "Multi-Source Integration",
+                title: "Fine-tuning Techniques",
                 description:
-                  "Connect multiple data sources and retrieval methods for comprehensive knowledge bases.",
+                  "Master parameter-efficient fine-tuning methods for optimal performance.",
               },
               {
                 icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-                title: "Advanced LLM Integration",
+                title: "Model Evaluation",
                 description:
-                  "Build hybrid RAG systems with GPT, Claude, and open-source models for production use.",
+                  "Understand evaluation metrics and benchmarks to measure model quality.",
               },
             ].map((feature, index) => (
               <div

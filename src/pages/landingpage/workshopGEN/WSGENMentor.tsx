@@ -4,13 +4,13 @@ import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 const WSGENMentor = () => {
   const mentors = [
     {
-      name: "Ashu Mishra",
-      role: "Senior PM at Zigram",
-      experience: "10+ years",
-      image: "/assets/mentor/ashumish.jpeg",
-      alt: "product management certification mentor Ashu Mishra",
-      linkedin: "https://www.linkedin.com/in/ashumish/",
-      transitions: "Over 100+",
+      name: "Nitya Sagar",
+      role: "AI & LLM Fine-tuning Expert",
+      experience: "5+ years",
+      image: "/assets/mentor/ashumish.jpeg", // Keep existing image for now
+      alt: "LLM fine-tuning workshop mentor Nitya Sagar",
+      linkedin: "https://www.linkedin.com/in/ashumish/", // Keep existing for now
+      transitions: "200+",
     },
   ];
 

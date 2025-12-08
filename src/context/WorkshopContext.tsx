@@ -85,12 +85,12 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Start your automation with Flowise",
-  link: "https://zoom.us/meeting/register/v6X24VyqSt26UvcxfL7J3g",
-  meetingId: "v6X24VyqSt26UvcxfL7J3g",
-  time: "10th Nov, 2025 07:00 PM India",
+  title: "Hands-on LLM Fine-Tuning Workshop",
+  link: "https://zoom.us/meeting/register/JbDFh1vLQVyXvwKV_5-dJA",
+  meetingId: "JbDFh1vLQVyXvwKV_5-dJA",
+  time: "14th Dec, 2025 11:00 AM India",
   meetingCode: "99613499939",
-  whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
+  whatsappLink: "https://chat.whatsapp.com/CzDMtSnPlcU30bfF9m8bSI",
 };
 
 const GENAIDZoomDetails: ZoomMeetingDetails = {

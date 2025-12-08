@@ -26,7 +26,7 @@ const GENCTAC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Build & Automate with Flowise – Live Workshop
+              Build & Fine-Tune Your First LLM – Live Workshop
             </motion.h2>
 
             {/* Badge */}
@@ -37,7 +37,7 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="bg-blue-500/10 rounded-full px-6 py-2">
-                <span className="text-lg font-bold text-white">Hands-On. No Pressure. Real Skills.</span>
+                <span className="text-lg font-bold text-white">Hands-On. Beginner-Friendly. Practical Skills.</span>
               </div>
             </motion.div>
 
@@ -51,18 +51,18 @@ const GENCTAC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Server className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-green-400">Create Automation Flows</p>
-                  <p className="text-sm text-gray-400">From idea to working system</p>
+                  <p className="text-lg font-bold text-green-400">Learn Fine-Tuning Techniques</p>
+                  <p className="text-sm text-gray-400">From dataset prep to training.</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Database className="w-6 h-6 text-purple-400 mx-auto mb-2" />
                   <p className="text-lg font-bold text-purple-400">Step-by-Step Guidance</p>
-                  <p className="text-sm text-gray-400">From visual nodes to deployment</p>
+                  <p className="text-sm text-gray-400">Follow along and build with your mentor.</p>
                 </div>
                 <div className="bg-white/5 p-4 rounded-lg text-center">
                   <Code className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-lg font-bold text-blue-400">Functional AI Automation</p>
-                  <p className="text-sm text-gray-400">Real workflows that solve real problems</p>
+                  <p className="text-lg font-bold text-blue-400">Real AI Applications</p>
+                  <p className="text-sm text-gray-400">Fine-tune models for real business problems.</p>
                 </div>
               </div>
             </motion.div>
@@ -75,10 +75,10 @@ const GENCTAC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p className="bg-blue-500/10 rounded-full px-6 py-2 text-lg font-bold text-white">
-                Hands-On. No Pressure. Real Skills.
+                Hands-On. Beginner-Friendly. Practical Skills.
               </p>
-              <p>100+ beginners have already automated their workflows with Flowise. Now it's your turn.</p>
-              <p>Click Register Now and start your automation journey today!</p>
+              <p>200+ learners have already built their first AI models with us. Now it’s your turn.</p>
+              <p>Click Register Now and start your Generative AI journey!</p>
               {/* Button */}
               <button
                 onClick={handleEnrollClick}

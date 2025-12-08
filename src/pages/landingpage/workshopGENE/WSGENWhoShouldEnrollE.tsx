@@ -26,12 +26,12 @@ const WSGENWhoShouldEnrollE = () => {
               <span className="text-blue-400 text-sm font-medium">For Doers & Builders</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
-              <span className="text-white">Who Can </span>
-              <span className="text-blue-500">Benefit</span>
+              <span className="text-white">Who Should </span>
+              <span className="text-blue-500">Attend</span>
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Anyone interested in building intelligent AI applications can benefit from this workshop. Whether you're a developer, data scientist, or tech enthusiast, learn how hybrid RAG agents combine multiple retrieval strategies to revolutionize how AI systems understand and respond to complex, multi-faceted queries.
+              This workshop is for you if you've ever thought: "I want to build powerful AI systems, but I don't know where to start."
             </p>
           </div>
 
@@ -43,23 +43,23 @@ const WSGENWhoShouldEnrollE = () => {
                 {[
                   {
                     icon: Users,
-                    title: "AI Developers",
-                    description: "Build better AI applications with RAG technology",
+                    title: "Professionals",
+                    description: "Automate work, build smarter tools, and upskill in AI quickly.",
                   },
                   {
                     icon: Briefcase,
-                    title: "Data Scientists",
-                    description: "Enhance your models with contextual retrieval",
+                    title: "Students",
+                    description: "Learn one of the most in-demand skills in the AI industry.",
                   },
                   {
                     icon: Megaphone,
-                    title: "Product Managers",
-                    description: "Understand RAG for better AI product decisions",
+                    title: "Entrepreneurs",
+                    description: "Build custom AI models for your product, users, and business workflows.",
                   },
                   {
                     icon: Brain,
-                    title: "Tech Enthusiasts",
-                    description: "Learn cutting-edge AI architecture patterns",
+                    title: "Creatives",
+                    description: "Train models that understand your writing, style, or content needs.",
                   },
                 ].map((audience, index) => (
                   <div

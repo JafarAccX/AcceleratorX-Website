@@ -78,7 +78,7 @@ const WSHeroGENC = () => {
               >
                 <span className="text-blue-400">⚡</span>
               </motion.div>
-              <span className="text-blue-400 font-medium">Hands-on Automation Workshop</span>
+              <span className="text-blue-400 font-medium">Reserve Your Spot Now! Limited seats available for this live session.</span>
             </motion.div>
 
             {/* Main Title & Content */}
@@ -92,9 +92,9 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      Start Your Automation 
+                      Professional Certificate in Generative AI
                     </span>{" "}
-                    <br />with Flowise
+                    <br />Hands-on LLM Fine-Tuning Workshop
                   </span>
 
                   <motion.div
@@ -110,10 +110,16 @@ const WSHeroGENC = () => {
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
                 <p className="  text-gray-400 max-w-xl">
-                  Learn how to automate workflows and build your own AI-driven systems using Flowise — no coding expertise required.
+                  Master LLM Fine-tuning & Evaluation – Step by Step
                 </p>
                 <p className="  text-gray-400 max-w-xl">
-                  In this hands-on workshop, you'll learn how to create smart, automated flows step-by-step and deploy them instantly. No fluff. No theory. Just real-world automation you can implement right away.
+                  Learn how to fine-tune Large Language Models and evaluate them accurately — even if you're not a technical expert.
+                </p>
+                <p className="  text-gray-400 max-w-xl">
+                  In this practical workshop, you’ll understand how modern LLMs are trained, how to fine-tune them for real use-cases, and how to measure the quality of your outputs with the right evaluation frameworks.
+                </p>
+                <p className="  text-gray-400 max-w-xl">
+                  No confusing theory. No advanced coding. Just practical, real-world LLM fine-tuning.
                 </p>
               </motion.div>
             </div>
@@ -125,12 +131,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "10th Nov 2025",
+                  value: "14th Dec 2025",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "Time",
-                  value: "7:00 PM",
+                  value: "11:00 AM",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

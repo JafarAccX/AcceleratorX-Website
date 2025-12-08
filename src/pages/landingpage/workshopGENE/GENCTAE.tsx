@@ -24,12 +24,12 @@ const GENCTAE = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                Build Smarter AI — Powered by Hybrid RAG
+                Build & Fine-Tune Your First LLM – Live Workshop
               </motion.h2>
 
               <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-4">
                 <span className="text-base text-blue-400 font-medium">
-                  Register now for hands-on Hybrid RAG Agent development
+                  Register now for hands-on LLM fine-tuning workshop
                 </span>
               </div>
             </div>
@@ -37,20 +37,20 @@ const GENCTAE = () => {
             {/* Value proposition boxes */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10 text-center">
-                <p className="text-xl font-bold text-blue-400 mb-1">Hybrid Retrieval</p>
-                <p className="text-sm text-gray-400">Best of sparse and dense methods.</p>
+                <p className="text-xl font-bold text-blue-400 mb-1">Hands-On</p>
+                <p className="text-sm text-gray-400">Learn Fine-Tuning Techniques</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-green-400 mb-1">Superior Accuracy</p>
-                <p className="text-sm text-gray-400">Enhanced performance with multiple strategies.</p>
+                <p className="text-xl font-bold text-green-400 mb-1">Beginner-Friendly</p>
+                <p className="text-sm text-gray-400">From dataset prep to training</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-green-400 mb-1">Multi-Source</p>
-                <p className="text-sm text-gray-400">Integrate diverse data sources seamlessly.</p>
+                <p className="text-xl font-bold text-green-400 mb-1">Practical Skills</p>
+                <p className="text-sm text-gray-400">Step-by-Step Guidance</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-blue-400 mb-1">Production Ready</p>
-                <p className="text-sm text-gray-400">Deploy hybrid RAG agents that scale.</p>
+                <p className="text-xl font-bold text-blue-400 mb-1">Real AI Applications</p>
+                <p className="text-sm text-gray-400">Fine-tune models for real business problems</p>
               </div>
             </div>
 
@@ -62,7 +62,7 @@ const GENCTAE = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Build Your First Hybrid RAG Agent Today
+                Build Your First Fine-Tuned LLM Today
               </motion.button>
             </div>
           </div>
