@@ -1,6 +1,6 @@
 // components/FeaturesSection.tsx
 import { motion } from "framer-motion";
-import { FiDollarSign, FiKey, FiCpu } from "react-icons/fi"; // You can replace with your own SVGs
+import { FiDollarSign, FiKey } from "react-icons/fi"; // You can replace with your own SVGs
 
 const WSAboutDASecond = () => {
   const features = [
@@ -8,23 +8,16 @@ const WSAboutDASecond = () => {
       icon: <FiDollarSign className="text-white text-xl" />,
       title: "Limited Spots. High Impact.",
       description:
-        "We keep it focused and practical — you'll work on real examples and get direct interaction with the instructor.",
+        "This is a practical, hands-on workshop where you’ll: ✔️ Work on real datasets ✔️ Build AutoML models live ✔️ See end-to-end workflows ✔️ Get direct learning from the mentor",
       highlight: true,
     },
     {
       icon: <FiKey className="text-white text-xl" />,
       title: "Real Projects. Real Skills.",
       description:
-        'Apply what you learn during the session. Build a mini AI-powered analysis workflow — not just watch someone else do it.',
+        "You won’t just watch — you’ll build: Automated ML pipelines, Auto-generated dashboards, Prediction models, Insight-driven reports. Perfect for anyone preparing for a data analytics career or upgrading their role with AI skills.",
         highlight: true,
     },
-    {
-  icon: <FiCpu className="text-white text-xl" />,
-  title: "Build Confidence for a Data Career.",
-  description:
-    "Perfect for anyone planning to enter data analytics, upskill for better roles, or understand AI's real use in business analytics.",
-  highlight: true,
-}
   ]; 
 
   return (
@@ -63,6 +56,21 @@ const WSAboutDASecond = () => {
       </div>
     </section>
      
+
+    {/* Meet Your Mentor Section */}
+    <section className="relative z-10 mx-auto my-24 max-w-4xl px-6 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Meet Your Mentor</h2>
+      <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-lg">
+        <div className="flex flex-col items-center space-y-4">
+          <img src="/assets/founder/akash-maurya.webp" alt="Akash Maurya" className="w-24 h-24 rounded-full object-cover" />
+          <h3 className="text-xl font-semibold text-white">Akash Maurya</h3>
+          <p className="text-slate-300">AI & Data Analytics Expert</p>
+          <p className="text-slate-400 text-sm max-w-md">
+            Known for simplifying complex data concepts, Akash has helped 10,000+ learners transition into AI and analytics roles through practical, real-world training.
+          </p>
+        </div>
+      </div>
+    </section>
 
 <div className=" flex items-center justify-center pb-10">
   <motion.div

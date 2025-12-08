@@ -41,16 +41,17 @@ const TradingPlatformSection: React.FC = () => {
               Why Attend This Workshop?
               </h2>
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-              "Data is the new oil. AI is the refinery."
+              "AI won’t replace analysts — but AutoML will supercharge them."
               </p>
 
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-              Whether you’re an aspiring data analyst, a career switcher, or a working professional — this crash course is designed to help you:
+              Whether you're a beginner, a working professional, or someone planning a career switch, this crash course will help you:
               </p>
               <ul className="text-slate-300 text-lg leading-relaxed max-w-lg list-disc pl-6 space-y-2">
-                <li>Understand how AI transforms traditional data analysis.</li>
-                <li>Learn to automate repetitive analysis tasks.</li>
-                <li>Make sense of data faster and communicate insights effectively.</li>
+                <li>Understand how AutoML simplifies traditional data analysis.</li>
+                <li>Build real machine learning models without deep programming.</li>
+                <li>Automate repetitive analysis and speed up your workflow.</li>
+                <li>Explain insights clearly to your team or clients.</li>
               </ul>
             </div>
           </div>

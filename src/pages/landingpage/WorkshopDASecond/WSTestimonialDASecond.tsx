@@ -7,16 +7,16 @@ const faqs = [
   {
     question: "Is this beginner-friendly?",
     answer:
-      "Yes. You don't need prior experience — just curiosity about data and a willingness to learn.",
+      "Yes! You don’t need prior coding knowledge or ML experience.",
   },
   {
-    question: "Do I need coding knowledge?",
+    question: "Do I need to know Python?",
     answer:
-      "Not at all. This is focused on no-code and low-code AI tools for analysis.",
+      "No. AutoML tools reduce the need for coding — we’ll show you the easiest workflows.",
   },
   {
     question: "Will there be a recording?",
-    answer: "No. This is a live-only experience designed for real-time learning and interaction.",
+    answer: "No. This is a live-only session.",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function WSTestimonialDASecond() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      Let’s take your data skills from static to intelligent — together.
+      Let’s build your first AutoML model — together.
     </motion.h2>
 
     <motion.p
@@ -102,7 +102,7 @@ export default function WSTestimonialDASecond() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.6 }}
     >
-      Start learning how to automate data analysis with AI — not someday, but today.
+      Start learning how to automate data analysis and model building with AI, fast and effectively.
     </motion.p>
 
     <motion.div

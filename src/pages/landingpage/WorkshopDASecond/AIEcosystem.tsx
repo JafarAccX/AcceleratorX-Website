@@ -6,27 +6,27 @@ const aiTools = [
   {
     name: "Airtable",
     logo: "/assets/n8n/airtable.webp",
-    description: "Flexible spreadsheet-database hybrid to manage and automate data.",
+    description: "Data management and automation",
   },
   {
     name: "ClickUp",
     logo: "/assets/n8n/clickup.webp",
-    description: "All-in-one project management tool for tasks, docs, and collaboration.",
+    description: "Tasks and workflow tracking",
   },
   {
     name: "Cursor",
     logo: "/assets/n8n/Cursor.webp",
-    description: "AI-native code editor with collaboration and chat features.",
+    description: "AI-aware code editor",
   },
   {
     name: "Gmail",
     logo: "/assets/n8n/gmail.webp",
-    description: "Email service by Google with rich integration and automation support.",
+    description: "Email automation",
   },
   {
     name: "HubSpot",
     logo: "/assets/n8n/hubspot.webp",
-    description: "CRM platform for sales, marketing, and customer service automation.",
+    description: "CRM and marketing analytics",
   },
   {
     name: "Lovable",
@@ -36,37 +36,37 @@ const aiTools = [
   {
     name: "Notion",
     logo: "/assets/n8n/notion.webp",
-    description: "Workspace for docs, wikis, tasks, and knowledge management.",
+    description: "Docs and knowledge base",
   },
   {
     name: "OpenAI",
     logo: "/assets/n8n/openai.webp",
-    description: "Access state-of-the-art AI models like GPT-4 for natural language tasks.",
+    description: "AI models for natural language tasks",
   },
   {
     name: "Replit",
     logo: "/assets/n8n/replit.webp",
-    description: "Online IDE to build, run, and deploy code collaboratively in real time.",
+    description: "Online coding workspace",
   },
   {
     name: "Google Sheets",
     logo: "/assets/n8n/sheets.webp",
-    description: "Cloud-based spreadsheet app with support for formulas and automation.",
+    description: "Spreadsheet + automation",
   },
   {
     name: "Slack",
     logo: "/assets/n8n/slack.webp",
-    description: "Team communication and collaboration tool with deep integration support.",
+    description: "Team communication",
   },
   {
     name: "Stripe",
     logo: "/assets/n8n/stripe.webp",
-    description: "Payment infrastructure for online businesses to accept payments globally.",
+    description: "Online payment processing",
   },
   {
     name: "Trello",
     logo: "/assets/n8n/trello.webp",
-    description: "Kanban-style task management tool for teams and individuals.",
+    description: "Kanban task management",
   },
   {
     name: "Windsurf",
@@ -92,7 +92,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          AI Data Analysis Ecosystem
+          AI Data Analytics Ecosystem
         </motion.h2>
         <motion.p
           className="mt-4 text-gray-400 max-w-xl mx-auto text-base md:text-lg"
@@ -100,7 +100,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Master how AI integrates with tools you already use — Google Sheets, Notion, Excel, PowerBI, ChatGPT, Slack, and more — to create a seamless data workflow from raw input to powerful dashboards.
+          Learn how AutoML connects with tools you already use — Google Sheets, Excel, Notion, PowerBI, ChatGPT, Slack — to build a smooth workflow from raw data to working ML models.
         </motion.p>
       </div>
 
@@ -140,28 +140,10 @@ export default function AIEcosystem() {
               height: `${Math.random() * 8 + 2}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              animation: `float ${Math.random() * 10 + 10}s linear infinite`,
-              animationDelay: `${Math.random() * 5}s`,
             }}
           />
         ))}
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0);
-            opacity: 0;
-          }
-          50% {
-            opacity: 0.8;
-          }
-          100% {
-            transform: translateY(-100vh);
-            opacity: 0;
-          }
-        }
-      `}</style>
     </section>
   );
 }

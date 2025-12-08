@@ -9,10 +9,10 @@ const CryptoHeroSection: React.FC = () => {
   return (
     <>
       <SEO 
-        title="AI Data Analysis Crash Course | AcceleratorX"
-        description="Join our free hands-on AI Data Analysis Crash Course. Learn how to use AI-driven data tools to uncover insights, automate analysis, and make smarter business decisions."
-        ogTitle="AI Data Analysis Crash Course"
-        ogDescription="Get hands-on experience turning raw data into real insights with AI. Learn to lead the change in data analysis."
+        title="AI AutoML Crash Course | AcceleratorX"
+        description="Join our free hands-on AI AutoML Crash Course. Learn how to use Automated Machine Learning tools to build powerful models without deep coding."
+        ogTitle="AI AutoML Crash Course"
+        ogDescription="Learn how to use AutoML tools like Google AutoML, AutoKeras, H2O.ai to automate data analysis and model building."
         ogImage="/Data-Analytics.webp"
       />
       <section className="relative min-h-screen overflow-hidden " >
@@ -75,7 +75,7 @@ const CryptoHeroSection: React.FC = () => {
              
             {/* Main Heading */}
             <div className="space-y-2">
-              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">AI Data Analysis <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">AI AutoML <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
                 Crash Course
               </span></h1>
               
@@ -83,9 +83,9 @@ const CryptoHeroSection: React.FC = () => {
 
             {/* Subtext */}
             <div className="space-y-4 text-slate-300 text-lg max-w-lg">
-              <p className="font-medium">Learn how to use AI-driven data tools to uncover insights, automate analysis, and make smarter business decisions — faster and better than ever before.</p>
+              <p className="font-medium">Learn how to use Automated Machine Learning (AutoML) tools like Google AutoML, AutoKeras, H2O.ai, and Auto-Sklearn to build powerful models — even if you don’t know deep coding.</p>
 
-              {/* <p>Get hands-on experience turning raw data into real insights with AI. Whether you’re from tech, marketing, finance, or operations — this crash course will show you how AI is reshaping data analysis and how you can lead the change.</p> */}
+              <p>Discover how AI can automate your data analysis, speed up model building, and help you make smarter decisions at work.</p>
 
               <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-3 mt-4">
                 <p className="text-yellow-200 text-sm font-medium">

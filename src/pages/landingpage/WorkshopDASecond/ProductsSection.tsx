@@ -63,18 +63,18 @@ const AIToolsIllustration: React.FC = () => (
 const ProductsSection: React.FC = () => {
   const products = [
     {
-      title: "AI-Powered Data Exploration",
-      description: "Learn how AI can clean, process, and visualize your data — automatically. Discover how to ask the right data questions and get instant insights.",
+      title: "AutoML for Data Analysis",
+      description: "See how tools like Google AutoML, H2O.ai, Auto-Sklearn, and AutoKeras automatically clean data, test models, compare results, and suggest the best-performing approach — without heavy coding.",
       illustration: <DataVizIllustration />,
     },
     {
-      title: "Building Smart Dashboards",
-      description: "Create interactive dashboards that not only visualize but also interpret data patterns and trends.",
+      title: "Build Models in Minutes",
+      description: "Learn how AutoML creates classification, regression, and prediction models quickly. Understand model accuracy, comparisons, and how to choose the best model for real use cases.",
       illustration: <NoCodeIllustration />,
     },
     {
-      title: "From Data to Decisions",
-      description: "Understand how to use AI to forecast outcomes, make recommendations, and improve business decisions.",
+      title: "AI → Insights → Action",
+      description: "Discover how AutoML helps you: Predict outcomes, Spot patterns, Make data-backed decisions, Automate complex data tasks.",
       illustration: <AIToolsIllustration />,
     },
   ]
