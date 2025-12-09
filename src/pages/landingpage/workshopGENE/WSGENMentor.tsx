@@ -67,7 +67,7 @@ const WSGENMentor = () => {
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-start gap-2">
                     <GraduationCap className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
-                    <p></p>
+                    <p>RAG Systems & AI Expert with extensive experience in building retrieval-augmented generation applications</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />

@@ -19,17 +19,17 @@ const GENCTAE = () => {
             {/* Title section */}
             <div className="text-center mb-8">
               <motion.h2
-                className="text-3xl md:text-4xl font-bold text-white mb-4"
+                className="text-3xl md:text-4xl font-bold text-white mb-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                Build & Fine-Tune Your First LLM – Live Workshop
+                Build Your First Hybrid RAG Agent
               </motion.h2>
 
-              <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-4">
+              <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-2">
                 <span className="text-base text-blue-400 font-medium">
-                  Register now for hands-on LLM fine-tuning workshop
+                  Live, hands-on workshop
                 </span>
               </div>
             </div>
@@ -37,20 +37,20 @@ const GENCTAE = () => {
             {/* Value proposition boxes */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10 text-center">
-                <p className="text-xl font-bold text-blue-400 mb-1">Hands-On</p>
-                <p className="text-sm text-gray-400">Learn Fine-Tuning Techniques</p>
+                <p className="text-xl font-bold text-blue-400 mb-1">Hands-on</p>
+                <p className="text-sm text-gray-400">Build a working RAG agent</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-green-400 mb-1">Beginner-Friendly</p>
-                <p className="text-sm text-gray-400">From dataset prep to training</p>
+                <p className="text-xl font-bold text-green-400 mb-1">Beginner-friendly</p>
+                <p className="text-sm text-gray-400">No advanced coding required</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-green-400 mb-1">Practical Skills</p>
-                <p className="text-sm text-gray-400">Step-by-Step Guidance</p>
+                <p className="text-xl font-bold text-green-400 mb-1">Practical</p>
+                <p className="text-sm text-gray-400">Step-by-step guidance</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-blue-400 mb-1">Real AI Applications</p>
-                <p className="text-sm text-gray-400">Fine-tune models for real business problems</p>
+                <p className="text-xl font-bold text-blue-400 mb-1">Real use cases</p>
+                <p className="text-sm text-gray-400">Solve business problems</p>
               </div>
             </div>
 
@@ -62,7 +62,7 @@ const GENCTAE = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Build Your First Fine-Tuned LLM Today
+                Enroll now
               </motion.button>
             </div>
           </div>

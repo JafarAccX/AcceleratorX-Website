@@ -45,23 +45,19 @@ const WSHeroGENE = () => {
             </div>
 
             {/* Main Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-3xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-                Professional Certificate in Generative AI
+                Building Hybrid RAG Agents
                 <br />
-                Hands-on LLM Fine-Tuning Workshop
+                Advanced Retrieval-Augmented Generation Workshop
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-              Master LLM Fine-tuning & Evaluation – Step by Step
+              Build a real Hybrid RAG agent in a live, hands-on session.
               <br />
-              Learn how to fine-tune Large Language Models and evaluate them accurately — even if you're not a technical expert.
-              <br />
-              In this practical workshop, you'll understand how modern LLMs are trained, how to fine-tune them for real use-cases, and how to measure the quality of your outputs with the right evaluation frameworks.
-              <br />
-              No confusing theory. No advanced coding. Just practical, real-world LLM fine-tuning.
+              Learn hybrid retrieval (BM25 + semantic), vector databases, and practical evaluation — no advanced coding needed.
             </p>
 
             {/* Workshop Info Tag */}
@@ -74,7 +70,7 @@ const WSHeroGENE = () => {
                   onClick={scrollToForm}
                   className="px-3 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white text-xs font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Learn Hybrid RAG for Free – No Experience Needed
+                  Build Hybrid RAG for Free – No Experience Needed
                 </button>
               </div>
             </div>
@@ -83,11 +79,11 @@ const WSHeroGENE = () => {
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
                 { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "14th Dec 2025" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "10th Dec 2025" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "Time",
-                  value: "11:00 AM",
+                  value: "07:00 PM",
                 },
                 { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

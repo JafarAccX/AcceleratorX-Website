@@ -64,12 +64,12 @@ const WSAboutGENE = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Understand how LLM fine-tuning works and when you should use it.",
-                        "Learn step-by-step fine-tuning techniques using open-source models.",
-                        "Work with datasets, prompts, and evaluation metrics used in industry.",
-                        "Run hands-on fine-tuning for real-world use cases (support, content, Q&A, data tasks).",
-                        "Evaluate your model using standard benchmarks and scoring methods.",
-                        "Take home templates, datasets, and evaluation frameworks for future projects.",
+                        "How Hybrid RAG works and when to use it.",
+                        "Implement hybrid retrieval: BM25 + embeddings.",
+                        "Use vector DBs, embeddings, and search strategies.",
+                        "Build a RAG agent for Q&A and knowledge tasks.",
+                        "Evaluate with retrieval + answer quality metrics.",
+                        "Get templates and datasets to reuse later.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -89,11 +89,11 @@ const WSAboutGENE = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Core concepts of LLM fine-tuning, parameter-efficient training & dataset preparation.",
-                        "How to improve model accuracy using high-quality prompts and data strategies.",
-                        "Evaluation methods like BLEU, ROUGE, and LLM-as-a-judge frameworks.",
-                        "Industry examples — chatbots, automation, domain-specific assistants.",
-                        "How to deploy fine-tuned models efficiently for real use-cases.",
+                        "Core RAG concepts, hybrid retrieval, vector DBs.",
+                        "Boost accuracy with BM25 + semantic search.",
+                        "Evaluate precision, recall, and answer quality.",
+                        "Use cases: chatbots, document Q&A, knowledge ops.",
+                        "Deploy and monitor RAG agents in production.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -106,18 +106,18 @@ const WSAboutGENE = () => {
 
                 {/* Additional Benefits Section */}
                 <div className="mt-6 space-y-4">
-                  <h3 className="text-xl font-bold text-white">Fine-tuning = Smarter AI Models</h3>
+                  <h3 className="text-xl font-bold text-white">Hybrid RAG = Smarter AI Agents</h3>
                   <p className="text-gray-300">
-                    This workshop is fully practical — you will build and evaluate your own LLM workflow by the end of the session.
+                    Fully practical — build and evaluate your own Hybrid RAG agent by the end.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10">
                       <p className="text-green-400 font-semibold">90% of previous learners</p>
-                      <p className="text-gray-300 text-sm">said they understood LLM fine-tuning in a single day.</p>
+                      <p className="text-gray-300 text-sm">understood Hybrid RAG in a single day.</p>
                     </div>
                     <div className="bg-[#111827] p-4 rounded-md border border-green-500/10">
                       <p className="text-green-400 font-semibold">92% reported improved confidence</p>
-                      <p className="text-gray-300 text-sm">in using Generative AI for real projects.</p>
+                      <p className="text-gray-300 text-sm">in building RAG systems for real projects.</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -126,8 +126,8 @@ const WSAboutGENE = () => {
                       <p className="text-gray-300 text-sm">Simple, structured steps anyone can follow.</p>
                     </div>
                     <div className="bg-[#111827] p-4 rounded-md border border-purple-500/10">
-                      <h4 className="text-purple-400 font-semibold mb-2">AI Development Made Easy</h4>
-                      <p className="text-gray-300 text-sm">Clear explanations, real examples, and hands-on guidance.</p>
+                      <h4 className="text-purple-400 font-semibold mb-2">RAG Development Made Easy</h4>
+                      <p className="text-gray-300 text-sm">Clear steps, real examples, hands-on guidance.</p>
                     </div>
                     <div className="bg-[#111827] p-4 rounded-md border border-purple-500/10">
                       <h4 className="text-purple-400 font-semibold mb-2">Live & Interactive</h4>
@@ -135,7 +135,7 @@ const WSAboutGENE = () => {
                     </div>
                     <div className="bg-[#111827] p-4 rounded-md border border-purple-500/10">
                       <h4 className="text-purple-400 font-semibold mb-2">Practical Deployment</h4>
-                      <p className="text-gray-300 text-sm">Understand how to use and deploy your fine-tuned model.</p>
+                      <p className="text-gray-300 text-sm">Deploy and monitor your RAG agents.</p>
                     </div>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ const WSAboutGENE = () => {
 
             {/* Tools Section - Simplified */}
             <div ref={toolsRef} className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20">
-              <p className="text-xl font-bold text-white mb-4">Creative Tools You'll Master</p>
+              <p className="text-xl font-bold text-white mb-4">RAG Tools You'll Master</p>
               <div className="relative overflow-hidden">
                 <div className="flex overflow-hidden">
                   <motion.div

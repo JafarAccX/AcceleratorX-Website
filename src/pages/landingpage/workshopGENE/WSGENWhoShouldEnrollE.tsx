@@ -31,7 +31,7 @@ const WSGENWhoShouldEnrollE = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              This workshop is for you if you've ever thought: "I want to build powerful AI systems, but I don't know where to start."
+              Want AI that finds the right info and explains it clearly? This workshop is for you.
             </p>
           </div>
 
@@ -44,22 +44,22 @@ const WSGENWhoShouldEnrollE = () => {
                   {
                     icon: Users,
                     title: "Professionals",
-                    description: "Automate work, build smarter tools, and upskill in AI quickly.",
+                    description: "Build Q&A systems and knowledge assistants.",
                   },
                   {
                     icon: Briefcase,
                     title: "Students",
-                    description: "Learn one of the most in-demand skills in the AI industry.",
+                    description: "Learn RAG and stand out in AI roles.",
                   },
                   {
                     icon: Megaphone,
                     title: "Entrepreneurs",
-                    description: "Build custom AI models for your product, users, and business workflows.",
+                    description: "Ship products with accurate AI answers.",
                   },
                   {
                     icon: Brain,
-                    title: "Creatives",
-                    description: "Train models that understand your writing, style, or content needs.",
+                    title: "Developers",
+                    description: "Master hybrid retrieval and vector DBs.",
                   },
                 ].map((audience, index) => (
                   <div

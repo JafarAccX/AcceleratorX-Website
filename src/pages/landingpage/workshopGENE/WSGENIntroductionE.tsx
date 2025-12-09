@@ -27,19 +27,11 @@ const WSGENIntroductionE = () => {
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
              
-              <span className="text-blue-500">Build & Fine-Tune Your First LLM</span> – Live Workshop
+              <span className="text-blue-500">Build & Deploy Your First Hybrid RAG Agent</span> – Live Workshop
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Hands-On. Beginner-Friendly. Practical Skills.
-              <br />
-              Learn Fine-Tuning Techniques From dataset prep to training.
-              <br />
-              Step-by-Step Guidance Follow along and build with your mentor.
-              <br />
-              Real AI Applications Fine-tune models for real business problems.
-              <br />
-              200+ learners have already built their first AI models with us. Now it's your turn.
+              Hands-on and beginner-friendly. Learn hybrid retrieval, vector databases, and how to evaluate answers — then deploy a working agent.
             </p>
           </div>
 
@@ -47,7 +39,7 @@ const WSGENIntroductionE = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {[
               {
-                value: "LLM Fine-tuning",
+                value: "Hybrid RAG",
                 label: "Hands-on workshop",
               },
               {
@@ -56,7 +48,7 @@ const WSGENIntroductionE = () => {
               },
               {
                 value: "Real Projects",
-                label: "Build actual AI models",
+                label: "Build actual RAG agents",
               },
             ].map((stat, index) => (
               <div key={index} className="bg-[#0A1020] p-4 rounded-lg border border-blue-900/20 text-center">
@@ -71,21 +63,18 @@ const WSGENIntroductionE = () => {
             {[
               {
                 icon: <Target className="w-5 h-5 text-blue-500" />,
-                title: "Dataset Preparation",
-                description:
-                  "Learn how to prepare and format datasets for effective LLM fine-tuning.",
+                title: "Index & Retrieve",
+                description: "Hybrid search: BM25 + semantic",
               },
               {
                 icon: <Brain className="w-5 h-5 text-blue-500" />,
-                title: "Fine-tuning Techniques",
-                description:
-                  "Master parameter-efficient fine-tuning methods for optimal performance.",
+                title: "RAG Architecture",
+                description: "Vectors, embeddings, generation",
               },
               {
                 icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-                title: "Model Evaluation",
-                description:
-                  "Understand evaluation metrics and benchmarks to measure model quality.",
+                title: "Agent Evaluation",
+                description: "Measure retrieval + answer quality",
               },
             ].map((feature, index) => (
               <div
