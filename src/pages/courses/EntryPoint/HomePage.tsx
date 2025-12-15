@@ -1,5 +1,5 @@
-import { Loader } from "lucide-react";
 import { useEffect, Suspense } from "react";
+import LottieLoader from "../../../components/LottieLoader";
 // import BecomeAMentorFeatures from "../../../components/BecomeAMentorFeatures";
 // import CTA from "../../../components/CTA";
 import Features from "../../../components/Features";
@@ -19,7 +19,7 @@ const HomePage = () => {
   return (
     <>
       <SEO />
-      <Suspense fallback={<Loader />}>
+  <Suspense fallback={<LottieLoader />}> 
         <Hero />
         <LogoSlider />
         <Features />

@@ -48,7 +48,7 @@ const TabButton = ({ active, children, onClick }: TabButtonProps) => (
     className={`px-6 py-2.5 rounded-xl text-sm border border-[#5CB338] font-medium transition-all duration-300 ${
       active
         ? "bg-[#5CB338] text-black shadow-lg  shadow-[#5CB338]/20"
-        : "bg-white/5 text-black"
+        : "bg-white/5 text-white hover:bg-[#5CB338]/10 hover:shadow-md hover:shadow-[#5CB338]/10"
     }`}
      
   >
@@ -106,7 +106,7 @@ export default function SkillsAndToolsEIE() {
           <h2 className="text-2xl font-medium text-gray-400 mb-4">
             Skills & Tools
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-black">
+          <h3 className="text-4xl md:text-5xl font-bold">
             Master Essential <span className="text-[#5CB338]">PM Skills</span>
           </h3>
         </div>

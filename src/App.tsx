@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Loader from "./components/Loader";
+import LottieLoader from "./components/LottieLoader";
 import { CourseProvider } from "./context/courseContext";
 import { Toaster } from "react-hot-toast"; 
 import ScrollToTop from "./components/ScrollToTop";
@@ -19,7 +19,7 @@ function AppContent() {
 
   // Only show loader on client-side when actually loading
   if (typeof window !== 'undefined' && isLoading) {
-    return <Loader />;
+    return <LottieLoader />;
   }
 
   return (
@@ -45,7 +45,7 @@ function App() {
       <HelmetProvider>
         <CourseProvider>
           <UserProvider>
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<LottieLoader />}>
               <AppContent />
             </Suspense>
             <MetaTrackingDebugger />

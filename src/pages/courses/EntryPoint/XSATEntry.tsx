@@ -1,5 +1,5 @@
-import { Loader } from "lucide-react";
 import { Suspense } from "react";
+import LottieLoader from "../../../components/LottieLoader";
 import { XSATAbout } from "../../XSAT/LandingPage/XSATAbout";
 import { XSATFAQ } from "../../XSAT/LandingPage/XSATFAQ";
 import { XSATHero } from "../../XSAT/LandingPage/XSATHero";
@@ -10,7 +10,7 @@ const XSATEntry = () => {
   return (
     <>
       <SEO />
-      <Suspense fallback={<Loader />}>
+  <Suspense fallback={<LottieLoader />}>
         {/* <XSATHomePage /> */}
         <XSATHero />
         <XSATInfo />

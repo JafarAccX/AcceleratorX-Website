@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Lottie from "lottie-react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import companyLogo from "/companylogo-new.webp";
@@ -21,13 +22,22 @@ export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isAuthenticated } = useUser();
+  const [animationData, setAnimationData] = useState<any>(null); // State for Lottie JSON
   const location = useLocation();
   const isXSATRoute = location.pathname === "/xsat";
 
   useEffect(() => {
+    // Fetch the Lottie JSON file
+    fetch("/xmas-lottie/4a91975c-410f-43ef-a1be-b18210805392.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((error) => console.error("Error loading animation:", error));
+  }, []);
+
+  useEffect(() => {
     // Skip on server-side
     if (typeof window === 'undefined') return;
-    
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -40,7 +50,7 @@ export default function Navbar() {
     setIsOpen(false);
     // Skip on server-side
     if (typeof window === 'undefined') return;
-    
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -73,9 +83,8 @@ export default function Navbar() {
   if (isXSATRoute) {
     return (
       <header
-        className={`fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${
-          isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
+          }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
@@ -112,9 +121,8 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           <div
-            className={`md:hidden backdrop-blur-md bg-black/95 rounded-b-2xl border-t border-white/5 overflow-hidden ${menuTransition} ${
-              isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-            }`}
+            className={`md:hidden backdrop-blur-md bg-black/95 rounded-b-2xl border-t border-white/5 overflow-hidden ${menuTransition} ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              }`}
           >
             <div className="flex flex-col space-y-2 p-4">
               {xsatNavItems.map((item) => (
@@ -140,9 +148,73 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className={`flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`}>
-            <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-16 object-contain" />
-          </Link>
+          <div className={`relative ${hoverTransition}`}>
+            <Link to="/" className="flex items-center space-x-2 hover:opacity-90">
+              <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-16 object-contain" />
+            </Link>
+
+            {/* Lottie badge overlayed on logo (client-side only) */}
+            {typeof window !== "undefined" && (
+              <>
+                <div className="absolute -top-3 left-0 w-16 h-16 pointer-events-none transform rotate-12">
+                  {animationData && (
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      autoplay={true}
+                    />
+                  )}
+                </div>
+
+                <div className="absolute -top-3 left-14 w-16 h-16 pointer-events-none transform rotate-12">
+                  {animationData && (
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      autoplay={true}
+                    />
+                  )}
+                </div>
+                <div className="absolute -top-3 left-24 w-16 h-16 pointer-events-none transform rotate-12">
+                  {animationData && (
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      autoplay={true}
+                    />
+                  )}
+                </div>
+                <div className="absolute -top-3 left-36 w-16 h-16 pointer-events-none transform rotate-12">
+                  {animationData && (
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      autoplay={true}
+                    />
+                  )}
+                </div>
+                <div className="absolute -top-3 left-48 w-16 h-16 pointer-events-none transform rotate-12">
+                  {animationData && (
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      autoplay={true}
+                    />
+                  )}
+                </div>
+                <div className="absolute -top-3 left-60 w-16 h-16 pointer-events-none transform rotate-12">
+                  {animationData && (
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      autoplay={true}
+                    />
+                  )}
+                </div>
+              </>
+
+            )}
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -166,9 +238,8 @@ export default function Navbar() {
               </button>
 
               <div
-                className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${
-                  isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
-                }`}
+                className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                  }`}
               >
                 <div className="bg-black/95 backdrop-blur-md border border-white/10 rounded-xl shadow-xl overflow-hidden">
                   {courses.map((course) => (
@@ -189,11 +260,10 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.path}
-                className={`relative group ${hoverTransition} ${
-                  item.label === "XSAT" || item.label === "EVENTS"
-                    ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
-                    : "text-gray-300 hover:text-white py-2"
-                }`}
+                className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
+                  ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
+                  : "text-gray-300 hover:text-white py-2"
+                  }`}
               >
                 {item.label}
                 {item.label === "XSAT" ||
@@ -248,9 +318,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden backdrop-blur-md bg-black/95 border-t border-white/5 overflow-hidden ${menuTransition} ${
-          isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden backdrop-blur-md bg-black/95 border-t border-white/5 overflow-hidden ${menuTransition} ${isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-4 py-4 space-y-4">
           {/* Courses Dropdown */}
@@ -270,9 +339,8 @@ export default function Navbar() {
             </button>
 
             <div
-              className={`overflow-hidden ${dropdownTransition} ${
-                isDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-              }`}
+              className={`overflow-hidden ${dropdownTransition} ${isDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                }`}
             >
               <div className="mt-2 space-y-2 pl-4 border-l border-white/10">
                 {courses.map((course) => (
@@ -294,11 +362,10 @@ export default function Navbar() {
             <Link
               key={item.label}
               to={item.path}
-              className={`block text-sm font-medium ${hoverTransition} ${
-                item.label === "XSAT" || item.label === "EVENTS"
-                  ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2.5 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20"
-                  : "text-gray-300 hover:text-white py-2"
-              }`}
+              className={`block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
+                ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2.5 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20"
+                : "text-gray-300 hover:text-white py-2"
+                }`}
               onClick={() => setIsOpen(false)}
             >
               {item.label}

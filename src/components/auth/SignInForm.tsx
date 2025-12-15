@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { api } from "../../api";
 import { AxiosError } from "axios";
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 
 const LoadingSpinner = () => (
   <div className="inline-block h-5 w-5 border-2 border-white/30 rounded-full border-t-white animate-spin" />
@@ -25,12 +27,11 @@ interface ApiError {
 export function SignInForm({ onSuccess }: SignInFormProps) {
   const navigate = useNavigate();
   const { login } = useUser();
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [timer, setTimer] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [phoneNumberFocused, setPhoneNumberFocused] = useState(false);
   const [otpFocused, setOtpFocused] = useState(false);
 
   useEffect(() => {
@@ -46,15 +47,15 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   }, [showOTP, timer]);
 
   const handleSendOTP = async () => {
-    if (!phoneNumber || phoneNumber.length !== 10) {
-      toast.error("Please enter a valid 10-digit phone number");
+    if (!phone || phone.length < 7) { // Minimum length for international numbers
+      toast.error("Please enter a valid phone number");
       return;
     }
 
     setIsProcessing(true);
     try {
       const response = await api.post("/auth/request-otp", {
-        phoneNumber: `${phoneNumber}`,
+        phoneNumber: phone,
       });
 
       if (response.data.success) {
@@ -83,7 +84,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     setIsProcessing(true);
     try {
       const response = await api.post("/auth/verify-otp", {
-        phoneNumber: `${phoneNumber}`,
+        phoneNumber: phone,
         otpCode: otp,
       });
 
@@ -169,27 +170,24 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     Phone Number
                   </label>
                   <div className="relative group">
-                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${
-                      phoneNumberFocused ? 'opacity-100' : 'opacity-0'
-                    }`} style={{ padding: '2px' }}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
                       <div className="w-full h-full bg-white rounded-lg"></div>
                     </div>
-                    <div className="relative flex items-center">
-                      <span className="absolute left-4 text-gray-500 font-medium z-10">
-                        +91
-                      </span>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        autoComplete="tel"
-                        required
-                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
-                        placeholder="Your 10-digit phone number"
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}
-                        onFocus={() => setPhoneNumberFocused(true)}
-                        onBlur={() => setPhoneNumberFocused(false)}
+                    <div className="relative">
+                      <PhoneInput
+                        value={phone}
+                        onChange={(phone) => setPhone(phone)}
+                        defaultCountry="in"
+                        inputClassName="w-full pl-4 pr-4 py-4 rounded-xl border-0 focus:outline-none bg-transparent text-gray-900 font-medium placeholder:text-gray-400"
+                        className="relative"
+                        style={{
+                          '--react-international-phone-border-radius': '0.25rem',
+                          // '--react-international-phone-border-color': 'transparent',
+                          // '--react-international-phone-background-color': 'transparent',
+                          '--react-international-phone-text-color': '#111827',
+                          '--react-international-phone-font-size': '1rem',
+                          
+                        } as React.CSSProperties}
                       />
                     </div>
                   </div>

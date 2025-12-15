@@ -1,5 +1,5 @@
-import { Loader } from "lucide-react";
 import { useEffect, Suspense } from "react";
+import LottieLoader from "../../../components/LottieLoader";
 import { useCourseContext } from "../../../context/courseContext"; 
 import GENHero from "../GenAiForPM/GENAIFORPMHero";
 import GENIntroduction from "../GenAiForPM/GENAIFORPMIntroduction";
@@ -25,7 +25,7 @@ const GenAiForPMEntry = () => {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<LottieLoader />}>
       <SEO />
       <GENHero />
       <GENIntroduction />
