@@ -306,7 +306,7 @@ export const mentors = [
   {
     name: "Ruchir Rana",
     role: "PM at AcceleratorX",
-    experience: "3 years",
+    experience: "7+ years",
     image: "/assets/mentor/ruchir.webp",
     alt: "Ruchir Rana - PM at AcceleratorX",
     linkedin: "https://www.linkedin.com/in/ruchir-rana007",
