@@ -30,6 +30,7 @@ const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 const BlogDashboard = lazy(() => import("../pages/blogs/BlogDashboard"));
 // const BlogForm = lazy(() => import("../pages/blogs/BlogForm"));
 const Events = lazy(() => import("../pages/events/Events"));
+const YearEnd = lazy(() => import("../pages/year-end/YearEnd"));
 
 export const mainRoutes = [
   <Route key="home" path="/" element={<HomePage />} />,
@@ -49,7 +50,7 @@ export const mainRoutes = [
   <Route key="gen-ai-fb" path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
   // <Route key="digital-marketing" path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
   <Route key="data-analytics" path="/courses/data-analytics" element={<DataAnalyticsPage />} />,
- 
+
 
   // Blog Admin Routes
   <Route
@@ -87,4 +88,7 @@ export const mainRoutes = [
 
   // Mentor Page
   <Route key="mentor" path="/mentor/:id" element={<MentorPage />} />,
+
+  //year end route
+  <Route key="year-end" path="/year-end" element={<YearEnd />} />,
 ];

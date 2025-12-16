@@ -5,19 +5,22 @@ import "./index.css";
 
 const container = document.getElementById("root")!;
 
-if (container.innerHTML) {
+// Check if there are any child ELEMENTS (ignoring comments like ssr-outlet and text nodes)
+const hasSSRContent = container.hasChildNodes() && container.children.length > 0;
+
+if (hasSSRContent) {
   // SSR mode: hydrate the server-rendered content
   hydrateRoot(
     container,
-    <StrictMode>
-      <App />
-    </StrictMode>
+    // <StrictMode>
+    <App />
+    // </StrictMode>
   );
 } else {
   // Client-only mode: render normally
   createRoot(container).render(
-    <StrictMode>
-      <App />
-    </StrictMode>
+    // <StrictMode>
+    <App />
+    // </StrictMode>
   );
 }
