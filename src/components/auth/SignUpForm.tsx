@@ -3,11 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 // import { useGetUserByMobile } from "../../hooks/customer";
 import { useUser } from "../../context/UserContext";
-import { CreateCustomerPayload } from "../../types/customer"; 
+import { CreateCustomerPayload } from "../../types/customer";
 import { OtpTimer } from "../OtpTimer";
 import { api } from "../../api";
-import { PhoneInput } from 'react-international-phone';
-import 'react-international-phone/style.css';
 
 const LoadingSpinner = () => (
   <div className="inline-block h-5 w-5 border-2 border-white/30 rounded-full border-t-white animate-spin" />
@@ -34,7 +32,7 @@ export const SignUpForm = () => {
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  
+
   // Focus states for enhanced styling
   const [firstNameFocused, setFirstNameFocused] = useState(false);
   const [lastNameFocused, setLastNameFocused] = useState(false);
@@ -203,9 +201,8 @@ export const SignUpForm = () => {
                       First Name
                     </label>
                     <div className="relative group">
-                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${
-                        firstNameFocused ? 'opacity-100' : 'opacity-0'
-                      }`} style={{ padding: '2px' }}>
+                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${firstNameFocused ? 'opacity-100' : 'opacity-0'
+                        }`} style={{ padding: '2px' }}>
                         <div className="w-full h-full bg-white rounded-lg"></div>
                       </div>
                       <input
@@ -220,15 +217,14 @@ export const SignUpForm = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label className="text-sm font-semibold  block">
                       Last Name
                     </label>
                     <div className="relative group">
-                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${
-                        lastNameFocused ? 'opacity-100' : 'opacity-0'
-                      }`} style={{ padding: '2px' }}>
+                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${lastNameFocused ? 'opacity-100' : 'opacity-0'
+                        }`} style={{ padding: '2px' }}>
                         <div className="w-full h-full bg-white rounded-lg"></div>
                       </div>
                       <input
@@ -251,9 +247,8 @@ export const SignUpForm = () => {
                     Email Address
                   </label>
                   <div className="relative group">
-                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${
-                      emailFocused ? 'opacity-100' : 'opacity-0'
-                    }`} style={{ padding: '2px' }}>
+                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${emailFocused ? 'opacity-100' : 'opacity-0'
+                      }`} style={{ padding: '2px' }}>
                       <div className="w-full h-full bg-white rounded-lg"></div>
                     </div>
                     <input
@@ -275,27 +270,23 @@ export const SignUpForm = () => {
                     Mobile Number
                   </label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${formState.mobile ? 'opacity-100' : 'opacity-0'
+                      }`} style={{ padding: '2px' }}>
                       <div className="w-full h-full bg-white rounded-lg"></div>
                     </div>
                     <div className="relative">
-                      <PhoneInput
+                      <input
+                        type="tel"
+                        placeholder="Enter 10 digit mobile number"
                         value={formState.mobile || ""}
-                        onChange={(phone) => handleInputChange("mobile", phone)}
-                        defaultCountry="in"
-                        inputClassName="w-full pl-4 pr-4 py-4 rounded-xl border-0 focus:outline-none bg-transparent text-gray-900 font-medium placeholder:text-gray-400"
-                        className="relative"
+                        onChange={(e) => handleInputChange("mobile", e.target.value)}
+                        className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
                         disabled={showOTP || isProcessing}
-                        style={{
-                          '--react-international-phone-border-radius': '0.25rem',
-                          '--react-international-phone-text-color': '#111827',
-                          '--react-international-phone-font-size': '1rem',
-                        } as React.CSSProperties}
                       />
                     </div>
                   </div>
                 </div>
-                
+
                 <button
                   type="button"
                   onClick={handleSendOTP}
@@ -316,15 +307,14 @@ export const SignUpForm = () => {
                       An OTP has been sent to your mobile number.
                     </p>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label className="text-sm font-semibold  block">
                       Verification Code
                     </label>
                     <div className="relative group">
-                      <div className={`absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl transition-opacity duration-300 ${
-                        otpFocused ? 'opacity-100' : 'opacity-0'
-                      }`} style={{ padding: '2px' }}>
+                      <div className={`absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl transition-opacity duration-300 ${otpFocused ? 'opacity-100' : 'opacity-0'
+                        }`} style={{ padding: '2px' }}>
                         <div className="w-full h-full bg-white rounded-lg"></div>
                       </div>
                       <input
@@ -340,12 +330,12 @@ export const SignUpForm = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="flex justify-center">
                     <OtpTimer initialTime={60} onResend={handleSendOTP} />
                   </div>
                 </div>
-                
+
                 <button
                   type="button"
                   onClick={handleRegister}
@@ -365,7 +355,7 @@ export const SignUpForm = () => {
               <p className="">
                 Already have an account?{" "}
                 <Link
-                  to="/sign-in" 
+                  to="/sign-in"
                   className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200 underline decoration-2 underline-offset-4 hover:decoration-blue-600"
                 >
                   Sign In

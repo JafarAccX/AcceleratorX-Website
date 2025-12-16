@@ -4,8 +4,6 @@ import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { api } from "../../api";
 import { AxiosError } from "axios";
-import { PhoneInput } from 'react-international-phone';
-import 'react-international-phone/style.css';
 
 const LoadingSpinner = () => (
   <div className="inline-block h-5 w-5 border-2 border-white/30 rounded-full border-t-white animate-spin" />
@@ -170,29 +168,23 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     Phone Number
                   </label>
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${phone ? 'opacity-100' : 'opacity-0'
+                      }`} style={{ padding: '2px' }}>
                       <div className="w-full h-full bg-white rounded-lg"></div>
                     </div>
                     <div className="relative">
-                      <PhoneInput
+                      <input
+                        id="phone"
+                        type="tel"
+                        placeholder="Enter 10 digit mobile number"
                         value={phone}
-                        onChange={(phone) => setPhone(phone)}
-                        defaultCountry="in"
-                        inputClassName="w-full pl-4 pr-4 py-4 rounded-xl border-0 focus:outline-none bg-transparent text-gray-900 font-medium placeholder:text-gray-400"
-                        className="relative"
-                        style={{
-                          '--react-international-phone-border-radius': '0.25rem',
-                          // '--react-international-phone-border-color': 'transparent',
-                          // '--react-international-phone-background-color': 'transparent',
-                          '--react-international-phone-text-color': '#111827',
-                          '--react-international-phone-font-size': '1rem',
-                          
-                        } as React.CSSProperties}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
                       />
                     </div>
                   </div>
                 </div>
-                
+
                 <button
                   onClick={handleSendOTP}
                   disabled={isProcessing}
@@ -211,9 +203,8 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     Verification Code
                   </label>
                   <div className="relative group">
-                    <div className={`absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl transition-opacity duration-300 ${
-                      otpFocused ? 'opacity-100' : 'opacity-0'
-                    }`} style={{ padding: '2px' }}>
+                    <div className={`absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl transition-opacity duration-300 ${otpFocused ? 'opacity-100' : 'opacity-0'
+                      }`} style={{ padding: '2px' }}>
                       <div className="w-full h-full bg-white rounded-lg"></div>
                     </div>
                     <input
@@ -231,7 +222,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     />
                   </div>
                 </div>
-                
+
                 <button
                   onClick={handleVerifyOTP}
                   disabled={isProcessing}
@@ -242,7 +233,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                     {isProcessing ? <LoadingSpinner /> : "Verify OTP"}
                   </span>
                 </button>
-                
+
                 <div className="text-center">
                   {timer > 0 ? (
                     <div className="flex items-center justify-center gap-2 text-gray-600">
