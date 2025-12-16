@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Lottie from "lottie-react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import companyLogo from "/companylogo-new.webp";
@@ -22,17 +21,8 @@ export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isAuthenticated } = useUser();
-  const [animationData, setAnimationData] = useState<any>(null); // State for Lottie JSON
   const location = useLocation();
   const isXSATRoute = location.pathname === "/xsat";
-
-  useEffect(() => {
-    // Fetch the Lottie JSON file
-    fetch("/xmas-lottie/4a91975c-410f-43ef-a1be-b18210805392.json")
-      .then((res) => res.json())
-      .then((data) => setAnimationData(data))
-      .catch((error) => console.error("Error loading animation:", error));
-  }, []);
 
   useEffect(() => {
     // Skip on server-side
@@ -148,72 +138,62 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className={`relative ${hoverTransition}`}>
+          <div className={`relative group ${hoverTransition}`}>
             <Link to="/" className="flex items-center space-x-2 hover:opacity-90">
               <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-16 object-contain" />
             </Link>
 
             {/* Lottie badge overlayed on logo (client-side only) */}
-            {typeof window !== "undefined" && (
-              <>
-                <div className="absolute -top-3 left-0 w-16 h-16 pointer-events-none transform rotate-12">
-                  {animationData && (
-                    <Lottie
-                      animationData={animationData}
-                      loop={true}
-                      autoplay={true}
-                    />
-                  )}
-                </div>
-
-                <div className="absolute -top-3 left-14 w-16 h-16 pointer-events-none transform rotate-12">
-                  {animationData && (
-                    <Lottie
-                      animationData={animationData}
-                      loop={true}
-                      autoplay={true}
-                    />
-                  )}
-                </div>
-                <div className="absolute -top-3 left-24 w-16 h-16 pointer-events-none transform rotate-12">
-                  {animationData && (
-                    <Lottie
-                      animationData={animationData}
-                      loop={true}
-                      autoplay={true}
-                    />
-                  )}
-                </div>
-                <div className="absolute -top-3 left-36 w-16 h-16 pointer-events-none transform rotate-12">
-                  {animationData && (
-                    <Lottie
-                      animationData={animationData}
-                      loop={true}
-                      autoplay={true}
-                    />
-                  )}
-                </div>
-                <div className="absolute -top-3 left-48 w-16 h-16 pointer-events-none transform rotate-12">
-                  {animationData && (
-                    <Lottie
-                      animationData={animationData}
-                      loop={true}
-                      autoplay={true}
-                    />
-                  )}
-                </div>
-                <div className="absolute -top-3 left-60 w-16 h-16 pointer-events-none transform rotate-12">
-                  {animationData && (
-                    <Lottie
-                      animationData={animationData}
-                      loop={true}
-                      autoplay={true}
-                    />
-                  )}
-                </div>
-              </>
-
-            )}
+            {/* Christmas GIF overlay */}
+            <div className="absolute -top-8 -left-8 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
+              <img
+                src="/xmas-lottie/Snowing.gif"
+                alt="Snowing effect"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -top-8 left-4 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
+              <img
+                src="/xmas-lottie/Snowing.gif"
+                alt="Snowing effect"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -top-8 left-16 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
+              <img
+                src="/xmas-lottie/Snowing.gif"
+                alt="Snowing effect"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -top-8 left-24 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
+              <img
+                src="/xmas-lottie/Snowing.gif"
+                alt="Snowing effect"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -top-8 left-32 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
+              <img
+                src="/xmas-lottie/Snowing.gif"
+                alt="Snowing effect"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -top-8 left-48 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
+              <img
+                src="/xmas-lottie/Snowing.gif"
+                alt="Snowing effect"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -top-8 left-64 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
+              <img
+                src="/xmas-lottie/Snowing.gif"
+                alt="Snowing effect"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
 
           {/* Desktop Menu */}

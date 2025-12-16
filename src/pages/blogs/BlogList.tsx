@@ -1,8 +1,34 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { motion } from 'framer-motion';
 import { blogService } from '../../services/blogService';
 import { BlogPost, BlogCategory } from '../../utils/types';
+
+// Motion variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut'
+    }
+  }
+};
+
+const MotionLink = motion(Link);
 
 const BlogList: React.FC = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
@@ -62,8 +88,22 @@ const BlogList: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12  border-blue-500"></div>
+      <div className="min-h-screen bg-black flex items-center justify-center space-x-2">
+        <motion.div
+          className="w-3 h-3 bg-blue-500 rounded-full"
+          animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
+          transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+        />
+        <motion.div
+          className="w-3 h-3 bg-blue-500 rounded-full"
+          animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
+          transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+        />
+        <motion.div
+          className="w-3 h-3 bg-blue-500 rounded-full"
+          animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
+          transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+        />
       </div>
     );
   }
@@ -72,10 +112,15 @@ const BlogList: React.FC = () => {
     <div className="min-h-screen bg-black text-white pt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Header */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h1 className="text-4xl font-bold mb-4">Blog</h1>
           <p className="text-gray-400">Discover insights and stories from our team</p>
-        </div>
+        </motion.div>
 
         {/* Search and Filters */}
         <div className="mb-8">
@@ -93,11 +138,10 @@ const BlogList: React.FC = () => {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => handleCategoryChange('')}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                selectedCategory === ''
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-              }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === ''
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
             >
               All
             </button>
@@ -105,11 +149,10 @@ const BlogList: React.FC = () => {
               <button
                 key={category.Id}
                 onClick={() => handleCategoryChange(category.Slug)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category.Slug
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category.Slug
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  }`}
               >
                 {category.Name}
               </button>
@@ -118,19 +161,27 @@ const BlogList: React.FC = () => {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {blogs.map((blog) => (
-            <Link
+            <MotionLink
               key={blog.Id}
               to={`/blogs/${blog.Slug}`}
-              className="bg-gray-900 rounded-xl overflow-hidden shadow-lg group"
+              className="bg-gray-900 rounded-xl overflow-hidden shadow-lg group block"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="relative h-48">
+              <div className="relative h-48 overflow-hidden">
                 {blog.CoverImage ? (
                   <img
                     src={blog.CoverImage}
                     alt={blog.Title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
@@ -169,9 +220,9 @@ const BlogList: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </MotionLink>
           ))}
-        </div>
+        </motion.div>
 
         {blogs.length === 0 && (
           <div className="text-center py-12">
