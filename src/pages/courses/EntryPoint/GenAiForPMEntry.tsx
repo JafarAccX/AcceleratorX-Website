@@ -14,6 +14,7 @@ import GENFAQ from "../GenAiForPM/GENAIFORPMFAQ";
 import GENMarketScope from "../GenAiForPM/GENAIFORPMMarketScope";
 import GENLearningJourney from "../GenAiForPM/GENAIFORPMLearningJourney";
 import { SEO } from "../../../components/SEO";
+import HeroWithAbouv from "../../../components/HeroWithAbouv";
 const GenAiForPMEntry = () => {
   const {
     setSelectedCourse,
@@ -33,6 +34,7 @@ const GenAiForPMEntry = () => {
       <GENBYOA />
       <GENMarketScope />
        <GENWhyLearnAI />
+        <HeroWithAbouv />
       <GENLearningJourney />
       <GENMentors />
       <GENToolsYouWillLearn />

@@ -2,6 +2,7 @@ import { useEffect, Suspense, lazy } from "react";
 import HeaderEIE from "../../../components/HeaderEIE";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
+import HeroWithAbouv from "../../../components/HeroWithAbouv";
 
 const GENBYOAAd = lazy(() => import("../genAIAD/GENBYOAAd"));
 const GENFAQAd = lazy(() => import("../genAIAD/GENFAQAd"));
@@ -33,6 +34,7 @@ const GenAICourseAD = () => {
         <GENBYOAAd />
         <GENMarketScopeAd />
         <GENToolsYouWillLearnAd />
+        <HeroWithAbouv />
         <GENLearningJourneyAd />
         <GENFAQAd />
       </Suspense>

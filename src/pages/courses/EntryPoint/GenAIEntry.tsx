@@ -1,6 +1,7 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
+import HeroWithAbouv from "../../../components/HeroWithAbouv";
 
 const GENBYOA = lazy(() => import("../genAI/GENBYOA"));
 const GENFAQ = lazy(() => import("../genAI/GENFAQ"));
@@ -35,6 +36,7 @@ const GenAICourse = () => {
         <GENBYOA />
         <GENMarketScope />
         <GENWhyLearnAI />
+        <HeroWithAbouv />
         <GENLearningJourney />
         <GENMentors />
         <GENToolsYouWillLearn />

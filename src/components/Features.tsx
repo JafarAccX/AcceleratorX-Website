@@ -564,12 +564,12 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative min-h-screen bg-black py-20 overflow-hidden"
+      className="relative   py-20 overflow-hidden"
     >
       {/* Background Grid Effect */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px]" />
+      <div className="absolute  inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:14px_24px] over" />
 
-      <div className="relative max-w-7xl mx-auto py-12">
+      <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
         <div
           
@@ -584,7 +584,7 @@ export default function Features() {
         </div>
 
         {/* Feature Cards Container */}
-        <div className="flex flex-col md:flex-row flex-nowrap gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
+        <div className="flex flex-col md:flex-row flex-nowrap gap-6 overflow-x-auto -4 snap-x snap-mandatory">
           {features.map((feature, index) => (
             <FeatureCard key={feature.title} feature={feature} index={index} />
           ))}
