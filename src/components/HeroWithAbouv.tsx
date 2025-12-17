@@ -1,4 +1,7 @@
 
+import { useState } from 'react';
+import EnrollmentModal from './EnrollmentModal';
+import { useCourseContext } from '../context/courseContext';
 
 // interface HeroProps {
 //   abouv_logo?: string;
@@ -6,19 +9,32 @@
 // }
 
 // const HeroWithAbouv = ({
-  // abouv_logo = "/abouv.svg",
-  // abouv_link = "https://abouv.com",
+// abouv_logo = "/abouv.svg",
+// abouv_link = "https://abouv.com",
 // }: HeroProps) => {
 const HeroWithAbouv = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { setSelectedCourse } = useCourseContext();
+
+  const handleBannerClick = () => {
+    setSelectedCourse("General"); // Or some specific tag if needed, e.g. "Christmas Sale"
+    setIsModalOpen(true);
+  };
+
   return (
     <section className="w-full px-4 py-6">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl cursor-pointer" onClick={handleBannerClick}>
         <img
           src="/xmas-lottie/cristmas-banner.webp"
           alt="AcceleratorX Cristmas sale"
-          className="mx-auto mb-6 w-full  object-cover"
+          className="mx-auto mb-6 w-full object-cover"
         />
       </div>
+
+      <EnrollmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       {/* Main container with responsive padding */}
       {/* <div className="mx-auto max-w-7xl">
        
