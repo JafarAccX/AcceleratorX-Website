@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import Lottie from "lottie-react";
+import LottieReact from "lottie-react";
+
+// Fix for SSR: lottie-react exports default differently in SSR context
+const Lottie = (LottieReact as any).default || LottieReact;
 
 const LottieLoader = ({ size = 540 }: { size?: number }) => {
   const [animationData, setAnimationData] = useState<Record<string, unknown> | null>(null);
@@ -31,13 +34,13 @@ const LottieLoader = ({ size = 540 }: { size?: number }) => {
     (minVisible || animationData) ? (
       <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
         <div className="relative flex items-center  ">
-          
-            <div style={{ width: size, height: size }} className="flex flex-col items-center justify-center">
-              <Lottie animationData={animationData} loop={true} />
+
+          <div style={{ width: size, height: size }} className="flex flex-col items-center justify-center">
+            <Lottie animationData={animationData} loop={true} />
             <div className="h-16 w-16 rounded-full border-t-4 border-b-4 border-blue-500 animate-spin" />
-            </div>
-          
-        
+          </div>
+
+
         </div>
       </div>
     ) : null

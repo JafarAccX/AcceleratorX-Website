@@ -10,6 +10,12 @@ import Hero from "../../../components/Hero";
 import { SEO } from "../../../components/SEO";
 
 const HomePage = () => {
+  console.log('HomePage imports:', {
+    Hero: typeof Hero,
+    Features: typeof Features,
+    LogoSlider: typeof LogoSlider,
+    HeroWithAbouv: typeof HeroWithAbouv,
+  });
   const { setSelectedCourse } = useCourseContext();
 
   useEffect(() => {
@@ -19,7 +25,7 @@ const HomePage = () => {
   return (
     <>
       <SEO />
-  <Suspense fallback={<LottieLoader />}> 
+      <Suspense fallback={<LottieLoader />}>
         <Hero />
         <LogoSlider />
         <Features />

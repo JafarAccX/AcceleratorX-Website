@@ -16,6 +16,7 @@ const AIDMFAQ = lazy(() => import("../AIDM/AIDMFAQ"));
 const AIDMFinalCTA = lazy(() => import("../AIDM/AIDMFinalCTA"));
 
 const AIDMEntry = () => {
+  console.log('AIDMEntry: HeroWithAbouv import:', typeof HeroWithAbouv, HeroWithAbouv);
   const {
     setSelectedCourse,
   }: { setSelectedCourse: (course: string | null) => void } =

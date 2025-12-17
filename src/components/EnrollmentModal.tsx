@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { createEnrollment } from "../api/enrollmentApi";
 import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 
-const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
-
 import { EnrollmentData } from "../api/enrollmentApi";
+
+const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
 
 interface EnrollmentModalProps {
   isOpen: boolean;
@@ -132,6 +132,12 @@ async function sendWhatsAppMessage({
 }
 
 export default function EnrollmentModal({ isOpen, onClose, onSubmit, customData }: EnrollmentModalProps) {
+  console.log('EnrollmentModal: imports check', {
+    X: typeof X,
+    motion: typeof motion,
+    AnimatePresence: typeof AnimatePresence,
+    createEnrollment: typeof createEnrollment
+  });
   const { selectedCourse } = useCourseContext();
   const navigate = useNavigate();
 

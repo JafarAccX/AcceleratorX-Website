@@ -11,6 +11,7 @@ interface HeroWithAbouvProps {
 
 const HeroWithAbouv = ({ abouv_logo = "/abouv.svg",
   abouv_link = "https://abouv.com", courseName }: HeroWithAbouvProps) => {
+  console.log('HeroWithAbouv: EnrollmentModal import:', typeof EnrollmentModal, EnrollmentModal);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setSelectedCourse, selectedCourse } = useCourseContext();
 
