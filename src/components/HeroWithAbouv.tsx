@@ -26,7 +26,7 @@ const HeroWithAbouv = ({ abouv_logo = "/abouv.svg",
     <section className="w-full px-4 py-6">
       <div className="mx-auto max-w-7xl cursor-pointer" onClick={handleBannerClick}>
         <img
-          src="/xmas-lottie/cristmas-banner.webp"
+          src="/redesign/christmas/cristmas-banner.jpg"
           alt="AcceleratorX Cristmas sale"
           className="mx-auto mb-6 w-full object-cover rounded-2xl"
         />
