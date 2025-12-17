@@ -19,7 +19,7 @@ const FeatureCard = ({
   return (
     <div
       key={feature.title}
-       
+
       className="flex-none w-full md:w-[300px] snap-center"
     >
       <div className="relative h-[400px] p-6 rounded-2xl bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 border-r-2 border-b-2 border-r-blue-500/20 border-b-blue-500/20 transition-colors group">
@@ -89,7 +89,7 @@ const features = [
           stroke="currentColor"
           fill="none"
           strokeWidth="1.5"
-           
+
         >
           {/* Main diamond container */}
           <path
@@ -108,7 +108,7 @@ const features = [
               cx={circle.cx}
               cy={circle.cy}
               r="20"
-               
+
             />
           ))}
 
@@ -125,7 +125,7 @@ const features = [
               cy={dot.cy}
               r="3"
               fill="currentColor"
-               
+
             />
           ))}
         </g>
@@ -162,7 +162,7 @@ const features = [
           stroke="currentColor"
           fill="none"
           strokeWidth="1.5"
-           
+
         >
           {/* Concentric circles */}
           {[60, 45, 30].map((radius, index) => (
@@ -191,7 +191,7 @@ const features = [
                   y1="100"
                   x2={x}
                   y2={y}
-                   
+
                 />
               </g>
             );
@@ -203,7 +203,7 @@ const features = [
             cy="100"
             r="4"
             fill="currentColor"
-             
+
           />
         </g>
       </svg>
@@ -343,7 +343,7 @@ const features = [
           stroke="currentColor"
           fill="none"
           strokeWidth="1.5"
-           
+
         >
           {/* Neural network nodes */}
           {[
@@ -359,7 +359,7 @@ const features = [
               cx={cx}
               cy={cy}
               r="8"
-              
+
             />
           ))}
 
@@ -380,7 +380,7 @@ const features = [
               y1={y1}
               x2={x2}
               y2={y2}
-               
+
             />
           ))}
 
@@ -399,7 +399,7 @@ const features = [
               cy={cy}
               r="4"
               fill="currentColor"
-               
+
             />
           ))}
         </g>
@@ -433,7 +433,7 @@ const features = [
         <rect width="200" height="200" fill="url(#grid4)" />
 
         <g
-          
+
         >
           {/* Animated Bar Chart Representing Digital Marketing Metrics */}
           {[
@@ -447,7 +447,7 @@ const features = [
               key={`bar-${index}`}
               x={x}
               width="10"
-               
+
               fill="currentColor"
             />
           ))}
@@ -455,7 +455,7 @@ const features = [
           {/* Animated Polyline Connecting the Top Centers of the Bars */}
           <polyline
             points="25,110 55,100 85,115 115,105 145,120"
-             
+
             stroke="currentColor"
             fill="none"
             strokeWidth="1.5"
@@ -465,99 +465,99 @@ const features = [
     ),
     path: "/courses/ai-digital-marketing",
   },
-  {
-    icon: <Wand2 className="w-8 h-8" />,
-    title: "GenAI for Product Managers",
-    description:
-      "Understand how to use GenAI for Product Managers and become an AI-Powered Product Manager that builds and ships AI products end-to-end. Build your own real project, Automate workflows, and make smarter product decisions, no coding required.",
-    image: (
-      <svg className="w-full h-full" viewBox="0 0 200 200">
-        <defs>
-          <pattern
-            id="grid5"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 20 0 L 0 0 0 20"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              strokeOpacity="0.1"
-            />
-          </pattern>
-        </defs>
-        <rect width="200" height="200" fill="url(#grid5)" />
+  // {
+  //   icon: <Wand2 className="w-8 h-8" />,
+  //   title: "GenAI for Product Managers",
+  //   description:
+  //     "Understand how to use GenAI for Product Managers and become an AI-Powered Product Manager that builds and ships AI products end-to-end. Build your own real project, Automate workflows, and make smarter product decisions, no coding required.",
+  //   image: (
+  //     <svg className="w-full h-full" viewBox="0 0 200 200">
+  //       <defs>
+  //         <pattern
+  //           id="grid5"
+  //           width="20"
+  //           height="20"
+  //           patternUnits="userSpaceOnUse"
+  //         >
+  //           <path
+  //             d="M 20 0 L 0 0 0 20"
+  //             fill="none"
+  //             stroke="currentColor"
+  //             strokeWidth="0.5"
+  //             strokeOpacity="0.1"
+  //           />
+  //         </pattern>
+  //       </defs>
+  //       <rect width="200" height="200" fill="url(#grid5)" />
 
-        <g
-          stroke="currentColor"
-          fill="none"
-          strokeWidth="1.5"
-           
-        >
-          {/* Neural network nodes */}
-          {[
-            [50, 60],
-            [50, 100],
-            [50, 140],
-            [100, 80],
-            [100, 120],
-            [150, 100],
-          ].map(([cx, cy], index) => (
-            <circle
-              key={`node-${index}`}
-              cx={cx}
-              cy={cy}
-              r="8"
-              
-            />
-          ))}
+  //       <g
+  //         stroke="currentColor"
+  //         fill="none"
+  //         strokeWidth="1.5"
 
-          {/* Neural network connections */}
-          {[
-            [50, 60, 100, 80],
-            [50, 60, 100, 120],
-            [50, 100, 100, 80],
-            [50, 100, 100, 120],
-            [50, 140, 100, 80],
-            [50, 140, 100, 120],
-            [100, 80, 150, 100],
-            [100, 120, 150, 100],
-          ].map(([x1, y1, x2, y2], index) => (
-            <line
-              key={`connection-${index}`}
-              x1={x1}
-              y1={y1}
-              x2={x2}
-              y2={y2}
-               
-            />
-          ))}
+  //       >
+  //         {/* Neural network nodes */}
+  //         {[
+  //           [50, 60],
+  //           [50, 100],
+  //           [50, 140],
+  //           [100, 80],
+  //           [100, 120],
+  //           [150, 100],
+  //         ].map(([cx, cy], index) => (
+  //           <circle
+  //             key={`node-${index}`}
+  //             cx={cx}
+  //             cy={cy}
+  //             r="8"
 
-          {/* Pulse effect */}
-          {[
-            [50, 60],
-            [50, 100],
-            [50, 140],
-            [100, 80],
-            [100, 120],
-            [150, 100],
-          ].map(([cx, cy], index) => (
-            <circle
-              key={`pulse-${index}`}
-              cx={cx}
-              cy={cy}
-              r="4"
-              fill="currentColor"
-               
-            />
-          ))}
-        </g>
-      </svg>
-    ),
-    path: "/courses/genai-for-product-managers",
-  },
+  //           />
+  //         ))}
+
+  //         {/* Neural network connections */}
+  //         {[
+  //           [50, 60, 100, 80],
+  //           [50, 60, 100, 120],
+  //           [50, 100, 100, 80],
+  //           [50, 100, 100, 120],
+  //           [50, 140, 100, 80],
+  //           [50, 140, 100, 120],
+  //           [100, 80, 150, 100],
+  //           [100, 120, 150, 100],
+  //         ].map(([x1, y1, x2, y2], index) => (
+  //           <line
+  //             key={`connection-${index}`}
+  //             x1={x1}
+  //             y1={y1}
+  //             x2={x2}
+  //             y2={y2}
+
+  //           />
+  //         ))}
+
+  //         {/* Pulse effect */}
+  //         {[
+  //           [50, 60],
+  //           [50, 100],
+  //           [50, 140],
+  //           [100, 80],
+  //           [100, 120],
+  //           [150, 100],
+  //         ].map(([cx, cy], index) => (
+  //           <circle
+  //             key={`pulse-${index}`}
+  //             cx={cx}
+  //             cy={cy}
+  //             r="4"
+  //             fill="currentColor"
+
+  //           />
+  //         ))}
+  //       </g>
+  //     </svg>
+  //   ),
+  //   path: "/courses/genai-for-product-managers",
+  // },
 ];
 
 export default function Features() {
@@ -572,11 +572,11 @@ export default function Features() {
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
         <div
-          
+
           className="text-center mb-12"
         >
           <p className="text-3xl md:text-4xl font-bold text-white pb-2">
-            Browse Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">AI Career Programs</span> 
+            Browse Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">AI Career Programs</span>
           </p>
           <p className="text-gray-400 text-lg">
             Learn the Skills that will shape your career
