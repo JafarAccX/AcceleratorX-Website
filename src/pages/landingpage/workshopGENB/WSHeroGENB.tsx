@@ -30,7 +30,7 @@ const WSHeroGENB = () => {
       <div className="relative z-20 w-full bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="w-36 md:w-44">
-            <img src="/companylogo-new.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
+            <img src="/redesign/logo-no-bg.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
           </div>
         </div>
       </div>
@@ -48,14 +48,14 @@ const WSHeroGENB = () => {
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-               Automate Your Marketing with AI in Just 90 Minutes
+                Automate Your Marketing with AI in Just 90 Minutes
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-            Discover how top marketers are saving hours and scaling results with automation. In this live workshop, learn how to automate campaigns, reports, and workflows — without coding or tech skills.
-            Make your marketing work while you sleep.
+              Discover how top marketers are saving hours and scaling results with automation. In this live workshop, learn how to automate campaigns, reports, and workflows — without coding or tech skills.
+              Make your marketing work while you sleep.
 
             </p>
 

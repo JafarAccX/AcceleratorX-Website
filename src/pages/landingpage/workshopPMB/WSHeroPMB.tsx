@@ -30,7 +30,7 @@ const WSHeroPMB = () => {
       <div className="relative z-20 w-full bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="w-36 md:w-44">
-            <img src="/companylogo-new.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
+            <img src="/redesign/logo-no-bg.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
           </div>
         </div>
       </div>
@@ -48,13 +48,13 @@ const WSHeroPMB = () => {
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-purple-100">
-               Master the Art of Coding, Testing & Deployment — Using One Tool
+                Master the Art of Coding, Testing & Deployment — Using One Tool
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-            Build, test, and deploy applications from one place — even if you're starting out. A complete, beginner-friendly workshop that shows you how to ship real applications faster with a single tool.
+              Build, test, and deploy applications from one place — even if you're starting out. A complete, beginner-friendly workshop that shows you how to ship real applications faster with a single tool.
             </p>
 
             {/* Workshop Info Tag */}

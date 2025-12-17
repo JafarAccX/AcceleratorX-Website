@@ -1,6 +1,6 @@
 import React from "react";
-import companyLogo from "/companylogo-new.webp";
-import { Link} from "react-router-dom";
+import companyLogo from "/redesign/logo-no-bg.webp";
+import { Link } from "react-router-dom";
 import {
   Linkedin,
   Instagram,
@@ -38,7 +38,7 @@ const footerLinks: {
       //   label: "AI Performance Marketing",
       //   url: "/courses/advance-performance-marketing-with-ai",
       // },
-       { label: "AI Digital Marketing", url: "/courses/ai-digital-marketing" },
+      { label: "AI Digital Marketing", url: "/courses/ai-digital-marketing" },
     ],
   },
   company: {

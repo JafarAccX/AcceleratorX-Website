@@ -287,7 +287,7 @@ const BlogDetail: React.FC = () => {
   const metaTitle = blog.SEO_MetaTitle || blog.Title || "Blog Post | AcceleratorX";
   const metaDescription = blog.SEO_MetaDescription || blog.Excerpt || "Read this insightful blog post on AcceleratorX.";
   const canonicalUrl = `https://www.acceleratorx.org/blogs/${blog.Slug}`;
-  const ogImage = blog.CoverImage || "https://www.acceleratorx.org/companylogo-new.webp";
+  const ogImage = blog.CoverImage || "https://www.acceleratorx.org/redesign/logo-no-bg.webp";
   const publishedDate = blog.PublishedAt ? new Date(blog.PublishedAt).toISOString() : new Date(blog.CreatedAt).toISOString();
   const modifiedDate = blog.UpdatedAt ? new Date(blog.UpdatedAt).toISOString() : publishedDate;
 
@@ -354,7 +354,7 @@ const BlogDetail: React.FC = () => {
               "name": "AcceleratorX",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.acceleratorx.org/companylogo-new.webp"
+                "url": "https://www.acceleratorx.org/redesign/logo-no-bg.webp"
               }
             },
             "mainEntityOfPage": {
@@ -373,96 +373,95 @@ const BlogDetail: React.FC = () => {
 
       <div className="min-h-screen bg-black text-white pt-20">
         <article className="max-w-4xl mx-auto px-4 py-12">
-        {blog.CoverImage && (
-          <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden">
-            <img
-              src={blog.CoverImage}
-              alt={blog.Title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        )}
-
-        <h1 className="text-4xl font-bold mb-4">{blog.Title}</h1>
-
-        <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-800">
-          <div className="flex items-center space-x-4">
-            {blog.Author?.ProfileImage && (
+          {blog.CoverImage && (
+            <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden">
               <img
-                src={blog.Author.ProfileImage}
-                alt={blog.Author.FullName}
-                className="w-10 h-10 rounded-full"
+                src={blog.CoverImage}
+                alt={blog.Title}
+                className="w-full h-full object-cover"
               />
-            )}
-            <div className="flex gap-4 items-center">
-              <p className="font-medium">{blog.Author?.FullName}</p>
-              <p className="text-gray-400 text-sm">
-                {new Date(blog.CreatedAt).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </p>
             </div>
-          </div>
+          )}
 
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2 text-gray-400">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          <h1 className="text-4xl font-bold mb-4">{blog.Title}</h1>
+
+          <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-800">
+            <div className="flex items-center space-x-4">
+              {blog.Author?.ProfileImage && (
+                <img
+                  src={blog.Author.ProfileImage}
+                  alt={blog.Author.FullName}
+                  className="w-10 h-10 rounded-full"
                 />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-              <span>{blog.ViewsCount}</span>
+              )}
+              <div className="flex gap-4 items-center">
+                <p className="font-medium">{blog.Author?.FullName}</p>
+                <p className="text-gray-400 text-sm">
+                  {new Date(blog.CreatedAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </p>
+              </div>
             </div>
-            <button
-              onClick={handleLike}
-              disabled={liked}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${
-                liked
+
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-2 text-gray-400">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+                <span>{blog.ViewsCount}</span>
+              </div>
+              <button
+                onClick={handleLike}
+                disabled={liked}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${liked
                   ? "bg-red-600 text-white"
                   : "bg-gray-800/20 text-gray-300 hover:bg-gray-700"
-              }`}
-            >
-              <svg
-                className="w-5 h-5"
-                fill={liked ? "currentColor" : "none"}
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                  }`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-              <span>{likesCount}</span>
-            </button>
+                <svg
+                  className="w-5 h-5"
+                  fill={liked ? "currentColor" : "none"}
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+                <span>{likesCount}</span>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div
-          className="prose prose-lg prose-invert max-w-none BlogContent"
-          dangerouslySetInnerHTML={{ __html: renderContent(blog.Content) }}
-        />
+          <div
+            className="prose prose-lg prose-invert max-w-none BlogContent"
+            dangerouslySetInnerHTML={{ __html: renderContent(blog.Content) }}
+          />
 
 
-        {/* <div className="mt-12 pt-8 border-t border-gray-800">
+          {/* <div className="mt-12 pt-8 border-t border-gray-800">
           
 
           <form
@@ -565,8 +564,8 @@ const BlogDetail: React.FC = () => {
             )}
           </div>
         </div> */}
-      </article>
-    </div>
+        </article>
+      </div>
     </>
   );
 };

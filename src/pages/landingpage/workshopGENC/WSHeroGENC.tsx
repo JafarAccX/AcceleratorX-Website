@@ -41,7 +41,7 @@ const WSHeroGENC = () => {
       >
         <div className="container mx-auto   py-4 flex justify-between items-center">
           <div className="w-44 md:w-52 hover:scale-105 transition-transform duration-300">
-            <img src="/companylogo-new.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
+            <img src="/redesign/logo-no-bg.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
           </div>
         </div>
       </motion.div>
@@ -92,7 +92,7 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                        Hands-on LLM Fine-Tuning Workshop
+                      Hands-on LLM Fine-Tuning Workshop
                     </span>
                   </span>
 
@@ -108,7 +108,7 @@ const WSHeroGENC = () => {
 
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
-                
+
                 <p className="  text-gray-400 max-w-xl">
                   In this practical workshop, you’ll understand how modern LLMs are trained, how to fine-tune them for real use-cases, and how to measure the quality of your outputs with the right evaluation frameworks.
                 </p>

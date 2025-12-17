@@ -36,7 +36,7 @@ function NoCodeHeroFB() {
           <nav className="bg-[#0B1120] flex flex-row items-center py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-[40]">
             <div className="max-w-7xl mx-auto ">
               <img
-                src="/companylogo-new.webp"
+                src="/redesign/logo-no-bg.webp"
                 alt="company logo - professional certificate in product management online"
                 className="w-auto h-20 text-center"
               />

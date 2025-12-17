@@ -154,9 +154,9 @@ function Blogs() {
         {/* Primary Meta Tags */}
         <title>Blog | AcceleratorX - Insights on AI, Data & Product Management</title>
         <meta name="title" content="Blog | AcceleratorX - Insights on AI, Data & Product Management" />
-        <meta 
-          name="description" 
-          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing. Stay updated with the latest trends and best practices." 
+        <meta
+          name="description"
+          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing. Stay updated with the latest trends and best practices."
         />
         <link rel="canonical" href="https://www.acceleratorx.org/blogs" />
 
@@ -164,22 +164,22 @@ function Blogs() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.acceleratorx.org/blogs" />
         <meta property="og:title" content="Blog | AcceleratorX - Insights on AI, Data & Product Management" />
-        <meta 
-          property="og:description" 
-          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing." 
+        <meta
+          property="og:description"
+          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing."
         />
-        <meta property="og:image" content="https://www.acceleratorx.org/companylogo-new.webp" />
+        <meta property="og:image" content="https://www.acceleratorx.org/redesign/logo-no-bg.webp" />
         <meta property="og:site_name" content="AcceleratorX" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.acceleratorx.org/blogs" />
         <meta property="twitter:title" content="Blog | AcceleratorX - Insights on AI, Data & Product Management" />
-        <meta 
-          property="twitter:description" 
-          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing." 
+        <meta
+          property="twitter:description"
+          content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing."
         />
-        <meta property="twitter:image" content="https://www.acceleratorx.org/companylogo-new.webp" />
+        <meta property="twitter:image" content="https://www.acceleratorx.org/redesign/logo-no-bg.webp" />
 
         {/* Additional SEO Tags */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -197,14 +197,14 @@ function Blogs() {
               "name": "AcceleratorX",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.acceleratorx.org/companylogo-new.webp"
+                "url": "https://www.acceleratorx.org/redesign/logo-no-bg.webp"
               }
             },
             "blogPost": state.blogs.slice(0, 10).map(blog => ({
               "@type": "BlogPosting",
               "headline": blog.Title,
               "description": blog.Excerpt || "",
-              "image": blog.CoverImage || "https://www.acceleratorx.org/companylogo-new.webp",
+              "image": blog.CoverImage || "https://www.acceleratorx.org/redesign/logo-no-bg.webp",
               "datePublished": blog.PublishedAt || blog.CreatedAt,
               "author": {
                 "@type": "Person",

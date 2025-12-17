@@ -31,7 +31,7 @@ const WSHeroAIDM = () => {
       <div className="relative z-20 w-full bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="w-36 md:w-44">
-            <img src="/companylogo-new.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
+            <img src="/redesign/logo-no-bg.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@ const WSHeroAIDM = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
                 {/* Learn to automate your marketing, save hours of work, and boost performance using AI */}
-              Marketing Automation Crash Course
+                Marketing Automation Crash Course
 
               </span>
             </h1>

@@ -121,7 +121,7 @@ function DAFlyers() {
               <div className="flex items-center space-x-3">
                 <div className="flex flex-col">
                   <img
-                    src="/companylogo-new.webp"                    alt="AcceleratorX Logo"
+                    src="/redesign/logo-no-bg.webp" alt="AcceleratorX Logo"
                     className="w-48 h-auto"
                   />
                 </div>
