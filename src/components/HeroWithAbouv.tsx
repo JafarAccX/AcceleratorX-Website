@@ -28,7 +28,7 @@ const HeroWithAbouv = ({ abouv_logo = "/abouv.svg",
         <img
           src="/xmas-lottie/cristmas-banner.webp"
           alt="AcceleratorX Cristmas sale"
-          className="mx-auto mb-6 w-full object-cover"
+          className="mx-auto mb-6 w-full object-cover rounded-md"
         />
       </div>
 
