@@ -9,10 +9,13 @@ import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 
 const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
 
+import { EnrollmentData } from "../api/enrollmentApi";
+
 interface EnrollmentModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit?: () => void;
+  customData?: Partial<EnrollmentData>;
 }
 
 // Central brochure map (updated to use provided Firebase Storage links)
@@ -80,30 +83,30 @@ async function sendWhatsAppMessage({
           "language": {
             "code": "en"
           },
-          
+
           "components": [
-  {
-    "type": "header",
-    "parameters": [
-      {
-        "type": "document",
-        "document": {
-          "link": broucher.url,
-          "filename": broucher.title
-        }
-      }
-    ]
-  },
-  {
-    "type": "body",
-    "parameters": [
-      {
-        "type": "text",
-        "text": name
-      }
-    ]
-  }
-]
+            {
+              "type": "header",
+              "parameters": [
+                {
+                  "type": "document",
+                  "document": {
+                    "link": broucher.url,
+                    "filename": broucher.title
+                  }
+                }
+              ]
+            },
+            {
+              "type": "body",
+              "parameters": [
+                {
+                  "type": "text",
+                  "text": name
+                }
+              ]
+            }
+          ]
 
         },
         "metaData": {
@@ -112,7 +115,7 @@ async function sendWhatsAppMessage({
       }),
     });
 
-     console.log("WhatsApp API response status:", response);
+    console.log("WhatsApp API response status:", response);
 
     const responseData = await response.json();
     console.log("WhatsApp API response data:", responseData);
@@ -128,7 +131,7 @@ async function sendWhatsAppMessage({
   }
 }
 
-export default function EnrollmentModal({ isOpen, onClose, onSubmit }: EnrollmentModalProps) {
+export default function EnrollmentModal({ isOpen, onClose, onSubmit, customData }: EnrollmentModalProps) {
   const { selectedCourse } = useCourseContext();
   const navigate = useNavigate();
 
@@ -203,15 +206,16 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
         gclid: utmData.gclid,
         ttclid: utmData.ttclid,
         msclkid: utmData.msclkid,
+        ...customData, // Merge custom overrides (e.g., scholarship info)
       };
 
       await createEnrollment(submissionData);
 
-  const broucherData = resolveBrochure(selectedCourse);
+      const broucherData = resolveBrochure(selectedCourse);
 
-  console.log("Brochure data resolved:", broucherData);
-  console.log("Form data being submitted:", submissionData);
-  console.log("sending WhatsApp message...");
+      console.log("Brochure data resolved:", broucherData);
+      console.log("Form data being submitted:", submissionData);
+      console.log("sending WhatsApp message...");
 
       await sendWhatsAppMessage({
         phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
@@ -388,7 +392,7 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit }: Enrollmen
                         <option value="5+">5+ yrs</option>
                       </select>
                     </div>
- 
+
                   </div>
 
                   <div className="mt-4">

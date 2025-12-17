@@ -1,11 +1,11 @@
 import { useEffect, Suspense } from "react";
 import LottieLoader from "../../../components/LottieLoader";
-import { useCourseContext } from "../../../context/courseContext"; 
+import { useCourseContext } from "../../../context/courseContext";
 import GENHero from "../GenAiForPM/GENAIFORPMHero";
 import GENIntroduction from "../GenAiForPM/GENAIFORPMIntroduction";
 import GENWhoShouldEnroll from "../GenAiForPM/GENAIFORPMWhoShouldEnroll";
-import GENBYOA from "../GenAiForPM/GENAIFORPMBYOA"; 
-import GENWhyLearnAI from "../GenAiForPM/GENAIFORPMWhyLearnAI"; 
+import GENBYOA from "../GenAiForPM/GENAIFORPMBYOA";
+import GENWhyLearnAI from "../GenAiForPM/GENAIFORPMWhyLearnAI";
 import GENMentors from "../GenAiForPM/GENAIFORPMMentors";
 import GENToolsYouWillLearn from "../GenAiForPM/GENAIFORPMToolsYouWillLearn";
 import GENProjectsAndOutcomes from "../GenAiForPM/GENAIFORPMProjectsAndOutcomes";
@@ -33,8 +33,8 @@ const GenAiForPMEntry = () => {
       <GENWhoShouldEnroll />
       <GENBYOA />
       <GENMarketScope />
-       <GENWhyLearnAI />
-        <HeroWithAbouv />
+      <GENWhyLearnAI />
+      <HeroWithAbouv courseName="Gen AI for PMs" />
       <GENLearningJourney />
       <GENMentors />
       <GENToolsYouWillLearn />

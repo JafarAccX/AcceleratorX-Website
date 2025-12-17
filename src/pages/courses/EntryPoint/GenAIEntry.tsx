@@ -36,7 +36,7 @@ const GenAICourse = () => {
         <GENBYOA />
         <GENMarketScope />
         <GENWhyLearnAI />
-        <HeroWithAbouv />
+        <HeroWithAbouv courseName="Generative AI" />
         <GENLearningJourney />
         <GENMentors />
         <GENToolsYouWillLearn />

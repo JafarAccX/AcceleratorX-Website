@@ -3,21 +3,21 @@ import { useState } from 'react';
 import EnrollmentModal from './EnrollmentModal';
 import { useCourseContext } from '../context/courseContext';
 
-// interface HeroProps {
-//   abouv_logo?: string;
-//   abouv_link?: string;
-// }
+interface HeroWithAbouvProps {
+  courseName?: string;
+  abouv_logo?: string;
+  abouv_link?: string;
+}
 
-// const HeroWithAbouv = ({
-// abouv_logo = "/abouv.svg",
-// abouv_link = "https://abouv.com",
-// }: HeroProps) => {
-const HeroWithAbouv = () => {
+const HeroWithAbouv = ({ abouv_logo = "/abouv.svg",
+  abouv_link = "https://abouv.com", courseName }: HeroWithAbouvProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setSelectedCourse } = useCourseContext();
+  const { setSelectedCourse, selectedCourse } = useCourseContext();
 
   const handleBannerClick = () => {
-    setSelectedCourse("General"); // Or some specific tag if needed, e.g. "Christmas Sale"
+    // Priority: Prop courseName > Context selectedCourse > "General"
+    const courseToSet = courseName || selectedCourse || "General";
+    setSelectedCourse(courseToSet);
     setIsModalOpen(true);
   };
 
@@ -34,19 +34,23 @@ const HeroWithAbouv = () => {
       <EnrollmentModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        customData={{
+          utm_campaign: "Christmas_Sale_Scholarship",
+          utm_content: "Banner_Click_40_Percent_Off"
+        }}
       />
       {/* Main container with responsive padding */}
-      {/* <div className="mx-auto max-w-7xl">
-       
+      <div className="mx-auto max-w-7xl">
+
         <div className="relative rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[2px] shadow-xl">
-          
+
           <div className="relative rounded-[10px] bg-slate-900/90 backdrop-blur-xl">
-             
+
             <div className="flex flex-col space-y-4 p-4 md:flex-row md:items-center md:justify-between md:space-y-0 md:p-6 lg:p-8">
-             
+
               <div className="flex items-center justify-center space-x-4 md:justify-start">
                 <img
-                  src="/companylogo-new.webp"                  alt="company logo - professional certificate in product management online"
+                  src="/companylogo-new.webp" alt="company logo - professional certificate in product management online"
                   className="h-12 w-auto object-contain transition-transform hover:scale-105 md:h-12 lg:h-14"
                 />
                 <div className="h-8 w-px bg-gray-400/20 md:h-10 lg:h-12" />
@@ -64,7 +68,7 @@ const HeroWithAbouv = () => {
                 </a>
               </div>
 
-              
+
               <div className="flex flex-col items-center space-y-2 text-center md:items-start md:space-y-3 md:text-left lg:space-y-4">
                 <p className="text-sm font-medium text-blue-400 md:text-base lg:text-lg">
                   We Go Beyond Learning
@@ -81,7 +85,7 @@ const HeroWithAbouv = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </section>
   );
 };

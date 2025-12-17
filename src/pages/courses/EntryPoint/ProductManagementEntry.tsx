@@ -27,7 +27,7 @@ const ProductManagementEntry = () => {
       <SEO />
       <ProgramHeroEIE />
       <ProgramHighlightsEIE />
-      <HeroWithAbouv />
+      <HeroWithAbouv courseName="Product Management" />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <LearningJourneyEIE />
         <BenefitsGridEIE />
