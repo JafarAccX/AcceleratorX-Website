@@ -52,6 +52,7 @@ export default function Navbar() {
     { label: "Blog", path: "/blogs" },
     { label: "Jobs Portal", path: "/jobs" },
     { label: "New Events", path: "/events" },
+    { label: "Project Listing", path: "/project-listing" },
   ];
 
   const courses = [
@@ -85,7 +86,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6">
               {xsatNavItems.map((item) => (
                 <button
                   key={item.label}
@@ -197,7 +198,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {/* Courses Dropdown */}
             <div
               className="relative group"
@@ -205,7 +206,7 @@ export default function Navbar() {
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
               <button
-                className={`flex items-center gap-1 text-gray-300 group-hover:text-white text-sm font-medium py-2 ${hoverTransition}`}
+                className={`flex items-center gap-1 text-gray-300 group-hover:text-white text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
               >
                 Courses
                 <ChevronDown
@@ -226,7 +227,7 @@ export default function Navbar() {
                     <Link
                       key={course.label}
                       to={course.path}
-                      className={`block px-4 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 ${hoverTransition} text-sm font-medium`}
+                      className={`block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 ${hoverTransition} text-xs font-medium`}
                     >
                       {course.label}
                     </Link>
@@ -240,20 +241,21 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.path}
-                className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
-                  ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
+                className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing"
+                  ? "bg-white/5 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center  border border-[#FFBB00]/10 hover:border-[#FFBB00]/30"
                   : "text-gray-300 hover:text-white py-2"
                   }`}
               >
                 {item.label}
-                {item.label === "XSAT" ||
-                  (item.label === "EVENTS" && (
-                    <span className="relative flex h-2 w-2">
+                {(item.label === "XSAT" ||
+                  item.label === "EVENTS" ||
+                  item.label === "Project Listing") && (
+                    <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
                     </span>
-                  ))}
-                {item.label !== "XSAT" && (
+                  )}
+                {item.label !== "XSAT" && item.label !== "Project Listing" && item.label !== "EVENTS" && (
                   <span
                     className={`absolute bottom-0 left-0 w-0 h-0.5 bg-white ${dropdownTransition} group-hover:w-full`}
                   />
@@ -272,13 +274,16 @@ export default function Navbar() {
             {isAuthenticated ? (
               <ProfileMenu />
             ) : (
-              <div className="flex items-center space-x-4">
-                <Link to="/sign-in" className={`text-gray-300 hover:text-white ${hoverTransition} py-2 px-4`}>
+              <div className="flex items-center p-1 bg-white/5 rounded-xl border border-white/10 ml-4 group">
+                <Link
+                  to="/sign-in"
+                  className={`text-gray-400 hover:text-white ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-lg hover:bg-white/5`}
+                >
                   Login
                 </Link>
                 <Link
                   to="/sign-up"
-                  className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
+                  className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-lg text-sm font-medium ${hoverTransition} shadow-lg`}
                 >
                   Sign Up
                 </Link>
@@ -342,20 +347,21 @@ export default function Navbar() {
             <Link
               key={item.label}
               to={item.path}
-              className={`block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
-                ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2.5 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20"
-                : "text-gray-300 hover:text-white py-2"
+              className={`block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing"
+                ? "bg-white/5 text-[#FFBB00] font-semibold px-4 py-2 rounded-lg flex items-center gap-2 border border-[#FFBB00]/10"
+                : "text-gray-300 py-2"
                 }`}
               onClick={() => setIsOpen(false)}
             >
               {item.label}
-              {item.label === "XSAT" ||
-                (item.label === "EVENTS" && (
-                  <span className="relative flex h-2 w-2">
+              {(item.label === "XSAT" ||
+                item.label === "EVENTS" ||
+                item.label === "Project Listing") && (
+                  <span className="relative flex h-1.5 w-1.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
                   </span>
-                ))}
+                )}
             </Link>
           ))}
 
@@ -372,21 +378,23 @@ export default function Navbar() {
           {isAuthenticated ? (
             <ProfileMenu />
           ) : (
-            <div className="flex flex-col items-center space-y-4">
-              <Link
-                to="/sign-in"
-                onClick={() => setIsOpen(false)}
-                className={`text-gray-300 hover:text-white w-full ${hoverTransition} py-2 px-4`}
-              >
-                Login
-              </Link>
-              <Link
-                to="/sign-up"
-                onClick={() => setIsOpen(false)}
-                className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90  w-full text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
-              >
-                Sign Up
-              </Link>
+            <div className="flex flex-col space-y-3 pt-2">
+              <div className="flex items-center p-1 bg-white/5 rounded-xl border border-white/5">
+                <Link
+                  to="/sign-in"
+                  onClick={() => setIsOpen(false)}
+                  className={`flex-1 text-center text-gray-400 hover:text-white ${hoverTransition} py-2 text-xs font-medium rounded-lg hover:bg-white/5`}
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/sign-up"
+                  onClick={() => setIsOpen(false)}
+                  className={`flex-1 text-center bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white py-2 rounded-lg text-xs font-medium ${hoverTransition} shadow-lg`}
+                >
+                  Sign Up
+                </Link>
+              </div>
             </div>
           )}
         </div>
