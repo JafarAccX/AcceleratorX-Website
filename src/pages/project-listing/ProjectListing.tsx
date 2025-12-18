@@ -31,7 +31,7 @@ const ProjectListing = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-3xl md:text-5xl font-serif mb-8 md:mb-12 leading-tight"
+                    className="text-3xl md:text-5xl font-serif mb-8 md:mb-12 font-extralight leading-tight"
                 >
                     Let the world see,<br />
                     <span className="text-blue-600 italic">what you can </span>
