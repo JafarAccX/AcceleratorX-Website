@@ -31,6 +31,7 @@ const BlogDashboard = lazy(() => import("../pages/blogs/BlogDashboard"));
 // const BlogForm = lazy(() => import("../pages/blogs/BlogForm"));
 const Events = lazy(() => import("../pages/events/Events"));
 const YearEnd = lazy(() => import("../pages/year-end/YearEnd"));
+const ProjectListing = lazy(() => import("../pages/project-listing/ProjectListing"));
 
 export const mainRoutes = [
   <Route key="home" path="/" element={<HomePage />} />,
@@ -91,4 +92,7 @@ export const mainRoutes = [
 
   //year end route
   <Route key="year-end" path="/year-end" element={<YearEnd />} />,
+
+  // project-listing
+  <Route key="project-listing" path="/project-listing" element={<ProjectListing />} />,
 ];

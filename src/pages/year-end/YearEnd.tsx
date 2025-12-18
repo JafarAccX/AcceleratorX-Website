@@ -70,6 +70,9 @@ const YearEnd = () => {
                 {/* Full-screen Snowing Effect Overlay */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-[5]">
                     {/* Top row - 8 columns */}
+                    <div className="absolute top-0 -left-20 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
                     <div className="absolute top-0 left-0 w-[400px] h-[400px]">
                         <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
                     </div>
@@ -96,6 +99,9 @@ const YearEnd = () => {
                     </div>
 
                     {/* Middle row - 8 columns */}
+                    <div className="absolute top-1/3 -left-20 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
                     <div className="absolute top-1/3 left-0 w-[400px] h-[400px]">
                         <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
                     </div>
@@ -122,6 +128,9 @@ const YearEnd = () => {
                     </div>
 
                     {/* Bottom row - 8 columns */}
+                    <div className="absolute top-2/3 -left-20 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
                     <div className="absolute top-2/3 left-0 w-[400px] h-[400px]">
                         <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
                     </div>
