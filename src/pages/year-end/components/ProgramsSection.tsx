@@ -33,6 +33,18 @@ interface ProgramsSectionProps {
     onEnroll: (courseName: string) => void;
 }
 
+const decorativeIcons = [
+    "/redesign/year-end/random-icons/PL-02.png",
+    "/redesign/year-end/random-icons/PL-03.png",
+    "/redesign/year-end/random-icons/PL-04.png",
+    "/redesign/year-end/random-icons/PL-05.png",
+    "/redesign/year-end/random-icons/PL-06.png",
+    "/redesign/year-end/random-icons/PL-07.png",
+    "/redesign/year-end/random-icons/PL-08.png",
+    "/redesign/year-end/random-icons/PL-09.png",
+    "/redesign/year-end/random-icons/PX.png",
+];
+
 const ProgramsSection = ({ onEnroll }: ProgramsSectionProps) => {
     const sectionRef = useRef<HTMLDivElement | null>(null);
     const isInView = useInView(sectionRef, {
@@ -62,6 +74,10 @@ const ProgramsSection = ({ onEnroll }: ProgramsSectionProps) => {
                             {...program}
                             isReversed={index % 2 !== 0}
                             onEnroll={onEnroll}
+                            decorativeIcons={[
+                                decorativeIcons[(index * 2) % decorativeIcons.length],
+                                decorativeIcons[(index * 2 + 1) % decorativeIcons.length]
+                            ]}
                         />
                     ))}
                 </div>

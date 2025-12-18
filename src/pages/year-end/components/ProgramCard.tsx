@@ -8,6 +8,7 @@ interface ProgramCardProps {
     image: string;
     isReversed?: boolean;
     onEnroll: (courseName: string) => void;
+    decorativeIcons?: string[];
 }
 
 const ProgramCard = ({
@@ -16,7 +17,8 @@ const ProgramCard = ({
     description,
     image,
     isReversed = false,
-    onEnroll
+    onEnroll,
+    decorativeIcons = []
 }: ProgramCardProps) => {
 
     return (
@@ -60,15 +62,59 @@ const ProgramCard = ({
             </div>
 
             {/* Image Side */}
-            <div className="flex-1 w-full">
-                <div className="relative rounded-2xl overflow-hidden border-white/5 aspect-[4/3] group">
+            <div className="flex-1 w-full relative">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group bg-[#1a1c21]">
                     <img
                         src={image}
                         alt={title}
                         className="w-full rounded-2xl h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f1115] to-transparent opacity-60 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f1115] via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
+
+                {/* Decorative Icons */}
+                {decorativeIcons.length >= 2 && (
+                    <>
+                        {/* First Icon - Top Corner facing text */}
+                        <motion.img
+                            src={decorativeIcons[0]}
+                            alt=""
+                            initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                            animate={{
+                                y: [0, -10, 0],
+                                rotate: [0, 5, 0]
+                            }}
+                            transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 0.2
+                            }}
+                            className={`absolute w-16 h-16 md:w-24 md:h-24 z-20 pointer-events-none drop-shadow-2xl
+                                ${isReversed ? '-top-10 -right-4 md:-top-16 md:-right-8' : '-top-10 -left-4 md:-top-16 md:-left-8'}`}
+                        />
+                        {/* Second Icon - Bottom Opposite Corner */}
+                        <motion.img
+                            src={decorativeIcons[1]}
+                            alt=""
+                            initial={{ opacity: 0, scale: 0.5, rotate: 15 }}
+                            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                            animate={{
+                                y: [0, 10, 0],
+                                rotate: [0, -5, 0]
+                            }}
+                            transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 0.2
+                            }}
+                            className={`absolute w-14 h-14 md:w-20 md:h-20 z-20 pointer-events-none drop-shadow-2xl
+                                ${isReversed ? '-bottom-8 -left-4 md:-bottom-12 md:-left-6' : '-bottom-8 -right-4 md:-bottom-12 md:-right-6'}`}
+                        />
+                    </>
+                )}
             </div>
         </motion.div>
     );
