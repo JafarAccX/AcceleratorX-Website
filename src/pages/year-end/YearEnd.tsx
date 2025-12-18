@@ -66,12 +66,92 @@ const YearEnd = () => {
     return (
         <div className="relative min-h-screen bg-[#0A0A0A] selection:bg-blue-500/30">
             {/* Hero Section Container */}
-            <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-                {/* Background Gradients */}
+            <div className="relative min-h-screen bg-gradient-to-b from-[#DC143C] via-[#FF6B6B] to-[#FF8A80] flex items-center justify-center overflow-hidden">
+                {/* Full-screen Snowing Effect Overlay */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-[5]">
+                    {/* Top row - 8 columns */}
+                    <div className="absolute top-0 left-0 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-0 left-[12.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-0 left-1/4 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-0 left-[37.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-0 left-1/2 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-0 left-[62.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-0 left-3/4 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-0 left-[87.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+
+                    {/* Middle row - 8 columns */}
+                    <div className="absolute top-1/3 left-0 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-1/3 left-[12.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-1/3 left-[37.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-1/3 left-1/2 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-1/3 left-[62.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-1/3 left-3/4 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-1/3 left-[87.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+
+                    {/* Bottom row - 8 columns */}
+                    <div className="absolute top-2/3 left-0 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-2/3 left-[12.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-2/3 left-1/4 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-2/3 left-[37.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-2/3 left-1/2 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-2/3 left-[62.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-2/3 left-3/4 w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="absolute top-2/3 left-[87.5%] w-[400px] h-[400px]">
+                        <img src="/xmas-lottie/Snowing.gif" alt="" className="w-full h-full object-contain" />
+                    </div>
+                </div>
+
+                {/* Optional: Subtle overlay gradients for depth */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-[#5e4b44]/20 blur-[120px] rounded-full mix-blend-screen" />
-                    <div className="absolute bottom-[-20%] right-[-10%] w-[70%] h-[70%] bg-[#364b59]/20 blur-[120px] rounded-full mix-blend-screen" />
-                    <div className="absolute top-[20%] left-[50%] -translate-x-1/2 w-[50%] h-[50%] bg-[#2a303c]/30 blur-[100px] rounded-full" />
+                    <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-black/10 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/5 to-transparent" />
                 </div>
 
                 <div className="relative z-10 max-w-5xl mx-auto px-4 text-center mt-20">
@@ -99,7 +179,7 @@ const YearEnd = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
+                        className="text-gray-100 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
                     >
                         Real-world programs in GenAI, Product, Marketing & Analytics — built for people who want clarity, confidence, and career momentum.
                     </motion.p>
@@ -111,7 +191,7 @@ const YearEnd = () => {
                         transition={{ duration: 0.8 }}
                         className="mb-8"
                     >
-                        <p className="text-gray-300 text-lg">
+                        <p className="text-gray-100 text-lg">
                             Now up to <span className="font-bold text-white">40% off</span> as part of our <span className="font-bold text-white">Christmas & Year-End Sale</span>
                         </p>
                     </motion.div>
@@ -131,7 +211,7 @@ const YearEnd = () => {
                         </button>
                         <button
                             onClick={() => handleEnroll()}
-                            className="px-8 py-3.5 bg-transparent border border-gray-600 hover:border-gray-400 text-white rounded-lg font-medium transition-all duration-200 min-w-[160px]"
+                            className="px-8 py-3.5 bg-transparent border border-white-600 hover:bg-white hover:text-black text-white rounded-lg font-medium transition-all duration-200 min-w-[160px]"
                         >
                             Get Brochure
                         </button>

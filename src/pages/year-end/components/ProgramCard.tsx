@@ -67,7 +67,6 @@
 
 
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 
 interface ProgramCardProps {
     category: string;
@@ -86,15 +85,16 @@ const ProgramCard = ({
     isReversed = false,
     onEnroll
 }: ProgramCardProps) => {
-    const cardRef = useRef<HTMLDivElement | null>(null);
-    // const isInView = useInView(cardRef, {
-    //     once: true,
-    //     margin: "-100px"
-    // });
 
     return (
-        <div
-            ref={cardRef}
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1] // Custom easeOutExpo-like curve for premium feel
+            }}
             className={`flex flex-col-reverse ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'
                 } items-center justify-between gap-12 md:gap-24 py-12`}
         >
@@ -126,24 +126,17 @@ const ProgramCard = ({
             </div>
 
             {/* Image Side */}
-            <motion.div
-                initial={{ opacity: 0.3 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                // animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.6, ease: 'easeIn' }}
-                className="flex-1 w-full"
-            >
-                <div className="relative p-2 rounded-2xl overflow-hidden bg-[#1a1d24] border border-white/5 aspect-[4/3] group">
+            <div className="flex-1 w-full">
+                <div className="relative rounded-2xl overflow-hidden border-white/5 aspect-[4/3] group">
                     <img
                         src={image}
                         alt={title}
-                        className="w-full rounded-2xl h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                        className="w-full rounded-2xl h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f1115] to-transparent opacity-60 pointer-events-none" />
                 </div>
-            </motion.div>
-        </div>
+            </div>
+        </motion.div>
     );
 };
 
