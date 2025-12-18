@@ -41,6 +41,7 @@ const HeroWithAbouv = ({ abouv_logo = "/abouv.svg",
         }}
       />
       {/* Main container with responsive padding */}
+      {/* 
       <div className="mx-auto max-w-7xl">
 
         <div className="relative rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[2px] shadow-xl">
@@ -87,6 +88,7 @@ const HeroWithAbouv = ({ abouv_logo = "/abouv.svg",
           </div>
         </div>
       </div>
+      */}
     </section>
   );
 };
