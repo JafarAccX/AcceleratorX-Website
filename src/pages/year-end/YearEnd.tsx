@@ -211,19 +211,18 @@ const YearEnd = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col   sm:flex-row items-center justify-center gap-4"
+                        className="flex flex-row items-center justify-center gap-4"
                     >
                         <div className="px-8 py-3.5 min-w-[200px] bg-transparent  relative">
-                            <div className="absolute -top-[85px] -left-16">
+                            <div className="absolute -top-[58px] md:-top-[85px]  md:-left-16">
                                 <AnimatedOfferButton
                                     onClick={() => handleEnroll()}
-                                    className=""
                                 />
                             </div>
                         </div>
                         <button
                             onClick={() => handleEnroll()}
-                            className="px-8 py-3.5 bg-transparent border border-white-600 hover:bg-white hover:text-black text-white rounded-lg font-medium transition-all duration-200 min-w-[160px]"
+                            className=" text-xs p-4 py-3 md:px-8 md:py-3.5 bg-transparent border border-white-600 hover:bg-white hover:text-black text-white rounded-lg font-medium transition-all duration-200 min-w-[120px] md:min-w-[160px]"
                         >
                             Get Brochure
                         </button>

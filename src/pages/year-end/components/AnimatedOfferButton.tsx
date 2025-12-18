@@ -37,8 +37,8 @@ const AnimatedOfferButton = ({ onClick, className = "" }: AnimatedOfferButtonPro
             initial="initial"
             whileHover="hover"
             whileTap="tap"
-            className={`relative inline-block outline-none focus:outline-none transition-all duration-300 ${className}`}
-            style={{ width: '240px', height: 'auto', background: 'transparent', border: 'none', padding: 0 }}
+            className={`relative inline-block outline-none focus:outline-none transition-all duration-300 w-[180px] md:w-[240px] ${className}`}
+            style={{ height: 'auto', background: 'transparent', border: 'none', padding: 0 }}
         >
             <svg
                 viewBox="0 0 240 125"

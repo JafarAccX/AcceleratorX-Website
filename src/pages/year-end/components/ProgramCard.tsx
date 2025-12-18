@@ -42,18 +42,17 @@ const ProgramCard = ({
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
                     {description}
                 </p>
-                <div className={`flex flex-col sm:flex-row items-center justify-center w-full gap-4`}>
-                    <div className="px-8 py-3.5 w-full  md:w-[200px] bg-transparent relative">
-                        <div className={`absolute -top-[85px] ${isReversed ? '-left-16' : '-left-16'}`}>
+                <div className={`flex flex-row items-center justify-center w-full gap-4`}>
+                    <div className="py-3.5 w-[180px] md:w-[200px] relative">
+                        <div className={`absolute -top-[60px] md:-top-[85px] md:${isReversed ? '-left-16' : '-left-16'} -top-16`}>
                             <AnimatedOfferButton
                                 onClick={() => onEnroll(title)}
-                                className=""
                             />
                         </div>
                     </div>
                     <button
                         onClick={() => onEnroll(title)}
-                        className="px-8 py-3 bg-transparent w-full md:w-auto border border-gray-600 hover:border-gray-300 text-white rounded-lg transition-all duration-300"
+                        className=" text-xs p-4 py-3 md:px-8 md:py-3.5 bg-transparent border border-white-600 hover:bg-white hover:text-black text-white rounded-lg font-medium transition-all duration-200 min-w-[120px] md:min-w-[160px]"
                     >
                         Get Brochure
                     </button>
