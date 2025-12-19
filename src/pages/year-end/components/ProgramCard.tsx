@@ -79,17 +79,15 @@ const ProgramCard = ({
                         <motion.img
                             src={decorativeIcons[0]}
                             alt=""
-                            initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
-                            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                            initial={{ rotate: -150 }}
+                            whileInView={{ rotate: 40 }}
                             animate={{
-                                y: [0, -10, 0],
-                                rotate: [0, 5, 0]
+                                rotate: [0, 150, 0]
                             }}
                             transition={{
-                                duration: 1,
+                                duration: 0.5,
                                 repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: 0.2
+                                ease: "easeInOut"
                             }}
                             className={`absolute w-16 h-16 md:w-24 md:h-24 z-20 pointer-events-none drop-shadow-2xl
                                 ${isReversed ? '-top-10 -right-4 md:-top-16 md:-right-8' : '-top-10 -left-4 md:-top-16 md:-left-8'}`}
@@ -98,17 +96,15 @@ const ProgramCard = ({
                         <motion.img
                             src={decorativeIcons[1]}
                             alt=""
-                            initial={{ opacity: 0, scale: 0.5, rotate: 15 }}
-                            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                            initial={{ rotate: 150 }}
+                            whileInView={{ rotate: 40 }}
                             animate={{
-                                y: [0, 10, 0],
-                                rotate: [0, -5, 0]
+                                rotate: [0, -150, 0]
                             }}
                             transition={{
-                                duration: 1,
+                                duration: 0.5,
                                 repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: 0.2
+                                ease: "easeInOut"
                             }}
                             className={`absolute w-14 h-14 md:w-20 md:h-20 z-20 pointer-events-none drop-shadow-2xl
                                 ${isReversed ? '-bottom-8 -left-4 md:-bottom-12 md:-left-6' : '-bottom-8 -right-4 md:-bottom-12 md:-right-6'}`}

@@ -5,12 +5,9 @@ import { useCourseContext } from '../context/courseContext';
 
 interface HeroWithAbouvProps {
   courseName?: string;
-  abouv_logo?: string;
-  abouv_link?: string;
 }
 
-const HeroWithAbouv = ({ abouv_logo = "/abouv.svg",
-  abouv_link = "https://abouv.com", courseName }: HeroWithAbouvProps) => {
+const HeroWithAbouv = ({ courseName }: HeroWithAbouvProps) => {
   console.log('HeroWithAbouv: EnrollmentModal import:', typeof EnrollmentModal, EnrollmentModal);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setSelectedCourse, selectedCourse } = useCourseContext();
