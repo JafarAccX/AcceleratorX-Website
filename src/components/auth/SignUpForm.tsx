@@ -110,9 +110,11 @@ export const SignUpForm = () => {
         lastName: formState.lastName,
         email: formState.email,
         mobile: formState.mobile,
-        callingCode: "",
+        callingCode: "+91",
         otpCode: otp,
       };
+
+      console.log(payload);
 
       const response = await api.post("/auth/register", payload);
 
