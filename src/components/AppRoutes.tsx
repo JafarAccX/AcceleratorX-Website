@@ -18,6 +18,7 @@ const JobDetails = lazy(() => import("../pages/jobs/JobDetails"));
 const JobList = lazy(() => import("../pages/jobs/JobList"));
 const MyApplications = lazy(() => import("../pages/jobs/MyApplications"));
 const CertificateDisplayPage = lazy(() => import("../pages/CertificateDisplayPage"));
+const ProjectListing = lazy(() => import("../pages/project-listing/ProjectListing"));
 import { ProtectedRoute } from "./auth/ProtectedRoute";
 
 export const AppRoutes = () => {
@@ -27,7 +28,7 @@ export const AppRoutes = () => {
     <>
       <RouteLogic setSelectedCourse={setSelectedCourse} />
       <MainLayout>
-  <Suspense fallback={<LottieLoader />}>
+        <Suspense fallback={<LottieLoader />}>
           <Routes>
             {mainRoutes}
             {workshopRoutes}
@@ -43,10 +44,13 @@ export const AppRoutes = () => {
             {/* Public Certificate Route */}
             <Route key="certificate" path="/certificate/:certificateId" element={<CertificateDisplayPage />} />
 
+            {/* Public Project Route */}
+            <Route key="projects" path="/projects" element={<ProjectListing />} />
+
             {/* Protected Routes */}
             <Route key="protected" element={<ProtectedRoute />}>
               <Route key="profile" path="/profile/*" element={<ProfileRoutes />} />
-              <Route key="job-apply" path="/jobs/:id/apply" element={<JobApplication />} /> 
+              <Route key="job-apply" path="/jobs/:id/apply" element={<JobApplication />} />
               <Route key="my-applications" path="/my-applications" element={<MyApplications />} />
             </Route>
           </Routes>

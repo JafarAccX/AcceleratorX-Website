@@ -71,6 +71,9 @@ export interface Customer {
     CourseEnrolled: boolean,
     JoinDate: string;
     LastUpdateDate: string;
+    Education?: string;
+    YearOfPassing?: string;
+    ReferredBy?: string;
 }
 
 export interface CreateCustomerPayload {
@@ -123,6 +126,8 @@ export interface UpdateCustomerPayload {
     currentCompany?: string;
     skills?: string;
     lastUpdateDate?: string; // optional, defaults to current date if not provided
+    education?: string;
+    yearOfPassing?: string;
 }
 
 
