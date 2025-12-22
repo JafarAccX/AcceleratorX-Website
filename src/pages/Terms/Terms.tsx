@@ -25,7 +25,7 @@ export default function Terms() {
             <p className="mb-6">
               These Terms and Conditions ("Terms") govern your access to and use
               of the website, products, and services offered by Accelerate Learning
-              Education Services Private Limited ("AcceleratorX," "we," "us," or
+              ("AcceleratorX," "we," "us," or
               "our"). By accessing or using our website and services, you ("you"
               or "user") agree to be bound by these Terms. If you do not agree to
               these Terms, you may not access or use our services.
