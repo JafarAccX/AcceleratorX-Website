@@ -4,14 +4,22 @@ import {
     ProjectListResponse,
     Project,
     CreateProjectRequest,
-    ProjectComment
+    ProjectComment,
+    LeaderboardEntry
 } from '../types/project.types';
 
 export const projectService = {
     // Public Endpoints
-    async getProjects(page = 1, limit = 10, search?: string) {
+    async getLeaderboard(limit = 10) {
+        const response = await api.get<ApiResponse<LeaderboardEntry[]>>('/api/projects/leaderboard', { params: { limit } });
+        return response.data;
+    },
+
+    async getProjects(page = 1, limit = 10, search?: string, authorId?: number) {
         const params: any = { page, limit };
         if (search) params.search = search;
+        if (authorId) params.authorId = authorId;
+
 
         const response = await api.get<ApiResponse<ProjectListResponse>>('/api/projects', { params });
         return response.data;
@@ -41,10 +49,63 @@ export const projectService = {
     },
 
     // Protected Endpoints
-    async createProject(data: CreateProjectRequest) {
-        const response = await api.post<ApiResponse<{ Id: string }>>('/api/projects', data);
+    async createProject(data: CreateProjectRequest, files?: File[]) {
+        console.log('=== FRONTEND CREATE PROJECT ===');
+        console.log('Data:', data);
+        console.log('Files:', files);
+        console.log('Files count:', files?.length);
+
+        const formData = new FormData();
+        Object.keys(data).forEach(key => {
+            const value = (data as any)[key];
+            if (value !== undefined && value !== null) {
+                formData.append(key, value);
+            }
+        });
+
+        if (files) {
+            console.log('Appending files to FormData...');
+            files.forEach((file, idx) => {
+                console.log(`Appending file ${idx}:`, file.name, file.type, file.size);
+                formData.append('images', file);
+            });
+        }
+
+        // Log FormData contents
+        console.log('FormData entries:');
+        for (let pair of formData.entries()) {
+            console.log(pair[0], pair[1]);
+        }
+
+        const response = await api.post<ApiResponse<{ Id: string }>>('/api/projects', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        });
         return response.data;
     },
+
+
+    async updateProject(id: string, data: Partial<CreateProjectRequest>, files?: File[], deletedImages?: string[]) {
+        const formData = new FormData();
+        Object.keys(data).forEach(key => {
+            // Exclude arrays/objects if not handled by backend text fields, but our fields are simple strings/booleans mostly.
+            // Images array in data is ignored by backend now for insertion, but could be passed.
+            formData.append(key, (data as any)[key]);
+        });
+        if (files) {
+            files.forEach(file => {
+                formData.append('images', file);
+            });
+        }
+        if (deletedImages && deletedImages.length > 0) {
+            formData.append('DeletedImages', JSON.stringify(deletedImages));
+        }
+
+        const response = await api.put<ApiResponse>(`/api/projects/${id}`, formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        });
+        return response.data;
+    },
+
 
     async likeProject(id: string) {
         const response = await api.post<ApiResponse>(`/api/projects/${id}/like`);

@@ -37,6 +37,18 @@ const customersApi = {
         return response.data;
     },
 
+    // Upload profile picture
+    uploadProfilePicture: async (custId: string, file: File): Promise<{ success: true; profilePicture: string }> => {
+        const formData = new FormData();
+        formData.append('image', file);
+        const response = await api.put(`${API_URL}/api/user/${custId}/profile-picture`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+        return response.data;
+    },
+
     // Apply for a job
     applyForJob: async (applicationData: ApplyForJobPayload): Promise<JobApplication> => {
         const response = await api.post(`${API_URL}/api/applications`, applicationData);

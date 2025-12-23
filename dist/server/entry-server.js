@@ -9,10 +9,12 @@ import invariant from "invariant";
 import shallowEqual from "shallowequal";
 import axios from "axios";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import LottieReact from "lottie-react";
 import { User, Briefcase, LogOut, X, Menu, ChevronDown } from "lucide-react";
 import "react-dom";
 import { PiFilmScriptFill } from "react-icons/pi";
 import { AnimatePresence, motion } from "framer-motion";
+import toast from "react-hot-toast";
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -241,13 +243,13 @@ const NavLink = /* @__PURE__ */ React.forwardRef(function NavLinkWithRef(_ref8, 
   let location = useLocation();
   let routerState = React.useContext(UNSAFE_DataRouterStateContext);
   let {
-    navigator,
+    navigator: navigator2,
     basename
   } = React.useContext(UNSAFE_NavigationContext);
   let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useViewTransitionState(path) && viewTransition === true;
-  let toPathname = navigator.encodeLocation ? navigator.encodeLocation(path).pathname : path.pathname;
+  let toPathname = navigator2.encodeLocation ? navigator2.encodeLocation(path).pathname : path.pathname;
   let locationPathname = location.pathname;
   let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
   if (!caseSensitive) {
@@ -1415,10 +1417,33 @@ function useUser() {
   }
   return context;
 }
-const Loader = () => {
-  return /* @__PURE__ */ jsx("div", { className: "fixed inset-0 flex items-center justify-center bg-black z-50", children: /* @__PURE__ */ jsx("div", { className: "relative", children: /* @__PURE__ */ jsx("div", { className: "h-16 w-16 rounded-full border-t-4 border-b-4 border-blue-500 animate-spin" }) }) });
+const Lottie = LottieReact.default || LottieReact;
+const LottieLoader = ({ size = 540 }) => {
+  const [animationData, setAnimationData] = useState(null);
+  const [minVisible, setMinVisible] = useState(true);
+  useEffect(() => {
+    let mounted = true;
+    fetch("/xmas-lottie/74c69080-9263-49ff-934c-d1851bd94048.json").then((res) => res.json()).then((data) => {
+      if (mounted) setAnimationData(data);
+    }).catch(() => {
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+  useEffect(() => {
+    const t = setTimeout(() => setMinVisible(false), 2e3);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    // Render overlay while we are within the minimum visible window OR while animation data is present
+    minVisible || animationData ? /* @__PURE__ */ jsx("div", { className: "fixed inset-0 flex items-center justify-center bg-black/60 z-50", children: /* @__PURE__ */ jsx("div", { className: "relative flex items-center  ", children: /* @__PURE__ */ jsxs("div", { style: { width: size, height: size }, className: "flex flex-col items-center justify-center", children: [
+      /* @__PURE__ */ jsx(Lottie, { animationData, loop: true }),
+      /* @__PURE__ */ jsx("div", { className: "h-16 w-16 rounded-full border-t-4 border-b-4 border-blue-500 animate-spin" })
+    ] }) }) }) : null
+  );
 };
-const companyLogo = "/companylogo-new.webp";
+const companyLogo = "/redesign/logo-no-bg.webp";
 function ProfileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -1554,7 +1579,8 @@ function Navbar() {
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Jobs Portal", path: "/jobs" },
-    { label: "New Events", path: "/events" }
+    { label: "New Events", path: "/events" },
+    { label: "Project Listing", path: "/project-listing" }
   ];
   const courses = [
     { label: "AI Product Management", path: "/courses/product-management" },
@@ -1579,7 +1605,7 @@ function Navbar() {
         children: /* @__PURE__ */ jsxs("div", { className: "container mx-auto px-4", children: [
           /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between h-20", children: [
             /* @__PURE__ */ jsx("div", { className: "text-2xl mt-2 font-bold text-white", children: /* @__PURE__ */ jsx(Link, { to: "https://acceleratorx.org/", className: `${hoverTransition} hover:opacity-90`, children: /* @__PURE__ */ jsx("img", { src: "/xsat-bg.webp", alt: "xsat", className: "w-auto h-10" }) }) }),
-            /* @__PURE__ */ jsx("div", { className: "hidden md:flex items-center space-x-8", children: xsatNavItems.map((item) => /* @__PURE__ */ jsxs(
+            /* @__PURE__ */ jsx("div", { className: "hidden md:flex items-center space-x-6", children: xsatNavItems.map((item) => /* @__PURE__ */ jsxs(
               "button",
               {
                 onClick: () => scrollToSection(item.href),
@@ -1630,8 +1656,66 @@ function Navbar() {
       className: `fixed w-full z-[9999] backdrop-blur-md bg-black/95 border-b border-white/10 ${menuTransition}`,
       children: [
         /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between h-16", children: [
-          /* @__PURE__ */ jsx(Link, { to: "/", className: `flex items-center space-x-2 hover:opacity-90 ${hoverTransition}`, children: /* @__PURE__ */ jsx("img", { src: companyLogo, alt: "AcceleratorX company new logo - best product management courses", className: "w-auto h-16 object-contain" }) }),
-          /* @__PURE__ */ jsxs("div", { className: "hidden md:flex items-center space-x-8", children: [
+          /* @__PURE__ */ jsxs("div", { className: `relative group ${hoverTransition}`, children: [
+            /* @__PURE__ */ jsx(Link, { to: "/", className: "flex items-center space-x-2 hover:opacity-90", children: /* @__PURE__ */ jsx("img", { src: companyLogo, alt: "AcceleratorX company new logo - best product management courses", className: "w-auto h-16 object-contain" }) }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -top-8 -left-8 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6", children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: "/xmas-lottie/Snowing.gif",
+                alt: "Snowing effect",
+                className: "w-full h-full object-contain"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -top-8 left-4 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6", children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: "/xmas-lottie/Snowing.gif",
+                alt: "Snowing effect",
+                className: "w-full h-full object-contain"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -top-8 left-16 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6", children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: "/xmas-lottie/Snowing.gif",
+                alt: "Snowing effect",
+                className: "w-full h-full object-contain"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -top-8 left-24 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6", children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: "/xmas-lottie/Snowing.gif",
+                alt: "Snowing effect",
+                className: "w-full h-full object-contain"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -top-8 left-32 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6", children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: "/xmas-lottie/Snowing.gif",
+                alt: "Snowing effect",
+                className: "w-full h-full object-contain"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -top-8 left-48 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6", children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: "/xmas-lottie/Snowing.gif",
+                alt: "Snowing effect",
+                className: "w-full h-full object-contain"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "absolute -top-8 left-64 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6", children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: "/xmas-lottie/Snowing.gif",
+                alt: "Snowing effect",
+                className: "w-full h-full object-contain"
+              }
+            ) })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "hidden md:flex items-center space-x-6", children: [
             /* @__PURE__ */ jsxs(
               "div",
               {
@@ -1642,7 +1726,7 @@ function Navbar() {
                   /* @__PURE__ */ jsxs(
                     "button",
                     {
-                      className: `flex items-center gap-1 text-gray-300 group-hover:text-white text-sm font-medium py-2 ${hoverTransition}`,
+                      className: `flex items-center gap-1 text-gray-300 group-hover:text-white text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`,
                       children: [
                         "Courses",
                         /* @__PURE__ */ jsx(
@@ -1666,7 +1750,7 @@ function Navbar() {
                         Link,
                         {
                           to: course.path,
-                          className: `block px-4 py-2.5 text-gray-300 hover:text-white hover:bg-white/5 ${hoverTransition} text-sm font-medium`,
+                          className: `block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 ${hoverTransition} text-xs font-medium`,
                           children: course.label
                         },
                         course.label
@@ -1680,14 +1764,14 @@ function Navbar() {
               Link,
               {
                 to: item.path,
-                className: `relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20 hover:border-[#FFBB00]/40" : "text-gray-300 hover:text-white py-2"}`,
+                className: `relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing" ? "bg-white/5 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center  border border-[#FFBB00]/10 hover:border-[#FFBB00]/30" : "text-gray-300 hover:text-white py-2"}`,
                 children: [
                   item.label,
-                  item.label === "XSAT" || item.label === "EVENTS" && /* @__PURE__ */ jsxs("span", { className: "relative flex h-2 w-2", children: [
+                  (item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing") && /* @__PURE__ */ jsxs("span", { className: "relative flex h-1.5 w-1.5", children: [
                     /* @__PURE__ */ jsx("span", { className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" }),
-                    /* @__PURE__ */ jsx("span", { className: "relative inline-flex rounded-full h-2 w-2 bg-green-500" })
+                    /* @__PURE__ */ jsx("span", { className: "relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" })
                   ] }),
-                  item.label !== "XSAT" && /* @__PURE__ */ jsx(
+                  item.label !== "XSAT" && item.label !== "Project Listing" && item.label !== "EVENTS" && /* @__PURE__ */ jsx(
                     "span",
                     {
                       className: `absolute bottom-0 left-0 w-0 h-0.5 bg-white ${dropdownTransition} group-hover:w-full`
@@ -1697,13 +1781,20 @@ function Navbar() {
               },
               item.label
             )),
-            isAuthenticated ? /* @__PURE__ */ jsx(ProfileMenu, {}) : /* @__PURE__ */ jsxs("div", { className: "flex items-center space-x-4", children: [
-              /* @__PURE__ */ jsx(Link, { to: "/sign-in", className: `text-gray-300 hover:text-white ${hoverTransition} py-2 px-4`, children: "Login" }),
+            isAuthenticated ? /* @__PURE__ */ jsx(ProfileMenu, {}) : /* @__PURE__ */ jsxs("div", { className: "flex items-center p-1 bg-white/5 rounded-xl border border-white/10 ml-4 group", children: [
+              /* @__PURE__ */ jsx(
+                Link,
+                {
+                  to: "/sign-in",
+                  className: `text-gray-400 hover:text-white ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-lg hover:bg-white/5`,
+                  children: "Login"
+                }
+              ),
               /* @__PURE__ */ jsx(
                 Link,
                 {
                   to: "/sign-up",
-                  className: `bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`,
+                  className: `bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-lg text-sm font-medium ${hoverTransition} shadow-lg`,
                   children: "Sign Up"
                 }
               )
@@ -1765,25 +1856,25 @@ function Navbar() {
                 Link,
                 {
                   to: item.path,
-                  className: `block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" ? "bg-[#1A1A1A] text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-6 py-2.5 rounded-xl flex items-center gap-2 border border-[#FFBB00]/20" : "text-gray-300 hover:text-white py-2"}`,
+                  className: `block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing" ? "bg-white/5 text-[#FFBB00] font-semibold px-4 py-2 rounded-lg flex items-center gap-2 border border-[#FFBB00]/10" : "text-gray-300 py-2"}`,
                   onClick: () => setIsOpen(false),
                   children: [
                     item.label,
-                    item.label === "XSAT" || item.label === "EVENTS" && /* @__PURE__ */ jsxs("span", { className: "relative flex h-2 w-2", children: [
+                    (item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing") && /* @__PURE__ */ jsxs("span", { className: "relative flex h-1.5 w-1.5", children: [
                       /* @__PURE__ */ jsx("span", { className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" }),
-                      /* @__PURE__ */ jsx("span", { className: "relative inline-flex rounded-full h-2 w-2 bg-green-500" })
+                      /* @__PURE__ */ jsx("span", { className: "relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" })
                     ] })
                   ]
                 },
                 item.label
               )),
-              isAuthenticated ? /* @__PURE__ */ jsx(ProfileMenu, {}) : /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center space-y-4", children: [
+              isAuthenticated ? /* @__PURE__ */ jsx(ProfileMenu, {}) : /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-3 pt-2", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center p-1 bg-white/5 rounded-xl border border-white/5", children: [
                 /* @__PURE__ */ jsx(
                   Link,
                   {
                     to: "/sign-in",
                     onClick: () => setIsOpen(false),
-                    className: `text-gray-300 hover:text-white w-full ${hoverTransition} py-2 px-4`,
+                    className: `flex-1 text-center text-gray-400 hover:text-white ${hoverTransition} py-2 text-xs font-medium rounded-lg hover:bg-white/5`,
                     children: "Login"
                   }
                 ),
@@ -1792,11 +1883,11 @@ function Navbar() {
                   {
                     to: "/sign-up",
                     onClick: () => setIsOpen(false),
-                    className: `bg-[#1a71f6] hover:bg-[#1a71f6]/90  w-full text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`,
+                    className: `flex-1 text-center bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white py-2 rounded-lg text-xs font-medium ${hoverTransition} shadow-lg`,
                     children: "Sign Up"
                   }
                 )
-              ] })
+              ] }) })
             ] })
           }
         )
@@ -1804,8 +1895,629 @@ function Navbar() {
     }
   );
 }
-const AppDownloadPOP = ({ delayMs = 2e3 }) => {
+const createEnrollment = async (data) => {
+  try {
+    const response = await api.post("/enrollments-new", data);
+    return response.data;
+  } catch (error) {
+    console.error("Error creating enrollment:", error);
+    throw error;
+  }
+};
+class UnifiedTrackingService {
+  eventCache = /* @__PURE__ */ new Map();
+  CACHE_DURATION = 5 * 60 * 1e3;
+  // 5 minutes
+  pixelsInitialized = /* @__PURE__ */ new Set();
+  // Clean old events from cache
+  cleanCache() {
+    const now = Date.now();
+    for (const [key, event] of this.eventCache.entries()) {
+      if (now - event.timestamp > this.CACHE_DURATION) {
+        this.eventCache.delete(key);
+      }
+    }
+  }
+  // Generate consistent event ID
+  generateEventId() {
+    if (window.crypto?.randomUUID) {
+      return window.crypto.randomUUID();
+    }
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+      const r = Math.random() * 16 | 0;
+      const v = c === "x" ? r : r & 3 | 8;
+      return v.toString(16);
+    });
+  }
+  // Check if event already fired
+  hasEventFired(eventType, eventId, pixelId) {
+    this.cleanCache();
+    const cacheKey = `${eventType}_${eventId}_${pixelId}`;
+    return this.eventCache.has(cacheKey);
+  }
+  // Mark event as fired
+  markEventFired(eventType, eventId, pixelId, route) {
+    const cacheKey = `${eventType}_${eventId}_${pixelId}`;
+    this.eventCache.set(cacheKey, {
+      eventType,
+      eventId,
+      timestamp: Date.now(),
+      pixelId,
+      route
+    });
+  }
+  // Initialize pixel safely
+  initializePixel(pixelId) {
+    if (!pixelId || this.pixelsInitialized.has(pixelId)) {
+      return;
+    }
+    if (!window.fbq) {
+      console.warn("Facebook Pixel not loaded");
+      return;
+    }
+    try {
+      window.fbq("init", pixelId);
+      this.pixelsInitialized.add(pixelId);
+      console.log(`✅ Meta Pixel initialized: ${pixelId}`);
+    } catch (error) {
+      console.error(`❌ Failed to initialize pixel ${pixelId}:`, error);
+    }
+  }
+  // Track event with deduplication
+  trackEvent(eventType, pixelId, eventId, parameters) {
+    if (!pixelId || !window.fbq) {
+      console.warn("Cannot track event: Missing pixel ID or fbq");
+      return;
+    }
+    const finalEventId = eventId || this.generateEventId();
+    const route = window.location.pathname;
+    if (this.hasEventFired(eventType, finalEventId, pixelId)) {
+      console.warn(`🚫 Duplicate event prevented: ${eventType} for pixel ${pixelId}`);
+      return;
+    }
+    try {
+      this.initializePixel(pixelId);
+      if (parameters && Object.keys(parameters).length > 0) {
+        window.fbq("track", eventType, parameters);
+      } else {
+        window.fbq("track", eventType);
+      }
+      this.markEventFired(eventType, finalEventId, pixelId, route);
+      console.log(`✅ Event tracked: ${eventType} | Pixel: ${pixelId} | Route: ${route} | EventID: ${finalEventId}`);
+    } catch (error) {
+      console.error(`❌ Failed to track ${eventType}:`, error);
+    }
+  }
+  // Get cache status for debugging
+  getCacheStatus() {
+    this.cleanCache();
+    return {
+      cachedEvents: this.eventCache.size,
+      initializedPixels: Array.from(this.pixelsInitialized),
+      events: Array.from(this.eventCache.entries())
+    };
+  }
+  // Clear cache (for testing/debugging)
+  clearCache() {
+    this.eventCache.clear();
+    console.log("🗑️ Tracking cache cleared");
+  }
+  // Store event ID globally for server-side tracking
+  storeEventId(eventId) {
+    window.__META_EVENT_ID__ = eventId;
+    try {
+      sessionStorage.setItem("meta_event_id", eventId);
+    } catch (error) {
+      console.warn("Cannot store event ID in sessionStorage:", error);
+    }
+  }
+  // Retrieve stored event ID
+  getStoredEventId() {
+    if (window.__META_EVENT_ID__) {
+      return window.__META_EVENT_ID__;
+    }
+    try {
+      return sessionStorage.getItem("meta_event_id");
+    } catch (error) {
+      console.warn("Cannot retrieve event ID from sessionStorage:", error);
+      return null;
+    }
+  }
+}
+const trackingService = new UnifiedTrackingService();
+const generateFormEventId = () => {
+  const eventId = trackingService.generateEventId();
+  trackingService.storeEventId(eventId);
+  return eventId;
+};
+const META_CONVERSION_API_URL = "https://graph.facebook.com/v17.0";
+const DEFAULT_PIXEL_ID = "1605858166968597";
+const DA_PIXEL_ID = "1605858166968597";
+const DA_PIXEL_ID_SECOND = "1357550371980921";
+const AIDM_PIXEL_ID = "1357550371980921";
+const DEFAULT_ACCESS_TOKEN = "EAAMCWA2EBawBPPIFyZCfbglZBXaiDWbsRnpdG4ZBZAe2hv5rZCFYJZBoR6B7dNu3URnm1tb1VQuWos9eF63poFxfGQ0x2AObE2P4SXXA8ecAjVzB3WEEbXdu9RSAtcVmNlkAIZBQo25ql2ZCtpESPnTrpfKqZC4GSL53tnMrLrFUpTZCGdYwHuZBxn0uTPvERwPKgZDZD";
+const DA_ACCESS_TOKEN = "EAAMCWA2EBawBPPIFyZCfbglZBXaiDWbsRnpdG4ZBZAe2hv5rZCFYJZBoR6B7dNu3URnm1tb1VQuWos9eF63poFxfGQ0x2AObE2P4SXXA8ecAjVzB3WEEbXdu9RSAtcVmNlkAIZBQo25ql2ZCtpESPnTrpfKqZC4GSL53tnMrLrFUpTZCGdYwHuZBxn0uTPvERwPKgZDZD";
+const DA_ACCESS_TOKEN_SECOND = "EAASp29BCF30BO4lq5EIR9XS11nY16Ko9qUYrcGq23KFeSSBZBnX8gXcBhM1P01F0GFuMixfWHZBO9PRKO7tpv2aByfSVLNTns2pVtHXDWMNkHS4VialIYli7n4xrMEM1ebhNEYdv6f3yDCzlZA2ZALAhkmIZB6g64r570ZBkQxYYEWM8GLs5OR1NOkqmpjmroUcQZDZD";
+const AIDM_ACCESS_TOKEN = "EAASp29BCF30BPigecGprxm0ZCZCw7EKrxgOvTSSEYLZAILH2BPX5ZBGAfBqG291WBUcG14Xscj1ZB8W57o7Wm2J7dZBrrrY26ZAeXF3Pas5uwwbpUEdxz6XffWJ5ruGK4tLZCEWIx4v35ssYLvozCOa2Rt0JgpNennUD2sXK1Yxahx2qJgaWNFEWS9EdEuqFWQZDZD";
+const DA_COURSE_NAMES = ["Data Analytics"];
+const AIDM_COURSE_NAMES = ["AI Digital Marketing"];
+const AIDM_ROUTES = ["/courses/ai-digital-marketing"];
+const hashData = async (data) => {
+  const hashBuffer = await window.crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(data)
+  );
+  return Array.from(new Uint8Array(hashBuffer)).map((b) => b.toString(16).padStart(2, "0")).join("");
+};
+const getTrackingData = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return {
+    fbclid: urlParams.get("fbclid") || "",
+    gclid: urlParams.get("gclid") || "",
+    ttclid: urlParams.get("ttclid") || "",
+    msclkid: urlParams.get("msclkid") || "",
+    utm_source: urlParams.get("utm_source") || "",
+    utm_medium: urlParams.get("utm_medium") || "",
+    utm_campaign: urlParams.get("utm_campaign") || "",
+    utm_term: urlParams.get("utm_term") || "",
+    utm_content: urlParams.get("utm_content") || "",
+    referrer: document.referrer || "direct",
+    full_url: window.location.href
+  };
+};
+const getUTMDataForDB = () => {
+  const trackingData = getTrackingData();
+  return {
+    utm_source: trackingData.utm_source,
+    utm_medium: trackingData.utm_medium,
+    utm_campaign: trackingData.utm_campaign,
+    utm_term: trackingData.utm_term,
+    utm_content: trackingData.utm_content,
+    referrer: trackingData.referrer,
+    landing_page_url: trackingData.full_url,
+    fbclid: trackingData.fbclid,
+    gclid: trackingData.gclid,
+    ttclid: trackingData.ttclid,
+    msclkid: trackingData.msclkid
+  };
+};
+const getMetaConfig = (course) => {
+  const isDA = DA_COURSE_NAMES.includes(course || "");
+  const isDASecondRoute = window.location.pathname === "/courses/data-analytics-program-fb-b";
+  const isAIDM = AIDM_COURSE_NAMES.includes(course || "");
+  const isAIDMRoute = AIDM_ROUTES.includes(window.location.pathname);
+  if (isDASecondRoute) {
+    return { pixelId: DA_PIXEL_ID_SECOND, accessToken: DA_ACCESS_TOKEN_SECOND };
+  }
+  if (isDA) {
+    return { pixelId: DA_PIXEL_ID, accessToken: DA_ACCESS_TOKEN };
+  }
+  if (isAIDM || isAIDMRoute) {
+    return { pixelId: AIDM_PIXEL_ID, accessToken: AIDM_ACCESS_TOKEN };
+  }
+  return { pixelId: DEFAULT_PIXEL_ID, accessToken: DEFAULT_ACCESS_TOKEN };
+};
+const trackFormSubmission = async (formData) => {
+  try {
+    const { pixelId, accessToken } = getMetaConfig(formData.get("course"));
+    if (!pixelId || !accessToken) return;
+    const trackingData = getTrackingData();
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const name = formData.get("name");
+    if (typeof email !== "string" || typeof phone !== "string" || typeof name !== "string") {
+      console.error("Invalid form data");
+      return;
+    }
+    const [hashedEmail, hashedPhone, hashedFirstName] = await Promise.all([
+      hashData(email.toLowerCase()),
+      hashData(phone),
+      hashData(name.split(" ")[0])
+    ]);
+    const eventId = trackingService.getStoredEventId();
+    if (!eventId) {
+      console.warn("No event ID found for server-side tracking");
+      return;
+    }
+    console.log("Server-side tracking - Event ID:", eventId);
+    const payload = {
+      data: [
+        {
+          event_name: "CompleteRegistration",
+          event_time: Math.floor(Date.now() / 1e3),
+          action_source: "website",
+          event_id: eventId,
+          user_data: {
+            em: hashedEmail,
+            ph: hashedPhone,
+            fn: hashedFirstName,
+            client_user_agent: navigator.userAgent,
+            fbc: trackingData.fbclid ? `fb.1.${Date.now()}.${trackingData.fbclid}` : void 0,
+            fbp: void 0
+          },
+          custom_data: {
+            content_name: "registration_form",
+            status: "complete",
+            course: formData.get("course"),
+            browser_id: navigator.userAgent,
+            click_id: trackingData.fbclid || trackingData.gclid || trackingData.ttclid || trackingData.msclkid,
+            ...trackingData
+          }
+        }
+      ],
+      access_token: accessToken
+    };
+    await fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+  } catch (error) {
+    console.error("Meta Form Tracking Error", error);
+  }
+};
+const omniAccessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTk4NDU4MjY5MjQiLCJwaG9uZU51bWJlcklkIjoiODM5NjYzMjE5MjMyMTU3IiwiaWF0IjoxNzYyMTUxNDYwfQ.OPvOT6OHp-gBBP7SX3J_Lp0YgS1z68aVtz_YSgXH2ZFNGYz0HCnGxkXrdV588i--n3znI7U9fbAlxZxkeWdowdnwPBM_k5qJ1be-CeguJ0Dp71nGcV025japy9H3cQz-aFYlFPU-zPGSyJNc0Yr2460eiR6y0ilQYxK2HtrvYdD8hxv7wEsepndeOEdJ7yJS2uzX37fZw2cQmszydRiC0enIwZWe293ROWyPIKvoMU_2_Wr532aj6cTEAiWfhR5YktlzVHoMwL6xtG3IU0lVfU8zuiznSk_MExpBToP7hw_aBcnr-HCbB15RQaIuRhYD9aUBeQoMMjokbHlOXcFGKYFqp6-aUbYoUv5xw_UkdbAky1HgwcdYzOI7Ke04NQm6Oh4VZEbTtQwjxzjrB0CYgpzbcdq6QP87-3_Fkzx_oojIjaFUE7k-QjN_j8bwMNYm-bQuL-KxqkVOGKji5jrd1AY779_Wmi-jMruWnVU_rL30SqIRJb25WDUbg2zJlu5jQpJ63-xaVDBlobnuGKY-QUwf9Uopd86pfgSiNJ1_7aRU-65JncRBrCFbqJ4emDLokzqxFJVDcdiT8bfEP8RvGUzztDY_3_0_qEUzmhidvoQ2Io3Ld-Zumk-EBZDNWEQBAHOEjIos-jMVqZ_zMiV3Fa1RRxafJVDQLNQT5j1U9pI";
+const BROCHURES = {
+  "AI Digital Marketing": {
+    title: "AI Digital Marketing Syllabus",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758802254913_notes_new_nano_19th_Sept%2C_2025-compressed.pdf?alt=media&token=42c3ad1b-7519-461b-aad6-ea9f4f5c7be7"
+  },
+  "Product Management": {
+    title: "Product Management",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1762861871432_notes_AcceleratorX_PM_Brochure-compressed.pdf?alt=media&token=f21f29c9-522a-4d26-a948-2ab6f19a4760"
+  },
+  "Generative AI": {
+    title: "Generative AI",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1761905010664_notes_new_AcceleratorX_Gen_AI_Brochure-compressed.pdf?alt=media&token=53d0ad2d-4d03-435c-8d31-4c03fc476c78"
+  },
+  "Gen AI for PMs": {
+    title: "Gen AI for PMs",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758294289672_notes_Gen_ai_pm.pdf?alt=media&token=c84b8402-1bc1-40be-8baa-e00c0a4fff36"
+  },
+  "Data Analytics": {
+    title: "AI Powered Data Analytics",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293290835_notes_AI_Powered_DA_Brochure.pdf?alt=media&token=1bbeb25b-e1aa-49e2-8752-3e7a6b7b4e52"
+  }
+};
+function resolveBrochure(course) {
+  if (!course) return BROCHURES["AI Digital Marketing"];
+  if (BROCHURES[course]) return BROCHURES[course];
+  const lower = course.toLowerCase();
+  const foundKey = Object.keys(BROCHURES).find((k) => k.toLowerCase() === lower);
+  return foundKey ? BROCHURES[foundKey] : BROCHURES["AI Digital Marketing"];
+}
+async function sendWhatsAppMessage({
+  phone,
+  name,
+  broucher
+}) {
+  console.log("Sending WhatsApp message to:", phone);
+  try {
+    const response = await fetch("https://wb.omni.tatatelebusiness.com/whatsapp-cloud/messages", {
+      method: "POST",
+      headers: {
+        "accept": "application/json",
+        "Authorization": `Bearer ${omniAccessToken}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "to": (() => {
+          const cleaned = phone.replace(/^\+/, "");
+          return cleaned.length === 10 ? `91${cleaned}` : cleaned;
+        })(),
+        "type": "template",
+        "source": "external",
+        "template": {
+          "name": "registration_request_2",
+          "language": {
+            "code": "en"
+          },
+          "components": [
+            {
+              "type": "header",
+              "parameters": [
+                {
+                  "type": "document",
+                  "document": {
+                    "link": broucher.url,
+                    "filename": broucher.title
+                  }
+                }
+              ]
+            },
+            {
+              "type": "body",
+              "parameters": [
+                {
+                  "type": "text",
+                  "text": name
+                }
+              ]
+            }
+          ]
+        },
+        "metaData": {
+          "custom_callback_data": ""
+        }
+      })
+    });
+    console.log("WhatsApp API response status:", response);
+    const responseData = await response.json();
+    console.log("WhatsApp API response data:", responseData);
+    if (!response.ok) {
+      const err = responseData;
+      console.error("WhatsApp API error:", err);
+      throw new Error("WhatsApp message sending failed");
+    }
+  } catch (error) {
+    console.error("Error sending WhatsApp message:", error);
+  }
+}
+function EnrollmentModal$1({ isOpen, onClose, onSubmit, customData }) {
+  console.log("EnrollmentModal: imports check", {
+    X: typeof X,
+    motion: typeof motion,
+    AnimatePresence: typeof AnimatePresence,
+    createEnrollment: typeof createEnrollment
+  });
+  const { selectedCourse } = useCourseContext();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    education: "",
+    course: "",
+    workExperience: "",
+    designation: ""
+  });
+  useEffect(() => {
+    if (selectedCourse) {
+      setFormData((prev) => ({ ...prev, course: selectedCourse }));
+    }
+  }, [selectedCourse]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const openBrochure = (courseName) => {
+    try {
+      const { url } = resolveBrochure(courseName);
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (err) {
+      console.error("Failed to open brochure:", err);
+    }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    if (formData.phone.length < 10 || formData.phone.length > 12) {
+      toast.error("Please enter a valid phone number (10-12 digits)");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const utmData = getUTMDataForDB();
+      const submissionData = {
+        full_name: formData.name,
+        phone_number: formData.phone,
+        email: formData.email,
+        education_level: formData.education,
+        course: formData.course,
+        work_experience: formData.workExperience,
+        designation: formData.designation,
+        utm_source: utmData.utm_source,
+        utm_medium: utmData.utm_medium,
+        utm_campaign: utmData.utm_campaign,
+        utm_term: utmData.utm_term,
+        utm_content: utmData.utm_content,
+        referrer: utmData.referrer,
+        landing_page_url: utmData.landing_page_url,
+        fbclid: utmData.fbclid,
+        gclid: utmData.gclid,
+        ttclid: utmData.ttclid,
+        msclkid: utmData.msclkid,
+        ...customData
+        // Merge custom overrides (e.g., scholarship info)
+      };
+      await createEnrollment(submissionData);
+      const broucherData = resolveBrochure(selectedCourse);
+      console.log("Brochure data resolved:", broucherData);
+      console.log("Form data being submitted:", submissionData);
+      console.log("sending WhatsApp message...");
+      await sendWhatsAppMessage({
+        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+        name: formData.name,
+        broucher: broucherData
+      });
+      const trackingFormData = new FormData();
+      trackingFormData.append("name", formData.name);
+      trackingFormData.append("email", formData.email);
+      trackingFormData.append("phone", formData.phone);
+      trackingFormData.append("education", formData.education);
+      trackingFormData.append("designation", formData.designation);
+      trackingFormData.append("course", formData.course || selectedCourse || "");
+      trackingFormData.append("workExperience", formData.workExperience);
+      await trackFormSubmission(trackingFormData);
+      toast.success("Enrollment submitted successfully! Opening brochure...");
+      openBrochure(selectedCourse);
+      if (onSubmit) onSubmit();
+      setTimeout(() => {
+        onClose();
+        navigate("/thank-you", { state: { courseName: formData.course } });
+      }, 800);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit enrollment. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  return /* @__PURE__ */ jsx(AnimatePresence, { children: isOpen && /* @__PURE__ */ jsx(
+    motion.div,
+    {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      exit: { opacity: 0 },
+      className: "fixed inset-0 bg-black/70 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-4 overflow-y-auto",
+      children: /* @__PURE__ */ jsx("div", { className: "relative w-full max-w-md mx-auto mt-10 md:mt-0 bg-gray-800/95 rounded-xl shadow-xl overflow-y-auto md:my-6 ", children: /* @__PURE__ */ jsxs("div", { className: "h-[85vh] md:h-auto flex flex-col", children: [
+        /* @__PURE__ */ jsxs("div", { className: "sticky top-0 bg-gray-800/95 px-4 py-3 border-b border-gray-700 z-10", children: [
+          /* @__PURE__ */ jsx(
+            "button",
+            {
+              onClick: onClose,
+              className: "absolute right-3 top-3 text-gray-400 hover:text-white transition-colors p-1",
+              children: /* @__PURE__ */ jsx(X, { className: "h-5 w-5" })
+            }
+          ),
+          /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-1 pr-8", children: [
+            /* @__PURE__ */ jsx("h3", { className: "text-lg md:text-xl font-bold text-white", children: "Enroll Now" }),
+            /* @__PURE__ */ jsx("p", { className: "text-xs md:text-sm text-gray-300", children: selectedCourse ? `You are enrolling for the ${selectedCourse} course.` : "Start Your Product Management or Data Analytics Journey or No Code Development Journey." })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: " shadow-2xl p-6 w-full border border-gray-800/30", id: "course-form", children: /* @__PURE__ */ jsxs("form", { onSubmit: handleSubmit, className: "p-4 space-y-3 flex flex-col gap-4", children: [
+          /* @__PURE__ */ jsxs("div", { className: "space-y-3", children: [
+            /* @__PURE__ */ jsxs("div", { className: "flex gap-2 items-center ", children: [
+              /* @__PURE__ */ jsx("label", { htmlFor: "name", className: "block min-w-[100px] text-sm font-medium text-gray-300 mb-1", children: "Full Name" }),
+              /* @__PURE__ */ jsx(
+                "input",
+                {
+                  type: "text",
+                  id: "name",
+                  required: true,
+                  className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+                  placeholder: "Type Your Name",
+                  value: formData.name,
+                  onChange: (e) => setFormData({ ...formData, name: e.target.value })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "flex gap-2 items-center", children: [
+              /* @__PURE__ */ jsx("label", { htmlFor: "email", className: "block min-w-[100px] text-sm font-medium text-gray-300 mb-1", children: "Email Address" }),
+              /* @__PURE__ */ jsx(
+                "input",
+                {
+                  type: "email",
+                  id: "email",
+                  required: true,
+                  className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+                  placeholder: "Type Your Email Address",
+                  value: formData.email,
+                  onChange: (e) => setFormData({ ...formData, email: e.target.value })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "flex gap-2 items-center", children: [
+              /* @__PURE__ */ jsx("label", { htmlFor: "phone", className: "block text-sm font-medium text-gray-300 mb-1", children: "Phone Number" }),
+              /* @__PURE__ */ jsxs("div", { className: "flex", children: [
+                /* @__PURE__ */ jsx("span", { className: " bg-transparent text-white px-2 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm", children: "+91" }),
+                /* @__PURE__ */ jsx(
+                  "input",
+                  {
+                    type: "tel",
+                    id: "phone",
+                    required: true,
+                    className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+                    placeholder: "Type Your Phone No",
+                    value: formData.phone,
+                    onChange: (e) => {
+                      const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 12);
+                      setFormData({ ...formData, phone: sanitizedValue });
+                    }
+                  }
+                )
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "flex gap-2 items-center", children: [
+              /* @__PURE__ */ jsx("label", { htmlFor: "designation", className: "block min-w-[100px] text-sm font-medium text-gray-300 mb-1", children: "Designation" }),
+              /* @__PURE__ */ jsx(
+                "input",
+                {
+                  type: "text",
+                  id: "designation",
+                  required: true,
+                  className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+                  placeholder: "Type Your Designation",
+                  value: formData.designation,
+                  onChange: (e) => setFormData({ ...formData, designation: e.target.value })
+                }
+              )
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-2 gap-3", children: [
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("label", { htmlFor: "education", className: "block text-sm font-medium text-gray-300 mb-1", children: "Education" }),
+              /* @__PURE__ */ jsxs(
+                "select",
+                {
+                  id: "education",
+                  required: true,
+                  className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+                  value: formData.education,
+                  onChange: (e) => setFormData({ ...formData, education: e.target.value }),
+                  children: [
+                    /* @__PURE__ */ jsx("option", { value: "", children: "Select" }),
+                    /* @__PURE__ */ jsx("option", { value: "High School", children: "High School" }),
+                    /* @__PURE__ */ jsx("option", { value: "Bachelor's", children: "Bachelor's" }),
+                    /* @__PURE__ */ jsx("option", { value: "Master's", children: "Master's" }),
+                    /* @__PURE__ */ jsx("option", { value: "PhD", children: "PhD" })
+                  ]
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("label", { htmlFor: "workExperience", className: "block text-sm font-medium text-gray-300 mb-1", children: "Experience" }),
+              /* @__PURE__ */ jsxs(
+                "select",
+                {
+                  id: "workExperience",
+                  required: true,
+                  className: "w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm",
+                  value: formData.workExperience,
+                  onChange: (e) => setFormData({ ...formData, workExperience: e.target.value }),
+                  children: [
+                    /* @__PURE__ */ jsx("option", { value: "", children: "Select" }),
+                    /* @__PURE__ */ jsx("option", { value: "0-1", children: "0-1 yrs" }),
+                    /* @__PURE__ */ jsx("option", { value: "1-3", children: "1-3 yrs" }),
+                    /* @__PURE__ */ jsx("option", { value: "3-5", children: "3-5 yrs" }),
+                    /* @__PURE__ */ jsx("option", { value: "5+", children: "5+ yrs" })
+                  ]
+                }
+              )
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "mt-4", children: [
+            /* @__PURE__ */ jsx("p", { className: "text-xs text-gray-400 mb-3", children: "By submitting this form, you acknowledge that we collect non-personal campaign data for analytics purposes." }),
+            /* @__PURE__ */ jsx(
+              "button",
+              {
+                type: "submit",
+                className: "w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 text-sm",
+                children: "Submit Application"
+              }
+            )
+          ] })
+        ] }) })
+      ] }) })
+    },
+    "enrollment-modal"
+  ) });
+}
+const EnrollmentModal$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: EnrollmentModal$1
+}, Symbol.toStringTag, { value: "Module" }));
+const AppDownloadPOP = ({ delayMs = 2e3, courseName }) => {
   const [visible, setVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { setSelectedCourse, selectedCourse } = useCourseContext();
   useEffect(() => {
     if (typeof window === "undefined") return;
     const timer = window.setTimeout(() => {
@@ -1814,91 +2526,85 @@ const AppDownloadPOP = ({ delayMs = 2e3 }) => {
     return () => clearTimeout(timer);
   }, [delayMs]);
   const handleClose = () => setVisible(false);
-  return /* @__PURE__ */ jsx(AnimatePresence, { children: visible && /* @__PURE__ */ jsx(
-    motion.div,
-    {
-      drag: "x",
-      dragConstraints: { left: 0, right: 0 },
-      dragElastic: 0.12,
-      onDragEnd: (_, info) => {
-        const horizontal = info.offset.x;
-        const velocity = Math.abs(info.velocity.x);
-        const threshold = 120;
-        const velocityThreshold = 800;
-        if (Math.abs(horizontal) > threshold || velocity > velocityThreshold) {
-          setVisible(false);
-        }
-      },
-      initial: { opacity: 0, y: 10 },
-      animate: { opacity: 1, y: 0 },
-      exit: { opacity: 0, y: 10 },
-      transition: { duration: 0.28 },
-      className: "fixed right-6 bottom-6 z-50 max-w-sm w-[90vw] sm:w-[360px] cursor-grab",
-      role: "dialog",
-      "aria-modal": "true",
-      children: /* @__PURE__ */ jsx("div", { className: "bg-gradient-to-br from-[#10204a] via-black to-[#10204a] border border-white/10 rounded-2xl shadow-2xl p-4 text-white backdrop-blur-sm", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-start justify-center gap-3 mt-10", children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 flex-1", children: [
-          /* @__PURE__ */ jsx("div", { className: "w-12 h-12 flex-shrink-0 rounded-lg bg-blue-700 flex items-center justify-center", children: /* @__PURE__ */ jsx(
-            "img",
-            {
-              src: "/app/accapplogo.png",
-              alt: "AcceleratorX app logo for ai integrated digital marketing",
-              className: "rounded-md object-contain"
-            }
-          ) }),
-          /* @__PURE__ */ jsx("div", { className: "min-w-0", children: /* @__PURE__ */ jsx("h4", { className: "text-white font-semibold text-lg", children: "Master AI, Product, Data & Marketing." }) })
-        ] }),
-        /* @__PURE__ */ jsx("p", { className: "text-sm text-white/80 mt-1", children: "Download our app and access 3,000+ AI jobs curated for you." }),
-        /* @__PURE__ */ jsx(
-          "button",
+  const handleBannerClick = () => {
+    const courseToSet = courseName || selectedCourse || "General";
+    setSelectedCourse(courseToSet);
+    setIsModalOpen(true);
+  };
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx(AnimatePresence, { children: visible && // <motion.div
+    //   initial={{ opacity: 0, scale: 0.9 }}
+    //   animate={{ opacity: 1, scale: 1 }}
+    //   exit={{ opacity: 0, scale: 0.9 }}
+    //   transition={{ duration: 0.3 }}
+    //   className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+    //   role="dialog"
+    //   aria-modal="true"
+    // >
+    /* @__PURE__ */ jsx(
+      "div",
+      {
+        className: "fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4",
+        role: "dialog",
+        "aria-modal": "true",
+        children: /* @__PURE__ */ jsxs(
+          motion.div,
           {
-            onClick: handleClose,
-            "aria-label": "Close app popup",
-            className: "p-2 absolute top-4 right-4 rounded-md text-white/80 hover:text-white hover:bg-white/5",
-            children: /* @__PURE__ */ jsx(X, { className: "w-4 h-4" })
+            initial: { y: 20 },
+            animate: { y: 0 },
+            className: "relative max-w-4xl w-full",
+            children: [
+              /* @__PURE__ */ jsx(
+                "button",
+                {
+                  onClick: handleClose,
+                  "aria-label": "Close Christmas banner popup",
+                  className: "absolute -top-4 -right-4 z-10 p-2 rounded-full bg-white/90 hover:bg-white text-gray-800 hover:text-gray-900 shadow-lg transition-all hover:scale-110",
+                  children: /* @__PURE__ */ jsx(X, { className: "w-6 h-6" })
+                }
+              ),
+              /* @__PURE__ */ jsxs(
+                "div",
+                {
+                  className: "cursor-pointer rounded-2xl overflow-hidden shadow-2xl",
+                  onClick: handleBannerClick,
+                  children: [
+                    /* @__PURE__ */ jsx(
+                      "img",
+                      {
+                        src: "/redesign/christmas/cristmas-banner.jpg",
+                        alt: "AcceleratorX Christmas Sale - 40% Off",
+                        className: "hidden md:block w-full h-auto object-cover"
+                      }
+                    ),
+                    /* @__PURE__ */ jsx(
+                      "img",
+                      {
+                        src: "/redesign/christmas/cristmas-banner-mobile.png",
+                        alt: "AcceleratorX Christmas Sale - 40% Off",
+                        className: "block md:hidden w-full h-auto object-cover"
+                      }
+                    )
+                  ]
+                }
+              )
+            ]
           }
-        ),
-        /* @__PURE__ */ jsx("div", { className: "flex-1 w-full", children: /* @__PURE__ */ jsxs("div", { className: "mt-4 flex gap-4 items-center justify-center", children: [
-          /* @__PURE__ */ jsx(
-            "a",
-            {
-              href: "https://apps.apple.com/in/app/acceleratorx-learning/id6753216468",
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "inline-block",
-              "aria-label": "Download on the App Store",
-              children: /* @__PURE__ */ jsx(
-                "img",
-                {
-                  src: "/app/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",
-                  alt: "Download on the App Store",
-                  className: "block h-12 max-w-[110px] object-contain"
-                }
-              )
-            }
-          ),
-          /* @__PURE__ */ jsx(
-            "a",
-            {
-              href: "https://play.google.com/store/apps/details?id=com.acceleratorx.acceleratorx",
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "inline-block",
-              "aria-label": "Get it on Google Play",
-              children: /* @__PURE__ */ jsx(
-                "img",
-                {
-                  src: "/app/GetItOnGooglePlay_Badge_Digital_color_Finnish.png",
-                  alt: "Get it on Google Play",
-                  className: "block h-12 max-w-[170px] object-contain"
-                }
-              )
-            }
-          )
-        ] }) })
-      ] }) })
-    }
-  ) });
+        )
+      }
+    ) }),
+    /* @__PURE__ */ jsx(
+      EnrollmentModal$1,
+      {
+        isOpen: isModalOpen,
+        onClose: () => setIsModalOpen(false),
+        customData: {
+          utm_campaign: "Christmas_Sale_Scholarship",
+          utm_content: "Popup_Banner_Click_40_Percent_Off"
+        }
+      }
+    )
+  ] });
 };
 const defaultLayout = {
   showNavbar: true,
@@ -1948,8 +2654,8 @@ const getRouteLayout = (pathname) => {
   }
   return defaultLayout;
 };
-const Footer = lazy(() => import("./assets/Footer-tSxR3ksj.js"));
-const EnrollmentModal = lazy(() => import("./assets/EnrollmentModal-D1v0t8cP.js"));
+const Footer = lazy(() => import("./assets/Footer-BIfY1nSE.js"));
+const EnrollmentModal = lazy(() => Promise.resolve().then(() => EnrollmentModal$2));
 const MainLayout = ({ children }) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
   const location = useLocation();
@@ -2195,23 +2901,25 @@ const RoleProtectedRoute = ({
   return /* @__PURE__ */ jsx(Fragment, { children });
 };
 const WorkshopPaymentSuccess = lazy(() => import("./assets/Success-N-b6YkOf.js"));
-const XSATEntry = lazy(() => import("./assets/XSATEntry-2c-t-ywQ.js"));
-const EventManagementPage = lazy(() => import("./assets/event-BWBAOQHB.js"));
-const RegistrationSuccess = lazy(() => import("./assets/registration-successful-DkOMUovm.js"));
-const HomePage = lazy(() => import("./assets/HomePage-DLnXqsgc.js"));
-const AboutPage = lazy(() => import("./assets/AboutPage-XD57gdmt.js"));
-const BlogList = lazy(() => import("./assets/BlogList-ogM2H8gr.js"));
-const BlogDetail = lazy(() => import("./assets/BlogDetail-ZRsXvyQJ.js"));
-const Login = lazy(() => import("./assets/Login-C1WIdFHE.js"));
-const Privacy = lazy(() => import("./assets/Privacy-DEUWqEPZ.js"));
-const Terms = lazy(() => import("./assets/Terms-BDHu368V.js"));
-const Refund = lazy(() => import("./assets/Refund-BvMH56mg.js"));
-const MentorPage = lazy(() => import("./assets/MentorPage-JC6F9nHL.js"));
-const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-o-VQm78W.js"));
-const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-CpP1f73l.js"));
-const DataAnalyticsPage$1 = lazy(() => import("./assets/index-Cq9TgxzE.js"));
-const BlogDashboard = lazy(() => import("./assets/BlogDashboard-D75P_PtJ.js"));
-const Events = lazy(() => import("./assets/Events-DsOF2GFL.js"));
+const XSATEntry = lazy(() => import("./assets/XSATEntry-DSVTjfVJ.js"));
+const EventManagementPage = lazy(() => import("./assets/event-BFH-kBCj.js"));
+const RegistrationSuccess = lazy(() => import("./assets/registration-successful-BksTzJ1M.js"));
+const HomePage = lazy(() => import("./assets/HomePage-DkrI2bUS.js"));
+const AboutPage = lazy(() => import("./assets/AboutPage-C0pcFWq6.js"));
+const BlogList = lazy(() => import("./assets/BlogList-B5b1WCAt.js"));
+const BlogDetail = lazy(() => import("./assets/BlogDetail-BZsNVFZj.js"));
+const Login = lazy(() => import("./assets/Login-DoTJADyU.js"));
+const Privacy = lazy(() => import("./assets/Privacy-Y2E90NZr.js"));
+const Terms = lazy(() => import("./assets/Terms-BoyvuCSM.js"));
+const Refund = lazy(() => import("./assets/Refund-mzjCxYD7.js"));
+const MentorPage = lazy(() => import("./assets/MentorPage-C81GYAsv.js"));
+const GenAICourse$1 = lazy(() => import("./assets/GenAIEntry-CGcYOCVJ.js"));
+const GenAICourseAD$1 = lazy(() => import("./assets/GenAIAd-LqUZVc0a.js"));
+const DataAnalyticsPage$1 = lazy(() => import("./assets/index-B6huWyM0.js"));
+const BlogDashboard = lazy(() => import("./assets/BlogDashboard-bsItqqw5.js"));
+const Events = lazy(() => import("./assets/Events-BSe5P6Gl.js"));
+const YearEnd = lazy(() => import("./assets/YearEnd-BTbvSNfY.js"));
+const ProjectListing$1 = lazy(() => import("./assets/ProjectListing-Bv5BQ3tb.js"));
 const mainRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }, "home"),
   /* @__PURE__ */ jsx(Route, { path: "/about-us", element: /* @__PURE__ */ jsx(AboutPage, {}) }, "about"),
@@ -2260,7 +2968,11 @@ const mainRoutes = [
   // Workshop Payment Success
   /* @__PURE__ */ jsx(Route, { path: "/workshop-payment/success/:orderId", element: /* @__PURE__ */ jsx(WorkshopPaymentSuccess, {}) }, "workshop-payment-success"),
   // Mentor Page
-  /* @__PURE__ */ jsx(Route, { path: "/mentor/:id", element: /* @__PURE__ */ jsx(MentorPage, {}) }, "mentor")
+  /* @__PURE__ */ jsx(Route, { path: "/mentor/:id", element: /* @__PURE__ */ jsx(MentorPage, {}) }, "mentor"),
+  //year end route
+  /* @__PURE__ */ jsx(Route, { path: "/year-end", element: /* @__PURE__ */ jsx(YearEnd, {}) }, "year-end"),
+  // project-listing
+  /* @__PURE__ */ jsx(Route, { path: "/project-listing", element: /* @__PURE__ */ jsx(ProjectListing$1, {}) }, "project-listing")
 ];
 const pageMetadata = {
   // Homepage
@@ -2269,7 +2981,7 @@ const pageMetadata = {
     description: "AcceleratorX offers expert-led programs in Product Management, Data Analytics, Generative AI, and Marketing to accelerate your career growth.",
     ogTitle: "AcceleratorX - Future Skills for Career Growth",
     ogDescription: "Learn Product Management, AI, and Data Analytics at AcceleratorX with hands-on training and real-world projects.",
-    ogImage: "/companylogo-new.webp",
+    ogImage: "/redesign/logo-no-bg.webp",
     canonicalUrl: "https://acceleratorx.org/"
   },
   // About Us
@@ -2599,7 +3311,7 @@ function getPageMetadata(path) {
     description: "AcceleratorX offers expert-led programs in Product Management, Data Analytics, Generative AI, and Marketing to accelerate your career growth.",
     ogTitle: "AcceleratorX - Future Skills for Career Growth",
     ogDescription: "Learn Product Management, AI, and Data Analytics at AcceleratorX with hands-on training and real-world projects.",
-    ogImage: "/companylogo-new.webp",
+    ogImage: "/redesign/logo-no-bg.webp",
     canonicalUrl: "https://acceleratorx.org/"
   };
 }
@@ -2618,7 +3330,7 @@ function SEO({
   const finalDescription = description || defaultMetadata.description;
   const finalOgTitle = ogTitle || defaultMetadata.ogTitle;
   const finalOgDescription = ogDescription || defaultMetadata.ogDescription;
-  const finalOgImage = ogImage || defaultMetadata.ogImage || "/companylogo-new.webp";
+  const finalOgImage = ogImage || defaultMetadata.ogImage || "/redesign/logo-no-bg.webp";
   const finalCanonicalUrl = canonicalUrl || defaultMetadata.canonicalUrl;
   return /* @__PURE__ */ jsxs(Helmet, { children: [
     /* @__PURE__ */ jsx("title", { children: finalTitle }),
@@ -2648,62 +3360,62 @@ const GENCTAB = lazy(() => import("./assets/GENCTAB-kh2Tt5Zv.js"));
 const WSAboutGENB = lazy(() => import("./assets/WSAboutGENB-C69ZjsrG.js"));
 const WSGENIntroductionB = lazy(() => import("./assets/WSGENIntroductionB-DHvUDhr8.js"));
 const WSGENWhoShouldEnrollB = lazy(() => import("./assets/WSGENWhoShouldEnrollB-CVckR0qQ.js"));
-const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-Bxc2CLhg.js"));
-const GENCTAE = lazy(() => import("./assets/GENCTAE-VZCynsDS.js"));
-const WSAboutGENE = lazy(() => import("./assets/WSAboutGENE-BFB27fJJ.js"));
-const WSGENIntroductionE = lazy(() => import("./assets/WSGENIntroductionE-B6RYGsvb.js"));
-const WSGENWhoShouldEnrollE = lazy(() => import("./assets/WSGENWhoShouldEnrollE-Dna5n3mC.js"));
-const WSHeroGENE = lazy(() => import("./assets/WSHeroGENE-BaEiwFLt.js"));
-const GENCTAAIDM = lazy(() => import("./assets/GENCTAAIDM-D9RRHxE_.js"));
-const WSAboutAIDM = lazy(() => import("./assets/WSAboutAIDM-GIU3QDkD.js"));
-const WSGENIntroductionAIDM = lazy(() => import("./assets/WSGENIntroductionAIDM-DF_fl5od.js"));
-const WSGENWhoShouldEnrollAIDM = lazy(() => import("./assets/WSGENWhoShouldEnrollAIDM-BTRlG-WY.js"));
-const WSHeroAIDM = lazy(() => import("./assets/WSHeroAIDM-CZeFyjF_.js"));
-const WSGENMentorAIDM = lazy(() => import("./assets/WSGENMentorAIDM-C_sG6uPz.js"));
-const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-CtpWaqPr.js"));
-const WSGENMentor = lazy(() => import("./assets/WSGENMentor-Yf2ZPqrc.js"));
-const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-C3OC55Za.js"));
+const WSHeroGENB = lazy(() => import("./assets/WSHeroGENB-c1qVHElQ.js"));
+const GENCTAE = lazy(() => import("./assets/GENCTAE-pIN-Cfbb.js"));
+const WSAboutGENE = lazy(() => import("./assets/WSAboutGENE-CgoTDAUd.js"));
+const WSGENIntroductionE = lazy(() => import("./assets/WSGENIntroductionE-SEG7AHqw.js"));
+const WSGENWhoShouldEnrollE = lazy(() => import("./assets/WSGENWhoShouldEnrollE-DeFb5DVh.js"));
+const WSHeroGENE = lazy(() => import("./assets/WSHeroGENE-pSTQpWCn.js"));
+const GENCTAAIDM = lazy(() => import("./assets/GENCTAAIDM-xZaO5EHo.js"));
+const WSAboutAIDM = lazy(() => import("./assets/WSAboutAIDM-9YigMjV7.js"));
+const WSGENIntroductionAIDM = lazy(() => import("./assets/WSGENIntroductionAIDM-B4HWzMJM.js"));
+const WSGENWhoShouldEnrollAIDM = lazy(() => import("./assets/WSGENWhoShouldEnrollAIDM-B59LiQL3.js"));
+const WSHeroAIDM = lazy(() => import("./assets/WSHeroAIDM-SL2etL6m.js"));
+const WSGENMentorAIDM = lazy(() => import("./assets/WSGENMentorAIDM-Bdr8B7hK.js"));
+const WSRegistrationSuccess = lazy(() => import("./assets/WSRegistrationSuccess-GyUfnuEP.js"));
+const WSGENMentor = lazy(() => import("./assets/WSGENMentor-DKKwRlq6.js"));
+const WSHeroDASecond = lazy(() => import("./assets/WSHeroDASecond-2fzB90Sv.js"));
 const WSFIOSection = lazy(() => import("./assets/WSIOSection-Be303y9_.js"));
-const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-CsYRdvME.js"));
-const AIEcosystem = lazy(() => import("./assets/AIEcosystem-C1i3iuzY.js"));
-const ProductsSection = lazy(() => import("./assets/ProductsSection-DEeHbDIH.js"));
-const TradingPlatformSection = lazy(() => import("./assets/TradingPlatformSection-CzIYbwS3.js"));
+const WSTestimonialDASecond = lazy(() => import("./assets/WSTestimonialDASecond-eW87YTk7.js"));
+const AIEcosystem = lazy(() => import("./assets/AIEcosystem-DMFLF07d.js"));
+const ProductsSection = lazy(() => import("./assets/ProductsSection-DDIp5SNI.js"));
+const TradingPlatformSection = lazy(() => import("./assets/TradingPlatformSection-Dzci5_VK.js"));
 const HeroSection = lazy(() => import("./assets/hero-section-C4LbdtLk.js"));
 const WorkshopHighlights = lazy(() => import("./assets/workshop-highlights-AebuLKUO.js"));
 const BuiltForYou = lazy(() => import("./assets/built-for-you-BXvtmGiy.js"));
 const AutomationFeatures = lazy(() => import("./assets/automation-features-B9cNzWxS.js"));
 const LeadEngineCTA = lazy(() => import("./assets/lead-engine-cta-CUxwNpWc.js"));
 const TechStackSection = lazy(() => import("./assets/tech-stack-section-Bm54YNWV.js"));
-const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-MpcpoQ5L.js"));
-const WSHeroGEND = lazy(() => import("./assets/WSHeroGEND-DtVs0P-4.js"));
+const WSGENCMentor = lazy(() => import("./assets/WSGENMentor-DGn6N1mT.js"));
+const WSHeroGEND = lazy(() => import("./assets/WSHeroGEND-DCz2cK0I.js"));
 const WSAboutGEND = lazy(() => import("./assets/WSAboutGEND-CIxp4d_N.js"));
 const WSGENWhoShouldEnrollD = lazy(() => import("./assets/WSGENWhoShouldEnrollD-enXu46W2.js"));
 const WSGENIntroductionD = lazy(() => import("./assets/WSGENIntroductionD-B9n7be7r.js"));
 const GENCTAD = lazy(() => import("./assets/GENCTAD-hnmhwvuL.js"));
 const WSGENDMentor = lazy(() => import("./assets/WSGENDMentor-BYcHXR1f.js"));
-const WSRegistrationSuccessD = lazy(() => import("./assets/WSRegistrationSuccessD-B1Np9XoJ.js"));
-const WSHeroDA = lazy(() => import("./assets/WSHero-C8ISD9p8.js"));
+const WSRegistrationSuccessD = lazy(() => import("./assets/WSRegistrationSuccessD-D8-10o76.js"));
+const WSHeroDA = lazy(() => import("./assets/WSHero-DYq0gTSb.js"));
 const WSAboutDA = lazy(() => import("./assets/WSAbout-BUWP9Jf-.js"));
 const WSTestimonialDA = lazy(() => import("./assets/WSTestimonial-DKabxbIu.js"));
-const WSHeroPM = lazy(() => import("./assets/WSHeroPM-Cd8gugpz.js"));
+const WSHeroPM = lazy(() => import("./assets/WSHeroPM-CqRTx4_H.js"));
 const WSAboutPM = lazy(() => import("./assets/WSAboutPM-DnWLF5NK.js"));
 const WSTestimonialPM = lazy(() => import("./assets/WSTestimonialPM-DaIAvh3j.js"));
-const WSHeroPMB = lazy(() => import("./assets/WSHeroPMB-D-1Zt9Lr.js"));
+const WSHeroPMB = lazy(() => import("./assets/WSHeroPMB-BK4QUSJ8.js"));
 const WSAboutPMB = lazy(() => import("./assets/WSAboutPMB-Cf5PQ66f.js"));
 const WSGENWhoShouldEnrollPMB = lazy(() => import("./assets/WSGENWhoShouldEnrollPMB-5EuNqCO0.js"));
 const WSGENIntroductionPMB = lazy(() => import("./assets/WSGENIntroductionPMB-N6Cnrp3_.js"));
 const GENCTAPMB = lazy(() => import("./assets/GENCTAPMB-DYPlXqY7.js"));
-const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-DxYsmEbi.js"));
+const WSHeroGEN = lazy(() => import("./assets/WSHeroGEN-Cz1BgoNd.js"));
 const WSAboutGEN = lazy(() => import("./assets/WSAboutGEN-gz2agjzY.js"));
 const WSGENWhoShouldEnroll = lazy(() => import("./assets/WSGENWhoShouldEnroll-BWwSKIi-.js"));
 const WSGENIntroduction = lazy(() => import("./assets/WSGENIntroduction-Dls-_t1k.js"));
 const GENCTA = lazy(() => import("./assets/GENCTA-DF7ssnI5.js"));
-const WSHeroDM = lazy(() => import("./assets/WSHeroDM-Bkd-0zMG.js"));
-const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-CfHuxMSC.js"));
-const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-RepMJNvw.js"));
-const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-CzTA8TTt.js"));
-const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-CAyP_sUG.js"));
-const GENCTAC = lazy(() => import("./assets/GENCTAC-knQw2pFc.js"));
+const WSHeroDM = lazy(() => import("./assets/WSHeroDM-DnYJf1aZ.js"));
+const WSHeroGENC = lazy(() => import("./assets/WSHeroGENC-CBfhKRVb.js"));
+const WSAboutGENC = lazy(() => import("./assets/WSAboutGENC-Bc5_TQeh.js"));
+const WSGENWhoShouldEnrollC = lazy(() => import("./assets/WSGENWhoShouldEnrollC-DKaF9EPc.js"));
+const WSGENIntroductionC = lazy(() => import("./assets/WSGENIntroductionC-BorXgNss.js"));
+const GENCTAC = lazy(() => import("./assets/GENCTAC-CPQUFAp9.js"));
 const WorkshopPageDA = () => /* @__PURE__ */ jsxs(Fragment, { children: [
   /* @__PURE__ */ jsx(SEO, {}),
   /* @__PURE__ */ jsx(WSHeroDA, {}),
@@ -2813,30 +3525,30 @@ const workshopRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success", element: /* @__PURE__ */ jsx(WSRegistrationSuccess, {}) }, "workshop-success"),
   /* @__PURE__ */ jsx(Route, { path: "/workshop-registration/success-d", element: /* @__PURE__ */ jsx(WSRegistrationSuccessD, {}) }, "workshop-success-d")
 ];
-const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-Dxs1c69-.js"));
-const DMFlyers = lazy(() => import("./assets/DMFlyers-Dh-Emtdy.js"));
-const PMFlyers = lazy(() => import("./assets/PMFlyers-CHq_AjPm.js"));
-const DAFlyers = lazy(() => import("./assets/DAFlyers-CLB6YZZD.js"));
+const GENAIFlyers = lazy(() => import("./assets/GENAIFlyers-DtuG_dW2.js"));
+const DMFlyers = lazy(() => import("./assets/DMFlyers-I5hZvjv2.js"));
+const PMFlyers = lazy(() => import("./assets/PMFlyers-D6zp1g8T.js"));
+const DAFlyers = lazy(() => import("./assets/DAFlyers-CFxr1KmO.js"));
 const flyerRoutes = [
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/gen-ai", element: /* @__PURE__ */ jsx(GENAIFlyers, {}) }, "flyer-genai"),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/pm", element: /* @__PURE__ */ jsx(PMFlyers, {}) }, "flyer-pm"),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/dm", element: /* @__PURE__ */ jsx(DMFlyers, {}) }, "flyer-dm"),
   /* @__PURE__ */ jsx(Route, { path: "/fa-register/da", element: /* @__PURE__ */ jsx(DAFlyers, {}) }, "flyer-da")
 ];
-const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-BzJqawGh.js"));
-const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-BjtaD_2g.js"));
-const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-Bt7vBGw0.js"));
-const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-DRXpoU_T.js"));
-const KuppamCourses = lazy(() => import("./assets/KuppamCourses-BB7igBRu.js"));
+const ProductManagementEntry = lazy(() => import("./assets/ProductManagementEntry-C-00LXsx.js"));
+const DataAnalyticsEntry = lazy(() => import("./assets/DataAnalyticsEntry-F0x2i9Sj.js"));
+const DataAnalyticsAd = lazy(() => import("./assets/DataAnalyticsAd-CPfwpvSe.js"));
+const GenAiForPMEntry = lazy(() => import("./assets/GenAiForPMEntry-YtcYBPLj.js"));
+const KuppamCourses = lazy(() => import("./assets/KuppamCourses-COufqdYg.js"));
 const GenAICourse = lazy(
-  () => import("./assets/GenAIEntry-o-VQm78W.js")
+  () => import("./assets/GenAIEntry-CGcYOCVJ.js")
 );
-const GenAICourseAD = lazy(() => import("./assets/GenAIAd-CpP1f73l.js"));
-const DataAnalyticsPage = lazy(() => import("./assets/index-Cq9TgxzE.js"));
+const GenAICourseAD = lazy(() => import("./assets/GenAIAd-LqUZVc0a.js"));
+const DataAnalyticsPage = lazy(() => import("./assets/index-B6huWyM0.js"));
 const ProductManagementPageEIE = lazy(
-  () => import("./assets/ProductManagementEIE-BY5eCdwV.js")
+  () => import("./assets/ProductManagementEIE-ds3x8pSp.js")
 );
-const AIDMEntry = lazy(() => import("./assets/AIDMEntry-CHiXjo1X.js"));
+const AIDMEntry = lazy(() => import("./assets/AIDMEntry-dNf1Hj46.js"));
 const courseRoutes = [
   // Main Course Routes
   /* @__PURE__ */ jsx(
@@ -2918,19 +3630,21 @@ const ProtectedRoute = () => {
   }
   return /* @__PURE__ */ jsx(Outlet, {});
 };
-const ProfileRoutes = lazy(() => import("./assets/profileRoutes-CzPZDkrN.js").then((m) => ({ default: m.ProfileRoutes })));
-const SignUpForm = lazy(() => import("./assets/SignUpForm-DOZXbqg_.js"));
-const SignInForm = lazy(() => import("./assets/SignInForm-DOsN8jP8.js").then((m) => ({ default: m.SignInForm })));
-const JobApplication = lazy(() => import("./assets/JobApplication-DFk0xgCG.js"));
-const JobDetails = lazy(() => import("./assets/JobDetails-BzpkpRAf.js"));
-const JobList = lazy(() => import("./assets/JobList-De-YqZ9s.js"));
-const MyApplications = lazy(() => import("./assets/MyApplications-0M5VSvFJ.js"));
-const CertificateDisplayPage = lazy(() => import("./assets/CertificateDisplayPage-Cc1A1PW1.js"));
+const ProfileRoutes = lazy(() => import("./assets/profileRoutes-DCFoFKZJ.js").then((m) => ({ default: m.ProfileRoutes })));
+const SignUpForm = lazy(() => import("./assets/SignUpForm-kgRMQuqr.js"));
+const SignInForm = lazy(() => import("./assets/SignInForm-kHfglUP-.js").then((m) => ({ default: m.SignInForm })));
+const JobApplication = lazy(() => import("./assets/JobApplication-CFT8WLHn.js"));
+const JobDetails = lazy(() => import("./assets/JobDetails-DWhB-aCg.js"));
+const JobList = lazy(() => import("./assets/JobList-CIVRuowG.js"));
+const MyApplications = lazy(() => import("./assets/MyApplications-B5qADIl3.js"));
+const CertificateDisplayPage = lazy(() => import("./assets/CertificateDisplayPage-BdqWr7M2.js"));
+const ProjectListing = lazy(() => import("./assets/ProjectListing-Bv5BQ3tb.js"));
+const ProjectDetail = lazy(() => import("./assets/ProjectDetail-B_zAFe0x.js"));
 const AppRoutes = () => {
   const { setSelectedCourse } = useCourseContext();
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(RouteLogic, { setSelectedCourse }),
-    /* @__PURE__ */ jsx(MainLayout, { children: /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loader, {}), children: /* @__PURE__ */ jsxs(Routes, { children: [
+    /* @__PURE__ */ jsx(MainLayout, { children: /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(LottieLoader, {}), children: /* @__PURE__ */ jsxs(Routes, { children: [
       mainRoutes,
       workshopRoutes,
       flyerRoutes,
@@ -2940,6 +3654,8 @@ const AppRoutes = () => {
       /* @__PURE__ */ jsx(Route, { path: "/jobs", element: /* @__PURE__ */ jsx(JobList, {}) }, "jobs"),
       /* @__PURE__ */ jsx(Route, { path: "/jobs/:id", element: /* @__PURE__ */ jsx(JobDetails, {}) }, "job-details"),
       /* @__PURE__ */ jsx(Route, { path: "/certificate/:certificateId", element: /* @__PURE__ */ jsx(CertificateDisplayPage, {}) }, "certificate"),
+      /* @__PURE__ */ jsx(Route, { path: "/projects", element: /* @__PURE__ */ jsx(ProjectListing, {}) }, "projects"),
+      /* @__PURE__ */ jsx(Route, { path: "/projects/:id", element: /* @__PURE__ */ jsx(ProjectDetail, {}) }, "project-detail"),
       /* @__PURE__ */ jsxs(Route, { element: /* @__PURE__ */ jsx(ProtectedRoute, {}), children: [
         /* @__PURE__ */ jsx(Route, { path: "/profile/*", element: /* @__PURE__ */ jsx(ProfileRoutes, {}) }, "profile"),
         /* @__PURE__ */ jsx(Route, { path: "/jobs/:id/apply", element: /* @__PURE__ */ jsx(JobApplication, {}) }, "job-apply"),
@@ -2964,13 +3680,19 @@ function render(url, context = {}) {
   return { html, context: { ...context, helmet: helmetContext } };
 }
 export {
+  EnrollmentModal$1 as E,
   Helmet as H,
   Link as L,
   SEO as S,
   api as a,
-  useCourseContext as b,
+  LottieLoader as b,
   companyLogo as c,
-  authService as d,
+  useCourseContext as d,
+  authService as e,
+  createEnrollment as f,
+  getUTMDataForDB as g,
+  generateFormEventId as h,
   render,
+  trackFormSubmission as t,
   useUser as u
 };

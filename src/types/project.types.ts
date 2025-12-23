@@ -9,22 +9,17 @@ export interface Project {
     VideoURL?: string | null;
     IsPublic: boolean;
     Score: number;
-    CreatedAt: string; // Dates often come as strings from JSON API
+    CreatedAt: string;
     UpdatedAt?: string | null;
     Deleted: boolean;
-    // Joins
+    // Joined data from backend
     Images?: ProjectImage[];
     Owner?: {
         CustId: number;
         Name: string;
         ProfileImage?: string;
     };
-    Stats?: {
-        LikesCount: number;
-        CommentsCount: number;
-        SharesCount: number;
-    };
-    // Aggregated fields from backend might vary, aligning with controller response
+    // Aggregated counts from backend (returned as strings from PostgreSQL COUNT)
     LikesCount?: string | number;
     CommentsCount?: string | number;
     SharesCount?: string | number;
@@ -77,5 +72,14 @@ export interface CreateProjectRequest {
     LiveURL?: string;
     VideoURL?: string;
     IsPublic?: boolean;
-    Images: string[];
+    Images?: string[];
 }
+
+export interface LeaderboardEntry {
+    CustId: number;
+    FirstName: string;
+    LastName: string;
+    ProfilePicture: string | null;
+    TotalScore: string;
+}
+

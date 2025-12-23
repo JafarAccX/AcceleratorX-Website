@@ -1,45 +1,47 @@
 {
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/node-fetch/browser.js?commonjs-proxy": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestBuilder.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestClient.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestError.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestFilterBuilder.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestQueryBuilder.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestTransformBuilder.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/constants.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/index.js?commonjs-es-import": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/index.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/@supabase/postgrest-js/dist/cjs/version.js?commonjs-exports": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/editorjs-html/.build/edjsHTML.node.js?commonjs-es-import": [
-    "/assets/BlogDetail-BSsG8Rvf.js",
+    "/assets/BlogDetail-Uchn9V8e.js",
     "/assets/BlogDetail-DChfkP96.css"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/extend/index.js?commonjs-es-import": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/invariant/browser.js?commonjs-es-import": [],
+  "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/lottie-web/build/player/lottie.js?commonjs-es-import": [],
+  "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/lottie-web/build/player/lottie.js?commonjs-module": [],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/react-dom/client.js?commonjs-es-import": [],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/react-dom/client.js?commonjs-exports": [],
@@ -56,532 +58,530 @@
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/scheduler/index.js?commonjs-module": [],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/shallowequal/index.js?commonjs-es-import": [],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/style-to-object/cjs/index.js?commonjs-es-import": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "\u0000/home/satyendra/Desktop/Acceleratox/website/AcceleratorX-Website/node_modules/style-to-object/cjs/index.js?commonjs-exports": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "\u0000commonjsHelpers.js": [],
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "../../../../../../assets/productpageBannerEIE.webp": [
-    "/assets/ProgamHeroEIE-GEtFpBOA.js"
+    "/assets/ProgamHeroEIE-D9n025RN.js"
   ],
   "../../../../../../assets/programcertificates/DACertificate.webp": [
-    "/assets/DataCertificateEIE-DxkCokmj.js"
+    "/assets/DataCertificateEIE-CHiArCyP.js"
   ],
-  "../../../../../../companylogo-new.webp": [],
-  "AIDMCareerOutcomes-B_DGx68N.js": [
-    "/assets/main-B6vH-EgY.css"
+  "../../../../../../redesign/logo-no-bg.webp": [],
+  "AIDMCareerOutcomes-CS6zfG54.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMCertification-7npbEBmF.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMCertification-finfT2nL.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMChallenges-Gdty_lN0.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMChallenges-BSY52gJ8.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMEntry-CDvF4Xgb.js": [],
-  "AIDMFAQ-CjXcr_16.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMEntry-B1xyjNLN.js": [],
+  "AIDMFAQ-mZWF0psV.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMFinalCTA-DaV5H1kj.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMFinalCTA-DMK-kI37.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMMentors-Dp28839l.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMMentors-ClNvTPru.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMPricing-BzNa9eWh.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMPricing-CAoXGk23.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMRoadmap-D-Os16HK.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMRoadmap-qNfuQE4M.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMSolution-CDwrcTWD.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMSolution-Br5qKLu0.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIDMTools-CC71VDl_.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIDMTools-BDd2_iXj.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "AIEcosystem-Bs87UyL1.js": [],
-  "AboutPage-MHPmZhg6.js": [],
-  "BenefitsGridEIE-nrqzxKsI.js": [
-    "/assets/main-B6vH-EgY.css"
+  "AIEcosystem-CxahtSiI.js": [],
+  "AboutPage-CsRvYrnA.js": [],
+  "BenefitsGridEIE-DdScKqkt.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "BlogDashboard-B1r6PXzV.js": [],
-  "BlogDetail-BSsG8Rvf.js": [
+  "BlogDashboard-Dbx1AFVW.js": [],
+  "BlogDetail-Uchn9V8e.js": [
     "/assets/BlogDetail-DChfkP96.css"
   ],
-  "BlogList-CljikVKd.js": [],
-  "CAPEEIE-ltS8NOIg.js": [
-    "/assets/main-B6vH-EgY.css"
+  "BlogList-CPX0Yhih.js": [],
+  "CAPEEIE-XMGuSuQ3.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "CertificateDisplayPage-BW8iarbQ.js": [],
-  "DAFlyers-DHOCLRvU.js": [],
-  "DMFlyers-CJ4jLvTo.js": [],
-  "DataAnalyticsAd-nIdHpzAa.js": [],
-  "DataAnalyticsEntry-BOtysd7z.js": [],
-  "DataAnalyticsFAQFB-DMCB19Oy.js": [
-    "/assets/main-B6vH-EgY.css"
+  "CertificateDisplayPage-BSLiinkB.js": [],
+  "DAFlyers-BTTl7col.js": [],
+  "DMFlyers-Cy-yqLei.js": [],
+  "DataAnalyticsAd-Cd35VpUT.js": [],
+  "DataAnalyticsEntry-hpyMtG44.js": [],
+  "DataAnalyticsFAQFB-DID4U_nC.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "DataCertificateEIE-DxkCokmj.js": [
-    "/assets/main-B6vH-EgY.css"
+  "DataCertificateEIE-CHiArCyP.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "DataHeroEIE-DsLtFXRX.js": [
-    "/assets/main-B6vH-EgY.css"
+  "DataHeroEIE-Bicyj_IU.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "DataJourneyEIE-nRtzrdkz.js": [
-    "/assets/main-B6vH-EgY.css"
+  "DataJourneyEIE-Baok8fQ5.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "DataMentorsEIE-CFH96X2S.js": [
-    "/assets/main-B6vH-EgY.css"
+  "DataMentorsEIE-kRdV1qE6.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "DataPricingEIE-DYoeskLk.js": [
-    "/assets/main-B6vH-EgY.css"
+  "DataPricingEIE-CiISLEiH.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "DataProgramEIE-CzOt2tHQ.js": [
-    "/assets/main-B6vH-EgY.css"
+  "DataProgramEIE-BwrfM32Y.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "DataSkillsToolsEIE-nHOyYuqc.js": [
-    "/assets/main-B6vH-EgY.css"
+  "DataSkillsToolsEIE-z5kuYXHf.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "EnrollmentModal-DIB1CVME.js": [],
-  "Events-cLIxPy5H.js": [],
-  "FAQEIE-DxO_ukQO.js": [
-    "/assets/main-B6vH-EgY.css"
+  "Events-jtCAgunw.js": [],
+  "FAQEIE-BByyjGaf.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "Footer-BSdp4EKW.js": [],
-  "GENAIFlyers-DpbE9hdc.js": [],
-  "GENBYOA-CFenN1BI.js": [
-    "/assets/main-B6vH-EgY.css"
+  "Footer-C3m_Owr-.js": [],
+  "GENAIFlyers-5oVQ-Yp-.js": [],
+  "GENBYOA-DAZsNfNp.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENBYOAAd-KN9x3AFk.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENBYOAAd-Cfkf-XOL.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENCTA-B06Ix8Ei.js": [],
-  "GENCTAAIDM-CJ6oU7Zk.js": [],
-  "GENCTAB-SHYxZPsQ.js": [],
-  "GENCTAC-BtflzoL3.js": [],
-  "GENCTAD-BblC_ltP.js": [],
-  "GENCTAE-Bw6kihDm.js": [],
-  "GENCTAPMB-DJexzPUI.js": [],
-  "GENFAQ-CiiEGeP5.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENCTA-BM1CmYQD.js": [],
+  "GENCTAAIDM-BVblZDuo.js": [],
+  "GENCTAB-CwWoHAJl.js": [],
+  "GENCTAC-DkYs1tI8.js": [],
+  "GENCTAD-CpA6gcTP.js": [],
+  "GENCTAE-Cf1zWn2J.js": [],
+  "GENCTAPMB-DphyK09d.js": [],
+  "GENFAQ-BTsvm7mV.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENFAQAd-Di75ktkS.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENFAQAd-CUJGCqJU.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENHero-Czyz5-vY.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENHero-DQon-zcE.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENHeroAd-B2-TTVg3.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENHeroAd-CYpMNFrb.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENIntroduction-DDOhpE7Q.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENIntroduction-uLL8yaeC.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENIntroductionAd-Bxo1loTL.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENIntroductionAd-BMKFTpke.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENLearningJourney-CejIJZvs.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENLearningJourney-bVs6MRXQ.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENLearningJourneyAd-DA_3ZDjQ.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENLearningJourneyAd-Bl8aR7HG.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENMarketScope-CmwySbhL.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENMarketScope-DhVJYl5D.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENMarketScopeAd-CVlZFcMa.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENMarketScopeAd-C_iDcPb5.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENMentors-DT_G8KCJ.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENMentors-BX0Y_A22.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENPricing-eA-xF-Gz.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENPricing-Cii--vmV.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENProjectsAndOutcomes-k5sylTZp.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENProjectsAndOutcomes-Vitjr6wG.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENToolsYouWillLearn-BQjXr6C9.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENToolsYouWillLearn-AKEWHcbg.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENToolsYouWillLearnAd-CL9vJtcu.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENToolsYouWillLearnAd-DAwHxxHX.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENWhoShouldEnroll-CUjqKjLN.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENWhoShouldEnroll-USR08s0d.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENWhoShouldEnrollAd--MrCAj-5.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENWhoShouldEnrollAd-BZOvQiUm.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GENWhyLearnAI-C15Da9-3.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GENWhyLearnAI-DGtZtGUN.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "GenAIAd-DDoIRa_D.js": [],
-  "GenAIEntry-DQdOHZtx.js": [],
-  "GenAiForPMEntry-CO1tbmbg.js": [],
-  "HeroAbout-BlYCtY3-.js": [
-    "/assets/main-B6vH-EgY.css"
+  "GenAIAd-DF0uUIkG.js": [],
+  "GenAIEntry-BFXV9RlY.js": [],
+  "GenAiForPMEntry-vty5DmWY.js": [],
+  "HeroAbout-Cx-7KBGP.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "HomePage-jdjt5eEF.js": [],
-  "JobApplication-D10gHWfE.js": [],
-  "JobDetails-BPdj80ht.js": [],
-  "JobList-D8RGX-mb.js": [],
-  "KuppamCourses-BR34GCBy.js": [],
-  "LearningJourneyEIE-Cfv5sW_W.js": [
-    "/assets/main-B6vH-EgY.css"
+  "HomePage-BIQp1rx0.js": [],
+  "JobApplication-DBkp9UKQ.js": [],
+  "JobDetails-jRyffVbW.js": [],
+  "JobList-DgTn_2gX.js": [],
+  "KuppamCourses-rzj-xO9Q.js": [],
+  "LearningJourneyEIE-rNKKsifw.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "Login-CH8biUx8.js": [],
-  "MentorPage-DkEkzu9x.js": [],
-  "MentorsEIE-txSqJ3xQ.js": [
-    "/assets/main-B6vH-EgY.css"
+  "Login-TuzKUmci.js": [],
+  "MentorPage-YtQIjnAW.js": [],
+  "MentorsEIE-DlpCC8lQ.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "MyApplications-DSiuhS5C.js": [],
-  "PMFlyers-CAehy-yg.js": [],
-  "PricingEIE-CzaPs8Wk.js": [
-    "/assets/main-B6vH-EgY.css"
+  "MyApplications-CdJ2DBBC.js": [],
+  "PMFlyers-ncPuH8b6.js": [],
+  "PricingEIE-DN4KBkIw.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "Privacy-CjrtzSvQ.js": [],
-  "ProductManagementEIE-DwfArh2W.js": [],
-  "ProductManagementEntry-MdBb1o2p.js": [],
-  "ProductsSection-DqPga6kX.js": [],
-  "ProgamHeroEIE-GEtFpBOA.js": [
-    "/assets/main-B6vH-EgY.css"
+  "Privacy-ByDw1k21.js": [],
+  "ProductManagementEIE-DGY8omF5.js": [],
+  "ProductManagementEntry-OAldm-D2.js": [],
+  "ProductsSection-BGSJ5bup.js": [],
+  "ProgamHeroEIE-D9n025RN.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "ProgramCertificateEIE-qikzCdML.js": [
-    "/assets/main-B6vH-EgY.css"
+  "ProgramCertificateEIE-BsfIEPmr.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "ProgramHighlightsEIE-BYgGv72P.js": [
-    "/assets/main-B6vH-EgY.css"
+  "ProgramHighlightsEIE-A5-iqt8Z.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "Refund-DwGZ8tJD.js": [],
-  "SignInForm-vOPn3_ZK.js": [
-    "/assets/index-BIYfq21l.css"
+  "ProjectDetail-BU5Lk7hQ.js": [],
+  "ProjectListing-C8INK2on.js": [],
+  "Refund-BKS1_W5p.js": [],
+  "SignInForm-DxzT6vn0.js": [],
+  "SignUpForm-CQDJxuTo.js": [],
+  "SkillsAndToolsEIE-DICvEV6j.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "SignUpForm-CIxmMzzZ.js": [
-    "/assets/index-BIYfq21l.css"
+  "Success-CIpa9IId.js": [],
+  "Team-Bl-D0l2H.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "SkillsAndToolsEIE-CrkU64AT.js": [
-    "/assets/main-B6vH-EgY.css"
+  "Terms-BOYKOvl-.js": [],
+  "TradingPlatformSection-D1UHaycT.js": [],
+  "Values-C4TEO9s7.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "Success-ClV8tbHu.js": [],
-  "Team-ylIx9Lpn.js": [
-    "/assets/main-B6vH-EgY.css"
+  "WSAbout-DSONR7UJ.js": [],
+  "WSAboutAIDM-Db5uc8CN.js": [],
+  "WSAboutGEN-DUF6V6k_.js": [],
+  "WSAboutGENB-BpliaxKG.js": [],
+  "WSAboutGENC-Bw1jSy3w.js": [],
+  "WSAboutGEND-GclnC8Py.js": [],
+  "WSAboutGENE-egqaEO3X.js": [],
+  "WSAboutPM-CCwtL9Ig.js": [],
+  "WSAboutPMB-D4FfmkpB.js": [],
+  "WSGENDMentor-ClPFq0B8.js": [],
+  "WSGENIntroduction-RICVcYsu.js": [],
+  "WSGENIntroductionAIDM-Wr_0wggI.js": [],
+  "WSGENIntroductionB-DQXIkKO_.js": [],
+  "WSGENIntroductionC-WQVb6Tup.js": [],
+  "WSGENIntroductionD-CqdAjh8v.js": [],
+  "WSGENIntroductionE-ldbpk-9G.js": [],
+  "WSGENIntroductionPMB-Giy4fBT_.js": [],
+  "WSGENMentor-CR9LIEmN.js": [],
+  "WSGENMentor-E4c0h9hO.js": [],
+  "WSGENMentorAIDM-DYyYQ5qx.js": [],
+  "WSGENWhoShouldEnroll-Bw8j3FC4.js": [],
+  "WSGENWhoShouldEnrollAIDM-xO5K3wSn.js": [],
+  "WSGENWhoShouldEnrollB-BoFJa5ZE.js": [],
+  "WSGENWhoShouldEnrollC-OpbjIUc9.js": [],
+  "WSGENWhoShouldEnrollD-Hdzv4fcd.js": [],
+  "WSGENWhoShouldEnrollE-iZN3X82a.js": [],
+  "WSGENWhoShouldEnrollPMB-U2sU0HuR.js": [],
+  "WSHero-XsqT8K9D.js": [],
+  "WSHeroAIDM-DoitW4wi.js": [],
+  "WSHeroDASecond-BDz1IKQK.js": [],
+  "WSHeroDM-DkI7FpCB.js": [],
+  "WSHeroGEN-bNC1xdWN.js": [],
+  "WSHeroGENB-Dvo5XUxn.js": [],
+  "WSHeroGENC-C5ckGJ89.js": [],
+  "WSHeroGEND-BoGcaeXy.js": [],
+  "WSHeroGENE-DAcKGbMS.js": [],
+  "WSHeroPM-CKvLf1hq.js": [],
+  "WSHeroPMB-DA43E7uX.js": [],
+  "WSIOSection-DAT_PdlL.js": [],
+  "WSRegistrationSuccess-CrdmG9sZ.js": [],
+  "WSRegistrationSuccessD-qttQgQna.js": [],
+  "WSTestimonial-CLD1dFUW.js": [],
+  "WSTestimonialDASecond-VPEsLC3o.js": [],
+  "WSTestimonialPM-Kr4WC6Dt.js": [],
+  "WhoIsThisContentForEIE-0yrihTy_.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "Terms-vBNG6F7t.js": [],
-  "TradingPlatformSection-D_9ZeLxe.js": [],
-  "Values-DynzR2mQ.js": [
-    "/assets/main-B6vH-EgY.css"
-  ],
-  "WSAbout-vdHqcChI.js": [],
-  "WSAboutAIDM-ZsQhhgAS.js": [],
-  "WSAboutGEN-CAaJJAfa.js": [],
-  "WSAboutGENB-DCrscwbO.js": [],
-  "WSAboutGENC-Cg2YUdBB.js": [],
-  "WSAboutGEND-HujlvlXC.js": [],
-  "WSAboutGENE-Col_xfg_.js": [],
-  "WSAboutPM-fNvCKt8q.js": [],
-  "WSAboutPMB-DpRHDR95.js": [],
-  "WSGENDMentor-CvlerHD8.js": [],
-  "WSGENIntroduction-DUqlkPnF.js": [],
-  "WSGENIntroductionAIDM-LqU-2sCl.js": [],
-  "WSGENIntroductionB-DRTHzP3E.js": [],
-  "WSGENIntroductionC-CNlIycGZ.js": [],
-  "WSGENIntroductionD-wMlgpo9m.js": [],
-  "WSGENIntroductionE-COmkmoLu.js": [],
-  "WSGENIntroductionPMB-4jGXsYAb.js": [],
-  "WSGENMentor-BPXblVuV.js": [],
-  "WSGENMentor-Dh_bbXQN.js": [],
-  "WSGENMentorAIDM-BM6wVyIV.js": [],
-  "WSGENWhoShouldEnroll-AQzJ_Vba.js": [],
-  "WSGENWhoShouldEnrollAIDM-CBCa2-Ky.js": [],
-  "WSGENWhoShouldEnrollB-B_qOZxkg.js": [],
-  "WSGENWhoShouldEnrollC-C1f_wvXU.js": [],
-  "WSGENWhoShouldEnrollD-DRYnYrb-.js": [],
-  "WSGENWhoShouldEnrollE-CHcE1uJ9.js": [],
-  "WSGENWhoShouldEnrollPMB-BwJBqnP1.js": [],
-  "WSHero-2nqNQraV.js": [],
-  "WSHeroAIDM-BVigMpX-.js": [],
-  "WSHeroDASecond-Dc1oCnil.js": [],
-  "WSHeroDM-CvZyV4np.js": [],
-  "WSHeroGEN-B6k03xzC.js": [],
-  "WSHeroGENB-B3coWEWp.js": [],
-  "WSHeroGENC-BypVMdUf.js": [],
-  "WSHeroGEND-CDAhezfU.js": [],
-  "WSHeroGENE-CePoTkmj.js": [],
-  "WSHeroPM-0Rp7BENw.js": [],
-  "WSHeroPMB-CVxCJREq.js": [],
-  "WSIOSection-DGwSl_XT.js": [],
-  "WSRegistrationSuccess-B_hMLt0N.js": [],
-  "WSRegistrationSuccessD--BygMFPw.js": [],
-  "WSTestimonial-B3ZNCER6.js": [],
-  "WSTestimonialDASecond-BI_OyDa6.js": [],
-  "WSTestimonialPM-H3kHo-SR.js": [],
-  "WhoIsThisContentForEIE-Bmh5ZOWP.js": [
-    "/assets/main-B6vH-EgY.css"
-  ],
-  "XSATEntry-clUkdZXm.js": [],
-  "automation-features-m2Orcf6T.js": [],
-  "built-for-you-7QXEO_P5.js": [],
-  "event-BGXDPwXa.js": [],
-  "hero-section-DjBsEtcL.js": [],
-  "index-Dyk8kjvJ.js": [],
+  "XSATEntry-DVYFCqZ6.js": [],
+  "YearEnd-B58noaS0.js": [],
+  "automation-features-DgEzvaLY.js": [],
+  "built-for-you-BNPECCXi.js": [],
+  "event-BhtBVyoe.js": [],
+  "hero-section-CUEsxBQu.js": [],
+  "index-BAEJqLAp.js": [],
   "index.html": [],
-  "lead-engine-cta-g1gNbEi5.js": [],
+  "lead-engine-cta-D_eCL9cl.js": [],
   "node_modules/@elevenlabs/client/dist/lib.modern.js": [
-    "/assets/MentorPage-DkEkzu9x.js"
+    "/assets/MentorPage-YtQIjnAW.js"
   ],
   "node_modules/@elevenlabs/react/dist/lib.modern.js": [
-    "/assets/MentorPage-DkEkzu9x.js"
+    "/assets/MentorPage-YtQIjnAW.js"
   ],
   "node_modules/@headlessui/react/dist/components/keyboard.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/components/tabs/tabs.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-event.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-id.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-is-mounted.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-iso-morphic-effect.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-latest-value.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-resolve-button-type.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-server-handoff-complete.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/hooks/use-sync-refs.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/internal/focus-sentinel.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/internal/hidden.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/class-names.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/env.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/focus-management.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/match.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/micro-task.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/owner.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/render.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@headlessui/react/dist/utils/stable-collection.js": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/@react-spring/animated/dist/react-spring_animated.modern.mjs": [
-    "/assets/StickyBookNav-CxyRKJhZ.js"
+    "/assets/StickyBookNav-RuNHmZ-V.js"
   ],
   "node_modules/@react-spring/core/dist/react-spring_core.modern.mjs": [
-    "/assets/StickyBookNav-CxyRKJhZ.js"
+    "/assets/StickyBookNav-RuNHmZ-V.js"
   ],
   "node_modules/@react-spring/rafz/dist/react-spring_rafz.modern.mjs": [
-    "/assets/StickyBookNav-CxyRKJhZ.js"
+    "/assets/StickyBookNav-RuNHmZ-V.js"
   ],
   "node_modules/@react-spring/shared/dist/react-spring_shared.modern.mjs": [
-    "/assets/StickyBookNav-CxyRKJhZ.js"
+    "/assets/StickyBookNav-RuNHmZ-V.js"
   ],
   "node_modules/@react-spring/web/dist/react-spring_web.modern.mjs": [
-    "/assets/StickyBookNav-CxyRKJhZ.js"
+    "/assets/StickyBookNav-RuNHmZ-V.js"
   ],
   "node_modules/@remix-run/router/dist/router.js": [],
   "node_modules/@supabase/auth-js/dist/module/AuthClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/GoTrueClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/base64url.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/constants.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/errors.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/fetch.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/helpers.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/local-storage.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/locks.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/polyfills.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/types.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/auth-js/dist/module/lib/version.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/functions-js/dist/module/FunctionsClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/functions-js/dist/module/helper.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/functions-js/dist/module/types.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/node-fetch/browser.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestBuilder.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestError.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestFilterBuilder.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestQueryBuilder.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/PostgrestTransformBuilder.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/constants.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/index.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/cjs/version.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/postgrest-js/dist/esm/wrapper.mjs": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/RealtimeClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/RealtimePresence.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/constants.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/push.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/serializer.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/timer.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/transformers.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/version.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/StorageClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/constants.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/errors.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/fetch.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/helpers.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/lib/version.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/packages/StorageBucketApi.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/storage-js/dist/module/packages/StorageFileApi.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/SupabaseClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/index.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/SupabaseAuthClient.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/constants.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/fetch.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/helpers.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@supabase/supabase-js/dist/module/lib/version.js": [
-    "/assets/index-DQs8kw9m.js"
+    "/assets/index-D-oiyE9f.js"
   ],
   "node_modules/@tabler/icons-react/dist/esm/createReactComponent.mjs": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "node_modules/@tabler/icons-react/dist/esm/defaultAttributes.mjs": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "node_modules/@tabler/icons-react/dist/esm/icons/IconCertificate.mjs": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "node_modules/@tanstack/query-core/build/modern/focusManager.js": [],
   "node_modules/@tanstack/query-core/build/modern/infiniteQueryBehavior.js": [],
   "node_modules/@tanstack/query-core/build/modern/mutation.js": [],
   "node_modules/@tanstack/query-core/build/modern/mutationCache.js": [],
   "node_modules/@tanstack/query-core/build/modern/mutationObserver.js": [
-    "/assets/customer-Dk7-f0kz.js"
+    "/assets/customer-BJ0bYfrd.js"
   ],
   "node_modules/@tanstack/query-core/build/modern/notifyManager.js": [],
   "node_modules/@tanstack/query-core/build/modern/onlineManager.js": [],
@@ -589,7 +589,7 @@
   "node_modules/@tanstack/query-core/build/modern/queryCache.js": [],
   "node_modules/@tanstack/query-core/build/modern/queryClient.js": [],
   "node_modules/@tanstack/query-core/build/modern/queryObserver.js": [
-    "/assets/useQuery-abTQrkxU.js"
+    "/assets/useQuery-BrrKrZ2O.js"
   ],
   "node_modules/@tanstack/query-core/build/modern/removable.js": [],
   "node_modules/@tanstack/query-core/build/modern/retryer.js": [],
@@ -597,38 +597,38 @@
   "node_modules/@tanstack/query-core/build/modern/thenable.js": [],
   "node_modules/@tanstack/query-core/build/modern/utils.js": [],
   "node_modules/@tanstack/react-query/build/modern/IsRestoringProvider.js": [
-    "/assets/useQuery-abTQrkxU.js"
+    "/assets/useQuery-BrrKrZ2O.js"
   ],
   "node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js": [],
   "node_modules/@tanstack/react-query/build/modern/QueryErrorResetBoundary.js": [
-    "/assets/useQuery-abTQrkxU.js"
+    "/assets/useQuery-BrrKrZ2O.js"
   ],
   "node_modules/@tanstack/react-query/build/modern/errorBoundaryUtils.js": [
-    "/assets/useQuery-abTQrkxU.js"
+    "/assets/useQuery-BrrKrZ2O.js"
   ],
   "node_modules/@tanstack/react-query/build/modern/suspense.js": [
-    "/assets/useQuery-abTQrkxU.js"
+    "/assets/useQuery-BrrKrZ2O.js"
   ],
   "node_modules/@tanstack/react-query/build/modern/useBaseQuery.js": [
-    "/assets/useQuery-abTQrkxU.js"
+    "/assets/useQuery-BrrKrZ2O.js"
   ],
   "node_modules/@tanstack/react-query/build/modern/useMutation.js": [
-    "/assets/customer-Dk7-f0kz.js"
+    "/assets/customer-BJ0bYfrd.js"
   ],
   "node_modules/@tanstack/react-query/build/modern/useQuery.js": [
-    "/assets/useQuery-abTQrkxU.js"
+    "/assets/useQuery-BrrKrZ2O.js"
   ],
   "node_modules/@ungap/structured-clone/esm/deserialize.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/@ungap/structured-clone/esm/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/@ungap/structured-clone/esm/serialize.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/@ungap/structured-clone/esm/types.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/axios/index.js": [],
   "node_modules/axios/lib/adapters/adapters.js": [],
@@ -681,143 +681,143 @@
   "node_modules/axios/lib/platform/index.js": [],
   "node_modules/axios/lib/utils.js": [],
   "node_modules/bail/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/canvas-confetti/dist/confetti.module.mjs": [
-    "/assets/Success-ClV8tbHu.js"
+    "/assets/Success-CIpa9IId.js"
   ],
   "node_modules/clsx/dist/clsx.mjs": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "node_modules/comma-separated-tokens/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/date-fns/_lib/addLeadingZeros.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/_lib/defaultOptions.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/_lib/format/formatters.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/_lib/format/lightFormatters.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/_lib/format/longFormatters.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/_lib/normalizeDates.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/_lib/protectedTokens.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/constants.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/constructFrom.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/differenceInCalendarDays.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/format.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/getDayOfYear.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/getISOWeek.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/getISOWeekYear.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/getWeek.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/getWeekYear.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/isDate.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/isValid.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/_lib/buildFormatLongFn.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/_lib/buildLocalizeFn.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/_lib/buildMatchFn.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/_lib/buildMatchPatternFn.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/en-US.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/en-US/_lib/formatDistance.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/en-US/_lib/formatLong.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/en-US/_lib/formatRelative.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/en-US/_lib/localize.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/locale/en-US/_lib/match.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/parseISO.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/startOfDay.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/startOfISOWeek.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/startOfISOWeekYear.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/startOfWeek.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/startOfWeekYear.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/startOfYear.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/date-fns/toDate.js": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "node_modules/decode-named-character-reference/index.dom.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/devlop/lib/default.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/editorjs-html/.build/edjsHTML.node.js": [
-    "/assets/BlogDetail-BSsG8Rvf.js",
+    "/assets/BlogDetail-Uchn9V8e.js",
     "/assets/BlogDetail-DChfkP96.css"
   ],
   "node_modules/estree-util-is-identifier-name/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/extend/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/framer-motion/dist/es/animation/animate/single-value.mjs": [],
   "node_modules/framer-motion/dist/es/animation/animators/AcceleratedAnimation.mjs": [],
@@ -951,6 +951,9 @@
   "node_modules/framer-motion/dist/es/render/dom/value-types/transform.mjs": [],
   "node_modules/framer-motion/dist/es/render/dom/value-types/type-auto.mjs": [],
   "node_modules/framer-motion/dist/es/render/dom/value-types/type-int.mjs": [],
+  "node_modules/framer-motion/dist/es/render/dom/viewport/index.mjs": [
+    "/assets/YearEnd-B58noaS0.js"
+  ],
   "node_modules/framer-motion/dist/es/render/html/HTMLVisualElement.mjs": [],
   "node_modules/framer-motion/dist/es/render/html/config-motion.mjs": [],
   "node_modules/framer-motion/dist/es/render/html/use-props.mjs": [],
@@ -1015,6 +1018,9 @@
   "node_modules/framer-motion/dist/es/utils/shallow-compare.mjs": [],
   "node_modules/framer-motion/dist/es/utils/subscription-manager.mjs": [],
   "node_modules/framer-motion/dist/es/utils/use-constant.mjs": [],
+  "node_modules/framer-motion/dist/es/utils/use-in-view.mjs": [
+    "/assets/YearEnd-B58noaS0.js"
+  ],
   "node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs": [],
   "node_modules/framer-motion/dist/es/utils/velocity-per-second.mjs": [],
   "node_modules/framer-motion/dist/es/value/index.mjs": [],
@@ -1038,508 +1044,534 @@
   "node_modules/framer-motion/dist/es/value/utils/resolve-motion-value.mjs": [],
   "node_modules/goober/dist/goober.modern.js": [],
   "node_modules/hast-util-to-jsx-runtime/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/hast-util-whitespace/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/html-url-attributes/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/inline-style-parser/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/invariant/browser.js": [],
   "node_modules/is-plain-obj/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/livekit-client/dist/livekit-client.esm.mjs": [
-    "/assets/MentorPage-DkEkzu9x.js"
+    "/assets/MentorPage-YtQIjnAW.js"
   ],
+  "node_modules/lottie-react/build/index.es.js": [],
+  "node_modules/lottie-web/build/player/lottie.js": [],
   "node_modules/lucide-react/dist/esm/createLucideIcon.js": [],
   "node_modules/lucide-react/dist/esm/defaultAttributes.js": [],
   "node_modules/lucide-react/dist/esm/icons/alert-circle.js": [
-    "/assets/event-BGXDPwXa.js"
+    "/assets/event-BhtBVyoe.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/alert-triangle.js": [
-    "/assets/alert-triangle-rbV4VB-C.js"
+    "/assets/alert-triangle-CTe3cxU4.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/arrow-right.js": [
-    "/assets/arrow-right-KXS-Z_-k.js"
+    "/assets/arrow-right-C_aGWCCm.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/arrow-up-right.js": [
+    "/assets/ProjectCard-BH9VAPFw.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/award.js": [
-    "/assets/award-CeF0JwRu.js"
+    "/assets/award-DujEANvp.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/bar-chart-2.js": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/bar-chart-3.js": [
-    "/assets/bar-chart-3-Qe0XvqMd.js"
+    "/assets/bar-chart-3-BGFarqLo.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/bar-chart.js": [
-    "/assets/bar-chart-B_-r_s31.js"
+    "/assets/bar-chart-CAdTlij9.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/book-open.js": [
-    "/assets/book-open-uG_751H8.js"
+    "/assets/book-open-CKBvBbKL.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/bot.js": [
-    "/assets/bot-B6REJLmw.js"
+    "/assets/bot-Bg5A-QiV.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/brain.js": [
-    "/assets/brain-CPF7vura.js"
+    "/assets/brain-BeghYje-.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/briefcase.js": [],
   "node_modules/lucide-react/dist/esm/icons/building-2.js": [
-    "/assets/building-2-DofEi4g8.js"
+    "/assets/building-2-CrivVZJk.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/building.js": [
-    "/assets/building-DcBEmQjj.js"
+    "/assets/DMFlyers-Cy-yqLei.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/calculator.js": [
-    "/assets/CAPEEIE-ltS8NOIg.js"
+    "/assets/CAPEEIE-XMGuSuQ3.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/calendar.js": [
-    "/assets/calendar-tUdzbB8K.js"
+    "/assets/calendar-qxOV8AYv.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/camera.js": [
+    "/assets/profileOverview-D-Em4SzE.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/check-circle-2.js": [
+    "/assets/ProjectListing-C8INK2on.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/check-circle.js": [
-    "/assets/check-circle-D-kSEK9P.js"
+    "/assets/check-circle-lZiRYXd7.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/check.js": [
-    "/assets/check-IravWiSO.js"
+    "/assets/check-BSc0taRY.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/chevron-down.js": [],
   "node_modules/lucide-react/dist/esm/icons/chevron-left.js": [
-    "/assets/chevron-left-Bhtm3dbJ.js"
+    "/assets/chevron-left-ogUUcE6p.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/chevron-right.js": [
-    "/assets/chevron-right-BRUs3fRT.js"
+    "/assets/chevron-right-BIQvfPQN.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/clipboard-check.js": [
-    "/assets/CAPEEIE-ltS8NOIg.js"
+    "/assets/CAPEEIE-XMGuSuQ3.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/clock.js": [
-    "/assets/clock-DXswX6jd.js"
+    "/assets/clock-GmOstf4G.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/cloud.js": [
-    "/assets/cloud-COuIIibf.js"
+    "/assets/cloud-DcaEjpF6.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/code.js": [
-    "/assets/code-CSR0zu7p.js"
+    "/assets/code-mzlIqglD.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/copy.js": [
-    "/assets/copy-Bqs0uoJh.js"
+    "/assets/Success-CIpa9IId.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/cpu.js": [
-    "/assets/cpu-CBlnboMx.js"
+    "/assets/cpu-CBq820EF.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/crown.js": [
-    "/assets/LearningJourneyEIE-Cfv5sW_W.js"
+    "/assets/LearningJourneyEIE-rNKKsifw.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/database.js": [
-    "/assets/database-DOcOUZD8.js"
+    "/assets/database-cplAixIi.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/dollar-sign.js": [
-    "/assets/dollar-sign-CORTW3lq.js"
+    "/assets/dollar-sign-DxmFJ-Xv.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/external-link.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/external-link-wM_AVkkU.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/eye.js": [
+    "/assets/profileOverview-D-Em4SzE.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/facebook.js": [
-    "/assets/Footer-BSdp4EKW.js"
+    "/assets/Footer-C3m_Owr-.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/file-text.js": [
-    "/assets/AIDMTools-CC71VDl_.js"
+    "/assets/AIDMTools-BDd2_iXj.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/file.js": [
-    "/assets/automation-features-m2Orcf6T.js"
+    "/assets/automation-features-DgEzvaLY.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/filter.js": [
-    "/assets/JobList-D8RGX-mb.js"
+    "/assets/JobList-DgTn_2gX.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/github.js": [
-    "/assets/github-CMPNSu2H.js"
+    "/assets/github-DP2YBeRs.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/globe.js": [
-    "/assets/globe-WWYgvnbv.js"
+    "/assets/globe-0aigWiS0.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/graduation-cap.js": [
-    "/assets/graduation-cap-CzTwazqX.js"
+    "/assets/graduation-cap-B1gB_48P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/heart.js": [
+    "/assets/ProjectCard-BH9VAPFw.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/help-circle.js": [
-    "/assets/help-circle-obviLefZ.js"
+    "/assets/help-circle-D-VmSq0L.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/image.js": [
-    "/assets/AIDMTools-CC71VDl_.js"
+    "/assets/AIDMTools-BDd2_iXj.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/instagram.js": [
-    "/assets/Footer-BSdp4EKW.js"
+    "/assets/Footer-C3m_Owr-.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/laptop.js": [
-    "/assets/laptop-D08-VWWd.js"
+    "/assets/laptop-DhgOfscJ.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/lightbulb.js": [
-    "/assets/lightbulb-Ct8pMpoc.js"
-  ],
-  "node_modules/lucide-react/dist/esm/icons/link.js": [
-    "/assets/profileOverview-BEX7l9O8.js"
+    "/assets/lightbulb-D0j2mF64.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/linkedin.js": [
-    "/assets/linkedin-DQg-CUkb.js"
-  ],
-  "node_modules/lucide-react/dist/esm/icons/loader.js": [
-    "/assets/loader-Dy5wHnqD.js"
+    "/assets/linkedin-Dp7X_O_K.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/lock.js": [
-    "/assets/Login-CH8biUx8.js"
+    "/assets/Login-TuzKUmci.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/log-out.js": [],
   "node_modules/lucide-react/dist/esm/icons/mail.js": [
-    "/assets/mail-CsyBqx5V.js"
+    "/assets/mail-CXwnrRRB.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/map-pin.js": [
-    "/assets/map-pin-C585j6B3.js"
+    "/assets/map-pin--EsrHqQg.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/maximize-2.js": [
-    "/assets/HomePage-jdjt5eEF.js"
+    "/assets/HomePage-BIQp1rx0.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/megaphone.js": [
-    "/assets/megaphone-Cw_QPHLv.js"
+    "/assets/megaphone-DmRp79eu.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/menu.js": [],
+  "node_modules/lucide-react/dist/esm/icons/message-circle.js": [
+    "/assets/message-circle-CrhUV12P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-square.js": [
+    "/assets/ProjectDetail-BU5Lk7hQ.js"
+  ],
   "node_modules/lucide-react/dist/esm/icons/minus.js": [
-    "/assets/minus-JLPlYgFd.js"
+    "/assets/minus-CmkkU_zW.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/mouse-pointer.js": [
-    "/assets/automation-features-m2Orcf6T.js"
+    "/assets/automation-features-DgEzvaLY.js"
   ],
-  "node_modules/lucide-react/dist/esm/icons/pen.js": [
-    "/assets/profileOverview-BEX7l9O8.js"
+  "node_modules/lucide-react/dist/esm/icons/pen-line.js": [
+    "/assets/profileOverview-D-Em4SzE.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/pencil.js": [
-    "/assets/BlogDashboard-B1r6PXzV.js"
-  ],
-  "node_modules/lucide-react/dist/esm/icons/phone-call.js": [
-    "/assets/profileOverview-BEX7l9O8.js"
+    "/assets/BlogDashboard-Dbx1AFVW.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/phone.js": [
-    "/assets/phone-B31YGPhZ.js"
+    "/assets/phone-De2sipXQ.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/play.js": [
-    "/assets/automation-features-m2Orcf6T.js"
+    "/assets/automation-features-DgEzvaLY.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/plug.js": [
-    "/assets/WSAboutPM-fNvCKt8q.js"
+    "/assets/WSAboutPM-CCwtL9Ig.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/plus.js": [
-    "/assets/plus-G3V7KZyV.js"
+    "/assets/plus-C8Jz0Jzm.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/qr-code.js": [
+    "/assets/qr-code-hLpwVeZY.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/quote.js": [
-    "/assets/Team-ylIx9Lpn.js"
+    "/assets/Team-Bl-D0l2H.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/rocket.js": [
-    "/assets/rocket-fVx74K1m.js"
+    "/assets/rocket-fhbg9oni.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/save.js": [
-    "/assets/profileOverview-BEX7l9O8.js"
+    "/assets/profileOverview-D-Em4SzE.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/search.js": [
-    "/assets/JobList-D8RGX-mb.js"
+    "/assets/search-Dxub0UzU.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/send.js": [
-    "/assets/send-Dyxqezvq.js"
+    "/assets/send-HCuU1Bw1.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/server.js": [
-    "/assets/server-BDFLkfhK.js"
+    "/assets/server-CaOmQGmw.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/settings.js": [
-    "/assets/AIDMSolution-CDwrcTWD.js"
+    "/assets/AIDMSolution-Br5qKLu0.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/share-2.js": [
+    "/assets/ProjectDetail-BU5Lk7hQ.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/shield.js": [
-    "/assets/shield-CXVguxAG.js"
+    "/assets/shield-CNsiFVTM.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/sparkles.js": [
-    "/assets/sparkles-CwqnLB1q.js"
+    "/assets/sparkles-CqK98lAI.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/star.js": [
-    "/assets/star-CrwQDpT6.js"
+    "/assets/star-CdCPqNhw.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/target.js": [
-    "/assets/target-B6mfcGaQ.js"
+    "/assets/target-BHnSjvwm.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/test-tube.js": [
-    "/assets/WSGENIntroductionPMB-4jGXsYAb.js"
+    "/assets/WSGENIntroductionPMB-Giy4fBT_.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/trash-2.js": [
-    "/assets/BlogDashboard-B1r6PXzV.js"
+    "/assets/trash-2-DbpLY8ih.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/trending-up.js": [
-    "/assets/trending-up-CBg3i45M.js"
+    "/assets/trending-up-ChqbVYRU.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/trophy.js": [
-    "/assets/trophy-BZE6wA35.js"
+    "/assets/trophy-CCpT-med.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/twitter.js": [
-    "/assets/Footer-BSdp4EKW.js"
+    "/assets/Footer-C3m_Owr-.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/upload.js": [
+    "/assets/profileOverview-D-Em4SzE.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/user-plus.js": [
+    "/assets/ProjectDetail-BU5Lk7hQ.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/user.js": [],
   "node_modules/lucide-react/dist/esm/icons/users-round.js": [
-    "/assets/PMFlyers-CAehy-yg.js"
+    "/assets/PMFlyers-ncPuH8b6.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/users.js": [
-    "/assets/users-bzUeOWsh.js"
+    "/assets/users-DfUbt3Yi.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/video.js": [
-    "/assets/video-BZZfl1jv.js"
+    "/assets/video-CHVLIVKg.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/wand-2.js": [
-    "/assets/HomePage-jdjt5eEF.js"
+    "/assets/HomePage-BIQp1rx0.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/workflow.js": [
-    "/assets/workflow-SipQuvoK.js"
+    "/assets/workflow-pJShSDfJ.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/wrench.js": [
-    "/assets/wrench-DVPD-yPn.js"
+    "/assets/wrench-CYmxuMhl.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/x.js": [],
   "node_modules/lucide-react/dist/esm/icons/youtube.js": [
-    "/assets/Footer-BSdp4EKW.js"
+    "/assets/Footer-C3m_Owr-.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/zap.js": [
-    "/assets/zap-C3giIaUv.js"
+    "/assets/zap-GER4g8bE.js"
   ],
   "node_modules/mdast-util-from-markdown/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/footer.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/blockquote.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/break.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/code.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/delete.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/emphasis.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/footnote-reference.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/heading.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/html.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/image-reference.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/image.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/inline-code.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/link-reference.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/link.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/list-item.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/list.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/paragraph.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/root.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/strong.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/table-cell.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/table-row.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/table.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/text.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/handlers/thematic-break.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/revert.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-hast/lib/state.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/mdast-util-to-string/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/attention.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/autolink.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/blank-line.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/block-quote.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/character-escape.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/character-reference.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/code-fenced.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/code-indented.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/code-text.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/content.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/definition.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/hard-break-escape.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/heading-atx.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/html-flow.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/html-text.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/label-end.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/label-start-image.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/label-start-link.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/line-ending.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/list.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/setext-underline.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-core-commonmark/lib/thematic-break.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-factory-destination/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-factory-label/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-factory-space/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-factory-title/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-factory-whitespace/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-character/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-chunked/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-classify-character/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-combine-extensions/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-decode-numeric-character-reference/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-decode-string/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-html-tag-name/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-normalize-identifier/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-resolve-all/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-sanitize-uri/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-subtokenize/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark-util-subtokenize/lib/splice-buffer.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/constructs.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/create-tokenizer.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/initialize/content.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/initialize/document.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/initialize/flow.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/initialize/text.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/parse.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/postprocess.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/micromark/lib/preprocess.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/motion-dom/dist/es/animation/controls/BaseGroup.mjs": [],
   "node_modules/motion-dom/dist/es/animation/controls/Group.mjs": [],
@@ -1571,58 +1603,58 @@
   "node_modules/motion-utils/dist/es/progress.mjs": [],
   "node_modules/motion-utils/dist/es/time-conversion.mjs": [],
   "node_modules/property-information/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/aria.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/find.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/hast-to-react.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/html.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/normalize.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/svg.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/case-insensitive-transform.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/case-sensitive-transform.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/create.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/defined-info.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/info.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/merge.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/schema.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/util/types.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/xlink.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/xml.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/property-information/lib/xmlns.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [],
@@ -1631,749 +1663,785 @@
   "node_modules/react-helmet-async/lib/index.esm.js": [],
   "node_modules/react-hot-toast/dist/index.mjs": [],
   "node_modules/react-icons/fa/index.mjs": [
-    "/assets/index-CHmcm9a8.js"
+    "/assets/index-C-wqch4J.js"
   ],
   "node_modules/react-icons/fi/index.mjs": [
-    "/assets/index-C3Nlowj2.js"
+    "/assets/index-BYxXRpw5.js"
   ],
   "node_modules/react-icons/lib/iconBase.mjs": [],
   "node_modules/react-icons/lib/iconContext.mjs": [],
   "node_modules/react-icons/pi/index.mjs": [],
-  "node_modules/react-international-phone/dist/index.css": [
-    "/assets/index-CdUL5PDS.js",
-    "/assets/index-BIYfq21l.css"
-  ],
-  "node_modules/react-international-phone/dist/index.mjs": [
-    "/assets/index-CdUL5PDS.js",
-    "/assets/index-BIYfq21l.css"
-  ],
   "node_modules/react-markdown/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/react-router-dom/dist/index.js": [],
   "node_modules/react-router/dist/index.js": [],
   "node_modules/react-type-animation/dist/esm/index.es.js": [
-    "/assets/HomePage-jdjt5eEF.js"
+    "/assets/HomePage-BIQp1rx0.js"
   ],
   "node_modules/react/cjs/react-jsx-runtime.production.min.js": [],
   "node_modules/react/cjs/react.production.min.js": [],
   "node_modules/react/index.js": [],
   "node_modules/react/jsx-runtime.js": [],
   "node_modules/remark-parse/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/remark-rehype/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/scheduler/cjs/scheduler.production.min.js": [],
   "node_modules/scheduler/index.js": [],
   "node_modules/shallowequal/index.js": [],
   "node_modules/space-separated-tokens/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/style-to-object/cjs/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/style-to-object/esm/index.mjs": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/trim-lines/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/trough/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unified/lib/callable-instance.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unified/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unist-util-is/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unist-util-position/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unist-util-stringify-position/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unist-util-visit-parents/lib/color.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unist-util-visit-parents/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/unist-util-visit/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/vfile-message/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/vfile/lib/index.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/vfile/lib/minpath.browser.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/vfile/lib/minproc.browser.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/vfile/lib/minurl.browser.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "node_modules/vfile/lib/minurl.shared.js": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
-  "profileOverview-BEX7l9O8.js": [
-    "/assets/main-B6vH-EgY.css"
+  "profileOverview-D-Em4SzE.js": [
+    "/assets/main-CDx4TtP8.css"
   ],
-  "profileRoutes-CNPqcQ6U.js": [],
-  "registration-successful-CTWyf59b.js": [],
+  "profileRoutes-CjVtOMtJ.js": [],
+  "registration-successful-BcEfQcNC.js": [],
   "src/App.tsx": [],
   "src/api/certificateApi.ts": [
-    "/assets/CertificateDisplayPage-BW8iarbQ.js"
+    "/assets/CertificateDisplayPage-BSLiinkB.js"
   ],
   "src/api/customersApi.ts": [
-    "/assets/customer-Dk7-f0kz.js"
+    "/assets/customer-BJ0bYfrd.js"
   ],
-  "src/api/enrollmentApi.ts": [
-    "/assets/enrollmentApi-BPFwt7u2.js"
-  ],
+  "src/api/enrollmentApi.ts": [],
   "src/api/index.ts": [],
   "src/api/jobsApi.ts": [
-    "/assets/jobs-DMnzNVnP.js"
+    "/assets/jobs-rH1_eo4T.js"
   ],
   "src/api/workshopApi.ts": [
-    "/assets/workshopApi-B5V9wa9a.js"
+    "/assets/workshopApi-CBMHlgP3.js"
   ],
   "src/components/AppDownloadPOP.tsx": [],
   "src/components/AppRoutes.tsx": [],
   "src/components/DAFlyers.tsx": [
-    "/assets/DAFlyers-DHOCLRvU.js"
+    "/assets/DAFlyers-BTTl7col.js"
   ],
   "src/components/DMFlyers.tsx": [
-    "/assets/DMFlyers-CJ4jLvTo.js"
+    "/assets/DMFlyers-Cy-yqLei.js"
   ],
   "src/components/ElevenLabsWidget.tsx": [
-    "/assets/MentorPage-DkEkzu9x.js"
+    "/assets/MentorPage-YtQIjnAW.js"
   ],
-  "src/components/EnrollmentModal.tsx": [
-    "/assets/EnrollmentModal-DIB1CVME.js"
-  ],
+  "src/components/EnrollmentModal.tsx": [],
   "src/components/Features.tsx": [
-    "/assets/HomePage-jdjt5eEF.js"
+    "/assets/HomePage-BIQp1rx0.js"
   ],
   "src/components/Footer.tsx": [
-    "/assets/Footer-BSdp4EKW.js"
+    "/assets/Footer-C3m_Owr-.js"
   ],
   "src/components/GENAIFlyers.tsx": [
-    "/assets/GENAIFlyers-DpbE9hdc.js"
+    "/assets/GENAIFlyers-5oVQ-Yp-.js"
   ],
   "src/components/HeaderEIE.tsx": [
-    "/assets/HeaderEIE-CUZdfI-V.js"
+    "/assets/HeaderEIE-B6wqJasu.js"
   ],
   "src/components/Hero.tsx": [
-    "/assets/HomePage-jdjt5eEF.js"
+    "/assets/HomePage-BIQp1rx0.js"
   ],
   "src/components/HeroWithAbouv.tsx": [
-    "/assets/HeroWithAbouv-9H4AuNsw.js"
+    "/assets/HeroWithAbouv-imaSye5C.js"
   ],
-  "src/components/Loader.tsx": [],
   "src/components/LogoSlider.tsx": [
-    "/assets/HomePage-jdjt5eEF.js"
+    "/assets/HomePage-BIQp1rx0.js"
   ],
+  "src/components/LottieLoader.tsx": [],
   "src/components/MetaPixel.tsx": [],
   "src/components/MetaTrackingDebugger.tsx": [],
   "src/components/Navbar.tsx": [],
   "src/components/NeuralNetworkAnimation.tsx": [
-    "/assets/NeuralNetworkAnimation-Bdq5XXcx.js"
+    "/assets/NeuralNetworkAnimation-DTvI7_yq.js"
   ],
   "src/components/OtpTimer.tsx": [
-    "/assets/SignUpForm-CIxmMzzZ.js"
+    "/assets/SignUpForm-CQDJxuTo.js"
   ],
   "src/components/PMFlyers.tsx": [
-    "/assets/PMFlyers-CAehy-yg.js"
+    "/assets/PMFlyers-ncPuH8b6.js"
   ],
   "src/components/RoleProtectedRoute.tsx": [],
   "src/components/SEO.tsx": [],
   "src/components/ScrollToTop.tsx": [],
   "src/components/StickyBookNav.tsx": [
-    "/assets/StickyBookNav-CxyRKJhZ.js"
+    "/assets/StickyBookNav-RuNHmZ-V.js"
   ],
   "src/components/ThankYouPage.tsx": [],
   "src/components/auth/ProtectedRoute.tsx": [],
   "src/components/auth/SignInForm.tsx": [
-    "/assets/SignInForm-vOPn3_ZK.js"
+    "/assets/SignInForm-DxzT6vn0.js"
   ],
   "src/components/auth/SignUpForm.tsx": [
-    "/assets/SignUpForm-CIxmMzzZ.js"
+    "/assets/SignUpForm-CQDJxuTo.js"
   ],
   "src/components/navbar/ProfileMenu.tsx": [],
   "src/context/UserContext.tsx": [],
   "src/context/WorkshopContext.tsx": [
-    "/assets/registration-DE16O925.js"
+    "/assets/registration-CgYIIUwI.js"
   ],
   "src/context/courseContext.tsx": [],
   "src/hooks/customer.ts": [
-    "/assets/customer-Dk7-f0kz.js"
+    "/assets/customer-BJ0bYfrd.js"
   ],
   "src/hooks/jobs.ts": [
-    "/assets/jobs-DMnzNVnP.js"
+    "/assets/jobs-rH1_eo4T.js"
   ],
   "src/index.css": [],
   "src/layouts/MainLayout.tsx": [],
   "src/lib/supabaseClient.ts": [
-    "/assets/JobApplication-D10gHWfE.js"
+    "/assets/JobApplication-DBkp9UKQ.js"
   ],
   "src/main.tsx": [],
   "src/pages/CertificateDisplayPage.tsx": [
-    "/assets/CertificateDisplayPage-BW8iarbQ.js"
+    "/assets/CertificateDisplayPage-BSLiinkB.js"
   ],
   "src/pages/MentorPage.tsx": [
-    "/assets/MentorPage-DkEkzu9x.js"
+    "/assets/MentorPage-YtQIjnAW.js"
   ],
   "src/pages/Privacy/Privacy.tsx": [
-    "/assets/Privacy-CjrtzSvQ.js"
+    "/assets/Privacy-ByDw1k21.js"
   ],
   "src/pages/Terms/Terms.tsx": [
-    "/assets/Terms-vBNG6F7t.js"
+    "/assets/Terms-BOYKOvl-.js"
   ],
   "src/pages/XSAT/LandingPage/XSATAbout.tsx": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "src/pages/XSAT/LandingPage/XSATFAQ.tsx": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "src/pages/XSAT/LandingPage/XSATHero.tsx": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "src/pages/XSAT/LandingPage/XSATInfo.tsx": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "src/pages/aboutus/HeroAbout.tsx": [
-    "/assets/HeroAbout-BlYCtY3-.js"
+    "/assets/HeroAbout-Cx-7KBGP.js"
   ],
   "src/pages/aboutus/Team.tsx": [
-    "/assets/Team-ylIx9Lpn.js"
+    "/assets/Team-Bl-D0l2H.js"
   ],
   "src/pages/aboutus/Values.tsx": [
-    "/assets/Values-DynzR2mQ.js"
+    "/assets/Values-C4TEO9s7.js"
   ],
   "src/pages/auth/Login.tsx": [
-    "/assets/Login-CH8biUx8.js"
+    "/assets/Login-TuzKUmci.js"
   ],
   "src/pages/blogs/BlogContent.css": [
-    "/assets/BlogDetail-BSsG8Rvf.js",
+    "/assets/BlogDetail-Uchn9V8e.js",
     "/assets/BlogDetail-DChfkP96.css"
   ],
   "src/pages/blogs/BlogDashboard.tsx": [
-    "/assets/BlogDashboard-B1r6PXzV.js"
+    "/assets/BlogDashboard-Dbx1AFVW.js"
   ],
   "src/pages/blogs/BlogDetail.tsx": [
-    "/assets/BlogDetail-BSsG8Rvf.js",
+    "/assets/BlogDetail-Uchn9V8e.js",
     "/assets/BlogDetail-DChfkP96.css"
   ],
   "src/pages/blogs/BlogList.tsx": [
-    "/assets/BlogList-CljikVKd.js"
+    "/assets/BlogList-CPX0Yhih.js"
   ],
   "src/pages/courses/AIDM/AIDMCareerOutcomes.tsx": [
-    "/assets/AIDMCareerOutcomes-B_DGx68N.js"
+    "/assets/AIDMCareerOutcomes-CS6zfG54.js"
   ],
   "src/pages/courses/AIDM/AIDMCertification.tsx": [
-    "/assets/AIDMCertification-7npbEBmF.js"
+    "/assets/AIDMCertification-finfT2nL.js"
   ],
   "src/pages/courses/AIDM/AIDMChallenges.tsx": [
-    "/assets/AIDMChallenges-Gdty_lN0.js"
+    "/assets/AIDMChallenges-BSY52gJ8.js"
   ],
   "src/pages/courses/AIDM/AIDMFAQ.tsx": [
-    "/assets/AIDMFAQ-CjXcr_16.js"
+    "/assets/AIDMFAQ-mZWF0psV.js"
   ],
   "src/pages/courses/AIDM/AIDMFinalCTA.tsx": [
-    "/assets/AIDMFinalCTA-DaV5H1kj.js"
+    "/assets/AIDMFinalCTA-DMK-kI37.js"
   ],
   "src/pages/courses/AIDM/AIDMHero.tsx": [
-    "/assets/AIDMEntry-CDvF4Xgb.js"
+    "/assets/AIDMEntry-B1xyjNLN.js"
   ],
   "src/pages/courses/AIDM/AIDMMentors.tsx": [
-    "/assets/AIDMMentors-Dp28839l.js"
+    "/assets/AIDMMentors-ClNvTPru.js"
   ],
   "src/pages/courses/AIDM/AIDMPricing.tsx": [
-    "/assets/AIDMPricing-BzNa9eWh.js"
+    "/assets/AIDMPricing-CAoXGk23.js"
   ],
   "src/pages/courses/AIDM/AIDMRoadmap.tsx": [
-    "/assets/AIDMRoadmap-D-Os16HK.js"
+    "/assets/AIDMRoadmap-qNfuQE4M.js"
   ],
   "src/pages/courses/AIDM/AIDMSolution.tsx": [
-    "/assets/AIDMSolution-CDwrcTWD.js"
+    "/assets/AIDMSolution-Br5qKLu0.js"
   ],
   "src/pages/courses/AIDM/AIDMTools.tsx": [
-    "/assets/AIDMTools-CC71VDl_.js"
+    "/assets/AIDMTools-BDd2_iXj.js"
   ],
   "src/pages/courses/EntryPoint/AIDMEntry.tsx": [
-    "/assets/AIDMEntry-CDvF4Xgb.js"
+    "/assets/AIDMEntry-B1xyjNLN.js"
   ],
   "src/pages/courses/EntryPoint/AboutPage.tsx": [
-    "/assets/AboutPage-MHPmZhg6.js"
+    "/assets/AboutPage-CsRvYrnA.js"
   ],
   "src/pages/courses/EntryPoint/DataAnalyticsAd.tsx": [
-    "/assets/DataAnalyticsAd-nIdHpzAa.js"
+    "/assets/DataAnalyticsAd-Cd35VpUT.js"
   ],
   "src/pages/courses/EntryPoint/DataAnalyticsEntry.tsx": [
-    "/assets/DataAnalyticsEntry-BOtysd7z.js"
+    "/assets/DataAnalyticsEntry-hpyMtG44.js"
   ],
   "src/pages/courses/EntryPoint/GenAIAd.tsx": [
-    "/assets/GenAIAd-DDoIRa_D.js"
+    "/assets/GenAIAd-DF0uUIkG.js"
   ],
   "src/pages/courses/EntryPoint/GenAIEntry.tsx": [
-    "/assets/GenAIEntry-DQdOHZtx.js"
+    "/assets/GenAIEntry-BFXV9RlY.js"
   ],
   "src/pages/courses/EntryPoint/GenAiForPMEntry.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/EntryPoint/HomePage.tsx": [
-    "/assets/HomePage-jdjt5eEF.js"
+    "/assets/HomePage-BIQp1rx0.js"
   ],
   "src/pages/courses/EntryPoint/KuppamCourses.tsx": [
-    "/assets/KuppamCourses-BR34GCBy.js"
+    "/assets/KuppamCourses-rzj-xO9Q.js"
   ],
   "src/pages/courses/EntryPoint/ProductManagementEIE.tsx": [
-    "/assets/ProductManagementEIE-DwfArh2W.js"
+    "/assets/ProductManagementEIE-DGY8omF5.js"
   ],
   "src/pages/courses/EntryPoint/ProductManagementEntry.tsx": [
-    "/assets/ProductManagementEntry-MdBb1o2p.js"
+    "/assets/ProductManagementEntry-OAldm-D2.js"
   ],
   "src/pages/courses/EntryPoint/XSATEntry.tsx": [
-    "/assets/XSATEntry-clUkdZXm.js"
+    "/assets/XSATEntry-DVYFCqZ6.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMBYOA.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMFAQ.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMHero.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMIntroduction.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMLearningJourney.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMMarketScope.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMMentors.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMPricing.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMProjectsAndOutcomes.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMToolsYouWillLearn.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMWhoShouldEnroll.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/GenAiForPM/GENAIFORPMWhyLearnAI.tsx": [
-    "/assets/GenAiForPMEntry-CO1tbmbg.js"
+    "/assets/GenAiForPMEntry-vty5DmWY.js"
   ],
   "src/pages/courses/dataAnalyticsFB/DataAnalyticsFAQFB.tsx": [
-    "/assets/DataAnalyticsFAQFB-DMCB19Oy.js"
+    "/assets/DataAnalyticsFAQFB-DID4U_nC.js"
   ],
   "src/pages/courses/dataanalytics/EIE/CAPEEIE.tsx": [
-    "/assets/CAPEEIE-ltS8NOIg.js"
+    "/assets/CAPEEIE-XMGuSuQ3.js"
   ],
   "src/pages/courses/dataanalytics/EIE/DataCertificateEIE.tsx": [
-    "/assets/DataCertificateEIE-DxkCokmj.js"
+    "/assets/DataCertificateEIE-CHiArCyP.js"
   ],
   "src/pages/courses/dataanalytics/EIE/DataHeroEIE.tsx": [
-    "/assets/DataHeroEIE-DsLtFXRX.js"
+    "/assets/DataHeroEIE-Bicyj_IU.js"
   ],
   "src/pages/courses/dataanalytics/EIE/DataJourneyEIE.tsx": [
-    "/assets/DataJourneyEIE-nRtzrdkz.js"
+    "/assets/DataJourneyEIE-Baok8fQ5.js"
   ],
   "src/pages/courses/dataanalytics/EIE/DataMentorsEIE.tsx": [
-    "/assets/DataMentorsEIE-CFH96X2S.js"
+    "/assets/DataMentorsEIE-kRdV1qE6.js"
   ],
   "src/pages/courses/dataanalytics/EIE/DataPricingEIE.tsx": [
-    "/assets/DataPricingEIE-DYoeskLk.js"
+    "/assets/DataPricingEIE-CiISLEiH.js"
   ],
   "src/pages/courses/dataanalytics/EIE/DataProgramEIE.tsx": [
-    "/assets/DataProgramEIE-CzOt2tHQ.js"
+    "/assets/DataProgramEIE-BwrfM32Y.js"
   ],
   "src/pages/courses/dataanalytics/EIE/DataSkillsToolsEIE.tsx": [
-    "/assets/DataSkillsToolsEIE-nHOyYuqc.js"
+    "/assets/DataSkillsToolsEIE-z5kuYXHf.js"
   ],
   "src/pages/courses/dataanalytics/EIE/WhoIsThisContentForEIE.tsx": [
-    "/assets/WhoIsThisContentForEIE-Bmh5ZOWP.js"
+    "/assets/WhoIsThisContentForEIE-0yrihTy_.js"
   ],
   "src/pages/courses/dataanalytics/index.tsx": [
-    "/assets/index-Dyk8kjvJ.js"
+    "/assets/index-BAEJqLAp.js"
   ],
   "src/pages/courses/genAI/GENBYOA.tsx": [
-    "/assets/GENBYOA-CFenN1BI.js"
+    "/assets/GENBYOA-DAZsNfNp.js"
   ],
   "src/pages/courses/genAI/GENFAQ.tsx": [
-    "/assets/GENFAQ-CiiEGeP5.js"
+    "/assets/GENFAQ-BTsvm7mV.js"
   ],
   "src/pages/courses/genAI/GENHero.tsx": [
-    "/assets/GENHero-Czyz5-vY.js"
+    "/assets/GENHero-DQon-zcE.js"
   ],
   "src/pages/courses/genAI/GENIntroduction.tsx": [
-    "/assets/GENIntroduction-DDOhpE7Q.js"
+    "/assets/GENIntroduction-uLL8yaeC.js"
   ],
   "src/pages/courses/genAI/GENLearningJourney.tsx": [
-    "/assets/GENLearningJourney-CejIJZvs.js"
+    "/assets/GENLearningJourney-bVs6MRXQ.js"
   ],
   "src/pages/courses/genAI/GENMarketScope.tsx": [
-    "/assets/GENMarketScope-CmwySbhL.js"
+    "/assets/GENMarketScope-DhVJYl5D.js"
   ],
   "src/pages/courses/genAI/GENMentors.tsx": [
-    "/assets/GENMentors-DT_G8KCJ.js"
+    "/assets/GENMentors-BX0Y_A22.js"
   ],
   "src/pages/courses/genAI/GENPricing.tsx": [
-    "/assets/GENPricing-eA-xF-Gz.js"
+    "/assets/GENPricing-Cii--vmV.js"
   ],
   "src/pages/courses/genAI/GENProjectsAndOutcomes.tsx": [
-    "/assets/GENProjectsAndOutcomes-k5sylTZp.js"
+    "/assets/GENProjectsAndOutcomes-Vitjr6wG.js"
   ],
   "src/pages/courses/genAI/GENToolsYouWillLearn.tsx": [
-    "/assets/GENToolsYouWillLearn-BQjXr6C9.js"
+    "/assets/GENToolsYouWillLearn-AKEWHcbg.js"
   ],
   "src/pages/courses/genAI/GENWhoShouldEnroll.tsx": [
-    "/assets/GENWhoShouldEnroll-CUjqKjLN.js"
+    "/assets/GENWhoShouldEnroll-USR08s0d.js"
   ],
   "src/pages/courses/genAI/GENWhyLearnAI.tsx": [
-    "/assets/GENWhyLearnAI-C15Da9-3.js"
+    "/assets/GENWhyLearnAI-DGtZtGUN.js"
   ],
   "src/pages/courses/genAIAD/GENBYOAAd.tsx": [
-    "/assets/GENBYOAAd-KN9x3AFk.js"
+    "/assets/GENBYOAAd-Cfkf-XOL.js"
   ],
   "src/pages/courses/genAIAD/GENFAQAd.tsx": [
-    "/assets/GENFAQAd-Di75ktkS.js"
+    "/assets/GENFAQAd-CUJGCqJU.js"
   ],
   "src/pages/courses/genAIAD/GENHeroAd.tsx": [
-    "/assets/GENHeroAd-B2-TTVg3.js"
+    "/assets/GENHeroAd-CYpMNFrb.js"
   ],
   "src/pages/courses/genAIAD/GENIntroductionAd.tsx": [
-    "/assets/GENIntroductionAd-Bxo1loTL.js"
+    "/assets/GENIntroductionAd-BMKFTpke.js"
   ],
   "src/pages/courses/genAIAD/GENLearningJourneyAd.tsx": [
-    "/assets/GENLearningJourneyAd-DA_3ZDjQ.js"
+    "/assets/GENLearningJourneyAd-Bl8aR7HG.js"
   ],
   "src/pages/courses/genAIAD/GENMarketScopeAd.tsx": [
-    "/assets/GENMarketScopeAd-CVlZFcMa.js"
+    "/assets/GENMarketScopeAd-C_iDcPb5.js"
   ],
   "src/pages/courses/genAIAD/GENToolsYouWillLearnAd.tsx": [
-    "/assets/GENToolsYouWillLearnAd-CL9vJtcu.js"
+    "/assets/GENToolsYouWillLearnAd-DAwHxxHX.js"
   ],
   "src/pages/courses/genAIAD/GENWhoShouldEnrollAd.tsx": [
-    "/assets/GENWhoShouldEnrollAd--MrCAj-5.js"
+    "/assets/GENWhoShouldEnrollAd-BZOvQiUm.js"
   ],
   "src/pages/courses/productmanagement/EIE/BenefitsGridEIE.tsx": [
-    "/assets/BenefitsGridEIE-nrqzxKsI.js"
+    "/assets/BenefitsGridEIE-DdScKqkt.js"
   ],
   "src/pages/courses/productmanagement/EIE/FAQEIE.tsx": [
-    "/assets/FAQEIE-DxO_ukQO.js"
+    "/assets/FAQEIE-BByyjGaf.js"
   ],
   "src/pages/courses/productmanagement/EIE/LearningJourneyEIE.tsx": [
-    "/assets/LearningJourneyEIE-Cfv5sW_W.js"
+    "/assets/LearningJourneyEIE-rNKKsifw.js"
   ],
   "src/pages/courses/productmanagement/EIE/MentorsEIE.tsx": [
-    "/assets/MentorsEIE-txSqJ3xQ.js"
+    "/assets/MentorsEIE-DlpCC8lQ.js"
   ],
   "src/pages/courses/productmanagement/EIE/PricingEIE.tsx": [
-    "/assets/PricingEIE-CzaPs8Wk.js"
+    "/assets/PricingEIE-DN4KBkIw.js"
   ],
   "src/pages/courses/productmanagement/EIE/ProgamHeroEIE.tsx": [
-    "/assets/ProgamHeroEIE-GEtFpBOA.js"
+    "/assets/ProgamHeroEIE-D9n025RN.js"
   ],
   "src/pages/courses/productmanagement/EIE/ProgramCertificateEIE.tsx": [
-    "/assets/ProgramCertificateEIE-qikzCdML.js"
+    "/assets/ProgramCertificateEIE-BsfIEPmr.js"
   ],
   "src/pages/courses/productmanagement/EIE/ProgramHighlightsEIE.tsx": [
-    "/assets/ProgramHighlightsEIE-BYgGv72P.js"
+    "/assets/ProgramHighlightsEIE-A5-iqt8Z.js"
   ],
   "src/pages/courses/productmanagement/EIE/SkillsAndToolsEIE.tsx": [
-    "/assets/SkillsAndToolsEIE-CrkU64AT.js"
+    "/assets/SkillsAndToolsEIE-DICvEV6j.js"
   ],
   "src/pages/courses/productmanagement/EIE/WeeklyContent.tsx": [
-    "/assets/LearningJourneyEIE-Cfv5sW_W.js"
+    "/assets/LearningJourneyEIE-rNKKsifw.js"
   ],
   "src/pages/events/Events.tsx": [
-    "/assets/Events-cLIxPy5H.js"
+    "/assets/Events-jtCAgunw.js"
   ],
   "src/pages/events/event.tsx": [
-    "/assets/event-BGXDPwXa.js"
+    "/assets/event-BhtBVyoe.js"
   ],
   "src/pages/events/eventForm.tsx": [
-    "/assets/event-BGXDPwXa.js"
+    "/assets/event-BhtBVyoe.js"
   ],
   "src/pages/events/registration-successful.tsx": [
-    "/assets/registration-successful-CTWyf59b.js"
+    "/assets/registration-successful-BcEfQcNC.js"
   ],
   "src/pages/jobs/JobApplication.tsx": [
-    "/assets/JobApplication-D10gHWfE.js"
+    "/assets/JobApplication-DBkp9UKQ.js"
   ],
   "src/pages/jobs/JobCard.tsx": [
-    "/assets/JobList-D8RGX-mb.js"
+    "/assets/JobList-DgTn_2gX.js"
   ],
   "src/pages/jobs/JobDetails.tsx": [
-    "/assets/JobDetails-BPdj80ht.js"
+    "/assets/JobDetails-jRyffVbW.js"
   ],
   "src/pages/jobs/JobList.tsx": [
-    "/assets/JobList-D8RGX-mb.js"
+    "/assets/JobList-DgTn_2gX.js"
   ],
   "src/pages/jobs/MyApplications.tsx": [
-    "/assets/MyApplications-DSiuhS5C.js"
+    "/assets/MyApplications-CdJ2DBBC.js"
   ],
   "src/pages/kuppam/KuppamAnimatedSection.tsx": [
-    "/assets/KuppamCourses-BR34GCBy.js"
+    "/assets/KuppamCourses-rzj-xO9Q.js"
   ],
   "src/pages/kuppam/KuppamEnrollmentModal.tsx": [
-    "/assets/KuppamCourses-BR34GCBy.js"
+    "/assets/KuppamCourses-rzj-xO9Q.js"
   ],
   "src/pages/kuppam/KuppamHeader.tsx": [
-    "/assets/KuppamCourses-BR34GCBy.js"
+    "/assets/KuppamCourses-rzj-xO9Q.js"
   ],
   "src/pages/kuppam/KuppamSecond.tsx": [
-    "/assets/KuppamCourses-BR34GCBy.js"
+    "/assets/KuppamCourses-rzj-xO9Q.js"
   ],
   "src/pages/kuppam/KuppamTopics.tsx": [
-    "/assets/KuppamCourses-BR34GCBy.js"
+    "/assets/KuppamCourses-rzj-xO9Q.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/AIEcosystem.tsx": [
-    "/assets/AIEcosystem-Bs87UyL1.js"
+    "/assets/AIEcosystem-CxahtSiI.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/ProductsSection.tsx": [
-    "/assets/ProductsSection-DqPga6kX.js"
+    "/assets/ProductsSection-BGSJ5bup.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/StatsSection.tsx": [
-    "/assets/WSHeroDASecond-Dc1oCnil.js"
+    "/assets/WSHeroDASecond-BDz1IKQK.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/TradingPlatformSection.tsx": [
-    "/assets/TradingPlatformSection-D_9ZeLxe.js"
+    "/assets/TradingPlatformSection-D1UHaycT.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/WSAboutDASecond.tsx": [
-    "/assets/TradingPlatformSection-D_9ZeLxe.js"
+    "/assets/TradingPlatformSection-D1UHaycT.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/WSHeroDASecond.tsx": [
-    "/assets/WSHeroDASecond-Dc1oCnil.js"
+    "/assets/WSHeroDASecond-BDz1IKQK.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/WSIOSection.tsx": [
-    "/assets/WSIOSection-DGwSl_XT.js"
+    "/assets/WSIOSection-DAT_PdlL.js"
   ],
   "src/pages/landingpage/WorkshopDASecond/WSTestimonialDASecond.tsx": [
-    "/assets/WSTestimonialDASecond-BI_OyDa6.js"
+    "/assets/WSTestimonialDASecond-VPEsLC3o.js"
   ],
   "src/pages/landingpage/workshop/WSAbout.tsx": [
-    "/assets/WSAbout-vdHqcChI.js"
+    "/assets/WSAbout-DSONR7UJ.js"
   ],
   "src/pages/landingpage/workshop/WSForm.tsx": [
-    "/assets/WSHeroGEN-B6k03xzC.js"
+    "/assets/WSHeroGEN-bNC1xdWN.js"
   ],
   "src/pages/landingpage/workshop/WSHero.tsx": [
-    "/assets/WSHero-2nqNQraV.js"
+    "/assets/WSHero-XsqT8K9D.js"
   ],
   "src/pages/landingpage/workshop/WSTestimonial.tsx": [
-    "/assets/WSTestimonial-B3ZNCER6.js"
+    "/assets/WSTestimonial-CLD1dFUW.js"
   ],
   "src/pages/landingpage/workshopAIDM/GENCTAAIDM.tsx": [
-    "/assets/GENCTAAIDM-CJ6oU7Zk.js"
+    "/assets/GENCTAAIDM-BVblZDuo.js"
   ],
   "src/pages/landingpage/workshopAIDM/WSAboutAIDM.tsx": [
-    "/assets/WSAboutAIDM-ZsQhhgAS.js"
+    "/assets/WSAboutAIDM-Db5uc8CN.js"
   ],
   "src/pages/landingpage/workshopAIDM/WSFormFree.tsx": [
-    "/assets/WSHeroAIDM-BVigMpX-.js"
+    "/assets/WSHeroAIDM-DoitW4wi.js"
   ],
   "src/pages/landingpage/workshopAIDM/WSGENIntroductionAIDM.tsx": [
-    "/assets/WSGENIntroductionAIDM-LqU-2sCl.js"
+    "/assets/WSGENIntroductionAIDM-Wr_0wggI.js"
   ],
   "src/pages/landingpage/workshopAIDM/WSGENMentorAIDM.tsx": [
-    "/assets/WSGENMentorAIDM-BM6wVyIV.js"
+    "/assets/WSGENMentorAIDM-DYyYQ5qx.js"
   ],
   "src/pages/landingpage/workshopAIDM/WSGENWhoShouldEnrollAIDM.tsx": [
-    "/assets/WSGENWhoShouldEnrollAIDM-CBCa2-Ky.js"
+    "/assets/WSGENWhoShouldEnrollAIDM-xO5K3wSn.js"
   ],
   "src/pages/landingpage/workshopAIDM/WSHeroAIDM.tsx": [
-    "/assets/WSHeroAIDM-BVigMpX-.js"
+    "/assets/WSHeroAIDM-DoitW4wi.js"
   ],
   "src/pages/landingpage/workshopDM/WSHeroDM.tsx": [
-    "/assets/WSHeroDM-CvZyV4np.js"
+    "/assets/WSHeroDM-DkI7FpCB.js"
   ],
   "src/pages/landingpage/workshopDM/automation-features.tsx": [
-    "/assets/automation-features-m2Orcf6T.js"
+    "/assets/automation-features-DgEzvaLY.js"
   ],
   "src/pages/landingpage/workshopDM/built-for-you.tsx": [
-    "/assets/built-for-you-7QXEO_P5.js"
+    "/assets/built-for-you-BNPECCXi.js"
   ],
   "src/pages/landingpage/workshopDM/hero-section.tsx": [
-    "/assets/hero-section-DjBsEtcL.js"
+    "/assets/hero-section-CUEsxBQu.js"
   ],
   "src/pages/landingpage/workshopDM/lead-engine-cta.tsx": [
-    "/assets/lead-engine-cta-g1gNbEi5.js"
+    "/assets/lead-engine-cta-D_eCL9cl.js"
   ],
   "src/pages/landingpage/workshopDM/tech-stack-section.tsx": [
-    "/assets/tech-stack-section-O-awUQ3n.js"
+    "/assets/tech-stack-section-DBsW8FmG.js"
   ],
   "src/pages/landingpage/workshopDM/workshop-highlights.tsx": [
-    "/assets/workshop-highlights-0Aa0DLTW.js"
+    "/assets/workshop-highlights-CRPT_Pny.js"
   ],
   "src/pages/landingpage/workshopGEN/GENCTA.tsx": [
-    "/assets/GENCTA-B06Ix8Ei.js"
+    "/assets/GENCTA-BM1CmYQD.js"
   ],
   "src/pages/landingpage/workshopGEN/WSAboutGEN.tsx": [
-    "/assets/WSAboutGEN-CAaJJAfa.js"
+    "/assets/WSAboutGEN-DUF6V6k_.js"
   ],
   "src/pages/landingpage/workshopGEN/WSGENIntroduction.tsx": [
-    "/assets/WSGENIntroduction-DUqlkPnF.js"
+    "/assets/WSGENIntroduction-RICVcYsu.js"
   ],
   "src/pages/landingpage/workshopGEN/WSGENMentor.tsx": [
-    "/assets/WSGENMentor-Dh_bbXQN.js"
+    "/assets/WSGENMentor-E4c0h9hO.js"
   ],
   "src/pages/landingpage/workshopGEN/WSGENWhoShouldEnroll.tsx": [
-    "/assets/WSGENWhoShouldEnroll-AQzJ_Vba.js"
+    "/assets/WSGENWhoShouldEnroll-Bw8j3FC4.js"
   ],
   "src/pages/landingpage/workshopGEN/WSHeroGEN.tsx": [
-    "/assets/WSHeroGEN-B6k03xzC.js"
+    "/assets/WSHeroGEN-bNC1xdWN.js"
   ],
   "src/pages/landingpage/workshopGENB/GENCTAB.tsx": [
-    "/assets/GENCTAB-SHYxZPsQ.js"
+    "/assets/GENCTAB-CwWoHAJl.js"
   ],
   "src/pages/landingpage/workshopGENB/WSAboutGENB.tsx": [
-    "/assets/WSAboutGENB-DCrscwbO.js"
+    "/assets/WSAboutGENB-BpliaxKG.js"
   ],
   "src/pages/landingpage/workshopGENB/WSFormFree.tsx": [
-    "/assets/WSFormFree-DN5vAxLo.js"
+    "/assets/WSFormFree-BIwg62BA.js"
   ],
   "src/pages/landingpage/workshopGENB/WSGENIntroductionB.tsx": [
-    "/assets/WSGENIntroductionB-DRTHzP3E.js"
+    "/assets/WSGENIntroductionB-DQXIkKO_.js"
   ],
   "src/pages/landingpage/workshopGENB/WSGENWhoShouldEnrollB.tsx": [
-    "/assets/WSGENWhoShouldEnrollB-B_qOZxkg.js"
+    "/assets/WSGENWhoShouldEnrollB-BoFJa5ZE.js"
   ],
   "src/pages/landingpage/workshopGENB/WSHeroGENB.tsx": [
-    "/assets/WSHeroGENB-B3coWEWp.js"
+    "/assets/WSHeroGENB-Dvo5XUxn.js"
   ],
   "src/pages/landingpage/workshopGENC/GENCTAC.tsx": [
-    "/assets/GENCTAC-BtflzoL3.js"
+    "/assets/GENCTAC-DkYs1tI8.js"
   ],
   "src/pages/landingpage/workshopGENC/WSAboutGENC.tsx": [
-    "/assets/WSAboutGENC-Cg2YUdBB.js"
+    "/assets/WSAboutGENC-Bw1jSy3w.js"
   ],
   "src/pages/landingpage/workshopGENC/WSGENIntroductionC.tsx": [
-    "/assets/WSGENIntroductionC-CNlIycGZ.js"
+    "/assets/WSGENIntroductionC-WQVb6Tup.js"
   ],
   "src/pages/landingpage/workshopGENC/WSGENMentor.tsx": [
-    "/assets/WSGENMentor-BPXblVuV.js"
+    "/assets/WSGENMentor-CR9LIEmN.js"
   ],
   "src/pages/landingpage/workshopGENC/WSGENWhoShouldEnrollC.tsx": [
-    "/assets/WSGENWhoShouldEnrollC-C1f_wvXU.js"
+    "/assets/WSGENWhoShouldEnrollC-OpbjIUc9.js"
   ],
   "src/pages/landingpage/workshopGENC/WSHeroGENC.tsx": [
-    "/assets/WSHeroGENC-BypVMdUf.js"
+    "/assets/WSHeroGENC-C5ckGJ89.js"
   ],
   "src/pages/landingpage/workshopGENC/WSRegistrationSuccess.tsx": [
-    "/assets/WSRegistrationSuccess-B_hMLt0N.js"
+    "/assets/WSRegistrationSuccess-CrdmG9sZ.js"
   ],
   "src/pages/landingpage/workshopGEND/GENCTAD.tsx": [
-    "/assets/GENCTAD-BblC_ltP.js"
+    "/assets/GENCTAD-CpA6gcTP.js"
   ],
   "src/pages/landingpage/workshopGEND/WSAboutGEND.tsx": [
-    "/assets/WSAboutGEND-HujlvlXC.js"
+    "/assets/WSAboutGEND-GclnC8Py.js"
   ],
   "src/pages/landingpage/workshopGEND/WSGENDMentor.tsx": [
-    "/assets/WSGENDMentor-CvlerHD8.js"
+    "/assets/WSGENDMentor-ClPFq0B8.js"
   ],
   "src/pages/landingpage/workshopGEND/WSGENIntroductionD.tsx": [
-    "/assets/WSGENIntroductionD-wMlgpo9m.js"
+    "/assets/WSGENIntroductionD-CqdAjh8v.js"
   ],
   "src/pages/landingpage/workshopGEND/WSGENWhoShouldEnrollD.tsx": [
-    "/assets/WSGENWhoShouldEnrollD-DRYnYrb-.js"
+    "/assets/WSGENWhoShouldEnrollD-Hdzv4fcd.js"
   ],
   "src/pages/landingpage/workshopGEND/WSHeroGEND.tsx": [
-    "/assets/WSHeroGEND-CDAhezfU.js"
+    "/assets/WSHeroGEND-BoGcaeXy.js"
   ],
   "src/pages/landingpage/workshopGEND/WSRegistrationSuccessD.tsx": [
-    "/assets/WSRegistrationSuccessD--BygMFPw.js"
+    "/assets/WSRegistrationSuccessD-qttQgQna.js"
   ],
   "src/pages/landingpage/workshopGENE/GENCTAE.tsx": [
-    "/assets/GENCTAE-Bw6kihDm.js"
+    "/assets/GENCTAE-Cf1zWn2J.js"
   ],
   "src/pages/landingpage/workshopGENE/WSAboutGENE.tsx": [
-    "/assets/WSAboutGENE-Col_xfg_.js"
+    "/assets/WSAboutGENE-egqaEO3X.js"
   ],
   "src/pages/landingpage/workshopGENE/WSFormFree.tsx": [
-    "/assets/WSHeroGENE-CePoTkmj.js"
+    "/assets/WSHeroGENE-DAcKGbMS.js"
   ],
   "src/pages/landingpage/workshopGENE/WSGENIntroductionE.tsx": [
-    "/assets/WSGENIntroductionE-COmkmoLu.js"
+    "/assets/WSGENIntroductionE-ldbpk-9G.js"
   ],
   "src/pages/landingpage/workshopGENE/WSGENWhoShouldEnrollE.tsx": [
-    "/assets/WSGENWhoShouldEnrollE-CHcE1uJ9.js"
+    "/assets/WSGENWhoShouldEnrollE-iZN3X82a.js"
   ],
   "src/pages/landingpage/workshopGENE/WSHeroGENE.tsx": [
-    "/assets/WSHeroGENE-CePoTkmj.js"
+    "/assets/WSHeroGENE-DAcKGbMS.js"
   ],
   "src/pages/landingpage/workshopPM/InsturcteorSection.tsx": [
-    "/assets/WSAboutPM-fNvCKt8q.js"
+    "/assets/WSAboutPM-CCwtL9Ig.js"
   ],
   "src/pages/landingpage/workshopPM/WSAboutPM.tsx": [
-    "/assets/WSAboutPM-fNvCKt8q.js"
+    "/assets/WSAboutPM-CCwtL9Ig.js"
   ],
   "src/pages/landingpage/workshopPM/WSFAQSection.tsx": [
-    "/assets/WSTestimonialPM-H3kHo-SR.js"
+    "/assets/WSTestimonialPM-Kr4WC6Dt.js"
   ],
   "src/pages/landingpage/workshopPM/WSHeroPM.tsx": [
-    "/assets/WSHeroPM-0Rp7BENw.js"
+    "/assets/WSHeroPM-CKvLf1hq.js"
   ],
   "src/pages/landingpage/workshopPM/WSTestimonialPM.tsx": [
-    "/assets/WSTestimonialPM-H3kHo-SR.js"
+    "/assets/WSTestimonialPM-Kr4WC6Dt.js"
   ],
   "src/pages/landingpage/workshopPM/WSTools.tsx": [
-    "/assets/WSAboutPM-fNvCKt8q.js"
+    "/assets/WSAboutPM-CCwtL9Ig.js"
   ],
   "src/pages/landingpage/workshopPM/WhoShouldAttendSection.tsx": [
-    "/assets/WSAboutPM-fNvCKt8q.js"
+    "/assets/WSAboutPM-CCwtL9Ig.js"
   ],
   "src/pages/landingpage/workshopPMB/GENCTAPMB.tsx": [
-    "/assets/GENCTAPMB-DJexzPUI.js"
+    "/assets/GENCTAPMB-DphyK09d.js"
   ],
   "src/pages/landingpage/workshopPMB/WSAboutPMB.tsx": [
-    "/assets/WSAboutPMB-DpRHDR95.js"
+    "/assets/WSAboutPMB-D4FfmkpB.js"
   ],
   "src/pages/landingpage/workshopPMB/WSGENIntroductionPMB.tsx": [
-    "/assets/WSGENIntroductionPMB-4jGXsYAb.js"
+    "/assets/WSGENIntroductionPMB-Giy4fBT_.js"
   ],
   "src/pages/landingpage/workshopPMB/WSGENWhoShouldEnrollPMB.tsx": [
-    "/assets/WSGENWhoShouldEnrollPMB-BwJBqnP1.js"
+    "/assets/WSGENWhoShouldEnrollPMB-U2sU0HuR.js"
   ],
   "src/pages/landingpage/workshopPMB/WSHeroPMB.tsx": [
-    "/assets/WSHeroPMB-CVxCJREq.js"
+    "/assets/WSHeroPMB-DA43E7uX.js"
+  ],
+  "src/pages/profile/components/AddProjectModal.tsx": [
+    "/assets/profileOverview-D-Em4SzE.js"
+  ],
+  "src/pages/profile/components/ProjectManager.tsx": [
+    "/assets/profileOverview-D-Em4SzE.js"
   ],
   "src/pages/profile/profileOverview.tsx": [
-    "/assets/profileOverview-BEX7l9O8.js"
+    "/assets/profileOverview-D-Em4SzE.js"
+  ],
+  "src/pages/project-listing/ProjectCommentThread.tsx": [
+    "/assets/ProjectDetail-BU5Lk7hQ.js"
+  ],
+  "src/pages/project-listing/ProjectDetail.tsx": [
+    "/assets/ProjectDetail-BU5Lk7hQ.js"
+  ],
+  "src/pages/project-listing/ProjectListing.tsx": [
+    "/assets/ProjectListing-C8INK2on.js"
+  ],
+  "src/pages/project-listing/components/FAQ.tsx": [
+    "/assets/ProjectListing-C8INK2on.js"
+  ],
+  "src/pages/project-listing/components/Hero.tsx": [
+    "/assets/ProjectListing-C8INK2on.js"
+  ],
+  "src/pages/project-listing/components/LeaderBoard.tsx": [
+    "/assets/ProjectListing-C8INK2on.js"
+  ],
+  "src/pages/project-listing/components/Listing.tsx": [
+    "/assets/ProjectListing-C8INK2on.js"
+  ],
+  "src/pages/project-listing/components/ProjectCard.tsx": [
+    "/assets/ProjectCard-BH9VAPFw.js"
   ],
   "src/pages/refund/Refund.tsx": [
-    "/assets/Refund-DwGZ8tJD.js"
+    "/assets/Refund-BKS1_W5p.js"
   ],
   "src/pages/workshop-payment/Success.tsx": [
-    "/assets/Success-ClV8tbHu.js"
+    "/assets/Success-CIpa9IId.js"
+  ],
+  "src/pages/year-end/YearEnd.tsx": [
+    "/assets/YearEnd-B58noaS0.js"
+  ],
+  "src/pages/year-end/components/AnimatedOfferButton.tsx": [
+    "/assets/YearEnd-B58noaS0.js"
+  ],
+  "src/pages/year-end/components/FAQSection.tsx": [
+    "/assets/YearEnd-B58noaS0.js"
+  ],
+  "src/pages/year-end/components/ProgramCard.tsx": [
+    "/assets/YearEnd-B58noaS0.js"
+  ],
+  "src/pages/year-end/components/ProgramsSection.tsx": [
+    "/assets/YearEnd-B58noaS0.js"
+  ],
+  "src/pages/year-end/components/YearEndEnrollmentModal.tsx": [
+    "/assets/YearEnd-B58noaS0.js"
   ],
   "src/routes/courseRoutes.tsx": [],
   "src/routes/flyerRoutes.tsx": [],
   "src/routes/mainRoutes.tsx": [],
   "src/routes/profileRoutes.tsx": [
-    "/assets/profileRoutes-CNPqcQ6U.js"
+    "/assets/profileRoutes-CjVtOMtJ.js"
   ],
   "src/routes/utils/registration.ts": [
-    "/assets/registration-DE16O925.js"
+    "/assets/registration-CgYIIUwI.js"
   ],
   "src/routes/utils/routeUtils.ts": [],
   "src/routes/workshopRoutes.tsx": [],
@@ -2382,20 +2450,21 @@
     "/assets/blogService-B44T12q2.js"
   ],
   "src/services/jobApplicationService.ts": [
-    "/assets/JobApplication-D10gHWfE.js"
+    "/assets/JobApplication-DBkp9UKQ.js"
+  ],
+  "src/services/projectService.ts": [
+    "/assets/projectService-BSrepHcG.js"
   ],
   "src/utils/constants.ts": [
-    "/assets/constants-DXOhk-SF.js"
+    "/assets/constants-vy6X4Uhj.js"
   ],
   "src/utils/constants_price.ts": [
     "/assets/constants_price-pJIfbaHl.js"
   ],
   "src/utils/layoutUtils.ts": [],
-  "src/utils/metaPixel.ts": [
-    "/assets/metaPixel-C6Lehd9i.js"
-  ],
+  "src/utils/metaPixel.ts": [],
   "src/utils/metadata.ts": [],
   "src/utils/unifiedTracking.ts": [],
-  "tech-stack-section-O-awUQ3n.js": [],
-  "workshop-highlights-0Aa0DLTW.js": []
+  "tech-stack-section-DBsW8FmG.js": [],
+  "workshop-highlights-CRPT_Pny.js": []
 }

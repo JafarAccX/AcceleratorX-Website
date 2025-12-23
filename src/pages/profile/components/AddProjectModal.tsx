@@ -1,47 +1,76 @@
-import { useState } from 'react';
-import { X } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { X, Upload } from 'lucide-react';
+
+
 import { projectService } from '../../../services/projectService';
+import { Project } from '../../../types/project.types';
 import { toast } from 'react-hot-toast';
 
 interface AddProjectModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSuccess: () => void;
+    project?: Project | null;
 }
 
-export default function AddProjectModal({ isOpen, onClose, onSuccess }: AddProjectModalProps) {
+export default function AddProjectModal({ isOpen, onClose, onSuccess, project }: AddProjectModalProps) {
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
-        Title: '',
-        Description: '',
-        GitHubURL: '',
-        PortfolioURL: '',
-        LiveURL: '',
-        VideoURL: '',
-        IsPublic: true,
-        Images: [] as string[] // For now, just a list of URLs. File upload requires separate handling.
+        Title: project?.Title || '',
+        Description: project?.Description || '',
+        GitHubURL: project?.GitHubURL || '',
+        PortfolioURL: project?.PortfolioURL || '',
+        LiveURL: project?.LiveURL || '',
+        VideoURL: project?.VideoURL || '',
+        IsPublic: project ? project.IsPublic : true,
     });
 
-    const [imageUrlInput, setImageUrlInput] = useState('');
+    const [existingImages, setExistingImages] = useState(project?.Images || []);
+    const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+    const [deletedImageIds, setDeletedImageIds] = useState<string[]>([]);
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
+
+        console.log('=== MODAL SUBMIT ===');
+        console.log('Form Data:', formData);
+        console.log('Existing Images:', existingImages);
+        console.log('Selected Files:', selectedFiles);
+        console.log('Deleted Image IDs:', deletedImageIds);
+
         try {
-            await projectService.createProject(formData);
+            if (project) {
+                await projectService.updateProject(project.Id, formData, selectedFiles, deletedImageIds);
+                toast.success("Project updated successfully");
+            } else {
+                await projectService.createProject(formData, selectedFiles);
+                toast.success("Project created successfully");
+            }
             onSuccess();
         } catch (error) {
-            console.error(error);
-            toast.error("Failed to create project");
+            console.error('Submit error:', error);
+            toast.error(project ? "Failed to update project" : "Failed to create project");
         } finally {
             setLoading(false);
         }
     };
 
-    const addImage = () => {
-        if (!imageUrlInput) return;
-        setFormData(prev => ({ ...prev, Images: [...prev.Images, imageUrlInput] }));
-        setImageUrlInput('');
+
+    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files) {
+            setSelectedFiles(prev => [...prev, ...Array.from(e.target.files!)]);
+        }
+    };
+
+    const removeExistingImage = (id: string, index: number) => {
+        setDeletedImageIds(prev => [...prev, id]);
+        setExistingImages(prev => prev.filter((_, i) => i !== index));
+    };
+
+    const removeNewFile = (index: number) => {
+        setSelectedFiles(prev => prev.filter((_, i) => i !== index));
     };
 
     if (!isOpen) return null;
@@ -50,7 +79,7 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess }: AddProje
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
             <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl animate-fade-in-up">
                 <div className="flex justify-between items-center p-6 border-b border-gray-100">
-                    <h2 className="text-xl font-bold text-gray-900">Add New Project</h2>
+                    <h2 className="text-xl font-bold text-gray-900">{project ? 'Edit Project' : 'Add New Project'}</h2>
                     <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition">
                         <X size={20} />
                     </button>
@@ -143,29 +172,50 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess }: AddProje
 
                     {/* Images */}
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">Project Images (URLs)</label>
-                        <div className="flex gap-2 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Project Images</label>
+
+                        <div
+                            onClick={() => fileInputRef.current?.click()}
+                            className="border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-blue-400 transition cursor-pointer mb-4"
+                        >
                             <input
-                                value={imageUrlInput}
-                                onChange={e => setImageUrlInput(e.target.value)}
-                                className="flex-1 px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 outline-none"
-                                placeholder="Paste image URL..."
+                                type="file"
+                                multiple
+                                accept="image/*"
+                                className="hidden"
+                                ref={fileInputRef}
+                                onChange={handleFileSelect}
                             />
-                            <button type="button" onClick={addImage} className="px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200">
-                                Add
-                            </button>
+                            <Upload className="mb-2" />
+                            <p className="text-sm">Click to upload images</p>
                         </div>
 
                         {/* Image Preview List */}
-                        {formData.Images.length > 0 && (
+                        {(existingImages.length > 0 || selectedFiles.length > 0) && (
                             <div className="grid grid-cols-4 gap-2">
-                                {formData.Images.map((img, idx) => (
-                                    <div key={idx} className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 group">
-                                        <img src={img} alt="" className="w-full h-full object-cover" />
+                                {/* Existing Images */}
+                                {existingImages.map((img, idx) => (
+                                    <div key={`existing-${img.Id}`} className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 group border border-gray-200">
+                                        <img src={img.ImageURL} alt="" className="w-full h-full object-cover" />
                                         <button
                                             type="button"
-                                            onClick={() => setFormData(prev => ({ ...prev, Images: prev.Images.filter((_, i) => i !== idx) }))}
-                                            className="absolute top-1 right-1 bg-black/50 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition"
+                                            onClick={() => removeExistingImage(img.Id, idx)}
+                                            className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition shadow-sm"
+                                        >
+                                            <X size={12} />
+                                        </button>
+                                    </div>
+                                ))}
+
+                                {/* New Files */}
+                                {selectedFiles.map((file, idx) => (
+                                    <div key={`new-${idx}`} className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 group border border-blue-200">
+                                        <img src={URL.createObjectURL(file)} alt="" className="w-full h-full object-cover" />
+                                        <div className="absolute inset-0 bg-blue-500/10 pointer-events-none"></div>
+                                        <button
+                                            type="button"
+                                            onClick={() => removeNewFile(idx)}
+                                            className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition shadow-sm"
                                         >
                                             <X size={12} />
                                         </button>
@@ -185,7 +235,7 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess }: AddProje
                             disabled={loading}
                             className="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200 disabled:opacity-50"
                         >
-                            {loading ? 'Creating...' : 'Create Project'}
+                            {loading ? (project ? 'Updating...' : 'Creating...') : (project ? 'Update Project' : 'Create Project')}
                         </button>
                     </div>
 

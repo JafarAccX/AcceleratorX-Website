@@ -64,6 +64,23 @@ export const useDeleteUser = () => {
     });
 };
 
+// Upload profile picture
+export const useUploadProfilePicture = () => {
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: ({ custId, file }: { custId: string; file: File }) =>
+            customersApi.uploadProfilePicture(custId, file),
+        onSuccess: (data, variables) => {
+            toast.success("Profile picture updated!");
+            queryClient.invalidateQueries({ queryKey: ['user', variables.custId] });
+        },
+        onError: (error: any) => {
+            toast.error(error?.response?.data?.message || "Failed to upload profile picture.");
+        }
+    });
+};
+
 // React Query Hooks for Job Applications
 
 // Apply for a job

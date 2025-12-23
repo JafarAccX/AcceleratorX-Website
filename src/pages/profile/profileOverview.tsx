@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+// import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
-import { useUpdateUser } from "../../hooks/customer";
+import { useUpdateUser, useUploadProfilePicture } from "../../hooks/customer";
 import {
-  User, Mail, Phone, MapPin, Globe, Award, Facebook, Twitter, Instagram, Linkedin,
+  User, Mail, Phone, Globe, Award, Linkedin,
   Github, Plus, Save, Camera, Calendar, Briefcase, DollarSign, Clock, BookOpen, GraduationCap
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Customer } from "../../types/customer";
 // Project Components
 import ProjectManager from "./components/ProjectManager";
 
 export default function ProfileOverview() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { user, logout } = useUser();
   const { mutateAsync: UpdateUser } = useUpdateUser();
+  const { mutateAsync: uploadPicture, isPending: isUploadingPicture } = useUploadProfilePicture();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [activeTab, setActiveTab] = useState<'profile' | 'projects' | 'activity'>('profile');
   const [isLoading, setIsLoading] = useState(false);
@@ -28,6 +29,21 @@ export default function ProfileOverview() {
       setFormData({ ...user });
     }
   }, [user]);
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && user) {
+      try {
+        await uploadPicture({ custId: user.CustId, file });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
+
+  const handleCameraClick = () => {
+    fileInputRef.current?.click();
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -66,12 +82,6 @@ export default function ProfileOverview() {
 
   const saveSkills = async (skillsString: string) => {
     try {
-      // Construct minimal payload if possible, but existing UpdateUser might need more.
-      // However, based on our controller fix, we can technically send partials if other fields rely on COALESCE.
-      // Yet, frontend hook usually expects full "UpdateCustomerPayload".
-      // Let's reuse handleSaveProfile logic but only for skills? 
-      // Re-using the full payload construction from handleSaveProfile is safest to avoid accidental nulls if we missed any COALESCE.
-      // But to be quick and clean, I will just call the same payload construction logic.
 
       const payload = {
         firstName: formData.FirstName || "",
@@ -92,15 +102,10 @@ export default function ProfileOverview() {
         expectedSalary: formData.ExpectedSalary ? Number(formData.ExpectedSalary) : undefined,
         noticePeriod: formData.NoticePeriod ? Number(formData.NoticePeriod) : undefined,
 
-        skills: skillsString // The only changed field we care about here
+        skills: skillsString
       };
 
-      // Wait, formData in closure might be stale if we just updated it.
-      // But we are passing `skillsString` explicitly.
-      // Other fields from `formData` are current state.
-
       await UpdateUser({ custId: user?.CustId || '', userData: payload });
-      // toast.success("Skills updated");
     } catch (err) {
       console.error("Failed to save skills", err);
     }
@@ -135,7 +140,6 @@ export default function ProfileOverview() {
       };
 
       await UpdateUser({ custId: user.CustId, userData: payload });
-      // Ideally toast success
     } catch (error) {
       console.error("Failed to update profile", error);
     } finally {
@@ -163,9 +167,20 @@ export default function ProfileOverview() {
                   </div>
                 )}
               </div>
-              <button className="absolute bottom-0 right-0 bg-white p-2 rounded-full shadow-md text-gray-600 hover:text-blue-600 transition">
+              <button
+                onClick={handleCameraClick}
+                disabled={isUploadingPicture}
+                className="absolute bottom-0 right-0 bg-white p-2 rounded-full shadow-md text-gray-600 hover:text-blue-600 transition disabled:opacity-50"
+              >
                 <Camera size={16} />
               </button>
+              <input
+                type="file"
+                ref={fileInputRef}
+                className="hidden"
+                accept="image/*"
+                onChange={handleFileChange}
+              />
             </div>
 
             <h2 className="text-xl font-bold text-gray-900">{formData.FirstName} {formData.LastName}</h2>

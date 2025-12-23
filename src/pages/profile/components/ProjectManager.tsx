@@ -31,25 +31,43 @@ export default function ProjectManager() {
 
     const handleProjectAdded = () => {
         setIsModalOpen(false);
+        setSelectedProject(null);
         fetchMyProjects();
-        toast.success("Project created successfully!");
+    };
+
+    const handleEdit = (project: Project) => {
+        setSelectedProject(project);
+        setIsModalOpen(true);
+    };
+
+    const handleToggleVisibility = async (project: Project) => {
+        try {
+            console.log('Toggling visibility for project:', project.Id);
+            const res = await projectService.toggleVisibility(project.Id);
+            console.log('Toggle response:', res);
+            if (res.success && res.data) {
+                toast.success(`Project is now ${res.data.IsPublic ? 'Public' : 'Private'}`);
+                // Optimistic update
+                setProjects(projects.map(p =>
+                    p.Id === project.Id ? { ...p, IsPublic: res.data!.IsPublic } : p
+                ));
+            }
+        } catch (error: any) {
+            console.error('Toggle visibility error:', error);
+            console.error('Error response:', error.response?.data);
+            toast.error(error.response?.data?.message || "Failed to toggle visibility");
+        }
     };
 
     const handleDelete = async (id: string) => {
         if (!confirm("Are you sure you want to delete this project?")) return;
         try {
-            // Need to implement deleteProject in service
-            // Assuming exists or adding it now.
-            // projectService.deleteProject(id)
-            // For now, let's assume it exists or I'll add inline logic if needed logic is simple.
-            // But better to use service.
-            // Wait, I didn't add deleteProject to frontend service yet.
-            // I'll add it in next step if needed, or assume it's there. 
-            // Actually I did NOT add deleteProject in step 112/162. I added create, like, unlike, comment.
-            // I will skip delete functionality for this immediate step or add it to service. 
-            toast.error("Delete function not yet connected to UI");
+            await projectService.deleteProject(id);
+            toast.success("Project deleted successfully");
+            setProjects(projects.filter(p => p.Id !== id));
         } catch (e) {
-            toast.error("Failed to delete");
+            console.error(e);
+            toast.error("Failed to delete project");
         }
     };
 
@@ -62,7 +80,7 @@ export default function ProjectManager() {
                     <p className="text-sm text-gray-500">Showcase your work to the world.</p>
                 </div>
                 <button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => { setSelectedProject(null); setIsModalOpen(true); }}
                     className="bg-blue-600 text-white px-4 py-2 rounded-xl flex items-center gap-2 font-medium hover:bg-blue-700 transition"
                 >
                     <Plus size={18} />
@@ -76,7 +94,7 @@ export default function ProjectManager() {
             ) : projects.length === 0 ? (
                 <div className="text-center py-12 bg-gray-50 rounded-2xl border border-dashed border-gray-300">
                     <p className="text-gray-500 mb-4">You haven't added any projects yet.</p>
-                    <button onClick={() => setIsModalOpen(true)} className="text-blue-600 font-medium hover:underline">
+                    <button onClick={() => { setSelectedProject(null); setIsModalOpen(true); }} className="text-blue-600 font-medium hover:underline">
                         Create your first project
                     </button>
                 </div>
@@ -109,6 +127,13 @@ export default function ProjectManager() {
                                 <a href={`/projects/${project.Id}`} target="_blank" className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition" title="View">
                                     <Eye size={18} />
                                 </a>
+                                <button
+                                    onClick={() => handleEdit(project)}
+                                    className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                                    title="Edit"
+                                >
+                                    <Edit3 size={18} />
+                                </button>
                                 <button onClick={() => handleDelete(project.Id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition" title="Delete">
                                     <Trash2 size={18} />
                                 </button>
@@ -124,6 +149,7 @@ export default function ProjectManager() {
                     isOpen={isModalOpen}
                     onClose={() => setIsModalOpen(false)}
                     onSuccess={handleProjectAdded}
+                    project={selectedProject}
                 />
             )}
         </div>
