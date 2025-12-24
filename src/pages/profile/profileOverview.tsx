@@ -87,13 +87,13 @@ export default function ProfileOverview() {
         firstName: formData.FirstName || "",
         middleName: formData.MiddleName || "",
         lastName: formData.LastName || "",
-        mobile: formData.Mobile,
+        // mobile: formData.Mobile, // Mobile cannot be updated via this endpoint
         email: formData.Email || undefined,
         designation: formData.Designation || "",
-        currentCompany: formData.CurrentCompany,
-        linkedinUrl: formData.LinkedinUrl,
-        githubUrl: formData.GithubUrl,
-        portfolio: formData.Portfolio,
+        currentCompany: formData.CurrentCompany || undefined,
+        linkedinUrl: formData.LinkedinUrl || undefined,
+        githubUrl: formData.GithubUrl || undefined,
+        portfolio: formData.Portfolio || undefined,
         dob: formData.DOB || undefined,
         gender: formData.Gender || undefined,
         education: formData.Education,
@@ -116,17 +116,17 @@ export default function ProfileOverview() {
     setIsLoading(true);
     try {
       const payload = {
-        firstName: formData.FirstName,
-        middleName: formData.MiddleName,
-        lastName: formData.LastName,
-        mobile: formData.Mobile,
+        firstName: formData.FirstName || "",
+        middleName: formData.MiddleName || "",
+        lastName: formData.LastName || "",
+        // mobile: formData.Mobile, // Mobile cannot be updated via this endpoint
         email: formData.Email || undefined,
-        designation: formData.Designation,
-        currentCompany: formData.CurrentCompany,
+        designation: formData.Designation || "",
+        currentCompany: formData.CurrentCompany || undefined,
 
-        linkedinUrl: formData.LinkedinUrl,
-        githubUrl: formData.GithubUrl,
-        portfolio: formData.Portfolio,
+        linkedinUrl: formData.LinkedinUrl || undefined,
+        githubUrl: formData.GithubUrl || undefined,
+        portfolio: formData.Portfolio || undefined,
 
         dob: formData.DOB || undefined,
         gender: formData.Gender || undefined,
