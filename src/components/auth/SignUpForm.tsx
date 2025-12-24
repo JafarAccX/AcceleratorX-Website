@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 // import { useGetUserByMobile } from "../../hooks/customer";
 import { useUser } from "../../context/UserContext";
@@ -16,6 +16,7 @@ const FloatingShape = ({ size = "w-20 h-20", position = "top-10 left-10" }) => (
 );
 export const SignUpForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, login } = useUser();
   const [formState, setFormState] = useState<Partial<CreateCustomerPayload>>({
     callingCode: "+91",
@@ -122,7 +123,9 @@ export const SignUpForm = () => {
         const { user, accessToken } = response.data;
         login({ user, accessToken });
         toast.success("Registration successful! Welcome.");
-        navigate("/profile");
+        // Check for redirect path in location state
+        const from = location.state?.from?.pathname || "/profile";
+        navigate(from, { replace: true });
       } else {
         throw new Error(
           response.data.message || "Registration failed. Please try again."
@@ -358,6 +361,7 @@ export const SignUpForm = () => {
                 Already have an account?{" "}
                 <Link
                   to="/sign-in"
+                  state={{ from: location.state?.from }}
                   className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200 underline decoration-2 underline-offset-4 hover:decoration-blue-600"
                 >
                   Sign In

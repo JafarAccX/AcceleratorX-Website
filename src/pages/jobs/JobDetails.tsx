@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { Building2, MapPin, Briefcase, Clock, ChevronLeft, X, ExternalLink, Globe } from "lucide-react";
 import { useGetJobById } from "../../hooks/jobs";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import ReactMarkdown from "react-markdown";
 export default function JobDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const [showApplying, setShowApplying] = useState(false);
   const { user } = useUser();
   const applyForJobMutation = useApplyForJob();
@@ -20,7 +21,7 @@ export default function JobDetails() {
   const handleApplyClick = async () => {
     if (!user?.CustId || !id) {
       toast.error("Sign-Up to Apply");
-      navigate("/sign-up");
+      navigate("/sign-up", { state: { from: location } });
       return;
     }
 
@@ -148,8 +149,8 @@ export default function JobDetails() {
 
   const skills = job.RequiredSkills
     ? job.RequiredSkills.split(",")
-        .map((skill) => skill.trim())
-        .filter(Boolean)
+      .map((skill) => skill.trim())
+      .filter(Boolean)
     : extractSkillsFromDescription(job.JobDescription);
 
   return (
@@ -195,11 +196,10 @@ export default function JobDetails() {
             <div className="flex gap-4 justify-end">
               <button
                 onClick={handleApplyClick}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition ${
-                  job.EasyApply
-                    ? "bg-blue-600 hover:bg-blue-700 text-white"
-                    : "bg-orange-600 hover:bg-orange-700 text-white"
-                }`}
+                className={`px-4 py-2 text-sm font-medium rounded-md transition ${job.EasyApply
+                  ? "bg-blue-600 hover:bg-blue-700 text-white"
+                  : "bg-orange-600 hover:bg-orange-700 text-white"
+                  }`}
               >
                 {job.EasyApply ? "Proceed" : "Apply on Company Site"}
               </button>
@@ -259,9 +259,8 @@ export default function JobDetails() {
 
               <div className="flex flex-col items-end gap-2">
                 <span
-                  className={`px-4 py-2 rounded-full text-sm font-medium ${
-                    job.Active && !job.Deleted ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
-                  }`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium ${job.Active && !job.Deleted ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                    }`}
                 >
                   {job.Active && !job.Deleted ? "Active" : "Closed"}
                 </span>
@@ -345,19 +344,18 @@ export default function JobDetails() {
             <button
               onClick={() => setShowApplying(true)}
               disabled={job.Deleted || !job.Active}
-              className={`w-full sm:w-auto px-8 py-3 text-lg font-medium rounded-lg transition ${
-                job.Deleted || !job.Active
-                  ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-                  : job.EasyApply
+              className={`w-full sm:w-auto px-8 py-3 text-lg font-medium rounded-lg transition ${job.Deleted || !job.Active
+                ? "bg-gray-600 text-gray-400 cursor-not-allowed"
+                : job.EasyApply
                   ? "bg-blue-600 hover:bg-blue-700 text-white"
                   : "bg-orange-600 hover:bg-orange-700 text-white"
-              }`}
+                }`}
             >
               {job.Deleted || !job.Active
                 ? "Position No Longer Available"
                 : job.EasyApply
-                ? "Apply for this Position"
-                : "Apply on Company Site"}
+                  ? "Apply for this Position"
+                  : "Apply on Company Site"}
             </button>
 
             {!job.EasyApply && job.JobApplyURL && (

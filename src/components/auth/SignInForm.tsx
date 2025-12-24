@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useUser } from "../../context/UserContext";
 import { api } from "../../api";
@@ -24,6 +24,7 @@ interface ApiError {
 
 export function SignInForm({ onSuccess }: SignInFormProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useUser();
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
@@ -94,7 +95,9 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
         if (onSuccess) {
           onSuccess();
         } else {
-          navigate("/");
+          // Check for redirect path in location state
+          const from = location.state?.from?.pathname || "/";
+          navigate(from, { replace: true });
         }
       } else {
         toast.error(response.data.message || "Invalid OTP");
@@ -251,6 +254,19 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                 </div>
               </div>
             )}
+            {/* Sign up link */}
+            <div className="text-center pt-4 border-t border-gray-200">
+              <p className="text-gray-600">
+                Don't have an account?{" "}
+                <Link
+                  to="/sign-up"
+                  state={{ from: location.state?.from }}
+                  className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200 underline decoration-2 underline-offset-4 hover:decoration-blue-600"
+                >
+                  Sign Up
+                </Link>
+              </p>
+            </div>
           </div>
 
           {/* Additional decorative elements */}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectService } from '../../services/projectService';
 import { Share2, Heart, MessageCircle, Github, ExternalLink, Globe, Send, UserPlus, MessageSquare } from 'lucide-react';
@@ -12,6 +12,7 @@ import ProjectCard from './components/ProjectCard';
 const ProjectDetail = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
+    const location = useLocation();
     const { isAuthenticated } = useUser();
     const [project, setProject] = useState<Project | null>(null);
     const [comments, setComments] = useState<ProjectComment[]>([]);
@@ -83,7 +84,7 @@ const ProjectDetail = () => {
     const handleLike = async () => {
         if (!isAuthenticated) {
             toast.error('Please sign in to like this project');
-            navigate('/sign-in');
+            navigate('/sign-in', { state: { from: location } });
             return;
         }
 
@@ -121,7 +122,7 @@ const ProjectDetail = () => {
         e.preventDefault();
         if (!isAuthenticated) {
             toast.error('Please sign in to comment');
-            navigate('/sign-in');
+            navigate('/sign-in', { state: { from: location } });
             return;
         }
 
@@ -163,7 +164,7 @@ const ProjectDetail = () => {
         e.preventDefault();
         if (!isAuthenticated) {
             toast.error('Please sign in to reply');
-            navigate('/sign-in');
+            navigate('/sign-in', { state: { from: location } });
             return;
         }
 
@@ -408,7 +409,7 @@ const ProjectDetail = () => {
                                 </form>
                             ) : (
                                 <div className="p-4 bg-blue-50/50 rounded-xl border border-blue-100 text-center mb-8">
-                                    <Link to="/sign-in" className="text-blue-600 font-bold hover:underline">Sign in</Link> to join the discussion.
+                                    <Link to="/sign-in" state={{ from: location }} className="text-blue-600 font-bold hover:underline">Sign in</Link> to join the discussion.
                                 </div>
                             )}
 

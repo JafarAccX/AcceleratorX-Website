@@ -1,8 +1,10 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 
 export const ProtectedRoute = () => {
   const { isAuthenticated, isLoading } = useUser();
+
+  const location = useLocation();
 
   if (isLoading) {
     // Render a loading spinner while checking auth status
@@ -16,7 +18,7 @@ export const ProtectedRoute = () => {
   // Check if user is not authenticated
   if (!isAuthenticated) {
     // Redirect to register page if not authenticated
-    return <Navigate to="/sign-in" replace />;
+    return <Navigate to="/sign-in" state={{ from: location }} replace />;
   }
 
   // If authenticated, render the nested child routes
