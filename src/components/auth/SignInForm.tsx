@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { Edit2 } from "lucide-react";
 import { useUser } from "../../context/UserContext";
 import { api } from "../../api";
 import { AxiosError } from "axios";
@@ -74,8 +75,9 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     }
   };
 
-  const handleVerifyOTP = async () => {
-    if (!otp || otp.length !== 6) {
+  const handleVerifyOTP = async (code?: string) => {
+    const otpToVerify = code || otp;
+    if (!otpToVerify || otpToVerify.length !== 6) {
       toast.error("Please enter a valid 6-digit OTP");
       return;
     }
@@ -84,7 +86,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
     try {
       const response = await api.post("/auth/verify-otp", {
         phoneNumber: phone,
-        otpCode: otp,
+        otpCode: otpToVerify,
       });
 
       if (response.data.success) {
@@ -202,9 +204,21 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
             ) : (
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="otp" className="text-sm font-semibold text-gray-700 block">
-                    Verification Code
-                  </label>
+                  <div className="flex items-center justify-between mb-2">
+                    <label htmlFor="otp" className="text-sm font-semibold text-gray-700 block">
+                      Verification Code
+                    </label>
+                    <button
+                      onClick={() => {
+                        setShowOTP(false);
+                        setOtp("");
+                      }}
+                      className="text-xs flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                    >
+                      <span>{phone}</span>
+                      <Edit2 className="w-3 h-3" />
+                    </button>
+                  </div>
                   <div className="relative group">
                     <div className={`absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl transition-opacity duration-300 ${otpFocused ? 'opacity-100' : 'opacity-0'
                       }`} style={{ padding: '2px' }}>
@@ -219,7 +233,15 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                       className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400 text-center text-lg tracking-widest"
                       placeholder="000000"
                       value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        if (/^\d*$/.test(val)) {
+                          setOtp(val);
+                          if (val.length === 6) {
+                            handleVerifyOTP(val);
+                          }
+                        }
+                      }}
                       onFocus={() => setOtpFocused(true)}
                       onBlur={() => setOtpFocused(false)}
                     />
@@ -227,7 +249,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                 </div>
 
                 <button
-                  onClick={handleVerifyOTP}
+                  onClick={() => handleVerifyOTP()}
                   disabled={isProcessing}
                   className="w-full relative overflow-hidden py-4 px-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                 >
