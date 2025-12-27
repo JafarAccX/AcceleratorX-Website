@@ -214,7 +214,7 @@ export default function ProfileOverview() {
               {[
                 { id: 'profile', label: 'Profile Settings', icon: User },
                 { id: 'projects', label: 'My Projects', icon: Award },
-                { id: 'billing', label: 'Billing', icon: DollarSignIcon },
+                // { id: 'billing', label: 'Billing', icon: DollarSignIcon },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -440,5 +440,5 @@ const InputGroup = ({ label, name, value, onChange, icon: Icon, type = "text", d
 );
 
 // Placeholder Icons
-const DollarSignIcon = ({ size, className }: any) => <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>;
+// const DollarSignIcon = ({ size, className }: any) => <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>;
 const LogOutIcon = ({ size, className }: any) => <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>;
