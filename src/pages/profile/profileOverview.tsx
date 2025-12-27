@@ -96,6 +96,7 @@ export default function ProfileOverview() {
         portfolio: formData.Portfolio || undefined,
         dob: formData.DOB || undefined,
         gender: formData.Gender || undefined,
+        profilePicture: formData.ProfilePicture || undefined,
         education: formData.Education,
         yearOfPassing: formData.YearOfPassing,
         yearOfExperience: formData.YearOfExperience ? Number(formData.YearOfExperience) : undefined,
@@ -130,6 +131,7 @@ export default function ProfileOverview() {
 
         dob: formData.DOB || undefined,
         gender: formData.Gender || undefined,
+        profilePicture: formData.ProfilePicture || undefined,
 
         education: formData.Education,
         yearOfPassing: formData.YearOfPassing,
@@ -159,11 +161,11 @@ export default function ProfileOverview() {
           <div className="bg-white rounded-3xl shadow-sm p-6 text-center border border-gray-100">
             <div className="relative inline-block mb-4 group">
               <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mx-auto ring-4 ring-white shadow-lg">
-                {formData.ProfilePicture ? (
-                  <img src={formData.ProfilePicture} alt="Profile" className="w-full h-full object-cover" />
+                {user.ProfilePicture ? (
+                  <img src={user.ProfilePicture} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-blue-600 text-white text-3xl font-bold">
-                    {formData.FirstName?.[0]}{formData.LastName?.[0]}
+                    {user.FirstName?.[0]}{user.LastName?.[0]}
                   </div>
                 )}
               </div>
@@ -183,15 +185,18 @@ export default function ProfileOverview() {
               />
             </div>
 
-            <h2 className="text-xl font-bold text-gray-900">{formData.FirstName} {formData.LastName}</h2>
-            <p className="text-gray-500 text-sm mb-4">{formData.Designation || "Designation not set"}</p>
-            <p className="text-gray-400 text-xs mb-6">{formData.CurrentCompany || "Company not set"}</p>
+            <h2 className="text-xl font-bold text-gray-900">{user.FirstName} {user.LastName}</h2>
+            <p className="text-gray-500 text-sm mb-4">{user.Designation || "Designation not set"}</p>
+            <p className="text-gray-400 text-xs mb-6">{user.CurrentCompany || "Company not set"}</p>
 
             <div className="flex justify-center gap-4 mb-6">
               <button className="flex-1 bg-blue-600 text-white py-2 rounded-xl font-medium shadow-blue-200 shadow-lg hover:bg-blue-700 transition">
                 Share
               </button>
-              <button className="flex-1 bg-gray-100 text-gray-700 py-2 rounded-xl font-medium hover:bg-gray-200 transition">
+              <button
+                onClick={() => window.open(`/u/${user.CustId}`, '_blank')}
+                className="flex-1 bg-gray-100 text-gray-700 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
+              >
                 View Public
               </button>
             </div>
@@ -201,10 +206,7 @@ export default function ProfileOverview() {
                 <div className="text-xl font-bold text-gray-900">0</div>
                 <div className="text-xs text-gray-500 uppercase tracking-wide">Projects</div>
               </div>
-              <div>
-                <div className="text-xl font-bold text-gray-900">0</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wide">Likes</div>
-              </div>
+
             </div>
           </div>
 

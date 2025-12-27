@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { X, Upload } from 'lucide-react';
 
 
@@ -30,6 +30,23 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess, project }:
     const [deletedImageIds, setDeletedImageIds] = useState<string[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
+    useEffect(() => {
+        if (isOpen) {
+            setFormData({
+                Title: project?.Title || '',
+                Description: project?.Description || '',
+                GitHubURL: project?.GitHubURL || '',
+                PortfolioURL: project?.PortfolioURL || '',
+                LiveURL: project?.LiveURL || '',
+                VideoURL: project?.VideoURL || '',
+                IsPublic: project ? project.IsPublic : true,
+            });
+            setExistingImages(project?.Images || []);
+            setSelectedFiles([]);
+            setDeletedImageIds([]);
+        }
+    }, [isOpen, project]);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
@@ -39,6 +56,20 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess, project }:
         console.log('Existing Images:', existingImages);
         console.log('Selected Files:', selectedFiles);
         console.log('Deleted Image IDs:', deletedImageIds);
+
+        const totalImages = existingImages.length + selectedFiles.length;
+
+        if (totalImages === 0) {
+            toast.error("At least one image is required");
+            setLoading(false);
+            return;
+        }
+
+        if (totalImages > 3) {
+            toast.error("Maximum 3 images allowed");
+            setLoading(false);
+            return;
+        }
 
         try {
             if (project) {
@@ -60,7 +91,15 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess, project }:
 
     const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
-            setSelectedFiles(prev => [...prev, ...Array.from(e.target.files!)]);
+            const newFiles = Array.from(e.target.files);
+            const currentTotal = existingImages.length + selectedFiles.length;
+
+            if (currentTotal + newFiles.length > 3) {
+                toast.error(`You can only upload up to 3 images. You currently have ${currentTotal}.`);
+                return;
+            }
+
+            setSelectedFiles(prev => [...prev, ...newFiles]);
         }
     };
 
@@ -170,13 +209,24 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess, project }:
                         </label>
                     </div>
 
-                    {/* Images */}
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">Project Images</label>
+                        <div className="flex justify-between items-center mb-2">
+                            <label className="block text-sm font-semibold text-gray-700">Project Images <span className="text-red-500">*</span></label>
+                            <span className="text-xs text-gray-500">Max 3 images</span>
+                        </div>
 
                         <div
-                            onClick={() => fileInputRef.current?.click()}
-                            className="border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-blue-400 transition cursor-pointer mb-4"
+                            onClick={() => {
+                                if (existingImages.length + selectedFiles.length >= 3) {
+                                    toast.error("Maximum 3 images limit reached");
+                                    return;
+                                }
+                                fileInputRef.current?.click();
+                            }}
+                            className={`border-2 border-dashed rounded-xl p-6 flex flex-col items-center justify-center transition cursor-pointer mb-4 ${existingImages.length + selectedFiles.length >= 3
+                                ? 'border-gray-200 bg-gray-50 opacity-50 cursor-not-allowed'
+                                : 'border-gray-300 hover:bg-gray-50 hover:border-blue-400'
+                                }`}
                         >
                             <input
                                 type="file"
@@ -185,9 +235,14 @@ export default function AddProjectModal({ isOpen, onClose, onSuccess, project }:
                                 className="hidden"
                                 ref={fileInputRef}
                                 onChange={handleFileSelect}
+                                disabled={existingImages.length + selectedFiles.length >= 3}
                             />
-                            <Upload className="mb-2" />
-                            <p className="text-sm">Click to upload images</p>
+                            <Upload className={`mb-2 ${existingImages.length + selectedFiles.length >= 3 ? 'text-gray-400' : ''}`} />
+                            <p className="text-sm">
+                                {existingImages.length + selectedFiles.length >= 3
+                                    ? 'Maximum limit reached'
+                                    : 'Click to upload images'}
+                            </p>
                         </div>
 
                         {/* Image Preview List */}

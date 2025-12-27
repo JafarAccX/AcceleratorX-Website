@@ -13,7 +13,7 @@ const ProjectDetail = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const location = useLocation();
-    const { isAuthenticated } = useUser();
+    const { isAuthenticated, user } = useUser();
     const [project, setProject] = useState<Project | null>(null);
     const [comments, setComments] = useState<ProjectComment[]>([]);
     const [otherProjects, setOtherProjects] = useState<Project[]>([]);
@@ -235,6 +235,27 @@ const ProjectDetail = () => {
                     <h2 className="text-2xl font-bold text-gray-800 mb-4">Project not found</h2>
                     <button onClick={() => navigate('/projects')} className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors">
                         Back to Projects
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    // Privacy Check
+    // If project is NOT public AND (user is not authenticated OR user is not the owner)
+    // Note: user.CustId is string, project.Owner.CustId is number. Comparing as strings or numbers.
+    const isOwner = user && project.Owner && String(user.CustId) === String(project.Owner.CustId);
+    if (!project.IsPublic && !isOwner) {
+        return (
+            <div className="min-h-screen bg-[#F0F4F8] flex items-center justify-center text-center">
+                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 max-w-md mx-4">
+                    <div className="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-2">Private Project</h2>
+                    <p className="text-gray-500 mb-6">This project is private and is not available for public view.</p>
+                    <button onClick={() => navigate('/projects')} className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors w-full">
+                        Browse Public Projects
                     </button>
                 </div>
             </div>

@@ -11,6 +11,7 @@ import { useCourseContext } from "../context/courseContext";
 
 // Lazy-loaded routes and pages
 const ProfileRoutes = lazy(() => import("../routes/profileRoutes").then(m => ({ default: m.ProfileRoutes })));
+const PublicProfile = lazy(() => import("../pages/profile/PublicProfile"));
 const SignUpForm = lazy(() => import("./auth/SignUpForm"));
 const SignInForm = lazy(() => import("./auth/SignInForm").then(m => ({ default: m.SignInForm })));
 const JobApplication = lazy(() => import("../pages/jobs/JobApplication"));
@@ -48,6 +49,9 @@ export const AppRoutes = () => {
             {/* Public Project Routes */}
             <Route key="projects" path="/projects" element={<ProjectListing />} />
             <Route key="project-detail" path="/projects/:id" element={<ProjectDetail />} />
+
+            {/* Public User Profile */}
+            <Route key="public-profile" path="/u/:custId" element={<PublicProfile />} />
 
             {/* Protected Routes */}
             <Route key="protected" element={<ProtectedRoute />}>
