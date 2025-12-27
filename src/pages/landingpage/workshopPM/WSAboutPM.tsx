@@ -1,353 +1,232 @@
-import React from "react";
-import { FaCheck } from "react-icons/fa";
-import { Star, Award, Target, Sparkles, ArrowRight, UserIcon, PenTool, CheckCircle, BarChart } from "lucide-react";
-import { FaUser, FaCertificate } from "react-icons/fa";
+import { AlertTriangle, ArrowRight, HelpCircle, Lightbulb, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
+import { Plug } from "lucide-react";
+import InstructorSection from "./InsturcteorSection";
+import WhoShouldAttendSection from "./WhoShouldAttendSection";
+import WSTools from "./WSTools";
 
 const WSAboutPM = () => {
-
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
       console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
-  const instructorDetails = {
-    name: "Ravi Ahlawat",
-    title: "Senior PM, Paytm",
+
+  const steps = [
+    {
+      id: 1,
+      title: "AI Product Execution Using Gemini, Claude & Cursor",
+      description: "How to go from 'idea' to a functional prototype in 60 minutes.",
+      icon: Lightbulb,
+      reverse: false,
+    },
+    {
+      id: 2,
+      title: "Designing AI Workflows",
+      description: "Prompt chains, multi-agent flows, system prompts, context design, and real integrations.",
+      icon: Rocket,
+      reverse: true,
+    },
+    {
+      id: 3,
+      title: "Using Claude & Cursor for Rapid Prototyping",
+      description: "Build mini-apps, automations, APIs, and workflows without waiting on dev teams.",
+      icon: Plug,
+      reverse: false,
+    },
+    {
+      id: 4,
+      title: "Building AI Features into Real Products",
+      description: "Connect AI models with platforms like Airtable, Slack, HubSpot, Gmail, and more.",
+      icon: AlertTriangle,
+      reverse: false,
+    },
+    {
+      id: 5,
+      title: "Deploying & Testing AI Systems",
+      description: "Run real scenarios, measure output quality, and iterate fast.",
+      icon: HelpCircle,
+      reverse: false,
+    },
+    {
+      id: 6,
+      title: "Live Q&A",
+      description: "Solve your actual AI product challenges on the spot.",
+      icon: HelpCircle,
+      reverse: false,
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
+      },
+    },
   };
 
-  const targetAudience = [
-    "Product Managers looking to enhance their UX design skills for better product adoption." ,
-    "Business Analysts and Product Owners** aiming to integrate user-centric design into their product strategy. ",
-    "Startup Founders and Entrepreneurs** focused on building intuitive and engaging products. ",
-    "Professionals transitioning into Product Management** who want to master UX principles for product success.",
-  ];
-
-
-  const whatWillYouGain = [
-    {
-      icon: <Star className="w-5 h-5" />,
-      title: "Master UX Fundamentals",
-      description: "Learn core UX principles and methodologies to enhance product design and usability."
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
-    {
-      icon: <Award className="w-5 h-5" />,
-      title: "User-Centered Design",
-      description: "Develop skills to create intuitive, user-friendly experiences that drive engagement."
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
-    {
-      icon: <Target className="w-5 h-5" />,
-      title: "Hands-On UX Techniques",
-      description: "Gain practical experience with wireframing, prototyping, and usability testing."
-    },
-    {
-      icon: <Sparkles className="w-5 h-5" />,
-      title: "Optimizing Product Success",
-      description: "Learn how UX impacts product strategy, customer retention, and business growth."
-    },
-  ];
-  
+  };
 
   return (
-    <div className="bg-[#0A0F1D] py-16">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="space-y-16">
-          {/* About Masterclass Section */}
-          <section className="relative">
-  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-2xl"></div>
-  <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-2xl p-8 border border-indigo-500/20">
-    <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-      About this Masterclass
-    </h2>
-    <div className="space-y-6">
-      <p className="text-gray-300 leading-relaxed">
-        Master the art of UX Designing for Product Management with our expert-led masterclass – designed to equip you with the essential skills and frameworks to create user-centric, high-impact products.
-      </p>
-      <p className="text-gray-300 leading-relaxed">
-        Join <span className="text-indigo-400 font-medium">AcceleratorX's Masterclass</span> led 
-        by seasoned UX and product expert <span className="text-indigo-400 font-medium">{instructorDetails.name}</span> on{" "}
-        <span className="text-indigo-400 font-medium">Thursday, 20th February, 07:00 PM IST onwards</span> to discover:
-      </p>
-      <ul className="space-y-4">
-        {[
-          {
-            title: "User-Centered Product Strategy",
-            desc: "Learn how to integrate UX principles into product management for enhanced user engagement and retention.",
-          },
-          {
-            title: "Practical UX Design Techniques",
-            desc: "Master wireframing, prototyping, and usability testing to create seamless user experiences.",
-          },
-          {
-            title: "Data-Driven UX Optimization",
-            desc: "Leverage analytics and user feedback to refine and optimize product design for maximum impact.",
-          },
-        ].map((item, index) => (
-          <li key={index} className="flex gap-4 items-start">
-            <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center flex-shrink-0 border border-indigo-500/20">
-              <FaCheck className="text-indigo-400 w-3 h-3" />
-            </div>
-            <div>
-              <h3 className="font-medium text-white mb-1">{item.title}</h3>
-              <p className="text-gray-400">{item.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div className="bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-xl p-6 border border-indigo-500/20">
-        <div className="flex items-start gap-3">
-          <Star className="w-5 h-5 text-indigo-400 mt-1" />
-          <div>
-            <p className="font-medium text-white mb-1">Pro Tip</p>
-            <p className="text-gray-300">
-              Elevate your product management skills with UX-focused strategies. Limited seats available – Register now to transform your product’s user experience! 🚀
-            </p>
-          </div>
+    <div className="bg-[#0A0F1D] py-16 ">
+      <WSTools />
+
+      <section className="py-20 px-6 bg-gray-900 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/20 via-violet-500/10 to-transparent rounded-bl-full pointer-events-none blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-violet-500/20 via-indigo-500/10 to-transparent rounded-tr-full pointer-events-none blur-3xl"></div>
+
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-black/30" />
         </div>
-      </div>
-      <div className="block lg:hidden pt-4">
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          {/* Section Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">What You'll Learn</h2>
+          </motion.div>
+
+          {/* Steps */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="space-y-16 md:space-y-24"
+          >
+            {steps.map((step, index) => {
+              const isEven = index % 2 === 0;
+
+              return (
+                <motion.div
+                  key={step.id}
+                  variants={itemVariants}
+                  className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${
+                    isEven ? "md:justify-start" : "md:justify-end"
+                  }`}
+                >
+                  {/* Complete Step Card */}
+                  <div
+                    className={`flex flex-col md:flex-row items-center gap-6 md:gap-8 max-w-lg ${
+                      isEven ? "" : "md:flex-row-reverse"
+                    }`}
+                  >
+                    {/* Content */}
+                    <div className={`flex-1 text-center ${isEven ? "md:text-left" : "md:text-right"}`}>
+                      <motion.h3
+                        initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="text-2xl md:text-3xl font-bold text-white mb-4"
+                      >
+                        {step.title}
+                      </motion.h3>
+
+                      <motion.p
+                        initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="text-gray-300 text-lg md:text-xl leading-relaxed"
+                      >
+                        {step.description}
+                      </motion.p>
+                    </div>
+
+                    {/* Icon */}
+                    <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }} className="flex-shrink-0">
+                      <div className="relative">
+                        {/* Connection line to next step */}
+                        {index < steps.length - 1 && (
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-16 md:h-24 bg-gradient-to-b from-blue-500 to-transparent opacity-60" />
+                        )}
+
+                        {/* Icon container */}
+                        <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-800/80 backdrop-blur-sm border border-blue-500/30 rounded-2xl flex items-center justify-center relative">
+                          <step.icon className="w-10 h-10 md:w-12 md:h-12 text-blue-400" />
+
+                          {/* Blue dot indicator */}
+                          <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50" />
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+
+        {/* Subtle floating elements */}
+        <motion.div
+          animate={{
+            y: [0, -8, 0],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 right-1/4 w-1 h-1 bg-blue-400/40 rounded-full blur-sm"
+        />
+
+        <motion.div
+          animate={{
+            y: [0, 12, 0],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+          }}
+          className="absolute bottom-1/3 left-1/5 w-2 h-2 bg-blue-300/30 rounded-full blur-sm"
+        />
+      </section>
+
+      <InstructorSection />
+      <WhoShouldAttendSection />
+      <div className=" flex items-center justify-center  py-10">
         <button
           onClick={scrollToForm}
-          className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+          className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25   transition-all duration-300"
         >
-          Reserve Your Spot
+          Book Your Free Slot
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0  transition-opacity duration-300"></div>
         </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-          {/* What You'll Gain Section */}
-          <section>
-  <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-    What You Will Gain
-  </h2>
-  <div className="grid sm:grid-cols-2 gap-6">
-    {[
-      {
-        title: "User-Centric Mindset",
-        description: "Develop a deep understanding of user behavior and needs to create intuitive and impactful product experiences.",
-        icon: <UserIcon className="w-6 h-6" />,
-      },
-      {
-        title: "Wireframing & Prototyping",
-        description: "Learn industry-standard tools and techniques for designing high-fidelity wireframes and interactive prototypes.",
-        icon: <PenTool className="w-6 h-6" />,
-      },
-      {
-        title: "Effective Usability Testing",
-        description: "Master the art of testing user experiences, gathering feedback, and iterating designs for optimal product success.",
-        icon: <CheckCircle className="w-6 h-6" />,
-      },
-      {
-        title: "Data-Driven UX Optimization",
-        description: "Leverage analytics and A/B testing to refine product interfaces and enhance overall user satisfaction.",
-        icon: <BarChart className="w-6 h-6" />,
-      },
-    ].map((item, index) => (
-      <div key={index} className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-xl transition-all duration-300 group-hover:from-indigo-500/10 group-hover:to-violet-500/10"></div>
-        <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20 transition-all duration-300 group-hover:border-indigo-400/30">
-          <div className="flex gap-4">
-            <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 text-indigo-400 group-hover:scale-110 transition-transform duration-300">
-              {item.icon}
-            </div>
-            <div>
-              <h3 className="text-white font-medium mb-2">{item.title}</h3>
-              <p className="text-gray-400 text-sm">{item.description}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-  <div className="block lg:hidden pt-4">
-    <button
-      onClick={scrollToForm}
-      className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-    >
-      Reserve Your Spot
-      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-    </button>
-  </div>
-</section>
-
-
-          {/* Instructor Section */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-  <h2 className="text-2xl font-bold mb-4 text-gray-900">Meet {instructorDetails.name}</h2>
-  <div className="flex flex-col md:flex-row gap-6">
-    <div className="md:w-40 w-full aspect-square rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 p-0.5">
-      <div className="w-full h-full bg-white rounded-lg p-1">
-        <img
-          src="/assets/mentor/ravi.png"
-          alt={instructorDetails.name}
-          className="w-full h-full object-cover rounded-lg"
-        />
-      </div>
-    </div>
-    <div className="flex-1">
-      <div className="flex items-center gap-3 mb-3">
-        <h3 className="text-xl font-bold text-gray-900">{instructorDetails.name}</h3>
-        <span className="text-gray-400">|</span>
-        <p className="text-blue-600 font-medium">{instructorDetails.title}</p>
-      </div>
-      <p className="text-gray-600">
-        Ravi Ahlawat is a dynamic product leader with a track record of driving innovation 
-        across multiple industries, from edtech to SaaS. With experience at the intersection 
-        of business strategy, product development, and user experience, Ravi has helped 
-        build and scale impactful solutions in fast-paced environments.
-      </p>
-      <p className="text-gray-600 mt-3">
-        Following Robert Heinlein’s belief that "specialization is for insects," Ravi 
-        embodies versatility—leading teams, optimizing growth strategies, crafting 
-        compelling narratives, and developing solutions that bridge the gap between 
-        technology and user needs. He is passionate about continuous learning, cross-domain 
-        expertise, and pushing boundaries to create meaningful impact.
-      </p>
-    </div>
-    <div className="block lg:hidden pt-4">
-      <button
-        onClick={scrollToForm}
-        className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-      >
-        Reserve Your Spot
-        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-      </button>
-    </div>
-  </div>
-</section>
-
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {/* Certificate Section */}
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-5 text-white">
-              <div className="flex items-center gap-3 mb-3">
-                <FaCertificate className="w-5 h-5" />
-                <h3 className="text-lg font-bold">Certificates</h3>
-              </div>
-              <p className="text-sm mb-2 text-blue-50">
-                All attendees will receive an official certificate from AcceleratorX!
-              </p>
-              <p className="text-xs bg-white/10 p-3 rounded">
-                Please be sure to attend the entire session to qualify for the certificate.
-              </p>
-            </div>
-           
-
-            {/* Tools Section */}
-            {/* <div className="bg-white rounded-lg shadow-sm p-5">
-              <h3 className="text-lg font-bold mb-4 text-gray-900">Tools You Will Learn</h3>
-              <div className="grid grid-cols-4 gap-4">
-                {["asanaa", "Figma", "Amplitude", "miroo"].map((tool, index) => (
-                  <div key={index} className="flex flex-col items-center gap-2">
-                    <img
-                      src={`/assets/toolLogo/${tool}.${tool === "Amplitude" ? "png" : "webp"}`}
-                      alt={tool}
-                      className="w-12 h-12 object-contain"
-                    />
-                    <p className="text-xs text-gray-600 text-center">{tool.replace(/a$/, "")}</p>
-                  </div>
-                ))}
-              </div>
-            </div> */}
-          </div>
-
-          {/* Target Audience Section */}
-          <section>
-            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-              Who Should Attend
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {targetAudience.map((item, index) => (
-                <div key={index} className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-violet-500/5 rounded-xl"></div>
-                  <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-xl p-6 border border-indigo-500/20">
-                    <div className="flex gap-4">
-                      <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0">
-                        <FaCheck className="text-indigo-400 w-4 h-4" />
-                      </div>
-                      <p className="text-gray-300">{item}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="block lg:hidden pt-4">
-                <button
-                  onClick={scrollToForm}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-                >
-                  Reserve Your Spot
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-                </button>
-              </div>
-          </section>
-
-          {/* Company Section */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">About AcceleratorX</h2>
-            <div className="text-gray-600 space-y-4">
-              <p>
-                AcceleratorX, where innovation meets education. We're dedicated
-                to transforming ambitious individuals into industry leaders
-                through cutting-edge technology and personalized mentorship.
-              </p>
-              <p>
-                At AcceleratorX, we are on a mission to shape visionary leaders
-                who dare to redefine the future. We believe in harnessing
-                ambition and transforming it into unstoppable momentum, turning
-                ideas into action and dreams into impactful careers. Our
-                commitment is to empower individuals with immersive, hands-on
-                learning experiences that challenge limits, unlock potential,
-                and open doors to a world of opportunity.
-              </p>
-              <p>
-                Our programs are meticulously crafted for those who strive not
-                just to learn but to lead, with a focus on real-world
-                application, mentorship from top industry experts, and a
-                powerful support network. Through a curriculum that bridges
-                theory and practice, we guide our students in mastering
-                high-impact skills, building their personal brand, and
-                navigating competitive markets with confidence and purpose.
-                With access to elite mentors from companies like Tata,
-                Walmart, and PayPal, and an unmatched placement support
-                system, we create a seamless path from ambition to
-                achievement.
-              </p>
-              <p>
-                At AcceleratorX, we don't just prepare you for a career; we
-                equip you to make waves. Join us to build, lead, and succeed
-                in the arena of tomorrow's leaders. The future starts with
-                you.
-              </p>
-            </div>
-            <div className="block lg:hidden pt-4">
-                <button
-                  onClick={scrollToForm}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-                >
-                  Reserve Your Spot
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-                </button>
-              </div>
-          </section>
-        </div>
       </div>
     </div>
   );

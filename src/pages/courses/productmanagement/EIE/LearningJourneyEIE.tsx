@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+ 
 import WeeklyContent from "./WeeklyContent";
 
 export default function LearningJourneyEIE() {
@@ -23,25 +22,23 @@ export default function LearningJourneyEIE() {
           {/* Module blocks */}
           <div className="space-y-6">
             {modules.map((module, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
                 className="group p-6 bg-[#0F0F0F] rounded-xl border border-white/10 hover:border-[#5CB338]/50 transition-all"
+              
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-[#5CB338]/10 flex items-center justify-center flex-shrink-0">
                     <module.icon className="w-6 h-6 text-[#5CB338]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-2 group-hover:text-[#5CB338] transition-colors">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-[#5CB338] transition-colors">
                       {module.title}
-                    </h4>
+                    </h3>
                     <p className="text-gray-400 text-sm">{module.description}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 

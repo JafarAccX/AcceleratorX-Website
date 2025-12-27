@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+
 import { Users, Linkedin } from "lucide-react";
 
 const mentors = [
@@ -7,17 +6,49 @@ const mentors = [
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",
     experience: "5 years",
-    image: "/assets/mentor/ravi.png",
-    linkedin: "https://www.linkedin.com/in/raviahlawat09/",
+    image: "/assets/mentor/ravi.webp",
+    linkedin: "https://www.linkedin.com/in/raviahlawat09",
     transitions: "Over 350+",
   },
   {
     name: "Aakash Maurya",
     role: "Sr. ML Engineer at Nagarro",
     experience: "7 years",
-    image: "/assets/mentor/akash.png",
-    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164/",
+    image: "/assets/mentor/akash.webp",
+    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164",
     transitions: "Over 300+",
+  },
+  {
+    name: "Nitish Setty",
+    role: "Analytics Lead at DataFlow",
+    experience: "8 years",
+    image: "/assets/mentor/nitish.webp",
+    linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192",
+    transitions: "Over 400+",
+  },
+  {
+    name: "Shubham Swaraj",
+    role: "BI Developer at InsightTech",
+    experience: "5 years",
+    image: "/assets/mentor/Shubham.webp",
+    linkedin: "https://www.linkedin.com/in/shubham-swaraj-2b9457172",
+    transitions: "Over 250+",
+  },
+  {
+    name: "Himangi Sharma",
+    role: "Data Analyst at Fortune 500 Company",
+    experience: "4 years",
+    image: "/assets/mentor/himangi.webp",
+    linkedin: "https://www.linkedin.com/in/himangi-sharma",
+    transitions: "Over 200+",
+  },
+  {
+    name: "Preeti Kumari",
+    role: "ML Engineer at InnoTech",
+    experience: "6 years",
+    image: "/assets/mentor/preeti.webp",
+    linkedin: "https://www.linkedin.com/in/preeti-kumari-877413113",
+    transitions: "Over 320+",
   },
 ];
 
@@ -38,48 +69,41 @@ export default function DataMentorsEIE() {
         {/* Premium grid pattern */}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+      <div className="p-4 w-full mx-auto px-4 relative z-10">
+        <div
+           
           className="text-center mb-8"
         >
           {/* Icon Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+          <div
+ 
             className="relative inline-block mb-4"
           >
             <div className="absolute -inset-4 bg-[#96E072]/20 rounded-3xl blur-xl"></div>
             <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#96E072]/20 to-[#96E072]/5 border border-[#96E072]/20">
               <Users className="w-10 h-10 text-[#96E072]" />
             </div>
-          </motion.div>
+          </div>
 
           {/* Title Section */}
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg opacity-50"></div>
             <h2 className="relative text-4xl font-bold mb-4 bg-gradient-to-r from-[#96E072] to-[#96E072]/80 text-transparent bg-clip-text">
-              Learn from Industry Experts
+              Learn and Build with Industry Experts.
             </h2>
           </div>
           
           <p className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto backdrop-blur-sm">
-            Connect with seasoned professionals who have transformed careers
+            Network with leaders redefining careers and transitions in data analytics.
           </p>
-        </motion.div>
+        </div>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
             {mentors.map((mentor, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                 
                 className="group relative"
               >
                 {/* Card Container */}
@@ -94,7 +118,7 @@ export default function DataMentorsEIE() {
                       <div className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-[#1A5D1A]/20 shadow-lg">
                         <img
                           src={mentor.image}
-                          alt={mentor.name}
+                          alt={`Product management courses with certificate mentor ${mentor.name}`}
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -102,7 +126,7 @@ export default function DataMentorsEIE() {
 
                     {/* Name and Role */}
                     <div className="text-center mt-4 px-6">
-                      <h3 className="text-2xl font-bold text-[#1A5D1A]">{mentor.name}</h3>
+                      <p className="text-2xl font-bold text-[#1A5D1A]">{mentor.name}</p>
                       <p className="text-[#2E5D1E] mt-1 font-medium">{mentor.role}</p>
                     </div>
                   </div>
@@ -124,20 +148,18 @@ export default function DataMentorsEIE() {
                     </div>
 
                     {/* LinkedIn Button */}
-                    <motion.a
+                    <a
                       href={mentor.linkedin}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="mt-6 flex items-center justify-center w-full bg-[#1A5D1A] text-white py-3 rounded-xl font-medium hover:bg-[#1A5D1A]/90 transition-colors duration-200"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
                     >
                       <Linkedin className="w-5 h-5 mr-2" />
                       Connect on LinkedIn
-                    </motion.a>
+                    </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

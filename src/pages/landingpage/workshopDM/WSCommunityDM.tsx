@@ -19,7 +19,7 @@ const WSCommunityDM = () => {
       icon: <FaWhatsapp className="w-5 h-5" />, 
       label: "WhatsApp", 
       color: "hover:text-green-400",
-      href: "https://chat.whatsapp.com/IvnND9N9iMXBcdaf2a8lwJ" 
+      href: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L" 
     },
     { 
       icon: <FaInstagram className="w-5 h-5" />, 
@@ -42,7 +42,7 @@ const WSCommunityDM = () => {
                 key={index}
                 href={link.href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className={`flex items-center space-x-2 px-4 py-2 bg-white/10 rounded-lg ${link.color} transition-colors`}
               >
                 {link.icon}

@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ChatWidget from "../components/ChatWidget";
-import EnrollmentModal from "../components/EnrollmentModal";
-import Loader from "../components/Loader";
+import AppDownloadPOP from "../components/AppDownloadPOP";
+// import ChatWidget from "../components/ChatWidget";
+// import Loader from "../components/Loader";
 import { getRouteLayout } from "../utils/layoutUtils";
+
+const Footer = lazy(() => import("../components/Footer"));
+const EnrollmentModal = lazy(() => import("../components/EnrollmentModal"));
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -13,45 +15,53 @@ interface MainLayoutProps {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   const [isEnrollmentModalOpen, setEnrollmentModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
-  const handleEnrollClick = () => {
-    setEnrollmentModalOpen(true);
-  };
+  // const handleEnrollClick = () => {
+  //   setEnrollmentModalOpen(true);
+  // };
 
   const handleCloseModal = () => {
     setEnrollmentModalOpen(false);
   };
 
+  // Single source of truth for opening/closing EnrollmentModal via window events
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
+    const openHandler = () => setEnrollmentModalOpen(true);
+    const closeHandler = () => setEnrollmentModalOpen(false);
+    window.addEventListener("open-enrollment-modal", openHandler as EventListener);
+    window.addEventListener("close-enrollment-modal", closeHandler as EventListener);
+    return () => {
+      window.removeEventListener("open-enrollment-modal", openHandler as EventListener);
+      window.removeEventListener("close-enrollment-modal", closeHandler as EventListener);
+    };
   }, []);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   const { showNavbar, showFooter } = getRouteLayout(location.pathname);
 
   return (
     <div className="relative">
-      {showNavbar && <Navbar onEnrollClick={handleEnrollClick} />}
+      {showNavbar && <Navbar />}
 
-      <EnrollmentModal
-        isOpen={isEnrollmentModalOpen}
-        onClose={handleCloseModal}
-      />
+      {/* Google Translate Widget */}
+      {/* <GoogleTranslate /> */}
+
+      <Suspense fallback={null}>
+        <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
+      </Suspense>
 
       <main className="min-h-screen">{children}</main>
 
       {showFooter && (
         <>
-          <ChatWidget />
-          <Footer />
+          {/* <ChatWidget /> */}
+          <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+            <Footer />
+          </Suspense>
         </>
       )}
+      {/* App download popup (global) */}
+      <AppDownloadPOP />
     </div>
   );
 };

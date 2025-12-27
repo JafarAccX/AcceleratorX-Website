@@ -1,8 +1,8 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import { Linkedin, Award, Sparkles, GraduationCap, Server, Github } from "lucide-react";
 
-const WSGENMentor = () => {
+const WSGENCMentor = () => {
   return (
     <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
       {/* Background Elements */}
@@ -31,16 +31,16 @@ const WSGENMentor = () => {
               <div className="relative">
                 <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
                   <img
-                    src="/assets/mentor/prashant.jpeg"
-                    alt="Prashant Sahatiya"
+                    src="/assets/mentor/nitya.webp"
+                    alt="Nitya Sagar"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-lg">
                   <a
-                    href="https://www.linkedin.com/in/prashant-sahatiya/"
+                    href="https://www.linkedin.com/in/nitya-sagar/"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="text-white hover:text-blue-100 transition-colors"
                   >
                     <Linkedin className="w-5 h-5" />
@@ -51,31 +51,31 @@ const WSGENMentor = () => {
               {/* Mentor Details */}
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Prashant Sahatiya
+                  Nitya Sagar
                 </h3>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-4">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-400 border border-blue-500/20">
                     <Server className="w-4 h-4" />
-                    LangChain Specialist
+                    LLM Fine-Tuning Specialist
                   </span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-400 border border-purple-500/20">
                     <Github className="w-4 h-4" />
-                    Open Source Contributor
+                    Open Source AI Contributor
                   </span>
                 </div>
 
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-start gap-2">
                     <Award className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
-                    <p>Ph.D. in Computer Science with expertise in LLMs and Vector Databases</p>
+                    <p>Expert in Large Language Model fine-tuning and evaluation techniques</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
-                    <p>Built custom AI solutions using LangChain for multiple enterprises</p>
+                    <p>Developed fine-tuned models for enterprise applications and research projects</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <GraduationCap className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                    <p>Assistant Professor and AI Researcher at Parul University</p>
+                    <p>AI Researcher and Educator specializing in Generative AI and model optimization</p>
                   </div>
                 </div>
               </div>
@@ -87,4 +87,4 @@ const WSGENMentor = () => {
   );
 };
 
-export default WSGENMentor;
+export default WSGENCMentor;

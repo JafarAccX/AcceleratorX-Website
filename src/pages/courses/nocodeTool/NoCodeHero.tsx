@@ -107,7 +107,7 @@ function NoCodeHeroFB() {
             className="relative mt-12 lg:mt-8 flex flex-col gap-6"
           >
             <img
-              src="/assets/nocode.jpg"
+              src="/assets/nocode.webp"
               alt="Product Management Workshop"
               className="w-full rounded-lg shadow-2xl"
             />

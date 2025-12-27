@@ -255,7 +255,7 @@ const WSForm = () => {
                 <a
                   href={zoomMeetingDetails.link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors"
                 >
                   Add to Calendar

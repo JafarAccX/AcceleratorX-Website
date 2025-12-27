@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Users, Linkedin } from "lucide-react";
 
@@ -7,7 +6,7 @@ const mentors = [
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",
     experience: "5 years",
-    image: "/assets/mentor/ravi.png",
+    image: "/assets/mentor/ravi.webp",
     linkedin: "https://www.linkedin.com/in/raviahlawat09/",
     transitions: "Over 350+",
   },
@@ -15,7 +14,7 @@ const mentors = [
     name: "Aakash Maurya",
     role: "Sr. ML Engineer at Nagarro",
     experience: "7 years",
-    image: "/assets/mentor/akash.png",
+    image: "/assets/mentor/akash.webp",
     linkedin: "https://www.linkedin.com/in/akash-maurya-347911164/",
     transitions: "Over 300+",
   },
@@ -64,7 +63,7 @@ export default function DataMentors() {
                 <div className="h-3/4 overflow-hidden bg-gray-900 flex items-center justify-center">
                   <img
                     src={mentor.image}
-                    alt={mentor.name}
+                    alt={`Data Analytics courses with certificate mentor ${mentor.name}`}
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
@@ -74,7 +73,7 @@ export default function DataMentors() {
                   <a
                     href={mentor.linkedin}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow nofollow"
                     className="bg-blue-500 hover:bg-blue-600 text-white p-2.5 rounded-full transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-blue-500/50"
                   >
                     <Linkedin className="w-5 h-5" />

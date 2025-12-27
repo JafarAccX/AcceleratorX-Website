@@ -1,11 +1,22 @@
-import React, { useEffect } from "react";
-import companyLogo from "/assets/companylogo.png";
-import { Link, useLocation } from "react-router-dom";
-import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin, Twitter, Youtube } from "lucide-react";
+import React from "react";
+import companyLogo from "/redesign/logo-no-bg.webp";
+import { Link } from "react-router-dom";
+import {
+  Linkedin,
+  Instagram,
+  Facebook,
+  Mail,
+  Phone,
+  MapPin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 
-type FooterLink =
-  | { label: string; url: string; icon?: React.ReactNode }
-  | { label: string; url: string; icon?: React.ReactNode };
+type FooterLink = {
+  label: string;
+  url: string;
+  icon?: React.ReactNode;
+};
 
 const footerLinks: {
   [key: string]: {
@@ -17,16 +28,17 @@ const footerLinks: {
     title: "Courses",
     links: [
       {
-        label: "Product Management Program",
+        label: "AI Product Management",
         url: "/courses/product-management",
       },
-      { label: "Data Analytics Program", url: "/courses/data-analytics" },
+      { label: "AI Data Analytics", url: "/courses/data-analytics" },
       // { label: "No-Code Development", url: "/courses/no-code-tool-program" },
-      { label: "Gen AI", url: "/courses/generative-ai" },
-      {
-        label: "Advance Performance Marketing With AI",
-        url: "/courses/advance-performance-marketing-with-ai",
-      },
+      { label: "Generative AI", url: "/courses/generative-ai" },
+      // {
+      //   label: "AI Performance Marketing",
+      //   url: "/courses/advance-performance-marketing-with-ai",
+      // },
+      { label: "AI Digital Marketing", url: "/courses/ai-digital-marketing" },
     ],
   },
   company: {
@@ -93,28 +105,27 @@ const footerLinks: {
 };
 
 export default function Footer() {
-  const location = useLocation();
+  // const location = useLocation();
 
-  useEffect(() => {
-    const sitesealContainer = document.getElementById("siteseal");
-
-    if (location.pathname === "/") {
-      if (sitesealContainer && !document.getElementById("siteseal-script")) {
-        const script = document.createElement("script");
-        script.id = "siteseal-script";
-        script.async = true;
-        script.type = "text/javascript";
-        script.src =
-          "https://seal.starfieldtech.com/getSeal?sealID=I0Pkklr2oFJr6LRUc174f6BxE8hDE1T0lghkh2Wng6oca8kd7FoaY1IUHwLT";
-        sitesealContainer.appendChild(script);
-      }
-    } else {
-      const script = document.getElementById("siteseal-script");
-      if (script) {
-        script.remove();
-      }
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   const sitesealContainer = document.getElementById("siteseal");
+  //   if (location.pathname === "/") {
+  //     if (sitesealContainer && !document.getElementById("siteseal-script")) {
+  //       const script = document.createElement("script");
+  //       script.id = "siteseal-script";
+  //       script.async = true;
+  //       script.type = "text/javascript";
+  //       script.src =
+  //         "https://seal.starfieldtech.com/getSeal?sealID=I0Pkklr2oFJr6LRUc174f6BxE8hDE1T0lghkh2Wng6oca8kd7FoaY1IUHwLT";
+  //       sitesealContainer.appendChild(script);
+  //     }
+  //   } else {
+  //     const script = document.getElementById("siteseal-script");
+  //     if (script) {
+  //       script.remove();
+  //     }
+  //   }
+  // }, [location]);
 
   return (
     <footer className="bg-gradient-to-b from-[#0B1120] to-[#070914] text-gray-400 py-16 relative overflow-hidden">
@@ -130,28 +141,35 @@ export default function Footer() {
           {/* Company Info Section */}
           <div className="md:col-span-4 space-y-8">
             <Link to="/" className="inline-block">
-              <img src={companyLogo} alt="AcceleratorX logo" className="w-auto h-14 object-contain text-left" />
+              <img
+                src={companyLogo}
+                alt="AcceleratorX company new logo - best product management courses"
+                className="w-auto h-14 object-contain text-left"
+              />
             </Link>
             <p className="text-gray-400 max-w-md">
-              Empowering professionals with industry-relevant skills through expert-led programs in Product Management,
-              Data Analytics & Generative AI.
+              Advance your career with industry-driven programs in Data Analytics, Product                             Management, and Generative AI, designed by experts for real-world success.
             </p>
             {/* Social Media Icons */}
             <div className="pt-4">
-              <h3 className="font-semibold text-white mb-4 text-lg">Connect With Us</h3>
+              <p className="font-semibold text-white mb-4 text-lg">
+                Connect With Us
+              </p>
               <div className="flex items-center gap-4">
                 {footerLinks.social.links.map((link) => (
                   <a
                     key={link.label}
                     href={link.url}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="bg-white/5 p-2.5 rounded-lg hover:bg-blue-500/20 transition-all duration-300 group"
                     aria-label={link.label}
+                    title={link.label}
                   >
-                    <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
+                    <span className="text-gray-400 group-hover:text-white transition-colors duration-300" aria-hidden="true">
                       {link.icon}
                     </span>
+                    <span className="sr-only" role="text">{link.label}</span>
                   </a>
                 ))}
               </div>
@@ -162,7 +180,9 @@ export default function Footer() {
           <div className="md:col-span-4 grid grid-cols-2 gap-8">
             {["services", "company"].map((key) => (
               <div key={key}>
-                <h3 className="font-semibold text-white mb-4 text-lg">{footerLinks[key].title}</h3>
+                <p className="font-semibold text-white mb-4 text-lg">
+                  {footerLinks[key].title}
+                </p>
                 <ul className="space-y-3">
                   {footerLinks[key].links.map((link) => (
                     <li key={link.label}>
@@ -178,14 +198,16 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="md:col-span-4">
-            <h3 className="font-semibold text-white mb-4 text-lg">{footerLinks.contact.title}</h3>
+            <p className="font-semibold text-white mb-4 text-lg">
+              {footerLinks.contact.title}
+            </p>
             <ul className="space-y-4">
               {footerLinks.contact.links.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.url}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group"
                   >
                     <span className="mt-1 text-blue-400 flex-shrink-0">{link.icon}</span>
@@ -203,7 +225,7 @@ export default function Footer() {
             <p className="text-sm text-gray-500">
               &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
             </p>
-            <div id="siteseal" className="flex items-center space-x-4"></div>
+            {/* <div id="siteseal" className="flex items-center space-x-4"></div> */}
           </div>
         </div>
       </div>

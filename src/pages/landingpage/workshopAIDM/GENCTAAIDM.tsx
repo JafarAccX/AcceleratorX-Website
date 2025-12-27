@@ -1,0 +1,84 @@
+import { motion } from "framer-motion";
+
+const GENCTAAIDM = () => {
+  const currentYear = new Date().getFullYear();
+
+  const handleEnrollClick = () => {
+    const formSection = document.getElementById("workshop-form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="bg-[#050A14] py-12">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          {/* Main content area */}
+          <div className="bg-[#0A1020] rounded-lg p-8 border border-blue-900/20 shadow-md">
+            {/* Title section */}
+            <div className="text-center mb-8">
+              <motion.h2
+                className="text-3xl md:text-4xl font-bold text-white mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                Start Automating Your Marketing Today
+              </motion.h2>
+
+              <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-4">
+                <span className="text-base text-blue-400 font-medium">
+                  Register Now — Take the First Step Toward AI-Driven Marketing
+                </span>
+              </div>
+            </div>
+
+            {/* Value proposition boxes */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10 text-center">
+                <p className="text-xl font-bold text-blue-400 mb-1">Data-Driven</p>
+                <p className="text-sm text-gray-400">Make decisions backed by real insights.</p>
+              </div>
+              <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
+                <p className="text-xl font-bold text-green-400 mb-1">AI-Powered</p>
+                <p className="text-sm text-gray-400">Use AI to personalize and optimize.</p>
+              </div>
+              <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
+                <p className="text-xl font-bold text-green-400 mb-1">Measurable</p>
+                <p className="text-sm text-gray-400">Track every step of the user journey.</p>
+              </div>
+              <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
+                <p className="text-xl font-bold text-blue-400 mb-1">Actionable</p>
+                <p className="text-sm text-gray-400">Get ready-to-use automation workflows.</p>
+              </div>
+            </div>
+
+            {/* CTA button */}
+            <div className="flex justify-center">
+              <motion.button
+                onClick={handleEnrollClick}
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors duration-200 w-full sm:w-auto"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Register Now
+              </motion.button>
+            </div>
+          </div>
+
+          {/* Footer section */}
+          <div className="mt-8 flex flex-col items-center space-y-2 text-center">
+            <div className="flex items-center justify-center space-x-2">
+              <img src="/favicon.svg" alt="product management certification courses icon" className="h-5 w-5" />
+              <span className="text-white text-sm font-medium">AcceleratorX</span>
+            </div>
+            <p className="text-gray-500 text-xs">{currentYear} AcceleratorX. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GENCTAAIDM;

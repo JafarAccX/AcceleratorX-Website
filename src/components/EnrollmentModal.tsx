@@ -1,28 +1,143 @@
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { useCourseContext } from "../context/courseContext";
 import toast from "react-hot-toast";
-import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 import { useNavigate } from "react-router-dom";
+import { createEnrollment } from "../api/enrollmentApi";
+import { trackFormSubmission, getUTMDataForDB } from "../utils/metaPixel";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+import { EnrollmentData } from "../api/enrollmentApi";
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
 
 interface EnrollmentModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit?: () => void;
+  customData?: Partial<EnrollmentData>;
 }
 
-export default function EnrollmentModal({
-  isOpen,
-  onClose,
-  onSubmit,
-}: EnrollmentModalProps) {
+// Central brochure map (updated to use provided Firebase Storage links)
+const BROCHURES: Record<string, { title: string; url: string }> = {
+  "AI Digital Marketing": {
+    title: "AI Digital Marketing Syllabus",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758802254913_notes_new_nano_19th_Sept%2C_2025-compressed.pdf?alt=media&token=42c3ad1b-7519-461b-aad6-ea9f4f5c7be7",
+  },
+  "Product Management": {
+    title: "Product Management",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1762861871432_notes_AcceleratorX_PM_Brochure-compressed.pdf?alt=media&token=f21f29c9-522a-4d26-a948-2ab6f19a4760",
+  },
+  "Generative AI": {
+    title: "Generative AI",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1761905010664_notes_new_AcceleratorX_Gen_AI_Brochure-compressed.pdf?alt=media&token=53d0ad2d-4d03-435c-8d31-4c03fc476c78",
+  },
+  "Gen AI for PMs": {
+    title: "Gen AI for PMs",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758294289672_notes_Gen_ai_pm.pdf?alt=media&token=c84b8402-1bc1-40be-8baa-e00c0a4fff36",
+  },
+  "Data Analytics": {
+    title: "AI Powered Data Analytics",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293290835_notes_AI_Powered_DA_Brochure.pdf?alt=media&token=1bbeb25b-e1aa-49e2-8752-3e7a6b7b4e52",
+  },
+};
+
+// Helper to resolve brochure by (possibly varied) course name
+function resolveBrochure(course?: string | null) {
+  if (!course) return BROCHURES["AI Digital Marketing"]; // default
+  // exact match first
+  if (BROCHURES[course]) return BROCHURES[course];
+  const lower = course.toLowerCase();
+  const foundKey = Object.keys(BROCHURES).find(k => k.toLowerCase() === lower);
+  return foundKey ? BROCHURES[foundKey] : BROCHURES["AI Digital Marketing"];
+}
+
+async function sendWhatsAppMessage({
+  phone,
+  name,
+  broucher,
+}: {
+  phone: string;
+  name: string;
+  broucher: { title: string; url: string };
+}) {
+  console.log("Sending WhatsApp message to:", phone);
+  try {
+    const response = await fetch("https://wb.omni.tatatelebusiness.com/whatsapp-cloud/messages", {
+      method: "POST",
+      headers: {
+        "accept": "application/json",
+        "Authorization": `Bearer ${omniAccessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "to": (() => {
+          const cleaned = phone.replace(/^\+/, '');
+          // Assume India (+91) if 10 digits
+          return cleaned.length === 10 ? `91${cleaned}` : cleaned;
+        })(),
+        "type": "template",
+        "source": "external",
+        "template": {
+          "name": "registration_request_2",
+          "language": {
+            "code": "en"
+          },
+
+          "components": [
+            {
+              "type": "header",
+              "parameters": [
+                {
+                  "type": "document",
+                  "document": {
+                    "link": broucher.url,
+                    "filename": broucher.title
+                  }
+                }
+              ]
+            },
+            {
+              "type": "body",
+              "parameters": [
+                {
+                  "type": "text",
+                  "text": name
+                }
+              ]
+            }
+          ]
+
+        },
+        "metaData": {
+          "custom_callback_data": ""
+        }
+      }),
+    });
+
+    console.log("WhatsApp API response status:", response);
+
+    const responseData = await response.json();
+    console.log("WhatsApp API response data:", responseData);
+
+    if (!response.ok) {
+      const err = responseData;
+      console.error("WhatsApp API error:", err);
+      throw new Error("WhatsApp message sending failed");
+    }
+
+  } catch (error) {
+    console.error("Error sending WhatsApp message:", error);
+  }
+}
+
+export default function EnrollmentModal({ isOpen, onClose, onSubmit, customData }: EnrollmentModalProps) {
+  console.log('EnrollmentModal: imports check', {
+    X: typeof X,
+    motion: typeof motion,
+    AnimatePresence: typeof AnimatePresence,
+    createEnrollment: typeof createEnrollment
+  });
   const { selectedCourse } = useCourseContext();
   const navigate = useNavigate();
 
@@ -36,23 +151,36 @@ export default function EnrollmentModal({
     designation: "",
   });
 
-  // const courseOptions = [
-  //   "Product Management",
-  //   "Data Analytics",
-  //   "No-Code Development",
-  // ];
-
   useEffect(() => {
     if (selectedCourse) {
       setFormData((prev) => ({ ...prev, course: selectedCourse }));
     }
   }, [selectedCourse]);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // helper to open brochure in new tab
+  const openBrochure = (courseName?: string | null) => {
+    try {
+      const { url } = resolveBrochure(courseName);
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (err) {
+      console.error("Failed to open brochure:", err);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
 
-    if (formData.phone.length !== 10) {
-      toast.error("Please enter a valid 10-digit phone number");
+    if (formData.phone.length < 10 || formData.phone.length > 12) {
+      toast.error("Please enter a valid phone number (10-12 digits)");
       return;
     }
 
@@ -61,58 +189,74 @@ export default function EnrollmentModal({
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
-      // Get UTM data
       const utmData = getUTMDataForDB();
+      const submissionData = {
+        full_name: formData.name,
+        phone_number: formData.phone,
+        email: formData.email,
+        education_level: formData.education,
+        course: formData.course,
+        work_experience: formData.workExperience,
+        designation: formData.designation,
+        utm_source: utmData.utm_source,
+        utm_medium: utmData.utm_medium,
+        utm_campaign: utmData.utm_campaign,
+        utm_term: utmData.utm_term,
+        utm_content: utmData.utm_content,
+        referrer: utmData.referrer,
+        landing_page_url: utmData.landing_page_url,
+        fbclid: utmData.fbclid,
+        gclid: utmData.gclid,
+        ttclid: utmData.ttclid,
+        msclkid: utmData.msclkid,
+        ...customData, // Merge custom overrides (e.g., scholarship info)
+      };
 
-      // Store enrollment data
-      const { error } = await supabase.from("enrollments").insert([
-        {
-          full_name: formData.name,
-          phone_number: formData.phone,
-          email: formData.email,
-          education_level: formData.education,
-          course: formData.course,
-          work_experience: formData.workExperience,
-          designation: formData.designation,
-          // UTM and tracking data
-          utm_source: utmData.utm_source,
-          utm_medium: utmData.utm_medium,
-          utm_campaign: utmData.utm_campaign,
-          utm_term: utmData.utm_term,
-          utm_content: utmData.utm_content,
-          referrer: utmData.referrer,
-          landing_page_url: utmData.full_url,
-          fbclid: utmData.fbclid,
-          gclid: utmData.gclid,
-          ttclid: utmData.ttclid,
-          msclkid: utmData.msclkid,
-        },
-      ]);
+      await createEnrollment(submissionData);
 
-      if (error) {
-        if (error.code === "23505") {
-          toast.error("You have already enrolled with this email address");
-        } else {
-          toast.error("Failed to submit enrollment. Please try again.");
-        }
-        console.error("Error submitting form:", error);
-        return;
-      }
+      const broucherData = resolveBrochure(selectedCourse);
 
-      // Send to Meta Conversion API
-      await trackFormSubmission(formData);
+      console.log("Brochure data resolved:", broucherData);
+      console.log("Form data being submitted:", submissionData);
+      console.log("sending WhatsApp message...");
+
+      await sendWhatsAppMessage({
+        phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+        name: formData.name,
+        broucher: broucherData,
+      });
+
+      // Track form submission with Meta Pixel (Conversion API only)
+      const trackingFormData = new FormData();
+      trackingFormData.append("name", formData.name);
+      trackingFormData.append("email", formData.email);
+      trackingFormData.append("phone", formData.phone);
+      trackingFormData.append("education", formData.education);
+      trackingFormData.append("designation", formData.designation);
+      trackingFormData.append("course", formData.course || selectedCourse || "");
+      trackingFormData.append("workExperience", formData.workExperience);
+      await trackFormSubmission(trackingFormData);
+
+      toast.success("Enrollment submitted successfully! Opening brochure...");
+
+      // open brochure after success
+      openBrochure(selectedCourse);
 
       if (onSubmit) onSubmit();
 
-      // Navigate after a brief delay
       setTimeout(() => {
         onClose();
         navigate("/thank-you", { state: { courseName: formData.course } });
-      }, 1000);
+      }, 800);
+
     } catch (error) {
-      toast.error("An unexpected error occurred. Please try again later.");
       console.error("Error submitting form:", error);
+      toast.error("Failed to submit enrollment. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -121,12 +265,12 @@ export default function EnrollmentModal({
       {isOpen && (
         <motion.div
           key="enrollment-modal"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          className="fixed inset-0 z-50 flex md:items-center md:justify-center bg-black/40 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/70 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
         >
-          <div className="relative w-full max-w-md mx-auto mt-auto md:mt-0 bg-gray-800/95 rounded-xl shadow-xl overflow-y-auto md:my-6">
+          <div className="relative w-full max-w-md mx-auto mt-10 md:mt-0 bg-gray-800/95 rounded-xl shadow-xl overflow-y-auto md:my-6 ">
             <div className="h-[85vh] md:h-auto flex flex-col">
               <div className="sticky top-0 bg-gray-800/95 px-4 py-3 border-b border-gray-700 z-10">
                 <button
@@ -145,113 +289,88 @@ export default function EnrollmentModal({
                 </div>
               </div>
 
-              <div className="flex-1 overflow-y-auto pb-6 md:pb-0">
-                <form onSubmit={handleSubmit} className="p-4 space-y-3">
+              <div className=" shadow-2xl p-6 w-full border border-gray-800/30" id={"course-form"}>
+                <form onSubmit={handleSubmit} className="p-4 space-y-3 flex flex-col gap-4">
                   <div className="space-y-3">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
+                    <div className="flex gap-2 items-center ">
+                      <label htmlFor="name" className="block min-w-[100px] text-sm font-medium text-gray-300 mb-1">
                         Full Name
                       </label>
                       <input
                         type="text"
                         id="name"
                         required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm"
                         placeholder="Type Your Name"
                         value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       />
                     </div>
 
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
+                    <div className="flex gap-2 items-center">
+                      <label htmlFor="email" className="block min-w-[100px] text-sm font-medium text-gray-300 mb-1">
                         Email Address
                       </label>
                       <input
                         type="email"
                         id="email"
                         required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm"
                         placeholder="Type Your Email Address"
                         value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       />
                     </div>
 
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
+                    <div className="flex gap-2 items-center">
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
                         Phone Number
                       </label>
                       <div className="flex">
-                        <span className="bg-gray-700 text-white px-3 py-2 rounded-l-lg border border-gray-600 text-sm flex items-center">
+                        <span className=" bg-transparent text-white px-2 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm">
                           +91
                         </span>
                         <input
                           type="tel"
                           id="phone"
                           required
-                          className="w-full bg-gray-700 border border-gray-600 rounded-r-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                          className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm"
                           placeholder="Type Your Phone No"
                           value={formData.phone}
                           onChange={(e) => {
-                            const sanitizedValue = e.target.value
-                              .replace(/\D/g, "")
-                              .slice(0, 10);
+                            const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 12);
                             setFormData({ ...formData, phone: sanitizedValue });
                           }}
                         />
                       </div>
                     </div>
-                    <div>
-                      <label
-                        htmlFor="designation"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
+                    <div className="flex gap-2 items-center">
+                      <label htmlFor="designation" className="block min-w-[100px] text-sm font-medium text-gray-300 mb-1">
                         Designation
                       </label>
                       <input
                         type="text"
                         id="designation"
                         required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm"
                         placeholder="Type Your Designation"
                         value={formData.designation}
-                        onChange={(e) =>
-                          setFormData({ ...formData, designation: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label
-                        htmlFor="education"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
+                      <label htmlFor="education" className="block text-sm font-medium text-gray-300 mb-1">
                         Education
                       </label>
                       <select
                         id="education"
                         required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm"
                         value={formData.education}
-                        onChange={(e) =>
-                          setFormData({ ...formData, education: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, education: e.target.value })}
                       >
                         <option value="">Select</option>
                         <option value="High School">High School</option>
@@ -262,20 +381,15 @@ export default function EnrollmentModal({
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="workExperience"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
+                      <label htmlFor="workExperience" className="block text-sm font-medium text-gray-300 mb-1">
                         Experience
                       </label>
                       <select
                         id="workExperience"
                         required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full bg-[#0A0A0A] text-white px-4 py-2.5 rounded-lg border border-gray-800/50 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all placeholder:text-white text-sm"
                         value={formData.workExperience}
-                        onChange={(e) =>
-                          setFormData({ ...formData, workExperience: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, workExperience: e.target.value })}
                       >
                         <option value="">Select</option>
                         <option value="0-1">0-1 yrs</option>
@@ -285,37 +399,12 @@ export default function EnrollmentModal({
                       </select>
                     </div>
 
-                    {/* <div>
-                      <label
-                        htmlFor="course"
-                        className="block text-sm font-medium text-gray-300 mb-1"
-                      >
-                        Course
-                      </label>
-                      <select
-                        id="course"
-                        required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-2 py-1.5 text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                        value={formData.course}
-                        onChange={(e) =>
-                          setFormData({ ...formData, course: e.target.value })
-                        }
-                      >
-                        <option value="">Select</option>
-                        {courseOptions.map((course) => (
-                          <option key={course} value={course}>
-                            {course}
-                          </option>
-                        ))}
-                      </select>
-                    </div> */}
-
-                    
                   </div>
 
                   <div className="mt-4">
                     <p className="text-xs text-gray-400 mb-3">
-                      By submitting this form, you acknowledge that we collect non-personal campaign data for analytics purposes.
+                      By submitting this form, you acknowledge that we collect non-personal campaign data for analytics
+                      purposes.
                     </p>
                     <button
                       type="submit"

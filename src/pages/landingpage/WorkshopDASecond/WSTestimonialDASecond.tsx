@@ -1,147 +1,134 @@
-import React from "react";
-import { FaStar } from "react-icons/fa";
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiArrowUpRight, FiArrowRight } from "react-icons/fi";
 
-const WSTestimonialDASecond = () => {
-  // Testimonial logo images
-  const testimonialLogos = [
-    "/assets/testimonialsLogo/feedback1.png",
-    "/assets/testimonialsLogo/feedback2.png",
-    "/assets/testimonialsLogo/feedback4.png",
-    "/assets/testimonialsLogo/feedback5.png",
-    "/assets/testimonialsLogo/feedback6.png",
-  ];
+const faqs = [
+  {
+    question: "Is this beginner-friendly?",
+    answer:
+      "Yes! You don’t need prior coding knowledge or ML experience.",
+  },
+  {
+    question: "Do I need to know Python?",
+    answer:
+      "No. AutoML tools reduce the need for coding — we’ll show you the easiest workflows.",
+  },
+  {
+    question: "Will there be a recording?",
+    answer: "No. This is a live-only session.",
+  },
+];
 
-  const scrollToForm = () => {
-    const form = document.getElementById("workshop-registration-form");
-    if (form) {
-      form.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
-    }
-  };
+export default function WSTestimonialDASecond() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // 👈 First FAQ open by default
 
   return (
-    <div className="relative bg-gradient-to-b from-[#0A0F1C] via-[#0A0F1C]/95 to-[#0A0F1C] py-20 lg:py-24 overflow-hidden">
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 via-purple-500/5 to-green-500/5 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(24,119,242,0.05),rgba(0,0,0,0))]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(76,29,149,0.05),rgba(0,0,0,0))]"></div>
-      </div>
+    <>
+      {/* FAQs Section */}
+      <section className="relative z-10 px-6 py-20 text-white max-w-4xl mx-auto">
+        <h2 className="text-4xl font-bold mb-10 text-center">FAQs</h2>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-indigo-500/20 border border-emerald-500/30 backdrop-blur-sm mb-4">
-            <span className="text-emerald-400 text-sm font-medium">
-              Success Stories
-            </span>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-center">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
-              Words from attendees
-            </span>
-          </h2>
-          <p className="text-gray-400 text-lg lg:text-xl max-w-2xl mx-auto">
-            See what professionals have achieved with their custom Data Analyst Bots
-            built using GenAI
-          </p>
-        </div>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = index === openIndex;
 
-        {/* Testimonial Logos Section - Only Images with Enhanced Visibility */}
-        <div className="py-8">
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {testimonialLogos.map((logo, index) => (
+            return (
               <div
                 key={index}
-                className="w-[300px] h-[300px] md:w-[350px] md:h-[350px] p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all duration-300 flex items-center justify-center group hover:transform hover:scale-105 hover:shadow-xl"
+                className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 shadow-md transition-all duration-300"
               >
-                <img
-                  src={logo}
-                  alt={`Workshop Attendee Feedback ${index + 1}`}
-                  className="max-w-full max-h-full object-contain filter brightness-110 contrast-110"
-                />
+                {/* Question Header */}
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="flex items-center justify-between w-full text-left group"
+                >
+                  <h3 className="text-lg font-medium">{faq.question}</h3>
+                  <span className="text-white bg-white/10 p-2 rounded-full transition-transform group-hover:scale-105">
+                    {isOpen ? (
+                      <FiArrowUpRight className="text-white" />
+                    ) : (
+                      <FiArrowRight className="text-white" />
+                    )}
+                  </span>
+                </button>
+
+                {/* Answer Section */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="mt-4 text-sm text-gray-300 leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
+      </section>
 
-        {/* Enhanced Testimonial Stats */}
-        <div className="mt-20 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            {
-              value: "250+",
-              label: "Working Bots Created",
-            },
-            {
-              value: "4.9",
-              label: "Satisfaction Score",
-            },
-            {
-              value: "95%",
-              label: "Time Saved on Analysis",
-            },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="group text-center transform hover:-translate-y-2 transition-all duration-300"
-            >
-              <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-blue-600/10 via-purple-500/10 to-green-500/10 rounded-xl border border-white/5 backdrop-blur-sm flex items-center justify-center group-hover:border-white/20 transition-all duration-300">
-                <span className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400">
-                  {stat.value}
-                </span>
-              </div>
-              <p className="text-gray-400 font-medium text-lg group-hover:text-gray-300 transition-colors">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      
 
-      {/* Enhanced CTA Button */}
-      <div className="flex justify-center mt-16">
-        <div className="relative inline-flex group/btn">
-          <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 via-indigo-500 to-cyan-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-          <button
-            onClick={scrollToForm}
-            className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
-          >
-            <span className="relative z-10 text-white group-hover/btn:text-emerald-50 transition-all">
-              Create Your Data Analyst Bot
-            </span>
-            <svg
-              className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <section className="relative z-10 bg-gradient-to-b from-[#0A0F1C] to-[#121a2e] px-6 py-24 text-white overflow-hidden">
+  {/* Grid Pattern using pseudo-element or custom div */}
+  <div
+    className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:36px_36px]"
+  />
 
-      {/* Enhanced Footer */}
-      <div className="mt-16 pt-8 border-t border-white/10">
-        <div className="container mx-auto px-4">
-          <p className="text-sm text-gray-500 text-center hover:text-gray-400 transition-colors">
-            &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </div>
+  {/* Optional background glow */}
+  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[40vh] bg-purple-500/10 blur-3xl rounded-full pointer-events-none z-0" />
+
+  {/* CTA Content */}
+  <div className="relative z-10 max-w-3xl mx-auto text-center">
+    <motion.h2
+      className="text-4xl md:text-5xl font-bold leading-tight"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      Let’s build your first AutoML model — together.
+    </motion.h2>
+
+    <motion.p
+      className="mt-4 text-lg text-gray-300"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.6 }}
+    >
+      Start learning how to automate data analysis and model building with AI, fast and effectively.
+    </motion.p>
+
+    <motion.div
+      className="mt-10"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, duration: 0.5 }}
+    >
+      <button
+        onClick={() => {
+          const form = document.getElementById("workshop-registration-form");
+          if (form) {
+            form.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+        }}
+        className="rounded-full px-6 py-3 text-sm font-semibold text-black bg-gray-200 shadow-md hover:bg-white transition"
+      >
+        Claim Your Free Spot ↗
+      </button>
+    </motion.div>
+  </div>
+</section>
+
+    </>
   );
-};
-
-export default WSTestimonialDASecond;
+}

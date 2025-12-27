@@ -1,92 +1,58 @@
-import { Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Loader from "./components/Loader";
-import { CourseProvider, useCourseContext } from "./context/courseContext";
+import LottieLoader from "./components/LottieLoader";
+import { CourseProvider } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
-import { MetaPixel } from "./components/MetaPixel";
-import { trackViewContent } from "./utils/metaPixel";
 import ScrollToTop from "./components/ScrollToTop";
-import { ChatWidgetProvider } from "./context/ChatWidgetContext";
-import ChatWidget from "./components/ChatWidget";
+import { MetaTrackingDebugger } from "./components/MetaTrackingDebugger";
+import { AppRoutes } from "./components/AppRoutes";
+import { UserProvider, useUser } from "./context/UserContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MetaPixel } from "./components/MetaPixel";
 
-import { MainLayout } from "./layouts/MainLayout";
-import { RouteLogic } from "./routes/utils/routeUtils";
-import { mainRoutes } from "./routes/mainRoutes";
-import { workshopRoutes } from "./routes/workshopRoutes";
-import { flyerRoutes } from "./routes/flyerRoutes";
-import { courseRoutes } from "./routes/courseRoutes";
-import AdminPage from "./pages/admin/AdminPage";
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdAnalysis from "./pages/admin/AdAnalysis";
-import { profileRoutes } from "./routes/profileRoutes";
-import SignUpForm from "./components/auth/SignUpForm";
-import SignInForm from "./components/auth/SignInForm";
-import { UserProvider } from "./context/UserContext";
-import { AppliedJobs, JobApplication, JobDetails, JobList } from "./pages/jobs";
-import { ProtectedRoute } from "./components/auth/ProtectedRoute";
+// Create a client outside of the component to prevent re-creation on re-renders
+const queryClient = new QueryClient();
 
-function App() {
-  const { setSelectedCourse } = useCourseContext();
+function AppContent() {
+  const { isLoading } = useUser();
 
-  useEffect(() => {
-    trackViewContent();
-  }, []);
+  // Only show loader on client-side when actually loading
+  if (typeof window !== 'undefined' && isLoading) {
+    return <LottieLoader />;
+  }
 
   return (
-    <HelmetProvider>
-      <CourseProvider>
-        <UserProvider>
-          <ChatWidgetProvider>
-            <Router basename="/">
-              <ScrollToTop />
-              <MetaPixel />
-              <Toaster position="top-center" />
-              <RouteLogic setSelectedCourse={setSelectedCourse} />
+    <Router basename="/">
+      <ScrollToTop />
+      <MetaPixel />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            zIndex: 9999,
+          },
+        }}
+      />
+      <AppRoutes />
+    </Router>
+  );
+}
 
-              <MainLayout>
-                <Suspense fallback={<Loader />}>
-                  <Routes>
-                    {mainRoutes}
-                    {workshopRoutes}
-                    {flyerRoutes}
-                    {courseRoutes}
-                    {profileRoutes}
-                    <Route path="/sign-up" element={<SignUpForm />} />
-                    <Route path="/sign-in" element={<SignInForm />} />
-                    {/* Admin Routes */}
-                    <Route path="/admin" element={<AdminPage />} />
-                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                    <Route path="/admin/enrollments" element={<AdminPage />} />
-                    <Route path="/admin/ads" element={<AdAnalysis />} />
-                    <Route path="/jobs" element={<JobList />} />,
-                    <Route path="/jobs/:id" element={<JobDetails />} />,
-                    <Route
-                      path="/jobs/:id/apply"
-                      element={
-                        <ProtectedRoute>
-                          <JobApplication />
-                        </ProtectedRoute>
-                      }
-                    />
-                    ,
-                    <Route
-                      path="/jobs/applied-jobs"
-                      element={
-                        <ProtectedRoute>
-                          <AppliedJobs />
-                        </ProtectedRoute>
-                      }
-                    />
-                  </Routes>
-                </Suspense>
-              </MainLayout>
-              <ChatWidget />
-            </Router>
-          </ChatWidgetProvider>
-        </UserProvider>
-      </CourseProvider>
-    </HelmetProvider>
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <CourseProvider>
+          <UserProvider>
+            <Suspense fallback={<LottieLoader />}>
+              <AppContent />
+            </Suspense>
+            <MetaTrackingDebugger />
+          </UserProvider>
+        </CourseProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
   );
 }
 

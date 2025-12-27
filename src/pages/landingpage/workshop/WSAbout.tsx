@@ -18,10 +18,10 @@ const WSAbout = () => {
   };
 
   const targetAudience = [
-    "Excel Power Users seeking advanced analytics tools",
-    "Business Analysts looking to upgrade their data skills",
-    "Executives wanting better data-driven decisions",
-    "Professionals facing Excel limitations",
+    "Excel Power Users looking to automate and scale their workflows",
+    "Business Analysts ready to adopt next-gen tools",
+    "Managers and Executives seeking deeper, faster insights",
+    "Professionals who want to stay ahead in an AI-first data world",
   ];
 
   const scrollToForm = () => {
@@ -59,20 +59,21 @@ const WSAbout = () => {
               </h2>
               <div className="bg-[#0A1A2A]/80 backdrop-blur-xl rounded-xl p-6 shadow-xl border border-emerald-500/10 hover:border-indigo-400/20 transition-all duration-300">
                 <p className="text-gray-300 text-left leading-relaxed mb-4">
-                  In 2025, data analysts do more than crunch numbers — they partner with AI. Whether you're pivoting
-                  into tech or leveling up, this session will show you exactly how to launch a future-ready analytics
-                  career.
+                  Data analysis is evolving—fast. In 2025, it's not just about Excel and SQL anymore. AI is becoming an
+                  essential part of every analyst’s toolkit. This masterclass will show you how to integrate AI into
+                  your existing workflow, automate repetitive tasks, and generate deeper insights—all without needing to
+                  be a data scientist.
                 </p>
                 <p className="text-gray-300 text-left leading-relaxed mb-4">
-                  Learn the modern tools hiring managers expect, explore real-world project ideas, and discover how to
-                  stand out in interviews with AI-savvy skills.
+                  Learn the latest AI-powered techniques, explore high-impact projects, and discover how top analysts
+                  are transforming their careers by combining traditional tools with modern AI solutions.
                 </p>
                 <ul className="list-none pl-0 mb-6 space-y-3">
                   {[
-                    "The modern roadmap to becoming a data analyst in 2025",
-                    "AI-powered tools every analyst should know",
-                    "Portfolio projects that get noticed",
-                    "Resume tips, job search strategies, and interview prep",
+                    "Advanced analysis workflows using AI tools",
+                    "Automate data tasks and reporting with AI",
+                    "Real project ideas to implement immediately",
+                    "Strategies to stay competitive and AI-ready in your role",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start space-x-3 group">
                       <FaCheck className="text-emerald-400 mt-1 flex-shrink-0 group-hover:text-indigo-300 transition-colors" />
@@ -83,8 +84,8 @@ const WSAbout = () => {
 
                 <div className="bg-gradient-to-r from-emerald-900/30 to-indigo-900/20 rounded-lg p-4 border-l-4 border-cyan-400">
                   <p className="text-gray-300 font-medium text-sm">
-                    <span className="font-bold text-cyan-400">Pro tip:</span> The fastest-growing analysts in 2025 are
-                    blending core skills with AI—don’t get left behind.
+                    <span className="font-bold text-cyan-400">Pro tip:</span> Analysts who adopt AI tools in 2025 are
+                    becoming decision-makers faster—this session helps you get there.
                   </p>
                 </div>
               </div>
@@ -102,23 +103,27 @@ const WSAbout = () => {
                 {[
                   {
                     icon: <FaCogs className="text-2xl text-emerald-400" />,
-                    title: "AI-Powered Toolkit",
-                    description: "Master tools like ChatGPT, Python, and low-code platforms used by analysts today",
+                    title: "AI-Enhanced Workflows",
+                    description:
+                      "Integrate tools like ChatGPT, low-code AI platforms, and automation into your analysis stack",
                   },
                   {
                     icon: <FaLaptopCode className="text-2xl text-indigo-400" />,
-                    title: "Real Portfolio Projects",
-                    description: "Hands-on ideas you can start building immediately to showcase your skills",
+                    title: "Real Business Projects",
+                    description:
+                      "Build analysis solutions you can showcase—think dashboards, predictions, and insights powered by AI",
                   },
                   {
                     icon: <FaBriefcase className="text-2xl text-cyan-400" />,
-                    title: "Career Prep Strategies",
-                    description: "From LinkedIn tips to technical interview insights — get job-ready",
+                    title: "Productivity Boosters",
+                    description:
+                      "Learn how to reduce manual work, speed up reporting, and improve data accuracy with AI",
                   },
                   {
                     icon: <FaIndustry className="text-2xl text-emerald-400" />,
-                    title: "Industry Use Cases",
-                    description: "Explore how AI is reshaping analytics in marketing, healthcare, finance & more",
+                    title: "Cross-Industry Use Cases",
+                    description:
+                      "Explore how AI is transforming data analysis in industries like marketing, finance, healthcare, and operations",
                   },
                 ].map((feature, index) => (
                   <div
@@ -180,23 +185,23 @@ const WSAbout = () => {
               {[
                 {
                   icon: FaMapSigns,
-                  title: "A Clear Career Plan",
-                  description: "Know the exact steps to transition or start your career in data analytics",
+                  title: "Next-Level Skills",
+                  description: "Move beyond spreadsheets with AI-supported analysis and automation techniques",
                 },
                 {
                   icon: FaChartBar,
-                  title: "Hands-On Confidence",
-                  description: "Walk away ready to build projects and talk about them in interviews",
+                  title: "Practical Project Ideas",
+                  description: "Start building impactful projects immediately to boost your portfolio and confidence",
                 },
                 {
                   icon: FaRobot,
-                  title: "AI Integration Know-How",
-                  description: "Use AI to speed up analysis, enhance reports, and automate your workflow",
+                  title: "Workflow Efficiency",
+                  description: "Save time on tedious tasks and focus on strategy and decision-making",
                 },
                 {
                   icon: FaToolbox,
-                  title: "Job-Ready Toolkit",
-                  description: "The platforms, skills, and strategies top employers expect in 2025",
+                  title: "Career Edge",
+                  description: "Stand out by adding AI tools to your resume and becoming future-proof in analytics",
                 },
               ].map((item, index) => (
                 <div
@@ -253,7 +258,7 @@ const WSAbout = () => {
                 <div className="md:block w-32 h-32 rounded-lg bg-gradient-to-br from-emerald-500 to-indigo-500 p-0.5">
                   <div className="w-full h-full bg-white rounded-lg p-1">
                     <img
-                      src="/assets/mentor/akash.png"
+                      src="/assets/mentor/akash.webp"
                       alt={instructorDetails.name}
                       className="w-full h-full object-cover rounded-lg"
                     />

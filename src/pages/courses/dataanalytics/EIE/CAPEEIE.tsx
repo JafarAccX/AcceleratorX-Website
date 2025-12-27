@@ -5,26 +5,26 @@ const capeSteps = [
   {
     icon: <Lightbulb className="h-6 w-6 text-[#96E072]" />,
     title: "Data Fundamentals",
-    description: "Organize raw data into actionable insights.",
-    duration: "Weeks 1–3",
+    description: "Transform raw data into actionable insights using AI-assisted data processing and modern analytics tools.",
+    duration: "",
   },
   {
     icon: <BarChart className="h-6 w-6 text-[#96E072]" />,
     title: "Visual Storytelling",
-    description: "Make data speak through compelling visuals.",
-    duration: "Weeks 4–6",
+    description: "Turn complex datasets into engaging, interactive visuals through AI-powered storytelling techniques.",
+    duration: "",
   },
   {
     icon: <Calculator className="h-6 w-6 text-[#96E072]" />,
     title: "Analytical Skills",
-    description: "Apply statistics to uncover hidden insights.",
-    duration: "Weeks 7–9",
+    description: "Use AI-driven statistical methods to identify patterns, forecast trends, and make smarter decisions as data analyst.",
+    duration: "",
   },
   {
     icon: <ClipboardCheck className="h-6 w-6 text-[#96E072]" />,
     title: "CAP Project",
-    description: "Complete a custom project to showcase your data skills.",
-    duration: "Weeks 10–13",
+    description: "Bring it all together in a custom AI-integrated project that demonstrates your data expertise and creativity.",
+    duration: "",
   },
 ];
 
@@ -67,12 +67,12 @@ export default function CAPEEIE() {
           <div className="relative mt-8">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#1A5D1A]/20 to-transparent blur-lg opacity-50"></div>
             <h2 className="relative text-5xl font-bold text-[#1A5D1A] text-transparent bg-clip-text pb-3">
-              Build Your CAP Portfolio
+              Build Your Data Analyst Portfolio
             </h2>
           </div>
-          
+
           <p className="mt-6 text-xl text-black max-w-2xl mx-auto backdrop-blur-sm">
-            A Portfolio That Speaks for You – Build Skills That Stand Out
+            Create a portfolio that speaks for you, showcasing the real-world data analytics skills that gets you hired.
           </p>
         </motion.div>
 
@@ -89,7 +89,7 @@ export default function CAPEEIE() {
             >
               {/* Card glow effect */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/30 to-[#96E072]/10 rounded-3xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              
+
               {/* Card content */}
               <div className="relative p-6 rounded-3xl bg-gradient-to-b from-[#0A0F1E] to-[#141B2E] border border-[#96E072]/20 group-hover:border-[#96E072]/40 transition-all duration-500 backdrop-blur-sm transform hover:-translate-y-2">
                 {/* Icon container with glow */}
@@ -104,9 +104,7 @@ export default function CAPEEIE() {
                   {step.title}
                 </h3>
                 <p className="text-gray-300 mb-2">{step.description}</p>
-                <p className="text-sm text-[#96E072] font-medium">
-                  {step.duration}
-                </p>
+                <p className="text-sm text-[#96E072] font-medium">{step.duration}</p>
               </div>
             </motion.div>
           ))}
@@ -121,27 +119,27 @@ export default function CAPEEIE() {
         >
           {/* Section glow */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/30 to-[#96E072]/10 rounded-3xl blur opacity-50"></div>
-          
+
           <div className="relative p-12 rounded-3xl bg-gradient-to-b from-[#0A0F1E] to-[#141B2E] border border-[#96E072]/20 backdrop-blur-sm">
             <div className="mb-8">
-              <h3 className="text-3xl font-bold text-center bg-gradient-to-r from-[#96E072] to-[#96E072]/90 text-transparent bg-clip-text pb-2">
+              <p className="text-3xl font-bold text-center bg-gradient-to-r from-[#96E072] to-[#96E072]/90 text-transparent bg-clip-text pb-2">
                 What You'll Achieve
-              </h3>
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  title: "Portfolio",
-                  description: "A real product in your portfolio",
+                  title: "AI Portfolio",
+                  description: "Build a real, job-ready AI Data Analytics project that showcases your skills.",
                 },
                 {
                   title: "Experience",
-                  description: "Hands-on product development experience",
+                  description: "Gain hands-on experience solving real business challenges using AI-powered data analytics with Data Analysts working in top product companies.",
                 },
                 {
                   title: "Network",
-                  description: "Connect with industry experts",
+                  description: "Grow your professional network by connecting with mentors and industry experts.",
                 },
               ].map((achievement, index) => (
                 <motion.div

@@ -14,6 +14,7 @@ interface ToolCardProps {
   tool: {
     name: string;
     image: string;
+    description: string;
   };
   index: number;
 }
@@ -31,7 +32,7 @@ export const ToolCard = ({ tool, index }: ToolCardProps) => {
       <div className="relative p-4 bg-navy-900/50 border border-blue-500/10 rounded-xl backdrop-blur-sm transition-all duration-300 group-hover:border-blue-500/30">
         <img
           src={tool.image}
-          alt={tool.name}
+          alt={`${tool.name} - ${tool.description}`}
           className="h-14 w-14 mx-auto object-contain filter brightness-90 group-hover:brightness-100"
         />
         <p className="mt-2 text-center text-sm text-white">{tool.name}</p>
@@ -105,9 +106,9 @@ export default function DataSkillsTools() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Tools Section */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-white mb-8">
+            <p className="text-2xl font-semibold text-white mb-8">
               Tools You'll Master
-            </h3>
+            </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {dataAnalyticsTools.map((tool, index) => (
                 <ToolCard key={tool.name} tool={tool} index={index} />
@@ -117,9 +118,9 @@ export default function DataSkillsTools() {
 
           {/* Skills Section */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-white mb-8">
+            <p className="text-2xl font-semibold text-white mb-8">
               Skills You'll Develop
-            </h3>
+            </p>
             <div className="space-y-4">
               {visibleSkills.map((skill, index) => (
                 <SkillCard

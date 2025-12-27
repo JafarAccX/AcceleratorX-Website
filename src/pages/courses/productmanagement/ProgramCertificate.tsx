@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import productCertificate from "/assets/programcertificates/pm.jpg";
+import productCertificate from "/assets/programcertificates/pm.webp";
 
 const ProgramCertificate = () => {
   // Initialize cache mechanism

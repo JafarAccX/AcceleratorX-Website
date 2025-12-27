@@ -1,16 +1,17 @@
-import { Loader } from "lucide-react";
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
-import DMCourseBenefits from "../dmAI/DMCourseBenefits";
-import DMCourseOverview from "../dmAI/DMCourseOverview";
-import DMCourseSyllabus from "../dmAI/DMCourseSyllabus";
-import DMFAQs from "../dmAI/DMFAQs";
-import DMHandsOnProjects from "../dmAI/DMHandsOnProjects";
-import { DMHero } from "../dmAI/DMHero";
-import DMMarketingTools from "../dmAI/DMMarketingTools";
-import DMMarketInsights from "../dmAI/DMMarketInsights";
-import DMPricing from "../dmAI/DMPricing";
-import DMWhoShouldEnroll from "../dmAI/DMWhoShouldEnroll";
+import { SEO } from "../../../components/SEO";
+
+const DMCourseBenefits = lazy(() => import("../dmAI/DMCourseBenefits"));
+const DMCourseOverview = lazy(() => import("../dmAI/DMCourseOverview"));
+const DMCourseSyllabus = lazy(() => import("../dmAI/DMCourseSyllabus"));
+const DMFAQs = lazy(() => import("../dmAI/DMFAQs"));
+const DMHandsOnProjects = lazy(() => import("../dmAI/DMHandsOnProjects"));
+const DMHero = lazy(() => import("../dmAI/DMHero").then(m => ({ default: m.DMHero })));
+const DMMarketingTools = lazy(() => import("../dmAI/DMMarketingTools"));
+const DMMarketInsights = lazy(() => import("../dmAI/DMMarketInsights"));
+const DMPricing = lazy(() => import("../dmAI/DMPricing"));
+const DMWhoShouldEnroll = lazy(() => import("../dmAI/DMWhoShouldEnroll"));
 
 const DMAICourse = () => {
   const {
@@ -23,18 +24,21 @@ const DMAICourse = () => {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<Loader />}>
-      <DMHero />
-      <DMMarketInsights />
-      <DMWhoShouldEnroll />
-      <DMCourseOverview />
-      <DMHandsOnProjects />
-      <DMMarketingTools />
-      <DMCourseSyllabus />
-      <DMCourseBenefits />
-      <DMPricing />
-      <DMFAQs />
-    </Suspense>
+    <>
+      <SEO />
+      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+        <DMHero />
+        <DMMarketInsights />
+        <DMWhoShouldEnroll />
+        <DMCourseOverview />
+        <DMHandsOnProjects />
+        <DMMarketingTools />
+        <DMCourseSyllabus />
+        <DMCourseBenefits />
+        <DMPricing />
+        <DMFAQs />
+      </Suspense>
+    </>
   );
 };
 

@@ -121,8 +121,7 @@ function DAFlyers() {
               <div className="flex items-center space-x-3">
                 <div className="flex flex-col">
                   <img
-                    src="/assets/companylogo.png"
-                    alt="AcceleratorX Logo"
+                    src="/redesign/logo-no-bg.webp" alt="AcceleratorX Logo"
                     className="w-48 h-auto"
                   />
                 </div>
@@ -162,9 +161,9 @@ function DAFlyers() {
                 </div>
                 <div className="bg-white/5 p-3 sm:p-4 rounded-lg border border-purple-500/20 backdrop-blur-sm hover:border-yellow-500/30 transition-all">
                   <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 mb-1 sm:mb-2" />
-                  <h3 className="text-white text-sm sm:text-base font-semibold">
+                  <p className="text-white text-sm sm:text-base font-semibold">
                     Duration
-                  </h3>
+                  </p>
                   <p className="text-purple-200 text-sm sm:text-base">
                     22 Weeks
                   </p>
@@ -173,9 +172,9 @@ function DAFlyers() {
 
               {/* Tools & Skills */}
               <div className="mt-4 sm:mt-6">
-                <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
+                <p className="text-base sm:text-lg font-semibold text-white mb-2">
                   Tools You'll Master
-                </h3>
+                </p>
                 <div className="flex flex-wrap gap-1.5">
                   <div className="bg-purple-900/30 px-2.5 py-1 rounded text-xs text-purple-300">
                     Excel

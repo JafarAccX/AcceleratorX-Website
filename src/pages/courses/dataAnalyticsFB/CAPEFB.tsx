@@ -77,9 +77,9 @@ export default function CAPEFB() {
                   <div className="relative z-10">{step.icon}</div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
+              <p className="text-xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
                 {step.title}
-              </h3>
+              </p>
               <p className="text-gray-400 mb-4">{step.description}</p>
               <p className="text-sm text-blue-400 font-medium">{step.duration}</p>
             </motion.div>
@@ -92,9 +92,9 @@ export default function CAPEFB() {
           viewport={{ once: true }}
           className="mt-20 p-10 rounded-3xl bg-[#0F172A] border border-blue-500/10"
         >
-          <h3 className="text-2xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
+          <p className="text-2xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
             What You'll Achieve
-          </h3>
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <motion.div 
               className="text-center"

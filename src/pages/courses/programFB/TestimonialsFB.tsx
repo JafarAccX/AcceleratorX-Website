@@ -26,7 +26,7 @@ const testimonials = [
     company: "Cequens",
     testimonial:
       "The most rewarding part of mentoring here is seeing participants take ownership of building their product. It transforms abstract concepts into a tangible, impactful learning experience.",
-    image: "/assets/mentor/anurag.png",
+    image: "/assets/mentor/anurag.webp",
     rating: 5,
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     company: "Paytm",
     testimonial:
       "What I admire about AcceleratorX is the focus on impact. Seeing participants succeed, from acing interviews to thriving in PM roles, makes mentoring here deeply fulfilling.",
-    image: "/assets/mentor/ravi.png",
+    image: "/assets/mentor/ravi.webp",
     rating: 5,
   },
   {
@@ -44,7 +44,7 @@ const testimonials = [
     company: "M3 Inc",
     testimonial:
       "It’s amazing to see a program that balances hard skills like roadmapping with soft skills like stakeholder communication. Mentoring at AcceleratorX feels meaningful because the growth is so well-rounded.",
-    image: "/assets/mentor/udit.png",
+    image: "/assets/mentor/udit.webp",
     rating: 5,
   },
 ];
@@ -68,9 +68,9 @@ const TestimonialsFB = () => {
       >
         {/* Header Section */}
         <motion.div variants={itemVariants} className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
             Trusted by Industry Leaders
-          </h2>
+          </h1>
           <p className="text-xl text-white max-w-2xl mx-auto leading-relaxed">
             Join hundreds of satisfied clients who have transformed their
             businesses with our solutions
@@ -105,7 +105,7 @@ const TestimonialsFB = () => {
                   <div className="relative flex-shrink-0">
                     <img
                       src={testimonial.image}
-                      alt={testimonial.name}
+                      alt={`Product management courses with certificate mentor ${testimonial.name}`}
                       className="w-12 h-12 rounded-full object-cover ring-2 ring-blue-100"
                     />
                     <div className="absolute inset-0 rounded-full shadow-inner" />

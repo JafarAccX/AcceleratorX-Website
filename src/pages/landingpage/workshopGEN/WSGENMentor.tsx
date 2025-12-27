@@ -1,32 +1,19 @@
-import React from "react";
 import { motion } from "framer-motion";
-import {
-  Linkedin,
-  Award,
-  Sparkles,
-  Briefcase,
-} from "lucide-react";
+import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 
 const WSGENMentor = () => {
   const mentors = [
-    // {
-    //   name: "Prashant Sahatiya",
-    //   designation: "Assistant Professor at Parul University",
-    //   description: "Ph.D. in Computer Science, University Gold Medalist",
-    //   linkedin: "https://www.linkedin.com/in/prashant-sahatiya/",
-    //   image: "/assets/mentor/prashant.jpeg",
-    //   experience: "5+ Years",
-    // },
     {
-      name: "Nitish M L Setty",
-      designation: "Software Developer, MD at GrowSharp Technologies",
-      description: "Expert in AI implementation and automation",
-      linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192/",
-      image: "/assets/mentor/nitish.jpg",
-      experience: "5+ Years",
+      name: "Nitya Sagar",
+      role: "AI & LLM Fine-tuning Expert",
+      experience: "5+ years",
+      image: "/assets/mentor/ashumish.jpeg", // Keep existing image for now
+      alt: "LLM fine-tuning workshop mentor Nitya Sagar",
+      linkedin: "https://www.linkedin.com/in/ashumish/", // Keep existing for now
+      transitions: "200+",
     },
   ];
-  
+
   return (
     <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
       {/* Background Elements */}
@@ -49,24 +36,23 @@ const WSGENMentor = () => {
           </div>
 
           {/* Mentors Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1  gap-8">
             {mentors.map((mentor, index) => (
-              <div key={index} className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800">
+              <div
+                key={index}
+                className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800 max-w-screen-sm mx-auto"
+              >
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   {/* Mentor Image */}
                   <div className="relative">
                     <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
-                      <img
-                        src={mentor.image}
-                        alt={mentor.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={mentor.image} alt={mentor.alt} className="w-full h-full object-cover" />
                     </div>
                     <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-lg">
                       <a
                         href={mentor.linkedin}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
                         className="text-white hover:text-blue-100 transition-colors"
                       >
                         <Linkedin className="w-5 h-5" />
@@ -76,9 +62,7 @@ const WSGENMentor = () => {
 
                   {/* Mentor Details */}
                   <div className="flex-1 text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {mentor.name}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white mb-2">{mentor.name}</h3>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start mb-4">
                       <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20">
                         <Briefcase className="w-3 h-3" />
@@ -89,11 +73,11 @@ const WSGENMentor = () => {
                     <div className="space-y-2 text-gray-300 text-sm">
                       <div className="flex items-start gap-2">
                         <Sparkles className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
-                        <p>{mentor.designation}</p>
+                        <p>{mentor.role}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <Award className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-                        <p>{mentor.description}</p>
+                        <p>{mentor.transitions} transitions</p>
                       </div>
                     </div>
                   </div>

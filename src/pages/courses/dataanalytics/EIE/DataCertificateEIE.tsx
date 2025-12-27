@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import dataCertificate from "/assets/programcertificates/DACertificate.png";
+import dataCertificate from "/assets/programcertificates/DACertificate.webp";
 
 const DataCertificateEIE = () => {
   // Initialize cache mechanism
@@ -55,7 +55,7 @@ const DataCertificateEIE = () => {
             <div className="relative inline-block">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#1A5D1A]/60 to-[#1A5D1A]/30 rounded-full blur opacity-75"></div>
               <span className="relative text-[#1A5D1A] text-lg font-semibold px-6 py-2 rounded-full border border-[#1A5D1A]/20">
-                Validate Your Expertise
+                Showcase your Mastery
               </span>
             </div>
           </motion.div>
@@ -69,11 +69,11 @@ const DataCertificateEIE = () => {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#1A5D1A]/20 to-transparent blur-lg opacity-50"></div>
               <h2 className="relative text-4xl md:text-5xl font-bold text-[#1A5D1A]">
-                Professional Certifications
+                Become A Certified AI Data Analyst certifications
               </h2>
             </div>
             <p className="mt-6 text-xl text-[#1F441E] max-w-2xl mx-auto">
-              Accelerate your career with our industry-recognized certifications
+              Step up your career with AI-powered, industry-recognised Data Analytics certification.
             </p>
           </motion.div>
         </div>

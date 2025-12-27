@@ -51,7 +51,7 @@ export default function Mentors() {
                   <a
                     href={mentor.linkedin}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="bg-blue-500 hover:bg-blue-600 text-white p-2.5 rounded-full transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-blue-500/50"
                   >
                     <Linkedin className="w-5 h-5" />

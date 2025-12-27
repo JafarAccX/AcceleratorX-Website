@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { AlertCircle, Volume2, VolumeX, Maximize2 } from "lucide-react";
 
 interface VintageTVProps {
@@ -34,7 +33,6 @@ const getEmbedUrl = (url: string, origin: string): string => {
 
 export const VintageTV: React.FC<VintageTVProps> = ({ videoSrc }) => {
   const [isMuted, setIsMuted] = useState(true);
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const tvContainerRef = useRef<HTMLDivElement>(null);
@@ -50,16 +48,15 @@ export const VintageTV: React.FC<VintageTVProps> = ({ videoSrc }) => {
       return;
     }
 
-    if (youtubeId && !window.YT) {
+  if (youtubeId && !("YT" in window)) {
       const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       const firstScriptTag = document.getElementsByTagName("script")[0];
       firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
     }
 
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
+  // No-op: was used for isFullscreen state, now removed
+  const handleFullscreenChange = () => {};
 
     document.addEventListener("fullscreenchange", handleFullscreenChange);
     return () => {
@@ -104,17 +101,9 @@ export const VintageTV: React.FC<VintageTVProps> = ({ videoSrc }) => {
 
   return (
     <div className="relative w-full h-full flex items-center justify-center p-8">
-      <motion.div
+      <div
         ref={tvContainerRef}
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          duration: 0.5,
-          type: "spring",
-          stiffness: 100,
-          damping: 15,
-        }}
-        className="tv-container relative w-full max-w-4xl aspect-video"
+        className="tv-container relative w-full max-w-4xl aspect-video transition-all duration-500"
       >
         {/* TV Frame */}
         <div className="absolute inset-0 rounded-2xl overflow-hidden">
@@ -123,31 +112,8 @@ export const VintageTV: React.FC<VintageTVProps> = ({ videoSrc }) => {
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 {/* Ambient Light Effect */}
                 <div className="absolute inset-0 opacity-50">
-                  <motion.div
-                    animate={{
-                      opacity: [0.2, 0.4, 0.2],
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute inset-0 bg-blue-500/20 blur-xl"
-                  />
-                  <motion.div
-                    animate={{
-                      opacity: [0.2, 0.4, 0.2],
-                      scale: [1.1, 1, 1.1],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 2,
-                    }}
-                    className="absolute inset-0 bg-purple-500/20 blur-xl"
-                  />
+                  <div className="absolute inset-0 bg-blue-500/20 blur-xl animate-pulse-slow" />
+                  <div className="absolute inset-0 bg-purple-500/20 blur-xl animate-pulse-slow delay-2000" />
                 </div>
 
                 {/* Video Container */}
@@ -163,57 +129,40 @@ export const VintageTV: React.FC<VintageTVProps> = ({ videoSrc }) => {
                     />
                   )}
                   {isLoading && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="absolute inset-0 flex items-center justify-center bg-black"
-                    >
+                    <div className="absolute inset-0 flex items-center justify-center bg-black transition-opacity duration-500 opacity-100">
                       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-                    </motion.div>
+                    </div>
                   )}
                   {error && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="absolute inset-0 flex items-center justify-center bg-black/80"
-                    >
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/80 transition-opacity duration-500 opacity-100">
                       <div className="text-center text-white">
                         <AlertCircle className="w-8 h-8 mx-auto mb-2 text-red-500" />
                         <p>{error}</p>
                       </div>
-                    </motion.div>
+                    </div>
                   )}
                 </div>
 
                 {/* Controls */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute bottom-0 left-0 right-0 p-4 flex justify-between items-center bg-gradient-to-t from-black/80 to-transparent"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between items-center bg-gradient-to-t from-black/80 to-transparent transition-all duration-500">
+                  <button
                     onClick={handleMuteToggle}
-                    className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
+                    className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition duration-200 transform hover:scale-110 active:scale-90"
                   >
                     {isMuted ? (
                       <VolumeX className="w-5 h-5 text-white" />
                     ) : (
                       <Volume2 className="w-5 h-5 text-white" />
                     )}
-                  </motion.button>
+                  </button>
 
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                  <button
                     onClick={handleFullscreen}
-                    className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
+                    className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition duration-200 transform hover:scale-110 active:scale-90"
                   >
                     <Maximize2 className="w-5 h-5 text-white" />
-                  </motion.button>
-                </motion.div>
+                  </button>
+                </div>
 
                 {/* Screen Reflection */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
@@ -223,14 +172,10 @@ export const VintageTV: React.FC<VintageTVProps> = ({ videoSrc }) => {
         </div>
 
         {/* LED Status Light */}
-        <motion.div
-          animate={{ opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-2 right-4 flex items-center gap-2"
-        >
-          <div className="w-1 h-1 rounded-full bg-blue-500" />
-        </motion.div>
-      </motion.div>
+        <div className="absolute bottom-2 right-4 flex items-center gap-2">
+          <div className="w-1 h-1 rounded-full bg-blue-500 animate-pulse" />
+        </div>
+  </div>
     </div>
   );
 };

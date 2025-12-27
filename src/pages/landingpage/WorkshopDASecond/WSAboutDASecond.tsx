@@ -1,429 +1,108 @@
-import React from "react";
-import {
-  FaCheck,
-  FaUser,
-  FaLaptopCode,
-  FaCertificate,
-  FaClock,
-  FaUsers,
-  FaBrain,
-  FaRobot,
-  FaDatabase,
-  FaChartBar,
-} from "react-icons/fa";
+// components/FeaturesSection.tsx
+import { motion } from "framer-motion";
+import { FiDollarSign, FiKey } from "react-icons/fi"; // You can replace with your own SVGs
 
 const WSAboutDASecond = () => {
-  const instructorDetails = {
-    name: "Akash Maurya",
-    title: "Senior ML Engineer, Nagarro, Ex-Deloitte ",
-  };
-
-  const targetAudience = [
-    "Data Analysts - Learn to automate your workflows without writing code.",
-    "Business Professionals - Create your own data analysis assistant for daily tasks.",
-    "Researchers & Students - Process data efficiently with AI-powered tools.",
-    "Non-Technical Professionals - Harness GenAI to perform complex data analysis with simple commands.",
-  ];
-  
-
-  const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
-    if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
-      });
-    } else {
-      console.error('Form element not found with ID "workshop-registration-form"');
-    }
-  };
+  const features = [
+    {
+      icon: <FiDollarSign className="text-white text-xl" />,
+      title: "Limited Spots. High Impact.",
+      description:
+        "This is a practical, hands-on workshop where you’ll: ✔️ Work on real datasets ✔️ Build AutoML models live ✔️ See end-to-end workflows ✔️ Get direct learning from the mentor",
+      highlight: true,
+    },
+    {
+      icon: <FiKey className="text-white text-xl" />,
+      title: "Real Projects. Real Skills.",
+      description:
+        "You won’t just watch — you’ll build: Automated ML pipelines, Auto-generated dashboards, Prediction models, Insight-driven reports. Perfect for anyone preparing for a data analytics career or upgrading their role with AI skills.",
+        highlight: true,
+    },
+  ]; 
 
   return (
-    <div className="relative bg-gradient-to-b from-[#0A0F1C] via-[#0A0F1C]/95 to-[#0A0F1C] py-16 lg:py-24">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/5 via-purple-500/5 to-green-500/5 mix-blend-overlay"></div>
-      </div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto space-y-16 lg:space-y-24">
-          {/* About and Features Section */}
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* About Masterclass Section */}
-            <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
-      About this Workshop
-    </span>
-  </h2>
-  <div className="bg-white/5 backdrop-blur-xl rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-    <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      Data analysis has been{" "}
-      <span className="font-bold text-white">transformed by GenAI</span>. Now anyone can build their own AI assistant that processes data automatically, without writing a single line of code.
-    </p>
-    <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      In this practical workshop, you'll learn to{" "}
-      <span className="font-bold text-white">create your own Data Analyst Bot</span> that can clean messy data, perform complex analysis, and generate beautiful visualizations with just one command.
-    </p>
-    <p className="text-gray-300 text-left leading-relaxed mb-6 lg:text-lg">
-      Join{" "}
-      <span className="font-bold text-white">AcceleratorX's Hands-on Workshop</span>{" "}
-      with expert{" "}
-      <span className="font-bold text-white">Aakash Maurya</span> on{" "}
-      <span className="font-bold text-white">Friday, 12th April 2025, 7:30 PM</span>, and learn to:
-    </p>
-    <ul className="list-none pl-0 mb-8 space-y-4">
-      {[
-        "Build a GenAI agent that automatically cleans and prepares your data",
-        "Set up your bot to run complex analyses with simple natural language commands",
-        "Create beautiful visualizations and reports without coding skills",
-        "Customize your bot for your specific data analysis needs",
-      ].map((item, index) => (
-        <li key={index} className="flex items-start space-x-3 lg:text-lg group">
-          <FaCheck className="text-emerald-400 mt-1.5 flex-shrink-0 group-hover:text-emerald-300 transition-colors" />
-          <span className="text-gray-300 group-hover:text-white transition-colors">
-            {item}
-          </span>
-        </li>
-      ))}
-    </ul>
-
-    <div className="bg-gradient-to-r from-emerald-950/50 to-cyan-950/50 rounded-lg p-6 border-l-4 border-emerald-400">
-      <p className="text-gray-300 font-medium lg:text-lg">
-        <span className="font-bold text-emerald-400">Pro tip:</span> You'll walk away with a working GenAI data analyst bot that you can use immediately.  
-        Limited seats available — reserve yours now to transform your data workflow!
-      </p>
-    </div>
-  </div>
-
-</div>
-
-
-            {/* Features Grid Section */}
-            <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-100 to-white">
-      Workshop Features
-    </span>
-  </h2>
-  <div className="grid md:grid-cols-2 gap-6">
-    {[
-      {
-        icon: <FaRobot className="text-3xl text-emerald-400" />,
-        title: "No-Code GenAI Bot Creation",
-        description:
-          "Build a powerful data analysis assistant without writing any code.",
-      },
-      {
-        icon: <FaDatabase className="text-3xl text-indigo-400" />,
-        title: "Automated Data Cleaning",
-        description:
-          "Set up your bot to handle messy data and prepare it for analysis automatically.",
-      },
-      {
-        icon: <FaChartBar className="text-3xl text-emerald-400" />,
-        title: "One-Command Visualizations",
-        description:
-          "Generate beautiful charts and dashboards with simple natural language commands.",
-      },
-      {
-        icon: <FaBrain className="text-3xl text-indigo-400" />,
-        title: "Customizable Analysis",
-        description:
-          "Personalize your AI assistant to focus on your specific data analysis needs.",
-      },
-    ].map((feature, index) => (
-      <div
-        key={index}
-        className="group bg-white/5 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300"
-      >
-        <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
-          {feature.icon}
-        </div>
-        <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-blue-300 transition-colors">
-          {feature.title}
-        </h3>
-        <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-          {feature.description}
-        </p>
-      </div>
-    ))}
-  </div>
-</div>
-
-          </div>
-
-          {/* Register Now Button */}
-          <div className="flex justify-center">
-            <div className="relative inline-flex group/btn">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-              <button
-                onClick={() => {
-                  // console.log('WSAbout: Register button clicked');
-                  const form = document.getElementById("workshop-registration-form");
-                  // console.log('WSAbout: Form element found:', form);
-                  if (form) {
-                    // console.log('WSAbout: Attempting to scroll to form');
-                    form.scrollIntoView({ 
-                      behavior: "smooth",
-                      block: "center"
-                    });
-                    // console.log('WSAbout: Scroll command executed');
-                  } else {
-                    console.error('WSAbout: Form element not found with ID "workshop-registration-form"');
-                  }
-                }}
-                className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                  Register Now
-                </span>
-                <svg
-                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* What You'll Gain Section */}
-          <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-      What You Will Gain From This 2-Hour AI Powered Data Visualization & Story Telling Masterclass
-    </span>
-  </h2>
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-    {[
-      {
-        icon: FaBrain,
-        title: "AI in Data Visualization",
-        description:
-          "Discover how AI transforms raw data into business intelligence, predictive models, and automated reports.",
-      },
-      {
-        icon: FaDatabase,
-        title: "AI-Powered Data Processing",
-        description:
-          "Learn how AI automates data wrangling, trend forecasting, and customer behavior analysis at scale.",
-      },
-      {
-        icon: FaChartBar,
-        title: "Real-World AI Use Cases",
-        description:
-          "Explore how companies leverage AI in marketing, finance, supply chain, and customer experience to drive decisions.",
-      },
-      {
-        icon: FaUsers,
-        title: "Live AI Demos & Q&A",
-        description:
-          "Engage in hands-on AI demonstrations, interact with industry experts, and expand your professional network.",
-      },
-    ].map((item, index) => (
-      <div
-        key={index}
-        className="group bg-white/5 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300"
-      >
-        <div className="flex items-start space-x-4">
-          <item.icon className="text-blue-400 w-6 h-6 mt-1 flex-shrink-0 group-hover:text-blue-300 transition-colors transform group-hover:scale-110 duration-300" />
-          <div>
-            <h3 className="font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">
-              {item.title}
-            </h3>
-            <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
-              {item.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-  <div className="flex justify-center mt-4">
-    <div className="relative inline-flex group/btn">
-      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-      <button 
-        onClick={scrollToForm}
-        className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
-      >
-        <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-          Register Now
-        </span>
-        <svg
-          className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M13 7l5 5m0 0l-5 5m5-5H6"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-
-
-          {/* Instructor Section */}
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-                Meet {instructorDetails.name}
-              </span>
-            </h2>
-            <div className="bg-white/5 backdrop-blur-xl rounded-xl p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:block w-48 h-48 rounded-lg bg-gradient-to-br from-blue-500 to-green-500 p-0.5">
-                  <div className="w-full h-full bg-white rounded-lg p-1">
-                    <img
-                      src="/assets/mentor/akash.png"
-                      alt={instructorDetails.name}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {instructorDetails.name}
-                  </h3>
-                  <p className="text-blue-600 font-medium mb-4">
-                    {instructorDetails.title}
-                  </p>
-                  <div className="space-y-4">
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                      With 7 years of experience in Machine Learning and AI,
-                      Akash Maurya, Senior ML Engineer at Nagarro, has delivered
-                      impactful projects in computer vision, NLP, and predictive
-                      analytics. His passion for data science extends to
-                      education.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                      <div className="bg-gray-50/10 p-4 rounded-lg">
-                        <p className="text-gray-400">
-                          <span className="font-semibold text-white">Expertise:</span>{" "}
-                          Machine Learning, Deep Learning, Computer Vision, NLP
-                        </p>
-                      </div>
-                      <div className="bg-gray-50/10 p-4 rounded-lg">
-                        <p className="text-gray-400">
-                          <span className="font-semibold text-white">Previous:</span>{" "}
-                          Microsoft, Intel, Research Papers in ML
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <>
+    <section className="relative z-10 mx-auto my-24 max-w-7xl px-6">
+      <div className="relative z-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {features.map((f, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.02 }}
+            className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur-[6px] transition-all duration-300 hover:border-white/10 ${
+              f.highlight ? "bg-gradient-to-tr from-gray-600/30 to-transparent" : ""
+            }`}
+          >
+            {/* Icon + Line */}
+            <div className="flex items-center space-x-4">
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
+                {f.icon}
+                <div className="absolute top-1/2 left-full h-0.5 w-6 -translate-y-1/2 bg-white/20 group-hover:bg-white/40" />
               </div>
             </div>
-            <div className="flex justify-center mt-4">
-              <div className="relative inline-flex group/btn">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-                <button 
-                  onClick={scrollToForm}
-                  className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
-                >
-                  <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                    Register Now
-                  </span>
-                  <svg
-                    className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
 
-          {/* Target Audience Section */}
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
-                This Masterclass is for
-              </span>
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {targetAudience.map((audience, index) => (
-                <div key={index} className="group bg-white/5 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                      <FaUser className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <p className="text-gray-400 text-lg">{audience}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-          </div>
+            {/* Title and Text */}
+            <h3 className="mt-4 text-base font-semibold text-white">{f.title}</h3>
+            <p className="mt-2 text-sm text-gray-300">{f.description}</p>
+          </motion.div>
+        ))}
+      </div>
 
-          {/* Final CTA Button */}
-          <div className="flex justify-center">
-            <div className="relative inline-flex group/btn">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-              <button
-                onClick={() => {
-                  // console.log('WSAbout: Register button clicked');
-                  const form = document.getElementById("workshop-registration-form");
-                  console.log('WSAbout: Form element found:', form);
-                  if (form) {
-                    // console.log('WSAbout: Attempting to scroll to form');
-                    form.scrollIntoView({ 
-                      behavior: "smooth",
-                      block: "center"
-                    });
-                    // console.log('WSAbout: Scroll command executed');
-                  } else {
-                    // console.error('WSAbout: Form element not found with ID "workshop-registration-form"');
-                  }
-                }}
-                className="relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#0A0F1C] rounded-lg leading-none border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                <span className="relative z-10 text-white group-hover/btn:text-blue-50 transition-all">
-                  Register Now
-                </span>
-                <svg
-                  className="ml-2 w-5 h-5 text-white group-hover/btn:text-blue-50 transition-colors animate-pulse"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+      {/* Floating Purple Blobs (optional) */}
+      <div className="absolute left-0 top-1/2 -translate-y-1/2">
+        <img src="/assets/workshop-blobs/3d-delivery-robot-working.webp" alt="left-decor" className="w-32 opacity-60" />
+      </div>
+      <div className="absolute right-0 top-1/2 -translate-y-1/2">
+        <img src="/assets/workshop-blobs/3d-delivery-robot-working.webp"  alt="right-decor" className="w-32 opacity-60" />
+      </div>
+    </section>
+     
+
+    {/* Meet Your Mentor Section */}
+    <section className="relative z-10 mx-auto my-24 max-w-4xl px-6 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Meet Your Mentor</h2>
+      <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-lg">
+        <div className="flex flex-col items-center space-y-4">
+          <img src="/assets/founder/akash-maurya.webp" alt="Akash Maurya" className="w-24 h-24 rounded-full object-cover" />
+          <h3 className="text-xl font-semibold text-white">Akash Maurya</h3>
+          <p className="text-slate-300">AI & Data Analytics Expert</p>
+          <p className="text-slate-400 text-sm max-w-md">
+            Known for simplifying complex data concepts, Akash has helped 10,000+ learners transition into AI and analytics roles through practical, real-world training.
+          </p>
         </div>
       </div>
-    </div>
+    </section>
+
+<div className=" flex items-center justify-center pb-10">
+  <motion.div
+    className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 shadow-md hover:border-purple-400 transition"
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4, duration: 0.5 }}
+  >
+
+    <button className="text-sm font-semibold text-white"
+              onClick={() => {
+                // console.log('WSAbout: Register button clicked');
+                const form = document.getElementById("workshop-registration-form");
+                console.log("WSAbout: Form element found:", form);
+                if (form) {
+                  // console.log('WSAbout: Attempting to scroll to form');
+                  form.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                  // console.log('WSAbout: Scroll command executed');
+                } else {
+                  // console.error('WSAbout: Form element not found with ID "workshop-registration-form"');
+                }
+              }}
+            >Claim Your Free Spot →</button>
+ 
+  </motion.div>
+</div>
+    
+  </>
   );
-};
+}
 
 export default WSAboutDASecond;

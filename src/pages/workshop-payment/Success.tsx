@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
-import { CheckCircle, Calendar, Video, Copy, Download } from "lucide-react";
+import { CheckCircle, Calendar,  Copy } from "lucide-react";
 import toast from "react-hot-toast";
 import { WORKSHOP_PRICE } from "../../utils/constants_price";
 
@@ -81,65 +81,62 @@ const Success = () => {
     toast.success("Copied to clipboard!");
   };
 
-  const downloadInvoice = async () => {
-    try {
-      // Log the API URL and orderId for debugging
-      console.log("API URL:", import.meta.env.VITE_API_URL);
-      console.log("Order ID:", orderId);
+  // const downloadInvoice = async () => {
+  //   try {
+  //     // Log the API URL and orderId for debuggin
 
-      // Ensure we have the required values
-      if (!import.meta.env.VITE_API_URL) {
-        throw new Error("API URL is not configured");
-      }
+  //     // Ensure we have the required values
+  //     if (!import.meta.env.VITE_API_URL) {
+  //       throw new Error("API URL is not configured");
+  //     }
 
-      if (!orderId) {
-        throw new Error("Order ID is missing");
-      }
+  //     if (!orderId) {
+  //       throw new Error("Order ID is missing");
+  //     }
 
-      const apiUrl = `${import.meta.env.VITE_API_URL}/api/invoice/${orderId}`;
-      console.log("Full API URL:", apiUrl);
+  //     const apiUrl = `${import.meta.env.VITE_API_URL}/api/invoice/${orderId}`;
 
-      const response = await fetch(apiUrl, {
-        method: "GET",
-        headers: {
-          Accept: "application/pdf",
-        },
-      });
+  //     const response = await fetch(apiUrl, {
+  //       method: "GET",
+  //       headers: {
+  //         Accept: "application/pdf",
+  //       },
+  //     });
 
-      if (!response.ok) {
-        const errorData = await response.text();
-        console.error("Invoice API Error:", {
-          status: response.status,
-          statusText: response.statusText,
-          errorData,
-          url: apiUrl,
-        });
-        throw new Error(`Failed to generate invoice: ${response.status} ${response.statusText}`);
-      }
+  //     if (!response.ok) {
+  //       const errorData = await response.text();
+  //       console.error("Invoice API Error:", {
+  //         status: response.status,
+  //         statusText: response.statusText,
+  //         errorData,
+  //         url: apiUrl,
+  //       });
+  //       throw new Error(`Failed to generate invoice: ${response.status} ${response.statusText}`);
+  //     }
 
-      // Create a blob from the PDF stream
-      const blob = await response.blob();
+  //     // Create a blob from the PDF stream
+  //     const blob = await response.blob();
 
-      // Verify blob content
-      if (blob.size === 0) {
-        throw new Error("Generated PDF is empty");
-      }
+  //     // Verify blob content
+  //     if (blob.size === 0) {
+  //       throw new Error("Generated PDF is empty");
+  //     }
 
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `invoice-${paymentDetails?.razorpay_payment_id}.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+  //     const url = window.URL.createObjectURL(blob);
+  //     const link = document.createElement("a");
+  //     link.href = url;
+  //     link.download = `invoice-${paymentDetails?.razorpay_payment_id}.pdf`;
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //     window.URL.revokeObjectURL(url);
 
-      toast.success("Invoice downloaded successfully");
-    } catch (error) {
-      console.error("Error downloading invoice:", error);
-      toast.error(error instanceof Error ? error.message : "Failed to download invoice");
-    }
-  };
+  //     toast.success("Invoice downloaded successfully");
+  //   } catch (error) {
+  //     console.error("Error downloading invoice:", error);
+  //     toast.error(error instanceof Error ? error.message : "Failed to download invoice");
+  //   }
+  // };
 
   if (loading) {
     return (
@@ -173,14 +170,14 @@ const Success = () => {
       time: "Feb 19, 2025 07:30 PM India",
     },
     GENAIWorkshop: {
-      link: "https://zoom.us/meeting/register/X1TlVVNhTdKlqwNN4FXtfg",
-      meetingId: "X1TlVVNhTdKlqwNN4FXtfg",
-      time: "Feb 23, 2025 10:30 AM India",
+      link: "https://zoom.us/meeting/register/_UMsYvzPRayKLzneFMoawQ",
+      meetingId: "_UMsYvzPRayKLzneFMoawQ",
+      time: "29 Jun, 2025 11:00 AM India",
     },
     DMWorkshop: {
-      link: "https://zoom.us/meeting/register/-EeXRY1GQFmxc9eHG73nnQ",
-      meetingId: "-EeXRY1GQFmxc9eHG73nnQ",
-      time: "Feb 16, 2025 04:00 PM India",
+      link: "https://zoom.us/meeting/register/KVSQCqQxRl-OUCNUlS_NNw",
+      meetingId: "KVSQCqQxRl-OUCNUlS_NNw",
+      time: "July 24, 2025 08:30 PM India",
     },
   };
 
@@ -229,22 +226,6 @@ const Success = () => {
                 <div>
                   <h3 className="font-medium text-gray-900">Date & Time</h3>
                   <p className="text-gray-600">{currentZoomDetails.time}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <Video className="w-6 h-6 text-blue-600 mt-1" />
-                <div>
-                  <h3 className="font-medium text-gray-900">Zoom Meeting</h3>
-                  <p className="text-gray-600 mb-2">Meeting ID: {currentZoomDetails.meetingId}</p>
-                  <a
-                    href={currentZoomDetails.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Join Meeting
-                    <Video className="w-4 h-4" />
-                  </a>
                 </div>
               </div>
             </div>

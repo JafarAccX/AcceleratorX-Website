@@ -1,108 +1,91 @@
-import React from "react";
-import { Star, Quote, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import WSFIOSection from "../WorkshopDASecond/WSIOSection";
+import FAQSection from "./WSFAQSection";
 
 const WSTestimonialPM = () => {
-
   const scrollToForm = () => {
-    const form = document.getElementById('workshop-registration-form');
+    const form = document.getElementById("workshop-registration-form");
     if (form) {
-      form.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     } else {
       console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
-
-  const testimonialImages = [
-    "/assets/testimonialsLogo/feedback1.png",
-    "/assets/testimonialsLogo/feedback2.png",
-    "/assets/testimonialsLogo/feedback4.png",
-    "/assets/testimonialsLogo/feedback5.png",
-    "/assets/testimonialsLogo/feedback6.png",
-  ];
-
   return (
-    <div className="bg-[#0A0F1D] py-24 relative overflow-hidden">
+    <div className="bg-[#0A0F1D]  relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/10 via-violet-500/5 to-transparent rounded-bl-full pointer-events-none blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-violet-500/10 via-indigo-500/5 to-transparent rounded-tr-full pointer-events-none blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 space-y-4">
-          {/* Premium Badge */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-2">
-              <Quote className="w-4 h-4 text-indigo-400" />
-              <span className="text-sm font-medium bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                Success Stories
-              </span>
-            </div>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            What Our Participants Say
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Join the ranks of successful professionals who have transformed their product management careers through our workshop
-          </p>
+        <WSFIOSection />
+        <div className=" lg:hidden flex items-center justify-center py-10">
+          <button
+            onClick={scrollToForm}
+            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+          >
+            Reserve Your Spot
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+          </button>
         </div>
-
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 max-w-6xl mx-auto">
-          {testimonialImages.map((image, index) => (
-            <div
-              key={index}
-              className="group relative rounded-2xl overflow-hidden transition-all duration-500"
-            >
-              {/* Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-violet-500/20 rounded-2xl p-[1px]">
-                <div className="absolute inset-0 bg-[#0A0F1D] rounded-2xl"></div>
-              </div>
-              
-              {/* Content */}
-              <div className="relative h-[400px] rounded-2xl overflow-hidden">
-                <img
-                  src={image}
-                  alt={`Testimonial ${index + 1}`}
-                  className="w-full h-full object-fill transform transition-all duration-500 group-hover:scale-105"
-                />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1D]/90 via-[#0A0F1D]/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-indigo-400 text-indigo-400" />
-                      ))}
-                    </div>
-                    <div className="h-1 w-12 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full mb-3"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="block lg:hidden pt-4">
-                <button
-                  onClick={scrollToForm}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
-                >
-                  Reserve Your Spot
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/50 to-violet-500/50 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-                </button>
-              </div>
       </div>
 
-      {/* Footer */}
-      <div className="mt-16 pt-8 border-t border-indigo-500/10">
-        <div className="container mx-auto px-4">
-          <p className="text-gray-500 text-sm text-center">
-            &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
-          </p>
-        </div>
+      <FAQSection />
+
+      <div className="relative z-10 py-20 max-w-3xl mx-auto text-center">
+                <motion.p
+          className="mt-4 text-lg text-gray-300"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          Seats are limited. Don't let your AI product idea stay just an idea.
+        </motion.p>
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold leading-tight"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Register Now — It's Free
+        </motion.h2>
+
+        <motion.p
+          className="mt-4 text-lg text-gray-500"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          Live, focused, and built for AI innovation. Join us and start building your AI product.
+        </motion.p>
+
+        <motion.div
+          className="py-10"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          <button
+            onClick={() => {
+              const form = document.getElementById("workshop-registration-form");
+              if (form) {
+                form.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }
+            }}
+            className="rounded-full px-6 py-3 text-sm font-semibold text-black bg-gray-200 shadow-md hover:bg-white transition"
+          >
+            Register Now — It’s Free ↗
+          </button>
+        </motion.div>
       </div>
     </div>
   );

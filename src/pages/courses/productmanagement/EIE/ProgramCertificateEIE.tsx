@@ -1,19 +1,20 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
-import { Award, CheckCircle, ArrowRight } from 'lucide-react';
+import { Award, CheckCircle } from 'lucide-react';
 
 const certificationFeatures = [
-  "Industry-recognized Product Management certification",
-  "Validated by leading tech companies",
-  "Digital badge for LinkedIn and resume",
-  "Lifetime access to alumni network",
-  "Verifiable Credentials for career growth",
-  "Priority access to job opportunities"
+  "Across the world, recognised certification validated by leading tech companies.",
+  "Present your achievement with a digital badge on LinkedIn and your resume.",
+  "Become a master of AI product management and leverage product management automation tools.",
+  "Specialising in growth product management and sealing data-driven products.",
+  "Access to product management Accelerator for exclusive career mentorship and hiring.",
+  "Lifetime access to the Alumni network and product management workshop",
+  "Priority access to top opportunities in the global product team."
 ];
 
 export default function ProgramCertificateEIE() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Certificate Preview */}
@@ -28,8 +29,8 @@ export default function ProgramCertificateEIE() {
               {/* Certificate Image */}
               <div className="absolute inset-0 bg-[#0F0F0F]">
                 <img 
-                  src="/assets/programcertificates/PM_Cert_EIE.svg"
-                  alt="Product Management Certificate"
+                  src="/assets/programcertificates/PM_Cert_EIE.webp"
+                  alt="professional certificate in product management EIE"
                   className="w-full h-full object-cover opacity-90"
                 />
                 {/* Overlay gradient */}
@@ -65,7 +66,7 @@ export default function ProgramCertificateEIE() {
               Program Certificate
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338] mb-8">
-              Get <span className="text-[#5CB338]">Certified</span> in Product Management
+              Gateway to Product Management Career
             </h3>
             
             <div className="space-y-4 mb-8">
@@ -79,7 +80,7 @@ export default function ProgramCertificateEIE() {
                   className="flex items-center gap-3"
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-[#5CB338]" />
-                  <span className="text-black">{feature}</span>
+                  <span className="">{feature}</span>
                 </motion.div>
               ))}
             </div>

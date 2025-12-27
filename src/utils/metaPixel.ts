@@ -1,58 +1,56 @@
-// Meta Conversion API endpoint
-const META_CONVERSION_API_URL = "https://graph.facebook.com/v17.0";
+// src/utils/metaPixel.ts
+import { trackingService } from './unifiedTracking';
 
 interface ConversionAPIPayload {
   data: Array<{
     event_name: string;
     event_time: number;
-    user_data: {
-      em?: string[];
-      ph?: string[];
-      fn?: string[];
-      ct?: string[];
-      st?: string[];
-      zp?: string[];
+    action_source?: string;
+    event_id?: string;
+    user_data?: {
+      em?: string;
+      ph?: string;
+      fn?: string;
+      client_user_agent?: string;
+      fbc?: string;
+      fbp?: string;
       external_id?: string[];
     };
     custom_data?: {
-      course_name?: string;
-      education_level?: string;
-      click_id?: string;
-      gclid?: string;
-      ttclid?: string;
-      msclkid?: string;
-      campaign_id?: string;
-      traffic_source?: string;
-      browser_id?: string;
-      user_agent?: string;
-      external_id?: string;
-      content_name?: string;
-      content_category?: string;
-      referrer?: string;
-      full_url?: string;
+      [key: string]: string | number | undefined;
     };
   }>;
   access_token: string;
 }
 
+const META_CONVERSION_API_URL = "https://graph.facebook.com/v17.0";
+
+const DEFAULT_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
+const DA_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
+const DA_PIXEL_ID_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND;
+const AIDM_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_AI_DIGITAL_MARKETING;
+
+const DEFAULT_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
+const DA_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT;
+const DA_ACCESS_TOKEN_SECOND = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT_SECOND;
+const AIDM_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_AI_DIGITAL_MARKETING;
+
+const DA_COURSE_NAMES = ["Data Analytics"]; // You can also match by route if needed
+const AIDM_COURSE_NAMES = ["AI Digital Marketing"];
+const AIDM_ROUTES = ["/courses/ai-digital-marketing"];
+
 const hashData = async (data: string): Promise<string> => {
-  try {
-    const hashBuffer = await window.crypto.subtle.digest(
-      "SHA-256",
-      new TextEncoder().encode(data)
-    );
-    return Array.from(new Uint8Array(hashBuffer))
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
-  } catch (error) {
-    // console.error("Error hashing data:", error);
-    throw error;
-  }
+  const hashBuffer = await window.crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(data)
+  );
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 };
 
 const getTrackingData = () => {
   const urlParams = new URLSearchParams(window.location.search);
-
   return {
     fbclid: urlParams.get("fbclid") || "",
     gclid: urlParams.get("gclid") || "",
@@ -81,39 +79,72 @@ export const getUTMDataForDB = () => {
     fbclid: trackingData.fbclid,
     gclid: trackingData.gclid,
     ttclid: trackingData.ttclid,
-    msclkid: trackingData.msclkid
+    msclkid: trackingData.msclkid,
   };
+};
+
+// Choose correct pixel ID and token based on course and route
+const getMetaConfig = (course?: string) => {
+  const isDA = DA_COURSE_NAMES.includes(course || "");
+  const isDASecondRoute = window.location.pathname === "/courses/data-analytics-program-fb-b";
+  const isAIDM = AIDM_COURSE_NAMES.includes(course || "");
+  const isAIDMRoute = AIDM_ROUTES.includes(window.location.pathname);
+  
+  if (isDASecondRoute) {
+    return { pixelId: DA_PIXEL_ID_SECOND, accessToken: DA_ACCESS_TOKEN_SECOND };
+  }
+  if (isDA) {
+    return { pixelId: DA_PIXEL_ID, accessToken: DA_ACCESS_TOKEN };
+  }
+  if (isAIDM || isAIDMRoute) {
+    return { pixelId: AIDM_PIXEL_ID, accessToken: AIDM_ACCESS_TOKEN };
+  }
+  return { pixelId: DEFAULT_PIXEL_ID, accessToken: DEFAULT_ACCESS_TOKEN };
 };
 
 export const trackFormSubmission = async (
   formData: FormData
 ): Promise<void> => {
   try {
-    // 1. Validate environment variables
-    const pixelId = import.meta.env.VITE_META_PIXEL_ID;
-    const accessToken = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
+    const { pixelId, accessToken } = getMetaConfig(formData.get("course") as string);
 
-    if (!pixelId || !accessToken) {
-      throw new Error("Missing Meta Pixel configuration");
-    }
 
-    // 2. Get tracking data
+
+    if (!pixelId || !accessToken) return;
+
     const trackingData = getTrackingData();
 
-    // 3. Hash sensitive data
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const name = formData.get("name");
+
+    if (typeof email !== "string" || typeof phone !== "string" || typeof name !== "string") {
+      console.error("Invalid form data");
+      return;
+    }
+
     const [hashedEmail, hashedPhone, hashedFirstName] = await Promise.all([
-      hashData(formData.email.toLowerCase()),
-      hashData(formData.phone),
-      hashData(formData.name.split(" ")[0])
+      hashData(email.toLowerCase()),
+      hashData(phone),
+      hashData(name.split(" ")[0]),
     ]);
 
-    // 4. Prepare Meta Pixel payload
+    // Get event_id from unified tracking service for deduplication
+    const eventId = trackingService.getStoredEventId();
+
+    if (!eventId) {
+      console.warn('No event ID found for server-side tracking');
+      return;
+    }
+
+    console.log("Server-side tracking - Event ID:", eventId);
     const payload = {
       data: [
         {
           event_name: "CompleteRegistration",
           event_time: Math.floor(Date.now() / 1000),
           action_source: "website",
+          event_id: eventId,
           user_data: {
             em: hashedEmail,
             ph: hashedPhone,
@@ -127,7 +158,7 @@ export const trackFormSubmission = async (
           custom_data: {
             content_name: "registration_form",
             status: "complete",
-            course: formData.course,
+            course: formData.get("course") as string,
             browser_id: navigator.userAgent,
             click_id:
               trackingData.fbclid ||
@@ -141,57 +172,24 @@ export const trackFormSubmission = async (
       access_token: accessToken,
     };
 
-    // 5. Send to Meta
-    const response = await fetch(
-      `${META_CONVERSION_API_URL}/${pixelId}/events`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`Meta API error: ${response.status}`);
-    }
-
+    await fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
   } catch (error) {
-    // console.error("❌ Error in form submission tracking:", error);
+    console.error("Meta Form Tracking Error", error);
   }
 };
 
-export const trackViewContent = (): void => {
+export const trackViewContent = (course?: string): void => {
   try {
-    // console.group("Meta Pixel View Content Tracking");
-    // console.info("🚀 Starting view content tracking");
-    const pixelId = import.meta.env.VITE_META_PIXEL_ID;
-    const accessToken = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
+    const { pixelId, accessToken } = getMetaConfig(course);
+    if (!pixelId || !accessToken) return;
 
-    // console.debug("Meta Configuration:", {
-    //   pixelId,
-    //   hasAccessToken: !!accessToken,
-    //   apiEndpoint: META_CONVERSION_API_URL,
-    // });
-
-    if (!accessToken) {
-      // console.warn("⚠️ Meta Pixel access token not found");
-      // console.groupEnd();
-      return;
-    }
-
-    const currentPath = window.location.pathname;
-    const currentUrl = window.location.href;
-    const referrer = document.referrer;
-    const clickId =
-      new URLSearchParams(window.location.search).get("fbclid") || "";
-    const browserInfo = {
-      userAgent: navigator.userAgent,
-      browserId:
-        navigator.userAgent + navigator.language + screen.width + screen.height,
-    };
+    const trackingData = getTrackingData();
     const externalId = crypto.randomUUID();
+    const browserId = navigator.userAgent + navigator.language + screen.width + screen.height;
 
     const payload: ConversionAPIPayload = {
       data: [
@@ -202,45 +200,29 @@ export const trackViewContent = (): void => {
             external_id: [externalId],
           },
           custom_data: {
-            content_name: currentPath,
+            content_name: window.location.pathname,
             content_category: "page_view",
-            click_id: clickId,
-            browser_id: browserInfo.browserId,
-            user_agent: browserInfo.userAgent,
+            click_id:
+              trackingData.fbclid ||
+              trackingData.gclid ||
+              trackingData.ttclid ||
+              trackingData.msclkid,
+            browser_id: browserId,
+            user_agent: navigator.userAgent,
             external_id: externalId,
-            referrer: referrer || "direct",
-            full_url: currentUrl,
+            ...trackingData,
           },
         },
       ],
       access_token: accessToken,
     };
 
-    // console.info("📦 Preparing conversion API payload");
-    // console.debug("Full Payload:", {
-    //   eventName: "ViewContent",
-    //   pixelId,
-    //   payload: { ...payload, access_token: "***" }, // Hide access token in logs
-    // });
-
-    // console.info("📤 Sending data to Meta Conversion API");
     fetch(`${META_CONVERSION_API_URL}/${pixelId}/events`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-    })
-      .then(() => {
-        // console.info("✅ View content tracking completed successfully");
-        // console.groupEnd();
-      })
-      .catch((error) => {
-        // console.error("❌ Error sending view content tracking:", error);
-        // console.groupEnd();
-      });
+    });
   } catch (error) {
-    // console.error("❌ Error in trackViewContent:", error);
-    // console.groupEnd();
+    console.error("Meta ViewContent Tracking Error", error);
   }
 };

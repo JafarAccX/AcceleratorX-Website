@@ -82,7 +82,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
             <div className="flex flex-col items-center justify-center h-full space-y-3">
               <img
                 src={tool.image}
-                alt={tool.name}
+                alt={`${tool.name} - ${tool.description}`}
                 className="h-12 w-12 object-contain filter brightness-100"
               />
               <h3 className="text-sm font-medium text-white text-center">
@@ -217,9 +217,9 @@ export default function SkillsAndToolsFB() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Tools Section */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-white mb-8 flex items-center">
+            <p className="text-2xl font-semibold text-white mb-8 flex items-center">
               <span className="mr-2">🛠️</span> Tools You'll Master
-            </h3>
+            </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <AnimatePresence>
                 {filteredTools.map((tool) => (
@@ -231,9 +231,9 @@ export default function SkillsAndToolsFB() {
 
           {/* Skills Section */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-white mb-8 flex items-center">
+            <p className="text-2xl font-semibold text-white mb-8 flex items-center">
               <span className="mr-2">💪</span> Skills You'll Develop
-            </h3>
+            </p>
             <SkillsSection />
           </div>
         </div>

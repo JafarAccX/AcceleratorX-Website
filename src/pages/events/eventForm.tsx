@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Users, AlertCircle, Calendar } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -74,6 +75,7 @@ export default function CreateEventPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<FormData>({
     eventName: "",
@@ -181,6 +183,9 @@ export default function CreateEventPage() {
         });
       }
 
+      // Redirect to success page after successful registration
+      navigate("/registration-sucessfull");
+
       // Reset form
       setFormData({
         eventName: "PM TearDown",
@@ -191,6 +196,7 @@ export default function CreateEventPage() {
         participant3: "",
         participantsnumber3: "",
       });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error("Error creating event:", error);
       setFormError(error.message || "Failed to create event. Please try again.");

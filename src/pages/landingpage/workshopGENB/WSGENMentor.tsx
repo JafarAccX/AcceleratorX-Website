@@ -31,7 +31,7 @@ const WSGENMentor = () => {
               <div className="relative">
                 <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
                   <img
-                    src="/assets/mentor/prashant.jpeg"
+                    src="/assets/mentor/prashant.webp"
                     alt="Prashant Sahatiya"
                     className="w-full h-full object-cover"
                   />
@@ -40,7 +40,7 @@ const WSGENMentor = () => {
                   <a
                     href="https://www.linkedin.com/in/prashant-sahatiya/"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="text-white hover:text-blue-100 transition-colors"
                   >
                     <Linkedin className="w-5 h-5" />

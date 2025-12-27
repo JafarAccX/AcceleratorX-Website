@@ -1,19 +1,20 @@
-import { Loader } from "lucide-react";
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import HeaderEIE from "../../../components/HeaderEIE";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
 import StickyBookNav from "../../../components/StickyBookNav";
 import { useCourseContext } from "../../../context/courseContext";
-import BenefitsGridEIE from "../productmanagement/EIE/BenefitsGridEIE";
-import FAQEIE from "../productmanagement/EIE/FAQEIE";
-import LearningJourneyEIE from "../productmanagement/EIE/LearningJourneyEIE";
-import MentorsEIE from "../productmanagement/EIE/MentorsEIE";
-import PricingEIE from "../productmanagement/EIE/PricingEIE";
-import ProgramHeroEIE from "../productmanagement/EIE/ProgamHeroEIE";
-import ProgramCertificateEIE from "../productmanagement/EIE/ProgramCertificateEIE";
-import ProgramHighlightsEIE from "../productmanagement/EIE/ProgramHighlightsEIE";
-import SkillsAndToolsEIE from "../productmanagement/EIE/SkillsAndToolsEIE";
-import SkillsAssessmentEIE from "../productmanagement/EIE/SkillsAssessmentEIE";
+import { SEO } from "../../../components/SEO";
+
+const BenefitsGridEIE = lazy(() => import("../productmanagement/EIE/BenefitsGridEIE"));
+const FAQEIE = lazy(() => import("../productmanagement/EIE/FAQEIE"));
+const LearningJourneyEIE = lazy(() => import("../productmanagement/EIE/LearningJourneyEIE"));
+const MentorsEIE = lazy(() => import("../productmanagement/EIE/MentorsEIE"));
+const PricingEIE = lazy(() => import("../productmanagement/EIE/PricingEIE"));
+const ProgramHeroEIE = lazy(() => import("../productmanagement/EIE/ProgamHeroEIE"));
+const ProgramCertificateEIE = lazy(() => import("../productmanagement/EIE/ProgramCertificateEIE"));
+const ProgramHighlightsEIE = lazy(() => import("../productmanagement/EIE/ProgramHighlightsEIE"));
+const SkillsAndToolsEIE = lazy(() => import("../productmanagement/EIE/SkillsAndToolsEIE"));
+// const SkillsAssessmentEIE = lazy(() => import("../productmanagement/EIE/SkillsAssessmentEIE"));
 
 const ProductManagementEIE = () => {
   const {
@@ -26,21 +27,24 @@ const ProductManagementEIE = () => {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<Loader />}>
+    <>
+    <SEO />
       <HeaderEIE />
-      <ProgramHeroEIE />
-      <HeroWithAbouv />
-      <ProgramHighlightsEIE />
-      <LearningJourneyEIE />
-      <BenefitsGridEIE />
-      <ProgramCertificateEIE />
-      <MentorsEIE />
-      <SkillsAndToolsEIE />
-      <SkillsAssessmentEIE />
-      <PricingEIE />
-      <FAQEIE />
-      <StickyBookNav />
-    </Suspense>
+      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+        <ProgramHeroEIE />
+        <HeroWithAbouv />
+        <ProgramHighlightsEIE />
+        <LearningJourneyEIE />
+        <BenefitsGridEIE />
+        <ProgramCertificateEIE />
+        <MentorsEIE />
+        <SkillsAndToolsEIE />
+        {/* <SkillsAssessmentEIE /> */}
+        <PricingEIE />
+        <FAQEIE />
+        <StickyBookNav />
+      </Suspense>
+    </>
   );
 };
 

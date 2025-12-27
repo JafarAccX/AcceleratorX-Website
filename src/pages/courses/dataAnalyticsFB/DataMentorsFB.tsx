@@ -7,14 +7,14 @@ const mentors = [
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",
     experience: "5 years",
-    image: "/assets/mentor/ravi.png",
+    image: "/assets/mentor/ravi.webp",
     transitions: "Over 350+",
   },
   {
     name: "Aakash Maurya",
     role: "Sr. ML Engineer at Nagarro",
     experience: "7 years",
-    image: "/assets/mentor/akash.png",
+    image: "/assets/mentor/akash.webp",
     transitions: "Over 300+",
   },
 ];
@@ -62,7 +62,7 @@ export default function DataMentorsFB() {
                 <div className="h-3/4 overflow-hidden bg-gray-900 flex items-center justify-center">
                   <img
                     src={mentor.image}
-                    alt={mentor.name}
+                    alt={`Product management courses with certificate mentor ${mentor.name}`}
                     className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>

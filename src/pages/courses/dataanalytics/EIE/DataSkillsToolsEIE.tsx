@@ -11,6 +11,7 @@ interface ToolCardProps {
   tool: {
     name: string;
     image: string;
+    description: string;
   };
   index: number;
 }
@@ -37,7 +38,7 @@ export const ToolCard = ({ tool, index }: ToolCardProps) => {
             <div className="absolute inset-0 bg-gradient-to-br from-[#96E072]/20 to-transparent rounded-full animate-pulse"></div>
             <img
               src={tool.image}
-              alt={tool.name}
+              alt={`${tool.name} - ${tool.description}`}
               className="relative w-full h-full object-contain p-2 drop-shadow-[0_0_10px_rgba(150,224,114,0.3)]"
             />
           </div>
@@ -136,7 +137,7 @@ export default function DataSkillsToolsEIE() {
           </h2>
           
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Master the essential skills and tools used by top Data Analysts
+            Master the skills and learn tools that top data analysts rely on to drive business success.
           </p>
         </motion.div>
 
@@ -151,9 +152,9 @@ export default function DataSkillsToolsEIE() {
           >
             <div className="relative inline-flex items-center">
               <div className="absolute inset-0 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg"></div>
-              <h3 className="relative text-2xl font-bold text-white">
+              <p className="relative text-2xl font-bold text-white">
                 Tools You'll Master
-              </h3>
+              </p>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -172,9 +173,9 @@ export default function DataSkillsToolsEIE() {
           >
             <div className="relative inline-flex items-center">
               <div className="absolute inset-0 bg-gradient-to-r from-[#96E072]/20 to-transparent blur-lg"></div>
-              <h3 className="relative text-2xl font-bold text-white">
+              <p className="relative text-2xl font-bold text-white">
                 Skills You'll Develop
-              </h3>
+              </p>
             </div>
             
             <div className="space-y-4">

@@ -1,13 +1,15 @@
-import { Loader } from "lucide-react";
-import { Suspense } from "react";
-import HeroAbout from "../../aboutus/HeroAbout";
-import Team from "../../aboutus/Team";
-import Values from "../../aboutus/Values";
+import { Suspense, lazy } from "react";
+import { SEO } from "../../../components/SEO";
+
+const HeroAbout = lazy(() => import("../../aboutus/HeroAbout"));
+const Team = lazy(() => import("../../aboutus/Team"));
+const Values = lazy(() => import("../../aboutus/Values"));
 
 const AboutPage = () => {
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <SEO />
+      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <HeroAbout />
         <Values />
         <Team />

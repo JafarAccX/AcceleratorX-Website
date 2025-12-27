@@ -1,90 +1,88 @@
-import { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { createContext, useContext, useState, ReactNode, useEffect, useCallback } from "react";
+import { Customer } from "../types/customer";
 
-interface User {
-  id: string;
-  phone_number: string;
-  full_name: string;
-  email: string;
-  education_level: string;
-  work_experience: string;
-  designation: string;
-  created_at: string;
-  updated_at: string;
+// Define the structure for the user data and tokens
+import { api } from "../api";
+
+// Define the structure for the user data and access token
+// The refresh token is now handled by an HttpOnly cookie
+interface AuthData {
+  user: Customer;
+  accessToken: string;
 }
 
 interface UserContextType {
-  user: User | null;
-  setUser: (user: User | null) => void;
+  user: Customer | null;
+  isAuthenticated: boolean;
   isLoading: boolean;
-  logout: () => void;
+  login: (authData: AuthData) => void;
+  logout: () => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(() => {
-    // Try to get user from localStorage on initial load
-    const savedUser = localStorage.getItem("userData");
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
+  const [user, setUser] = useState<Customer | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Save user to localStorage whenever it changes
-    if (user) {
-      localStorage.setItem(
-        "userData",
-        JSON.stringify({
-          ...user,
-          isAuthenticated: true,
-        }),
-      );
-      // localStorage.setItem("userData", JSON.stringify(user));
+  // Access token is stored in memory
+  const login = useCallback((authData: AuthData) => {
+    setUser(authData.user);
+    setIsAuthenticated(true);
+    // Set the access token for all subsequent api requests
+    api.defaults.headers.common["Authorization"] = `Bearer ${authData.accessToken}`;
+  }, []);
+
+  const logout = useCallback(async () => {
+    try {
+      // Request backend to clear the HttpOnly cookie
+      await api.post("/auth/logout");
+    } catch (error) {
+      console.error("Failed to logout", error);
+    } finally {
+      // Clear user state and authorization header regardless of backend call success
+      setUser(null);
+      setIsAuthenticated(false);
+      delete api.defaults.headers.common["Authorization"];
     }
-  }, [user]);
+  }, []);
 
   useEffect(() => {
-    const initializeAuth = async () => {
+    // Skip initialization on server-side
+    if (typeof window === 'undefined') {
+      setIsLoading(false);
+      return;
+    }
+
+    const initAuth = async () => {
+      setIsLoading(true);
       try {
-        // Check if there's a phone number in localStorage
-        const phoneNumber = localStorage.getItem("phoneNumber");
-        if (phoneNumber && !user) {
-          // Fetch user data from Supabase
-          const { data: userData, error } = await supabase
-            .from("profiles")
-            .select("*")
-            .eq("phone_number", phoneNumber)
-            .single();
-
-          if (error) throw error;
-
-          if (userData) {
-            setUser(userData);
-          }
+        // The backend will use the HttpOnly cookie to identify the user
+        const response = await api.post<AuthData>("/auth/refresh-token");
+        if (response.data) {
+          login(response.data);
         }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        // Clear localStorage if there's an error
-        localStorage.removeItem("userData");
-        localStorage.removeItem("phoneNumber");
+      } catch {
+        // This error is expected if the user is not logged in
+        // No need to handle the error object itself
+        console.log("No active session or session expired.");
       } finally {
         setIsLoading(false);
       }
     };
 
-    initializeAuth();
-  }, []);
+    initAuth();
+  }, [login]);
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("userData");
-    localStorage.removeItem("phoneNumber");
-  };
-
-  return <UserContext.Provider value={{ user, setUser, isLoading, logout }}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, isAuthenticated, isLoading, login, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useUser() {
   const context = useContext(UserContext);
   if (context === undefined) {
@@ -92,12 +90,3 @@ export function useUser() {
   }
   return context;
 }
-
-export const isAuthenticated = () => {
-  const userData = localStorage.getItem("userData");
-  if (userData) {
-    const parsedData = JSON.parse(userData);
-    return parsedData.isAuthenticated || false;
-  }
-  return false;
-};

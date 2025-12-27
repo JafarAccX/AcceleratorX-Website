@@ -8,92 +8,32 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question:
-      "Do I need prior experience in data analytics to join this course?",
-    answer:
-      "No, this course is designed for beginners. You’ll learn all the foundational concepts and tools required to get started in data analytics.",
+    question: "Who is this Data Analytics program for?",
+    answer: "This program is ideal for students, working professionals, entrepreneurs, AI enthusiasts and Data Analysts who want to master data-driven decision-making and grow their careers with AI-powered analytics skills.",
   },
   {
-    question: "Who is this course best suited for?",
-    answer:
-      "This course is perfect for students, professionals looking to transition into data analytics, business owners who want to leverage data-driven insights, and anyone interested in learning data analytics from scratch.",
+    question: "What makes the AcceleratorX AI Data Analytics Program different from other programs?",
+    answer: "Unlike traditional programs, this program combines AI-driven learning, hands-on projects, and real-world analytics tools, helping you learn faster, helping you build a strong data analyst portfolio and stay ahead in a data-first world.",
   },
   {
-    question: "What tools and technologies will I learn?",
-    answer:
-      "You’ll gain hands-on experience with Excel, SQL, Python, Tableau, and Power BI, along with an introduction to machine learning concepts.",
+    question: "Are the classes live or self-paced?",
+    answer: "AcceleratorX AI Data Analytics Program is 100% live with mentor-led sessions and AI-assisted guidance to give you flexibility without compromising personal support.",
   },
   {
-    question: "What topics does the course cover?",
-    answer:
-      "The course includes data cleaning and preparation, exploratory data analysis, data visualization, statistical analysis, predictive modeling, and dashboard creation.",
+    question: "What kind of projects will I work on?",
+    answer: "You'll work on real business and AI data challenges, from customer behaviour analysis to AI-powered dashboards. Each project adds to your portfolio, helping you stand out to recruiters.",
   },
   {
-    question:
-      "How long is the course, and how much time will I need to dedicate weekly?",
-    answer:
-      "The course is 22 weeks long. You’ll need to dedicate 6–10 hours per week for live sessions, assignments, and projects.",
+    question: "What support will I get during and after the program?",
+    answer: "You'll get personalised mentor assistance, end-to-end career guidance, data analytics mock interviews, and access to a thriving community of data analysts even after program completion.",
   },
   {
-    question: "Are there any live sessions, or is it self-paced?",
-    answer:
-      "The course includes a mix of live sessions, recorded lectures, and self-paced assignments, giving you flexibility while ensuring interaction with instructors.",
+    question: "Can this program help me transition into a data analytics career?",
+    answer: "Yes, this program is designed for a career change to high-paying data analytics job. With AI tools, practical projects, and placement assistance, you'll be job-ready for roles like Data Analyst, Business Analyst, Financial Analyst, Product Analyst and many more roles.",
   },
   {
-    question: "Will there be assignments or hands-on projects?",
-    answer:
-      "Yes, you’ll work on real-world datasets for weekly assignments and complete a capstone project that demonstrates your analytics skills.",
-  },
-  {
-    question: "What will I achieve by the end of this course?",
-    answer:
-      "By the end of this course, you’ll have a strong foundation in data analytics, a portfolio of projects to showcase your skills, and the confidence to tackle analytics problems independently.",
-  },
-  {
-    question: "Will I receive a certificate upon completion?",
-    answer:
-      "Yes, upon completing the course and submitting your capstone project, you’ll receive a professional certificate of completion.",
-  },
-  {
-    question: "Can this course help me land a job in data analytics?",
-    answer:
-      "Absolutely! This course equips you with in-demand skills and a portfolio to showcase your expertise, which can help you secure freelance projects or full-time roles in data analytics.",
-  },
-  {
-    question: "What technical setup do I need for this course?",
-    answer:
-      "You’ll need a computer or laptop with an internet connection and the ability to install software like Python, Tableau, and Excel.",
-  },
-  {
-    question: "Do I need to purchase any software for this course?",
-    answer:
-      "No, the tools used in this course offer free versions or trial plans sufficient for completing the projects and assignments.",
-  },
-  {
-    question: "What if I need help or have questions during the course?",
-    answer:
-      "You’ll have access to a dedicated support team, peer community discussions, and live Q&A sessions to address your questions.",
-  },
-  {
-    question: "How much does the course cost?",
-    answer:
-      "The course costs ₹10,000, which includes lifetime access to all materials, recorded sessions, and templates.",
-  },
-  {
-    question: "Can I access the course material after completion?",
-    answer:
-      "Yes, you’ll have lifetime access to the course content, so you can revisit any topic whenever needed.",
-  },
-  {
-    question:
-      "Is this course suitable for someone transitioning into a data analytics career?",
-    answer:
-      "Yes, this course is specifically designed to help beginners and career switchers build the foundational skills required for a data analytics role.",
-  },
-  {
-    question: "How do I enroll in the course?",
-    answer:
-      "Click on the 'Enroll Now' button on the course page, complete the payment, and you’ll receive access to the course materials and schedule shortly.",
+    question: "How do I enroll and start learning?",
+    answer: "Simply click on \"Enrol Now\", choose your plan, and get immediate access to the AI Data Analytics learning portal, no technical background required to begin.",
   },
 ];
 

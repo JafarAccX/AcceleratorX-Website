@@ -4,36 +4,36 @@ const WSGENIntroductionB = () => {
   const stats = [
     {
       value: "Zero",
-      label: "Coding Knowledge Required",
+      label: "coding knowledge needed",
     },
     {
       value: "100%",
-      label: "Hands-on Learning Experience",
+      label: "practical learning",
     },
     {
       value: "Free",
-      label: "Creative Workshop",
+      label: "live automation workshop",
     },
   ];
 
   const features = [
     {
       icon: <Target className="w-5 h-5 text-blue-500" />,
-      title: "Creative Prompt Engineering",
+      title: "Marketing Workflow Automation",
       description:
-        "Master the art of crafting prompts that turn your ideas into functional code without programming knowledge",
+        "From leads to analytics — auto-run everything.",
     },
     {
       icon: <Brain className="w-5 h-5 text-blue-500" />,
-      title: "App Building Without Code",
+      title: "AI Content Automation",
       description:
-        "Learn techniques to create interactive web applications and sites entirely through GenAI tools",
+        "Generate and schedule posts or emails instantly.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-      title: "Idea-to-Prototype Pipeline",
+      title: "Growth Blueprint",
       description:
-        "Develop a systematic approach to transform creative concepts into working prototypes in hours, not weeks",
+        "Apply automation to scale your work every day.",
     },
   ];
 
@@ -45,9 +45,7 @@ const WSGENIntroductionB = () => {
         block: "center",
       });
     } else {
-      console.error(
-        'Form element not found with ID "workshop-registration-form"'
-      );
+      console.error('Form element not found with ID "workshop-registration-form"');
     }
   };
 
@@ -57,32 +55,26 @@ const WSGENIntroductionB = () => {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
+            {/* <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Brain className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 text-sm font-medium">
-                Build Apps & Websites Without Writing Code
-              </span>
-            </div>
+              <span className="text-blue-400 text-sm font-medium">Automate & Create Smarter with Generative AI</span>
+            </div> */}
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Vibe <span className="text-blue-500">Coding</span> With Generative AI
+             
+              <span className="text-blue-500">Automate & Grow Smarter</span> with AI
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Discover how to bring your wildest app ideas to life without writing a single line of code. This hands-on creative workshop teaches you how to use GenAI tools to build functional applications, websites, and interactive experiences from scratch.
+              Learn to automate, create, and scale smarter — without touching a line of code. This live, hands-on session gives you everything you need to build real workflows that save time and drive results.
             </p>
           </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-[#0A1020] p-4 rounded-lg border border-blue-900/20 text-center"
-              >
-                <div className="text-2xl font-bold text-white mb-1">
-                  {stat.value}
-                </div>
+              <div key={index} className="bg-[#0A1020] p-4 rounded-lg border border-blue-900/20 text-center">
+                <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-400">{stat.label}</div>
               </div>
             ))}
@@ -95,13 +87,9 @@ const WSGENIntroductionB = () => {
                 key={index}
                 className="bg-[#0A1020] rounded-lg p-4 flex flex-col items-start gap-3 border border-blue-900/20"
               >
-                <div className="rounded-md bg-blue-500/10 p-2">
-                  {feature.icon}
-                </div>
+                <div className="rounded-md bg-blue-500/10 p-2">{feature.icon}</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">
-                    {feature.title}
-                  </h3>
+                  <h3 className="text-lg font-semibold text-white mb-1">{feature.title}</h3>
                   <p className="text-sm text-gray-400">{feature.description}</p>
                 </div>
               </div>

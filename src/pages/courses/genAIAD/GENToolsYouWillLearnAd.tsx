@@ -15,29 +15,24 @@ interface CategoryInfo {
 }
 
 const GENToolsYouWillLearnAd = () => {
-  const [activeCategory, setActiveCategory] = useState<string>(
-    "Text & Language Models"
-  );
+  const [activeCategory, setActiveCategory] = useState<string>("Text & Language Models");
 
   const projects = [
     {
-      title: "AI-powered content automation tool",
-      description:
-        "Build a tool that automates content creation using LLMs and prompt engineering",
+      title: "AI-driven content automation tool",
+      description: "Develop content Automation AI tools to streamline and scale content creation effortlessly.",
     },
     {
-      title: "AI-driven chatbots and virtual assistants",
-      description:
-        "Develop intelligent chatbots using advanced language models and conversation design",
+      title: "AI-powered chatbots and virtual assistants",
+      description: "Create natural, context-aware interactive AI Chatbots by combining advanced language models with smart conversation design.",
     },
     {
-      title: "Multi-agent AI automation workflows",
-      description:
-        "Create automated workflows using multiple AI agents working together",
+      title: "Multi-agent AI automation systems",
+      description: "Build seamless collaboration between multiple AI agents to execute complex workflows intelligently and efficiently.",
     },
     {
-      title: "Capstone Project: AI-powered SaaS tool",
-      description: "Develop and launch your own AI-powered SaaS solution",
+      title: "AI-powered SaaS product",
+      description: "Take an idea end-to-end by designing the UI/UX, integrating scalable LLMs, deploying a production-ready backend, and executing a go-to-market and monetisation strategy.",
     },
   ];
 
@@ -71,9 +66,8 @@ const GENToolsYouWillLearnAd = () => {
 
   const tools: Tool[] = [
     {
-      name: "GPT-4",
-      description:
-        "Advanced language model from OpenAI for sophisticated text generation",
+      name: "Chat-GPT",
+      description: "Advanced language model from OpenAI for sophisticated text generation",
       image: "/assets/genAITools/gpt4.webp",
       category: "Text & Language Models",
     },
@@ -86,19 +80,18 @@ const GENToolsYouWillLearnAd = () => {
     {
       name: "LLaMA",
       description: "Open-source language model for diverse AI applications",
-      image: "/assets/genAITools/ollama.png",
+      image: "/assets/genAITools/ollama.webp",
       category: "Text & Language Models",
     },
     {
       name: "Falcon",
       description: "High-performance language model for various text tasks",
-      image: "/assets/genAITools/falcon.png",
+      image: "/assets/genAITools/falcon.webp",
       category: "Text & Language Models",
     },
     {
       name: "Claude",
-      description:
-        "Anthropic's AI assistant for complex reasoning and analysis",
+      description: "Anthropic's AI assistant for complex reasoning and analysis",
       image: "/assets/genAITools/claude.webp",
       category: "Text & Language Models",
     },
@@ -116,15 +109,13 @@ const GENToolsYouWillLearnAd = () => {
     },
     {
       name: "Stable Diffusion",
-      description:
-        "Open-source image generation model for diverse visual content",
-      image: "/assets/genAITools/stability-ai.png",
+      description: "Open-source image generation model for diverse visual content",
+      image: "/assets/genAITools/stability-ai.webp",
       category: "Image & Video AI",
     },
     {
       name: "DALL·E",
-      description:
-        "OpenAI's image creation model for artistic and commercial use",
+      description: "OpenAI's image creation model for artistic and commercial use",
       image: "/assets/genAITools/dalle.webp",
       category: "Image & Video AI",
     },
@@ -161,13 +152,13 @@ const GENToolsYouWillLearnAd = () => {
     {
       name: "Magenta",
       description: "Google's creative tool for music and art generation",
-      image: "/assets/genAITools/magenta.png",
+      image: "/assets/genAITools/magenta.webp",
       category: "Speech & Audio AI",
     },
     {
       name: "LangChain",
       description: "Framework for building LLM-powered applications",
-      image: "/assets/genAITools/langchain.png",
+      image: "/assets/genAITools/langchain.webp",
       category: "AI Agent Building",
     },
     {
@@ -179,7 +170,7 @@ const GENToolsYouWillLearnAd = () => {
     {
       name: "AutoGen",
       description: "Tool for building autonomous AI agents",
-      image: "/assets/genAITools/autogen.jpeg",
+      image: "/assets/genAITools/autogen.webp",
       category: "AI Agent Building",
     },
     {
@@ -188,10 +179,29 @@ const GENToolsYouWillLearnAd = () => {
       image: "/assets/genAITools/rag.webp",
       category: "AI Agent Building",
     },
+
+    {
+      name: "n8n",
+      description: "Automation platform  for building AI workflows",
+      image: "/assets/genAITools/n8n-seeklogo.webp",
+      category: "AI Deployment & Integration",
+    },
+    {
+      name: "langchain",
+      description: "Powerful framework for building AI applications",
+      image: "/assets/genAITools/langchain-seeklogo.webp",
+      category: "AI Deployment & Integration",
+    },
+    {
+      name: "Hugging Face",
+      description: "Platform for sharing and deploying AI models",
+      image: "/assets/genAITools/huggingface.webp",
+      category: "AI Deployment & Integration",
+    },
     {
       name: "AWS",
       description: "Cloud platform for AI deployment and scaling",
-      image: "/assets/genAITools/aws.png",
+      image: "/assets/genAITools/aws.webp",
       category: "AI Deployment & Integration",
     },
     {
@@ -203,15 +213,10 @@ const GENToolsYouWillLearnAd = () => {
     {
       name: "OpenAI API",
       description: "API access to OpenAI's powerful AI models",
-      image: "/assets/genAITools/openai-logomark.svg",
+      image: "/assets/genAITools/openai-logomark.webp",
       category: "AI Deployment & Integration",
     },
-    {
-      name: "Hugging Face",
-      description: "Platform for sharing and deploying AI models",
-      image: "/assets/genAITools/huggingface.svg",
-      category: "AI Deployment & Integration",
-    },
+
     {
       name: "Zapier",
       description: "Automation platform for integrating AI services",
@@ -229,17 +234,13 @@ const GENToolsYouWillLearnAd = () => {
             <div className="text-center mb-6">
               <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-3 py-1.5 mb-2">
                 <Rocket className="w-3.5 h-3.5 text-blue-600" />
-                <span className="text-blue-600 text-xs font-medium">
-                  Hands-on Projects
-                </span>
+                <span className="text-blue-600 text-xs font-medium">Hands-on Projects</span>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                Learn by Building Real AI Applications
+                Learn by developing AI applications.
               </h2>
               <p className="text-gray-600 text-base max-w-2xl mx-auto">
-                Apply your skills through practical projects that solve
-                real-world problems
-              </p>
+                Let's solve real-world problems by applying skills on building practical projects.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -250,13 +251,9 @@ const GENToolsYouWillLearnAd = () => {
                 >
                   <div className="flex items-start gap-2 mb-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                    <h3 className="text-sm font-semibold text-gray-900">
-                      {project.title}
-                    </h3>
+                    <h3 className="text-sm font-semibold text-gray-900">{project.title}</h3>
                   </div>
-                  <p className="text-xs text-gray-600 pl-3.5">
-                    {project.description}
-                  </p>
+                  <p className="text-xs text-gray-600 pl-3.5">{project.description}</p>
                 </div>
               ))}
             </div>
@@ -266,13 +263,9 @@ const GENToolsYouWillLearnAd = () => {
           <div className="mb-6 text-center">
             <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-3 py-1.5 mb-2">
               <Wrench className="w-3.5 h-3.5 text-blue-600" />
-              <span className="text-blue-600 text-xs font-medium">
-                Tools & Technologies
-              </span>
+              <span className="text-blue-600 text-xs font-medium">Tools & Technologies</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-              Master Industry-Leading AI Tools
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Master Industry-Leading AI Tools</h2>
             <p className="text-gray-600 text-base max-w-2xl mx-auto">
               Get hands-on experience with the most powerful AI tools
             </p>
@@ -295,9 +288,7 @@ const GENToolsYouWillLearnAd = () => {
                 >
                   <div className="flex items-center gap-2">
                     <Icon className="w-4 h-4" />
-                    <span className="text-sm font-medium whitespace-nowrap">
-                      {info.name}
-                    </span>
+                    <span className="text-sm font-medium whitespace-nowrap">{info.name}</span>
                   </div>
                 </button>
               );
@@ -315,24 +306,18 @@ const GENToolsYouWillLearnAd = () => {
                 >
                   <div
                     className={`aspect-[3/2] mb-2 rounded-md overflow-hidden ${
-                      tool.name === "DALL·E" || tool.name === "Stable Diffusion"
-                        ? "bg-black"
-                        : "bg-gray-50"
+                      tool.name === "DALL·E" || tool.name === "Stable Diffusion" ? "bg-black" : "bg-gray-50"
                     } p-2 flex items-center justify-center`}
                   >
                     <img
                       src={tool.image}
-                      alt={tool.name}
+                      alt={`Generative AI tool - ${tool.name}`}
                       className="w-[75%] h-[75%] object-contain filter group-hover:brightness-110 transition-all duration-300"
                     />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-1">
-                      {tool.name}
-                    </h4>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      {tool.description}
-                    </p>
+                    <h4 className="text-sm font-semibold text-gray-900 mb-1">{tool.name}</h4>
+                    <p className="text-xs text-gray-600 line-clamp-2">{tool.description}</p>
                   </div>
                 </div>
               ))}

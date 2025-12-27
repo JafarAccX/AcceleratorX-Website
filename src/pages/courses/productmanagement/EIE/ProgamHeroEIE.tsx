@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+ 
 import { ArrowRight } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 import { Phone, Users } from "lucide-react";
-import productPageBannerEIE from "/assets/productpageBannerEIE.png";
+import productPageBannerEIE from "/assets/productpageBannerEIE.webp";
 
 const navLinks = [
   { name: "Highlights", id: "highlights" },
@@ -78,38 +78,32 @@ export default function ProgramHeroEIE() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <div
+             
               className="bg-[#5CB338]/20 backdrop-blur-sm px-4 py-2 rounded-md inline-block mb-6 border border-[#5CB338]"
             >
               <span className="text-[#fff] font-semibold text-sm sm:text-base">
                 #1 IN EXECUTIVE EDUCATION
               </span>
-            </motion.div>
+            </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              Professional Certificate in
+              Stay Ahead in Your Career with
               <span className="bg-[#5CB338] bg-clip-text text-transparent">
                 {" "}
-                Product Management
+                AI Product Management 
+
               </span>
             </h1>
             <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-300">
-              Get Certified and Master the fundamentals of product management
-              with the most hands-on product management program. Build Your
-              Dream Product (BYDP) as part of the program.
+             Master AI product management with India’s top AI Product Management Program. Dive into AI Product Management, leverage product management tools, gain real-world experience, Build Your Own Product and take your product management career to the next level.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-6 mb-8">
               <div className="border-r border-[#5CB338]/30">
-                <h3 className="text-[#5CB338] font-bold">Type</h3>
+                <p className="text-[#5CB338] font-bold">Category</p>
                 <p className="text-gray-300">Professional Certificate</p>
               </div>
               {/* <div className="border-r border-[#5CB338]/30">
@@ -117,22 +111,20 @@ export default function ProgramHeroEIE() {
                 <p className="text-gray-300">Feb 20, 2025</p>
               </div> */}
               <div>
-                <h3 className="text-[#5CB338] font-bold">Duration</h3>
+                <p className="text-[#5CB338] font-bold">Duration</p>
                 <p className="text-gray-300">4 Months</p>
               </div>
             </div>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 md:gap-6 items-start">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
+                 
                 className="w-full sm:w-auto bg-[#5CB338] text-white font-semibold px-8 md:px-10 py-3 rounded-md hover:bg-[#FFD700] transition flex items-center justify-center"
                 onClick={() => setIsModalOpen(true)}
               >
                 Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              </button>
+              <button
+                
                 className="w-full sm:w-auto border-2 border-[#5CB338] text-[#5CB338] px-8 md:px-10 py-3 rounded-md hover:bg-[#5CB338]/10 transition font-semibold"
                 onClick={() => {
                   setIsModalOpen(true);
@@ -140,7 +132,7 @@ export default function ProgramHeroEIE() {
                 }}
               >
                 Download Syllabus
-              </motion.button>
+              </button>
             </div>
             <div className="mt-8 flex items-center gap-4 text-white">
               <Phone className="h-5 w-5 text-[#5CB338]" />
@@ -148,20 +140,18 @@ export default function ProgramHeroEIE() {
             </div>
             <div className="mt-4 flex items-center gap-4 text-white">
               <Users className="h-5 w-5 text-[#5CB338]" />
-              <span>50+ people have already enrolled in the last 2 Months</span>
+              <span>150+ AI Product Managers have already graduated in the last 3 months</span>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <div
+             
             className="relative mt-8 lg:mt-0"
           >
             <div className="relative rounded-lg overflow-hidden">
               <img
                 src={productPageBannerEIE}
-                alt="Product Management Workshop"
+                alt="best product management certification program banner"
                 className="w-full rounded-lg shadow-2xl"
               />
             </div>
@@ -169,12 +159,12 @@ export default function ProgramHeroEIE() {
               <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                 <p className="text-sm font-medium text-amber-400">
-                  *15 Days Money Back Guarantee Program
+                  Join our hands-on AI Product Management Program worry-free. Satisfaction guaranteed or get your money back!
                 </p>
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

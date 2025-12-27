@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
@@ -26,33 +25,32 @@ const itemVariants = {
 const WhoIsThisContentForEIE = () => {
   const targetAudience = [
     {
-      title: "Business Professionals",
-      description: "Looking to leverage data for strategic decision-making",
+      title: "Business professionals",
+      description: "Aiming to leverage data for smarter, strategic decisions.",
     },
     {
-      title: "Career Transitioners",
-      description: "Aiming to move into data analytics roles",
+      title: "Career transitioners",
+      description: "Ready to step into high-growth AI data analytics and Business analytics jobs.",
     },
     {
-      title: "Recent Graduates",
-      description: "Seeking to build a strong foundation in data analytics",
+      title: "Recent graduates",
+      description: "Ready to launch their careers in product-based companies with a solid foundation in AI-powered data analytics.",
     },
     {
       title: "Entrepreneurs",
-      description: "Wanting to make data-driven business decisions",
+      description: "To make smarter, data-driven business decisions and AI-driven strategies.",
     },
     {
       title: "Marketing Professionals",
-      description: "Looking to enhance their data analysis capabilities",
+      description: "Looking forward to making data-driven decisions, optimizing campaigns, and forecasting trends.",
     },
     {
       title: "Students",
-      description: "Looking forward to start a career in data analytics",
+      description: "Aspiring to start a rewarding career in AI data analytics.",
     },
     {
-      title: "Product Analysts",
-      description: "Looking to specialize in advanced product metrics and user behavior analysis",
-      highlight: true
+      title: "AI Enthusiasts",
+      description: "Passionate about exploring AI applications in data analytics and building future-ready skills.",
     },
   ];
 
@@ -66,12 +64,9 @@ const WhoIsThisContentForEIE = () => {
           variants={containerVariants}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-[#1A5D1A] mb-4">
-            Who Is This Program For?
-          </h2>
+          <h2 className="text-4xl font-bold text-[#1A5D1A] mb-4">Who can take the AI Data Analytics Program?</h2>
           <p className="text-lg text-[#1F441E] max-w-3xl mx-auto">
-            Our EIE Data Analytics program is designed for ambitious professionals ready to master data-driven decision making, 
-            now featuring specialized tracks in Product Analytics
+            This AI Data Analytics Program is curated for professionals and students who want to accelerate their career and business, get hired, and stay relevant in the current AI job market.
           </p>
         </motion.div>
 
@@ -86,37 +81,21 @@ const WhoIsThisContentForEIE = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border ${
-                item.highlight 
-                  ? 'border-amber-400 shadow-amber-100'
-                  : 'border-[#C7DCA7]'
-              }`}
+              className={`bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-[#C7DCA7]`}
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                    item.highlight
-                      ? 'bg-amber-100'
-                      : 'bg-[#E4EFE7]'
-                  }`}>
-                    <Check className={`w-5 h-5 ${
-                      item.highlight
-                        ? 'text-amber-600'
-                        : 'text-[#1A5D1A]'
-                    }`} />
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center bg-[#E4EFE7]`}
+                  >
+                    <Check className={`w-5 h-5 text-[#1A5D1A]`} />
                   </div>
                 </div>
                 <div>
-                  <h3 className={`text-xl font-semibold mb-2 ${
-                    item.highlight
-                      ? 'text-amber-600'
-                      : 'text-[#1A5D1A]'
-                  }`}>
+                  <h3 className={`text-xl font-semibold mb-2 text-[#1A5D1A]`}>
                     {item.title}
                   </h3>
-                  <p className="text-[#1F441E]">
-                    {item.description}
-                  </p>
+                  <p className="text-[#1F441E]">{item.description}</p>
                 </div>
               </div>
             </motion.div>

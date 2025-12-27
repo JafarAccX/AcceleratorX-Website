@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { TrendingUp, Briefcase, Target, BarChart } from "lucide-react";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 
@@ -11,49 +11,49 @@ const GENMarketScopeAd = () => {
   const marketStats = [
     {
       icon: <TrendingUp className="w-5 h-5 text-emerald-500" />,
-      value: "$1.3T",
-      label: "Market Size by 2032",
-      description: "The global AI market is projected to reach $1.3 trillion by 2032"
+      value: "$2,760 Billion ",
+      label: "Market size by 2032.",
+      description: "The global AI market is projected to reach $1.3 trillion by 2032."
     },
     {
       icon: <Briefcase className="w-5 h-5 text-blue-500" />,
       value: "97M",
-      label: "New Jobs by 2025",
-      description: "AI will create 97 million new jobs across industries by 2025"
+      label: "New Jobs by 2026",
+      description: " AI will create 97 million jobs across industries by 2026"
     },
     {
       icon: <Target className="w-5 h-5 text-purple-500" />,
       value: "40%",
       label: "Productivity Boost",
-      description: "Companies report up to 40% increase in productivity with AI"
+      description: "Company reports up to 40% increase in productivity with AI"
     },
     {
       icon: <BarChart className="w-5 h-5 text-rose-500" />,
       value: "35%",
       label: "CAGR Growth",
-      description: "The AI industry is growing at 35% compound annual growth rate"
+      description: "The AI industry is growing at the rate of 35% annually."
     }
   ];
 
   const opportunities = [
     {
-      title: "AI Consultants & Strategists",
-      description: "Help businesses integrate AI solutions and develop AI strategies",
+      title: "AI consultant& strategist",
+      description: "Assist with Business integrations with AI solutions.",
       salary: "₹12L - 25L"
     },
     {
       title: "Prompt Engineers",
-      description: "Design and optimize prompts for AI models and applications",
+      description: "Develop prompt models for AI Applications",
       salary: "₹10L - 16L"
     },
     {
       title: "AI Application Developers",
-      description: "Build and deploy AI-powered applications and tools",
+      description: "Design an AI-powered Application for tools",
       salary: "₹11L - 20L"
     },
     {
       title: "AI Automation Specialists",
-      description: "Create automated workflows using AI and other tools",
+      description: "Create an automated workflow using AI",
       salary: "₹8L - 15L"
     }
   ];
@@ -81,11 +81,10 @@ const GENMarketScopeAd = () => {
               <span className="text-blue-400 text-sm font-medium">Market Scope</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              The Growing AI Industry
+              The Developing Generative AI Industry
             </h2>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              The AI revolution is creating unprecedented opportunities across industries. 
-              Discover the massive potential in the rapidly expanding AI market.
+              In the era of AI Agent and AI automation, discover opportunities across the rapidly developing AI market.
             </p>
           </div>
 
@@ -116,9 +115,9 @@ const GENMarketScopeAd = () => {
 
           {/* Career Opportunities */}
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">
-              High-Paying Career Opportunities
-            </h3>
+            <p className="text-2xl font-bold text-white mb-8 text-center">
+              Growth Driven Career Opportunity in Generative AI & AI Agent
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {opportunities.map((job, index) => (
                 <div

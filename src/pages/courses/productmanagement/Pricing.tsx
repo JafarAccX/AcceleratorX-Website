@@ -51,7 +51,7 @@ export default function Pricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="py-24 bg-gradient-to-b from-black to-gray-900" id="pricing">
+    <div className="py-24 bg-gradient-to-b from-black to-gray-9z00" id="pricing">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,9 +59,7 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold text-white">
-            Invest in Your Future
-          </h2>
+          <h2 className="text-4xl font-bold text-white">Invest in Your Future</h2>
           <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
             Transform your career with our comprehensive programs
           </p>
@@ -82,10 +80,7 @@ export default function Pricing() {
           onEnroll={() => setIsModalOpen(true)}
         /> */}
 
-        <EnrollmentModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-        />
+        <EnrollmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </div>
   );

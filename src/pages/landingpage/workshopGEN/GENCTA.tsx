@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import DMTimer from "../../../pages/courses/dmAI/DMTimer";
 
 const GENCTA = () => {
   const currentYear = new Date().getFullYear();
@@ -13,108 +12,71 @@ const GENCTA = () => {
   };
 
   return (
-    <div className="relative bg-black">
-      <div className="absolute inset-0 bg-black"></div>
+    <div className="relative bg-black flex items-center justify-center pb-20 px-4">
+      <div className="relative max-w-2xl w-full text-center space-y-8">
+        {/* Headings */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-4"
+        >
+          <h2 className="text-xl md:text-3xl font-bold text-white">Don’t Just Scroll. Automate.</h2>
+          <p className="text-gray-400 text-base">This is not another “watch and forget” session.</p>
+          <p className="text-gray-300 text-base">
+            This is your shortcut to turning social media into a lead-gen machine using{" "}
+            <span className="text-blue-400 font-semibold">Make.com</span> — in just 90 minutes.
+          </p>
+        </motion.div>
 
-      {/* Main Content */}
-      <div className="relative py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center space-y-10">
-            {/* Timer Badge */}
-            {/* <motion.div
-              className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 py-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-white text-sm font-medium">
-                Workshop starts in:
-              </span>
-              <DMTimer initialHours={120} className="text-white font-semibold" />
-            </motion.div> */}
-
-            {/* Heading */}
-            <motion.h2
-              className="text-4xl md:text-5xl font-bold text-center text-white max-w-3xl leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Start Saving Time with AI Today
-            </motion.h2>
-
-            {/* Price Badge */}
-            <motion.div
-              className="flex flex-col items-center space-y-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="bg-blue-500/10 rounded-full px-6 py-2">
-                <span className="text-3xl font-bold text-white">₹99</span>
-                <span className="text-gray-400 text-sm ml-2">Only</span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                Limited Time Special Price
-              </p>
-            </motion.div>
-
-            {/* Value Props */}
-            <motion.div
-              className="flex flex-col items-center space-y-4 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="grid grid-cols-2 gap-4 w-full">
-                <div className="bg-white/5 p-4 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-blue-400">2 Hours</p>
-                  <p className="text-sm text-gray-400">Live Workshop</p>
-                </div>
-                <div className="bg-white/5 p-4 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-green-400">
-                    Interactive
-                  </p>
-                  <p className="text-sm text-gray-400">Q&A Session</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Button Section */}
-            <motion.div
-              className="flex flex-col items-center space-y-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              {/* Button */}
-              <button
-                onClick={handleEnrollClick}
-                className="group relative inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-200 overflow-hidden"
-              >
-                <span className="relative z-10 text-lg font-semibold">
-                  Join Workshop
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out origin-left"></div>
-              </button>
-            </motion.div>
-
-            {/* Footer Section */}
-            <div className="mt-8 flex flex-col items-center space-y-4">
-              <div className="flex items-center justify-center space-x-2">
-                <img
-                  src="/favicon.svg"
-                  alt="AcceleratorX"
-                  className="h-6 w-6"
-                />
-                <span className="text-white font-medium">AcceleratorX</span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                {currentYear} AcceleratorX. All rights reserved.
-              </p>
-            </div>
+        {/* Feature + Badge Cards as Grid */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          {/* Feature Card 1 */}
+          <div className="bg-white/5 p-5 rounded-xl text-center shadow-lg border border-white/10">
+            <p className="text-2xl font-bold text-blue-400">2 Hours</p>
+            <p className="text-sm text-gray-400 mt-1">Live Workshop</p>
           </div>
-        </div>
+
+          {/* Feature Card 2 */}
+          <div className="bg-white/5 p-5 rounded-xl text-center shadow-lg border border-white/10">
+            <p className="text-2xl font-bold text-green-400">Interactive</p>
+            <p className="text-sm text-gray-400 mt-1">Q&A Session</p>
+          </div>
+
+          {/* Badge Card 1 */}
+          <div className="bg-blue-600/20 p-5 rounded-xl text-center shadow-lg border border-blue-600/30">
+            <p className="text-lg font-semibold text-blue-400">Seats are limited</p>
+          </div>
+
+          {/* Badge Card 2 */}
+          <div className="bg-green-600/20 p-5 rounded-xl text-center shadow-lg border border-green-600/30">
+            <p className="text-lg font-semibold text-green-400">₹99 only</p>
+          </div>
+
+          {/* Badge Card 3 (Full width on small screens) */}
+          <div className="sm:col-span-2 bg-white/10 p-5 rounded-xl text-center shadow-lg border border-white/10">
+            <p className="text-lg font-semibold text-white">Real tools. Real Results.</p>
+          </div>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <button
+            onClick={handleEnrollClick}
+            className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg font-semibold uppercase hover:from-blue-700 hover:to-blue-800 transition mt-6"
+          >
+            REGISTER NOW & START AUTOMATING
+          </button>
+        </motion.div>
       </div>
 
       {/* Bottom Border Animation */}
@@ -122,6 +84,7 @@ const GENCTA = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-border-flow"></div>
       </div>
 
+      {/* Custom Keyframes */}
       <style jsx>{`
         @keyframes border-flow {
           0% {

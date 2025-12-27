@@ -1,50 +1,43 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+// import React, { useEffect, useRef } from "react";
+// import {  useInView } from "framer-motion";
 import { Users } from "lucide-react";
 
 const companies = [
-  { name: "Adobe", logo: "/assets/companyLogos/adobe.png" },
-  { name: "Walmart", logo: "/assets/companyLogos/Walmart_logo.png" },
-  { name: "HP", logo: "/assets/companyLogos/HP.png" },
-  { name: "Licious", logo: "/assets/companyLogos/Licious-Logo.png" },
-  { name: "Tracxn", logo: "/assets/companyLogos/TRACXN.png" },
-  { name: "Times Internet", logo: "/assets/companyLogos/TIMES.png" },
-  { name: "PayU", logo: "/assets/companyLogos/PAY U.png" },
-  { name: "VMware", logo: "https://cdn.worldvectorlogo.com/logos/vmware-1.svg" },
-  { name: "Cars24", logo: "/assets/companyLogos/CARS24.png" },
-  { name: "Pine Labs", logo: "/assets/companyLogos/pinelabs.png" },
-  { name: "Unacademy", logo: "/assets/companyLogos/Unacademy-Symbol.png" },
-  { name: "ANQ", logo: "/assets/companyLogos/anqfinance_logo.jpeg" },
-  { name: "Showtime", logo: "/assets/companyLogos/Showtime.png" },
-  { name: "PeakMind", logo: "/assets/companyLogos/PEAKMIND.png" },
-  { name: "Junglee Games", logo: "/assets/companyLogos/jungle_games.png" },
+  { name: "Adobe", logo: "/assets/companyLogos/adobe.webp", alt: "Adobe company logo for product management" },
+  { name: "Walmart", logo: "/assets/companyLogos/walmart.webp", alt: "Walmart company logo for product data management" },
+  { name: "HP", logo: "/assets/companyLogos/HP.webp", alt: "HP company logo - product management courses" }, 
+  { name: "Tracxn", logo: "/assets/companyLogos/TRACXN.webp", alt: "Tracxn company logo - data product management" }, 
+  { name: "PayU", logo: "/assets/companyLogos/PAY U.webp", alt: "PayU company logo for product management certification" }, 
+  { name: "Cars24", logo: "/assets/companyLogos/CARS24.webp", alt: "Cars24 company logo - product management" },
+  { name: "Pine Labs", logo: "/assets/companyLogos/pinelabs.webp", alt: "PineLabs company logo - product management certification" },
+  { name: "Unacademy", logo: "/assets/companyLogos/Unacademy-Symbol.webp", alt: "Unacademy logo - product management courses partner" },
+  { name: "ANQ", logo: "/assets/companyLogos/anqfinance_logo.webp", alt: "ANQ company logo" },
+  { name: "Showtime", logo: "/assets/companyLogos/Showtime.webp", alt: "Showtime company logo for product management" },
+  { name: "PeakMind", logo: "/assets/companyLogos/PEAKMIND.webp", alt: "PeakMind company logo for digital product management" },
+  { name: "Junglee Games", logo: "/assets/companyLogos/jungle_games.webp", alt: "Junglee Games company logo" },
 ];
 
 const LogoSlider: React.FC = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sliderRef, { once: false, margin: "-100px" });
+  // const sliderRef = useRef<HTMLDivElement>(null);
+  // const isInView = useInView(sliderRef, { once: false, margin: "-100px" });
 
-  useEffect(() => {
-    if (!sliderRef.current) return;
+  // useEffect(() => {
+  //   if (!sliderRef.current) return;
     
-    const slider = sliderRef.current;
-    if (isInView) {
-      slider.style.animationPlayState = "running";
-    } else {
-      slider.style.animationPlayState = "paused";
-    }
-  }, [isInView]);
+  //   const slider = sliderRef.current;
+  //   if (isInView) {
+  //     slider.style.animationPlayState = "running";
+  //   } else {
+  //     slider.style.animationPlayState = "paused";
+  //   }
+  // }, [isInView]);
 
   return (
     <div className="bg-black">
       <section className="py-4">
         <div className="max-w-7xl mx-auto px-3">
           {/* Section Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
             className="text-center mb-8"
           >
             <div className="inline-block mb-4">
@@ -52,23 +45,23 @@ const LogoSlider: React.FC = () => {
                 <Users className="w-8 h-8 text-blue-400" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Trusted by Industry Leaders
-            </h2>
+            <h1 className="text-4xl font-bold text-white mb-4">
+              Trusted by 1700+ Organisations For Your AI Career
+            </h1>
             <p className="text-lg text-blue-200/80 max-w-2xl mx-auto">
-              Join hands with companies worldwide that trust our resources.
+              Our Partners & Hiring Network:
             </p>
-          </motion.div>
+          </div>
 
           {/* Optimized Logo Slider */}
           <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:w-[100px] before:h-full before:bg-gradient-to-r before:from-black before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:w-[100px] after:h-full after:bg-gradient-to-l after:from-black after:to-transparent">
             <div 
-              ref={sliderRef}
+              // ref={sliderRef}
               className="flex gap-8 logos-slide"
-              style={{ 
-                animationPlayState: isInView ? "running" : "paused",
-                willChange: "transform"
-              }}
+              // style={{ 
+              //   animationPlayState: isInView ? "running" : "paused",
+              //   willChange: "transform"
+              // }}
             >
               {companies.map((company, index) => (
                 <div
@@ -77,7 +70,7 @@ const LogoSlider: React.FC = () => {
                 >
                   <img
                     src={company.logo}
-                    alt={company.name}
+                    alt={company.alt}
                     className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
                     loading="lazy"
                     decoding="async"
@@ -92,7 +85,7 @@ const LogoSlider: React.FC = () => {
                 >
                   <img
                     src={company.logo}
-                    alt={company.name}
+                    alt={company.alt}
                     className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
                     loading="lazy"
                     decoding="async"
@@ -104,7 +97,7 @@ const LogoSlider: React.FC = () => {
         </div>
       </section>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slide {
           from {
             transform: translateX(0);

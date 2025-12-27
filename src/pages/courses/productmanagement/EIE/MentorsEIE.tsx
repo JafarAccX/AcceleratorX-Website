@@ -61,7 +61,7 @@ export default function MentorsEIE() {
                   <a
                     href={mentor.linkedin}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="bg-[#5CB338] hover:bg-[#5CB338]/80 text-white px-4 py-1.5 rounded-lg transition-colors duration-300 flex items-center gap-2 text-sm group/btn"
                   >
                     <Linkedin className="w-4 h-4 group-hover/btn:scale-110 transition-transform duration-300" />

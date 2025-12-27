@@ -1,9 +1,5 @@
-import React, { useState } from "react";
-import {
-  Sparkles,
-  Target,
-  Users,
-  Code,
+import  { useState } from "react";
+import { 
   Lightbulb,
   Rocket,
   Workflow,
@@ -12,81 +8,80 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    title: "Build Your Dream Product",
+    title: "Design and Launch your Project",
     description:
-      "Empower yourself to ideate, design, and launch a product from scratch, mastering every stage of the product lifecycle with real-world tools and insights.",
+      "Brainstorm and launch your own product from scratch during every stage of the product lifecycle using real-world tools and insights.",
     image: <Lightbulb className="w-8 h-8 text-[#5CB338]" />,
     className: "hover:shadow-[#5CB338]/20",
   },
   {
-    title: "BYDP: Transforming Ideas into Market-Ready Products",
+    title: "BYDP: Transform Ideas into Impact",
     description:
-      "From user research to go-to-market strategy, BYDP guides you through a structured journey to build, test, and present a product that solves real problems.",
+      "From identifying the problem statement to building a go-to-market strategy, BYDP guides you through a planned journey to build, test, and present an AI product that solves the problems.",
     image: <Workflow className="w-8 h-8 text-[#5CB338]" />,
     className: "hover:shadow-[#5CB338]/20",
   },
   {
-    title: "Hands-On Product Building Experience",
+    title: "Product Management Experience",
     description:
-      "Gain real-time skills in product management by building and managing your own product idea from concept to execution, with full guidance and resources.",
+      "Gain practical AI Product Management skills by managing your product idea from concept to execution, with full guidance, templates, and resources.",
     image: <Rocket className="w-8 h-8 text-[#5CB338]" />,
     className: "hover:shadow-[#5CB338]/20",
   },
   {
-    title: "Scalable Product Management Skills",
+    title: "Skills for Real-World Impact",
     description:
-      "Learn scalable strategies and frameworks that equip you to handle products of any size and complexity, preparing you for real-world industry demands.",
+      "Go through strategies and frameworks that level up to products of any scale or complexity, preparing you for the demands of a real-world product management career.",
     image: <Rocket className="w-8 h-8 text-[#5CB338]" />,
     className: "hover:shadow-[#5CB338]/20",
   },
 ];
 
 const sections = {
-  highlights: {
-    title: "Key Highlights",
+  primaryFocus: {
+    title: "Primary Focus",
     content: [
-      "EIE Malta Certificate",
-      "PM Toolbox & Templates",
-      "Assignment Feedback",
-      "Build Your Dream Product (BYDP)",
-      "Mock Interviews",
-      "AI Product Management Specialization",
-      "Growth Product Management Specialization",
-      "AcceleratorX Job Priority Access",
-      "Personalized Skill Report",
-      "Project-Based Mini Challenges",
-      "Exclusive PM Workshops & Events",
-      "Bi-Weekly Career Review Calls",
-      "Chance to win Industry Internship",
-      "Business Pitch & Investor Workshop",
-      "Product Showcase on Wall of Product",
-      "Ask Doubt (1:1 with Mentor on demand)",
+      { title: "AI PM Toolbox & Templates", description: "Ready-to-use resources for your projects" },
+      { title: "Mini Project Challenges", description: "Apply skills through practical product management exercises" },
+      { title: "Expert Assignment Feedback", description: "Improve with professional guidance" },
+      { title: "Build Your Dream Product (BYDP)", description: "Hands-on product creation" },
+      { title: "AI Product Management Specialization", description: "Learn AI-driven strategies" },
+      { title: "Growth Product Management Specialization", description: "Master scaling and growth" },
+      { title: "Mock Interviews", description: "Practice with real-world scenarios" },
+      { title: "AcceleratorX Job Priority Access", description: "Fast-track your career opportunities" },
+      { title: "Personalized Skill Report", description: "Track progress and strengths" },
+      { title: "Exclusive PM Workshops & Events", description: "Learn from industry leaders" },
+      { title: "Bi-Weekly Career Review Calls", description: "Continuous mentorship and guidance" },
+      { title: "Chance to Win Industry Internship", description: "Gain real-world experience" },
+      { title: "Business Pitch & Investor Workshop", description: "Present ideas to investors" },
+      { title: "Product Showcase on Wall", description: "Share your projects with peers" },
+      { title: "1:1 Mentorship On-Demand", description: "Get doubts cleared anytime" },
     ],
   },
-  skills: {
-    title: "Top Skills You Will Master",
+  skillsDeveloped: {
+    title: "Skills Developed",
     content: [
-      "Product Strategy",
-      "User Research",
-      "Data Analysis",
-      "Agile Management",
-      "Stakeholder Communication",
-      "Market Research",
-      "UX Design",
-      "Technical Knowledge",
-      "Growth Product Management",
-      "AI Product Management",
-      "Product Sense",
-      "UI/UX",
-      "Go To Market",
-      "Product Launch",
-      "Product Analytics",
+      { title: "Product Strategy", description: "Develop your priorities, roadmap, and vision." },
+      { title: "Product Sense", description: "Use your intuition to make wise choices about products." },
+      { title: "Stakeholder Communication", description: "Effectively influence and cooperate" },
+      { title: "Agile Management", description: "Effective and flexible project management" },
+      { title: "User research", description: "needs and problems of customers" },
+      { title: "Market research", description: "Identify rivals and prospects" },
+      { title: "Data analysis", description: "Turning data into useful insights" },
+      { title: "Product analytics", description: "growth and performance" },
+      { title: "UI/UX", description: "Usability and design for optimal effect" },
+      { title: "Technical Knowledge", description: "Recognize how products are made using technology" },
+      { title: "Go To Market", description: "Plan effective product introductions" },
+      { title: "Product Launch", description: "Carry out launches that have practical implications" },
+      { title: "Development Product Management", description: "Promote the uptake and expansion of products" },
+      { title: "AI Product Management", description: "Improve product strategy by utilising AI" },
     ],
   },
-  audience: {
-    title: "Who Is This Programme For?",
+  whoCanTake: {
+    title: "Who can take this AI Product Management program?",
     content: [
       "Project Managers",
+      "Product Manager",
       "Project Leads",
       "Technical Managers",
       "Software Developers",
@@ -99,33 +94,34 @@ const sections = {
       "Business Development (BD) Managers",
       "Others interested in transitioning to the Product Management domain",
     ],
-  },  
+  },
   eligibility: {
-    title: "Minimum Eligibility",
+    title: "Eligibility",
     content: [
       "Bachelor's degree in any discipline",
       "Final year students",
       "Open to all nationalities",
-      "Free of any prior product experience",
+      "No need for any prior product experience",
     ],
   },
-  bydp: {
-    title: "Build Your Dream Product",
+  designLaunch: {
+    title: "Design and Launch your Project",
     content: [
-      "Transform innovative ideas into reality",
-      "Hands-on product development experience",
-      "Expert mentorship and guidance",
-      "Real-world project portfolio",
-      "Industry-standard methodologies",
-      "Launch-ready product strategy",
+      "Brainstorm and launch your own product from scratch during every stage of the product lifecycle using real-world tools and insights.",
+      "BYDP: Transform Ideas into Impact",
+      "From identifying the problem statement to building a go-to-market strategy, BYDP guides you through a planned journey to build, test, and present an AI product that solves the problems.",
+      "Product Management Experience",
+      "Gain practical AI Product Management skills by managing your product idea from concept to execution, with full guidance, templates, and resources.",
+      "Skills for Real-World Impact",
+      "Go through strategies and frameworks that level up to products of any scale or complexity, preparing you for the demands of a real-world product management career.",
     ],
   },
 };
 
 export default function ProgramHighlightsEIE() {
-  const [activeSection, setActiveSection] = useState("highlights");
+  const [activeSection, setActiveSection] = useState("primaryFocus");
 
-  const renderBYDPSection = () => (
+  const renderDesignLaunchSection = () => (
     <div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -158,17 +154,95 @@ export default function ProgramHighlightsEIE() {
     </div>
   );
 
+  const renderPrimaryFocus = () => (
+    <div className="bg-[#0F0F0F] rounded-xl p-8 border border-white/10">
+      <p className="text-2xl font-bold mb-8">
+        {sections.primaryFocus.title}
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+        {sections.primaryFocus.content.map((item, index) => (
+          <div key={index} className="flex flex-col gap-1">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-[#5CB338]" />
+              <span className="text-white font-medium hover:text-[#5CB338] transition-colors">
+                {item.title}
+              </span>
+            </div>
+            <p className="text-sm text-gray-400 ml-5">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderSkillsDeveloped = () => (
+    <div className="bg-[#0F0F0F] rounded-xl p-8 border border-white/10">
+      <p className="text-2xl font-bold mb-8">
+        {sections.skillsDeveloped.title}
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+        {sections.skillsDeveloped.content.map((item, index) => (
+          <div key={index} className="flex flex-col gap-1">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-[#5CB338]" />
+              <span className="text-white font-medium hover:text-[#5CB338] transition-colors">
+                {item.title}
+              </span>
+            </div>
+            <p className="text-sm text-gray-400 ml-5">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderWhoCanTake = () => (
+    <div className="bg-[#0F0F0F] rounded-xl p-8 border border-white/10">
+      <p className="text-2xl font-bold mb-8">
+        {sections.whoCanTake.title}
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+        {sections.whoCanTake.content.map((item, index) => (
+          <div key={index} className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-[#5CB338]" />
+            <span className="text-gray-300 hover:text-white transition-colors">
+              {item}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderEligibility = () => (
+    <div className="bg-[#0F0F0F] rounded-xl p-8 border border-white/10">
+      <p className="text-2xl font-bold mb-8">
+        {sections.eligibility.title}
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+        {sections.eligibility.content.map((item, index) => (
+          <div key={index} className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-[#5CB338]" />
+            <span className="text-gray-300 hover:text-white transition-colors">
+              {item}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+
+
   return (
-    <section id={activeSection} className="py-24 bg-white text-white">
+    <section id={activeSection} className="py-24 bg-gray-700/10 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <h2 className="text-2xl font-medium text-black mb-4">
-            Key Highlights Of <span className="text-black font-semibold">EIE European Business School Product Management Program</span>
-          </h2>
+           
           <div className="flex flex-col gap-2">
-            <h3 className="text-4xl md:text-5xl font-bold text-[#5CB338]">
-              What does this{" "}
-              <span className="text-[#5CB338]">course have to offer?</span>
+            <h3 className="text-4xl md:text-5xl font-bold ">
+              Why choose the AcceleratorX {}
+              <span className="text-[#5CB338]">AI Product Management program</span>?
             </h3>
           </div>
         </div>
@@ -195,25 +269,11 @@ export default function ProgramHighlightsEIE() {
 
           {/* Main content area */}
           <div className="lg:col-span-3">
-            {activeSection === "bydp" ? (
-              renderBYDPSection()
-            ) : (
-              <div className="bg-[#0F0F0F] rounded-xl p-8 border border-white/10">
-                <h3 className="text-2xl font-bold mb-8">
-                  {sections[activeSection].title}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                  {sections[activeSection].content.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#5CB338]" />
-                      <span className="text-gray-300 hover:text-white transition-colors">
-                        {item}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            {activeSection === "primaryFocus" && renderPrimaryFocus()}
+            {activeSection === "skillsDeveloped" && renderSkillsDeveloped()}
+            {activeSection === "whoCanTake" && renderWhoCanTake()}
+            {activeSection === "eligibility" && renderEligibility()}
+            {activeSection === "designLaunch" && renderDesignLaunchSection()}
           </div>
         </div>
       </div>

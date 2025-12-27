@@ -5,7 +5,10 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Skip on server-side
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   return null;

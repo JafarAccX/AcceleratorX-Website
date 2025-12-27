@@ -18,15 +18,15 @@ const WSAboutGENB = () => {
   const toolsRef = useRef(null);
 
   const allTools = [
-    { name: "GPT-4", img: "/assets/genAITools/gpt4.webp" },
+    { name: "Chat-GPT", img: "/assets/genAITools/gpt4.webp" },
     { name: "DeepSeek", img: "/assets/genAITools/deepseek.webp" },
-    { name: "LLaMA", img: "/assets/genAITools/ollama.png" },
-    { name: "Falcon", img: "/assets/genAITools/falcon.png" },
-    { name: "LangChain", img: "/assets/genAITools/langchain.png" },
+    { name: "LLaMA", img: "/assets/genAITools/ollama.webp" },
+    { name: "Falcon", img: "/assets/genAITools/falcon.webp" },
+    { name: "LangChain", img: "/assets/genAITools/langchain.webp" },
     { name: "CrewAI", img: "/assets/genAITools/crewai.webp" },
-    { name: "AutoGen", img: "/assets/genAITools/autogen.jpeg" },
+    { name: "AutoGen", img: "/assets/genAITools/autogen.webp" },
     { name: "RAG", img: "/assets/genAITools/rag.webp" },
-    { name: "Hugging Face", img: "/assets/genAITools/huggingface.svg" },
+    { name: "Hugging Face", img: "/assets/genAITools/huggingface.webp" },
     { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
   ];
 
@@ -43,22 +43,14 @@ const WSAboutGENB = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-green-400 text-sm font-medium">AI Builder Workshop</span>
+                  <span className="text-green-400 text-sm font-medium">AI Automation Workshop</span>
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Build Real AI Projects in Just 90 Minutes — No Code Required
-                </h2>
+                {/* <h2 className="text-2xl md:text-3xl font-bold text-white mb-4"> AI Automation Workshop: Learn n8n by Doing
+                </h2> */}
 
                 {/* Workshop Info */}
-                <div className="bg-[#111827] rounded-md p-4 mb-5 border border-green-500/10">
-                  <p className="text-gray-300">
-                    Join us live on <span className="font-semibold text-green-400">20th April, 2025</span> at{" "}
-                    <span className="text-green-400">11:00 PM</span> and learn to build working AI tools using no-code
-                    platforms — even if you’ve never built anything before!
-                  </p>
-                </div>
 
                 {/* Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -72,10 +64,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Build AI tools with real-world data — fast",
-                        "Use no-code/low-code AI platforms to launch ideas",
-                        "Hands-on projects you can deploy instantly",
-                        "Create without writing a single line of code",
+                        "Learn how AI-driven automation transforms your marketing performance.",
+                        "Watch real examples of end-to-end automated marketing workflows.",
+                        "Explore tools to auto-create content, emails, and reports in seconds.",
+                        "Set up your first automated marketing system during the workshop.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -95,10 +87,10 @@ const WSAboutGENB = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to structure real AI projects using modern tools",
-                        "Prompting techniques for smart, functional results",
-                        "Building apps powered by LLMs and automation",
-                        "Turning business needs into AI-powered solutions",
+                        "How to automate repetitive marketing tasks that drain your time.",
+                        "How to create lead-generation and nurturing workflows with zero code.",
+                        "How to connect tools like ChatGPT, Zapier, and Sheets for full automation.",
+                        "How to build a scalable marketing engine that runs 24/7.",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -121,7 +113,7 @@ const WSAboutGENB = () => {
 
             {/* Tools Section - Simplified */}
             <div ref={toolsRef} className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20">
-              <h2 className="text-xl font-bold text-white mb-4">Creative Tools You'll Master</h2>
+              <p className="text-xl font-bold text-white mb-4">Creative Tools You'll Master</p>
               <div className="relative overflow-hidden">
                 <div className="flex overflow-hidden">
                   <motion.div

@@ -42,7 +42,7 @@ export const XSATFAQ = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.h2
+          <motion.h3
             className="text-4xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export const XSATFAQ = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Your Questions Answered
-          </motion.h2>
+          </motion.h3>
           <motion.p
             className="text-gray-400 mb-12"
             initial={{ opacity: 0, y: 20 }}

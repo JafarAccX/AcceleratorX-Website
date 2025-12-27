@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import dataCertificate from "/assets/programcertificates/dawithoutmalta.jpg";
+import dataCertificate from "/assets/programcertificates/dawithoutmalta.webp";
 
 const DataCertificateFB = () => {
   return (

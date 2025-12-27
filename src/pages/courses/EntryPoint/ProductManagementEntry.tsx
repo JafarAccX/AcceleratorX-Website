@@ -1,18 +1,19 @@
-import React, { Suspense, useEffect } from "react";
+import { Suspense, useEffect, lazy } from "react";
 import ProgramHeroEIE from "../productmanagement/EIE/ProgamHeroEIE";
 import ProgramHighlightsEIE from "../productmanagement/EIE/ProgramHighlightsEIE";
-import Loader from "../../../components/Loader";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
-import ProgramCertificateEIE from "../productmanagement/EIE/ProgramCertificateEIE";
-import LearningJourneyEIE from "../productmanagement/EIE/LearningJourneyEIE";
-import BenefitsGridEIE from "../productmanagement/EIE/BenefitsGridEIE";
-import MentorsEIE from "../productmanagement/EIE/MentorsEIE";
-import SkillsAndToolsEIE from "../productmanagement/EIE/SkillsAndToolsEIE";
-import SkillsAssessmentEIE from "../productmanagement/EIE/SkillsAssessmentEIE";
-import PricingEIE from "../productmanagement/EIE/PricingEIE";
-import FAQEIE from "../productmanagement/EIE/FAQEIE";
 import StickyBookNav from "../../../components/StickyBookNav";
 import { useCourseContext } from "../../../context/courseContext";
+import { SEO } from "../../../components/SEO";
+
+const ProgramCertificateEIE = lazy(() => import("../productmanagement/EIE/ProgramCertificateEIE"));
+const LearningJourneyEIE = lazy(() => import("../productmanagement/EIE/LearningJourneyEIE"));
+const BenefitsGridEIE = lazy(() => import("../productmanagement/EIE/BenefitsGridEIE"));
+const MentorsEIE = lazy(() => import("../productmanagement/EIE/MentorsEIE"));
+const SkillsAndToolsEIE = lazy(() => import("../productmanagement/EIE/SkillsAndToolsEIE"));
+// const SkillsAssessmentEIE = lazy(() => import("../productmanagement/EIE/SkillsAssessmentEIE"));
+const PricingEIE = lazy(() => import("../productmanagement/EIE/PricingEIE"));
+const FAQEIE = lazy(() => import("../productmanagement/EIE/FAQEIE"));
 
 const ProductManagementEntry = () => {
   const { setSelectedCourse } = useCourseContext();
@@ -22,20 +23,23 @@ const ProductManagementEntry = () => {
   }, [setSelectedCourse]);
 
   return (
-    <Suspense fallback={<Loader />}>
+    <>
+      <SEO />
       <ProgramHeroEIE />
       <ProgramHighlightsEIE />
-      <HeroWithAbouv />
-      <LearningJourneyEIE />
-      <BenefitsGridEIE />
-      <ProgramCertificateEIE />
-      <MentorsEIE />
-      <SkillsAndToolsEIE />
-      <SkillsAssessmentEIE />
-      <PricingEIE />
-      <FAQEIE />
-      <StickyBookNav />
-    </Suspense>
+      <HeroWithAbouv courseName="Product Management" />
+      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
+        <LearningJourneyEIE />
+        <BenefitsGridEIE />
+        <ProgramCertificateEIE />
+        <MentorsEIE />
+        <SkillsAndToolsEIE />
+        {/* <SkillsAssessmentEIE /> */}
+        <PricingEIE />
+        <FAQEIE />
+        <StickyBookNav />
+      </Suspense>
+    </>
   );
 };
 

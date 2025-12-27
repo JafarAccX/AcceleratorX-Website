@@ -1,458 +1,381 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Toaster, toast } from "react-hot-toast";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
+// import { useGetUserByMobile } from "../../hooks/customer";
 import { useUser } from "../../context/UserContext";
-import { supabase } from "../../lib/supabaseClient";
+import { CreateCustomerPayload } from "../../types/customer";
+import { OtpTimer } from "../OtpTimer";
+import { api } from "../../api";
 
 const LoadingSpinner = () => (
-  <motion.div
-    className="inline-block h-4 w-4 border-2 border-white rounded-full border-t-transparent"
-    animate={{ rotate: 360 }}
-    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-  />
+  <div className="inline-block h-5 w-5 border-2 border-white/30 rounded-full border-t-white animate-spin" />
 );
 
-interface WindowOverride extends Window {
-  OTPless?: any;
-}
-
-export interface SignUpFormProps {
-  onSuccess?: () => void;
-}
-
-export const SignUpForm: React.FC<SignUpFormProps> = ({ onSuccess }) => {
+const FloatingShape = ({ size = "w-20 h-20", position = "top-10 left-10" }) => (
+  <div className={`absolute ${position} ${size} bg-white/5 rounded-full blur-xl`} />
+);
+export const SignUpForm = () => {
   const navigate = useNavigate();
-  const { setUser } = useUser();
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const location = useLocation();
+  const { user, login } = useUser();
+  const [formState, setFormState] = useState<Partial<CreateCustomerPayload>>({
+    callingCode: "+91",
+    mobileVerified: false,
+    emailVerified: false,
+    active: true,
+    certificateGenerated: false,
+    role: "Customer",
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobile: "",
+  });
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
-  const [timer, setTimer] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const [phoneVerified, setPhoneVerified] = useState(false); // change it to false
-  const [fullName, setFullName] = useState("");
-  const [educationLevel, setEducationLevel] = useState("");
-  const [workExperience, setWorkExperience] = useState("");
-  const [designation, setDesignation] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  // Focus states for enhanced styling
+  const [firstNameFocused, setFirstNameFocused] = useState(false);
+  const [lastNameFocused, setLastNameFocused] = useState(false);
+  const [emailFocused, setEmailFocused] = useState(false);
+  const [otpFocused, setOtpFocused] = useState(false);
+
+  // const { data: existingUser } = useGetUserByMobile(formState?.mobile || "");
 
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
-    if (showOTP && timer > 0) {
-      interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
+    if (user) {
+      navigate("/profile");
     }
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [showOTP, timer]);
+  }, [user, navigate]);
+
+  const handleInputChange = (
+    field: keyof CreateCustomerPayload,
+    value: string
+  ) => {
+    setFormState((prev) => ({ ...prev, [field]: value }));
+  };
 
   const handleSendOTP = async () => {
-    if (!phoneNumber || phoneNumber.length !== 10) {
-      toast.error("Please enter a valid 10-digit phone number");
+    if (!formState.firstName || !formState.lastName || !formState.email) {
+      toast.error("Please fill in your name and email first.");
       return;
     }
-
-    const OTPLess = (window as WindowOverride)?.OTPless;
-    if (!OTPLess) {
-      toast.error("OTP service not available. Please try again later.");
+    if (!formState.mobile || formState.mobile.length < 7) {
+      toast.error("Please enter a valid phone number");
       return;
     }
+    // if (existingUser) {
+    //   toast.error(
+    //     "This phone number is already registered. Please sign in instead."
+    //   );
+    //   return;
+    // }
 
+    setIsProcessing(true);
     try {
-      setIsLoading(true);
-
-      // Check if phone number already exists
-      const { data: existingUser } = await supabase.from("users").select("id").eq("phone_number", phoneNumber).single();
-
-      if (existingUser) {
-        toast.error("This phone number is already registered. Please sign in instead.");
-        return;
-      }
-
-      const OTPlessSignin = new OTPLess();
-
-      const { success, error } = await OTPlessSignin.initiate({
-        channel: "PHONE",
-        phone: phoneNumber,
-        countryCode: "+91",
-        otpLength: 6,
-        expiry: 60,
+      const response = await api.post("/auth/request-otp", {
+        phoneNumber: formState.mobile,
       });
 
-      if (success) {
+      if (response.status === 200 && response.data.success) {
         setShowOTP(true);
-        setTimer(60);
-        toast.success("OTP sent successfully");
+        toast.success(response.data.message);
       } else {
-        throw new Error(error || "Failed to send OTP");
+        throw new Error(response.data.message || "Failed to send OTP");
       }
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Failed to send OTP. Please try again.";
+    } catch (error: unknown) {
+      let errorMessage = "An unexpected error occurred.";
+      if (typeof error === "object" && error !== null && "response" in error) {
+        const axiosError = error as { response: { data: { message: string } } };
+        errorMessage = axiosError.response?.data?.message || errorMessage;
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
       toast.error(errorMessage);
       setShowOTP(false);
     } finally {
-      setIsLoading(false);
+      setIsProcessing(false);
     }
   };
 
-  const handleVerifyOtp = async (otp: string) => {
+  const handleRegister = async () => {
     if (!otp || otp.length !== 6) {
-      toast.error("Please enter a valid 6-digit OTP");
+      toast.error("Please enter a valid 6-digit OTP.");
       return;
     }
 
-    const OTPLess = (window as WindowOverride)?.OTPless;
-    if (!OTPLess) {
-      toast.error("OTP service not available. Please try again later.");
-      return;
-    }
-
+    setIsProcessing(true);
     try {
-      const OTPlessSignin = new OTPLess();
+      const payload = {
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+        email: formState.email,
+        mobile: formState.mobile,
+        callingCode: "+91",
+        otpCode: otp,
+      };
 
-      const { response, success, error } = await OTPlessSignin.verify({
-        otp: otp,
-        channel: "PHONE",
-        phone: phoneNumber,
-        countryCode: "+91",
-      });
+      console.log(payload);
 
-      if (success && response?.verification === "COMPLETED") {
-        setPhoneVerified(true);
-        setShowOTP(false);
-        setOtp("");
-        toast.success("Phone number verified successfully");
+      const response = await api.post("/auth/register", payload);
+
+      if (response.status === 201 && response.data.success) {
+        const { user, accessToken } = response.data;
+        login({ user, accessToken });
+        toast.success("Registration successful! Welcome.");
+        // Check for redirect path in location state
+        const from = location.state?.from?.pathname || "/profile";
+        navigate(from, { replace: true });
       } else {
-        throw new Error(error || "Failed to verify OTP");
-      }
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Invalid OTP. Please try again.";
-      toast.error(errorMessage);
-      setOtp("");
-    }
-  };
-
-  const handleResendOTP = async () => {
-    setTimer(60);
-    await handleSendOTP();
-  };
-
-  const handleSignUp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      if (!phoneVerified) {
-        toast.error("Please verify your phone number first");
-        return;
-      }
-
-      if (!fullName.trim()) {
-        toast.error("Please enter your full name");
-        setIsLoading(false);
-        return;
-      }
-
-      if (!email.trim()) {
-        toast.error("Please enter your email address");
-        setIsLoading(false);
-        return;
-      }
-
-      if (!educationLevel.trim()) {
-        toast.error("Please enter your education level");
-        setIsLoading(false);
-        return;
-      }
-
-      if (!workExperience.trim()) {
-        toast.error("Please enter your work experience");
-        setIsLoading(false);
-        return;
-      }
-
-      if (!designation.trim()) {
-        toast.error("Please enter your designation");
-        setIsLoading(false);
-        return;
-      }
-
-      // check for existing user
-      const { data: userData, error: userDataError } = await supabase
-        .from("profiles")
-        .select(`*`)
-        .eq("phone_number", phoneNumber)
-        .single();
-
-      if (userData) {
-        console.log("no need to insert the data again", userData);
-
-        throw new Error(userDataError?.message || "Failed to fetch user data");
-      } else {
-        console.log("sending the data to supabase");
-
-        const { data, error } = await supabase
-          .from("profiles")
-          .insert({
-            phone_number: phoneNumber,
-            full_name: fullName,
-            email: email,
-            education_level: educationLevel,
-            work_experience: workExperience,
-            designation: designation,
-          })
-          .select("*");
-
-        if (error) {
-          console.error("209 : ");
-          throw new Error(error.message);
-        }
-        console.log("User data inserted:", data);
-        toast.success("User data inserted successfully");
-
-        // Update UserContext with the new user data
-        setUser(data[0]);
-
-        localStorage.setItem(
-          "userData",
-          JSON.stringify({
-            ...data[0],
-            isAuthenticated: true,
-          }),
+        throw new Error(
+          response.data.message || "Registration failed. Please try again."
         );
       }
-
-      toast.success("Welcome to the platform!");
-
-      // Call onSuccess first if it exists
-      if (onSuccess) {
-        onSuccess();
+    } catch (error: unknown) {
+      let errorMessage = "An unexpected error occurred.";
+      if (typeof error === "object" && error !== null && "response" in error) {
+        const axiosError = error as { response: { data: { message: string } } };
+        errorMessage = axiosError.response?.data?.message || errorMessage;
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
       }
-
-      console.log("navigating to profile page");
-
-      // Navigate after onSuccess
-      navigate("/profile");
-    } catch (error) {
-      console.error("Error during signup:", error);
-      toast.error("Failed to create account");
+      toast.error(errorMessage);
     } finally {
-      setIsLoading(false);
+      setIsProcessing(false);
     }
   };
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-r from-blue-800 to-indigo-900">
+    <div className="flex min-h-screen relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(120,119,198,0.3),_transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(255,255,255,0.1),_transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,_rgba(120,119,198,0.2),_transparent_50%)]"></div>
+      </div>
+
+      {/* Floating Shapes */}
+      <FloatingShape size="w-32 h-32" position="top-20 left-10" />
+      <FloatingShape size="w-24 h-24" position="top-40 right-20" />
+      <FloatingShape size="w-16 h-16" position="bottom-20 left-1/4" />
+      <FloatingShape size="w-28 h-28" position="bottom-32 right-10" />
+
       {/* Left side illustration */}
-      <div className="hidden lg:flex w-1/2 flex-col items-end justify-center p-8 relative">
+      <div className="hidden lg:flex w-1/2 flex-col items-end justify-center p-8 relative z-10">
         <div className="relative w-full flex items-center justify-center max-w-[600px]">
-          <img src="/assets/signup.png" alt="People Illustration" className="relative z-10 w-full" />
+          <div className="absolute inset-0 bg-white/10 rounded-3xl blur-3xl"></div>
+          <img
+            src="/assets/signup.webp"
+            alt="People Illustration"
+            className="relative z-10 w-full drop-shadow-2xl"
+            onError={(e) => {
+              console.error("Image failed to load");
+              e.currentTarget.style.display = "none";
+            }}
+          />
         </div>
       </div>
 
       {/* Right side form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 md:p-8">
-        <div className="w-full max-w-[450px] space-y-8">
-          <div className="space-y-3">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent pb-3">
-              Sign Up
-            </h1>
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 relative z-10">
+        <div className="w-full max-w-[600px]">
+          <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8 space-y-8">
+            {/* Header */}
+            <div className="text-center space-y-3">
+              <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                Create Account
+              </h2>
+              <p className=" font-medium">
+                {!showOTP
+                  ? "Join us today and get started"
+                  : "Enter the verification code sent to your phone"}
+              </p>
+            </div>
+
+            {!showOTP ? (
+              <div className="space-y-6">
+                {/* Name Fields */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold  block">
+                      First Name
+                    </label>
+                    <div className="relative group">
+                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${firstNameFocused ? 'opacity-100' : 'opacity-0'
+                        }`} style={{ padding: '2px' }}>
+                        <div className="w-full h-full bg-white rounded-lg"></div>
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="First Name"
+                        value={formState.firstName || ""}
+                        onChange={(e) => handleInputChange("firstName", e.target.value)}
+                        className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
+                        disabled={showOTP || isProcessing}
+                        onFocus={() => setFirstNameFocused(true)}
+                        onBlur={() => setFirstNameFocused(false)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold  block">
+                      Last Name
+                    </label>
+                    <div className="relative group">
+                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${lastNameFocused ? 'opacity-100' : 'opacity-0'
+                        }`} style={{ padding: '2px' }}>
+                        <div className="w-full h-full bg-white rounded-lg"></div>
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="Last Name"
+                        value={formState.lastName || ""}
+                        onChange={(e) => handleInputChange("lastName", e.target.value)}
+                        className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
+                        disabled={showOTP || isProcessing}
+                        onFocus={() => setLastNameFocused(true)}
+                        onBlur={() => setLastNameFocused(false)}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Email Field */}
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold  block">
+                    Email Address
+                  </label>
+                  <div className="relative group">
+                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${emailFocused ? 'opacity-100' : 'opacity-0'
+                      }`} style={{ padding: '2px' }}>
+                      <div className="w-full h-full bg-white rounded-lg"></div>
+                    </div>
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      value={formState.email || ""}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
+                      disabled={showOTP || isProcessing}
+                      onFocus={() => setEmailFocused(true)}
+                      onBlur={() => setEmailFocused(false)}
+                    />
+                  </div>
+                </div>
+
+                {/* Mobile Field */}
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold  block">
+                    Mobile Number
+                  </label>
+                  <div className="relative group">
+                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${formState.mobile ? 'opacity-100' : 'opacity-0'
+                      }`} style={{ padding: '2px' }}>
+                      <div className="w-full h-full bg-white rounded-lg"></div>
+                    </div>
+                    <div className="relative">
+                      <input
+                        type="tel"
+                        placeholder="Enter 10 digit mobile number"
+                        value={formState.mobile || ""}
+                        onChange={(e) => handleInputChange("mobile", e.target.value)}
+                        className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
+                        disabled={showOTP || isProcessing}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleSendOTP}
+                  disabled={isProcessing}
+                  className="w-full relative overflow-hidden py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <div className="absolute inset-0 bg-white/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative flex items-center justify-center gap-2">
+                    {isProcessing ? <LoadingSpinner /> : "Send OTP"}
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <p className=" font-medium mb-4">
+                      An OTP has been sent to your mobile number.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold  block">
+                      Verification Code
+                    </label>
+                    <div className="relative group">
+                      <div className={`absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl transition-opacity duration-300 ${otpFocused ? 'opacity-100' : 'opacity-0'
+                        }`} style={{ padding: '2px' }}>
+                        <div className="w-full h-full bg-white rounded-lg"></div>
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="Enter 6-digit OTP"
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)}
+                        className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400 text-center text-lg tracking-widest"
+                        maxLength={6}
+                        disabled={isProcessing}
+                        onFocus={() => setOtpFocused(true)}
+                        onBlur={() => setOtpFocused(false)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <OtpTimer initialTime={60} onResend={handleSendOTP} />
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleRegister}
+                  disabled={isProcessing}
+                  className="w-full relative overflow-hidden py-4 px-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <div className="absolute inset-0 bg-white/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative flex items-center justify-center gap-2">
+                    {isProcessing ? <LoadingSpinner /> : "Verify & Register"}
+                  </span>
+                </button>
+              </div>
+            )}
+
+            {/* Sign in link */}
+            <div className="text-center pt-4 border-t border-gray-200">
+              <p className="">
+                Already have an account?{" "}
+                <Link
+                  to="/sign-in"
+                  state={{ from: location.state?.from }}
+                  className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200 underline decoration-2 underline-offset-4 hover:decoration-blue-600"
+                >
+                  Sign In
+                </Link>
+              </p>
+            </div>
           </div>
 
-          <form
-            className="space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (showOTP) {
-                handleVerifyOtp(otp);
-              } else if (phoneVerified) {
-                handleSignUp(e);
-              } else {
-                handleSendOTP();
-              }
-            }}
-          >
-            <div className="space-y-5">
-              <div className="flex items-center gap-4">
-                <label htmlFor="name" className="text-blue-50 font-medium min-w-[100px] ">
-                  Full Name
-                </label>
-                <input
-                  id="name"
-                  required
-                  placeholder="Enter your full name"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  disabled={isLoading}
-                  className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                />
-              </div>
-
-              <div className="flex items-center gap-4">
-                <label htmlFor="email" className="text-blue-50 font-medium min-w-[100px]">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={isLoading}
-                  className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                />
-              </div>
-
-              <div className="flex items-start  gap-4">
-                <label htmlFor="phoneNumber" className="text-blue-50 font-medium min-w-[100px] mt-2">
-                  Mobile Number
-                </label>
-                <div className="relative focus:ring-2 w-full">
-                  <div className="flex items-center   overflow-hidden w-full">
-                    <span className="rounded-lg text-[#6B7B93] bg-white/10 px-4 py-3 text-sm mr-1">+91</span>
-                    <input
-                      id="phoneNumber"
-                      type="tel"
-                      maxLength={10}
-                      placeholder="Enter mobile number"
-                      value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
-                      disabled={showOTP || isLoading || phoneVerified}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2 "
-                    />
-                  </div>
-
-                  {!phoneVerified && !showOTP && (
-                    <button
-                      type="button"
-                      onClick={handleSendOTP}
-                      className="mt-3 w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3 font-medium disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:hover:scale-100"
-                      disabled={isLoading || !phoneNumber || phoneNumber.length !== 10}
-                    >
-                      {isLoading ? <LoadingSpinner /> : "Verify Phone Number"}
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              {showOTP && (
-                <div className="flex items-center gap-4">
-                  <label htmlFor="otp" className="text-blue-50 font-medium min-w-[100px]">
-                    Enter OTP
-                  </label>
-                  <input
-                    id="otp"
-                    type="text"
-                    placeholder="Enter 6-digit OTP"
-                    value={otp}
-                    onChange={(e) => {
-                      setOtp(e.target.value);
-                      if (e.target.value.length === 6) {
-                        handleVerifyOtp(e.target.value);
-                      }
-                    }}
-                    maxLength={6}
-                    disabled={isLoading}
-                    className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                  />
-
-                  {timer > 0 ? (
-                    <p className="text-sm text-blue-200/80 text-center mt-2">Resend OTP in {timer}s</p>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={handleResendOTP}
-                      className="w-full text-blue-300 hover:text-blue-200 text-sm mt-2 transition-colors duration-200"
-                      disabled={isLoading}
-                    >
-                      Resend OTP
-                    </button>
-                  )}
-                </div>
-              )}
-
-              {phoneVerified && (
-                <>
-                  <div className="flex items-center gap-4">
-                    <label htmlFor="educationLevel" className="text-blue-50 font-medium min-w-[100px]">
-                      Education
-                    </label>
-                    <input
-                      id="educationLevel"
-                      required
-                      placeholder="Enter your education level"
-                      value={educationLevel}
-                      onChange={(e) => setEducationLevel(e.target.value)}
-                      disabled={isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <label htmlFor="workExperience" className="text-blue-50 font-medium min-w-[100px]">
-                      Experience
-                    </label>
-                    <input
-                      id="workExperience"
-                      required
-                      placeholder="Enter your work experience"
-                      value={workExperience}
-                      onChange={(e) => setWorkExperience(e.target.value)}
-                      disabled={isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <label htmlFor="designation" className="text-blue-50 font-medium min-w-[100px]">
-                      Designation
-                    </label>
-                    <input
-                      id="designation"
-                      required
-                      placeholder="Enter your designation"
-                      value={designation}
-                      onChange={(e) => setDesignation(e.target.value)}
-                      disabled={isLoading}
-                      className="bg-white/10 border-white/10 text-white placeholder:text-blue-200/50 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-200  focus:ring-2  border-0 placeholder:text-[#6B7B93] w-full text-sm py-3 rounded-lg placeholder:pl-7 p-2"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg p-3.5 font-medium relative transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100"
-                    disabled={isLoading}
-                  >
-                    {isLoading ? (
-                      <div className="flex items-center justify-center gap-2">
-                        <LoadingSpinner />
-                        <span>Registering...</span>
-                      </div>
-                    ) : (
-                      "Register"
-                    )}
-                  </button>
-                </>
-              )}
-            </div>
-          </form>
-
-          <div className="text-center">
-            <p className="text-blue-200/60">
-              Already have an account?{" "}
-              <button
-                onClick={() => navigate("/sign-in")}
-                className="text-blue-300 hover:text-blue-200 transition-colors duration-200"
-              >
-                Sign In
-              </button>
+          {/* Additional decorative elements */}
+          <div className="mt-8 text-center text-white/60">
+            <p className="text-sm">
+              Secure registration with mobile verification
             </p>
           </div>
-
-          <Toaster position="top-center" />
         </div>
       </div>
     </div>

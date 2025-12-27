@@ -70,8 +70,8 @@ export default function ProgramHeroFB() {
       <nav className="bg-black flex flex-row items-center py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto ">
           <img
-            src="/companylogo.png"
-            alt="AcceleratorX Logo"
+            src="/redesign/logo-no-bg.webp"
+            alt="company logo - professional certificate in product management online"
             className="w-auto h-20 text-center"
           />
         </div>
@@ -161,7 +161,7 @@ export default function ProgramHeroFB() {
                 className="relative mt-8 lg:mt-0 flex flex-col gap-6"
               >
                 <img
-                  src="/assets/productpagebanneraccex.png"
+                  src="/assets/productpagebanneraccex.webp"
                   alt="Product Management Workshop"
                   className="w-full rounded-lg shadow-2xl"
                 />
@@ -171,9 +171,9 @@ export default function ProgramHeroFB() {
                       src="/assets/caseStudiesLogo/paytm.webp"
                       alt="Company Logo 1"
                     />
-                    <LogoItem src="/assets/cequens.png" alt="Company Logo 2" />
+                    <LogoItem src="/assets/cequens.webp" alt="Company Logo 2" />
                     <LogoItem src="/assets/paypal.webp" alt="Company Logo 3" />
-                    <LogoItem src="/assets/walmart.webp" alt="Company Logo 4" />
+                    <LogoItem src="/assets/companyLogos/walmart.webp" alt="Company Logo 4" />
                   </div>
                 </div>
               </motion.div>

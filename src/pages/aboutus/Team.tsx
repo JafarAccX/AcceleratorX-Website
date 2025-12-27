@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Quote } from "lucide-react";
 
@@ -57,10 +57,11 @@ const LeaderCard = ({
         <div className="text-center">
           <h3 className="text-white text-2xl font-bold mb-2">{name}</h3>
           <p className="text-blue-400 font-semibold mb-4">{role}</p>
+          {/* add no follow tag in the a tag */}
           <a
             href={linkedin}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors bg-blue-500/10 px-4 py-2 rounded-full"
           >
             <Linkedin className="w-5 h-5" />
@@ -76,7 +77,7 @@ const LeaderCard = ({
         <Quote className="w-20 h-20" />
       </div>
       <div className="relative z-10 text-gray-300 backdrop-blur-sm bg-black/30 p-8 rounded-2xl border border-blue-500/20">
-        <h4 className="text-2xl font-semibold text-blue-400 mb-6">{title}</h4>
+        <h3 className="text-2xl font-semibold text-blue-400 mb-6">{title}</h3>
         <p className="text-lg leading-relaxed italic">
           <TypewriterEffect text={quote} />
         </p>
@@ -137,7 +138,7 @@ const Team = () => {
           <LeaderCard
             name="Shahid Naseem"
             role="Founder & CEO"
-            image="/assets/founder/Sahid.jpg"
+            image="/assets/founder/Sahid.webp"
             linkedin="https://www.linkedin.com/in/shahid-naseem-a16220144"
             title="Words from our Founder"
             quote="Innovation in education is not just about technology; it's about creating opportunities that transform lives and shape futures. At AcceleratorX, we're committed to empowering the next generation with the tools and knowledge they need to succeed in an ever-evolving digital world."
@@ -147,7 +148,7 @@ const Team = () => {
           <LeaderCard
             name="Misba Muskaan"
             role="Director"
-            image="/assets/founder/Muskaan.jpg"
+            image="/assets/founder/Muskaan.webp"
             linkedin="https://www.linkedin.com/in/misba-muskaan-560567254"
             title="Words from our Director"
             quote="At AcceleratorX, we believe in nurturing talent and fostering an environment where innovation thrives. Our mission is to bridge the gap between education and industry, creating pathways for success in the digital age."
@@ -165,7 +166,7 @@ const Team = () => {
           <div className="relative rounded-2xl overflow-hidden border border-blue-500/30">
             <div className="aspect-w-16 aspect-h-7">
               <img
-                src="/assets/team.jpg"
+                src="/assets/team.webp"
                 alt="AcceleratorX Team"
                 className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
               />
@@ -193,7 +194,7 @@ const Team = () => {
               <div className="relative rounded-2xl overflow-hidden border border-blue-500/30">
                 <div className="w-180 h-144 mx-auto">
                   <img
-                    src="/assets/group.jpg"
+                    src="/assets/group.webp"
                     alt="AcceleratorX Team"
                     className="w-full h-full object-cover transform transition-transform duration-700"
                   />

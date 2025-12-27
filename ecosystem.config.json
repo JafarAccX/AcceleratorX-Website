@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "acceleratorx-ssr",
+      "script": "server.js",
+      "instances": 1,
+      "exec_mode": "fork",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 7000
+      },
+      "error_file": "/var/log/pm2/acceleratorx-error.log",
+      "out_file": "/var/log/pm2/acceleratorx-out.log",
+      "log_file": "/var/log/pm2/acceleratorx-combined.log",
+      "time": true
+    }
+  ]
+}

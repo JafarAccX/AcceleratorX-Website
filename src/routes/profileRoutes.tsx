@@ -1,29 +1,15 @@
 import { lazy } from "react";
-import { Route } from "react-router-dom";
-import { ProtectedRoute } from "../components/auth/ProtectedRoute";
+import { Routes, Route } from "react-router-dom";
 
 // Profile Components
 const ProfileOverview = lazy(() => import("../pages/profile/profileOverview"));
 
-// Profile Pages
-const ProfilePageOverview = () => (
-  <>
-    <ProfileOverview />
-  </>
-);
-
-export const profileRoutes = [
-  // <ProtectedRoute></ProtectedRoute>
-  // <Route   />
-
-  <Route
-    path="/profile"
-    element={
-      <ProtectedRoute>
-        <ProfilePageOverview />
-      </ProtectedRoute>
-    }
-  >
-    <Route index element={<ProfilePageOverview />} />
-  </Route>,
-];
+export function ProfileRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<ProfileOverview />} />
+      {/* Add other profile sub-routes here */}
+      {/* e.g., <Route path="settings" element={<Settings />} /> */}
+    </Routes>
+  );
+}

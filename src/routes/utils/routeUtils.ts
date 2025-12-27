@@ -11,6 +11,7 @@ interface LocationState {
 export const adRoutes = [
   "/courses/product-management-program-fb",
   "/courses/data-analytics-program-fb",
+  "/courses/data-analytics-program-fb-b",
   "/courses/no-code-tool-program-fb",
   "/courses/product-management-program-eie",
   "/courses/data-analytics-program-eie",
@@ -26,10 +27,13 @@ export const adRoutes = [
   "/courses/generative-ai-fb",
   "/workshop/dm-masterclass",
   "/workshop/gen-ai-masterclass-bxwcy",
+  "/workshop/gen-ai-masterclass-four",
+  "/workshop/gen-ai-masterclass-fioth",
+  "/workshop/ai-dm-fitm",
   "/workshop-payment/success/",
   "/admin/analytics",
   "/admin/analytics/adanalysis",
-  
+
 
 ] as const;
 
@@ -54,6 +58,15 @@ export const RouteLogic: React.FC<RouteLogicProps> = ({ setSelectedCourse }) => 
   const location = useLocation();
 
   useEffect(() => {
+    if (window.gtag) {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-16732602077/CMPJCPz1msUaEN393Ko-',
+      });
+    }
+  }, []);
+
+
+  useEffect(() => {
     if (
       location.pathname === "/courses/product-management" ||
       location.pathname === "/courses/product-management-program-fb" ||
@@ -62,7 +75,8 @@ export const RouteLogic: React.FC<RouteLogicProps> = ({ setSelectedCourse }) => 
       setSelectedCourse("Product Management");
     } else if (
       location.pathname === "/courses/data-analytics" ||
-      location.pathname === "/courses/data-analytics-program-fb"
+      location.pathname === "/courses/data-analytics-program-fb"||
+      location.pathname === "/courses/data-analytics-program-fb-b"
     ) {
       setSelectedCourse("Data Analytics");
     } else if (
@@ -85,9 +99,9 @@ export const RouteLogic: React.FC<RouteLogicProps> = ({ setSelectedCourse }) => 
 export const ThankYouPageWrapper: React.FC = () => {
   const location = useLocation();
   const { selectedCourse } = useCourseContext();
-  
+
   // Use location state if available, otherwise fall back to context
   const courseName = (location.state as LocationState | null)?.courseName || selectedCourse || "our course";
-  
+
   return React.createElement(ThankYouPage, { courseName });
 };

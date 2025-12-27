@@ -39,7 +39,7 @@ export function ToolCard({
       <div className="shrink-0 w-16 h-16 bg-white/5 rounded-lg flex items-center justify-center p-3 transition-colors duration-300">
         <img
           src={logo}
-          alt={`${name} logo`}
+          alt={`${name} - ${description}`}
           className="w-full h-full object-contain filter invert"
         />
       </div>

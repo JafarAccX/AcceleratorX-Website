@@ -4,6 +4,7 @@ import { authService } from '../../services/authService';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { Lock } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const { success, role } = await authService.login(formData.email, formData.password);
+      const { success } = await authService.login(formData.email, formData.password);
       
       if (success) {
         toast.success('Login successful!');
@@ -35,7 +36,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <>
+      <SEO />
+      <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <div className="rounded-full bg-blue-100 p-3">
@@ -114,7 +117,8 @@ const Login = () => {
           </form>
         </div>
       </motion.div>
-    </div>
+      </div>
+    </>
   );
 };
 

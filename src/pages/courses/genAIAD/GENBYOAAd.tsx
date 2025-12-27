@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Bot, Code, Cpu, Workflow, Sparkles, Zap } from "lucide-react";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 
@@ -12,22 +12,22 @@ const GENBYOAAd = () => {
     {
       icon: <Bot className="w-5 h-5 text-blue-500" />,
       title: "Custom AI Agents",
-      description: "Learn to create and deploy your own AI agents for task automation",
+      description: "Learn to build and deploy your own AI Agents and automate repetitive tasks.",
     },
     {
       icon: <Code className="w-5 h-5 text-blue-500" />,
       title: "No-Code Development",
-      description: "Build sophisticated AI agents without writing complex code",
+      description: "No coding skills required: Create a powerful, well-designed AI Agent and automation with n8n.",
     },
     {
       icon: <Cpu className="w-5 h-5 text-blue-500" />,
       title: "Agent Architecture",
-      description: "Master the fundamentals of AI agent design and architecture",
+      description: "Master the design and architecture of a powerful AI Agent from scratch.",
     },
     {
       icon: <Workflow className="w-5 h-5 text-blue-500" />,
       title: "Workflow Integration",
-      description: "Seamlessly integrate AI agents into your business processes",
+      description: "The path to Seamless, AI-powered Business Flow that bring realtime results.",
     },
   ];
 
@@ -59,7 +59,7 @@ const GENBYOAAd = () => {
 
           {/* Main Heading */}
           <h2 className="text-4xl text-white font-bold mb-6 text-center">
-            Create Your Own <span className="text-blue-500">AI Agents</span>
+            Build your own <span className="text-blue-500">AI Agents</span>
           </h2>
 
           {/* Description */}

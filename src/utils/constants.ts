@@ -30,52 +30,52 @@ export const modules = [
   {
     title: "Industry Ready.",
     description: " Industry Verified Certification.",
-    image: "/assets/program/security.png",
+    image: "/assets/program/security.webp",
   },
   {
     title: "Learn By Doing.",
     description: "Apply your knowledge, Learn by Building your dream product",
-    image: "/assets/program/learning.png",
+    image: "/assets/program/learning.webp",
   },
   {
     title: "Real World Case Studies.",
     description: " Case Studies That actually matter",
-    image: "/assets/program/file-case.png",
+    image: "/assets/program/file-case.webp",
   },
   {
     title: "Interview Prep",
     description:
       "Ace your interviews. Get expert guidance from seasoned product leaders.",
-    image: "/assets/program/mentorship.png",
+    image: "/assets/program/mentorship.webp",
   },
   {
     title: "Mock Interview",
     description: "Refine your skills with realistic mock interviews.",
-    image: "/assets/program/meeting.png",
+    image: "/assets/program/meeting.webp",
   },
 
   {
     title: "Dedicated Job Portal",
     description:
       "Your career launchpad. Access exclusive job opportunities and connect with top companies.",
-    image: "/assets/program/job-portal.png",
+    image: "/assets/program/job-portal.webp",
   },
   {
     title: "Wide pool of network",
     description:
       "Connect with a thriving community of ambitious product professionals.",
-    image: "/assets/program/networking.png",
+    image: "/assets/program/networking.webp",
   },
   {
     title: "Showcase your product sense",
     description:
       "Shine bright. Present your own product and impress potential employers.",
-    image: "/assets/program/state.png",
+    image: "/assets/program/state.webp",
   },
   {
     title: "Life Time Access To Content and Videos",
     description: "Get updated content as you go",
-    image: "/assets/program/exclusive.png",
+    image: "/assets/program/exclusive.webp",
   },
 ];
 
@@ -111,68 +111,68 @@ export const tools: Tool[] = [
   {
     name: "Notion",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
+      "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.webp",
     description: "Documentation & Knowledge Base",
     category: "Documentation",
   },
   {
     name: "Miro",
-    image: "/assets/logo/Miro.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/Miro.webp",
+    description: "Online collaborative whiteboard platform",
     category: "Collaboration",
   },
   {
     name: "Asana",
-    image: "/assets/logo/Asana.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/Asana.webp",
+    description: "Work management platform for teams",
     category: "Collaboration",
   },
   {
     name: "Github",
-    image: "/assets/logo/github.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/github.webp",
+    description: "Version control and collaboration platform for developers",
     category: "Technical",
   },
   {
     name: "MixPanel",
-    image: "/assets/logo/Mixpanel.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/Mixpanel.webp",
+    description: "Product analytics platform for user behavior tracking",
     category: "Analytics",
   },
   {
     name: "Amplitude",
-    image: "/assets/logo/Amplitude.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/Amplitude.webp",
+    description: "Product intelligence platform for user analytics",
     category: "Analytics",
   },
   {
     name: "Postman",
-    image: "/assets/logo/Postman.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/Postman.webp",
+    description: "API development and testing platform",
     category: "Technical",
   },
   {
     name: "Whimsical",
-    image: "/assets/logo/Whimsical.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/Whimsical.webp",
+    description: "All-in-one design tool for wireframes and diagrams",
     category: "UI/UX",
   },
   {
     name: "MySQL",
-    image: "/assets/logo/Mysql.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/Mysql.webp",
+    description: "Open-source relational database management system",
     category: "Analytics",
   },
   {
     name: "User testing",
-    image: "/assets/logo/UserTesting.png",
-    description: "Visual Collaboration",
+    image: "/assets/logo/UserTesting.webp",
+    description: "User research and usability testing platform",
     category: "Feedback Collection",
   },
   {
     name: "Optimizely",
     image: "/assets/logo/optimizely.webp",
-    description: "Visual Collaboration",
+    description: "Digital experience platform for experimentation and personalization",
     category: "A/B Testing",
   },
 ];
@@ -278,18 +278,19 @@ export const skills: Skill[] = [
 
 export const mentors = [
   {
-    name: "Swati Sinha",
-    role: "Senior PM at Walmart",
+    name: "Ashu Mishra",
+    role: "Senior PM at Zigram",
     experience: "10+ years",
-    image: "/assets/mentor/swati.jpg",
-    linkedin: "https://www.linkedin.com/in/swati-sinha-471644125",
+    image: "/assets/mentor/ashumish.jpeg",
+    alt: "product management certification mentor Swati",
+    linkedin: "https://www.linkedin.com/in/ashumish/",
     transitions: "Over 100+",
   },
   {
     name: "Subhasis Chandra",
     role: "Senior PM at Publicis Sapient",
     experience: "10+ Years",
-    image: "/assets/mentor/subhasis.png",
+    image: "/assets/mentor/subhasis.webp",
     linkedin: "https://www.linkedin.com/in/subhasis-chandra",
     transitions: "Over 500+",
   },
@@ -297,15 +298,17 @@ export const mentors = [
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",
     experience: "5 years",
-    image: "/assets/mentor/ravi.png",
+    image: "/assets/mentor/ravi.webp",
+    alt: "Ravi Ahlawat - Senior PM at Paytm",
     linkedin: "https://www.linkedin.com/in/raviahlawat09/",
     transitions: "Over 350+",
   },
   {
     name: "Ruchir Rana",
     role: "PM at AcceleratorX",
-    experience: "3 years",
-    image: "/assets/mentor/ruchir.png",
+    experience: "7+ years",
+    image: "/assets/mentor/ruchir.webp",
+    alt: "Ruchir Rana - PM at AcceleratorX",
     linkedin: "https://www.linkedin.com/in/ruchir-rana007",
     transitions: "Over 100+",
   },
@@ -320,8 +323,8 @@ export const weeklyData = [
       "Product Critique",
     ],
     skills: ["Product Sense", "User Research", "Product Critique"],
-    image: "/assets/week1.png",
-    caseStudies: ["/assets/caseStudiesLogo/tesla.png"],
+    image: "/assets/week1.webp",
+    caseStudies: ["/assets/caseStudiesLogo/tesla.webp"],
   },
   {
     week: 2,
@@ -337,11 +340,11 @@ export const weeklyData = [
       "User Journey Mapping",
       "Guesstimation",
     ],
-    image: "/assets/week2.png",
+    image: "/assets/week2.webp",
     caseStudies: [
-      "/assets/caseStudiesLogo/uber.png",
-      "/assets/caseStudiesLogo/Google_Maps.png",
-      "/assets/caseStudiesLogo/samsung.png",
+      "/assets/caseStudiesLogo/uber.webp",
+      "/assets/caseStudiesLogo/Google_Maps.webp",
+      "/assets/caseStudiesLogo/samsung.webp",
     ],
   },
   {
@@ -352,8 +355,8 @@ export const weeklyData = [
       "Build Your Dream Product",
     ],
     skills: ["Competitor Analysis", "Product Strategy", "Problem Framing"],
-    image: "/assets/week3.png",
-    caseStudies: ["/assets/caseStudiesLogo/reliance.png"],
+    image: "/assets/week3.webp",
+    caseStudies: ["/assets/caseStudiesLogo/reliance.webp"],
   },
   {
     week: 4,
@@ -367,7 +370,7 @@ export const weeklyData = [
       "Roadmapping",
       "PRD Documentation",
     ],
-    image: "/assets/week4.png",
+    image: "/assets/week4.webp",
     caseStudies: ["/assets/caseStudiesLogo/netflix.webp"],
   },
   {
@@ -379,7 +382,7 @@ export const weeklyData = [
       "Industry Session",
     ],
     skills: ["UI/UX Design", "Wireframing", "Feature Prioritization"],
-    image: "/assets/week5.png",
+    image: "/assets/week5.webp",
     caseStudies: ["/assets/caseStudiesLogo/cred.webp"],
   },
   {
@@ -391,14 +394,14 @@ export const weeklyData = [
       "Usability Testing",
     ],
     skills: ["MVP Development", "Product Metrics", "Usability Testing"],
-    image: "/assets/week6.png",
+    image: "/assets/week6.webp",
     caseStudies: ["/assets/caseStudiesLogo/slack.webp"],
   },
   {
     week: 7,
     topics: ["Product Teardown", "Case Study and Q&A", "Product Marketing"],
     skills: ["Product Teardown", "Product Marketing", "Functional Analysis"],
-    image: "/assets/week7.png",
+    image: "/assets/week7.webp",
     caseStudies: ["/assets/caseStudiesLogo/tata-motors.webp"],
   },
   {
@@ -410,7 +413,7 @@ export const weeklyData = [
       "Industry Session",
     ],
     skills: ["Go-to-Market (GTM) Strategy", "Product Presentation"],
-    image: "/assets/week8.png",
+    image: "/assets/week8.webp",
     caseStudies: ["/assets/caseStudiesLogo/instagram.webp"],
   },
   {
@@ -422,14 +425,14 @@ export const weeklyData = [
       "Interview Session",
     ],
     skills: ["Product Launch", "User Segmentation", "Cohort Analysis"],
-    image: "/assets/week9.png",
+    image: "/assets/week9.webp",
     caseStudies: ["/assets/caseStudiesLogo/apple.webp"],
   },
   {
     week: 10,
     topics: ["GTM Strategy Presentation", "A/B Testing", "Product Analytics"],
     skills: ["GTM Strategy", "A/B Testing", "Product Analytics"],
-    image: "/assets/week10.png",
+    image: "/assets/week10.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/flipkart-logo.webp",
       "/assets/caseStudiesLogo/amazon.webp",
@@ -445,7 +448,7 @@ export const weeklyData = [
       "Mock Interview",
     ],
     skills: ["Product Analytics", "Technical Foundations", "Google Analytics"],
-    image: "/assets/week11.png",
+    image: "/assets/week11.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/paytm.webp",
       "/assets/caseStudiesLogo/phonepe.webp",
@@ -460,7 +463,7 @@ export const weeklyData = [
       "SQL Practice",
     ],
     skills: ["APIs", "Postman Testing", "SQL for Product Managers"],
-    image: "/assets/week12.png",
+    image: "/assets/week12.webp",
     caseStudies: ["/assets/caseStudiesLogo/nestle.webp"],
   },
   {
@@ -476,7 +479,7 @@ export const weeklyData = [
       "Monetization",
       "Growth (AARRR Framework)",
     ],
-    image: "/assets/week13.png",
+    image: "/assets/week13.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/primevideo.webp",
       "/assets/caseStudiesLogo/jiocinema.webp",
@@ -487,7 +490,7 @@ export const weeklyData = [
     week: 14,
     topics: ["Product-Led Growth", "Mock Interview - 2"],
     skills: ["Product-Led Growth", "Presentation Skills"],
-    image: "/assets/week14.png",
+    image: "/assets/week14.webp",
     caseStudies: ["/assets/caseStudiesLogo/airbnb.webp"],
   },
   {
@@ -498,7 +501,7 @@ export const weeklyData = [
       "Refining Product Vision",
     ],
     skills: ["Advanced Strategy", "Team Collaboration", "Product Refinement"],
-    image: "/assets/week15.png",
+    image: "/assets/week15.webp",
     caseStudies: ["/assets/caseStudiesLogo/spotify.webp"],
   },
   {
@@ -509,145 +512,149 @@ export const weeklyData = [
       "Industry Panel",
     ],
     skills: ["Global Product Scaling", "Best Design Practices", "Networking"],
-    image: "/assets/week16.png",
+    image: "/assets/week16.webp",
     caseStudies: ["/assets/caseStudiesLogo/instagram.webp"],
   },
 ];
 
 export const dataAnalyticsmodules = [
   {
-    title: "University-Recognized Professional Certification",
+    title: "Industry Certification",
     description:
-      "Earn certifications that validate your skills, making you stand out to top employers.",
-    image: "/assets/program/security.png",
+      "Earn AI-powered certifications recognised by 2200+ companies globally. Designed to prove your expertise in the AI-powered data analytics domain and boost your employability.",
+    image: "/assets/program/security.webp",
   },
   {
-    title: "Cutting-Edge Tools Training",
+    title: "AI Tools & Tech Training",
     description:
-      "Master the latest tools and technologies used by leading companies to build your dream products.",
-    image: "/assets/program/learning.png",
+      "Gain hands-on experience with the latest AI tools and analytics platforms used by top data analysts in product-based companies to analyse, visualise, and automate data.",
+    image: "/assets/program/learning.webp",
   },
   {
-    title: "Hands-On Learning from Day One",
+    title: "Practical AI Learning",
     description:
-      "Dive straight into hands-on projects that tackle real-world challenges in product management.",
-    image: "/assets/program/file-case.png",
+      "Learn by working on live capstone projects from day one, and apply AI-driven analytics to solve real business and product challenges.",
+    image: "/assets/program/file-case.webp",
   },
   {
-    title: "Comprehensive Interview Preparation",
+    title: "Interview readiness",
     description:
-      "Gain expert guidance from experienced product leaders to ace your interviews confidently.",
-    image: "/assets/program/mentorship.png",
+      "Get expert guidance from industry leaders from top companies (Delloite, Walmart, Paytm and many more) to prepare strategically and ace every interview with confidence.",
+    image: "/assets/program/mentorship.webp",
   },
   {
-    title: "Mock Interviews with Real-Time Feedback",
+    title: "Mock interview feedback",
     description:
-      "Refine your interview skills with tailored mock interviews and constructive feedback.",
-    image: "/assets/program/meeting.png",
+      "Practice through real-time mock interviews and receive personalised feedback from experts having 10+ years of experience in the AI Data Analytics field to sharpen your communication and problem-solving skills.",
+    image: "/assets/program/meeting.webp",
   },
   {
-    title: "Priority Access to Job Opportunities",
+    title: "Exclusive Job Access",
     description:
-      "Discover exclusive job opportunities and connect with top employers to launch your career.",
-    image: "/assets/program/job-portal.png",
+      "Unlock priority access to more than 3527+ hiring partners, 4+ hiring channels, exclusive job openings, and placement opportunities to launch your career in data analytics.",
+    image: "/assets/program/job-portal.webp",
   },
   {
-    title: "Thriving Professional Network",
+    title: "Professional Network",
     description:
-      "Join a diverse community of ambitious product professionals eager to connect and collaborate.",
-    image: "/assets/program/networking.png",
+      "Join a invite-only community of 2500+ AI, data and product professionals who connect, collaborate, buil and grow together.",
+    image: "/assets/program/networking.webp",
   },
   {
-    title: "Bi-weekly Career Review Calls",
+    title: "Career Mentorship Calls",
     description:
-      "Get personalized career advice and insights from seasoned leaders.",
-    image: "/assets/program/state.png",
+      "Receive personalised career guidance and actionable insights from experienced industry mentors in bi-weekly sessions.",
+    image: "/assets/program/state.webp",
   },
   {
-    title: "Chance to win Industry Internship",
+    title: "Industry Internship Opportunities",
     description:
-      "Enjoy lifetime access to all course materials, with updates to stay ahead in your career.",
-    image: "/assets/program/exclusive.png",
+      "Get a chance to win exclusive data analytics internships, plus lifetime access to updated learning resources to keep advancing your career in AI Data Analytics.",
+    image: "/assets/program/exclusive.webp",
   },
 ];
 
 export const dataAnalyticsTools = [
   {
-    name: "Excel",
-    image: "/assets/dataTools/excel.svg",
-  },
-  {
-    name: "SQL",
-    image: "/assets/dataTools/sql.png",
-  },
-  {
     name: "Tableau",
     image: "/assets/dataTools/tableu.webp",
+    description: "Business intelligence and data visualization platform",
   },
   {
     name: "Power BI",
-    image: "/assets/dataTools/powerbi.png",
+    image: "/assets/dataTools/powerbi.webp",
+    description: "Microsoft's business analytics and data visualization tool",
   },
   {
     name: "Python",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Python.svg",
+    description: "High-level programming language for data analysis and machine learning",
   },
   {
     name: "Jupyter Notebook",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg",
+    description: "Interactive computing environment for data science and analysis",
   },
   {
     name: "Google Analytics",
     image: "/assets/dataTools/google-analytics.webp",
+    description: "Web analytics service for tracking and reporting website traffic",
   },
   {
     name: "Looker",
     image: "/assets/dataTools/looker.webp",
+    description: "Business intelligence and data analytics platform",
   },
   {
     name: "Matplotlib",
-    image: "/assets/dataTools/matplotlib.jpg",
-  },
-  {
-    name: "Notion",
-    image: "/assets/dataTools/notion.webp",
+    image: "/assets/dataTools/matplotlib.webp",
+    description: "Python library for creating static, animated, and interactive visualizations",
   },
   {
     name: "Keras",
     image: "/assets/dataTools/keras.webp",
+    description: "Deep learning API for building and training neural networks",
   },
   {
     name: "Numpy",
     image: "/assets/dataTools/numpy.webp",
+    description: "Python library for numerical computing and array operations",
   },
   {
     name: "Pandas",
     image: "/assets/dataTools/pandas.webp",
+    description: "Python library for data manipulation and analysis",
   },
   {
     name: "R",
     image: "/assets/dataTools/r.webp",
+    description: "Programming language for statistical computing and graphics",
   },
   {
     name: "Scikit Learn",
     image: "/assets/dataTools/scikit-learn-logo.webp",
+    description: "Python machine learning library with classification and regression algorithms",
   },
   {
     name: "Tensorflow",
     image: "/assets/dataTools/Tensorflow_logo.webp",
+    description: "Open-source machine learning framework for building AI models",
   },
   {
     name: "Github",
     image: "/assets/dataTools/github.webp",
+    description: "Version control and collaboration platform for developers",
   },
   {
     name: "Mixpanel",
-    image: "/assets/logo/Mixpanel.png",
+    image: "/assets/logo/Mixpanel.webp",
+    description: "Product analytics platform for user behavior tracking",
   },
 ];
 
 export const dataAnalyticsSkills = [
+
   "Data Cleaning & Preparation",
   "Data Visualization",
   "Statistical Analysis",
@@ -667,6 +674,9 @@ export const dataAnalyticsSkills = [
   "Time Series Forecasting",
   "Customer Segmentation",
   "Sentiment Analysis and NLP",
+  "Data analytics with AI automation",
+  "Automate data workflows",
+  "Data engineering",
 ];
 
 export const dataAnalyticsMentors = [
@@ -675,6 +685,7 @@ export const dataAnalyticsMentors = [
     role: "Lead Data Analyst",
     image:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "Sarah Chen - Lead Data Analyst at Goldman Sachs",
     experience: "12+ years",
     specialization: "Financial Analytics",
     students: "500+",
@@ -686,6 +697,7 @@ export const dataAnalyticsMentors = [
     role: "Senior Data Scientist",
     image:
       "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "Marcus Rodriguez - Senior Data Scientist at Microsoft",
     experience: "8+ years",
     specialization: "Machine Learning",
     students: "350+",
@@ -697,6 +709,7 @@ export const dataAnalyticsMentors = [
     role: "Analytics Manager",
     image:
       "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "Priya Patel - Analytics Manager at Deloitte",
     experience: "10+ years",
     specialization: "Business Intelligence",
     students: "400+",
@@ -708,6 +721,7 @@ export const dataAnalyticsMentors = [
     role: "Data Analytics Lead",
     image:
       "https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?q=80&w=200&h=200&auto=format&fit=crop",
+    alt: "David Kim - Data Analytics Lead at Amazon",
     experience: "15+ years",
     specialization: "Big Data Analytics",
     students: "600+",
@@ -1134,7 +1148,7 @@ export const noCodetools = [
   {
     name: "Figma",
     description: "Prototyping and wireframing",
-    logo: "/assets/logo/Figma.png",
+    logo: "/assets/logo/Figma.webp",
     emoji: "✨",
     bgColor: "from-pink-500/10 to-pink-600/10",
     borderColor: "group-hover:border-pink-500",

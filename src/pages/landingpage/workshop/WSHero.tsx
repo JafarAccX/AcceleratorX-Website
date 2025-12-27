@@ -19,7 +19,7 @@ const WSHero = () => {
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#0A1A2A] to-[#061625]">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/assets/patterns/grid.svg')] bg-repeat opacity-5"></div>
+        <div className="absolute inset-0  bg-repeat opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/15 via-cyan-400/10 to-emerald-400/15"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.2),rgba(0,0,0,0))]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(79,70,229,0.15),rgba(0,0,0,0))]"></div>
@@ -55,7 +55,7 @@ const WSHero = () => {
           <div className="w-40 md:w-48 relative group">
             <div className="absolute inset-0 blur-xl bg-gradient-to-r from-emerald-500/40 via-indigo-400/30 to-cyan-400/40 rounded-full group-hover:scale-110 transition-all duration-300"></div>
             <div className="relative bg-[#061625]/90 backdrop-blur-xl rounded-2xl p-3 shadow-2xl border border-emerald-500/20 hover:border-indigo-400/30 transition-all duration-300">
-              <img src="/assets/logo/logo.png" alt="AcceleratorX Logo" className="w-full h-auto" />
+              <img src="/assets/logo/logo.webp" alt="AcceleratorX Logo" className="w-full h-auto" />
             </div>
           </div>
         </div>
@@ -80,13 +80,13 @@ const WSHero = () => {
 
               <h2 className="text-xl lg:text-2xl font-semibold">
                 <span className="bg-gradient-to-r from-emerald-400 via-cyan-300 to-indigo-300 text-transparent bg-clip-text">
-                  How to Become a Data Analyst with AI in 2025
+                  Upgrade Your Data Analysis Techniques with AI
                 </span>
               </h2>
 
               <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Break into one of the most in-demand careers of the decade. Learn the AI tools, real-world projects, and
-                job prep strategies that top data analysts use in 2025.
+                Level up your data skills with cutting-edge AI tools. Discover how modern analysts in 2025 are enhancing
+                their workflows, delivering faster insights, and solving real business problems using AI.
               </p>
 
               <div className="mt-6 flex justify-center lg:justify-start">
@@ -116,8 +116,8 @@ const WSHero = () => {
               <div className="grid grid-cols-4 gap-4 mt-6">
                 {[
                   { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                  { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "April 18th" },
-                  { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "time", value: "7.30 - 9.30 pm" },
+                  { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "May 23th" },
+                  { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "time", value: "8:00 pm" },
                   { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
                 ].map((item, index) => (
                   <div
@@ -134,7 +134,7 @@ const WSHero = () => {
               {/* Mentor Badge */}
               <div className="mt-6 flex items-center space-x-3 bg-gradient-to-r from-emerald-900/40 to-indigo-900/30 px-4 py-2 rounded-lg border border-emerald-500/30 w-fit mx-auto lg:mx-0 hover:shadow-lg transition-all duration-300">
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-400 flex-shrink-0 shadow-md">
-                  <img src="/assets/mentor/akash.png" alt="Aakash Maurya" className="w-full h-full object-cover" />
+                  <img src="/assets/mentor/akash.webp" alt="Aakash Maurya" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <div className="flex items-center">

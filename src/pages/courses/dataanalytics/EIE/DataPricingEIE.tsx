@@ -1,51 +1,20 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Star, Crown } from "lucide-react";
+import { Check } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
-
-const eiePricingData = {
-  title: "EIE European Business School Program",
-  mrp: "39,999",
-  // price: "34999",
-  // discount: "12",
-  features: [
-    {
-      name: "EIE European Business School Malta University Certificate",
-      included: true,
-    },
-    { name: "Data Analytics Toolbox & Templates", included: true },
-    { name: "Assignment Feedback", included: true },
-    {
-      name: "Product Analytics Specialization",
-      included: true,
-      highlight: true,
-    },
-    { name: "Mock Interviews", included: true, detail: "1:1 + Group" },
-    { name: "Personalized Skill Report", included: true },
-    { name: "AcceleratorX Job Priority Access", included: true },
-    { name: "Alumni Access & Exclusive Content", included: true },
-    { name: "Project-Based Mini Challenges", included: true },
-    { name: "Exclusive Data Analytics Workshops & Events", included: true },
-    { name: "Bi-Weekly Career Review Calls", included: true },
-    { name: "Chance to win Industry Internship", included: true },
-    { name: "Data Analytics Portfolio Workshop", included: true },
-    { name: "Project Showcase on Wall of Analytics", included: true },
-    { name: "Ask Doubt (1:1 with Mentor on demand)", included: true },
-  ],
-};
 
 const dataAnalyticsPricingData = {
   title: "AcceleratorX Program",
-  mrp: "29,999",
-  // price: "14999",
-  // discount: "6",
+  currentPrice: "34,999",
   features: [
+    { name: "AI Automation techniques for Data analytics", included: true },
+    { name: "Data Engineering Basics", included: true },
     { name: "Full Data Analytics Curriculum", included: true },
     { name: "Personalized CAPE Project", included: true },
     {
-      name: "Product Analytics Specialization",
-      included: false,
-      highlight: false,
+      name: "Product Analytics Specialization (optional)",
+      included: true,
+      highlight: true,
     },
     { name: "Real-world, hands-on project experiences", included: true },
     { name: "Access to industry-leading tools and datasets", included: true },
@@ -59,131 +28,66 @@ const dataAnalyticsPricingData = {
 
 export default function DataPricingEIE() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState("");
-  const [isEIE, setIsEIE] = useState(true);
 
-  const pricingData = isEIE ? eiePricingData : dataAnalyticsPricingData;
+  const pricingData = dataAnalyticsPricingData;
 
   return (
     <section id="pricing" className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Choose Your Learning Path
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Select the plan that best fits your learning goals and career
-            aspirations
-          </p>
-
-          {/* Tab Switch */}
-          <div className="flex justify-center mt-8 p-1 space-x-1 bg-gray-800/50 rounded-xl max-w-xs mx-auto">
-            <button
-              onClick={() => setIsEIE(false)}
-              className={`${
-                !isEIE
-                  ? "bg-blue-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
-            >
-              AcceleratorX
-            </button>
-            <button
-              onClick={() => setIsEIE(true)}
-              className={`${
-                isEIE
-                  ? "bg-green-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              } flex-1 py-2 px-4 text-sm font-medium rounded-lg transition-all duration-200`}
-            >
-              EIE European Business School
-            </button>
-          </div>
-        </div>
-
+      <div className="text-center mb-12">
+        <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Learning Path</h3>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          Select the plan that best fits your learning goals and career aspirations
+        </p>
+      </div>
+      <div className="max-w-7xl grid grid-cols-1   mx-auto px-4 sm:px-6 lg:px-8">
         {/* Pricing Card */}
         <div className="max-w-md mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`relative rounded-3xl p-8 ${
-              isEIE ? "bg-[#0A2615]" : "bg-[#1a365d]"
-            }`}
+            className={`relative rounded-3xl p-8 ${"bg-[#1a365d]"}`}
           >
             {/* Popular Badge */}
             <div className="absolute top-4 right-4">
-              <div
-                className={`${
-                  isEIE ? "bg-[#5CB338]" : "bg-blue-600"
-                } text-white text-xs font-medium px-3 py-1 rounded-lg`}
-              >
-                Most Popular
-              </div>
+              <div className={`${"bg-blue-600"} text-white text-xs font-medium px-3 py-1 rounded-lg`}>Most Popular</div>
             </div>
 
             {/* Header */}
             <div className="mb-6">
               <div className="text-center">
-                <h3 className="text-2xl mt-2 font-bold text-white mb-4">
-                  {pricingData.title}
-                </h3>
+                <p className="text-2xl mt-2 font-bold text-white mb-4">{pricingData.title}</p>
               </div>
 
               <div className="flex flex-col items-center gap-2 mb-2">
-                {/* <span className="text-4xl font-bold text-white">
-                  ₹{pricingData.price} text-gray-400 text-sm line-through 
-                </span> */}
                 <div className="text-center">
-                  <span className="text-4xl font-bold text-white">
-                    ₹{pricingData.mrp}
-                  </span>
-                  {/* <span
-                    className={`ml-2 text-sm ${isEIE ? "text-[#5CB338]" : "text-blue-500"
-                      }`}
-                  >
-                    {pricingData.discount}% off
-                  </span> */}
+                  <span className="text-4xl flex gap-2 items-center font-bold text-white">₹{pricingData.currentPrice} <span className="block text-base text-gray-400 mt-1">+ GST</span> </span>
                 </div>
+
+                 
               </div>
             </div>
 
             {/* Enroll Button */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => {
                 setIsModalOpen(true);
-                setSelectedPlan(pricingData.title);
               }}
-              className="w-full py-3 px-6 rounded-xl bg-white text-black font-semibold mb-2 hover:bg-gray-100 transition-colors"
+              className={`w-full py-3 px-6 rounded-xl font-semibold mb-2 transition-all duration-300 ${"bg-white text-black hover:bg-gray-100"}`}
             >
-              Enroll Now
-            </button>
+              {"Enroll Now"}
+            </motion.button>
 
             {/* Money Back Guarantee */}
-            {isEIE && (
-              <div className="text-center mb-8">
-                <p className="text-xs text-amber-400 flex items-center justify-center gap-1">
-                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
-                  *15 Days Money Back Guarantee
-                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
-                </p>
-              </div>
-            )}
 
             {/* Features List */}
             <div className="space-y-4">
               {pricingData.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
                   {feature.included ? (
-                    <Check
-                      className={`w-5 h-5 ${
-                        isEIE
-                          ? feature.highlight
-                            ? "text-amber-400"
-                            : "text-[#5CB338]"
-                          : "text-blue-500"
-                      } mt-1 flex-shrink-0`}
-                    />
+                    <Check className={`w-5 h-5 ${"text-[#5CB338]"} mt-1 flex-shrink-0`} />
                   ) : (
                     <div className="w-5 h-5 mt-1 flex-shrink-0">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-600 mx-auto mt-1.5" />
@@ -192,24 +96,11 @@ export default function DataPricingEIE() {
                   <div>
                     <p
                       className={`${
-                        feature.included
-                          ? feature.highlight
-                            ? "text-amber-400"
-                            : "text-white"
-                          : "text-gray-500"
+                        feature.included ? (feature.highlight ? "text-amber-400" : "text-white") : "text-gray-500"
                       }`}
                     >
                       {feature.name}
                     </p>
-                    {feature.detail && feature.included && (
-                      <p
-                        className={`text-sm ${
-                          isEIE ? "text-[#5CB338]" : "text-blue-500"
-                        }`}
-                      >
-                        {feature.detail}
-                      </p>
-                    )}
                   </div>
                 </div>
               ))}
@@ -218,11 +109,7 @@ export default function DataPricingEIE() {
         </div>
       </div>
 
-      <EnrollmentModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        plan={selectedPlan}
-      />
+      <EnrollmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
