@@ -17,19 +17,6 @@ export default function PublicProfile() {
     const [projects, setProjects] = useState<Project[]>([]);
     const [loadingProjects, setLoadingProjects] = useState(false);
 
-    // The API returns the user object directly or inside a data property depending on the structure
-    // Based on profileOverview, useUser provides 'user'. 
-    // checking hooks/customer.ts: getUserByCustId returns response.data probably.
-    // Assuming response structure matches what's expected.
-    // Let's assume standard response wrapper or direct data. 
-    // userResponse from useGetUserByCustId comes as { success, data: Customer } or just Customer depending on the hook
-    // Based on the error "Property 'data' does not exist on type 'Customer'", it seems userResponse IS the Customer object directly
-    // OR the type inference is masking the ApiResponse wrapper. 
-    // Let's cast to any to be safe for now or checks props.
-    // Actually, if useQuery returns 'data', that data is what the fetcher returns.
-    // If fetcher returns ApiResponse<Customer>, then .data property exists on the response.data
-    // Let's assume userResponse IS the payload we want if the hook unwrap it, OR it has .data.
-    // Safest way to avoid TS error without deep type dive now:
     const user = (userResponse as any)?.data || userResponse;
 
     useEffect(() => {

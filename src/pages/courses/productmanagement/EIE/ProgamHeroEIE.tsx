@@ -1,5 +1,5 @@
 import { useState } from "react";
- 
+
 import { ArrowRight } from "lucide-react";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 import { Phone, Users } from "lucide-react";
@@ -61,11 +61,10 @@ export default function ProgramHeroEIE() {
                   <button
                     onClick={() => handleScroll(link.id)}
                     className={`text-sm font-medium px-3 py-2 rounded-full transition-all duration-300
-                              ${
-                                activeLink === link.id
-                                  ? "text-black bg-[#5CB338]"
-                                  : "text-gray-400 hover:text-white hover:bg-white/10"
-                              }`}
+                              ${activeLink === link.id
+                        ? "text-black bg-[#5CB338]"
+                        : "text-gray-400 hover:text-white hover:bg-white/10"
+                      }`}
                   >
                     {link.name}
                   </button>
@@ -82,7 +81,7 @@ export default function ProgramHeroEIE() {
             className="text-left"
           >
             <div
-             
+
               className="bg-[#5CB338]/20 backdrop-blur-sm px-4 py-2 rounded-md inline-block mb-6 border border-[#5CB338]"
             >
               <span className="text-[#fff] font-semibold text-sm sm:text-base">
@@ -94,12 +93,12 @@ export default function ProgramHeroEIE() {
               Stay Ahead in Your Career with
               <span className="bg-[#5CB338] bg-clip-text text-transparent">
                 {" "}
-                AI Product Management 
+                AI Product Management
 
               </span>
             </h1>
             <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-300">
-             Master AI product management with India’s top AI Product Management Program. Dive into AI Product Management, leverage product management tools, gain real-world experience, Build Your Own Product and take your product management career to the next level.
+              Master AI product management with India’s top AI Product Management Program. Dive into AI Product Management, leverage product management tools, gain real-world experience, Build Your Own Product and take your product management career to the next level.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-6 mb-8">
               <div className="border-r border-[#5CB338]/30">
@@ -117,14 +116,14 @@ export default function ProgramHeroEIE() {
             </div>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 md:gap-6 items-start">
               <button
-                 
+
                 className="w-full sm:w-auto bg-[#5CB338] text-white font-semibold px-8 md:px-10 py-3 rounded-md hover:bg-[#FFD700] transition flex items-center justify-center"
                 onClick={() => setIsModalOpen(true)}
               >
                 Apply Now <ArrowRight className="ml-2 h-5 w-5" />
               </button>
               <button
-                
+
                 className="w-full sm:w-auto border-2 border-[#5CB338] text-[#5CB338] px-8 md:px-10 py-3 rounded-md hover:bg-[#5CB338]/10 transition font-semibold"
                 onClick={() => {
                   setIsModalOpen(true);
@@ -145,7 +144,7 @@ export default function ProgramHeroEIE() {
           </div>
 
           <div
-             
+
             className="relative mt-8 lg:mt-0"
           >
             <div className="relative rounded-lg overflow-hidden">

@@ -28,21 +28,21 @@ const DataAnalyticsAd = () => {
 
   return (
     <>
-    <SEO />
+      <SEO />
       <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <DataHeroEIE />
         <HeroWithAbouv />
         <WhoIsThisContentForEIE />
         <DataProgramEIE />
-        <CAPEEIE />
+        {/* <CAPEEIE />
         <DataJourneyEIE />
         <DataCertificateEIE />
         <DataMentorsEIE />
         <DataSkillsToolsEIE />
         <DataPricingEIE />
         <DataAnalyticsFAQFB />
-        <StickyBookNav />
+        <StickyBookNav /> */}
       </Suspense>
     </>
   );

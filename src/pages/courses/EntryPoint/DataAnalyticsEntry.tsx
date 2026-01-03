@@ -34,15 +34,19 @@ const DataAnalyticsEntry = () => {
         <DataHeroEIE />
         <HeroWithAbouv courseName="Data Analytics" />
         <WhoIsThisContentForEIE />
+
+        {/* component with the sticky functionality below  DataProgramEIE */}
         <DataProgramEIE />
-        <CAPEEIE />
+
+
+        {/* <CAPEEIE />
         <DataJourneyEIE />
         <DataCertificateEIE />
         <DataMentorsEIE />
         <DataSkillsToolsEIE />
         <DataPricingEIE />
         <DataAnalyticsFAQFB />
-        <StickyBookNav />
+        <StickyBookNav /> */}
       </Suspense>
     </>
   );
