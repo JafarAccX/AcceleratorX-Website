@@ -85,12 +85,12 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Hands-on LLM Fine-Tuning Workshop",
-  link: "https://zoom.us/meeting/register/JbDFh1vLQVyXvwKV_5-dJA",
-  meetingId: "JbDFh1vLQVyXvwKV_5-dJA",
-  time: "14th Dec, 2025 11:00 AM India",
-  meetingCode: "99613499939",
-  whatsappLink: "https://chat.whatsapp.com/CzDMtSnPlcU30bfF9m8bSI",
+  title: "Learn to Build AI Agents without Code",
+  link: "https://zoom.us/meeting/register/uqJPTbkGRMugSMk9c95OgA",
+  meetingId: "uqJPTbkGRMugSMk9c95OgA",
+  time: "09 Jan 2026, 8:00 PM",
+  meetingCode: "93133290017",
+  whatsappLink: "https://chat.whatsapp.com/JFmq5L4cKyVJpKRhmyCNl3",
 };
 
 const GENAIDZoomDetails: ZoomMeetingDetails = {
@@ -165,24 +165,24 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
     workshopType === "PMWorkshop"
       ? PMZoomDetails
       : workshopType === "PMBWorkshop"
-      ? PMBZoomDetails
-      : workshopType === "GENAIWorkshop"
-      ? GENAIZoomDetails
-      : workshopType === "GENAIBWorkshop"
-      ? GENAIBZoomDetails
-      : workshopType === "GENAICWorkshop"
-      ? GENAICZoomDetails
-      : workshopType === "GENAIDWorkshop"
-      ? GENAIDZoomDetails
-      : workshopType === "GENAIEWorkshop"
-      ? GENAIEZoomDetails
-      : workshopType === "AIDMWorkshop"
-      ? AIDMZoomDetails
-      : workshopType === "DMWorkshop"
-      ? DMZoomDetails
-      : workshopType === "DASecondWorkshop"
-      ? DASecondZoomDetails
-      : DAZoomDetails;
+        ? PMBZoomDetails
+        : workshopType === "GENAIWorkshop"
+          ? GENAIZoomDetails
+          : workshopType === "GENAIBWorkshop"
+            ? GENAIBZoomDetails
+            : workshopType === "GENAICWorkshop"
+              ? GENAICZoomDetails
+              : workshopType === "GENAIDWorkshop"
+                ? GENAIDZoomDetails
+                : workshopType === "GENAIEWorkshop"
+                  ? GENAIEZoomDetails
+                  : workshopType === "AIDMWorkshop"
+                    ? AIDMZoomDetails
+                    : workshopType === "DMWorkshop"
+                      ? DMZoomDetails
+                      : workshopType === "DASecondWorkshop"
+                        ? DASecondZoomDetails
+                        : DAZoomDetails;
 
   return (
     <WorkshopContext.Provider value={{ workshopType, setWorkshopType, zoomMeetingDetails }}>

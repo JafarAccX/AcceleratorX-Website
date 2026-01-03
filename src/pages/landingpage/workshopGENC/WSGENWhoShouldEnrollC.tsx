@@ -1,4 +1,4 @@
- 
+
 import { Users, Briefcase, Brain, Code, Laptop } from "lucide-react";
 
 const WSGENWhoShouldEnrollC = () => {
@@ -6,22 +6,22 @@ const WSGENWhoShouldEnrollC = () => {
     {
       icon: Briefcase,
       title: "Professionals",
-      description: "Automate work, build smarter tools, and upskill in AI quickly.",
+      description: "Automate repetitive work & scale your output",
     },
     {
       icon: Laptop,
       title: "Students",
-      description: "Learn one of the most in-demand skills in the AI industry.",
+      description: "Learn future-ready AI skills",
     },
     {
       icon: Code,
       title: "Entrepreneurs",
-      description: "Build custom AI models for your product, users, and business workflows.",
+      description: "Build AI-powered workflows for your business",
     },
     {
       icon: Brain,
-      title: "Creatives",
-      description: "Train models that understand your writing, style, or content needs.",
+      title: "Creators",
+      description: "Use AI Agents for research, writing & engagement",
     },
   ];
 
@@ -42,7 +42,7 @@ const WSGENWhoShouldEnrollC = () => {
             <span className="text-blue-600 text-sm font-medium">Who Should Attend</span>
           </div>
           <h2 className="text-3xl font-bold mb-3">
-            <span className="text-white">This workshop is for you if you've ever thought:<br/>"I want to build powerful AI systems, but I don’t know where to start."</span>
+            <span className="text-white">This workshop is for you if you’ve ever thought:<br />“I want AI to handle my work — but I don’t know where to start.”</span>
           </h2>
         </div>
 

@@ -92,7 +92,7 @@ const WSHeroGENC = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r pb-4 from-white via-blue-100 to-green-200">
                     <span className=" text-yellow-400 underline  ">
-                      Hands-on LLM Fine-Tuning Workshop
+                      Hands-on AI Agents Workshop
                     </span>
                   </span>
 
@@ -108,12 +108,15 @@ const WSHeroGENC = () => {
 
               {/* Subtitle */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
-
+                <p className="text-xl text-white font-medium mb-4">Learn to Build AI Agents without Code — Step by Step</p>
                 <p className="  text-gray-400 max-w-xl">
-                  In this practical workshop, you’ll understand how modern LLMs are trained, how to fine-tune them for real use-cases, and how to measure the quality of your outputs with the right evaluation frameworks.
+                  Build powerful AI Agents that can research, analyse, respond, automate tasks, and run workflows — without programming knowledge or engineering background.
                 </p>
                 <p className="  text-gray-400 max-w-xl">
-                  No confusing theory. No advanced coding. Just practical, real-world LLM fine-tuning.
+                  This practical session shows you exactly how AI Agents work and how you can build them using no-code tools — so you can use them for work, business, and real-world automation.
+                </p>
+                <p className="  text-gray-400 max-w-xl">
+                  No complex theory. No confusing tech. Just simple, guided, real-world AI Agent building.
                 </p>
               </motion.div>
             </div>
@@ -125,12 +128,12 @@ const WSHeroGENC = () => {
                 {
                   icon: <FaCalendarAlt className="text-indigo-400 mb-1" />,
                   label: "Date",
-                  value: "14th Dec 2025",
+                  value: "09 January 2026",
                 },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "Time",
-                  value: "11:00 AM",
+                  value: "08:00 AM",
                 },
                 { icon: <FaLevelUpAlt className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (
@@ -164,7 +167,7 @@ const WSHeroGENC = () => {
                   <div className="mb-6 text-center">
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">Reserve Your Spot Now!</h3>
-                      <p className="text-sm text-gray-400">Limited seats available for the next session</p>
+                      <p className="text-sm text-gray-400">Limited Seats — Live Session Only</p>
                     </div>
                   </div>
                   <div id="workshop-registration-form">

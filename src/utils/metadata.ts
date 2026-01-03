@@ -300,10 +300,10 @@ export const pageMetadata: Record<string, PageMetadata> = {
   },
 
   "/workshop/gen-ai-masterclass-thidtx": {
-    title: "Generative AI Training Workshop | AcceleratorX",
-    description: "Upskill in AcceleratorX's Generative AI training workshop and gain applied knowledge of AI tools, models, and automation workflows.",
-    ogTitle: "AcceleratorX Generative AI Training",
-    ogDescription: "Learn advanced AI models and workflows at AcceleratorX's GenAI workshop.",
+    title: "Hands-on AI Agents Workshop | AcceleratorX",
+    description: "Learn to build powerful AI Agents without code. Step-by-step guidance on creating autonomous workflows for research, automation, and business.",
+    ogTitle: "Hands-on AI Agents Workshop - Build AI Agents Without Code",
+    ogDescription: "Build AI Agents that can research, analyze, and automate tasks. Join our 2-hour live session and start building AI today.",
     canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-thidtx"
   },
 

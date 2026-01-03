@@ -31,8 +31,8 @@ const WSGENCMentor = () => {
               <div className="relative">
                 <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-indigo-500/30">
                   <img
-                    src="/assets/mentor/nitya.webp"
-                    alt="Nitya Sagar"
+                    src="/assets/mentor/subhasis.webp"
+                    alt="Subhasis Chandra"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -51,31 +51,31 @@ const WSGENCMentor = () => {
               {/* Mentor Details */}
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Nitya Sagar
+                  Subhasis Chandra
                 </h3>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-4">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-400 border border-blue-500/20">
                     <Server className="w-4 h-4" />
-                    LLM Fine-Tuning Specialist
+                    AI Agent Specialist
                   </span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-400 border border-purple-500/20">
                     <Github className="w-4 h-4" />
-                    Open Source AI Contributor
+                    AI Systems Builder
                   </span>
                 </div>
 
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-start gap-2">
                     <Award className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
-                    <p>Expert in Large Language Model fine-tuning and evaluation techniques</p>
+                    <p>A hands-on AI practitioner who has helped thousands of learners build practical AI systems — without needing technical expertise.</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <Sparkles className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
-                    <p>Developed fine-tuned models for enterprise applications and research projects</p>
+                    <p>Expert in designing autonomous AI agents for various business use-cases</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <GraduationCap className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                    <p>AI Researcher and Educator specializing in Generative AI and model optimization</p>
+                    <p>Passionate about making AI accessible to everyone, regardless of their engineering background</p>
                   </div>
                 </div>
               </div>

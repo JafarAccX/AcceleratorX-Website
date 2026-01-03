@@ -39,33 +39,29 @@ const WSGENIntroductionC = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <Brain className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-400 font-medium">LLM Fine-Tuning Workshop</span>
+            <span className="text-sm text-blue-400 font-medium">Live Workshop</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Fine-tuning <span className="text-blue-500"> =</span> Smarter AI Models
+            AI Agents <span className="text-blue-500"> =</span> Supercharged Productivity
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-lg mb-12 max-w-3xl mx-auto">
-            This workshop is fully practical — you will build and evaluate your own LLM workflow by the end of the session.
+            By the end of this workshop you’ll have your own working AI Agent — ready to use.
           </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto">
             {[
               {
-                value: "90%",
-                label: "of previous learners said they understood LLM fine-tuning in a single day.",
+                value: "💬 90%",
+                label: "of learners said they were able to build an agent in one day",
               },
               {
-                value: "92%",
-                label: "reported improved confidence in using Generative AI for real projects.",
-              },
-              {
-                value: "Zero Complexity",
-                label: "Simple, structured steps anyone can follow.",
+                value: "🚀 92%",
+                label: "reported massive productivity improvements",
               },
             ].map((stat, index) => (
               <div key={index} className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/30">
@@ -80,18 +76,18 @@ const WSGENIntroductionC = () => {
             {[
               {
                 icon: <Target className="w-5 h-5 text-blue-500" />,
-                title: "AI Development Made Easy",
-                description: "Clear explanations, real examples, and hands-on guidance.",
+                title: "Zero Complexity",
+                description: "Simple steps anyone can follow",
               },
               {
                 icon: <Brain className="w-5 h-5 text-blue-500" />,
                 title: "Live & Interactive",
-                description: "Learn, practice, and get feedback instantly.",
+                description: "Ask. Try. Learn instantly.",
               },
               {
                 icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-                title: "Practical Deployment",
-                description: "Understand how to use and deploy your fine-tuned model.",
+                title: "Deploy & Use",
+                description: "Start using your AI Agent right away",
               },
             ].map((feature, index) => (
               <div
