@@ -26,11 +26,11 @@ const WSGENIntroductionAIDM = () => {
             </div> */}
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              <span className="text-blue-500">Master Marketing Automation</span> with AI
+              Master <span className="text-blue-500">AI-Powered</span> Marketing
             </h1>
 
             <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
-              Learn how to automate campaigns, optimize funnels, and run smarter marketing systems using AI tools.
+              Learn how to use AI to plan campaigns, automate execution, optimize funnels & drive performance.
             </p>
           </div>
 
@@ -39,15 +39,15 @@ const WSGENIntroductionAIDM = () => {
             {[
               {
                 value: "100%",
-                label: "Hands-On Workshop",
+                label: "Practical",
               },
               {
                 value: "Free",
                 label: "Live Session",
               },
               {
-                value: "Practical",
-                label: "Learning You Can Apply Immediately",
+                value: "Direct",
+                label: "Implementation-Focused",
               },
             ].map((stat, index) => (
               <div key={index} className="bg-[#0A1020] p-4 rounded-lg border border-blue-900/20 text-center">
@@ -62,21 +62,21 @@ const WSGENIntroductionAIDM = () => {
             {[
               {
                 icon: <BarChart3 className="w-5 h-5 text-blue-500" />,
-                title: "Automated User Journeys",
+                title: "AI-Powered Marketing Workflows",
                 description:
-                  "Build funnels using tools like HubSpot, ActiveCampaign & Zapier.",
+                  "Create repeatable processes powered by AI tools",
               },
               {
                 icon: <Brain className="w-5 h-5 text-blue-500" />,
-                title: "AI Optimization",
+                title: "AI-Generated Content Systems",
                 description:
-                  "Use ChatGPT, Claude, and AI engines to personalize communication.",
+                  "Emails, posts, captions, ads & scripts",
               },
               {
                 icon: <TrendingUp className="w-5 h-5 text-blue-500" />,
-                title: "Performance Tracking",
+                title: "Performance Optimization",
                 description:
-                  "Automate your reports with Google Analytics and dashboards.",
+                  "Use AI to analyze campaigns & improve results",
               },
             ].map((feature, index) => (
               <div

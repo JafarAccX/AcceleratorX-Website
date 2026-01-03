@@ -1,4 +1,4 @@
-import { Users, Briefcase, Megaphone, TrendingUp, BarChart3 } from "lucide-react";
+import { Users, Megaphone, TrendingUp, BarChart3 } from "lucide-react";
 
 const WSGENWhoShouldEnrollAIDM = () => {
 
@@ -44,22 +44,22 @@ const WSGENWhoShouldEnrollAIDM = () => {
                   {
                     icon: Megaphone,
                     title: "Digital Marketers",
-                    description: "Automate repetitive tasks and scale campaigns.",
+                    description: "Create better campaigns — faster.",
                   },
                   {
-                    icon: Briefcase,
-                    title: "E-commerce Owners",
-                    description: "Improve customer journeys and increase repeat sales.",
+                    icon: Users,
+                    title: "Content Creators",
+                    description: "Scale content without burning out.",
                   },
                   {
                     icon: BarChart3,
-                    title: "Growth Specialists",
-                    description: "Leverage automation for faster experimentation.",
+                    title: "Growth & Performance Marketers",
+                    description: "Optimize decisions using AI insights.",
                   },
                   {
                     icon: TrendingUp,
                     title: "Business Owners",
-                    description: "Save time and boost ROI through automated workflows.",
+                    description: "Save time & maximize marketing ROI.",
                   },
                 ].map((audience, index) => (
                   <div

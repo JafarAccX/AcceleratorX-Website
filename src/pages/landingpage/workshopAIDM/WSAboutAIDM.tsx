@@ -18,17 +18,17 @@ const WSAboutAIDM = () => {
   const toolsRef = useRef(null);
 
   const allTools = [
-    { name: "HubSpot", img: "/assets/dataAnalyticsLogo/hubspot.webp" },
-    { name: "Mailchimp", img: "/assets/dataAnalyticsLogo/mailchimp.webp" },
-    { name: "Zapier", img: "/assets/dataAnalyticsLogo/zapier.webp" },
-    { name: "Google Analytics", img: "/assets/dataAnalyticsLogo/google-analytics.webp" },
-    { name: "Notion", img: "/assets/dataAnalyticsLogo/notion.webp" },
-    { name: "ActiveCampaign", img: "/assets/dataAnalyticsLogo/activecampaign.webp" },
-    { name: "Make.com", img: "/assets/dataAnalyticsLogo/make.webp" },
+    { name: "HubSpot", img: "/assets/n8n/hubspot.webp" },
+    { name: "Mailchimp", img: "/assets/aidmtools/Mailchimp.webp" },
+    { name: "Zapier", img: "/assets/genAITools/zapier.webp" },
+    { name: "Google Analytics", img: "/assets/dmAITools/googleanalytics.webp" },
+    { name: "Notion", img: "/assets/n8n/notion.webp" },
+    // { name: "ActiveCampaign", img: "/assets/dataAnalyticsLogo/activecampaign.webp" },
+    { name: "Make.com", img: "/make.webp" },
     { name: "ChatGPT", img: "/assets/genAITools/gpt4.webp" },
     { name: "Claude", img: "/assets/genAITools/claude.webp" },
-    { name: "Meta Ads", img: "/assets/dataAnalyticsLogo/meta-ads.webp" },
-    { name: "Google Ads", img: "/assets/dataAnalyticsLogo/google-ads.webp" },
+    // { name: "Meta Ads", img: "/assets/dataAnalyticsLogo/meta-ads.webp" },
+    // { name: "Google Ads", img: "/assets/dataAnalyticsLogo/google-ads.webp" },
   ];
 
   return (
@@ -44,7 +44,7 @@ const WSAboutAIDM = () => {
               <div className="p-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 rounded-md px-3 py-1 mb-4">
-                  <span className="text-green-400 text-sm font-medium">AI-Powered Marketing Automation Workshop</span>
+                  <span className="text-green-400 text-sm font-medium">AI Marketing Micro-Certification Workshop</span>
                 </div>
 
                 {/* Title */}
@@ -65,11 +65,11 @@ const WSAboutAIDM = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "Understand how AI transforms modern marketing workflows.",
-                        "Learn to automate repetitive tasks like emails, ads & reporting.",
-                        "Build automated customer journeys and funnels.",
-                        "Use AI tools to personalize campaigns at scale.",
-                        "Learn how to track performance and optimize with automation.",
+                        "Learn how AI is transforming modern marketing workflows",
+                        "Use AI tools for content, ads, email & social media",
+                        "Build automated funnels & customer journeys",
+                        "Personalize campaigns at scale using AI",
+                        "Optimize your marketing with AI-powered analytics",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-blue-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -89,11 +89,12 @@ const WSAboutAIDM = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        "How to use AI tools to automate marketing processes.",
-                        "Setting up customer journeys, triggers, and automated workflows.",
-                        "Building smart segmentation & personalized messaging.",
-                        "Automating reporting, analytics & campaign optimization.",
-                        "Creating an end-to-end marketing automation system for your business.",
+                        "How to integrate AI into everyday marketing tasks",
+                        "Using AI for research, planning & ideation",
+                        "Content creation workflows powered by AI",
+                        "AI-assisted ad creation, optimization & scaling",
+                        "Automating reporting & performance tracking",
+                        "Building a complete AI-powered marketing workflow",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300 text-sm">
                           <span className="text-xs bg-green-500/20 p-1 rounded-sm">{index + 1}</span>
@@ -116,7 +117,7 @@ const WSAboutAIDM = () => {
 
             {/* Tools Section - Simplified */}
             <div ref={toolsRef} className="bg-[#0A1020] rounded-lg shadow-md p-5 border border-blue-900/20">
-              <p className="text-xl font-bold text-white mb-4">CRO Tools You'll Master</p>
+              <p className="text-xl font-bold text-white mb-4">Tools You'll Master</p>
               <div className="relative overflow-hidden">
                 <div className="flex overflow-hidden">
                   <motion.div
@@ -159,14 +160,14 @@ const WSAboutAIDM = () => {
                   <FaCertificate className="w-6 h-6" />
                   <h3 className="text-xl font-bold">Certification Included</h3>
                 </div>
-                <p className="text-gray-200 mb-3 text-sm">
-                  After attending the complete workshop, you'll receive an official Professional Certificate in Marketing Automation—a strong proof of your AI digital marketing skills.
+                <p className="text-gray-200 mb-3 text-sm italic font-medium">
+                  Micro-Certification in AI Marketing
                 </p>
                 <p className="text-gray-200 mb-3 text-sm">
-                  Earn an industry-recognized certificate showcasing your automation expertise!
+                  A powerful credential to showcase your expertise in modern AI-driven marketing systems.
                 </p>
                 <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
-                  ⚠️ Certificate is provided only to participants who attend the full workshop.
+                  ⚠️ Certificate provided only to full-session participants.
                 </div>
               </div>
             </div>
@@ -180,19 +181,23 @@ const WSAboutAIDM = () => {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  Hands-on practice with real marketing tools
+                  Hands-on learning
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  AI-based automation strategies
+                  Industry-relevant AI workflows
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  Practical industry case studies
+                  Real-world marketing case studies
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-400">✓</span>
-                  Live Q&A + mentorship from experts
+                  Practical templates & frameworks
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  Live Q&A with your mentor
                 </li>
               </ul>
             </div>

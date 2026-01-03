@@ -112,12 +112,12 @@ const GENAIEZoomDetails: ZoomMeetingDetails = {
 };
 
 const AIDMZoomDetails: ZoomMeetingDetails = {
-  title: "Marketing Automation Crash Course",
-  link: "https://zoom.us/meeting/register/x54MqpmpSwK6ki3PO74V4A",
-  meetingId: "x54MqpmpSwK6ki3PO74V4A",
-  time: "12th Dec, 2025 08:00 PM India",
-  meetingCode: "96361463677",
-  whatsappLink: "https://chat.whatsapp.com/IRY3cWYHajY8wbQc2LX11m",
+  title: "Micro-Certification in AI Marketing",
+  link: "https://us06web.zoom.us/meeting/register/wNL144GXSvaIVgHaevAwgg",
+  meetingId: "wNL144GXSvaIVgHaevAwgg",
+  time: "January 10, 2026, 8:00 PM",
+  meetingCode: "85086383594",
+  whatsappLink: "https://chat.whatsapp.com/Ip59TxaawaAIPt6IRUe89G",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {

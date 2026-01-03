@@ -315,6 +315,14 @@ export const pageMetadata: Record<string, PageMetadata> = {
     canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-four"
   },
 
+  "/workshop/ai-dm-fitm": {
+    title: "Micro-Certification in AI Marketing | AcceleratorX",
+    description: "Learn how to use AI tools to plan, create, automate & scale your marketing. Join our live 2-hour certification workshop.",
+    ogTitle: "Micro-Certification in AI Marketing - AcceleratorX",
+    ogDescription: "Become an AI-Driven Marketer. Build real skills in audience research, content creation, and campaign automation.",
+    canonicalUrl: "https://acceleratorx.org/workshop/ai-dm-fitm"
+  },
+
   "/workshop-registration/success": {
     title: "Workshop Registration Success | AcceleratorX",
     description: "Your workshop registration at AcceleratorX is successful. Get ready to join expert-led sessions in Product, Data, Marketing, and AI.",
