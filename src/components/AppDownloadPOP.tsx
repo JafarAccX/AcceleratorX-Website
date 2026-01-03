@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
-import EnrollmentModal from './EnrollmentModal'
-import { useCourseContext } from '../context/courseContext'
 
 interface AppDownloadPOPProps {
   delayMs?: number // how long to wait before showing the popup
   courseName?: string // optional course name to pass to enrollment
 }
 
-const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000, courseName }) => {
+const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000 }) => {
   const [visible, setVisible] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const { setSelectedCourse, selectedCourse } = useCourseContext()
 
   useEffect(() => {
     // Don't run on server
@@ -27,87 +23,53 @@ const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000, courseN
 
   const handleClose = () => setVisible(false)
 
-  const handleBannerClick = () => {
-    // Priority: Prop courseName > Context selectedCourse > "General"
-    const courseToSet = courseName || selectedCourse || "General"
-    setSelectedCourse(courseToSet)
-    setIsModalOpen(true)
-  }
 
   return (
     <>
-      <AnimatePresence>
-        {visible && (
-          // <motion.div
-          //   initial={{ opacity: 0, scale: 0.9 }}
-          //   animate={{ opacity: 1, scale: 1 }}
-          //   exit={{ opacity: 0, scale: 0.9 }}
-          //   transition={{ duration: 0.3 }}
-          //   className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-          //   role="dialog"
-          //   aria-modal="true"
-          // >
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-            role="dialog"
-            aria-modal="true"
-          >
-            {/* Centered popup container */}
-            <motion.div
-              initial={{ y: 20 }}
-              animate={{ y: 0 }}
-              className="relative max-w-4xl w-full"
-            >
-              {/* Close button */}
-              <button
-                onClick={handleClose}
-                aria-label="Close Christmas banner popup"
-                className="absolute -top-4 -right-4 z-10 p-2 rounded-full bg-white/90 hover:bg-white text-gray-800 hover:text-gray-900 shadow-lg transition-all hover:scale-110"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
-              {/* Christmas banner - responsive */}
-              <div
-                className="cursor-pointer rounded-2xl overflow-hidden shadow-2xl"
-                onClick={handleBannerClick}
-              >
-                {/* Desktop banner - hidden on mobile */}
-                <img
-                  src="/redesign/christmas/cristmas-banner.jpg"
-                  alt="AcceleratorX Christmas Sale - 40% Off"
-                  className="hidden md:block w-full h-auto object-cover"
-                />
-
-                {/* Mobile banner - hidden on desktop */}
-                <img
-                  src="/redesign/christmas/cristmas-banner-mobile.png"
-                  alt="AcceleratorX Christmas Sale - 40% Off"
-                  className="block md:hidden w-full h-auto object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* </motion.div>
-           */}
-          </div>
-        )}
-      </AnimatePresence>
-
-      {/* Enrollment Modal */}
-      <EnrollmentModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        customData={{
-          utm_campaign: "Christmas_Sale_Scholarship",
-          utm_content: "Popup_Banner_Click_40_Percent_Off"
-        }}
-      />
-
       {/* 
-      ============================================
-      COMMENTED OUT: Original App Download Content
-      ============================================
-      
+        <AnimatePresence>
+          {visible && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+              role="dialog"
+              aria-modal="true"
+            >
+              <motion.div
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                className="relative max-w-4xl w-full"
+              >
+                <button
+                  onClick={handleClose}
+                  aria-label="Close Christmas banner popup"
+                  className="absolute -top-4 -right-4 z-10 p-2 rounded-full bg-white/90 hover:bg-white text-gray-800 hover:text-gray-900 shadow-lg transition-all hover:scale-110"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+
+                <div
+                  className="cursor-pointer rounded-2xl overflow-hidden shadow-2xl"
+                  onClick={handleBannerClick}
+                >
+                  <img
+                    src="/redesign/christmas/cristmas-banner.jpg"
+                    alt="AcceleratorX Christmas Sale - 40% Off"
+                    className="hidden md:block w-full h-auto object-cover"
+                  />
+
+                  <img
+                    src="/redesign/christmas/cristmas-banner-mobile.png"
+                    alt="AcceleratorX Christmas Sale - 40% Off"
+                    className="block md:hidden w-full h-auto object-cover"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+      */}
+
+
       <AnimatePresence>
         {visible && (
           <motion.div
@@ -145,14 +107,14 @@ const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000, courseN
                     <h4 className="text-white font-semibold text-lg">Master AI, Product, Data & Marketing.</h4>
                   </div>
                 </div>
-                  <p className="text-sm text-white/80 mt-1">Download our app and access 3,000+ AI jobs curated for you.</p>
-                  <button
+                <p className="text-sm text-white/80 mt-1">Download our app and access 3,000+ AI jobs curated for you.</p>
+                <button
                   onClick={handleClose}
                   aria-label="Close app popup"
                   className="p-2 absolute top-4 right-4 rounded-md text-white/80 hover:text-white hover:bg-white/5"
-                  >
+                >
                   <X className="w-4 h-4" />
-                  </button>
+                </button>
 
                 <div className="flex-1 w-full">
 
@@ -191,7 +153,6 @@ const AppDownloadPOP: React.FC<AppDownloadPOPProps> = ({ delayMs = 2000, courseN
           </motion.div>
         )}
       </AnimatePresence>
-      */}
     </>
   )
 }
