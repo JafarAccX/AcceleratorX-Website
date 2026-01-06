@@ -52,7 +52,6 @@ export default function Navbar() {
     { label: "Blog", path: "/blogs" },
     { label: "Jobs Portal", path: "/jobs" },
     { label: "New Events", path: "/events" },
-    { label: "Project Listing", path: "/project-listing" },
   ];
 
   const courses = [
@@ -241,21 +240,21 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.path}
-                className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing"
+                className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
                   ? "bg-white/5 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center  border border-[#FFBB00]/10 hover:border-[#FFBB00]/30"
                   : "text-gray-300 hover:text-white py-2"
                   }`}
               >
                 {item.label}
-                {(item.label === "XSAT" ||
+                {/* {(item.label === "XSAT" ||
                   item.label === "EVENTS" ||
                   item.label === "Project Listing") && (
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
                     </span>
-                  )}
-                {item.label !== "XSAT" && item.label !== "Project Listing" && item.label !== "EVENTS" && (
+                  )} */}
+                {item.label !== "XSAT" && item.label !== "EVENTS" && (
                   <span
                     className={`absolute bottom-0 left-0 w-0 h-0.5 bg-white ${dropdownTransition} group-hover:w-full`}
                   />
@@ -347,7 +346,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               to={item.path}
-              className={`block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS" || item.label === "Project Listing"
+              className={`block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
                 ? "bg-white/5 text-[#FFBB00] font-semibold px-4 py-2 rounded-lg flex items-center gap-2 border border-[#FFBB00]/10"
                 : "text-gray-300 py-2"
                 }`}
@@ -355,8 +354,7 @@ export default function Navbar() {
             >
               {item.label}
               {(item.label === "XSAT" ||
-                item.label === "EVENTS" ||
-                item.label === "Project Listing") && (
+                item.label === "EVENTS") && (
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
