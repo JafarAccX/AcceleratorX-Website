@@ -71,7 +71,7 @@ export default function Hero() {
                 </svg>
               </button>
 
-              < button
+              {/* < button
 
                 onClick={() => navigate("/xsat")}
                 className="group inline-flex items-center w-full justify-center rounded-lg border border-yellow-400/40 bg-black/50 px-8 py-3 text-yellow-400 backdrop-blur-sm hover:border-yellow-400/60 transition-all"
@@ -87,7 +87,7 @@ export default function Hero() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </ button>
+              </ button> */}
             </div>
           </ div>
 
