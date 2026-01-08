@@ -323,6 +323,14 @@ export const pageMetadata: Record<string, PageMetadata> = {
     canonicalUrl: "https://acceleratorx.org/workshop/ai-dm-fitm"
   },
 
+  "/workshop/gen-ai-masterclass-fioth": {
+    title: "Crack Your Dream Job with AI - Live Webinar | AcceleratorX",
+    description: "Join our free live webinar on how AI is transforming careers. Learn AI-powered interview prep, resume optimization, and career strategies. Register now!",
+    ogTitle: "Crack Your Dream Job with AI - Free Live Webinar",
+    ogDescription: "Learn how to use AI for interview preparation, resume building, and career growth. Live session with real AI tools and actionable frameworks.",
+    canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-fioth"
+  },
+
   "/workshop-registration/success": {
     title: "Workshop Registration Success | AcceleratorX",
     description: "Your workshop registration at AcceleratorX is successful. Get ready to join expert-led sessions in Product, Data, Marketing, and AI.",

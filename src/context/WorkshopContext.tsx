@@ -103,12 +103,12 @@ const GENAIDZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIEZoomDetails: ZoomMeetingDetails = {
-  title: "Building Hybrid RAG Agent",
-  link: "https://zoom.us/meeting/register/_FDr05gPRkmsB1Sa6L7lNQ",
-  meetingId: "_FDr05gPRkmsB1Sa6L7lNQ",
-  time: "10 Dec, 2025 07:00 PM India",
-  meetingCode: "96507880613",
-  whatsappLink: "https://chat.whatsapp.com/Ke8ixVJH8qU2EHILrzX9zp",
+  title: "Crack Your Dream Job with AI",
+  link: "https://zoom.us/meeting/register/ewbIXCg7TG2t-iQiZRyF7Q",
+  meetingId: "ewbIXCg7TG2t-iQiZRyF7Q",
+  time: "16 Jan, 2026 08:00 PM India",
+  meetingCode: "93934350254",
+  whatsappLink: "https://chat.whatsapp.com/Gnv2ab5rlWb7ZYSGAsb58l",
 };
 
 const AIDMZoomDetails: ZoomMeetingDetails = {
