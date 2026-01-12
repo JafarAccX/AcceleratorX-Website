@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "Will there be a recording?",
-    answer: "No. This is a live-only session.",
+    answer: "No. This is a live-only workshop.",
   },
 ];
 
@@ -74,60 +74,60 @@ export default function WSTestimonialDASecond() {
         </div>
       </section>
 
-      
+
 
       <section className="relative z-10 bg-gradient-to-b from-[#0A0F1C] to-[#121a2e] px-6 py-24 text-white overflow-hidden">
-  {/* Grid Pattern using pseudo-element or custom div */}
-  <div
-    className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:36px_36px]"
-  />
+        {/* Grid Pattern using pseudo-element or custom div */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:36px_36px]"
+        />
 
-  {/* Optional background glow */}
-  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[40vh] bg-purple-500/10 blur-3xl rounded-full pointer-events-none z-0" />
+        {/* Optional background glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[40vh] bg-purple-500/10 blur-3xl rounded-full pointer-events-none z-0" />
 
-  {/* CTA Content */}
-  <div className="relative z-10 max-w-3xl mx-auto text-center">
-    <motion.h2
-      className="text-4xl md:text-5xl font-bold leading-tight"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      Let’s build your first AutoML model — together.
-    </motion.h2>
+        {/* CTA Content */}
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Let’s build your first AutoML model — together.
+          </motion.h2>
 
-    <motion.p
-      className="mt-4 text-lg text-gray-300"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2, duration: 0.6 }}
-    >
-      Start learning how to automate data analysis and model building with AI, fast and effectively.
-    </motion.p>
+          <motion.p
+            className="mt-4 text-lg text-gray-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Start learning how to use AI to speed up analysis, uncover insights, and make better decisions at work.
+          </motion.p>
 
-    <motion.div
-      className="mt-10"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.4, duration: 0.5 }}
-    >
-      <button
-        onClick={() => {
-          const form = document.getElementById("workshop-registration-form");
-          if (form) {
-            form.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }
-        }}
-        className="rounded-full px-6 py-3 text-sm font-semibold text-black bg-gray-200 shadow-md hover:bg-white transition"
-      >
-        Claim Your Free Spot ↗
-      </button>
-    </motion.div>
-  </div>
-</section>
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
+            <button
+              onClick={() => {
+                const form = document.getElementById("workshop-registration-form");
+                if (form) {
+                  form.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }
+              }}
+              className="rounded-full px-6 py-3 text-sm font-semibold text-black bg-gray-200 shadow-md hover:bg-white transition"
+            >
+              Claim Your Free Spot ↗
+            </button>
+          </motion.div>
+        </div>
+      </section>
 
     </>
   );

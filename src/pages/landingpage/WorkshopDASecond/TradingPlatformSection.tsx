@@ -38,36 +38,39 @@ const TradingPlatformSection: React.FC = () => {
             {/* Main Heading */}
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Why Attend This Workshop?
+                Why Attend This Workshop?
               </h2>
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-              "AI won’t replace analysts — but AutoML will supercharge them."
+                "AI won't replace data analysts — but analysts who use AI will move faster."
               </p>
 
               <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
-              Whether you're a beginner, a working professional, or someone planning a career switch, this crash course will help you:
+                This workshop is designed for anyone who works with data and wants to stay relevant in an AI-driven world.
+              </p>
+              <p className="text-slate-300 text-lg leading-relaxed max-w-lg font-semibold">
+                You'll learn how to:
               </p>
               <ul className="text-slate-300 text-lg leading-relaxed max-w-lg list-disc pl-6 space-y-2">
-                <li>Understand how AutoML simplifies traditional data analysis.</li>
-                <li>Build real machine learning models without deep programming.</li>
-                <li>Automate repetitive analysis and speed up your workflow.</li>
-                <li>Explain insights clearly to your team or clients.</li>
+                <li>Analyze data using AI tools without advanced coding</li>
+                <li>Automate repetitive analysis tasks</li>
+                <li>Generate insights, summaries, and explanations instantly</li>
+                <li>Communicate data findings clearly to teams and stakeholders</li>
               </ul>
             </div>
           </div>
 
           {/* Right Image Instead of Trading Interface */}
-            <div className="relative">
-              <img
-                src="/Data-Analytics.webp"
-                alt="Data Analytics Illustration"
-                className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border border-slate-700/50"
-              />
-            </div>
+          <div className="relative">
+            <img
+              src="/Data-Analytics.webp"
+              alt="Data Analytics Illustration"
+              className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border border-slate-700/50"
+            />
+          </div>
         </div>
 
         {/* Feature Cards */}
-       <WSAboutDASecond />
+        <WSAboutDASecond />
       </div>
     </section>
   )

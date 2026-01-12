@@ -1,9 +1,9 @@
 import { TypeAnimation } from "react-type-animation";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
 export default function Hero() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">

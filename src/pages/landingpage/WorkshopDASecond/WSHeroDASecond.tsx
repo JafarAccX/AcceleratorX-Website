@@ -9,10 +9,10 @@ const CryptoHeroSection: React.FC = () => {
   return (
     <>
       <SEO
-        title="AI AutoML Crash Course | AcceleratorX"
-        description="Join our free hands-on AI AutoML Crash Course. Learn how to use Automated Machine Learning tools to build powerful models without deep coding."
-        ogTitle="AI AutoML Crash Course"
-        ogDescription="Learn how to use AutoML tools like Google AutoML, AutoKeras, H2O.ai to automate data analysis and model building."
+        title="Data Analysis with AI | AcceleratorX"
+        description="Learn how to use AI-powered tools to analyze data faster, uncover insights instantly, and make smarter business decisions — without heavy coding."
+        ogTitle="Data Analysis with AI"
+        ogDescription="Discover how modern AI tools can automate data cleaning, analysis, visualization, and insight generation in this hands-on workshop."
         ogImage="/Data-Analytics.webp"
       />
       <section className="relative min-h-screen overflow-hidden " >
@@ -75,8 +75,8 @@ const CryptoHeroSection: React.FC = () => {
 
               {/* Main Heading */}
               <div className="space-y-2">
-                <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">AI AutoML <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
-                  Crash Course
+                <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">Data Analysis <span className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
+                  with AI
                 </span></h1>
 
               </div>
@@ -85,7 +85,7 @@ const CryptoHeroSection: React.FC = () => {
               <div className="space-y-4 text-slate-300 text-lg max-w-lg">
                 <p className="font-medium">Learn how to use Automated Machine Learning (AutoML) tools like Google AutoML, AutoKeras, H2O.ai, and Auto-Sklearn to build powerful models — even if you don’t know deep coding.</p>
 
-                <p>Discover how AI can automate your data analysis, speed up model building, and help you make smarter decisions at work.</p>
+                <p>In this live, hands-on session, you'll discover how modern AI tools can automate data cleaning, analysis, visualization, and insight generation. Whether you're working with Excel, Google Sheets, or dashboards, this workshop will show you how AI upgrades your daily data work.</p>
 
                 <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-3 mt-4">
                   <p className="text-yellow-200 text-sm font-medium">

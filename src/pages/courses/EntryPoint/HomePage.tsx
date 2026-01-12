@@ -29,7 +29,7 @@ const HomePage = () => {
         <Hero />
         <LogoSlider />
         <Features />
-        <HeroWithAbouv />
+        {/* // <HeroWithAbouv /> */}
         {/* <BecomeAMentorFeatures /> */}
         {/* <CTA /> */}
       </Suspense>

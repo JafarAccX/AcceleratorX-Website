@@ -16,14 +16,14 @@ const StatItem: React.FC<StatItemProps> = ({ number, label }) => {
 
 const StatsSection: React.FC = () => {
   const stats = [
-    { number: "13th Dec 2025", label: "Date" },
-    { number: "7:00 PM IST", label: "Time" },
-    { number: "Beginner to Intermediate", label: "Level" }, 
+    { number: "19th Jan 2026", label: "Date" },
+    { number: "8:00 PM IST", label: "Time" },
+    { number: "Beginner to Intermediate", label: "Level" },
   ]
 
   return (
     <section className="relative  py-16 md:py-20">
-          {/* Purple Glow Background */}
+      {/* Purple Glow Background */}
 
 
       <div className="relative z-10 container mx-auto px-6">

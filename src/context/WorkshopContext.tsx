@@ -57,13 +57,12 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title:
-    "Automated Machine Learning (AutoML) For Data Analysis (Google AutoML, AutoKeras, H2O.ai, Auto-Sklearn for model building without deep coding. for mentor ref.)",
-  link: "https://zoom.us/meeting/register/ZdcXe0UKRmCLcKcnMwuCGw",
-  meetingId: "ZdcXe0UKRmCLcKcnMwuCGw",
-  time: "13th Dec, 2025 07:00 PM India",
-  meetingCode: "99102523379",
-  whatsappLink: "https://chat.whatsapp.com/F5vzopFr4l2KosYX7ZBCij",
+  title: "Data Analysis with AI",
+  link: "https://zoom.us/meeting/register/4cCyqZGlT0-TzC0dO6uSMQ",
+  meetingId: "4cCyqZGlT0-TzC0dO6uSMQ",
+  time: "19th Jan, 2026 08:00 PM India",
+  meetingCode: "97663481978",
+  whatsappLink: "https://chat.whatsapp.com/KErMd27R2xQKTyrdpWAlCd",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
