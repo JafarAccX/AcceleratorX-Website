@@ -4,16 +4,16 @@ import LottieLoader from "../../../components/LottieLoader";
 // import CTA from "../../../components/CTA";
 import Features from "../../../components/Features";
 import HeroWithAbouv from "../../../components/HeroWithAbouv";
-import LogoSlider from "../../../components/LogoSlider";
 import { useCourseContext } from "../../../context/courseContext";
-import Hero from "../../../components/Hero";
+import Hero from "../../../components/landing-page/Hero";
+import PartnerLogos from "../../../components/landing-page/PartnerLogos";
+import ProgramsOffered from "../../../components/landing-page/ProgramsOffered";
 import { SEO } from "../../../components/SEO";
 
 const HomePage = () => {
   console.log('HomePage imports:', {
     Hero: typeof Hero,
     Features: typeof Features,
-    LogoSlider: typeof LogoSlider,
     HeroWithAbouv: typeof HeroWithAbouv,
   });
   const { setSelectedCourse } = useCourseContext();
@@ -27,7 +27,8 @@ const HomePage = () => {
       <SEO />
       <Suspense fallback={<LottieLoader />}>
         <Hero />
-        <LogoSlider />
+        <PartnerLogos />
+        <ProgramsOffered />
         <Features />
         {/* // <HeroWithAbouv /> */}
         {/* <BecomeAMentorFeatures /> */}

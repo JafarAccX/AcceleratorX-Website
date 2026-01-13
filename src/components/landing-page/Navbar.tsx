@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import companyLogo from "/redesign/logo-bg-black.webp";
-import { useUser } from "../context/UserContext";
-import ProfileMenu from "./navbar/ProfileMenu";
+import { useUser } from "../../context/UserContext";
+import ProfileMenu from "../navbar/ProfileMenu";
 
 // Add CSS classes for transitions
 const dropdownTransition = "transition-all duration-300 ease-in-out";
@@ -273,7 +273,7 @@ export default function Navbar() {
             {isAuthenticated ? (
               <ProfileMenu />
             ) : (
-              <div className="flex items-center p-1 bg-gray-100/50 rounded-full border border-gray-200 ml-4 group">
+              <div className="flex items-center p-1  ml-4 group">
                 <Link
                   to="/sign-in"
                   className={`text-gray-600 hover:text-gray-900 ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50`}
