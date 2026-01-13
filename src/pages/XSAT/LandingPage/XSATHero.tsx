@@ -130,7 +130,7 @@ export const XSATHero = () => {
                   </div>
                   <div className="text-2xl font-bold">
                     <img
-                      src="/redesign/logo-no-bg.webp"
+                      src="/redesign/logo-bg-black.webp"
                       alt="companyLogo"
                       className="mx-auto w-29"
                     />

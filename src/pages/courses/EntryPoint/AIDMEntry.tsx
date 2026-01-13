@@ -1,22 +1,12 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
-import HeroWithAbouv from "../../../components/HeroWithAbouv";
-import AIDMHero from "../AIDM/AIDMHero";
 
-const AIDMChallenges = lazy(() => import("../AIDM/AIDMChallenges"));
-const AIDMSolution = lazy(() => import("../AIDM/AIDMSolution"));
-const AIDMRoadmap = lazy(() => import("../AIDM/AIDMRoadmap"));
-const AIDMTools = lazy(() => import("../AIDM/AIDMTools"));
-const AIDMCareerOutcomes = lazy(() => import("../AIDM/AIDMCareerOutcomes"));
-const AIDMMentors = lazy(() => import("../AIDM/AIDMMentors"));
-const AIDMCertification = lazy(() => import("../AIDM/AIDMCertification"));
-const AIDMPricing = lazy(() => import("../AIDM/AIDMPricing"));
-const AIDMFAQ = lazy(() => import("../AIDM/AIDMFAQ"));
-const AIDMFinalCTA = lazy(() => import("../AIDM/AIDMFinalCTA"));
+const AIDMHeroEIE = lazy(() => import("../AIDM/AIDMHeroEIE"));
+const AIDMWhoIsThisContentForEIE = lazy(() => import("../AIDM/AIDMWhoIsThisContentForEIE"));
+const AIDMProgramEIE = lazy(() => import("../AIDM/AIDMProgramEIE"));
 
 const AIDMEntry = () => {
-  console.log('AIDMEntry: HeroWithAbouv import:', typeof HeroWithAbouv, HeroWithAbouv);
   const {
     setSelectedCourse,
   }: { setSelectedCourse: (course: string | null) => void } =
@@ -35,18 +25,9 @@ const AIDMEntry = () => {
         ogDescription="16-week AI marketing program with live training, automation tools, and career support. Join 2500+ alumni network."
       />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-        <AIDMHero />
-        {/* // <HeroWithAbouv courseName="AI Digital Marketing" /> */}
-        <AIDMChallenges />
-        <AIDMSolution />
-        <AIDMRoadmap />
-        <AIDMTools />
-        <AIDMCareerOutcomes />
-        <AIDMMentors />
-        <AIDMCertification />
-        <AIDMPricing />
-        <AIDMFAQ />
-        <AIDMFinalCTA />
+        <AIDMHeroEIE />
+        <AIDMWhoIsThisContentForEIE />
+        <AIDMProgramEIE />
       </Suspense>
     </>
   );

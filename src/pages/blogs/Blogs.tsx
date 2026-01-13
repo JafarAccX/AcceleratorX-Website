@@ -168,7 +168,7 @@ function Blogs() {
           property="og:description"
           content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing."
         />
-        <meta property="og:image" content="https://www.acceleratorx.org/redesign/logo-no-bg.webp" />
+        <meta property="og:image" content="https://www.acceleratorx.org/redesign/logo-bg-black.webp" />
         <meta property="og:site_name" content="AcceleratorX" />
 
         {/* Twitter */}
@@ -179,7 +179,7 @@ function Blogs() {
           property="twitter:description"
           content="Explore expert articles and insights on AI, Data Analytics, Product Management, and Digital Marketing."
         />
-        <meta property="twitter:image" content="https://www.acceleratorx.org/redesign/logo-no-bg.webp" />
+        <meta property="twitter:image" content="https://www.acceleratorx.org/redesign/logo-bg-black.webp" />
 
         {/* Additional SEO Tags */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -197,14 +197,14 @@ function Blogs() {
               "name": "AcceleratorX",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.acceleratorx.org/redesign/logo-no-bg.webp"
+                "url": "https://www.acceleratorx.org/redesign/logo-bg-black.webp"
               }
             },
             "blogPost": state.blogs.slice(0, 10).map(blog => ({
               "@type": "BlogPosting",
               "headline": blog.Title,
               "description": blog.Excerpt || "",
-              "image": blog.CoverImage || "https://www.acceleratorx.org/redesign/logo-no-bg.webp",
+              "image": blog.CoverImage || "https://www.acceleratorx.org/redesign/logo-bg-black.webp",
               "datePublished": blog.PublishedAt || blog.CreatedAt,
               "author": {
                 "@type": "Person",

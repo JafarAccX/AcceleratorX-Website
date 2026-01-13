@@ -49,7 +49,7 @@ const HeroWithAbouv = ({ courseName }: HeroWithAbouvProps) => {
 
               <div className="flex items-center justify-center space-x-4 md:justify-start">
                 <img
-                  src="/redesign/logo-no-bg.webp" alt="company logo - professional certificate in product management online"
+                  src="/redesign/logo-bg-black.webp" alt="company logo - professional certificate in product management online"
                   className="h-12 w-auto object-contain transition-transform hover:scale-105 md:h-12 lg:h-14"
                 />
                 <div className="h-8 w-px bg-gray-400/20 md:h-10 lg:h-12" />

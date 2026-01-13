@@ -29,7 +29,7 @@ export function SEO({
   const finalDescription = description || defaultMetadata.description;
   const finalOgTitle = ogTitle || defaultMetadata.ogTitle;
   const finalOgDescription = ogDescription || defaultMetadata.ogDescription;
-  const finalOgImage = ogImage || defaultMetadata.ogImage || '/redesign/logo-no-bg.webp';
+  const finalOgImage = ogImage || defaultMetadata.ogImage || '/redesign/logo-bg-black.webp';
   const finalCanonicalUrl = canonicalUrl || defaultMetadata.canonicalUrl;
 
   return (
