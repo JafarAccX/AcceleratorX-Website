@@ -1,570 +1,458 @@
+import { useEffect, useState, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { blogService } from '../../services/blogService';
+import { BlogPost } from '../../utils/types';
+import { OutputData } from '@editorjs/editorjs';
+import EditorJSHTML from 'editorjs-html';
+import { Clock, Calendar, User } from 'lucide-react';
 
+interface TocItem {
+  id: string;
+  text: string;
+  level: number;
+}
 
-
-
-
-import React, { useState, useEffect, useCallback } from "react";
-import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import toast from "react-hot-toast";
-import EditorJSHTML from "editorjs-html";
-import { OutputData } from "@editorjs/editorjs";
-import { blogService } from "../../services/blogService";
-import { BlogPost } from "../../utils/types";
-// import CommentThread from "./CommentThread";
-import "./BlogContent.css";
-
-const BlogDetail: React.FC = () => {
+const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const [blog, setBlog] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
-  const [liked, setLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(0);
-  // const [comments, setComments] = useState<BlogComment[]>([]);
-  // const [commentForm, setCommentForm] = useState({
-  //   authorName: "",
-  //   authorEmail: "",
-  //   content: "",
-  // });
-  // const [submittingComment, setSubmittingComment] = useState(false);
-  // const [likedComments, setLikedComments] = useState<Set<string>>(new Set());
-  // const [replyingTo, setReplyingTo] = useState<string | null>(null);
-  // const [replyForm, setReplyForm] = useState({
-  //   authorName: "",
-  //   authorEmail: "",
-  //   content: "",
-  // });
-  // const [submittingReply, setSubmittingReply] = useState(false);
+  const [toc, setToc] = useState<TocItem[]>([]);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [isFixed, setIsFixed] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(300);
 
-  // const loadUserData = useCallback(() => {
-  //   try {
-  //     const saved = localStorage.getItem("blogCommentUser");
-  //     if (saved) {
-  //       const userData = JSON.parse(saved);
-  //       setCommentForm((p) => ({
-  //         ...p,
-  //         authorName: userData.authorName || "",
-  //         authorEmail: userData.authorEmail || "",
-  //       }));
-  //       setReplyForm((p) => ({
-  //         ...p,
-  //         authorName: userData.authorName || "",
-  //         authorEmail: userData.authorEmail || "",
-  //       }));
-  //     }
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
-  //     const likedKey = `blogLikedComments_${slug}`;
-  //     const savedLiked = localStorage.getItem(likedKey);
-  //     if (savedLiked) {
-  //       const likedArray = JSON.parse(savedLiked);
-  //       setLikedComments(new Set(likedArray));
-  //     }
-  //   } catch (e) {
-  //     console.error("Error loading user data", e);
-  //   }
-  // }, [slug]);
+  // Helper function to create URL-friendly slugs
+  const slugify = (text: string): string => {
+    return text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/--+/g, '-')
+      .trim();
+  };
 
-  // const saveLikedComments = (likedSet: Set<string>) => {
-  //   try {
-  //     const key = `blogLikedComments_${slug}`;
-  //     localStorage.setItem(key, JSON.stringify(Array.from(likedSet)));
-  //   } catch (e) {
-  //     console.error("Error saving liked comments", e);
-  //   }
-  // };
-
-  // const saveUserData = (authorName: string, authorEmail?: string) => {
-  //   try {
-  //     localStorage.setItem(
-  //       "blogCommentUser",
-  //       JSON.stringify({ authorName, authorEmail })
-  //     );
-  //   } catch (e) {
-  //     console.error("Error saving user data", e);
-  //   }
-  // };
-
-  const incrementView = useCallback(async (postId: string) => {
+  // EditorJS to HTML parser with ID injection for TOC
+  const EditorJsToHtml = (data: OutputData): string => {
     try {
-      await blogService.createBlogView(postId);
-    } catch (e) {
-      console.error("Error incrementing view", e);
-    }
-  }, []);
-
-  // const fetchComments = async (postId: string) => {
-  //   try {
-  //     const data = await blogService.getBlogComments(postId);
-  //     setComments(data);
-  //   } catch (e) {
-  //     console.error("Error fetching comments", e);
-  //   }
-  // };
-
-  const fetchBlog = useCallback(async () => {
-    if (!slug) return;
-    try {
-      const data = await blogService.getBlogBySlug(slug);
-      if (!data) {
-        toast.error("Blog not found");
-        return;
+      if (!data || typeof data !== 'object' || !('blocks' in data)) {
+        console.warn('Invalid EditorJS data:', data);
+        return '<p class="text-gray-500">No content available</p>';
       }
-      setBlog(data);
-      setLikesCount(data.LikesCount);
-      await incrementView(data.Id);
-      // await fetchComments(data.Id);
-    } catch {
-      toast.error("Failed to fetch blog");
-    } finally {
-      setLoading(false);
+
+      const parser = EditorJSHTML({
+        header: (block: any) => {
+          const { text, level } = block.data;
+          const slug = slugify(text);
+          return `<h${level} id="${slug}" class="scroll-mt-32 font-bold mb-4 mt-8 text-gray-900" style="font-family: 'Cormorant Infant', serif;">${text}</h${level}>`;
+        },
+        paragraph: (block: any) => {
+          return `<p class="mb-6 leading-relaxed text-gray-700">${block.data.text}</p>`;
+        },
+        list: (block: any) => {
+          const type = block.data.style === 'ordered' ? 'ol' : 'ul';
+          const items = block.data.items.map((i: string) => `<li class="mb-2">${i}</li>`).join('');
+          return `<${type} class="list-disc pl-5 mb-6 space-y-2 text-gray-700">${items}</${type}>`;
+        },
+        image: (block: any) => {
+          return `<figure class="mb-6">
+            <img src="${block.data.file.url}" alt="${block.data.caption || ''}" class="w-full rounded-lg" />
+            ${block.data.caption ? `<figcaption class="text-sm text-gray-600 mt-2 text-center">${block.data.caption}</figcaption>` : ''}
+          </figure>`;
+        },
+        quote: (block: any) => {
+          return `<blockquote class="border-l-4 border-blue-500 pl-4 italic mb-6 text-gray-700">${block.data.text}</blockquote>`;
+        },
+        code: (block: any) => {
+          return `<pre class="bg-gray-100 p-4 rounded-lg mb-6 overflow-x-auto"><code>${block.data.code}</code></pre>`;
+        }
+      });
+
+      const parsed = parser.parse(data);
+
+      // Handle both array and string returns from parser
+      let html = '';
+      if (Array.isArray(parsed)) {
+        html = parsed.join('');
+      } else if (typeof parsed === 'string') {
+        html = parsed;
+      } else {
+        console.warn('EditorJS parser returned unexpected type:', typeof parsed, parsed);
+        return '<p class="text-gray-500">Error rendering content</p>';
+      }
+
+      if (!html || html.trim() === '') {
+        console.warn('EditorJS parsed to empty HTML');
+        return '<p class="text-gray-500">No content available</p>';
+      }
+
+      return html;
+    } catch (error) {
+      console.error('Error parsing EditorJS content:', error);
+      return '<p class="text-red-500">Error rendering content</p>';
     }
-  }, [slug, incrementView]);
+  };
 
   useEffect(() => {
-    fetchBlog();
-    // loadUserData();
-  }, [fetchBlog]);
+    const fetchBlogPost = async () => {
+      if (!slug) return;
 
-  const handleLike = async () => {
-    if (!blog) return;
-    try {
-      await blogService.createBlogLike(blog.Id);
-      setLiked(true);
-      setLikesCount((c) => c + 1);
-    } catch {
-      toast.error("Failed to like blog");
-    }
-  };
+      try {
+        setLoading(true);
+        const data = await blogService.getBlogBySlug(slug);
+        if (!data) {
+          navigate('/blogs');
+          return;
+        }
 
-  // const handleCommentSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (!blog || !commentForm.authorName.trim() || !commentForm.content.trim()) {
-  //     toast.error("Fill required fields");
-  //     return;
-  //   }
-  //   setSubmittingComment(true);
-  //   try {
-  //     await blogService.createBlogComment(
-  //       blog.Id,
-  //       commentForm.content,
-  //       commentForm.authorName,
-  //       commentForm.authorEmail || undefined
-  //     );
-  //     saveUserData(commentForm.authorName, commentForm.authorEmail);
-  //     toast.success("Comment posted");
-  //     setCommentForm({ authorName: "", authorEmail: "", content: "" });
-  //     await fetchComments(blog.Id);
-  //   } catch {
-  //     toast.error("Failed to post comment");
-  //   } finally {
-  //     setSubmittingComment(false);
-  //   }
-  // };
+        console.log('Blog data fetched:', data);
+        console.log('Blog content:', data.Content);
 
-  // const handleCommentLike = async (commentId: string) => {
-  //   if (likedComments.has(commentId)) {
-  //     toast("You already liked this");
-  //     return;
-  //   }
-  //   try {
-  //     await blogService.createBlogCommentLike(commentId);
-  //     const newSet = new Set(likedComments).add(commentId);
-  //     setLikedComments(newSet);
-  //     saveLikedComments(newSet);
-  //     setComments((prev) =>
-  //       prev.map((c) =>
-  //         c.Id === commentId ? { ...c, LikesCount: c.LikesCount + 1 } : c
-  //       )
-  //     );
-  //   } catch {
-  //     toast.error("Failed to like comment");
-  //   }
-  // };
+        setBlog(data);
 
-  // const handleReplyClick = useCallback(
-  //   (commentId: string | null) => {
-  //     if (replyingTo === commentId) {
-  //       setReplyingTo(null);
-  //     } else {
-  //       const saved = localStorage.getItem("blogCommentUser");
-  //       let authorName = "";
-  //       let authorEmail = "";
-  //       if (saved) {
-  //         try {
-  //           const u = JSON.parse(saved);
-  //           authorName = u.authorName || "";
-  //           authorEmail = u.authorEmail || "";
-  //         } catch (error) {
-  //           console.error('Error parsing saved user data:', error);
-  //         }
-  //       }
-  //       setReplyForm({ authorName, authorEmail, content: "" });
-  //       setReplyingTo(commentId);
-  //     }
-  //   },
-  //   [replyingTo]
-  // );
+        // Extract TOC from blocks
+        if (data.Content && 'blocks' in data.Content) {
+          const blocks = (data.Content as unknown as OutputData).blocks;
+          console.log('Content blocks:', blocks);
 
-  // const handleReplyFormChange = useCallback(
-  //   (field: string, value: string) => {
-  //     setReplyForm((p) => ({ ...p, [field]: value }));
-  //   },
-  //   []
-  // );
-
-  // const handleReplySubmit = async (
-  //   e: React.FormEvent,
-  //   parentCommentId: string | null
-  // ) => {
-  //   e.preventDefault();
-  //   if (!blog || !replyForm.authorName.trim() || !replyForm.content.trim()) {
-  //     toast.error("Fill required fields");
-  //     return;
-  //   }
-  //   setSubmittingReply(true);
-  //   try {
-  //     await blogService.createBlogComment(
-  //       blog.Id,
-  //       replyForm.content,
-  //       replyForm.authorName,
-  //       replyForm.authorEmail || undefined,
-  //       parentCommentId || undefined
-  //     );
-  //     saveUserData(replyForm.authorName, replyForm.authorEmail);
-  //     toast.success("Reply posted");
-  //     setReplyForm({ authorName: "", authorEmail: "", content: "" });
-  //     setReplyingTo(null);
-  //     await fetchComments(blog.Id);
-  //   } catch {
-  //     toast.error("Failed to post reply");
-  //   } finally {
-  //     setSubmittingReply(false);
-  //   }
-  // };
-
-  const renderContent = (content: Record<string, unknown> | string | null | undefined): string => {
-    try {
-      if (typeof content === "string") return content;
-      if (content && typeof content === "object" && "blocks" in content) {
-        const parser = EditorJSHTML();
-        const parsed = parser.parse(content as unknown as OutputData);
-        const html = Array.isArray(parsed) ? parsed.join("") : parsed;
-        return html.replace(
-          /<a /g,
-          '<a target="_blank" rel="noopener noreferrer" '
-        );
+          const headers = blocks
+            .filter((block: any) => block.type === 'header')
+            .map((block: any) => ({
+              id: slugify(block.data.text),
+              text: block.data.text,
+              level: block.data.level
+            }));
+          setToc(headers);
+          if (headers.length > 0) setActiveSection(headers[0].id);
+        }
+      } catch (error) {
+        console.error('Error fetching blog post:', error);
+        navigate('/blogs');
+      } finally {
+        setLoading(false);
       }
-      return "<p>No content available</p>";
-    } catch {
-      return "<p>Error rendering content</p>";
+    };
+
+    fetchBlogPost();
+  }, [slug, navigate]);
+
+  // Sticky sidebar and scroll spy logic
+  useEffect(() => {
+    const handleScroll = () => {
+      // 1. Sticky Sidebar Logic
+      if (containerRef.current && sidebarRef.current) {
+        const containerTop = containerRef.current.offsetTop;
+        const containerBottom = containerTop + containerRef.current.offsetHeight;
+        const sidebarHeight = sidebarRef.current.offsetHeight;
+
+        const scrollY = window.scrollY;
+        const headerOffset = 100;
+
+        const shouldStartFixed = scrollY > containerTop - headerOffset;
+        const shouldStopFixed = (scrollY + headerOffset + sidebarHeight) > containerBottom;
+
+        const newIsFixed = shouldStartFixed && !shouldStopFixed;
+        setIsFixed(newIsFixed);
+
+        // Update sidebar width only when transitioning to fixed
+        if (newIsFixed && sidebarRef.current.parentElement) {
+          setSidebarWidth(sidebarRef.current.parentElement.offsetWidth);
+        }
+      }
+
+      // 2. Scroll Spy for TOC
+      if (toc.length > 0) {
+        for (const item of toc) {
+          const element = document.getElementById(item.id);
+          if (!element) continue;
+
+          const rect = element.getBoundingClientRect();
+          if (rect.top < 200 && rect.top > -200) {
+            setActiveSection(item.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [toc]);
+
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 120;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
-  if (loading)
+  if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin h-12 w-12 border-t-2 border-b-2 border-blue-500 rounded-full"></div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
+  }
 
-  if (!blog)
+  if (!blog) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <Helmet>
-          <title>Blog Not Found | AcceleratorX</title>
-          <meta name="robots" content="noindex, nofollow" />
-        </Helmet>
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Blog Not Found</h1>
-          <Link to="/blogs" className="text-blue-400 hover:text-blue-300">
-            ← Back to Blogs
-          </Link>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Blog post not found</h2>
+          <button
+            onClick={() => navigate('/blogs')}
+            className="text-blue-600 hover:text-blue-700"
+          >
+            Return to blogs
+          </button>
         </div>
       </div>
     );
-
-  // Prepare SEO data
-  const metaTitle = blog.SEO_MetaTitle || blog.Title || "Blog Post | AcceleratorX";
-  const metaDescription = blog.SEO_MetaDescription || blog.Excerpt || "Read this insightful blog post on AcceleratorX.";
-  const canonicalUrl = `https://www.acceleratorx.org/blogs/${blog.Slug}`;
-  const ogImage = blog.CoverImage || "https://www.acceleratorx.org/redesign/logo-no-bg.webp";
-  const publishedDate = blog.PublishedAt ? new Date(blog.PublishedAt).toISOString() : new Date(blog.CreatedAt).toISOString();
-  const modifiedDate = blog.UpdatedAt ? new Date(blog.UpdatedAt).toISOString() : publishedDate;
+  }
 
   return (
     <>
       <Helmet>
-        {/* Primary Meta Tags */}
-        <title>{metaTitle}</title>
-        <meta name="title" content={metaTitle} />
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-
-        {/* Open Graph / Facebook */}
+        <title>{blog.Title} | AcceleratorX Blog</title>
+        <meta name="description" content={blog.SEO_MetaDescription || blog.Title} />
+        <meta property="og:title" content={blog.Title} />
+        <meta property="og:description" content={blog.SEO_MetaDescription || blog.Title} />
+        <meta property="og:image" content={blog.CoverImage} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content={metaTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:site_name" content="AcceleratorX" />
-        <meta property="article:published_time" content={publishedDate} />
-        <meta property="article:modified_time" content={modifiedDate} />
-        {blog.Author?.FullName && (
-          <meta property="article:author" content={blog.Author.FullName} />
-        )}
-        {blog.Categories && blog.Categories.length > 0 && (
-          <meta property="article:section" content={blog.Categories[0].Name} />
-        )}
-        {blog.Tags && blog.Tags.map((tag) => (
-          <meta key={tag.Id} property="article:tag" content={tag.Name} />
-        ))}
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalUrl} />
-        <meta property="twitter:title" content={metaTitle} />
-        <meta property="twitter:description" content={metaDescription} />
-        <meta property="twitter:image" content={ogImage} />
-
-        {/* Additional SEO Tags */}
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="author" content={blog.Author?.FullName || "AcceleratorX"} />
-        {blog.Tags && blog.Tags.length > 0 && (
-          <meta name="keywords" content={blog.Tags.map(tag => tag.Name).join(", ")} />
-        )}
-
-        {/* Structured Data - JSON-LD */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": blog.Title,
-            "description": metaDescription,
-            "image": ogImage,
-            "datePublished": publishedDate,
-            "dateModified": modifiedDate,
-            "author": {
-              "@type": "Person",
-              "name": blog.Author?.FullName || "AcceleratorX",
-              ...(blog.Author?.ProfileImage && { "image": blog.Author.ProfileImage }),
-              ...(blog.Author?.Email && { "email": blog.Author.Email })
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "AcceleratorX",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.acceleratorx.org/redesign/logo-no-bg.webp"
-              }
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": canonicalUrl
-            },
-            ...(blog.Categories && blog.Categories.length > 0 && {
-              "articleSection": blog.Categories.map(cat => cat.Name)
-            }),
-            ...(blog.Tags && blog.Tags.length > 0 && {
-              "keywords": blog.Tags.map(tag => tag.Name).join(", ")
-            })
-          })}
-        </script>
       </Helmet>
 
-      <div className="min-h-screen bg-black text-white pt-20">
-        <article className="max-w-4xl mx-auto px-4 py-12">
-          {blog.CoverImage && (
-            <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden">
-              <img
-                src={blog.CoverImage}
-                alt={blog.Title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap');
+        
+        .blog-content {
+          color: #374151;
+          font-size: 1.125rem;
+          line-height: 1.75;
+        }
+        
+        .blog-content h1, .blog-content h2, .blog-content h3, 
+        .blog-content h4, .blog-content h5, .blog-content h6 {
+          font-family: 'Cormorant Infant', serif;
+          color: #111827;
+          font-weight: 700;
+        }
+        
+        .blog-content h1 { font-size: 2.5rem; line-height: 1.2; margin-top: 2rem; margin-bottom: 1rem; }
+        .blog-content h2 { font-size: 2rem; line-height: 1.3; margin-top: 2rem; margin-bottom: 1rem; }
+        .blog-content h3 { font-size: 1.75rem; line-height: 1.4; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .blog-content h4 { font-size: 1.5rem; line-height: 1.4; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .blog-content h5 { font-size: 1.25rem; line-height: 1.5; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .blog-content h6 { font-size: 1.1rem; line-height: 1.5; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        
+        .blog-content p {
+          margin-bottom: 1.5rem;
+          color: #4b5563;
+        }
+        
+        .blog-content ul, .blog-content ol {
+          margin-bottom: 1.5rem;
+          padding-left: 1.5rem;
+        }
+        
+        .blog-content li {
+          margin-bottom: 0.5rem;
+          color: #4b5563;
+        }
+        
+        .blog-content img {
+          border-radius: 0.5rem;
+          margin: 1.5rem 0;
+        }
+        
+        .blog-content blockquote {
+          border-left: 4px solid #3b82f6;
+          padding-left: 1rem;
+          font-style: italic;
+          margin: 1.5rem 0;
+          color: #6b7280;
+        }
+        
+        .blog-content pre {
+          background-color: #f3f4f6;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          overflow-x: auto;
+          margin: 1.5rem 0;
+        }
+        
+        .blog-content code {
+          font-family: 'Courier New', monospace;
+          font-size: 0.875rem;
+        }
+      `}</style>
 
-          <h1 className="text-4xl font-bold mb-4">{blog.Title}</h1>
+      <div className="min-h-screen bg-white">
+        {/* Hero Section - Split Layout */}
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left: Text Content */}
+              <div className="space-y-6">
+                <div className="flex flex-wrap gap-2">
+                  {blog.Categories?.map((category) => (
+                    <span
+                      key={category.Id}
+                      className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                    >
+                      {category.Name}
+                    </span>
+                  ))}
+                </div>
 
-          <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-800">
-            <div className="flex items-center space-x-4">
-              {blog.Author?.ProfileImage && (
-                <img
-                  src={blog.Author.ProfileImage}
-                  alt={blog.Author.FullName}
-                  className="w-10 h-10 rounded-full"
-                />
-              )}
-              <div className="flex gap-4 items-center">
-                <p className="font-medium">{blog.Author?.FullName}</p>
-                <p className="text-gray-400 text-sm">
-                  {new Date(blog.CreatedAt).toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2 text-gray-400">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                <h1
+                  className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+                  style={{ fontFamily: 'Cormorant Infant, serif' }}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
-                <span>{blog.ViewsCount}</span>
-              </div>
-              <button
-                onClick={handleLike}
-                disabled={liked}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${liked
-                  ? "bg-red-600 text-white"
-                  : "bg-gray-800/20 text-gray-300 hover:bg-gray-700"
-                  }`}
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill={liked ? "currentColor" : "none"}
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-                <span>{likesCount}</span>
-              </button>
-            </div>
-          </div>
+                  {blog.Title}
+                </h1>
 
-          <div
-            className="prose prose-lg prose-invert max-w-none BlogContent"
-            dangerouslySetInnerHTML={{ __html: renderContent(blog.Content) }}
-          />
-
-
-          {/* <div className="mt-12 pt-8 border-t border-gray-800">
-          
-
-          <form
-            onSubmit={handleCommentSubmit}
-            className="mt-6  rounded-2xl p-6 shadow-lg"
-          >
-            <h4 className="text-lg font-semibold mb-4 text-white">
-              Leave a Comment
-            </h4>
-
-            <div className="space-y-4">
-              {!localStorage.getItem("blogCommentUser") && (
-                <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-                  <div className="flex-1">
-                    <label className="block text-sm text-gray-400 mb-1">Name *</label>
-                    <input
-                      type="text"
-                      placeholder="Enter your name"
-                      value={commentForm.authorName}
-                      onChange={(e) =>
-                        setCommentForm((p) => ({
-                          ...p,
-                          authorName: e.target.value,
-                        }))
-                      }
-                      className="w-full px-4 py-2.5 bg-gray-800/20 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                      required
-                    />
+                <div className="flex items-center gap-6 text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-5 h-5" />
+                    <span>{formatDate(blog.PublishedAt || blog.CreatedAt)}</span>
                   </div>
-
-                  <div className="flex-1">
-                    <label className="block text-sm text-gray-400 mb-1">Email (optional)</label>
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      value={commentForm.authorEmail}
-                      onChange={(e) =>
-                        setCommentForm((p) => ({
-                          ...p,
-                          authorEmail: e.target.value,
-                        }))
-                      }
-                      className="w-full px-4 py-2.5 bg-gray-800/20 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                    />
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-5 h-5" />
+                    <span>5 min read</span>
                   </div>
                 </div>
-              )}
 
-              <div>
-                <label className="block text-sm text-gray-400 mb-1">Comment</label>
-                <textarea
-                  rows={4}
-                  placeholder="Write your comment..."
-                  value={commentForm.content}
-                  onChange={(e) =>
-                    setCommentForm((p) => ({ ...p, content: e.target.value }))
-                  }
-                  className="w-full px-4 py-2.5 bg-gray-800/20 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                  required
-                />
+                {blog.SEO_MetaDescription && (
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {blog.SEO_MetaDescription}
+                  </p>
+                )}
               </div>
 
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  disabled={submittingComment}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                >
-                  {submittingComment ? "Posting..." : "Post Comment"}
-                </button>
+              {/* Right: Cover Image */}
+              <div className="relative">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src={blog.CoverImage}
+                    alt={blog.Title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
-          </form>
-
-
-          <h3 className="text-2xl font-semibold mb-6 text-white">
-            Comments ({comments.length})
-          </h3>
-
-          <div className="space-y-6">
-            {comments.length === 0 ? (
-              <p className="text-gray-400 text-center py-8">
-                No comments yet. Be the first to comment!
-              </p>
-            ) : (
-              comments.map((comment) => (
-                <CommentThread
-                  key={comment.Id}
-                  comment={comment}
-                  onReply={handleReplyClick}
-                  onLike={handleCommentLike}
-                  replyingTo={replyingTo}
-                  replyForm={replyForm}
-                  onReplyFormChange={handleReplyFormChange}
-                  onReplySubmit={handleReplySubmit}
-                  submittingReply={submittingReply}
-                  likedComments={likedComments}
-                />
-              ))
-            )}
           </div>
-        </div> */}
-        </article>
+        </div>
+
+        {/* Main Content Area */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" ref={containerRef}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Left: Main Content (8 columns) */}
+            <div className="lg:col-span-8">
+              <article
+                className="blog-content"
+                dangerouslySetInnerHTML={{
+                  __html: EditorJsToHtml(blog.Content as unknown as OutputData)
+                }}
+              />
+            </div>
+
+            {/* Right: Sidebar (4 columns) */}
+            <div className="lg:col-span-4">
+              <div
+                ref={sidebarRef}
+                className={`${isFixed
+                  ? 'fixed top-24 z-10'
+                  : 'relative'
+                  }`}
+                style={isFixed ? { width: `${sidebarWidth}px` } : {}}
+              >
+                <div className="space-y-6">
+                  {/* Author Card */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold overflow-hidden">
+                        {blog.Author?.ProfileImage ? (
+                          <img
+                            src={blog.Author.ProfileImage}
+                            alt={blog.Author.FullName}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <User className="w-8 h-8" />
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-gray-900">Author</h3>
+                        <p className="text-sm text-gray-600">{blog.Author?.FullName || 'Anonymous'}</p>
+                      </div>
+                    </div>
+                    {blog.Author?.Bio && (
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {blog.Author.Bio}
+                      </p>
+                    )}
+                    <div className="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500">
+                      COO @AcceleratorX
+                    </div>
+                  </div>
+
+                  {/* Table of Contents */}
+                  {toc.length > 0 && (
+                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                      <h3
+                        className="text-xl font-bold text-gray-900 mb-4"
+                        style={{ fontFamily: 'Cormorant Infant, serif' }}
+                      >
+                        Table of Contents
+                      </h3>
+                      <nav className="space-y-2">
+                        {toc.map((item) => (
+                          <button
+                            key={item.id}
+                            onClick={() => scrollToSection(item.id)}
+                            className={`block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 ${activeSection === item.id
+                              ? 'bg-blue-50 text-blue-700 font-medium'
+                              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                              }`}
+                            style={{
+                              paddingLeft: `${(item.level - 1) * 0.75 + 0.75}rem`,
+                              fontSize: item.level === 1 ? '0.95rem' : '0.875rem'
+                            }}
+                          >
+                            {item.text}
+                          </button>
+                        ))}
+                      </nav>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

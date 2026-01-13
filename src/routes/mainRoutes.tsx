@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { Route } from "react-router-dom";
 import RoleProtectedRoute from "../components/RoleProtectedRoute";
 import { ThankYouPageWrapper } from "./utils/routeUtils";
+import BlogDetail from "../pages/blogs/BlogDetail";
 // // Lazy-load heavy pages that were previously imported eagerly
 const WorkshopPaymentSuccess = lazy(() => import("../pages/workshop-payment/Success"));
 const XSATEntry = lazy(() => import("../pages/courses/EntryPoint/XSATEntry"));
@@ -13,7 +14,6 @@ const RegistrationSuccess = lazy(() => import("../pages/events/registration-succ
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
 const AboutPage = lazy(() => import("../pages/courses/EntryPoint/AboutPage"));
 const BlogList = lazy(() => import("../pages/blogs/BlogList"));
-const BlogDetail = lazy(() => import("../pages/blogs/BlogDetail"));
 const Login = lazy(() => import("../pages/auth/Login"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy"));
 const Terms = lazy(() => import("../pages/Terms/Terms"));
