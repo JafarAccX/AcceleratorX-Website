@@ -24,12 +24,12 @@ const GENCTAAIDM = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                Start Automating Your Marketing Today
+                Start Your AI Marketing Journey
               </motion.h2>
 
               <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-4 py-2 mb-4">
                 <span className="text-base text-blue-400 font-medium">
-                  Register Now — Take the First Step Toward AI-Driven Marketing
+                  Register Now — Start Your AI-Driven Marketing Transformation
                 </span>
               </div>
             </div>
@@ -38,19 +38,19 @@ const GENCTAAIDM = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <div className="bg-[#111827] p-4 rounded-md border border-blue-500/10 text-center">
                 <p className="text-xl font-bold text-blue-400 mb-1">Data-Driven</p>
-                <p className="text-sm text-gray-400">Make decisions backed by real insights.</p>
+                <p className="text-sm text-gray-400">Make decisions based on insights.</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
                 <p className="text-xl font-bold text-green-400 mb-1">AI-Powered</p>
-                <p className="text-sm text-gray-400">Use AI to personalize and optimize.</p>
+                <p className="text-sm text-gray-400">Do more with less effort.</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
                 <p className="text-xl font-bold text-green-400 mb-1">Measurable</p>
-                <p className="text-sm text-gray-400">Track every step of the user journey.</p>
+                <p className="text-sm text-gray-400">Track & optimize every action.</p>
               </div>
               <div className="bg-[#111827] p-4 rounded-md border border-green-500/10 text-center">
-                <p className="text-xl font-bold text-blue-400 mb-1">Actionable</p>
-                <p className="text-sm text-gray-400">Get ready-to-use automation workflows.</p>
+                <p className="text-xl font-bold text-blue-400 mb-1">Action-Ready</p>
+                <p className="text-sm text-gray-400">Leave with tools & templates you can use immediately.</p>
               </div>
             </div>
 

@@ -300,10 +300,10 @@ export const pageMetadata: Record<string, PageMetadata> = {
   },
 
   "/workshop/gen-ai-masterclass-thidtx": {
-    title: "Generative AI Training Workshop | AcceleratorX",
-    description: "Upskill in AcceleratorX's Generative AI training workshop and gain applied knowledge of AI tools, models, and automation workflows.",
-    ogTitle: "AcceleratorX Generative AI Training",
-    ogDescription: "Learn advanced AI models and workflows at AcceleratorX's GenAI workshop.",
+    title: "Hands-on AI Agents Workshop | AcceleratorX",
+    description: "Learn to build powerful AI Agents without code. Step-by-step guidance on creating autonomous workflows for research, automation, and business.",
+    ogTitle: "Hands-on AI Agents Workshop - Build AI Agents Without Code",
+    ogDescription: "Build AI Agents that can research, analyze, and automate tasks. Join our 2-hour live session and start building AI today.",
     canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-thidtx"
   },
 
@@ -313,6 +313,22 @@ export const pageMetadata: Record<string, PageMetadata> = {
     ogTitle: "AcceleratorX Flowwise Automation Workshop",
     ogDescription: "Master no-code AI automation with Flowwise at AcceleratorX's live workshop.",
     canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-four"
+  },
+
+  "/workshop/ai-dm-fitm": {
+    title: "Micro-Certification in AI Marketing | AcceleratorX",
+    description: "Learn how to use AI tools to plan, create, automate & scale your marketing. Join our live 2-hour certification workshop.",
+    ogTitle: "Micro-Certification in AI Marketing - AcceleratorX",
+    ogDescription: "Become an AI-Driven Marketer. Build real skills in audience research, content creation, and campaign automation.",
+    canonicalUrl: "https://acceleratorx.org/workshop/ai-dm-fitm"
+  },
+
+  "/workshop/gen-ai-masterclass-fioth": {
+    title: "Crack Your Dream Job with AI - Live Webinar | AcceleratorX",
+    description: "Join our free live webinar on how AI is transforming careers. Learn AI-powered interview prep, resume optimization, and career strategies. Register now!",
+    ogTitle: "Crack Your Dream Job with AI - Free Live Webinar",
+    ogDescription: "Learn how to use AI for interview preparation, resume building, and career growth. Live session with real AI tools and actionable frameworks.",
+    canonicalUrl: "https://acceleratorx.org/workshop/gen-ai-masterclass-fioth"
   },
 
   "/workshop-registration/success": {

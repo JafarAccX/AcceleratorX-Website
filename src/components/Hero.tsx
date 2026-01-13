@@ -1,8 +1,9 @@
 import { TypeAnimation } from "react-type-animation";
-import { Link, useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 export default function Hero() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
@@ -23,7 +24,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="flex  min-h-screen h-full flex-col-reverse items-center justify-center gap-12 py-12 lg:flex-row lg:justify-between lg:py-20">
-          
+
           {/* Left */}
           < div
             className="w-full lg:w-1/2  flex flex-col items-start justify-center space-y-6 text-center lg:text-left"
@@ -41,12 +42,12 @@ export default function Hero() {
             </div>
 
             <p className="max-w-xl text-lg text-gray-100 leading-relaxed">
-             Accelerate your career with a job-ready AI program. Learn how Data Analytics, Generative AI, and Digital Marketing Automation work through hands-on experience. Gain practical skills, get job-ready for high demand in AI Job roles.
+              Accelerate your career with a job-ready AI program. Learn how Data Analytics, Generative AI, and Digital Marketing Automation work through hands-on experience. Gain practical skills, get job-ready for high demand in AI Job roles.
 
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+            <div className="flex flex-col items-center justify-center w-full space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
               <button
                 type="button"
                 onClick={() => {
@@ -55,7 +56,7 @@ export default function Hero() {
                     section.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="group inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-white font-medium shadow-lg hover:shadow-xl transition-all"
+                className="group inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-white font-medium shadow-lg hover:shadow-xl transition-all"
                 aria-label="Explore Programs"
               >
                 Explore Programs
@@ -70,10 +71,10 @@ export default function Hero() {
                 </svg>
               </button>
 
-              < button
-                 
+              {/* < button
+
                 onClick={() => navigate("/xsat")}
-                className="group inline-flex items-center justify-center rounded-lg border border-yellow-400/40 bg-black/50 px-8 py-3 text-yellow-400 backdrop-blur-sm hover:border-yellow-400/60 transition-all"
+                className="group inline-flex items-center w-full justify-center rounded-lg border border-yellow-400/40 bg-black/50 px-8 py-3 text-yellow-400 backdrop-blur-sm hover:border-yellow-400/60 transition-all"
                 aria-label="More About XSAT"
               >
                 More About XSAT
@@ -86,7 +87,7 @@ export default function Hero() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </ button>
+              </ button> */}
             </div>
           </ div>
 
@@ -95,8 +96,8 @@ export default function Hero() {
             className="w-full lg:w-1/2 flex flex-col items-center justify-centername relative"
           >
             <img
-              src='/assets/ai-digital-m/nano_degree.webp'
-              alt="AI-Powered Digital Marketing Nano Degree"
+              src='/assets/ai-digital-m/website_BuildrX.webp'
+              alt="BuildrX - Showcase your projects"
               className="w-full  rounded-xl shadow-2xl object-cover"
               loading="eager"
               decoding="async"
@@ -104,11 +105,12 @@ export default function Hero() {
               height={600}
               fetchPriority="high"
             />
-            <Link to="/courses/ai-digital-marketing" className="absolute bottom-2  left-6">
-                  <button className="mt-4 px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-green-400/40 to-emerald-500/40 hover:from-green-500 hover:to-emerald-600 rounded-lg shadow-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 ">
-                    Get Started
-                  </button>
-            </Link>
+            <a href="https://buildrx.org" target="_blank" rel="noopener noreferrer nofollow" className="absolute bottom-2 left-4 sm:bottom-4 sm:left-6">
+              <button className="flex items-center gap-2 px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-lg font-semibold text-white bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] hover:from-[#7c3aed] hover:to-[#2563eb] shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
+                Get Early Access
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+            </a>
           </div>
         </div>
       </div>

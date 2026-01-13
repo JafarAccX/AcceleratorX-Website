@@ -28,11 +28,11 @@ const ProductManagementEIE = () => {
 
   return (
     <>
-    <SEO />
+      <SEO />
       <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <ProgramHeroEIE />
-        <HeroWithAbouv />
+        {/* // <HeroWithAbouv /> */}
         <ProgramHighlightsEIE />
         <LearningJourneyEIE />
         <BenefitsGridEIE />

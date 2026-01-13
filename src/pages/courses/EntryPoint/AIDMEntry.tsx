@@ -36,7 +36,7 @@ const AIDMEntry = () => {
       />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <AIDMHero />
-        <HeroWithAbouv courseName="AI Digital Marketing" />
+        {/* // <HeroWithAbouv courseName="AI Digital Marketing" /> */}
         <AIDMChallenges />
         <AIDMSolution />
         <AIDMRoadmap />

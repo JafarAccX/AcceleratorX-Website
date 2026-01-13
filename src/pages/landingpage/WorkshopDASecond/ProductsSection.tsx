@@ -63,18 +63,18 @@ const AIToolsIllustration: React.FC = () => (
 const ProductsSection: React.FC = () => {
   const products = [
     {
-      title: "AutoML for Data Analysis",
-      description: "See how tools like Google AutoML, H2O.ai, Auto-Sklearn, and AutoKeras automatically clean data, test models, compare results, and suggest the best-performing approach — without heavy coding.",
+      title: "AI-Powered Data Analysis",
+      description: "Learn how AI helps clean data, find trends, detect anomalies, and summarize insights automatically — saving hours of manual effort.",
       illustration: <DataVizIllustration />,
     },
     {
-      title: "Build Models in Minutes",
-      description: "Learn how AutoML creates classification, regression, and prediction models quickly. Understand model accuracy, comparisons, and how to choose the best model for real use cases.",
+      title: "From Raw Data to Insights",
+      description: "See how AI turns spreadsheets and datasets into clear insights, charts, and summaries you can actually use for decisions.",
       illustration: <NoCodeIllustration />,
     },
     {
-      title: "AI → Insights → Action",
-      description: "Discover how AutoML helps you: Predict outcomes, Spot patterns, Make data-backed decisions, Automate complex data tasks.",
+      title: "Ask Questions. Get Answers.",
+      description: "Use natural language prompts to ask questions like \"Why did sales drop?\" or \"Which segment performs best?\" — and let AI analyze the data for you.",
       illustration: <AIToolsIllustration />,
     },
   ]
@@ -111,7 +111,7 @@ const ProductsSection: React.FC = () => {
           ))}
         </div>
 
-        
+
       </div>
     </section>
   )

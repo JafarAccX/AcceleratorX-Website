@@ -23,7 +23,7 @@ const WSGENWhoShouldEnrollE = () => {
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-md px-3 py-1.5 mb-3">
               <Users className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-400 text-sm font-medium">For Doers & Builders</span>
+              <span className="text-blue-400 text-sm font-medium">For Career Builders</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
               <span className="text-white">Who Should </span>
@@ -31,7 +31,7 @@ const WSGENWhoShouldEnrollE = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
-              Want AI that finds the right info and explains it clearly? This workshop is for you.
+              Want to future‑proof your career and crack interviews faster using AI? This webinar is for you.
             </p>
           </div>
 
@@ -43,23 +43,23 @@ const WSGENWhoShouldEnrollE = () => {
                 {[
                   {
                     icon: Users,
-                    title: "Professionals",
-                    description: "Build Q&A systems and knowledge assistants.",
+                    title: "Students & Freshers",
+                    description: "Get clarity on roles, skills, and AI‑driven preparation.",
                   },
                   {
                     icon: Briefcase,
-                    title: "Students",
-                    description: "Learn RAG and stand out in AI roles.",
+                    title: "Working Professionals",
+                    description: "Upgrade your skills and stay relevant in an AI‑first workplace.",
                   },
                   {
                     icon: Megaphone,
-                    title: "Entrepreneurs",
-                    description: "Ship products with accurate AI answers.",
+                    title: "Career Switchers",
+                    description: "Understand how AI can help you transition roles confidently.",
                   },
                   {
                     icon: Brain,
-                    title: "Developers",
-                    description: "Master hybrid retrieval and vector DBs.",
+                    title: "Job Seekers",
+                    description: "Prepare smarter for interviews using AI tools.",
                   },
                 ].map((audience, index) => (
                   <div

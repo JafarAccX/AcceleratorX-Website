@@ -95,7 +95,7 @@ const GENCTAC = lazy(() => import("../pages/landingpage/workshopGENC/GENCTAC"));
 // Workshop Pages
 const WorkshopPageDA = () => (
   <>
-  <SEO />
+    <SEO />
     <WSHeroDA />
     <WSAboutDA />
     <WSTestimonialDA />
@@ -104,9 +104,9 @@ const WorkshopPageDA = () => (
 
 const WorkshopPageDASecond = () => (
   <>
-  <SEO />
+    <SEO />
     <WSHeroDASecond />
-    <ProductsSection /> 
+    <ProductsSection />
     <TradingPlatformSection />
     <AIEcosystem />
     <WSFIOSection />
@@ -116,7 +116,7 @@ const WorkshopPageDASecond = () => (
 
 const WorkshopPagePM = () => (
   <>
-  <SEO />
+    <SEO />
     <WSHeroPM />
     <WSAboutPM />
     <WSTestimonialPM />
@@ -221,8 +221,8 @@ const WorkshopPageDM = () => (
 );
 
 export const workshopRoutes = [
-  <Route key="workshop-pm" path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />, 
-  <Route key="workshop-pmb" path="/workshop/pm-masterclass-bxwxy" element={<WorkshopPagePMB />} />, 
+  <Route key="workshop-pm" path="/workshop/pm-masterclass" element={<WorkshopPagePM />} />,
+  <Route key="workshop-pmb" path="/workshop/pm-masterclass-bxwxy" element={<WorkshopPagePMB />} />,
   <Route key="workshop-dm" path="/workshop/dm-masterclass" element={<WorkshopPageDM />} />,
   <Route key="workshop-da" path="/workshop/da-masterclass" element={<WorkshopPageDA />} />,
   <Route key="workshop-da-second" path="/workshop/da-masterclass-bxwxy" element={<WorkshopPageDASecond />} />,

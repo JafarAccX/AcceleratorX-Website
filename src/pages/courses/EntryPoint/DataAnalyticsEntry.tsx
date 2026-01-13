@@ -32,7 +32,7 @@ const DataAnalyticsEntry = () => {
       <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <DataHeroEIE />
-        <HeroWithAbouv courseName="Data Analytics" />
+        {/* // <HeroWithAbouv courseName="Data Analytics" /> */}
         <WhoIsThisContentForEIE />
 
         {/* component with the sticky functionality below  DataProgramEIE */}

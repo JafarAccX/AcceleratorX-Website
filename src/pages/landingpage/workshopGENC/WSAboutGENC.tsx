@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Brain, Target } from "lucide-react";
 
 const WSAboutGENC = () => {
-  
+
 
   return (
     <div className="relative bg-[#000] py-2 overflow-hidden mt-10  ">
@@ -77,12 +77,12 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Understand how LLM fine-tuning works and when you should use it.",
-                        "Learn step-by-step fine-tuning techniques using open-source models.",
-                        "Work with datasets, prompts, and evaluation metrics used in industry.",
-                        "Run hands-on fine-tuning for real-world use cases (support, content, Q&A, data tasks).",
-                        "Evaluate your model using standard benchmarks and scoring methods.",
-                        "Take home templates, datasets, and evaluation frameworks for future projects.",
+                        "Understand what AI Agents are and how they work",
+                        "Build your first AI Agent using simple no-code tools",
+                        "Create workflows where AI Agents think, plan & respond",
+                        "Design agents for research, content, support & data tasks",
+                        "Connect AI Agents with real-world tools & automations",
+                        "Take home plug-and-play agent templates for your use-cases",
                       ].map((item, index) => (
                         <motion.li
                           key={index}
@@ -119,11 +119,11 @@ const WSAboutGENC = () => {
                     </motion.div>
                     <ul className="space-y-3">
                       {[
-                        "Core concepts of LLM fine-tuning, parameter-efficient training & dataset preparation.",
-                        "How to improve model accuracy using high-quality prompts and data strategies.",
-                        "Evaluation methods like BLEU, ROUGE, and LLM-as-a-judge frameworks.",
-                        "Industry examples — chatbots, automation, domain-specific assistants.",
-                        "How to deploy fine-tuned models efficiently for real use-cases.",
+                        "Core concepts of AI Agents & autonomous workflows",
+                        "How to structure prompts and multi-step logic",
+                        "Tools to build AI Agents without coding",
+                        "Real-world examples — business, productivity & career",
+                        "How to deploy and use agents daily in your work",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

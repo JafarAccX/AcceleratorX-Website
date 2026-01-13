@@ -26,7 +26,7 @@ const DataAnalyticsPage = () => {
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <SEO />
         <DataHeroEIE />
-        <HeroWithAbouv />
+        {/* // <HeroWithAbouv /> */}
         <WhoIsThisContentForEIE />
 
         <DataProgramEIE />

@@ -11,7 +11,7 @@ const GENIntroductionAd = lazy(() => import("../genAIAD/GENIntroductionAd"));
 const GENLearningJourneyAd = lazy(() => import("../genAIAD/GENLearningJourneyAd"));
 const GENMarketScopeAd = lazy(() => import("../genAIAD/GENMarketScopeAd"));
 const GENToolsYouWillLearnAd = lazy(() => import("../genAIAD/GENToolsYouWillLearnAd"));
-const GENWhoShouldEnrollAd = lazy(() => import("../genAIAD/GENWhoShouldEnrollAd")); 
+const GENWhoShouldEnrollAd = lazy(() => import("../genAIAD/GENWhoShouldEnrollAd"));
 
 const GenAICourseAD = () => {
   const {
@@ -25,7 +25,7 @@ const GenAICourseAD = () => {
 
   return (
     <>
-    <SEO />
+      <SEO />
       <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <GENHeroAd />
@@ -34,7 +34,7 @@ const GenAICourseAD = () => {
         <GENBYOAAd />
         <GENMarketScopeAd />
         <GENToolsYouWillLearnAd />
-        <HeroWithAbouv />
+        {/* // <HeroWithAbouv /> */}
         <GENLearningJourneyAd />
         <GENFAQAd />
       </Suspense>

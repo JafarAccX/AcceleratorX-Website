@@ -34,7 +34,7 @@ const GenAiForPMEntry = () => {
       <GENBYOA />
       <GENMarketScope />
       <GENWhyLearnAI />
-      <HeroWithAbouv courseName="Gen AI for PMs" />
+      {/* // <HeroWithAbouv courseName="Gen AI for PMs" /> */}
       <GENLearningJourney />
       <GENMentors />
       <GENToolsYouWillLearn />

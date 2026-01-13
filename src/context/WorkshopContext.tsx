@@ -57,13 +57,12 @@ const DAZoomDetails: ZoomMeetingDetails = {
 };
 
 const DASecondZoomDetails: ZoomMeetingDetails = {
-  title:
-    "Automated Machine Learning (AutoML) For Data Analysis (Google AutoML, AutoKeras, H2O.ai, Auto-Sklearn for model building without deep coding. for mentor ref.)",
-  link: "https://zoom.us/meeting/register/ZdcXe0UKRmCLcKcnMwuCGw",
-  meetingId: "ZdcXe0UKRmCLcKcnMwuCGw",
-  time: "13th Dec, 2025 07:00 PM India",
-  meetingCode: "99102523379",
-  whatsappLink: "https://chat.whatsapp.com/F5vzopFr4l2KosYX7ZBCij",
+  title: "Data Analysis with AI",
+  link: "https://zoom.us/meeting/register/4cCyqZGlT0-TzC0dO6uSMQ",
+  meetingId: "4cCyqZGlT0-TzC0dO6uSMQ",
+  time: "19th Jan, 2026 08:00 PM India",
+  meetingCode: "97663481978",
+  whatsappLink: "https://chat.whatsapp.com/KErMd27R2xQKTyrdpWAlCd",
 };
 
 const GENAIZoomDetails: ZoomMeetingDetails = {
@@ -85,12 +84,12 @@ const GENAIBZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAICZoomDetails: ZoomMeetingDetails = {
-  title: "Hands-on LLM Fine-Tuning Workshop",
-  link: "https://zoom.us/meeting/register/JbDFh1vLQVyXvwKV_5-dJA",
-  meetingId: "JbDFh1vLQVyXvwKV_5-dJA",
-  time: "14th Dec, 2025 11:00 AM India",
-  meetingCode: "99613499939",
-  whatsappLink: "https://chat.whatsapp.com/CzDMtSnPlcU30bfF9m8bSI",
+  title: "Learn to Build AI Agents without Code",
+  link: "https://zoom.us/meeting/register/uqJPTbkGRMugSMk9c95OgA",
+  meetingId: "uqJPTbkGRMugSMk9c95OgA",
+  time: "09 Jan 2026, 8:00 PM",
+  meetingCode: "93133290017",
+  whatsappLink: "https://chat.whatsapp.com/JFmq5L4cKyVJpKRhmyCNl3",
 };
 
 const GENAIDZoomDetails: ZoomMeetingDetails = {
@@ -103,21 +102,21 @@ const GENAIDZoomDetails: ZoomMeetingDetails = {
 };
 
 const GENAIEZoomDetails: ZoomMeetingDetails = {
-  title: "Building Hybrid RAG Agent",
-  link: "https://zoom.us/meeting/register/_FDr05gPRkmsB1Sa6L7lNQ",
-  meetingId: "_FDr05gPRkmsB1Sa6L7lNQ",
-  time: "10 Dec, 2025 07:00 PM India",
-  meetingCode: "96507880613",
-  whatsappLink: "https://chat.whatsapp.com/Ke8ixVJH8qU2EHILrzX9zp",
+  title: "Crack Your Dream Job with AI",
+  link: "https://zoom.us/meeting/register/ewbIXCg7TG2t-iQiZRyF7Q",
+  meetingId: "ewbIXCg7TG2t-iQiZRyF7Q",
+  time: "16 Jan, 2026 08:00 PM India",
+  meetingCode: "93934350254",
+  whatsappLink: "https://chat.whatsapp.com/Gnv2ab5rlWb7ZYSGAsb58l",
 };
 
 const AIDMZoomDetails: ZoomMeetingDetails = {
-  title: "Marketing Automation Crash Course",
-  link: "https://zoom.us/meeting/register/x54MqpmpSwK6ki3PO74V4A",
-  meetingId: "x54MqpmpSwK6ki3PO74V4A",
-  time: "12th Dec, 2025 08:00 PM India",
-  meetingCode: "96361463677",
-  whatsappLink: "https://chat.whatsapp.com/IRY3cWYHajY8wbQc2LX11m",
+  title: "Micro-Certification in AI Marketing",
+  link: "https://us06web.zoom.us/meeting/register/wNL144GXSvaIVgHaevAwgg",
+  meetingId: "wNL144GXSvaIVgHaevAwgg",
+  time: "January 10, 2026, 8:00 PM",
+  meetingCode: "85086383594",
+  whatsappLink: "https://chat.whatsapp.com/Ip59TxaawaAIPt6IRUe89G",
 };
 
 const DMZoomDetails: ZoomMeetingDetails = {
@@ -165,24 +164,24 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
     workshopType === "PMWorkshop"
       ? PMZoomDetails
       : workshopType === "PMBWorkshop"
-      ? PMBZoomDetails
-      : workshopType === "GENAIWorkshop"
-      ? GENAIZoomDetails
-      : workshopType === "GENAIBWorkshop"
-      ? GENAIBZoomDetails
-      : workshopType === "GENAICWorkshop"
-      ? GENAICZoomDetails
-      : workshopType === "GENAIDWorkshop"
-      ? GENAIDZoomDetails
-      : workshopType === "GENAIEWorkshop"
-      ? GENAIEZoomDetails
-      : workshopType === "AIDMWorkshop"
-      ? AIDMZoomDetails
-      : workshopType === "DMWorkshop"
-      ? DMZoomDetails
-      : workshopType === "DASecondWorkshop"
-      ? DASecondZoomDetails
-      : DAZoomDetails;
+        ? PMBZoomDetails
+        : workshopType === "GENAIWorkshop"
+          ? GENAIZoomDetails
+          : workshopType === "GENAIBWorkshop"
+            ? GENAIBZoomDetails
+            : workshopType === "GENAICWorkshop"
+              ? GENAICZoomDetails
+              : workshopType === "GENAIDWorkshop"
+                ? GENAIDZoomDetails
+                : workshopType === "GENAIEWorkshop"
+                  ? GENAIEZoomDetails
+                  : workshopType === "AIDMWorkshop"
+                    ? AIDMZoomDetails
+                    : workshopType === "DMWorkshop"
+                      ? DMZoomDetails
+                      : workshopType === "DASecondWorkshop"
+                        ? DASecondZoomDetails
+                        : DAZoomDetails;
 
   return (
     <WorkshopContext.Provider value={{ workshopType, setWorkshopType, zoomMeetingDetails }}>

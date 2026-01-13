@@ -100,7 +100,7 @@ export default function AIEcosystem() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Learn how AutoML connects with tools you already use — Google Sheets, Excel, Notion, PowerBI, ChatGPT, Slack — to build a smooth workflow from raw data to working ML models.
+          Learn how AI fits seamlessly into your existing tools — Excel, Google Sheets, Power BI, ChatGPT, Notion, and more — to create a smooth workflow from raw data to actionable insights.
         </motion.p>
       </div>
 

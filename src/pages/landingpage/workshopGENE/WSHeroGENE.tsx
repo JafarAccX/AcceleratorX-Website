@@ -41,23 +41,21 @@ const WSHeroGENE = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             {/* Pre-title */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-              <span className="text-green-400 font-medium text-sm">AI Workshop Live Workshop</span>
+              <span className="text-green-400 font-medium text-sm">AI Webinar Live Webinar</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-3xl font-bold leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-blue-100">
-                Building Hybrid RAG Agents
-                <br />
-                Advanced Retrieval-Augmented Generation Workshop
+                Crack Your Dream Job with AI
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-gray-300 max-w-xl">
-              Build a real Hybrid RAG agent in a live, hands-on session.
+              Info‑centric live session on how AI is transforming careers across industries.
               <br />
-              Learn hybrid retrieval (BM25 + semantic), vector databases, and practical evaluation — no advanced coding needed.
+              Learn how AI is changing every role, real‑world AI use cases across domains, and how to use AI tools to prepare, practice, and crack interviews.
             </p>
 
             {/* Workshop Info Tag */}
@@ -70,7 +68,7 @@ const WSHeroGENE = () => {
                   onClick={scrollToForm}
                   className="px-3 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white text-xs font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Build Hybrid RAG for Free – No Experience Needed
+                  Register for Free – Transform Your Career
                 </button>
               </div>
             </div>
@@ -79,11 +77,11 @@ const WSHeroGENE = () => {
             <div className="grid grid-cols-4 gap-4 mt-6">
               {[
                 { icon: <FaClock className="text-emerald-400 mb-1" />, label: "Duration", value: "2 Hours" },
-                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "10th Dec 2025" },
+                { icon: <FaCalendarAlt className="text-indigo-400 mb-1" />, label: "Date", value: "16th Jan 2026" },
                 {
                   icon: <FaUserGraduate className="text-cyan-400 mb-1" />,
                   label: "Time",
-                  value: "07:00 PM",
+                  value: "08:00 PM",
                 },
                 { icon: <FaUserGraduate className="text-cyan-400 mb-1" />, label: "Level", value: "All Levels" },
               ].map((item, index) => (

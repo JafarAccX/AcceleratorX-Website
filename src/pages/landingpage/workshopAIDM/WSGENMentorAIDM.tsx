@@ -4,12 +4,12 @@ import { Linkedin, Award, Sparkles, Briefcase } from "lucide-react";
 const WSGENMentorAIDM = () => {
   const mentors = [
     {
-      name: "Kumar Savino",
-      designation: "AI Marketing Specialist",
-      description: "Expert in AI-driven automation, ad optimization, and workflow systems.",
-      linkedin: "https://www.linkedin.com/in/kumar-savino/",
-      image: "/assets/mentor/kumar.webp",
-      experience: "8+ Years",
+      name: "Shreya Sharma",
+      designation: "AI-Driven Marketing Strategist",
+      description: "Expert in AI-powered content, paid marketing, and building scalable growth systems.",
+      linkedin: "https://www.linkedin.com/in/shreya-sharma/",
+      image: "/assets/mentor/dummyuser.webp",
+      experience: "7+ Years",
     },
   ];
 
