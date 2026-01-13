@@ -1,5 +1,4 @@
 import { useEffect, Suspense, lazy } from "react";
-import HeaderEIE from "../../../components/HeaderEIE";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
 
@@ -20,7 +19,6 @@ const DataAnalyticsEntry = () => {
   return (
     <>
       <SEO />
-      <HeaderEIE />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
         <DataHeroEIE />
         {/* // <HeroWithAbouv courseName="Data Analytics" /> */}
