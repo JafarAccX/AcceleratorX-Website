@@ -21,12 +21,12 @@ export default function ProfileMenu() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleLogout = () => { 
+  const handleLogout = () => {
     logout();
     navigate("/");
   };
 
-  if (!user) return null; 
+  if (!user) return null;
 
   const displayName = user.FirstName + " " + user.LastName || "User";
   const displayEmail = user.Mobile || user.Email || "";
@@ -38,7 +38,7 @@ export default function ProfileMenu() {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 rounded-full bg-white/10 p-1 text-sm font-semibold text-gray-700 hover:bg-white/20"
+        className="flex items-center space-x-1 rounded-full bg-gray-100/50 p-1 text-sm font-semibold hover:bg-gray-200/50 transition-all duration-200"
       >
         <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white">
           {userInitial}
