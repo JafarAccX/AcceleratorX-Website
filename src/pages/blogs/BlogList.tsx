@@ -39,14 +39,12 @@ const BlogList: React.FC = () => {
 
   const fetchBlogs = useCallback(async () => {
     try {
-      console.log('📰 [BLOG LIST] Fetching blogs with filters:', { searchTerm, selectedCategory });
       const params = {
         search: searchTerm || undefined,
         category: selectedCategory || undefined,
         limit: 20,
       };
       const fetchedBlogs = await blogService.getBlogs(params);
-      console.log('📰 [BLOG LIST] Fetched blogs:', fetchedBlogs.length);
       setBlogs(fetchedBlogs);
     } catch (error) {
       console.error('📰 [BLOG LIST] Error fetching blogs:', error);
@@ -70,25 +68,23 @@ const BlogList: React.FC = () => {
     }
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
   const handleCategoryChange = (categorySlug: string) => {
     setSelectedCategory(categorySlug === selectedCategory ? '' : categorySlug);
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-US', {
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric'
     });
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center space-x-2">
+      <div className="min-h-screen bg-white flex items-center justify-center space-x-2">
         <motion.div
           className="w-3 h-3 bg-blue-500 rounded-full"
           animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
@@ -109,49 +105,66 @@ const BlogList: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl font-bold mb-4">Blog</h1>
-          <p className="text-gray-400">Discover insights and stories from our team</p>
-        </motion.div>
+    <div className="min-h-screen bg-white pb-20">
+      {/* Import Font */}
+      <style>
+        {`@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@600&display=swap');`}
+      </style>
 
-        {/* Search and Filters */}
-        <div className="mb-8">
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
-            <input
-              type="text"
-              placeholder="Search blogs..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-              className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-            />
+      {/* Hero Section */}
+      <div
+        className="relative w-full h-[500px] flex items-center justify-center bg-cover bg-center bg-no-repeat mb-12"
+        style={{
+          backgroundImage: `url('/redesign/blog-section/blog-hero.webp')`
+        }}
+      >
+        <div className="max-w-[1300px] w-full px-6 flex flex-col md:flex-row items-center md:items-start justify-center gap-8 pt-20">
+          <div className="max-w-xl text-center md:text-left">
+            <h1
+              className="mb-4 text-[#1a1a1a]"
+              style={{
+                fontFamily: '"Cormorant Infant", serif',
+                fontWeight: 600,
+                fontSize: '68px',
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
+            >
+              Everything you need,<br />in one place.
+            </h1>
           </div>
+          <div className="max-w-sm hidden md:block pt-4">
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque convallis nibh tristique augue sagittis, sit amet auctor neque ullamcorper. Pellentesque vel faucibus tellus.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1300px] mx-auto px-6">
+
+        {/* Header - "All Blogs" */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-[#0F172A] mb-8">All Blogs</h2>
 
           {/* Categories */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             <button
               onClick={() => handleCategoryChange('')}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === ''
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              className={`px-4 py-2.5 rounded-[10px] text-sm font-medium transition-all ${selectedCategory === ''
+                ? 'bg-black text-white border border-black'
+                : 'bg-white text-gray-700 border border-[#9D9D9D] hover:border-gray-900'
                 }`}
             >
-              All
+              All Topics
             </button>
             {categories.map((category) => (
               <button
                 key={category.Id}
                 onClick={() => handleCategoryChange(category.Slug)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category.Slug
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                className={`px-4 py-2.5 rounded-[10px] text-sm font-medium transition-all ${selectedCategory === category.Slug
+                  ? 'bg-black text-white border border-black'
+                  : 'bg-white text-gray-700 border border-[#9D9D9D] hover:border-gray-900'
                   }`}
               >
                 {category.Name}
@@ -167,66 +180,94 @@ const BlogList: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          {blogs.map((blog) => (
-            <MotionLink
-              key={blog.Id}
-              to={`/blogs/${blog.Slug}`}
-              className="bg-gray-900 rounded-xl overflow-hidden shadow-lg group block"
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              <div className="relative h-48 overflow-hidden">
-                {blog.CoverImage ? (
-                  <img
-                    src={blog.CoverImage}
-                    alt={blog.Title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                    <span className="text-gray-400 text-4xl">📝</span>
-                  </div>
-                )}
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 line-clamp-2">
-                  {blog.Title}
-                </h3>
-                {blog.Excerpt && (
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">
-                    {blog.Excerpt}
-                  </p>
-                )}
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>{blog.Author?.FullName || 'Anonymous'}</span>
-                  <span>{formatDate(blog.CreatedAt)}</span>
-                </div>
-                <div className="flex items-center justify-between mt-4 text-sm">
-                  <div className="flex items-center space-x-4">
-                    <span className="flex items-center">
-                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                        <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-                      </svg>
-                      {blog.ViewsCount}
-                    </span>
-                    <span className="flex items-center">
-                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                      </svg>
-                      {blog.LikesCount}
-                    </span>
+          {blogs.map((blog) => {
+
+            console.log(blog);
+
+            return (
+              <MotionLink
+                key={blog.Id}
+                to={`/blogs/${blog.Slug}`}
+                className="bg-white rounded-[20px] overflow-hidden group flex flex-col h-full hover:shadow-sm transition-shadow duration-300"
+                variants={itemVariants}
+              >
+                {/* Card Image */}
+                <div className="relative h-[240px] overflow-hidden p-4 pb-0">
+                  <div className="w-full h-full rounded-[12px] overflow-hidden relative">
+                    {blog.CoverImage ? (
+                      <img
+                        src={blog.CoverImage}
+                        alt={blog.Title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                        <span className="text-gray-300 text-4xl">📝</span>
+                      </div>
+                    )}
+                    {/* Category Tag Overlay if desired, or place below */}
                   </div>
                 </div>
-              </div>
-            </MotionLink>
-          ))}
+
+
+                {/* Card Content */}
+                <div className="p-6 pt-4 flex flex-col flex-grow">
+
+                  {/* Meta Row: Category & Date */}
+                  <div className="flex items-center justify-between text-xs font-semibold tracking-wide uppercase mb-3">
+                    <span className="text-blue-600">
+                      {blog.Categories && blog.Categories.length > 0 ? blog.Categories[0].Name : 'Article'}
+                    </span>
+                    <span className="text-gray-500 font-medium normal-case">
+                      {formatDate(blog.CreatedAt)}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-[22px] leading-tight font-bold text-[#0F172A] mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    {blog.Title}
+                  </h3>
+
+
+
+                  <div className="mt-auto pt-4 flex items-center gap-3">
+                    {/* Author Avatar */}
+                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                      {blog.Author?.ProfileImage ? (
+                        <img src={blog.Author.ProfileImage} alt={blog.Author.FullName} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-gray-500 font-bold">
+                          {blog.Author?.FullName?.[0] || 'A'}
+                        </div>
+                      )}
+                    </div>
+
+
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-[#0F172A]">
+                        {blog.Author?.FullName || 'AcceleratorX Team'}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        Contributor
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+              </MotionLink>
+            )
+          })}
         </motion.div>
 
-        {blogs.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-400 text-lg">No blogs found matching your criteria.</p>
+        {blogs.length === 0 && !loading && (
+          <div className="text-center py-20">
+            <p className="text-gray-500 text-lg">No articles found matching your criteria.</p>
+            <button
+              onClick={() => { setSearchTerm(''); setSelectedCategory(''); }}
+              className="mt-4 text-blue-600 font-medium hover:underline"
+            >
+              Clear filters
+            </button>
           </div>
         )}
       </div>
