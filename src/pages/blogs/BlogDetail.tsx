@@ -5,7 +5,7 @@ import { blogService } from '../../services/blogService';
 import { BlogPost } from '../../utils/types';
 import { OutputData } from '@editorjs/editorjs';
 import EditorJSHTML from 'editorjs-html';
-import { Clock, Calendar, User } from 'lucide-react';
+import { Clock, Calendar, User, ChevronDown } from 'lucide-react';
 
 interface TocItem {
   id: string;
@@ -22,6 +22,7 @@ const BlogDetail = () => {
   const [activeSection, setActiveSection] = useState<string>('');
   const [isFixed, setIsFixed] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(300);
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
   const containerRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -173,6 +174,17 @@ const BlogDetail = () => {
           const rect = element.getBoundingClientRect();
           if (rect.top < 200 && rect.top > -200) {
             setActiveSection(item.id);
+
+            // Auto-expand parent section if the active item is a child (level > 2)
+            if (item.level > 2) {
+              const hierarchy = organizeTocHierarchy();
+              const parent = hierarchy.find(h =>
+                h.children?.some(child => child.id === item.id)
+              );
+              if (parent && !expandedSections.has(parent.id)) {
+                setExpandedSections(prev => new Set(prev).add(parent.id));
+              }
+            }
             break;
           }
         }
@@ -183,7 +195,7 @@ const BlogDetail = () => {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [toc]);
+  }, [toc, expandedSections]);
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return '';
@@ -193,6 +205,41 @@ const BlogDetail = () => {
       month: 'long',
       day: 'numeric'
     });
+  };
+
+  const toggleSection = (itemId: string) => {
+    setExpandedSections(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(itemId)) {
+        newSet.delete(itemId);
+      } else {
+        newSet.add(itemId);
+      }
+      return newSet;
+    });
+  };
+
+  // Organize TOC items hierarchically
+  const organizeTocHierarchy = () => {
+    const organized: Array<TocItem & { children?: TocItem[] }> = [];
+    let currentParent: (TocItem & { children?: TocItem[] }) | null = null;
+
+    toc.forEach(item => {
+      if (item.level === 2) {
+        // H2 is a parent
+        currentParent = { ...item, children: [] };
+        organized.push(currentParent);
+      } else if (item.level > 2 && currentParent) {
+        // H3, H4, etc. are children of the current H2
+        currentParent.children!.push(item);
+      } else if (item.level === 1) {
+        // H1 stands alone
+        organized.push({ ...item, children: [] });
+        currentParent = null;
+      }
+    });
+
+    return organized;
   };
 
   const scrollToSection = (id: string) => {
@@ -381,74 +428,119 @@ const BlogDetail = () => {
 
             {/* Right: Sidebar (4 columns) */}
             <div className="lg:col-span-4">
-              <div
-                ref={sidebarRef}
-                className={`${isFixed
-                  ? 'fixed top-24 z-10'
-                  : 'relative'
-                  }`}
-                style={isFixed ? { width: `${sidebarWidth}px` } : {}}
-              >
-                <div className="space-y-6">
-                  {/* Author Card */}
-                  <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold overflow-hidden">
-                        {blog.Author?.ProfileImage ? (
-                          <img
-                            src={blog.Author.ProfileImage}
-                            alt={blog.Author.FullName}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <User className="w-8 h-8" />
-                        )}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">Author</h3>
-                        <p className="text-sm text-gray-600">{blog.Author?.FullName || 'Anonymous'}</p>
-                      </div>
+              <div className="space-y-8">
+                {/* Author Card - Static (not sticky) */}
+                <div className="p-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Cormorant Infant, serif' }}>
+                    Author
+                  </h3>
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xl font-bold overflow-hidden shadow-md">
+                      {blog.Author?.ProfileImage ? (
+                        <img
+                          src={blog.Author.ProfileImage}
+                          alt={blog.Author.FullName}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <User className="w-6 h-6" />
+                      )}
                     </div>
-                    {blog.Author?.Bio && (
-                      <p className="text-sm text-gray-600 leading-relaxed">
-                        {blog.Author.Bio}
-                      </p>
-                    )}
-                    <div className="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500">
-                      COO @AcceleratorX
+                    <div>
+                      <h4 className="font-semibold text-gray-900 text-lg leading-tight">
+                        {blog.Author?.FullName || 'AcceleratorX Team'}
+                      </h4>
+                      {/* <p className="text-sm text-gray-500 mt-1">
+                        COO @AcceleratorX
+                      </p> */}
                     </div>
                   </div>
+                  {blog.Author?.Bio && (
+                    <p className="text-sm text-gray-600 mt-4 leading-relaxed">
+                      {blog.Author.Bio}
+                    </p>
+                  )}
+                </div>
 
-                  {/* Table of Contents */}
-                  {toc.length > 0 && (
-                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                {/* Table of Contents - Sticky */}
+                {toc.length > 0 && (
+                  <div
+                    ref={sidebarRef}
+                    className={`${isFixed
+                      ? 'fixed top-24 z-10'
+                      : 'relative'
+                      }`}
+                    style={isFixed ? { width: `${sidebarWidth}px` } : {}}
+                  >
+                    <div className="p-6">
                       <h3
-                        className="text-xl font-bold text-gray-900 mb-4"
+                        className="text-xl font-bold text-gray-900 mb-6"
                         style={{ fontFamily: 'Cormorant Infant, serif' }}
                       >
                         Table of Contents
                       </h3>
-                      <nav className="space-y-2">
-                        {toc.map((item) => (
-                          <button
-                            key={item.id}
-                            onClick={() => scrollToSection(item.id)}
-                            className={`block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 ${activeSection === item.id
-                              ? 'bg-blue-50 text-blue-700 font-medium'
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                              }`}
-                            style={{
-                              paddingLeft: `${(item.level - 1) * 0.75 + 0.75}rem`,
-                              fontSize: item.level === 1 ? '0.95rem' : '0.875rem'
-                            }}
-                          >
-                            {item.text}
-                          </button>
+                      <nav className="space-y-1">
+                        {organizeTocHierarchy().map((item) => (
+                          <div key={item.id} className="mb-1">
+                            {/* Parent Item (H1 or H2) */}
+                            <div className="flex items-start group">
+                              <button
+                                onClick={() => scrollToSection(item.id)}
+                                className={`flex-1 text-left py-1.5 pr-2 text-xs transition-colors duration-200 leading-snug ${activeSection === item.id
+                                  ? 'text-gray-900 font-semibold'
+                                  : 'text-gray-600 group-hover:text-gray-900'
+                                  }`}
+                                style={{
+                                  fontSize: '0.95rem',
+                                }}
+                              >
+                                {item.text}
+                              </button>
+
+                              {/* Toggle button for items with children */}
+                              {item.children && item.children.length > 0 && (
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleSection(item.id);
+                                  }}
+                                  className="mt-1 p-1 hover:bg-gray-200 rounded text-gray-400 hover:text-gray-600 transition-colors"
+                                  aria-label={expandedSections.has(item.id) ? 'Collapse' : 'Expand'}
+                                >
+                                  <ChevronDown
+                                    className={`w-4 h-4 transition-transform duration-200 ${expandedSections.has(item.id) ? 'rotate-180' : ''
+                                      }`}
+                                  />
+                                </button>
+                              )}
+                            </div>
+
+                            {/* Children Items (H3, H4, etc.) */}
+                            {item.children && item.children.length > 0 && expandedSections.has(item.id) && (
+                              <div className="ml-0 mt-1 space-y-1 pl-3 border-l-2 border-gray-200">
+                                {item.children.map((child) => (
+                                  <button
+                                    key={child.id}
+                                    onClick={() => scrollToSection(child.id)}
+                                    className={`block w-full text-left py-1 transition-colors duration-200 leading-snug ${activeSection === child.id
+                                      ? 'text-gray-900 font-medium'
+                                      : 'text-gray-500 hover:text-gray-900'
+                                      }`}
+                                    style={{
+                                      fontSize: '0.875rem',
+                                    }}
+                                  >
+                                    {child.text}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </nav>
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
