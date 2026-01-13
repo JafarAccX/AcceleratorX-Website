@@ -6,7 +6,6 @@ const ProductManagementEntry = lazy(() => import("../pages/courses/EntryPoint/Pr
 const DataAnalyticsEntry = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsEntry"));
 const DataAnalyticsAd = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsAd"));
 const GenAiForPMEntry = lazy(() => import("../pages/courses/EntryPoint/GenAiForPMEntry"));
-const KuppamCourses = lazy(() => import("../pages/courses/EntryPoint/KuppamCourses"));
 
 // Course Pages
 const GenAICourse = lazy(
@@ -21,7 +20,7 @@ const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 const ProductManagementPageEIE = lazy(
   () => import("../pages/courses/EntryPoint/ProductManagementEIE")
 );
- 
+
 const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
 
 export const courseRoutes = [
@@ -70,9 +69,4 @@ export const courseRoutes = [
   <Route key="course-genai-fb" path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
   <Route key="course-genai-fb-b" path="/courses/generative-ai-fb-b" element={<GenAICourseAD />} />,
 
-  <Route
-    key="course-kuppam"
-    path="/courses/onsite-workshopz"
-    element={<KuppamCourses />}
-  />,
 ];
