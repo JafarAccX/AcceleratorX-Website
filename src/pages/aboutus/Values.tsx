@@ -2,65 +2,85 @@ import { motion } from "framer-motion";
 
 const Values = () => {
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-0 w-72 h-72 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-[64px] animate-float"></div>
-        <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-blue-600/20 rounded-full mix-blend-multiply filter blur-[64px] animate-float-delayed"></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-      </div>
+    <section className="relative py-24 bg-white overflow-hidden">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap');
+      `}</style>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="relative max-w-4xl mx-auto px-4"
-      >
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          Our Value<span className="text-blue-500">s</span>
-        </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start ">
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative space-y-8"
-        >
-          {/* Card with glass effect */}
-          <div className="backdrop-blur-sm bg-black/30 rounded-2xl border border-blue-500/20 p-8">
-            <p className="text-gray-300 mb-8">
-              At AcceleratorX, we are on a mission to shape visionary leaders who
-              dare to redefine the future. We believe in harnessing ambition and
-              transforming it into unstoppable momentum, turning ideas into action
-              and dreams into impactful careers. Our commitment is to empower
-              individuals with immersive, hands-on learning experiences that
-              challenge limits, unlock potential, and open doors to a world of
-              opportunity.
-            </p>
+          {/* Left Column: Image and Heading */}
+          <div className="space-y-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+              style={{ fontFamily: 'Cormorant Infant, serif' }}
+            >
+              Trusted by 2200+ <br /> Learners
+            </motion.h2>
 
-            <p className="text-gray-300">
-              Our programs are meticulously crafted for those who strive not just
-              to learn but to lead, with a focus on real-world application,
-              mentorship from top industry experts, and a powerful support
-              network. Through a curriculum that bridges theory and practice, we
-              guide our students in mastering high-impact skills, building their
-              personal brand, and navigating competitive markets with confidence
-              and purpose. With access to elite mentors from companies like Tata,
-              Walmart, and PayPal, and an unmatched placement support system, we
-              create a seamless path from ambition to achievement. At
-              AcceleratorX, we don't just prepare you for a career; we equip you
-              to make waves. Join us to build, lead, and succeed in the arena of
-              tomorrow's leaders. The future starts with you.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="rounded-[2.5rem] overflow-hidden shadow-xl"
+            >
+              <img
+                src="/assets/group.webp"
+                alt="AcceleratorX Learners"
+                className="w-full h-full object-cover aspect-[4/3] "
+              />
+            </motion.div>
           </div>
 
-          {/* Decorative elements */}
-          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-        </motion.div>
-      </motion.div>
+          {/* Right Column: Vision Text */}
+          <div className="">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-blue-500 font-bold tracking-wider text-sm uppercase mb-4 block">
+                Our Vision
+              </span>
+              <h3
+                className="text-4xl font-bold text-gray-900 mb-8"
+                style={{ fontFamily: 'Cormorant Infant, serif' }}
+              >
+                What We Stand For
+              </h3>
+
+              <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
+                <p>
+                  At AcceleratorX, we are on a mission to shape visionary leaders who
+                  dare to redefine the future. We believe in harnessing ambition and
+                  transforming it into unstoppable momentum, turning ideas into action
+                  and dreams into impactful careers. Our commitment is to empower
+                  individuals with immersive, hands-on learning experiences that
+                  challenge limits, unlock potential, and open doors to a world of
+                  opportunity.
+                </p>
+
+                <p>
+                  Our programs are meticulously crafted for those who strive not just
+                  to learn but to lead, with a focus on real-world application,
+                  mentorship from top industry experts, and a powerful support
+                  network. Through a curriculum that bridges theory and practice, we
+                  guide our students in mastering high-impact skills, building their
+                  personal brand, and navigating competitive markets with confidence
+                  and purpose. With access to elite mentors from companies like Tata,
+                  Walmart, and PayPal, and an unmatched placement support system, we
+                  create a seamless path from ambition to achievement. At
+                  AcceleratorX, the future starts with you.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
