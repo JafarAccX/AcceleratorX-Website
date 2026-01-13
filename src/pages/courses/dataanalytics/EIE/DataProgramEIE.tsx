@@ -179,7 +179,7 @@ export default function DataProgramEIE() {
             maxHeight: 'calc(100vh - 4rem)'
           } : {}}
         >
-          <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
+          <div className={isFixed ? ' lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
             <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] mb-8 leading-tight">
               AI Programs that helps to become a Professional
             </h2>

@@ -102,18 +102,7 @@ export default function ProgramsOffered() {
     return (
         <section className="bg-white py-24 px-6 md:px-12 lg:px-24">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="mb-24 lg:mb-32">
-                    <p className="text-[#3b82f6] font-bold text-xs tracking-[0.2em] uppercase mb-4 text-center lg:text-left lg:pl-[25%] opacity-80">
-                        PROGRAMS WE OFFER
-                    </p>
-                    <div className="flex flex-col lg:flex-row items-start justify-between">
-                        <div className="hidden lg:block w-1/4" />
-                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-light text-[#1A2B44] leading-[1.1] max-w-4xl text-center lg:text-left">
-                            AI Programs that helps to become a <span className="italic">Professional</span>
-                        </h2>
-                    </div>
-                </div>
+
 
                 <div ref={containerRef} className="flex flex-col lg:flex-row gap-16 relative">
                     {/* Placeholder to maintain layout when sidebar is fixed */}
@@ -154,6 +143,19 @@ export default function ProgramsOffered() {
 
                     {/* Content Sections */}
                     <main className="lg:w-3/4 space-y-0">
+
+                        {/* Header */}
+                        <div className=" flex flex-col items-start gap-4 justify-start">
+                            <p className="text-[#3b82f6] font-bold text-xs tracking-[0.2em] uppercase mb-4 opacity-80">
+                                PROGRAMS WE OFFER
+                            </p>
+
+
+                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-light text-[#1A2B44] leading-[1.1] max-w-4xl text-center lg:text-left">
+                                AI Programs that helps to become a <span className="italic">Professional</span>
+                            </h2>
+
+                        </div>
                         {PROGRAMS.map((program) => (
                             <section
                                 key={program.id}

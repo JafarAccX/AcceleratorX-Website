@@ -31,7 +31,7 @@ const PartnerLogos = () => {
 
     return (
         <section className="w-full bg-white py-16 px-6 md:px-12 lg:px-24 overflow-hidden">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="max-w-7xl mt-20 mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
                 {/* Left Side: Title */}
                 <div className="w-full lg:w-1/3 text-center lg:text-left z-10 bg-white">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A2B44] leading-tight">
