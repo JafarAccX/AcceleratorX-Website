@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import companyLogo from "/redesign/logo-bg-black.webp";
 import { useUser } from "../../context/UserContext";
 import ProfileMenu from "../navbar/ProfileMenu";
@@ -72,331 +73,324 @@ export default function Navbar() {
 
   if (isXSATRoute) {
     return (
-      <header
-        className={`fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
-          }`}
+      <>
+        <header
+          className={`fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
+            }`}
+        >
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between h-20">
+              <div className="text-2xl mt-2 font-bold text-white">
+                <Link to="https://acceleratorx.org/" className={`${hoverTransition} hover:opacity-90`}>
+                  <img src="/xsat-bg.webp" alt="xsat" className="w-auto h-10" />
+                </Link>
+              </div>
+
+              {/* Desktop Menu */}
+              <div className="hidden md:flex items-center space-x-6">
+                {xsatNavItems.map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`text-white/90 hover:text-white ${hoverTransition} relative group py-2`}
+                  >
+                    {item.label}
+                    <span
+                      className={`absolute bottom-0 left-0 w-0 h-0.5 bg-white ${dropdownTransition} group-hover:w-full`}
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsOpen(true)}
+                className={`md:hidden text-white/90 hover:text-white p-2 rounded-lg hover:bg-white/10 ${hoverTransition}`}
+              >
+                <Menu size={24} />
+              </button>
+            </div>
+          </div>
+        </header>
+
+        {/* Mobile Sheet */}
+        <AnimatePresence>
+          {isOpen && (
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99999] md:hidden"
+              />
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="fixed inset-y-0 right-0 w-[280px] bg-black z-[100000] shadow-2xl md:hidden p-6 overflow-y-auto flex flex-col"
+              >
+                <div className="flex items-center justify-between mb-8">
+                  <img src="/xsat-bg.webp" alt="xsat" className="h-8 w-auto" />
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-white/70 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+
+                <div className="flex flex-col space-y-4">
+                  {xsatNavItems.map((item) => (
+                    <button
+                      key={item.label}
+                      onClick={() => scrollToSection(item.href)}
+                      className={`text-left text-lg text-white/90 hover:text-white ${hoverTransition} py-3 px-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="mt-auto pt-8">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-[#FFBB00]/20 to-transparent border border-[#FFBB00]/10">
+                    <p className="text-sm text-white/70 mb-4">Ready to accelerate?</p>
+                    <button className="w-full bg-[#FFBB00] text-black py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                      Register Now
+                      <ArrowRight size={18} />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <nav
+        className={`fixed top-[10px] w-full left-1/2 -translate-x-1/2 z-[9999] md:w-[calc(100%-140px)] max-w-[1300px] ${menuTransition}`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <div className="text-2xl mt-2 font-bold text-white">
-              <Link to="https://acceleratorx.org/" className={`${hoverTransition} hover:opacity-90`}>
-                <img src="/xsat-bg.webp" alt="xsat" className="w-auto h-10" />
+        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-[#FFFFFFB2] shadow-lg px-6 sm:px-8 w-full">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo */}
+            <div className={`relative group ${hoverTransition}`}>
+              <Link to="/" className="flex items-center space-x-2 hover:opacity-90">
+                <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-12 object-contain" />
               </Link>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
-              {xsatNavItems.map((item) => (
+              {/* Courses Dropdown */}
+              <div
+                className="relative group"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
                 <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`text-white/90 hover:text-white ${hoverTransition} relative group py-2`}
+                  className={`flex items-center gap-1 text-gray-700 group-hover:text-gray-900 text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
                 >
-                  {item.label}
-                  <span
-                    className={`absolute bottom-0 left-0 w-0 h-0.5 bg-white ${dropdownTransition} group-hover:w-full`}
+                  Courses
+                  <ChevronDown
+                    size={16}
+                    className={`${dropdownTransition}`}
+                    style={{
+                      transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0)",
+                    }}
                   />
                 </button>
+
+                <div
+                  className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                    }`}
+                >
+                  <div className="bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl shadow-xl overflow-hidden">
+                    {courses.map((course) => (
+                      <Link
+                        key={course.label}
+                        to={course.path}
+                        className={`block px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 ${hoverTransition} text-xs font-medium`}
+                      >
+                        {course.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Menu Items */}
+              {menuItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
+                    ? "bg-gray-100/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
+                    : "text-gray-700 hover:text-gray-900 py-2"
+                    }`}
+                >
+                  {item.label}
+                  {item.label !== "XSAT" && item.label !== "EVENTS" && (
+                    <span
+                      className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 ${dropdownTransition} group-hover:w-full`}
+                    />
+                  )}
+                </Link>
               ))}
+
+              {isAuthenticated ? (
+                <ProfileMenu />
+              ) : (
+                <div className="flex items-center p-1  ml-4 group">
+                  <Link
+                    to="/sign-in"
+                    className={`text-gray-600 hover:text-gray-900 ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50`}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/sign-up"
+                    className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-full text-sm font-medium ${hoverTransition} shadow-md`}
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden text-white/90 hover:text-white p-2 rounded-lg hover:bg-white/10 ${hoverTransition}`}
+              onClick={() => setIsOpen(true)}
+              className={`md:hidden text-gray-700 hover:text-gray-900 p-2 rounded-lg hover:bg-gray-100/50 ${hoverTransition}`}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              <Menu size={24} />
             </button>
           </div>
+        </div>
+      </nav>
 
-          {/* Mobile Menu */}
-          <div
-            className={`md:hidden backdrop-blur-md bg-black/95 rounded-b-2xl border-t border-white/5 overflow-hidden ${menuTransition} ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-              }`}
-          >
-            <div className="flex flex-col space-y-2 p-4">
-              {xsatNavItems.map((item) => (
+      {/* Mobile Sheet */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[99999] md:hidden"
+            />
+
+            {/* Side Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-y-0 right-0 w-[300px] bg-white z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <img src={companyLogo} alt="Logo" className="h-10 w-auto" />
                 <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`text-white/90 hover:text-white ${hoverTransition} py-2 px-4 rounded-lg hover:bg-white/5`}
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-500 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100 transition-colors"
                 >
-                  {item.label}
+                  <X size={24} />
                 </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
-    );
-  }
+              </div>
 
-  return (
-    <nav
-      className={`fixed top-[10px] left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-140px)] max-w-[1300px] ${menuTransition}`}
-    >
-      <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-[#FFFFFFB2] shadow-lg px-6 sm:px-8">
-        <div className="flex items-center justify-between h-full">
-          {/* Logo */}
-          <div className={`relative group ${hoverTransition}`}>
-            <Link to="/" className="flex items-center space-x-2 hover:opacity-90">
-              <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-12 object-contain" />
-            </Link>
+              <div className="flex flex-col space-y-2 h-full">
+                {/* Courses Dropdown */}
+                <div className="mb-2">
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="flex items-center justify-between w-full text-gray-800 hover:text-black text-lg font-semibold py-3 px-4 rounded-xl hover:bg-gray-50 transition-colors"
+                  >
+                    Courses
+                    <ChevronDown
+                      size={20}
+                      className={`transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
 
-            {/* Lottie badge overlayed on logo (client-side only) */}
-            {/* Christmas GIF overlay - Hidden for new design */}
-            {/* <div className="absolute -top-8 -left-8 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-4 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-16 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-24 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-32 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-48 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-64 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div> */}
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
-            {/* Courses Dropdown */}
-            <div
-              className="relative group"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
-              <button
-                className={`flex items-center gap-1 text-gray-700 group-hover:text-gray-900 text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
-              >
-                Courses
-                <ChevronDown
-                  size={16}
-                  className={`${dropdownTransition}`}
-                  style={{
-                    transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0)",
-                  }}
-                />
-              </button>
-
-              <div
-                className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
-                  }`}
-              >
-                <div className="bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl shadow-xl overflow-hidden">
-                  {courses.map((course) => (
-                    <Link
-                      key={course.label}
-                      to={course.path}
-                      className={`block px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 ${hoverTransition} text-xs font-medium`}
-                    >
-                      {course.label}
-                    </Link>
-                  ))}
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden bg-gray-50/50 rounded-xl mt-1 mx-2"
+                      >
+                        <div className="flex flex-col p-2">
+                          {courses.map((course) => (
+                            <Link
+                              key={course.label}
+                              to={course.path}
+                              className="py-3 px-4 text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg text-sm font-medium transition-colors"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {course.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </div>
-            </div>
 
-            {/* Menu Items */}
-            {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.path}
-                className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
-                  ? "bg-gray-100/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
-                  : "text-gray-700 hover:text-gray-900 py-2"
-                  }`}
-              >
-                {item.label}
-                {/* {(item.label === "XSAT" ||
-                  item.label === "EVENTS" ||
-                  item.label === "Project Listing") && (
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
-                    </span>
-                  )} */}
-                {item.label !== "XSAT" && item.label !== "EVENTS" && (
-                  <span
-                    className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 ${dropdownTransition} group-hover:w-full`}
-                  />
-                )}
-              </Link>
-            ))}
-
-            {/* CTA Button */}
-            {/* <button
-              className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
-              onClick={onEnrollClick}
-            >
-              Join AcceX Squad
-            </button> */}
-
-            {isAuthenticated ? (
-              <ProfileMenu />
-            ) : (
-              <div className="flex items-center p-1  ml-4 group">
-                <Link
-                  to="/sign-in"
-                  className={`text-gray-600 hover:text-gray-900 ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50`}
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/sign-up"
-                  className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-full text-sm font-medium ${hoverTransition} shadow-md`}
-                >
-                  Sign Up
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden text-gray-700 hover:text-gray-900 p-2 rounded-lg hover:bg-gray-100/50 ${hoverTransition}`}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden backdrop-blur-md bg-white/95 border-t border-gray-200 overflow-hidden rounded-b-[30px] ${menuTransition} ${isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
-          }`}
-      >
-        <div className="px-4 py-4 space-y-4">
-          {/* Courses Dropdown */}
-          <div>
-            <button
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className={`flex items-center justify-between w-full text-gray-700 hover:text-gray-900 text-sm font-medium py-2 ${hoverTransition}`}
-            >
-              Courses
-              <ChevronDown
-                size={16}
-                className={`${dropdownTransition}`}
-                style={{
-                  transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0)",
-                }}
-              />
-            </button>
-
-            <div
-              className={`overflow-hidden ${dropdownTransition} ${isDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
-            >
-              <div className="mt-2 space-y-2 pl-4 border-l border-gray-200">
-                {courses.map((course) => (
+                {/* Menu Items */}
+                {menuItems.map((item) => (
                   <Link
-                    key={course.label}
-                    to={course.path}
-                    className={`block py-2 text-gray-700 hover:text-gray-900 ${hoverTransition} text-sm font-medium`}
+                    key={item.label}
+                    to={item.path}
+                    className={`flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${item.label === "XSAT" || item.label === "EVENTS"
+                      ? "text-[#FFBB00] bg-gray-50"
+                      : "text-gray-800 hover:text-black hover:bg-gray-50"
+                      }`}
                     onClick={() => setIsOpen(false)}
                   >
-                    {course.label}
+                    <span>{item.label}</span>
+                    {(item.label === "XSAT" || item.label === "EVENTS") && (
+                      <span className="flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                    )}
                   </Link>
                 ))}
-              </div>
-            </div>
-          </div>
 
-          {/* Menu Items */}
-          {menuItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.path}
-              className={`block text-sm font-medium ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
-                ? "bg-gray-100/50 text-[#FFBB00] font-semibold px-4 py-2 rounded-lg flex items-center gap-2 border border-[#FFBB00]/20"
-                : "text-gray-700 py-2"
-                }`}
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-              {(item.label === "XSAT" ||
-                item.label === "EVENTS") && (
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
-                  </span>
-                )}
-            </Link>
-          ))}
-
-          {/* Mobile CTA Button */}
-          {/* <button
-            className={`w-full bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-6 py-2.5 rounded-xl text-sm font-medium ${hoverTransition} hover:shadow-lg`}
-            onClick={() => {
-              setIsOpen(false);
-              onEnrollClick();
-            }}
-          >
-            Join AcceX Squad
-          </button> */}
-          {isAuthenticated ? (
-            <ProfileMenu />
-          ) : (
-            <div className="flex flex-col space-y-3 pt-2">
-              <div className="flex items-center p-1 bg-gray-100/50 rounded-full border border-gray-200">
-                <Link
-                  to="/sign-in"
-                  onClick={() => setIsOpen(false)}
-                  className={`flex-1 text-center text-gray-600 hover:text-gray-900 ${hoverTransition} py-2 text-xs font-medium rounded-full hover:bg-gray-200/50`}
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/sign-up"
-                  onClick={() => setIsOpen(false)}
-                  className={`flex-1 text-center bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white py-2 rounded-full text-xs font-medium ${hoverTransition} shadow-md`}
-                >
-                  Sign Up
-                </Link>
+                <div className="mt-auto pt-8 border-t border-gray-100">
+                  {isAuthenticated ? (
+                    <ProfileMenu />
+                  ) : (
+                    <div className="flex flex-col space-y-3">
+                      <Link
+                        to="/sign-in"
+                        onClick={() => setIsOpen(false)}
+                        className="w-full text-center py-3 px-6 rounded-xl border border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors"
+                      >
+                        Login
+                      </Link>
+                      <Link
+                        to="/sign-up"
+                        onClick={() => setIsOpen(false)}
+                        className="w-full text-center py-3 px-6 rounded-xl bg-[#1a71f6] text-white font-semibold shadow-lg shadow-blue-500/20 hover:bg-blue-600 transition-all active:scale-[0.98]"
+                      >
+                        Sign Up
+                      </Link>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

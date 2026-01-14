@@ -416,16 +416,16 @@ export default function ProductProgramEIE() {
                             {tools.slice(0, 9).map((tool, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                                    className="bg-white border flex flex-col justify-center items-center border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
                                 >
                                     <div className="bg-gray-50 rounded-lg p-3 inline-block mb-4">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                                     </div>
-                                    <div className="mb-2">
+                                    {/* <div className="mb-2">
                                         <span className="text-[10px] font-bold uppercase tracking-wider bg-gray-100 text-gray-600 px-2 py-1 rounded">
                                             TOOL
                                         </span>
-                                    </div>
+                                    </div> */}
                                     <h4 className="font-bold text-gray-900 mb-1">{tool.name}</h4>
                                     <p className="text-xs text-gray-500">{tool.description.substring(0, 50)}...</p>
                                 </div>

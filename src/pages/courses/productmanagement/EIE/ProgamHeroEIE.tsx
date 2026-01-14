@@ -31,7 +31,7 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
   }, [end]);
 
   return (
-    <span className="text-3xl font-bold text-white">
+    <span className="text-xl md:text-3xl font-bold text-white">
       {count}
       {suffix}
     </span>
@@ -115,10 +115,10 @@ export default function ProgramHeroEIE() {
               Master AI product management with India’s top AI Product Management Program. Dive into AI Product Management, leverage product management tools, gain real-world experience, Build Your Own Product and take your product management career to the next level.
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-end lg:justify-start">
+            <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-8 py-3.5 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
+                className="px-8 py-3.5 bg-[#3B82F6]  hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
               >
                 Apply Now
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -139,17 +139,17 @@ export default function ProgramHeroEIE() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-24 flex flex-wrap gap-6"
+          className="mt-24 flex flex-row gap-4 md:gap-6"
         >
           {/* Stat 1 */}
-          <div className="border border-white/20 rounded-2xl p-6 bg-white/5 backdrop-blur-sm min-w-[240px] hover:bg-white/10 transition-colors">
-            <div className="mb-2"><Counter end={18} suffix=" LPA" /></div>
-            <div className="text-gray-300 font-medium">Average Salary Package</div>
+          <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+            <div className="mb-1 md:mb-2"><Counter end={18} suffix=" LPA" /></div>
+            <div className="text-gray-300 text-xs md:text-base font-medium">Average Salary Package</div>
           </div>
           {/* Stat 2 */}
-          <div className="border border-white/20 rounded-2xl p-6 bg-white/5 backdrop-blur-sm min-w-[240px] hover:bg-white/10 transition-colors">
-            <div className="mb-2"><Counter end={25000} suffix=" +" /></div>
-            <div className="text-gray-300 font-medium">Job Openings</div>
+          <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+            <div className="mb-1 md:mb-2"><Counter end={25000} suffix=" +" /></div>
+            <div className="text-gray-300 text-xs md:text-base font-medium">Job Openings</div>
           </div>
         </motion.div>
 

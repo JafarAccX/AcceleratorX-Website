@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen w-full  overflow-hidden bg-black text-white selection:bg-blue-500/30">
+    <div className="relative min-h-screen w-full px-4 overflow-hidden bg-black text-white selection:bg-blue-500/30">
       {/* Background Image with Person */}
       <div
         className="absolute inset-0 z-0"
@@ -110,7 +110,7 @@ export default function Hero() {
                 <img
                   src="/redesign/main-hero/play-store.png"
                   alt="Get it on Google Play"
-                  className="h-10 md:h-[46px] w-auto"
+                  className="h-14  md:h-[46px] w-auto"
                 />
               </a>
             </div>

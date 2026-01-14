@@ -31,7 +31,7 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
     }, [end]);
 
     return (
-        <span className="text-3xl font-bold text-white">
+        <span className="text-xl md:text-3xl font-bold text-white">
             {count}
             {suffix}
         </span>
@@ -137,17 +137,17 @@ export default function AIDMHeroEIE() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-24 flex flex-wrap gap-6"
+                    className="mt-24 flex flex-row gap-4 md:gap-6"
                 >
                     {/* Stat 1 */}
-                    <div className="border border-white/20 rounded-2xl p-6 bg-white/5 backdrop-blur-sm min-w-[240px] hover:bg-white/10 transition-colors">
-                        <div className="mb-2"><Counter end={12} suffix=" LPA" /></div>
-                        <div className="text-gray-300 font-medium">Average Salary Package</div>
+                    <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+                        <div className="mb-1 md:mb-2"><Counter end={12} suffix=" LPA" /></div>
+                        <div className="text-gray-300 text-xs md:text-base font-medium">Average Salary Package</div>
                     </div>
                     {/* Stat 2 */}
-                    <div className="border border-white/20 rounded-2xl p-6 bg-white/5 backdrop-blur-sm min-w-[240px] hover:bg-white/10 transition-colors">
-                        <div className="mb-2"><Counter end={45000} suffix=" +" /></div>
-                        <div className="text-gray-300 font-medium">Job Openings</div>
+                    <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+                        <div className="mb-1 md:mb-2"><Counter end={45000} suffix=" +" /></div>
+                        <div className="text-gray-300 text-xs md:text-base font-medium">Job Openings</div>
                     </div>
                 </motion.div>
 

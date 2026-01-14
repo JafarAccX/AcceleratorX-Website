@@ -31,7 +31,7 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
   }, [end]);
 
   return (
-    <span className="text-3xl font-bold text-white">
+    <span className="text-xl md:text-3xl font-bold text-white">
       {count}
       {suffix}
     </span>
@@ -118,7 +118,7 @@ export default function DataHeroEIE() {
               Accelerate your career with AI-driven data analytics. Obtain experiential learning in AI analytics, data storytelling, visualization, and an analytical tool designed for professionals. Build an AI-powered dashboard and a data analyst portfolio that helps you get hired.
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-end lg:justify-start">
+            <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-8 py-3.5 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
@@ -142,17 +142,17 @@ export default function DataHeroEIE() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-24 flex flex-wrap gap-6"
+          className="mt-24 flex flex-row gap-4 md:gap-6"
         >
           {/* Stat 1 */}
-          <div className="border border-white/20 rounded-2xl p-6 bg-white/5 backdrop-blur-sm min-w-[240px] hover:bg-white/10 transition-colors">
-            <div className="mb-2"><Counter end={16} suffix=" LPA" /></div>
-            <div className="text-gray-300 font-medium">Average Salary Package</div>
+          <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+            <div className="mb-1 md:mb-2"><Counter end={16} suffix=" LPA" /></div>
+            <div className="text-gray-300 text-xs md:text-base font-medium">Average Salary Package</div>
           </div>
           {/* Stat 2 */}
-          <div className="border border-white/20 rounded-2xl p-6 bg-white/5 backdrop-blur-sm min-w-[240px] hover:bg-white/10 transition-colors">
-            <div className="mb-2"><Counter end={40000} suffix=" +" /></div>
-            <div className="text-gray-300 font-medium">Job Openings</div>
+          <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+            <div className="mb-1 md:mb-2"><Counter end={40000} suffix=" +" /></div>
+            <div className="text-gray-300 text-xs md:text-base font-medium">Job Openings</div>
           </div>
         </motion.div>
 
