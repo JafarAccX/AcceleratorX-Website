@@ -6,6 +6,7 @@ import { ThankYouPageWrapper } from "./utils/routeUtils";
 import BlogDetail from "../pages/blogs/BlogDetail";
 // // Lazy-load heavy pages that were previously imported eagerly
 const WorkshopPaymentSuccess = lazy(() => import("../pages/workshop-payment/Success"));
+const CoursePaymentSuccess = lazy(() => import("../pages/course-payment/Success"));
 const XSATEntry = lazy(() => import("../pages/courses/EntryPoint/XSATEntry"));
 const EventManagementPage = lazy(() => import("../pages/events/event"));
 const RegistrationSuccess = lazy(() => import("../pages/events/registration-successful"));
@@ -86,6 +87,9 @@ export const mainRoutes = [
 
   // Workshop Payment Success
   <Route key="workshop-payment-success" path="/workshop-payment/success/:orderId" element={<WorkshopPaymentSuccess />} />,
+
+  // Course Payment Success
+  <Route key="course-payment-success" path="/course-payment/success/:orderId" element={<CoursePaymentSuccess />} />,
 
   // Mentor Page
   <Route key="mentor" path="/mentor/:id" element={<MentorPage />} />,

@@ -3,7 +3,28 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight, Check } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
 import { weeklyData, tools, mentors } from "../../../../utils/constants";
+import { COURSE_PRICES, COURSE_IDS } from "../../../../utils/constants_price";
+import { useUser } from "../../../../context/UserContext";
+import { api } from "../../../../api";
+
+// Razorpay type declaration
+declare global {
+    interface Window {
+        Razorpay: any;
+    }
+}
+
+interface Batch {
+    Id: string;
+    Batch: string;
+    Course: string;
+    StartDate: string;
+    EndDate: string | null;
+    IsFree: boolean;
+}
 
 // --- Data & Constants ---
 
@@ -80,11 +101,178 @@ const AccordionItem = ({ week }: { week: any }) => {
 };
 
 export default function ProductProgramEIE() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { user, isAuthenticated, isLoading: isAuthLoading } = useUser();
+
     const [activeSection, setActiveSection] = useState("why-this-program");
     const [isFixed, setIsFixed] = useState(false);
     const [sidebarWidth, setSidebarWidth] = useState(0);
     const sidebarRef = useRef<HTMLElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Payment states
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [batches, setBatches] = useState<Batch[]>([]);
+    const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
+    const [paymentCancelled, setPaymentCancelled] = useState(false);
+    const [showCancellationModal, setShowCancellationModal] = useState(false);
+
+    const coursePrice = COURSE_PRICES.PM_PROGRAM;
+    const courseId = COURSE_IDS.PM_PROGRAM;
+    const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
+    // Fetch active batches for this course
+    useEffect(() => {
+        const fetchBatches = async () => {
+            try {
+                const baseUrl = apiUrl?.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+                const response = await fetch(`${baseUrl}/course-checkout/batches/${courseId}`);
+                const result = await response.json();
+
+                if (result.success && result.data) {
+                    // Handle new response format: data.batches
+                    const batchList = result.data.batches || result.data;
+                    if (Array.isArray(batchList) && batchList.length > 0) {
+                        setBatches(batchList);
+                        // Auto-select first batch if available
+                        setSelectedBatchId(batchList[0].Id);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching batches:', error);
+            }
+        };
+        fetchBatches();
+    }, [courseId, apiUrl]);
+
+    // Initialize Razorpay SDK
+    const initializeRazorpay = (): Promise<boolean> => {
+        return new Promise((resolve) => {
+            if (window.Razorpay) {
+                resolve(true);
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+            script.async = true;
+            script.onload = () => resolve(true);
+            script.onerror = () => resolve(false);
+            document.body.appendChild(script);
+        });
+    };
+
+    // Handle payment cancellation
+    const handlePaymentCancellation = async (enrollmentId: string) => {
+        try {
+            const baseUrl = apiUrl?.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+            await fetch(`${baseUrl}/course-checkout/cancel-payment`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ enrollmentId }),
+            });
+        } catch (error) {
+            console.error('Error handling payment cancellation:', error);
+        } finally {
+            setPaymentCancelled(true);
+            setIsProcessing(false);
+            setShowCancellationModal(true);
+        }
+    };
+
+    // Handle course purchase
+    const handleBuyCourse = async () => {
+        // Check if user is authenticated
+        if (!isAuthenticated) {
+            // Redirect to sign-in with current path as callback
+            navigate('/sign-in', { state: { from: location } });
+            return;
+        }
+
+        if (!selectedBatchId) {
+            toast.error('Please select a batch first');
+            return;
+        }
+
+        setIsProcessing(true);
+
+        try {
+            // Initialize Razorpay
+            const razorpayLoaded = await initializeRazorpay();
+            if (!razorpayLoaded) {
+                throw new Error('Failed to load Razorpay SDK');
+            }
+
+            // Create order
+            const orderResponse = await api.post('/course-checkout/create-order', {
+                courseId,
+                batchId: selectedBatchId,
+                amount: coursePrice.amount,
+            });
+
+            if (!orderResponse.data.success) {
+                throw new Error(orderResponse.data.error || 'Failed to create order');
+            }
+
+            const { orderId, enrollmentId } = orderResponse.data.data;
+
+            // Open Razorpay modal
+            const options = {
+                key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+                amount: coursePrice.amountInPaise,
+                currency: 'INR',
+                name: 'AcceleratorX',
+                description: coursePrice.name,
+                order_id: orderId,
+                handler: async function (response: any) {
+                    try {
+                        // Verify payment
+                        const verificationResponse = await api.post('/course-checkout/verify-payment', {
+                            razorpay_payment_id: response.razorpay_payment_id,
+                            razorpay_order_id: response.razorpay_order_id,
+                            razorpay_signature: response.razorpay_signature,
+                            enrollmentId,
+                        });
+
+                        if (verificationResponse.data.success) {
+                            toast.success('Payment successful! Welcome to the program.');
+                            navigate(`/course-payment/success/${response.razorpay_order_id}`);
+                        } else {
+                            throw new Error('Payment verification failed');
+                        }
+                    } catch (error: any) {
+                        console.error('Payment verification error:', error);
+                        toast.error(error.message || 'Payment verification failed');
+                    }
+                },
+                modal: {
+                    ondismiss: function () {
+                        handlePaymentCancellation(enrollmentId);
+                    },
+                },
+                prefill: {
+                    name: user ? `${user.FirstName} ${user.LastName}` : '',
+                    email: user?.Email || '',
+                    contact: user?.Mobile || '',
+                },
+                theme: {
+                    color: '#2563EB',
+                },
+            };
+
+            const paymentObject = new window.Razorpay(options);
+            paymentObject.on('payment.failed', function (response: any) {
+                console.error('Payment failed:', response.error);
+                toast.error(`Payment failed: ${response.error.description}`);
+                setIsProcessing(false);
+            });
+            paymentObject.open();
+        } catch (error: any) {
+            console.error('Course purchase error:', error);
+            toast.error(error.message || 'Failed to process payment. Please try again.');
+            setIsProcessing(false);
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -344,9 +532,29 @@ export default function ProductProgramEIE() {
                                 <p className="text-xs text-gray-500 mb-6">4-month intensive PM program</p>
 
                                 <div className="mb-2">
-                                    <span className="text-3xl font-bold text-blue-600">₹ 42,499</span>
+                                    <span className="text-3xl font-bold text-blue-600">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
                                     <span className="text-gray-400 text-xs ml-1">+ GST</span>
                                 </div>
+
+                                {/* Batch Selection */}
+                                {batches.length > 0 && (
+                                    <div className="mb-4">
+                                        <label className="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Select Batch
+                                        </label>
+                                        <select
+                                            value={selectedBatchId || ''}
+                                            onChange={(e) => setSelectedBatchId(e.target.value)}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500"
+                                        >
+                                            {batches.map((batch) => (
+                                                <option key={batch.Id} value={batch.Id}>
+                                                    {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                )}
 
                                 <ul className="text-left space-y-3 my-8 text-sm text-gray-600">
                                     {[
@@ -363,12 +571,85 @@ export default function ProductProgramEIE() {
                                     ))}
                                 </ul>
 
-                                <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                    Apply for Admission <ArrowRight size={16} />
+                                {paymentCancelled && (
+                                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 text-left">
+                                        <p className="text-yellow-800 text-xs">
+                                            Your previous payment was cancelled. Click below to try again.
+                                        </p>
+                                    </div>
+                                )}
+
+                                <button
+                                    onClick={handleBuyCourse}
+                                    disabled={isProcessing || isAuthLoading}
+                                    className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {isProcessing ? (
+                                        <>
+                                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                            <span>Processing...</span>
+                                        </>
+                                    ) : isAuthenticated ? (
+                                        paymentCancelled ? 'Retry Payment' : 'Enroll Now'
+                                    ) : (
+                                        <>
+                                            Sign in to Enroll <ArrowRight size={16} />
+                                        </>
+                                    )}
                                 </button>
+
+                                {!isAuthenticated && (
+                                    <p className="text-xs text-gray-500 mt-3">
+                                        Already have an account? You'll be redirected to sign in first.
+                                    </p>
+                                )}
                             </div>
                         </div>
                     </section>
+
+                    {/* Payment Cancellation Modal */}
+                    {showCancellationModal && (
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50">
+                            <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4 relative">
+                                <button
+                                    onClick={() => setShowCancellationModal(false)}
+                                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                                >
+                                    ✕
+                                </button>
+                                <div className="text-center">
+                                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <svg className="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Payment Cancelled</h3>
+                                    <p className="text-gray-600 mb-6">Your payment was cancelled. Would you like to try again?</p>
+                                    <div className="flex gap-4">
+                                        <button
+                                            onClick={() => {
+                                                setShowCancellationModal(false);
+                                                setPaymentCancelled(false);
+                                                handleBuyCourse();
+                                            }}
+                                            className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        >
+                                            Retry Payment
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setShowCancellationModal(false);
+                                                setPaymentCancelled(false);
+                                            }}
+                                            className="flex-1 bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </main>
             </div>
         </div>

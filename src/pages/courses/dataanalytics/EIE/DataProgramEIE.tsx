@@ -1,9 +1,29 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Loader2 } from "lucide-react";
+import toast from 'react-hot-toast';
+import { useUser } from '../../../../context/UserContext';
+import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
+import { api } from '../../../../api';
 import { dataAnalyticsmodules, dataAnalyticsTools } from "../../../../utils/constants";
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
+interface Batch {
+  Id: string;
+  Batch: string;
+  Course: string;
+  StartDate: string;
+  EndDate: string | null;
+  IsFree: boolean;
+}
 
 // --- Data & Constants ---
 
@@ -88,11 +108,93 @@ const AccordionItem = ({ module, index }: { module: any; index: number }) => {
 };
 
 export default function DataProgramEIE() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { user, isAuthenticated } = useUser();
+
   const [activeSection, setActiveSection] = useState("why-this-program");
   const [isFixed, setIsFixed] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(0);
   const sidebarRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Payment states
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [batches, setBatches] = useState<Batch[]>([]);
+  const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
+  const [showCancellationModal, setShowCancellationModal] = useState(false);
+
+  const coursePrice = COURSE_PRICES.DATA_ANALYTICS;
+  const courseId = COURSE_IDS.DATA_ANALYTICS;
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
+  useEffect(() => {
+    const fetchBatches = async () => {
+      try {
+        const baseUrl = apiUrl?.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+        const response = await fetch(`${baseUrl}/course-checkout/batches/${courseId}`);
+        const result = await response.json();
+        if (result.success && result.data) {
+          const batchList = result.data.batches || result.data;
+          if (Array.isArray(batchList) && batchList.length > 0) {
+            setBatches(batchList);
+            setSelectedBatchId(batchList[0].Id);
+          }
+        }
+      } catch (error) { console.error('Error fetching batches:', error); }
+    };
+    fetchBatches();
+  }, [courseId, apiUrl]);
+
+  const initializeRazorpay = (): Promise<boolean> => {
+    return new Promise((resolve) => {
+      if (window.Razorpay) { resolve(true); return; }
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const handlePaymentCancellation = async (enrollmentId: string) => {
+    try {
+      const baseUrl = apiUrl?.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+      await fetch(`${baseUrl}/course-checkout/cancel-payment`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ enrollmentId }) });
+    } catch (error) { console.error('Error handling payment cancellation:', error); }
+    finally { setIsProcessing(false); setShowCancellationModal(true); }
+  };
+
+  const handleBuyCourse = async () => {
+    if (!isAuthenticated) { navigate('/sign-in', { state: { from: location } }); return; }
+    if (!selectedBatchId) { toast.error('Please select a batch first'); return; }
+    setIsProcessing(true);
+    try {
+      const razorpayLoaded = await initializeRazorpay();
+      if (!razorpayLoaded) throw new Error('Failed to load Razorpay SDK');
+      const orderResponse = await api.post('/course-checkout/create-order', { courseId, batchId: selectedBatchId, amount: coursePrice.amount });
+      if (!orderResponse.data.success) throw new Error(orderResponse.data.message || 'Failed to create order');
+      const { orderId, enrollmentId } = orderResponse.data.data;
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, amount: orderResponse.data.data.amount, currency: orderResponse.data.data.currency || 'INR',
+        name: 'AcceleratorX', description: coursePrice.name, order_id: orderId,
+        handler: async (response: any) => {
+          try {
+            const verifyResponse = await api.post('/course-checkout/verify-payment', { razorpay_payment_id: response.razorpay_payment_id, razorpay_order_id: response.razorpay_order_id, razorpay_signature: response.razorpay_signature, enrollmentId });
+            if (verifyResponse.data.success) { toast.success('Payment successful! Welcome to the program.'); navigate(`/course-payment/success/${orderId}`); }
+            else throw new Error('Payment verification failed');
+          } catch (error: any) { toast.error('Payment verification failed. Please contact support.'); }
+          finally { setIsProcessing(false); }
+        },
+        prefill: { name: user?.FirstName ? `${user.FirstName} ${user.LastName || ''}` : '', email: user?.Email || '', contact: '' },
+        theme: { color: '#2563EB' },
+        modal: { ondismiss: () => handlePaymentCancellation(enrollmentId) },
+      };
+      const razorpay = new window.Razorpay(options);
+      razorpay.on('payment.failed', () => handlePaymentCancellation(enrollmentId));
+      razorpay.open();
+    } catch (error: any) { toast.error(error.message || 'Failed to process payment. Please try again.'); setIsProcessing(false); }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -299,25 +401,18 @@ export default function DataProgramEIE() {
           {/* Section 5: Certificate */}
           <section id="certificate" className="scroll-mt-24">
             <h3 className="text-2xl font-serif font-bold mb-8">The Certificate Recognized By The Industry</h3>
-            <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-2xl p-8 border border-gray-100">
+            <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-2xl p-4 border border-gray-100">
               <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
-                <div className="bg-[#111] text-white aspect-[4/3] flex flex-col justify-center items-center p-6 relative">
-                  <div className="absolute top-4 left-4 text-blue-500 font-bold tracking-widest text-xs">
-                    AcceleratorX
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-serif mb-2">Certificate</div>
-                    <div className="text-xs uppercase tracking-widest text-gray-400 mb-6">of Graduation</div>
-                    <div className="text-xl font-bold mb-2">Vipul Sharma</div>
-                    <div className="text-[10px] text-gray-400 max-w-[200px] mx-auto">
-                      Has successfully completed the AI Data Analytics Program
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1759121116707_thumbnail_DA.webp?alt=media&token=580278fb-675a-468f-a2b9-1e01ecf97f7f"
+                  alt="AI Data Analytics Certificate"
+                  className="w-full h-auto border-4 border-white shadow-xl"
+                  onError={(e) => { e.currentTarget.src = "/assets/programcertificates/Gen_AI_Cert.webp" }}
+                />
               </div>
               <div className="w-full md:w-1/2">
                 <h4 className="text-xl font-serif font-bold text-gray-900 mb-4">
-                  Get Your Nano-Degree in AI Data Analytics
+                  Get Your Degree in AI Data Analytics
                 </h4>
                 <p className="text-gray-600 text-sm mb-6">
                   Show the world your expertise in AI Marketing and stand out in a competitive AI Marketing jobs and get
@@ -376,31 +471,52 @@ export default function DataProgramEIE() {
                 <p className="text-xs text-gray-500 mb-6">Comprehensive AI learning program</p>
 
                 <div className="mb-2">
-                  <span className="text-3xl font-bold text-blue-600">₹ 42,499</span>
+                  <span className="text-3xl font-bold text-blue-600">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
                   <span className="text-gray-400 text-xs ml-1">+ GST</span>
                 </div>
 
+                {batches.length > 0 && (
+                  <div className="mb-4">
+                    <label className="block text-left text-sm font-medium text-gray-700 mb-2">Select Batch</label>
+                    <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500">
+                      {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
+                    </select>
+                  </div>
+                )}
+
                 <ul className="text-left space-y-3 my-8 text-sm text-gray-600">
-                  {[
-                    "6 month intensive live instructor-led training",
-                    "Hands-on projects tackling real-world challenges",
-                    "Industry-recognized certification",
-                    "Lifetime access to all program materials",
-                    "Career mentorship and guidance",
-                  ].map((feat, i) => (
-                    <li key={i} className="flex gap-2">
-                      <Check size={16} className="text-blue-500 flex-shrink-0" />
-                      <span>{feat}</span>
-                    </li>
+                  {["6 month intensive live instructor-led training", "Hands-on projects tackling real-world challenges", "Industry-recognized certification", "Lifetime access to all program materials", "Career mentorship and guidance"].map((feat, i) => (
+                    <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 flex-shrink-0" /><span>{feat}</span></li>
                   ))}
                 </ul>
 
-                <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                  Apply Now <ArrowRight size={16} />
-                </button>
+                {isAuthenticated ? (
+                  <button onClick={handleBuyCourse} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                    {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
+                  </button>
+                ) : (
+                  <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                    Sign in to Enroll <ArrowRight size={16} />
+                  </button>
+                )}
               </div>
             </div>
           </section>
+
+          <AnimatePresence>
+            {showCancellationModal && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setShowCancellationModal(false)}>
+                <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center" onClick={(e) => e.stopPropagation()}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Payment Cancelled</h3>
+                  <p className="text-gray-600 mb-6">Your payment was not completed. Would you like to try again?</p>
+                  <div className="flex gap-4">
+                    <button onClick={() => setShowCancellationModal(false)} className="flex-1 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Cancel</button>
+                    <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(); }} className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Try Again</button>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </main>
       </div>
     </div>

@@ -1,9 +1,29 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Loader2 } from "lucide-react";
+import toast from 'react-hot-toast';
+import { useUser } from '../../../context/UserContext';
+import { COURSE_IDS, COURSE_PRICES } from '../../../utils/constants_price';
+import { api } from '../../../api';
 import { mentors } from "../../../utils/constants";
+
+declare global {
+    interface Window {
+        Razorpay: any;
+    }
+}
+
+interface Batch {
+    Id: string;
+    Batch: string;
+    Course: string;
+    StartDate: string;
+    EndDate: string | null;
+    IsFree: boolean;
+}
 
 // --- Data & Constants ---
 
@@ -133,11 +153,133 @@ const AccordionItem = ({ item }: { item: any }) => {
 };
 
 export default function GENProgramEIE() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { user, isAuthenticated } = useUser();
+
     const [activeSection, setActiveSection] = useState("why-this-program");
     const [isFixed, setIsFixed] = useState(false);
     const [sidebarWidth, setSidebarWidth] = useState(0);
     const sidebarRef = useRef<HTMLElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Payment states
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [batches, setBatches] = useState<Batch[]>([]);
+    const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
+    const [showCancellationModal, setShowCancellationModal] = useState(false);
+
+    const coursePrice = COURSE_PRICES.GENERATIVE_AI;
+    const courseId = COURSE_IDS.GENERATIVE_AI;
+    const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
+    // Fetch active batches
+    useEffect(() => {
+        const fetchBatches = async () => {
+            try {
+                const baseUrl = apiUrl?.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+                const response = await fetch(`${baseUrl}/course-checkout/batches/${courseId}`);
+                const result = await response.json();
+                if (result.success && result.data) {
+                    const batchList = result.data.batches || result.data;
+                    if (Array.isArray(batchList) && batchList.length > 0) {
+                        setBatches(batchList);
+                        setSelectedBatchId(batchList[0].Id);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching batches:', error);
+            }
+        };
+        fetchBatches();
+    }, [courseId, apiUrl]);
+
+    const initializeRazorpay = (): Promise<boolean> => {
+        return new Promise((resolve) => {
+            if (window.Razorpay) { resolve(true); return; }
+            const script = document.createElement('script');
+            script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+            script.onload = () => resolve(true);
+            script.onerror = () => resolve(false);
+            document.body.appendChild(script);
+        });
+    };
+
+    const handlePaymentCancellation = async (enrollmentId: string) => {
+        try {
+            const baseUrl = apiUrl?.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+            await fetch(`${baseUrl}/course-checkout/cancel-payment`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ enrollmentId }),
+            });
+        } catch (error) {
+            console.error('Error handling payment cancellation:', error);
+        } finally {
+            setIsProcessing(false);
+            setShowCancellationModal(true);
+        }
+    };
+
+    const handleBuyCourse = async () => {
+        if (!isAuthenticated) {
+            navigate('/sign-in', { state: { from: location } });
+            return;
+        }
+        if (!selectedBatchId) {
+            toast.error('Please select a batch first');
+            return;
+        }
+        setIsProcessing(true);
+        try {
+            const razorpayLoaded = await initializeRazorpay();
+            if (!razorpayLoaded) throw new Error('Failed to load Razorpay SDK');
+
+            const orderResponse = await api.post('/course-checkout/create-order', {
+                courseId, batchId: selectedBatchId, amount: coursePrice.amount,
+            });
+            if (!orderResponse.data.success) throw new Error(orderResponse.data.message || 'Failed to create order');
+
+            const { orderId, enrollmentId } = orderResponse.data.data;
+            const options = {
+                key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+                amount: orderResponse.data.data.amount,
+                currency: orderResponse.data.data.currency || 'INR',
+                name: 'AcceleratorX',
+                description: coursePrice.name,
+                order_id: orderId,
+                handler: async (response: any) => {
+                    try {
+                        const verifyResponse = await api.post('/course-checkout/verify-payment', {
+                            razorpay_payment_id: response.razorpay_payment_id,
+                            razorpay_order_id: response.razorpay_order_id,
+                            razorpay_signature: response.razorpay_signature,
+                            enrollmentId,
+                        });
+                        if (verifyResponse.data.success) {
+                            toast.success('Payment successful! Welcome to the program.');
+                            navigate(`/course-payment/success/${orderId}`);
+                        } else throw new Error('Payment verification failed');
+                    } catch (error: any) {
+                        toast.error('Payment verification failed. Please contact support.');
+                    } finally { setIsProcessing(false); }
+                },
+                prefill: {
+                    name: user?.FirstName ? `${user.FirstName} ${user.LastName || ''}` : '',
+                    email: user?.Email || '',
+                    contact: '',
+                },
+                theme: { color: '#2563EB' },
+                modal: { ondismiss: () => handlePaymentCancellation(enrollmentId) },
+            };
+            const razorpay = new window.Razorpay(options);
+            razorpay.on('payment.failed', () => handlePaymentCancellation(enrollmentId));
+            razorpay.open();
+        } catch (error: any) {
+            toast.error(error.message || 'Failed to process payment. Please try again.');
+            setIsProcessing(false);
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -397,31 +539,60 @@ export default function GENProgramEIE() {
                                 <p className="text-xs text-gray-500 mb-6">14-week intensive training</p>
 
                                 <div className="mb-2">
-                                    <span className="text-3xl font-bold text-blue-600">₹ 34,999</span>
+                                    <span className="text-3xl font-bold text-blue-600">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
                                     <span className="text-gray-400 text-xs ml-1">+ GST</span>
                                 </div>
 
+                                {batches.length > 0 && (
+                                    <div className="mb-4">
+                                        <label className="block text-left text-sm font-medium text-gray-700 mb-2">Select Batch</label>
+                                        <select
+                                            value={selectedBatchId || ''}
+                                            onChange={(e) => setSelectedBatchId(e.target.value)}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500"
+                                        >
+                                            {batches.map((batch) => (
+                                                <option key={batch.Id} value={batch.Id}>
+                                                    {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                )}
+
                                 <ul className="text-left space-y-3 my-8 text-sm text-gray-600">
-                                    {[
-                                        "14 week live instructor-led GenAI training",
-                                        "Build Your Own AI Agent project",
-                                        "Advanced n8n & CrewAI tutorials",
-                                        "Lifetime access to content and labs",
-                                        "Job readiness & portfolio building",
-                                    ].map((feat, i) => (
-                                        <li key={i} className="flex gap-2">
-                                            <Check size={16} className="text-blue-500 flex-shrink-0" />
-                                            <span>{feat}</span>
-                                        </li>
+                                    {["14 week live instructor-led GenAI training", "Build Your Own AI Agent project", "Advanced n8n & CrewAI tutorials", "Lifetime access to content and labs", "Job readiness & portfolio building"].map((feat, i) => (
+                                        <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 flex-shrink-0" /><span>{feat}</span></li>
                                     ))}
                                 </ul>
 
-                                <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                    Apply for Admission <ArrowRight size={16} />
-                                </button>
+                                {isAuthenticated ? (
+                                    <button onClick={handleBuyCourse} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
+                                    </button>
+                                ) : (
+                                    <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        Sign in to Enroll <ArrowRight size={16} />
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </section>
+
+                    <AnimatePresence>
+                        {showCancellationModal && (
+                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setShowCancellationModal(false)}>
+                                <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center" onClick={(e) => e.stopPropagation()}>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Payment Cancelled</h3>
+                                    <p className="text-gray-600 mb-6">Your payment was not completed. Would you like to try again?</p>
+                                    <div className="flex gap-4">
+                                        <button onClick={() => setShowCancellationModal(false)} className="flex-1 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Cancel</button>
+                                        <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(); }} className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Try Again</button>
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </main>
             </div>
         </div>
