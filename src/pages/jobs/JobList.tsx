@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { Search, Briefcase, MapPin, Clock, DollarSign, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
+import { Search, Briefcase, MapPin, X, ChevronLeft, ChevronRight } from "lucide-react";
 import JobCard from "./JobCard";
 
 import { useGetAllJobs } from "../../hooks/jobs";
@@ -59,8 +59,6 @@ const JobList = () => {
   const [selectedJobType, setSelectedJobType] = useState<string>("");
   const [selectedLocation, setSelectedLocation] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [selectedExperience, setSelectedExperience] = useState<string>("");
-  const [selectedSalaryRange, setSelectedSalaryRange] = useState<string>("");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
   const filters = useMemo(() => ({
@@ -69,10 +67,8 @@ const JobList = () => {
     jobType: selectedJobType,
     location: selectedLocation,
     category: selectedCategory,
-    experience: selectedExperience,
-    salaryRange: selectedSalaryRange,
     skills: selectedSkills.length > 0 ? selectedSkills.join(',') : undefined
-  }), [debouncedSearchTerm, selectedCompany, selectedJobType, selectedLocation, selectedCategory, selectedExperience, selectedSalaryRange, selectedSkills]);
+  }), [debouncedSearchTerm, selectedCompany, selectedJobType, selectedLocation, selectedCategory, selectedSkills]);
 
   const { data: jobsResponse, isLoading } = useGetAllJobs(currentPage, jobsPerPage, filters);
 
@@ -81,9 +77,7 @@ const JobList = () => {
   const paginationInfo = jobsResponse?.pagination;
 
   const uniqueCompanies = Array.from(new Set(jobs?.map((job) => job.CompanyName) || []));
-  const uniqueJobTypes = Array.from(new Set(jobs?.map((job) => job.JobType) || []));
   const uniqueLocations = Array.from(new Set(jobs?.map((job) => job.Location).filter(Boolean) || []));
-  const uniqueCategories = Array.from(new Set(jobs?.map((job) => job.Category).filter(Boolean) || []));
 
   // Get all unique skills from all jobs (RequiredSkills is a VARCHAR, likely comma-separated)
   const allSkills = jobs
@@ -94,19 +88,18 @@ const JobList = () => {
     ))
     : [];
 
-  // Experience ranges
-  const experienceRanges = useMemo(() => ["0-1", "1-3", "3-5", "5-10", "10+"], []);
+  // Category list
+  const categoryList = [
+    "Data Analytics",
+    "Product Management Intern",
+    "Generative AI",
+    "Product Intern",
+    "DA Intern",
+    "Product Manager",
+  ];
 
-  // Salary ranges
-  const salaryRanges = React.useMemo(
-    () => [
-      { label: "0-50K", min: 0, max: 50000 },
-      { label: "50K-100K", min: 50000, max: 100000 },
-      { label: "100K-150K", min: 100000, max: 150000 },
-      { label: "150K+", min: 150000, max: Infinity },
-    ],
-    [],
-  );
+  // Common Job Types
+  const jobTypes = ["Full-time", "Internship", "Part-time", "Contract", "Remote"];
 
   // Jobs are already filtered by backend
   const filteredJobs = useMemo(() => jobs, [jobs]);
@@ -123,8 +116,6 @@ const JobList = () => {
     selectedJobType,
     selectedLocation,
     selectedCategory,
-    selectedExperience,
-    selectedSalaryRange,
     selectedSkills,
   ]);
 
@@ -134,8 +125,6 @@ const JobList = () => {
     setSelectedJobType("");
     setSelectedLocation("");
     setSelectedCategory("");
-    setSelectedExperience("");
-    setSelectedSalaryRange("");
     setSelectedSkills([]);
   };
 
@@ -155,8 +144,6 @@ const JobList = () => {
     if (selectedJobType) count++;
     if (selectedLocation) count++;
     if (selectedCategory) count++;
-    if (selectedExperience) count++;
-    if (selectedSalaryRange) count++;
     count += selectedSkills.length;
     return count;
   };
@@ -248,73 +235,7 @@ const JobList = () => {
               <div className="bg-white rounded-2xl p-6 border border-gray-200 sticky top-24">
                 <h2 className="text-lg font-semibold text-gray-900 mb-6">Filters</h2>
 
-                {/* Type of Employment */}
-                <div className="mb-6">
-                  <button
-                    className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3"
-                    onClick={() => {/* Toggle logic */ }}
-                  >
-                    <span>Type of Employment</span>
-                    <span className="text-gray-400">^</span>
-                  </button>
-                  <div className="space-y-2">
-                    {uniqueJobTypes.map((type) => (
-                      <label key={type} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={selectedJobType === type}
-                          onChange={(e) => setSelectedJobType(e.target.checked ? type : '')}
-                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                        />
-                        <span className="text-sm text-gray-700 capitalize">
-                          {type.replace('fulltime', 'Full-time').replace('parttime', 'Part-time').replace('internship', 'Internship').replace('contract', 'Contract')}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Seniority Level */}
-                <div className="mb-6">
-                  <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3">
-                    <span>Seniority Level</span>
-                    <span className="text-gray-400">^</span>
-                  </button>
-                  <div className="space-y-2">
-                    {experienceRanges.map((range) => (
-                      <label key={range} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={selectedExperience === range}
-                          onChange={(e) => setSelectedExperience(e.target.checked ? range : '')}
-                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                        />
-                        <span className="text-sm text-gray-700">{range} years</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Salary Range */}
-                <div className="mb-6">
-                  <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3">
-                    <span>Salary Range</span>
-                    <span className="text-gray-400">^</span>
-                  </button>
-                  <div className="space-y-2">
-                    {salaryRanges.map((range) => (
-                      <label key={range.label} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={selectedSalaryRange === range.label}
-                          onChange={(e) => setSelectedSalaryRange(e.target.checked ? range.label : '')}
-                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                        />
-                        <span className="text-sm text-gray-700">{range.label}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
 
                 {/* Category */}
                 <div className="mb-6">
@@ -323,7 +244,7 @@ const JobList = () => {
                     <span className="text-gray-400">^</span>
                   </button>
                   <div className="space-y-2">
-                    {uniqueCategories.map((category) => (
+                    {categoryList.map((category) => (
                       <label key={category} className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="checkbox"
@@ -336,6 +257,8 @@ const JobList = () => {
                     ))}
                   </div>
                 </div>
+
+
 
                 {getActiveFiltersCount() > 0 && (
                   <button
@@ -366,8 +289,10 @@ const JobList = () => {
                   <div className="relative flex-1">
                     <input
                       type="text"
+                      value={selectedLocation}
+                      onChange={(e) => setSelectedLocation(e.target.value)}
                       placeholder="City, state or zip"
-                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                     <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
                   </div>
@@ -379,20 +304,6 @@ const JobList = () => {
 
               {/* Job Cards - Single Column */}
               <div className="space-y-4">
-
-                {/* Jobs per page selector */}
-                <div className="mb-6 flex items-center gap-4">
-                  <span className="text-gray-400 text-sm">Jobs per page:</span>
-                  <select
-                    value={jobsPerPage}
-                    onChange={(e) => handleJobsPerPageChange(Number(e.target.value))}
-                    className="p-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={50}>50</option>
-                  </select>
-                </div>
 
                 {/* Filters Panel */}
                 {showFilters && (
@@ -413,7 +324,7 @@ const JobList = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {/* Company Filter */}
                       <div>
                         <label className="text-gray-300 mb-2 flex items-center gap-2">
@@ -446,7 +357,7 @@ const JobList = () => {
                           className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                           <option value="">All Types</option>
-                          {uniqueJobTypes.map((type) => (
+                          {jobTypes.map((type) => (
                             <option key={type} value={type}>
                               {type}
                             </option>
@@ -469,46 +380,6 @@ const JobList = () => {
                           {uniqueLocations.map((location) => (
                             <option key={location} value={location}>
                               {location}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {/* Experience Filter */}
-                      <div>
-                        <label className="text-gray-300 mb-2 flex items-center gap-2">
-                          <Clock className="h-4 w-4" />
-                          Experience (years)
-                        </label>
-                        <select
-                          value={selectedExperience}
-                          onChange={(e) => setSelectedExperience(e.target.value)}
-                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="">Any Experience</option>
-                          {experienceRanges.map((range) => (
-                            <option key={range} value={range}>
-                              {range} years
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {/* Salary Range Filter */}
-                      <div>
-                        <label className="text-gray-300 mb-2 flex items-center gap-2">
-                          <DollarSign className="h-4 w-4" />
-                          Salary Range
-                        </label>
-                        <select
-                          value={selectedSalaryRange}
-                          onChange={(e) => setSelectedSalaryRange(e.target.value)}
-                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="">Any Salary</option>
-                          {salaryRanges.map((range) => (
-                            <option key={range.label} value={range.label}>
-                              {range.label}
                             </option>
                           ))}
                         </select>
@@ -586,23 +457,7 @@ const JobList = () => {
                       </span>
                     )}
 
-                    {selectedExperience && (
-                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-                        Experience: {selectedExperience} years
-                        <button onClick={() => setSelectedExperience("")}>
-                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
-                        </button>
-                      </span>
-                    )}
 
-                    {selectedSalaryRange && (
-                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-                        Salary: {selectedSalaryRange}
-                        <button onClick={() => setSelectedSalaryRange("")}>
-                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
-                        </button>
-                      </span>
-                    )}
 
                     {selectedSkills.map((skill) => (
                       <span

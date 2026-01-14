@@ -208,19 +208,11 @@ export default function JobDetails() {
         </div>
       )}
 
-      <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
-        <div className="mb-8">
-          <button
-            onClick={() => navigate("/jobs")}
-            className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Back to Jobs
-          </button>
-        </div>
 
-        <div className="rounded-xl border border-gray-700 bg-[#0E1628] p-6 sm:p-8">
+
+        <div className=" p-6 sm:p-8">
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-start justify-between mb-4">
