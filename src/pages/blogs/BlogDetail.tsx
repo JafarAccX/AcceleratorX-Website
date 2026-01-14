@@ -466,7 +466,7 @@ const BlogDetail = () => {
                 {toc.length > 0 && (
                   <div
                     ref={sidebarRef}
-                    className={`${isFixed
+                    className={`hidden lg:block ${isFixed
                       ? 'fixed top-24 z-10'
                       : 'relative'
                       }`}

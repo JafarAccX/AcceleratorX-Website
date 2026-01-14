@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
-import { Search, Briefcase, MapPin, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, Briefcase, MapPin, X, ChevronLeft, ChevronRight, Filter } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import JobCard from "./JobCard";
 
 import { useGetAllJobs } from "../../hooks/jobs";
@@ -191,45 +192,40 @@ const JobList = () => {
 
       {/* Hero Section */}
       <section
-        className="relative min-h-[400px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
+        className="relative min-h-[300px] md:min-h-[400px] bg-cover bg-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden"
         style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
       >
         <div className="absolute inset-0 bg-white/90 backdrop-blur-[2px]"></div>
 
-        <div className="relative container mx-auto px-4 h-full flex flex-col items-center md:flex-row justify-betweenborder: 1px solid #EBEBEB ">
-          <div className="max-w-xl">
+        <div className="relative container mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl text-center md:text-left">
             <h1
-              className="text-gray-900 mb-6"
+              className="text-gray-900 mb-6 text-4xl md:text-5xl lg:text-[68px]"
               style={{
                 fontFamily: 'Cormorant Infant, serif',
                 fontWeight: 600,
-                fontSize: '68px',
-                lineHeight: '100%',
+                lineHeight: '1.1',
                 letterSpacing: '0%'
               }}
             >
               Everything you need,{" "}
               <span className="text-blue-600">in one place.</span>
             </h1>
-
+            <p className="text-sm md:text-lg text-gray-600 font-medium max-w-xl mx-auto md:mx-0">
+              Discover your next career opportunity from top companies hiring across various domains and technologies.
+            </p>
           </div>
-          <p className="text-xs md:text-base text-gray-600 max-w-xl font-medium">
-            Discover your next career opportunity from top companies hiring across various domains and technologies.
-          </p>
-
         </div>
       </section>
 
       <div className="bg-white min-h-screen">
         <div className="container mx-auto px-4 py-8">
           {/* Main Layout with Sidebar */}
-          <div className="flex gap-8">
-            {/* Left Sidebar - Filters */}
-            <aside className="w-64 flex-shrink-0">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Desktop Filters Sidebar */}
+            <aside className="hidden lg:block w-64 flex-shrink-0">
               <div className="bg-white rounded-2xl p-6 border border-gray-200 sticky top-24">
                 <h2 className="text-lg font-semibold text-gray-900 mb-6">Filters</h2>
-
-
 
                 {/* Category */}
                 <div className="mb-6">
@@ -251,8 +247,6 @@ const JobList = () => {
                   </div>
                 </div>
 
-
-
                 {getActiveFiltersCount() > 0 && (
                   <button
                     onClick={clearFilters}
@@ -265,158 +259,176 @@ const JobList = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1">
-              {/* Search Bar */}
-              <div className="mb-6">
-                <div className="flex gap-4">
-                  <div className="relative flex-1">
-                    <input
-                      type="text"
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      placeholder="Job title or keyword"
-                      className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                    <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+            <main className="flex-1 min-w-0">
+              {/* Search Bar & Mobile Filter Trigger */}
+              <div className="mb-6 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
+                  <div className="md:col-span-11 flex flex-col md:flex-row gap-3 md:gap-4">
+                    <div className="relative flex-1">
+                      <input
+                        type="text"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        placeholder="Job title or keyword"
+                        className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm md:text-base"
+                      />
+                      <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
+                    </div>
+                    <div className="relative flex-1">
+                      <input
+                        type="text"
+                        value={selectedLocation}
+                        onChange={(e) => setSelectedLocation(e.target.value)}
+                        placeholder="Location"
+                        className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm md:text-base"
+                      />
+                      <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
+                    </div>
+                    <button className="w-full md:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-semibold transition-all shadow-md active:scale-95">
+                      Find jobs
+                    </button>
                   </div>
-                  <div className="relative flex-1">
-                    <input
-                      type="text"
-                      value={selectedLocation}
-                      onChange={(e) => setSelectedLocation(e.target.value)}
-                      placeholder="City, state or zip"
-                      className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                    <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+
+                  {/* Mobile Filter Button */}
+                  <div className="lg:hidden md:col-span-1">
+                    <button
+                      onClick={() => setShowFilters(true)}
+                      className="w-full p-3 border border-gray-200 rounded-full flex items-center justify-center gap-2 text-gray-700 hover:bg-gray-50 transition-colors"
+                    >
+                      <Filter className="h-5 w-5" />
+                      <span className="md:hidden font-medium">Filters</span>
+                    </button>
                   </div>
-                  <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-medium transition-colors">
-                    Find jobs
-                  </button>
                 </div>
               </div>
 
-              {/* Job Cards - Single Column */}
+              {/* Job Cards */}
               <div className="space-y-4">
 
-                {/* Filters Panel */}
-                {showFilters && (
-                  <div className="mb-8 p-6 bg-slate-800 rounded-xl shadow-lg">
-                    <div className="flex justify-between items-center mb-6">
-                      <h2 className="text-lg font-semibold text-white">Filter Jobs</h2>
-                      <div className="flex gap-3">
-                        <button onClick={clearFilters} className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
-                          <X className="h-4 w-4" />
-                          Clear all filters
-                        </button>
-                        <button
-                          onClick={() => setShowFilters(false)}
-                          className="text-sm bg-slate-700 hover:bg-slate-600 py-1 px-3 rounded text-white"
-                        >
-                          Close
-                        </button>
-                      </div>
-                    </div>
+                {/* Mobile Filters Sheet */}
+                <AnimatePresence>
+                  {showFilters && (
+                    <>
+                      {/* Backdrop */}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setShowFilters(false)}
+                        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[99998] lg:hidden"
+                      />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {/* Company Filter */}
-                      <div>
-                        <label className="text-gray-300 mb-2 flex items-center gap-2">
-                          <Briefcase className="h-4 w-4" />
-                          Company
-                        </label>
-                        <select
-                          value={selectedCompany}
-                          onChange={(e) => setSelectedCompany(e.target.value)}
-                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="">All Companies</option>
-                          {uniqueCompanies.map((company) => (
-                            <option key={company} value={company}>
-                              {company}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {/* Job Type Filter */}
-                      <div>
-                        <label className="text-gray-300 mb-2 flex items-center gap-2">
-                          <Briefcase className="h-4 w-4" />
-                          Job Type
-                        </label>
-                        <select
-                          value={selectedJobType}
-                          onChange={(e) => setSelectedJobType(e.target.value)}
-                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="">All Types</option>
-                          {jobTypes.map((type) => (
-                            <option key={type} value={type}>
-                              {type}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {/* Location Filter */}
-                      <div>
-                        <label className="text-gray-300 mb-2 flex items-center gap-2">
-                          <MapPin className="h-4 w-4" />
-                          Location
-                        </label>
-                        <select
-                          value={selectedLocation}
-                          onChange={(e) => setSelectedLocation(e.target.value)}
-                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="">All Locations</option>
-                          {uniqueLocations.map((location) => (
-                            <option key={location} value={location}>
-                              {location}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Skills Filter */}
-                    <div className="mt-6">
-                      <label className="block text-gray-300 mb-2">Skills</label>
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {selectedSkills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-sm flex items-center gap-1"
-                          >
-                            {skill}
-                            <button onClick={() => removeSkill(skill)}>
-                              <X className="h-3 w-3 text-blue-200 hover:text-white" />
-                            </button>
-                          </span>
-                        ))}
-                      </div>
-                      <select
-                        value=""
-                        onChange={(e) => {
-                          if (e.target.value) {
-                            addSkill(e.target.value);
-                            e.target.value = "";
-                          }
-                        }}
-                        className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      {/* Filter Panel */}
+                      <motion.div
+                        initial={{ x: "100%" }}
+                        animate={{ x: 0 }}
+                        exit={{ x: "100%" }}
+                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                        className="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white z-[99999] shadow-2xl lg:hidden overflow-y-auto flex flex-col"
                       >
-                        <option value="">Add skill...</option>
-                        {allSkills
-                          .filter((skill) => !selectedSkills.includes(skill))
-                          .map((skill) => (
-                            <option key={skill} value={skill}>
-                              {skill}
-                            </option>
-                          ))}
-                      </select>
-                    </div>
-                  </div>
-                )}
+                        <div className="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
+                          <h2 className="text-xl font-bold text-gray-900">Filters</h2>
+                          <button
+                            onClick={() => setShowFilters(false)}
+                            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                          >
+                            <X className="h-6 w-6 text-gray-500" />
+                          </button>
+                        </div>
+
+                        <div className="p-6 space-y-8 flex-1">
+                          {/* Company Filter */}
+                          <div>
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                              <Briefcase className="h-4 w-4" />
+                              Company
+                            </label>
+                            <select
+                              value={selectedCompany}
+                              onChange={(e) => setSelectedCompany(e.target.value)}
+                              className="w-full p-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            >
+                              <option value="">All Companies</option>
+                              {uniqueCompanies.map((company) => (
+                                <option key={company} value={company}>{company}</option>
+                              ))}
+                            </select>
+                          </div>
+
+                          {/* Category Filter */}
+                          <div>
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                              Category
+                            </label>
+                            <div className="grid grid-cols-1 gap-2">
+                              {categoryList.map((category) => (
+                                <label key={category} className="flex items-center p-3 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200 cursor-pointer transition-all">
+                                  <input
+                                    type="checkbox"
+                                    checked={selectedCategory === category}
+                                    onChange={(e) => setSelectedCategory(e.target.checked ? category : '')}
+                                    className="w-5 h-5 text-blue-600 border-gray-300 rounded"
+                                  />
+                                  <span className="ml-3 text-gray-700 font-medium">{category}</span>
+                                </label>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Job Type Filter */}
+                          <div>
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                              Job Type
+                            </label>
+                            <select
+                              value={selectedJobType}
+                              onChange={(e) => setSelectedJobType(e.target.value)}
+                              className="w-full p-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900"
+                            >
+                              <option value="">All Types</option>
+                              {jobTypes.map((type) => (
+                                <option key={type} value={type}>{type}</option>
+                              ))}
+                            </select>
+                          </div>
+
+                          {/* Location Select (Alternative to Search) */}
+                          <div>
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                              <MapPin className="h-4 w-4" />
+                              Location
+                            </label>
+                            <select
+                              value={selectedLocation}
+                              onChange={(e) => setSelectedLocation(e.target.value)}
+                              className="w-full p-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900"
+                            >
+                              <option value="">All Locations</option>
+                              {uniqueLocations.map((loc) => (
+                                <option key={loc} value={loc}>{loc}</option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+
+                        <div className="p-6 bg-gray-50 border-t border-gray-100 flex gap-4 mt-auto">
+                          <button
+                            onClick={clearFilters}
+                            className="flex-1 py-3 text-gray-600 font-semibold hover:text-gray-900 transition-colors"
+                          >
+                            Reset
+                          </button>
+                          <button
+                            onClick={() => setShowFilters(false)}
+                            className="flex-1 py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-all"
+                          >
+                            Apply Filters
+                          </button>
+                        </div>
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
 
                 {/* Active Filters Display */}
                 {getActiveFiltersCount() > 0 && (
