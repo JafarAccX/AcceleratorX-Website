@@ -600,7 +600,15 @@ export default function AIDMProgramEIE() {
                                     ))}
                                 </ul>
 
-                                {isAuthenticated ? (
+                                {isAuthLoading ? (
+                                    <button
+                                        disabled
+                                        className="w-full py-3 bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
+                                    >
+                                        <Loader2 size={16} className="animate-spin" />
+                                        Loading...
+                                    </button>
+                                ) : isAuthenticated ? (
                                     <button
                                         onClick={handleBuyCourse}
                                         disabled={isProcessing || batches.length === 0}
@@ -613,6 +621,10 @@ export default function AIDMProgramEIE() {
                                             </>
                                         ) : batches.length === 0 ? (
                                             'No batches available'
+                                        ) : paymentCancelled ? (
+                                            <>
+                                                Try Again <ArrowRight size={16} />
+                                            </>
                                         ) : (
                                             <>
                                                 Enroll Now <ArrowRight size={16} />

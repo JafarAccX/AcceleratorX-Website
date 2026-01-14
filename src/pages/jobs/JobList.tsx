@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Search, Filter, Briefcase, MapPin, Clock, DollarSign, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, Briefcase, MapPin, Clock, DollarSign, X, ChevronLeft, ChevronRight } from "lucide-react";
 import JobCard from "./JobCard";
 
 import { useGetAllJobs } from "../../hooks/jobs";
@@ -42,29 +42,57 @@ const JobList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [jobsPerPage, setJobsPerPage] = useState(20);
 
-  const { data: jobsResponse, isLoading } = useGetAllJobs(currentPage, jobsPerPage);
-
-  // Extract jobs and pagination info from response
-  const jobs = useMemo(() => jobsResponse?.jobs || [], [jobsResponse?.jobs]);
-  const paginationInfo = jobsResponse?.pagination;
-
   const [showFilters, setShowFilters] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Debounce search term
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
   // Filters
   const [selectedCompany, setSelectedCompany] = useState<string>("");
   const [selectedJobType, setSelectedJobType] = useState<string>("");
   const [selectedLocation, setSelectedLocation] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedExperience, setSelectedExperience] = useState<string>("");
   const [selectedSalaryRange, setSelectedSalaryRange] = useState<string>("");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
+  const filters = useMemo(() => ({
+    searchTerm: debouncedSearchTerm,
+    companyName: selectedCompany,
+    jobType: selectedJobType,
+    location: selectedLocation,
+    category: selectedCategory,
+    experience: selectedExperience,
+    salaryRange: selectedSalaryRange,
+    skills: selectedSkills.length > 0 ? selectedSkills.join(',') : undefined
+  }), [debouncedSearchTerm, selectedCompany, selectedJobType, selectedLocation, selectedCategory, selectedExperience, selectedSalaryRange, selectedSkills]);
+
+  const { data: jobsResponse, isLoading } = useGetAllJobs(currentPage, jobsPerPage, filters);
+
+  // Extract jobs and pagination info from response
+  const jobs = useMemo(() => jobsResponse?.jobs || [], [jobsResponse?.jobs]);
+  const paginationInfo = jobsResponse?.pagination;
+
   const uniqueCompanies = Array.from(new Set(jobs?.map((job) => job.CompanyName) || []));
   const uniqueJobTypes = Array.from(new Set(jobs?.map((job) => job.JobType) || []));
-  const uniqueLocations = Array.from(new Set(jobs?.map((job) => `${job.City}, ${job.Country}`) || []));
+  const uniqueLocations = Array.from(new Set(jobs?.map((job) => job.Location).filter(Boolean) || []));
+  const uniqueCategories = Array.from(new Set(jobs?.map((job) => job.Category).filter(Boolean) || []));
 
-  // Get all unique skills from all jobs
-  const allSkills = jobs ? Array.from(new Set(jobs.flatMap((job) => job.RequiredSkills || []))) : [];
+  // Get all unique skills from all jobs (RequiredSkills is a VARCHAR, likely comma-separated)
+  const allSkills = jobs
+    ? Array.from(new Set(
+      jobs
+        .filter(job => job.RequiredSkills)
+        .flatMap(job => job.RequiredSkills!.split(',').map(s => s.trim()))
+    ))
+    : [];
 
   // Experience ranges
   const experienceRanges = useMemo(() => ["0-1", "1-3", "3-5", "5-10", "10+"], []);
@@ -80,79 +108,8 @@ const JobList = () => {
     [],
   );
 
-  const filteredJobs = useMemo(() => {
-    if (!jobs) return [];
-
-    let result = [...jobs];
-
-    // Search term filter (job title or company name)
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase();
-      result = result.filter(
-        (job) =>
-          job.JobName.toLowerCase().includes(term) ||
-          job.CompanyName.toLowerCase().includes(term),
-      );
-    }
-
-    // Company filter
-    if (selectedCompany) {
-      result = result.filter((job) => job.CompanyName === selectedCompany);
-    }
-
-    // Job type filter
-    if (selectedJobType) {
-      result = result.filter((job) => job.JobType === selectedJobType);
-    }
-
-    // Location filter
-    if (selectedLocation) {
-      result = result.filter((job) => `${job.City}, ${job.Country}` === selectedLocation);
-    }
-
-    // Experience filter
-    if (selectedExperience) {
-      const [minExp] = selectedExperience.replace("+", "").split("-").map(Number);
-      result = result.filter((job) => {
-        if (typeof job.RequiredExperience === "number") {
-          return job.RequiredExperience >= minExp;
-        }
-        return false;
-      });
-    }
-
-    // Salary range filter
-    if (selectedSalaryRange) {
-      const selectedRange = salaryRanges.find((r) => r.label === selectedSalaryRange);
-      if (selectedRange) {
-        result = result.filter((job) => {
-          if (typeof job.Salary === "number") {
-            return job.Salary >= selectedRange.min && job.Salary < selectedRange.max;
-          }
-          return false;
-        });
-      }
-    }
-
-    // Skills filter
-    if (selectedSkills.length > 0) {
-      result = result.filter((job) =>
-        selectedSkills.every((skill) => job.RequiredSkills?.includes(skill)),
-      );
-    }
-
-    return result;
-  }, [
-    jobs,
-    searchTerm,
-    selectedCompany,
-    selectedJobType,
-    selectedLocation,
-    selectedExperience,
-    selectedSalaryRange,
-    selectedSkills,
-    salaryRanges,
-  ]);
+  // Jobs are already filtered by backend
+  const filteredJobs = useMemo(() => jobs, [jobs]);
 
   // Reset to first page when filters change
   useEffect(() => {
@@ -165,6 +122,7 @@ const JobList = () => {
     selectedCompany,
     selectedJobType,
     selectedLocation,
+    selectedCategory,
     selectedExperience,
     selectedSalaryRange,
     selectedSkills,
@@ -175,6 +133,7 @@ const JobList = () => {
     setSelectedCompany("");
     setSelectedJobType("");
     setSelectedLocation("");
+    setSelectedCategory("");
     setSelectedExperience("");
     setSelectedSalaryRange("");
     setSelectedSkills([]);
@@ -195,6 +154,7 @@ const JobList = () => {
     if (selectedCompany) count++;
     if (selectedJobType) count++;
     if (selectedLocation) count++;
+    if (selectedCategory) count++;
     if (selectedExperience) count++;
     if (selectedSalaryRange) count++;
     count += selectedSkills.length;
@@ -242,416 +202,543 @@ const JobList = () => {
     return pages;
   };
 
-  if (!jobs || jobs.length <= 0) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-center p-6 bg-slate-800 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold text-gray-100 mb-2">No Jobs Available</h2>
-          <p className="text-gray-400">Check back later for new opportunities</p>
-        </div>
-      </div>
-    );
-  }
+
 
   return (
-    <div className="container mx-auto px-4 py-8 mt-16">
+    <>
       <SEO />
-      {/* Search and Filter Header */}
-      <div className="mb-8">
-        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-white">
-              Available Jobs
-              <span className="text-gray-400 text-lg">
-                ({paginationInfo?.totalJobs || 0} total, showing {filteredJobs.length})
-              </span>
-            </h1>
-          </div>
 
-          {/* Search Bar */}
-          <div className="relative w-full md:w-96">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search jobs..."
-              className="w-full pl-10 bg-transparent pr-4 py-2 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-            />
-            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-          </div>
+      {/* Hero Section */}
+      <section
+        className="relative min-h-[400px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
+        style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
 
-          <button
-            onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 py-2 px-4 rounded-lg text-white font-medium transition-all"
-          >
-            <Filter className="h-5 w-5" />
-            Filters
-            {getActiveFiltersCount() > 0 && (
-              <span className="bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                {getActiveFiltersCount()}
-              </span>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Jobs per page selector */}
-      <div className="mb-6 flex items-center gap-4">
-        <span className="text-gray-400 text-sm">Jobs per page:</span>
-        <select
-          value={jobsPerPage}
-          onChange={(e) => handleJobsPerPageChange(Number(e.target.value))}
-          className="p-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          <option value={10}>10</option>
-          <option value={20}>20</option>
-          <option value={50}>50</option>
-        </select>
-      </div>
-
-      {/* Filters Panel */}
-      {showFilters && (
-        <div className="mb-8 p-6 bg-slate-800 rounded-xl shadow-lg">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg font-semibold text-white">Filter Jobs</h2>
-            <div className="flex gap-3">
-              <button onClick={clearFilters} className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
-                <X className="h-4 w-4" />
-                Clear all filters
-              </button>
-              <button
-                onClick={() => setShowFilters(false)}
-                className="text-sm bg-slate-700 hover:bg-slate-600 py-1 px-3 rounded text-white"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {/* Company Filter */}
-            <div>
-              <label className="text-gray-300 mb-2 flex items-center gap-2">
-                <Briefcase className="h-4 w-4" />
-                Company
-              </label>
-              <select
-                value={selectedCompany}
-                onChange={(e) => setSelectedCompany(e.target.value)}
-                className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">All Companies</option>
-                {uniqueCompanies.map((company) => (
-                  <option key={company} value={company}>
-                    {company}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Job Type Filter */}
-            <div>
-              <label className="text-gray-300 mb-2 flex items-center gap-2">
-                <Briefcase className="h-4 w-4" />
-                Job Type
-              </label>
-              <select
-                value={selectedJobType}
-                onChange={(e) => setSelectedJobType(e.target.value)}
-                className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">All Types</option>
-                {uniqueJobTypes.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Location Filter */}
-            <div>
-              <label className="text-gray-300 mb-2 flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                Location
-              </label>
-              <select
-                value={selectedLocation}
-                onChange={(e) => setSelectedLocation(e.target.value)}
-                className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">All Locations</option>
-                {uniqueLocations.map((location) => (
-                  <option key={location} value={location}>
-                    {location}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Experience Filter */}
-            <div>
-              <label className="text-gray-300 mb-2 flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                Experience (years)
-              </label>
-              <select
-                value={selectedExperience}
-                onChange={(e) => setSelectedExperience(e.target.value)}
-                className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Any Experience</option>
-                {experienceRanges.map((range) => (
-                  <option key={range} value={range}>
-                    {range} years
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Salary Range Filter */}
-            <div>
-              <label className="text-gray-300 mb-2 flex items-center gap-2">
-                <DollarSign className="h-4 w-4" />
-                Salary Range
-              </label>
-              <select
-                value={selectedSalaryRange}
-                onChange={(e) => setSelectedSalaryRange(e.target.value)}
-                className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Any Salary</option>
-                {salaryRanges.map((range) => (
-                  <option key={range.label} value={range.label}>
-                    {range.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Skills Filter */}
-          <div className="mt-6">
-            <label className="block text-gray-300 mb-2">Skills</label>
-            <div className="flex flex-wrap gap-2 mb-3">
-              {selectedSkills.map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-sm flex items-center gap-1"
-                >
-                  {skill}
-                  <button onClick={() => removeSkill(skill)}>
-                    <X className="h-3 w-3 text-blue-200 hover:text-white" />
-                  </button>
-                </span>
-              ))}
-            </div>
-            <select
-              value=""
-              onChange={(e) => {
-                if (e.target.value) {
-                  addSkill(e.target.value);
-                  e.target.value = "";
-                }
+        <div className="relative container mx-auto px-4 h-full flex flex-col items-center md:flex-row justify-betweenborder: 1px solid #EBEBEB ">
+          <div className="max-w-xl">
+            <h1
+              className="text-white mb-6"
+              style={{
+                fontFamily: 'Cormorant Infant, serif',
+                fontWeight: 600,
+                fontSize: '68px',
+                lineHeight: '100%',
+                letterSpacing: '0%'
               }}
-              className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Add skill...</option>
-              {allSkills
-                .filter((skill) => !selectedSkills.includes(skill))
-                .map((skill) => (
-                  <option key={skill} value={skill}>
-                    {skill}
-                  </option>
-                ))}
-            </select>
+              Everything you need,{" "}
+              <span className="text-blue-400">in one place.</span>
+            </h1>
+
           </div>
+          <p className="text-xs md:text-base text-gray-300 max-w-xl">
+            Discover your next career opportunity from top companies hiring across various domains and technologies.
+          </p>
+
         </div>
-      )}
+      </section>
 
-      {/* Active Filters Display */}
-      {getActiveFiltersCount() > 0 && (
-        <div className="mb-6 flex flex-wrap gap-2 items-center">
-          <span className="text-gray-400 text-sm">Active filters:</span>
+      <div className="bg-white min-h-screen">
+        <div className="container mx-auto px-4 py-8">
+          {/* Main Layout with Sidebar */}
+          <div className="flex gap-8">
+            {/* Left Sidebar - Filters */}
+            <aside className="w-64 flex-shrink-0">
+              <div className="bg-white rounded-2xl p-6 border border-gray-200 sticky top-24">
+                <h2 className="text-lg font-semibold text-gray-900 mb-6">Filters</h2>
 
-          {selectedCompany && (
-            <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-              Company: {selectedCompany}
-              <button onClick={() => setSelectedCompany("")}>
-                <X className="h-3 w-3 text-gray-400 hover:text-white" />
-              </button>
-            </span>
-          )}
+                {/* Type of Employment */}
+                <div className="mb-6">
+                  <button
+                    className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3"
+                    onClick={() => {/* Toggle logic */ }}
+                  >
+                    <span>Type of Employment</span>
+                    <span className="text-gray-400">^</span>
+                  </button>
+                  <div className="space-y-2">
+                    {uniqueJobTypes.map((type) => (
+                      <label key={type} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedJobType === type}
+                          onChange={(e) => setSelectedJobType(e.target.checked ? type : '')}
+                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        />
+                        <span className="text-sm text-gray-700 capitalize">
+                          {type.replace('fulltime', 'Full-time').replace('parttime', 'Part-time').replace('internship', 'Internship').replace('contract', 'Contract')}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
 
-          {selectedJobType && (
-            <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-              Type: {selectedJobType}
-              <button onClick={() => setSelectedJobType("")}>
-                <X className="h-3 w-3 text-gray-400 hover:text-white" />
-              </button>
-            </span>
-          )}
+                {/* Seniority Level */}
+                <div className="mb-6">
+                  <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3">
+                    <span>Seniority Level</span>
+                    <span className="text-gray-400">^</span>
+                  </button>
+                  <div className="space-y-2">
+                    {experienceRanges.map((range) => (
+                      <label key={range} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedExperience === range}
+                          onChange={(e) => setSelectedExperience(e.target.checked ? range : '')}
+                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        />
+                        <span className="text-sm text-gray-700">{range} years</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
 
-          {selectedLocation && (
-            <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-              Location: {selectedLocation}
-              <button onClick={() => setSelectedLocation("")}>
-                <X className="h-3 w-3 text-gray-400 hover:text-white" />
-              </button>
-            </span>
-          )}
+                {/* Salary Range */}
+                <div className="mb-6">
+                  <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3">
+                    <span>Salary Range</span>
+                    <span className="text-gray-400">^</span>
+                  </button>
+                  <div className="space-y-2">
+                    {salaryRanges.map((range) => (
+                      <label key={range.label} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedSalaryRange === range.label}
+                          onChange={(e) => setSelectedSalaryRange(e.target.checked ? range.label : '')}
+                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        />
+                        <span className="text-sm text-gray-700">{range.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
 
-          {selectedExperience && (
-            <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-              Experience: {selectedExperience} years
-              <button onClick={() => setSelectedExperience("")}>
-                <X className="h-3 w-3 text-gray-400 hover:text-white" />
-              </button>
-            </span>
-          )}
+                {/* Category */}
+                <div className="mb-6">
+                  <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3">
+                    <span>Category</span>
+                    <span className="text-gray-400">^</span>
+                  </button>
+                  <div className="space-y-2">
+                    {uniqueCategories.map((category) => (
+                      <label key={category} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedCategory === category}
+                          onChange={(e) => setSelectedCategory(e.target.checked ? category : '')}
+                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        />
+                        <span className="text-sm text-gray-700">{category}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
 
-          {selectedSalaryRange && (
-            <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-              Salary: {selectedSalaryRange}
-              <button onClick={() => setSelectedSalaryRange("")}>
-                <X className="h-3 w-3 text-gray-400 hover:text-white" />
-              </button>
-            </span>
-          )}
+                {getActiveFiltersCount() > 0 && (
+                  <button
+                    onClick={clearFilters}
+                    className="w-full mt-4 py-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    Clear all filters
+                  </button>
+                )}
+              </div>
+            </aside>
 
-          {selectedSkills.map((skill) => (
-            <span
-              key={skill}
-              className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1"
-            >
-              Skill: {skill}
-              <button onClick={() => removeSkill(skill)}>
-                <X className="h-3 w-3 text-gray-400 hover:text-white" />
-              </button>
-            </span>
-          ))}
-
-          <button onClick={clearFilters} className="text-blue-400 hover:text-blue-300 text-sm underline">
-            Clear all
-          </button>
-        </div>
-      )}
-
-      {/* Job Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {isLoading ? (
-          <div className="col-span-full flex justify-center py-12">
-            <div className="animate-pulse flex space-x-4">
-              <div className="rounded-full bg-slate-700 h-12 w-12"></div>
-              <div className="flex-1 space-y-4 py-1">
-                <div className="h-4 bg-slate-700 rounded w-3/4"></div>
-                <div className="space-y-2">
-                  <div className="h-4 bg-slate-700 rounded"></div>
-                  <div className="h-4 bg-slate-700 rounded w-5/6"></div>
+            {/* Main Content Area */}
+            <main className="flex-1">
+              {/* Search Bar */}
+              <div className="mb-6">
+                <div className="flex gap-4">
+                  <div className="relative flex-1">
+                    <input
+                      type="text"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      placeholder="Job title or keyword"
+                      className="w-full pl-10 pr-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+                  </div>
+                  <div className="relative flex-1">
+                    <input
+                      type="text"
+                      placeholder="City, state or zip"
+                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+                  </div>
+                  <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors">
+                    Find jobs
+                  </button>
                 </div>
               </div>
-            </div>
-          </div>
-        ) : filteredJobs.length === 0 ? (
-          <div className="col-span-full flex justify-center py-12">
-            <div className="text-center p-6 bg-slate-800 rounded-lg shadow-lg">
-              <h2 className="text-xl font-bold text-gray-100 mb-2">No Matching Jobs Found</h2>
-              <p className="text-gray-400 mb-4">Try adjusting your filters to see more results</p>
-              <button onClick={clearFilters} className="text-blue-400 hover:text-blue-300 underline">
-                Clear all filters
-              </button>
-            </div>
-          </div>
-        ) : (
-          filteredJobs.map((job) => <JobCard key={job.Id} job={job} />)
-        )}
-      </div>
 
-      {/* Pagination Controls */}
-      {paginationInfo && paginationInfo.totalPages > 1 && (
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Pagination Info */}
-          <div className="text-gray-400 text-sm">
-            Showing page {paginationInfo.currentPage} of {paginationInfo.totalPages}({paginationInfo.totalJobs} total
-            jobs)
-          </div>
+              {/* Job Cards - Single Column */}
+              <div className="space-y-4">
 
-          {/* Pagination Navigation */}
-          <div className="flex items-center gap-2">
-            {/* Previous Button */}
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={!paginationInfo.hasPreviousPage}
-              className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                paginationInfo.hasPreviousPage
-                  ? "bg-slate-800 hover:bg-slate-700 text-white"
-                  : "bg-slate-900 text-gray-500 cursor-not-allowed"
-              }`}
-            >
-              <ChevronLeft className="h-4 w-4" />
-              Previous
-            </button>
-
-            {/* Page Numbers */}
-            <div className="flex items-center gap-1">
-              {paginationInfo.currentPage > 3 && (
-                <>
-                  <button
-                    onClick={() => handlePageChange(1)}
-                    className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
+                {/* Jobs per page selector */}
+                <div className="mb-6 flex items-center gap-4">
+                  <span className="text-gray-400 text-sm">Jobs per page:</span>
+                  <select
+                    value={jobsPerPage}
+                    onChange={(e) => handleJobsPerPageChange(Number(e.target.value))}
+                    className="p-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    1
-                  </button>
-                  {paginationInfo.currentPage > 4 && <span className="px-2 text-gray-400">...</span>}
-                </>
-              )}
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                    <option value={50}>50</option>
+                  </select>
+                </div>
 
-              {getPageNumbers().map((pageNum: number) => (
-                <button
-                  key={pageNum}
-                  onClick={() => handlePageChange(pageNum)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                    pageNum === paginationInfo.currentPage
-                      ? "bg-blue-600 text-white"
-                      : "bg-slate-800 hover:bg-slate-700 text-white"
-                  }`}
-                >
-                  {pageNum}
-                </button>
-              ))}
+                {/* Filters Panel */}
+                {showFilters && (
+                  <div className="mb-8 p-6 bg-slate-800 rounded-xl shadow-lg">
+                    <div className="flex justify-between items-center mb-6">
+                      <h2 className="text-lg font-semibold text-white">Filter Jobs</h2>
+                      <div className="flex gap-3">
+                        <button onClick={clearFilters} className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                          <X className="h-4 w-4" />
+                          Clear all filters
+                        </button>
+                        <button
+                          onClick={() => setShowFilters(false)}
+                          className="text-sm bg-slate-700 hover:bg-slate-600 py-1 px-3 rounded text-white"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
 
-              {paginationInfo.currentPage < paginationInfo.totalPages - 2 && (
-                <>
-                  {paginationInfo.currentPage < paginationInfo.totalPages - 3 && (
-                    <span className="px-2 text-gray-400">...</span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                      {/* Company Filter */}
+                      <div>
+                        <label className="text-gray-300 mb-2 flex items-center gap-2">
+                          <Briefcase className="h-4 w-4" />
+                          Company
+                        </label>
+                        <select
+                          value={selectedCompany}
+                          onChange={(e) => setSelectedCompany(e.target.value)}
+                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="">All Companies</option>
+                          {uniqueCompanies.map((company) => (
+                            <option key={company} value={company}>
+                              {company}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Job Type Filter */}
+                      <div>
+                        <label className="text-gray-300 mb-2 flex items-center gap-2">
+                          <Briefcase className="h-4 w-4" />
+                          Job Type
+                        </label>
+                        <select
+                          value={selectedJobType}
+                          onChange={(e) => setSelectedJobType(e.target.value)}
+                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="">All Types</option>
+                          {uniqueJobTypes.map((type) => (
+                            <option key={type} value={type}>
+                              {type}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Location Filter */}
+                      <div>
+                        <label className="text-gray-300 mb-2 flex items-center gap-2">
+                          <MapPin className="h-4 w-4" />
+                          Location
+                        </label>
+                        <select
+                          value={selectedLocation}
+                          onChange={(e) => setSelectedLocation(e.target.value)}
+                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="">All Locations</option>
+                          {uniqueLocations.map((location) => (
+                            <option key={location} value={location}>
+                              {location}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Experience Filter */}
+                      <div>
+                        <label className="text-gray-300 mb-2 flex items-center gap-2">
+                          <Clock className="h-4 w-4" />
+                          Experience (years)
+                        </label>
+                        <select
+                          value={selectedExperience}
+                          onChange={(e) => setSelectedExperience(e.target.value)}
+                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="">Any Experience</option>
+                          {experienceRanges.map((range) => (
+                            <option key={range} value={range}>
+                              {range} years
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Salary Range Filter */}
+                      <div>
+                        <label className="text-gray-300 mb-2 flex items-center gap-2">
+                          <DollarSign className="h-4 w-4" />
+                          Salary Range
+                        </label>
+                        <select
+                          value={selectedSalaryRange}
+                          onChange={(e) => setSelectedSalaryRange(e.target.value)}
+                          className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="">Any Salary</option>
+                          {salaryRanges.map((range) => (
+                            <option key={range.label} value={range.label}>
+                              {range.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Skills Filter */}
+                    <div className="mt-6">
+                      <label className="block text-gray-300 mb-2">Skills</label>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {selectedSkills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-sm flex items-center gap-1"
+                          >
+                            {skill}
+                            <button onClick={() => removeSkill(skill)}>
+                              <X className="h-3 w-3 text-blue-200 hover:text-white" />
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+                      <select
+                        value=""
+                        onChange={(e) => {
+                          if (e.target.value) {
+                            addSkill(e.target.value);
+                            e.target.value = "";
+                          }
+                        }}
+                        className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value="">Add skill...</option>
+                        {allSkills
+                          .filter((skill) => !selectedSkills.includes(skill))
+                          .map((skill) => (
+                            <option key={skill} value={skill}>
+                              {skill}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+                  </div>
+                )}
+
+                {/* Active Filters Display */}
+                {getActiveFiltersCount() > 0 && (
+                  <div className="mb-6 flex flex-wrap gap-2 items-center">
+                    <span className="text-gray-400 text-sm">Active filters:</span>
+
+                    {selectedCompany && (
+                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                        Company: {selectedCompany}
+                        <button onClick={() => setSelectedCompany("")}>
+                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
+                        </button>
+                      </span>
+                    )}
+
+                    {selectedJobType && (
+                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                        Type: {selectedJobType}
+                        <button onClick={() => setSelectedJobType("")}>
+                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
+                        </button>
+                      </span>
+                    )}
+
+                    {selectedLocation && (
+                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                        Location: {selectedLocation}
+                        <button onClick={() => setSelectedLocation("")}>
+                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
+                        </button>
+                      </span>
+                    )}
+
+                    {selectedExperience && (
+                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                        Experience: {selectedExperience} years
+                        <button onClick={() => setSelectedExperience("")}>
+                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
+                        </button>
+                      </span>
+                    )}
+
+                    {selectedSalaryRange && (
+                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                        Salary: {selectedSalaryRange}
+                        <button onClick={() => setSelectedSalaryRange("")}>
+                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
+                        </button>
+                      </span>
+                    )}
+
+                    {selectedSkills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1"
+                      >
+                        Skill: {skill}
+                        <button onClick={() => removeSkill(skill)}>
+                          <X className="h-3 w-3 text-gray-400 hover:text-white" />
+                        </button>
+                      </span>
+                    ))}
+
+                    <button onClick={clearFilters} className="text-blue-400 hover:text-blue-300 text-sm underline">
+                      Clear all
+                    </button>
+                  </div>
+                )}
+
+                {/* Job Cards Grid */}
+                <div className="flex flex-col gap-6">
+                  {isLoading ? (
+                    <div className="col-span-full flex justify-center py-12">
+                      <div className="animate-pulse flex space-x-4">
+                        <div className="rounded-full bg-slate-700 h-12 w-12"></div>
+                        <div className="flex-1 space-y-4 py-1">
+                          <div className="h-4 bg-slate-700 rounded w-3/4"></div>
+                          <div className="space-y-2">
+                            <div className="h-4 bg-slate-700 rounded"></div>
+                            <div className="h-4 bg-slate-700 rounded w-5/6"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : filteredJobs.length === 0 ? (
+                    <div className="col-span-full flex justify-center py-12">
+                      <div className="text-center p-6">
+                        <h2 className="text-xl font-bold mb-2 text-black">No Matching Jobs Found</h2>
+                        <p className="text-gray-400 mb-4">Try adjusting your filters to see more results</p>
+                        <button onClick={clearFilters} className="text-blue-400 hover:text-blue-300 underline">
+                          Clear all filters
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    filteredJobs.map((job) => <JobCard key={job.Id} job={job} />)
                   )}
-                  <button
-                    onClick={() => handlePageChange(paginationInfo.totalPages)}
-                    className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
-                  >
-                    {paginationInfo.totalPages}
-                  </button>
-                </>
-              )}
-            </div>
+                </div>
 
-            {/* Next Button */}
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={!paginationInfo.hasNextPage}
-              className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                paginationInfo.hasNextPage
-                  ? "bg-slate-800 hover:bg-slate-700 text-white"
-                  : "bg-slate-900 text-gray-500 cursor-not-allowed"
-              }`}
-            >
-              Next
-              <ChevronRight className="h-4 w-4" />
-            </button>
+                {/* Pagination Controls */}
+                {paginationInfo && paginationInfo.totalPages > 1 && (
+                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    {/* Pagination Info */}
+                    <div className="text-gray-400 text-sm">
+                      Showing page {paginationInfo.currentPage} of {paginationInfo.totalPages}({paginationInfo.totalJobs} total
+                      jobs)
+                    </div>
+
+                    {/* Pagination Navigation */}
+                    <div className="flex items-center gap-2">
+                      {/* Previous Button */}
+                      <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={!paginationInfo.hasPreviousPage}
+                        className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${paginationInfo.hasPreviousPage
+                          ? "bg-slate-800 hover:bg-slate-700 text-white"
+                          : "bg-slate-900 text-gray-500 cursor-not-allowed"
+                          }`}
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                        Previous
+                      </button>
+
+                      {/* Page Numbers */}
+                      <div className="flex items-center gap-1">
+                        {paginationInfo.currentPage > 3 && (
+                          <>
+                            <button
+                              onClick={() => handlePageChange(1)}
+                              className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
+                            >
+                              1
+                            </button>
+                            {paginationInfo.currentPage > 4 && <span className="px-2 text-gray-400">...</span>}
+                          </>
+                        )}
+
+                        {getPageNumbers().map((pageNum: number) => (
+                          <button
+                            key={pageNum}
+                            onClick={() => handlePageChange(pageNum)}
+                            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${pageNum === paginationInfo.currentPage
+                              ? "bg-blue-600 text-white"
+                              : "bg-slate-800 hover:bg-slate-700 text-white"
+                              }`}
+                          >
+                            {pageNum}
+                          </button>
+                        ))}
+
+                        {paginationInfo.currentPage < paginationInfo.totalPages - 2 && (
+                          <>
+                            {paginationInfo.currentPage < paginationInfo.totalPages - 3 && (
+                              <span className="px-2 text-gray-400">...</span>
+                            )}
+                            <button
+                              onClick={() => handlePageChange(paginationInfo.totalPages)}
+                              className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
+                            >
+                              {paginationInfo.totalPages}
+                            </button>
+                          </>
+                        )}
+                      </div>
+
+                      {/* Next Button */}
+                      <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={!paginationInfo.hasNextPage}
+                        className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${paginationInfo.hasNextPage
+                          ? "bg-slate-800 hover:bg-slate-700 text-white"
+                          : "bg-slate-900 text-gray-500 cursor-not-allowed"
+                          }`}
+                      >
+                        Next
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </main>
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 

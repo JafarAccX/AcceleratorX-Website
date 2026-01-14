@@ -13,8 +13,17 @@ const jobsApi = {
         return response.data;
     },
 
-    // Get all jobs
-    getAllJobs: async (page: number = 1, limit: number = 20): Promise<{
+    // Get all jobs with filters
+    getAllJobs: async (page: number = 1, limit: number = 20, filters?: {
+        searchTerm?: string;
+        companyName?: string;
+        jobType?: string;
+        location?: string;
+        category?: string;
+        experience?: string;
+        salaryRange?: string;
+        skills?: string;
+    }): Promise<{
         jobs: Job[];
         pagination: {
             currentPage: number;
@@ -25,12 +34,21 @@ const jobsApi = {
             jobsPerPage: number;
         };
     }> => {
-        const response = await axios.get(`${API_URL}/api/jobs`, {
-            params: {
-                page,
-                limit
-            }
-        });
+        const params: any = { page, limit };
+
+        // Add filters to params if they exist
+        if (filters) {
+            if (filters.searchTerm) params.searchTerm = filters.searchTerm;
+            if (filters.companyName) params.companyName = filters.companyName;
+            if (filters.jobType) params.jobType = filters.jobType;
+            if (filters.location) params.location = filters.location;
+            if (filters.category) params.category = filters.category;
+            if (filters.experience) params.experience = filters.experience;
+            if (filters.salaryRange) params.salaryRange = filters.salaryRange;
+            if (filters.skills) params.skills = filters.skills;
+        }
+
+        const response = await axios.get(`${API_URL}/api/jobs`, { params });
         return response.data;
     },
 

@@ -15,12 +15,20 @@ export const useCreateJob = () => {
     });
 };
 
-// Get all jobs
-export const useGetAllJobs = (page: number = 1, limit: number = 20) => {
+// Get all jobs with filters
+export const useGetAllJobs = (page: number = 1, limit: number = 20, filters?: {
+    searchTerm?: string;
+    companyName?: string;
+    jobType?: string;
+    location?: string;
+    category?: string;
+    experience?: string;
+    salaryRange?: string;
+    skills?: string;
+}) => {
     return useQuery({
-        queryKey: ['jobs', page, limit],
-        queryFn: () => jobsApi.getAllJobs(page, limit),
-
+        queryKey: ['jobs', page, limit, filters],
+        queryFn: () => jobsApi.getAllJobs(page, limit, filters),
     });
 };
 
