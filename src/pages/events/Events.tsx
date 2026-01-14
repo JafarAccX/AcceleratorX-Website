@@ -1,5 +1,3 @@
-// import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowRight, Check, Clock, MapPin } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -45,7 +43,7 @@ const Events = () => {
       link: "/workshop/da-masterclass-bxwxy",
       completed: true,
     },
-    
+
     {
       name: "Context Engineering",
       mode: "Online (Zoom)",
@@ -80,7 +78,7 @@ const Events = () => {
       time: "July 7, 2025 8:30 PM",
       link: "/workshop/da-masterclass-bxwxy",
       completed: true,
-    },    
+    },
     {
       name: "Social Media Lead Gen Magnet using make.com",
       mode: "Online (Zoom)",
@@ -88,7 +86,7 @@ const Events = () => {
       link: "/workshop/gen-ai-masterclass",
       completed: true,
     },
-     {
+    {
       name: "Building AI Products (Marathon Session - 3 Hr ) ",
       mode: "Online (Zoom)",
       time: "July 13, 2025 11:00 AM India",
@@ -225,36 +223,29 @@ const Events = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+    <div className="min-h-screen bg-white">
       <SEO />
-      <div className=" mt-10 md:mt-4 max-w-screen-lg mx-auto p-4 md:p-8">
-        <div className="min-h-screen  text-white md:p-6">
+      <div className=" pt-10 md:pt-4 max-w-screen-lg mx-auto p-4 md:p-8">
+        <div className="min-h-screen text-gray-900 md:p-6">
           <div className="max-w-4xl mx-auto mt-10">
             <header className="flex justify-between items-center mb-10">
-              <motion.h1
-                className="text-2xl md:text-4xl font-bold"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
                 {activeTab === "events" ? "Events" : "Workshops"}
-              </motion.h1>
+              </h1>
 
-              <div className="bg-gray-800/50 rounded-full p-1">
+              <div className="bg-gray-100 rounded-full p-1 border border-gray-200">
                 <div className="flex">
                   <button
                     onClick={() => setActiveTab("events")}
-                    className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                      activeTab === "events" ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white"
-                    }`}
+                    className={`px-6 py-2 rounded-full transition-all duration-300 ${activeTab === "events" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                      }`}
                   >
                     Events
                   </button>
                   <button
                     onClick={() => setActiveTab("workshops")}
-                    className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                      activeTab === "workshops" ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white"
-                    }`}
+                    className={`px-6 py-2 rounded-full transition-all duration-300 ${activeTab === "workshops" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                      }`}
                   >
                     Workshops
                   </button>
@@ -262,21 +253,19 @@ const Events = () => {
               </div>
             </header>
 
-            <div className="bg-gray-800/50 rounded-full p-1 mb-2 max-w-[215px]">
+            <div className="bg-gray-100 rounded-full p-1 mb-2 max-w-[215px] border border-gray-200">
               <div className="flex">
                 <button
                   onClick={() => setWorkshopsTabs("upcomming")}
-                  className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                    workshopsTabs === "upcomming" ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white"
-                  }`}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 ${workshopsTabs === "upcomming" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                    }`}
                 >
                   Upcoming
                 </button>
                 <button
                   onClick={() => setWorkshopsTabs("past")}
-                  className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                    workshopsTabs === "past" ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white"
-                  }`}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 ${workshopsTabs === "past" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                    }`}
                 >
                   Past
                 </button>
@@ -287,54 +276,32 @@ const Events = () => {
               <div className="flex flex-col lg:flex-row items-start justify-between">
                 {eventsDetails.length <= 0 && (
                   <div className="lg:flex-1 w-full">
-                    <div className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800">
-                      <div className="flex justify-between items-center">
-                        <p className="text-4xl pl-4">No Events</p>
-
-                        <EventThumbnail num={9} />
-                      </div>
+                    <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm flex items-center justify-between">
+                      <p className="text-2xl font-medium text-gray-400">No events currently scheduled</p>
+                      <EventThumbnail num={9} />
                     </div>
                   </div>
                 )}
                 {eventsDetails.map((event) => (
                   <div className="lg:flex-1 w-full" key={event.time}>
-                    <motion.div
-                      className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800"
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{
-                        opacity: [1, 0.8, 1],
-                        boxShadow: [
-                          "0 0 0px rgba(168, 85, 247, 0.0)",
-                          "0 0 20px rgba(168, 85, 247, 0.6)",
-                          "0 0 0px rgba(168, 85, 247, 0.0)",
-                        ],
-                        borderColor: ["rgba(168, 85, 247, 0.1)", "rgba(168, 85, 247, 0.6)", "rgba(168, 85, 247, 0.1)"],
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        ease: "easeInOut",
-                      }}
-                    >
+                    <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                       <div className="flex justify-between">
                         <div>
                           {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
-                          <h2 className="text-2xl font-semibold mb-4"> {event.name}</h2>
+                          <h2 className="text-2xl font-semibold mb-4 text-gray-900"> {event.name}</h2>
 
-                          <div className="flex items-center text-amber-400 mb-2">
+                          <div className="flex items-center text-amber-600 mb-2">
                             <MapPin size={16} className="mr-2" />
                             <span> {event.mode}</span>
                           </div>
 
-                          <div className="flex items-center text-gray-400">
+                          <div className="flex items-center text-gray-600">
                             <Clock size={16} className="mr-2" />
                             <span>{event.val}</span>
                           </div>
 
                           <Link to={event.link}>
-                            <button className="mt-6 flex items-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 group">
+                            <button className="mt-6 flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-4 py-2 rounded-lg transition-all duration-300 group border border-gray-200">
                               <span>Event Info</span>
                               <ArrowRight
                                 size={16}
@@ -343,12 +310,12 @@ const Events = () => {
                             </button>
                           </Link>
 
-                          <p className="text-gray-400 mt-2"> {event.time}</p>
+                          <p className="text-gray-500 mt-2 text-sm"> {event.time}</p>
                         </div>
 
                         <EventThumbnail num={9} />
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -359,50 +326,27 @@ const Events = () => {
                 workshopsDetails.map((workshop) => (
                   <div className="flex flex-col lg:flex-row items-start justify-between h-full" key={workshop.time}>
                     <div className="lg:flex-1 w-full h-full">
-                      <motion.div
-                        className="bg-gradient-to-br from-gray-800/70 to-gray-900/90 rounded-xl p-6 border border-gray-800 h-full"
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{
-                          opacity: [1, 0.8, 1],
-                          boxShadow: [
-                            "0 0 0px rgba(168, 85, 247, 0.0)",
-                            "0 0 20px rgba(168, 85, 247, 0.6)",
-                            "0 0 0px rgba(168, 85, 247, 0.0)",
-                          ],
-                          borderColor: [
-                            "rgba(168, 85, 247, 0.1)",
-                            "rgba(168, 85, 247, 0.6)",
-                            "rgba(168, 85, 247, 0.1)",
-                          ],
-                          y: 0,
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          repeatType: "loop",
-                          ease: "easeInOut",
-                        }}
-                      >
+                      <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm h-full">
                         <div className="flex flex-col justify-around h-full">
                           {/* <div className="text-gray-400 mb-2">5:00 PM</div> */}
-                          <h2 className="text-2xl font-semibold mb-4">{workshop.name}</h2>
+                          <h2 className="text-2xl font-semibold mb-4 text-gray-900">{workshop.name}</h2>
 
-                          <div className="flex items-center text-amber-400 mb-2">
+                          <div className="flex items-center text-amber-600 mb-2">
                             <MapPin size={16} className="mr-2" />
                             <span>{workshop.mode}</span>
                           </div>
 
-                          <div className="flex items-center text-gray-400">
+                          <div className="flex items-center text-gray-600">
                             <Clock size={16} className="mr-2" />
-                            <p className="text-gray-400 mt-2">{workshop.time}</p>
+                            <p className="text-gray-500 mt-2 text-sm">{workshop.time}</p>
                           </div>
 
                           <Link to={workshop.completed ? "" : workshop.link} aria-disabled>
                             <button
                               className={
                                 workshop.completed
-                                  ? "mt-6 flex items-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 group hover:cursor-not-allowed"
-                                  : "hover:cursor-pointer mt-6 flex items-center bg-gray-950 px-4 py-2 rounded-lg transition-all duration-300 group"
+                                  ? "mt-6 flex items-center bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 px-4 py-2 rounded-lg transition-all duration-300 group hover:cursor-not-allowed border border-gray-200"
+                                  : "hover:cursor-pointer mt-6 flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all duration-300 group shadow-md shadow-blue-200"
                               }
                             >
                               <span>{workshop.completed ? "Completed" : "Workshop Info"}</span>
@@ -420,7 +364,7 @@ const Events = () => {
                             </button>
                           </Link>
                         </div>
-                      </motion.div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -436,29 +380,15 @@ export default Events;
 
 function EventThumbnail({ num }: { num: number }) {
   return (
-    <motion.div
-      className="w-24 h-24 relative hidden sm:block"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.6 }}
-      whileHover={{ scale: 1.05 }}
-    >
+    <div className="w-24 h-24 relative hidden sm:block">
       <div className="grid grid-cols-3 grid-rows-3 gap-1">
         {Array.from({ length: num }).map((_, i) => (
-          <motion.div
+          <div
             key={i}
-            className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-300 to-gray-500"
-            initial={{ opacity: 0.5 }}
-            animate={{ opacity: [0.5, 0.8, 0.5] }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: i * 0.2,
-              ease: "easeInOut",
-            }}
+            className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-300 to-gray-500 opacity-60"
           />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }

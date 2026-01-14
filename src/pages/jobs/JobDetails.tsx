@@ -114,27 +114,28 @@ export default function JobDetails() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#080B16]">
+      <div className="flex min-h-screen items-center justify-center bg-white">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
   }
 
   if (isError || !job) {
+    const errorMessage = isError ? (error instanceof Error ? error.message : "An error occurred") : "Job not found";
     return (
-      <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-[#080B16] text-white">
+      <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white text-gray-900">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <button
               onClick={() => navigate("/jobs")}
-              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white"
+              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900"
             >
               <ChevronLeft className="h-4 w-4" />
               Back to Jobs
             </button>
           </div>
-          <div className="rounded-xl bg-[#0E1628] p-8 text-center border border-gray-700">
-            <p className="text-red-500">{JSON.stringify(error) || "Job not found"}</p>
+          <div className="rounded-xl bg-white p-8 text-center border border-gray-200 shadow-sm">
+            <p className="text-red-500">{errorMessage}</p>
             <button
               onClick={() => navigate("/jobs")}
               className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
@@ -154,7 +155,7 @@ export default function JobDetails() {
     : extractSkillsFromDescription(job.JobDescription);
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-[#080B16] text-white">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white text-gray-900">
       {/* Application Modal */}
       {showApplying && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -163,32 +164,32 @@ export default function JobDetails() {
             onClick={() => setShowApplying(false)}
           ></div>
 
-          <div className="relative bg-[#1A1A1A] rounded-lg p-6 shadow-lg border border-gray-700 max-w-md w-full m-4 z-10">
+          <div className="relative bg-white rounded-lg p-6 shadow-xl border border-gray-200 max-w-md w-full m-4 z-10">
             <button
               onClick={() => setShowApplying(false)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white transition"
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-900 transition"
             >
               <X size={20} />
             </button>
 
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
               {job.EasyApply ? "Apply with Profile" : "External Application"}
             </h3>
 
-            <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+            <p className="text-gray-600 mb-6 text-sm leading-relaxed">
               {job.EasyApply
                 ? "Your profile will be shared with employers. Ensure your details are up-to-date to improve your chances."
                 : "This position requires applying directly on the company's website. You'll be redirected to their application page."}
             </p>
 
             {!job.EasyApply && job.JobApplyURL && (
-              <div className="mb-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-                <div className="flex items-center gap-2 text-blue-300 text-sm">
+              <div className="mb-4 p-3 bg-blue-50 border border-blue-100 rounded-lg">
+                <div className="flex items-center gap-2 text-blue-600 text-sm">
                   <ExternalLink size={16} />
                   <span>External application required</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-1">
-                  You will be redirected to: {new URL(job.JobApplyURL).hostname}
+                <p className="text-xs text-gray-500 mt-1">
+                  You will be redirected to: {job.JobApplyURL ? new URL(job.JobApplyURL).hostname : ""}
                 </p>
               </div>
             )}
@@ -209,16 +210,23 @@ export default function JobDetails() {
       )}
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Back Button */}
+        <div className="mb-8">
+          <button
+            onClick={() => navigate("/jobs")}
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Back to Jobs
+          </button>
+        </div>
 
-
-        <div className=" p-6 sm:p-8">
+        <div className="p-0 sm:p-0">
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-start gap-4 flex-1">
                 {job.CompanyLogoURL && (
-                  <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-16 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0">
                     <img
                       src={job.CompanyLogoURL}
                       alt={`${job.CompanyName} logo`}
@@ -230,8 +238,8 @@ export default function JobDetails() {
                   </div>
                 )}
                 <div className="flex-1">
-                  <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">{job.JobName}</h1>
-                  <div className="flex items-center gap-2 text-xl text-gray-300 mb-2">
+                  <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{job.JobName}</h1>
+                  <div className="flex items-center gap-2 text-xl text-gray-600 mb-2">
                     <Building2 className="h-5 w-5" />
                     <span>{job.CompanyName}</span>
                   </div>
@@ -260,59 +268,59 @@ export default function JobDetails() {
             </div>
 
             {/* Job Meta Information */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-800/30 rounded-lg">
-              <div className="flex items-center gap-2 text-gray-300">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 border border-gray-100 rounded-lg">
+              <div className="flex items-center gap-2 text-gray-700">
                 <MapPin className="h-4 w-4 text-gray-400" />
                 <div>
-                  <p className="text-xs text-gray-400">Location</p>
+                  <p className="text-xs text-gray-500">Location</p>
                   <p className="text-sm font-medium">{job.Location || `${job.City}, ${job.Country}`}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-gray-700">
                 <Briefcase className="h-4 w-4 text-gray-400" />
                 <div>
-                  <p className="text-xs text-gray-400">Job Type</p>
+                  <p className="text-xs text-gray-500">Job Type</p>
                   <p className="text-sm font-medium capitalize">{job.JobType.replace("fulltime", "Full-time")}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-gray-700">
                 <Clock className="h-4 w-4 text-gray-400" />
                 <div>
-                  <p className="text-xs text-gray-400">Experience</p>
+                  <p className="text-xs text-gray-500">Experience</p>
                   <p className="text-sm font-medium capitalize">{job.RequiredExperience || "Not specified"}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
+              <div className="flex items-center gap-2 text-gray-700">
                 <Clock className="h-4 w-4 text-gray-400" />
                 <div>
-                  <p className="text-xs text-gray-400">Posted</p>
+                  <p className="text-xs text-gray-500">Posted</p>
                   <p className="text-sm font-medium">{new Date(job.CreatedDate).toLocaleDateString()}</p>
                 </div>
               </div>
             </div>
 
             {job.Salary && (
-              <div className="mt-4 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-                <p className="text-green-400 text-xl font-semibold">₹{job.Salary}</p>
+              <div className="mt-4 p-4 bg-green-50 border border-green-100 rounded-lg">
+                <p className="text-green-700 text-xl font-semibold">₹{job.Salary}</p>
               </div>
             )}
           </div>
 
-          {/* Job Description */}
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4">Job Description</h2>
-            <ReactMarkdown>{cleanedDescription}</ReactMarkdown>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Job Description</h2>
+            <div className="prose prose-slate max-w-none text-gray-700">
+              <ReactMarkdown>{cleanedDescription}</ReactMarkdown>
+            </div>
           </div>
 
-          {/* Required Skills */}
           {skills.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-white mb-4">Required Skills</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Required Skills</h2>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-lg text-sm font-medium border border-blue-500/30 hover:bg-blue-500/30 transition"
+                    className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium border border-blue-100 hover:bg-blue-100 transition"
                   >
                     {skill}
                   </span>
@@ -321,23 +329,22 @@ export default function JobDetails() {
             </div>
           )}
 
-          {/* Category */}
           {job.Category && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-white mb-4">Category</h2>
-              <span className="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/30">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Category</h2>
+              <span className="px-4 py-2 bg-purple-50 text-purple-600 rounded-lg text-sm font-medium border border-purple-100">
                 {job.Category}
               </span>
             </div>
           )}
 
           {/* Apply Button */}
-          <div className="pt-6 border-t border-gray-700">
+          <div className="pt-6 border-t border-gray-200">
             <button
               onClick={() => setShowApplying(true)}
               disabled={job.Deleted || !job.Active}
               className={`w-full sm:w-auto px-8 py-3 text-lg font-medium rounded-lg transition ${job.Deleted || !job.Active
-                ? "bg-gray-600 text-gray-400 cursor-not-allowed"
+                ? "bg-gray-200 text-gray-500 cursor-not-allowed"
                 : job.EasyApply
                   ? "bg-blue-600 hover:bg-blue-700 text-white"
                   : "bg-orange-600 hover:bg-orange-700 text-white"
@@ -351,8 +358,8 @@ export default function JobDetails() {
             </button>
 
             {!job.EasyApply && job.JobApplyURL && (
-              <p className="text-xs text-gray-400 mt-2">
-                This will redirect you to {new URL(job.JobApplyURL).hostname}
+              <p className="text-xs text-gray-500 mt-2">
+                This will redirect you to {job.JobApplyURL ? new URL(job.JobApplyURL).hostname : ""}
               </p>
             )}
           </div>

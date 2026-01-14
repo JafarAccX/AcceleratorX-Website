@@ -471,7 +471,7 @@ export default function GENProgramEIE() {
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-2xl p-8 border border-gray-100">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
-                                    src="/assets/programcertificates/Gen_AI_Cert.webp"
+                                    src="https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-recordings%2F1758277065291_thumbnail_PM_Cert_EIE.webp?alt=media&token=afe76364-aa9a-460f-a3c2-edcda829c3dd"
                                     alt="Generative AI Certificate"
                                     className="w-full h-auto border-4 border-white"
                                 />

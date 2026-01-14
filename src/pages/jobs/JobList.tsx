@@ -40,7 +40,6 @@ export interface PaginationInfo {
 
 const JobList = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [jobsPerPage, setJobsPerPage] = useState(20);
 
   const [showFilters, setShowFilters] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -70,7 +69,7 @@ const JobList = () => {
     skills: selectedSkills.length > 0 ? selectedSkills.join(',') : undefined
   }), [debouncedSearchTerm, selectedCompany, selectedJobType, selectedLocation, selectedCategory, selectedSkills]);
 
-  const { data: jobsResponse, isLoading } = useGetAllJobs(currentPage, jobsPerPage, filters);
+  const { data: jobsResponse, isLoading } = useGetAllJobs(currentPage, 10, filters);
 
   // Extract jobs and pagination info from response
   const jobs = useMemo(() => jobsResponse?.jobs || [], [jobsResponse?.jobs]);
@@ -154,11 +153,6 @@ const JobList = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleJobsPerPageChange = (newLimit: number) => {
-    setJobsPerPage(newLimit);
-    setCurrentPage(1); // Reset to first page when changing page size
-  };
-
   // Generate page numbers for pagination
   const getPageNumbers = () => {
     if (!paginationInfo) return [];
@@ -200,12 +194,12 @@ const JobList = () => {
         className="relative min-h-[400px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
         style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        <div className="absolute inset-0 bg-white/90 backdrop-blur-[2px]"></div>
 
         <div className="relative container mx-auto px-4 h-full flex flex-col items-center md:flex-row justify-betweenborder: 1px solid #EBEBEB ">
           <div className="max-w-xl">
             <h1
-              className="text-white mb-6"
+              className="text-gray-900 mb-6"
               style={{
                 fontFamily: 'Cormorant Infant, serif',
                 fontWeight: 600,
@@ -215,11 +209,11 @@ const JobList = () => {
               }}
             >
               Everything you need,{" "}
-              <span className="text-blue-400">in one place.</span>
+              <span className="text-blue-600">in one place.</span>
             </h1>
 
           </div>
-          <p className="text-xs md:text-base text-gray-300 max-w-xl">
+          <p className="text-xs md:text-base text-gray-600 max-w-xl font-medium">
             Discover your next career opportunity from top companies hiring across various domains and technologies.
           </p>
 
@@ -241,7 +235,6 @@ const JobList = () => {
                 <div className="mb-6">
                   <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3">
                     <span>Category</span>
-                    <span className="text-gray-400">^</span>
                   </button>
                   <div className="space-y-2">
                     {categoryList.map((category) => (
@@ -282,7 +275,7 @@ const JobList = () => {
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       placeholder="Job title or keyword"
-                      className="w-full pl-10 pr-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                     <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
                   </div>
@@ -292,11 +285,11 @@ const JobList = () => {
                       value={selectedLocation}
                       onChange={(e) => setSelectedLocation(e.target.value)}
                       placeholder="City, state or zip"
-                      className="w-full pl-10 pr-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                     <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
                   </div>
-                  <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors">
+                  <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-medium transition-colors">
                     Find jobs
                   </button>
                 </div>
