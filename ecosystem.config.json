@@ -7,7 +7,7 @@
       "exec_mode": "fork",
       "env": {
         "NODE_ENV": "production",
-        "PORT": 7000
+        "PORT": 7001
       },
       "error_file": "/var/log/pm2/acceleratorx-error.log",
       "out_file": "/var/log/pm2/acceleratorx-out.log",

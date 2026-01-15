@@ -59,15 +59,15 @@ async function createServer() {
       }
 
       const { html: appHtml, context } = render(url, { blogData })
-      
+
       // Extract helmet context for meta tags
       const { helmet } = context || {};
       const helmetData = helmet?.helmet || {};
-      
+
       // If we have blog data, inject meta tags directly
       let customMetaTags = '';
       let blogContentHTML = '';
-      
+
       if (blogData) {
         const metaTitle = blogData.SEO_MetaTitle || blogData.Title || "Blog Post | AcceleratorX";
         const metaDescription = blogData.SEO_MetaDescription || blogData.Excerpt || "Read this insightful blog post on AcceleratorX.";
@@ -85,7 +85,7 @@ async function createServer() {
             } else if (blogData.Content.blocks && Array.isArray(blogData.Content.blocks)) {
               // Simple EditorJS to HTML conversion for SSR
               contentHTML = blogData.Content.blocks.map(block => {
-                switch(block.type) {
+                switch (block.type) {
                   case 'header':
                     const level = block.data.level || 2;
                     return `<h${level}>${block.data.text}</h${level}>`;
@@ -190,44 +190,44 @@ async function createServer() {
     <!-- Structured Data - JSON-LD -->
     <script type="application/ld+json">
     ${JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": blogData.Title,
-      "description": metaDescription,
-      "image": ogImage,
-      "datePublished": publishedDate,
-      "dateModified": modifiedDate,
-      "author": {
-        "@type": "Person",
-        "name": blogData.Author?.FullName || "AcceleratorX",
-        ...(blogData.Author?.ProfileImage && { "image": blogData.Author.ProfileImage }),
-        ...(blogData.Author?.Email && { "email": blogData.Author.Email })
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "AcceleratorX",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.acceleratorx.org/companylogo-new.webp"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": canonicalUrl
-      },
-      ...(blogData.Categories && blogData.Categories.length > 0 && {
-        "articleSection": blogData.Categories.map(cat => cat.Name)
-      }),
-      ...(blogData.Tags && blogData.Tags.length > 0 && {
-        "keywords": blogData.Tags.map(tag => tag.Name).join(", ")
-      })
-    })}
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": blogData.Title,
+          "description": metaDescription,
+          "image": ogImage,
+          "datePublished": publishedDate,
+          "dateModified": modifiedDate,
+          "author": {
+            "@type": "Person",
+            "name": blogData.Author?.FullName || "AcceleratorX",
+            ...(blogData.Author?.ProfileImage && { "image": blogData.Author.ProfileImage }),
+            ...(blogData.Author?.Email && { "email": blogData.Author.Email })
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "AcceleratorX",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.acceleratorx.org/companylogo-new.webp"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+          },
+          ...(blogData.Categories && blogData.Categories.length > 0 && {
+            "articleSection": blogData.Categories.map(cat => cat.Name)
+          }),
+          ...(blogData.Tags && blogData.Tags.length > 0 && {
+            "keywords": blogData.Tags.map(tag => tag.Name).join(", ")
+          })
+        })}
     </script>`;
       }
-      
+
       // Inject helmet meta tags into the template
       let htmlWithMeta = template;
-      
+
       // If we have blog content HTML, inject it for SSR
       if (blogContentHTML) {
         // Replace ssr-outlet with actual blog content
@@ -243,7 +243,7 @@ async function createServer() {
         // No blog data, use the React app HTML
         htmlWithMeta = htmlWithMeta.replace('<!--app-html-->', appHtml);
       }
-      
+
       // If we have custom meta tags from blog data, inject them
       if (customMetaTags) {
         htmlWithMeta = htmlWithMeta.replace(
@@ -258,7 +258,7 @@ async function createServer() {
           helmetData.link?.toString() || '',
           helmetData.script?.toString() || ''
         ].filter(Boolean).join('\n');
-        
+
         if (headTags) {
           htmlWithMeta = htmlWithMeta.replace(
             '</head>',
@@ -266,7 +266,7 @@ async function createServer() {
           );
         }
       }
-      
+
       // Import and use the metadata function to get page-specific data
       let pageMetadata;
       try {
@@ -546,7 +546,7 @@ async function createServer() {
                     canonicalUrl: "https://www.acceleratorx.org/fa-register/da"
                   }
                 };
-                
+
                 // Try exact match first
                 if (pageMetadata[path]) {
                   return pageMetadata[path];
@@ -578,7 +578,7 @@ async function createServer() {
                     canonicalUrl: `https://www.acceleratorx.org${path}`
                   };
                 }
-                
+
                 // Default fallback
                 return {
                   title: "AcceleratorX | Learn Product, AI & Data Skills",
@@ -606,7 +606,7 @@ async function createServer() {
           canonicalUrl: `https://www.acceleratorx.org${url}`
         };
       }
-      
+
       // Replace the existing meta tags with page-specific ones (only if we don't have blog data)
       let html = htmlWithMeta;
       if (!blogData && !customMetaTags) {
@@ -627,19 +627,19 @@ async function createServer() {
           .replace(/<meta property="twitter:description"[^>]*>/g, `<meta property="twitter:description" content="${pageMetadata.ogDescription}" />`)
           .replace(/<meta property="twitter:url"[^>]*>/g, `<meta property="twitter:url" content="${pageMetadata.canonicalUrl}" />`)
           .replace(/<meta property="twitter:image"[^>]*>/g, `<meta property="twitter:image" content="https://www.acceleratorx.org${pageMetadata.ogImage || '/companylogo-new.webp'}" />`)
-      
+
         // If helmet didn't provide canonical, add it
         if (!helmetData.link?.toString()?.includes('canonical')) {
           const viewportIndex = html.indexOf('<meta name="viewport"');
           if (viewportIndex !== -1) {
             const insertAfter = html.indexOf('>', viewportIndex) + 1;
-            html = html.slice(0, insertAfter) + 
-                   `\n    <link rel="canonical" href="${pageMetadata.canonicalUrl}" />` + 
-                   html.slice(insertAfter);
+            html = html.slice(0, insertAfter) +
+              `\n    <link rel="canonical" href="${pageMetadata.canonicalUrl}" />` +
+              html.slice(insertAfter);
           }
         }
       }
-      
+
       // Replace the SSR outlet (if not already replaced by blog content)
       if (!blogContentHTML) {
         if (html.includes('<!--ssr-outlet-->')) {
@@ -664,7 +664,7 @@ async function createServer() {
 }
 
 createServer().then(app => {
-  const port = process.env.PORT || 7000;
+  const port = process.env.PORT || 7001;
   app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`)
   })
