@@ -1,18 +1,18 @@
 {
   "apps": [
     {
-      "name": "acceleratorx-ssr",
+      "name": "acceleratorx-dev",
       "script": "server.js",
-      "instances": 1,
-      "exec_mode": "fork",
+      "cwd": "/var/www/html/dev/AcceleratorX-Website",
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "PORT": 7001
       },
-      "error_file": "/var/log/pm2/acceleratorx-error.log",
-      "out_file": "/var/log/pm2/acceleratorx-out.log",
-      "log_file": "/var/log/pm2/acceleratorx-combined.log",
-      "time": true
+      "instances": 1,
+      "exec_mode": "fork",
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "500M"
     }
   ]
 }
