@@ -31,8 +31,6 @@ export const adRoutes = [
   "/workshop/gen-ai-masterclass-fioth",
   "/workshop/ai-dm-fitm",
   "/workshop-payment/success/",
-  "/admin/analytics",
-  "/admin/analytics/adanalysis",
 
 
 ] as const;
@@ -75,7 +73,7 @@ export const RouteLogic: React.FC<RouteLogicProps> = ({ setSelectedCourse }) => 
       setSelectedCourse("Product Management");
     } else if (
       location.pathname === "/courses/data-analytics" ||
-      location.pathname === "/courses/data-analytics-program-fb"||
+      location.pathname === "/courses/data-analytics-program-fb" ||
       location.pathname === "/courses/data-analytics-program-fb-b"
     ) {
       setSelectedCourse("Data Analytics");

@@ -1,8 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import AppDownloadPOP from "../components/AppDownloadPOP";
-// import ChatWidget from "../components/ChatWidget";
-// import Loader from "../components/Loader";
 import { getRouteLayout } from "../utils/layoutUtils";
 import Navbar from "../components/landing-page/Navbar";
 
@@ -54,7 +52,6 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
       {showFooter && (
         <>
-          {/* <ChatWidget /> */}
           <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
             <Footer />
           </Suspense>

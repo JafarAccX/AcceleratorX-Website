@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Values = () => {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap');
       `}</style>
@@ -16,7 +16,7 @@ const Values = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight transition-colors duration-300"
               style={{ fontFamily: 'Cormorant Infant, serif' }}
             >
               Trusted by 2200+ <br /> Learners
@@ -43,17 +43,17 @@ const Values = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-blue-500 font-bold tracking-wider text-sm uppercase mb-4 block">
+              <span className="text-blue-500 dark:text-blue-400 font-bold tracking-wider text-sm uppercase mb-4 block transition-colors duration-300">
                 Our Vision
               </span>
               <h3
-                className="text-4xl font-bold text-gray-900 mb-8"
+                className="text-4xl font-bold text-gray-900 dark:text-white mb-8 transition-colors duration-300"
                 style={{ fontFamily: 'Cormorant Infant, serif' }}
               >
                 What We Stand For
               </h3>
 
-              <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
+              <div className="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed text-lg transition-colors duration-300">
                 <p>
                   At AcceleratorX, we are on a mission to shape visionary leaders who
                   dare to redefine the future. We believe in harnessing ambition and

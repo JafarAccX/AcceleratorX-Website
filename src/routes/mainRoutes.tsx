@@ -1,7 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
-import RoleProtectedRoute from "../components/RoleProtectedRoute";
 import { ThankYouPageWrapper } from "./utils/routeUtils";
 import BlogDetail from "../pages/blogs/BlogDetail";
 // // Lazy-load heavy pages that were previously imported eagerly
@@ -15,31 +14,20 @@ const RegistrationSuccess = lazy(() => import("../pages/events/registration-succ
 const HomePage = lazy(() => import("../pages/courses/EntryPoint/HomePage"));
 const AboutPage = lazy(() => import("../pages/courses/EntryPoint/AboutPage"));
 const BlogList = lazy(() => import("../pages/blogs/BlogList"));
-const Login = lazy(() => import("../pages/auth/Login"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy"));
 const Terms = lazy(() => import("../pages/Terms/Terms"));
 const Refund = lazy(() => import("../pages/refund/Refund"));
 const MentorPage = lazy(() => import("../pages/MentorPage"));
 
-// Course Routes
-const GenAICourse = lazy(() => import("../pages/courses/EntryPoint/GenAIEntry"));
-const GenAICourseAD = lazy(() => import("../pages/courses/EntryPoint/GenAIAd"));
-// const DMAICourse = lazy(() => import("../pages/courses/EntryPoint/DigitalMarketingEntry"));
-// const DataAnalyticsPage = lazy(() => import("../pages/courses/dataanalytics"));
 
-// Blog Admin Routes
-const BlogDashboard = lazy(() => import("../pages/blogs/BlogDashboard"));
-// const BlogForm = lazy(() => import("../pages/blogs/BlogForm"));
 const Events = lazy(() => import("../pages/events/Events"));
 const YearEnd = lazy(() => import("../pages/year-end/YearEnd"));
-const ProjectListing = lazy(() => import("../pages/project-listing/ProjectListing"));
 
 export const mainRoutes = [
   <Route key="home" path="/" element={<HomePage />} />,
   <Route key="about" path="/about-us" element={<AboutPage />} />,
   <Route key="blogs" path="/blogs" element={<BlogList />} />,
   <Route key="blog-detail" path="/blogs/:slug" element={<BlogDetail />} />,
-  <Route key="login" path="/login" element={<Login />} />,
   <Route key="privacy" path="/privacy-policy" element={<Privacy />} />,
   <Route key="terms" path="/terms-and-conditions" element={<Terms />} />,
   <Route key="refund" path="/refund-policy" element={<Refund />} />,
@@ -47,39 +35,6 @@ export const mainRoutes = [
   <Route key="events" path="/events" element={<Events />} />,
   <Route key="event-pm" path="/event/PMtakedown/view" element={<EventManagementPage />} />,
 
-  // Course Routes
-  <Route key="gen-ai" path="/courses/generative-ai" element={<GenAICourse />} />,
-  <Route key="gen-ai-fb" path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
-  // <Route key="digital-marketing" path="/courses/advance-performance-marketing-with-ai" element={<DMAICourse />} />,
-  // <Route key="data-analytics" path="/courses/data-analytics" element={<DataAnalyticsPage />} />,
-
-
-  // Blog Admin Routes
-  <Route
-    key="blog-admin"
-    path="/admin/blogs"
-    element={
-      <RoleProtectedRoute requiredRole="blog_user">
-        <BlogDashboard />
-      </RoleProtectedRoute>
-    }
-  />,
-  // <Route
-  //   path="/admin/blogs/new"
-  //   element={
-  //     <RoleProtectedRoute requiredRole="blog_user">
-  //       <BlogForm onClose={() => {}} onSuccess={() => {}} />
-  //     </RoleProtectedRoute>
-  //   }
-  // />,
-  // <Route
-  //   path="/admin/blogs/edit/:id"
-  //   element={
-  //     <RoleProtectedRoute requiredRole="blog_user">
-  //       <BlogForm onClose={() => {}} onSuccess={() => {}} />
-  //     </RoleProtectedRoute>
-  //   }
-  // />,
 
   // Thank You Page
   <Route key="thank-you" path="/thank-you" element={<ThankYouPageWrapper />} />,
@@ -97,6 +52,4 @@ export const mainRoutes = [
   //year end route
   <Route key="year-end" path="/year-end" element={<YearEnd />} />,
 
-  // project-listing
-  <Route key="project-listing" path="/project-listing" element={<ProjectListing />} />,
 ];

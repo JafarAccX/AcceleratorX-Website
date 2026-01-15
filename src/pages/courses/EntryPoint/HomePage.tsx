@@ -24,9 +24,6 @@ const HomePage = () => {
         <Hero />
         <PartnerLogos />
         <ProgramsOffered />
-        {/* // <HeroWithAbouv /> */}
-        {/* <BecomeAMentorFeatures /> */}
-        {/* <CTA /> */}
       </Suspense>
     </>
   );

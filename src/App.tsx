@@ -8,6 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { MetaTrackingDebugger } from "./components/MetaTrackingDebugger";
 import { AppRoutes } from "./components/AppRoutes";
 import { UserProvider, useUser } from "./context/UserContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MetaPixel } from "./components/MetaPixel";
 
@@ -42,16 +43,18 @@ function AppContent() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <HelmetProvider>
-        <CourseProvider>
-          <UserProvider>
-            <Suspense fallback={<LottieLoader />}>
-              <AppContent />
-            </Suspense>
-            <MetaTrackingDebugger />
-          </UserProvider>
-        </CourseProvider>
-      </HelmetProvider>
+      <ThemeProvider>
+        <HelmetProvider>
+          <CourseProvider>
+            <UserProvider>
+              <Suspense fallback={<LottieLoader />}>
+                <AppContent />
+              </Suspense>
+              <MetaTrackingDebugger />
+            </UserProvider>
+          </CourseProvider>
+        </HelmetProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

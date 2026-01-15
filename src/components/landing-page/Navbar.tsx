@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import companyLogo from "/redesign/logo-bg-black.webp";
 import { useUser } from "../../context/UserContext";
 import ProfileMenu from "../navbar/ProfileMenu";
+import ThemeToggle from "../ThemeToggle";
 
 // Add CSS classes for transitions
 const dropdownTransition = "transition-all duration-300 ease-in-out";
@@ -175,7 +176,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-[10px] w-full left-1/2 -translate-x-1/2 z-[9999] md:w-[calc(100%-140px)] max-w-[1300px] ${menuTransition}`}
       >
-        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-[#FFFFFFB2] shadow-lg px-6 sm:px-8 w-full">
+        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-gray-900/70 shadow-lg px-6 sm:px-8 w-full border border-gray-200/50 dark:border-gray-700/50">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <div className={`relative group ${hoverTransition}`}>
@@ -193,7 +194,7 @@ export default function Navbar() {
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
                 <button
-                  className={`flex items-center gap-1 text-gray-700 group-hover:text-gray-900 text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
+                  className={`flex items-center gap-1 text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
                 >
                   Courses
                   <ChevronDown
@@ -209,12 +210,12 @@ export default function Navbar() {
                   className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
                     }`}
                 >
-                  <div className="bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl shadow-xl overflow-hidden">
+                  <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden">
                     {courses.map((course) => (
                       <Link
                         key={course.label}
                         to={course.path}
-                        className={`block px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 ${hoverTransition} text-xs font-medium`}
+                        className={`block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition} text-xs font-medium`}
                       >
                         {course.label}
                       </Link>
@@ -229,18 +230,21 @@ export default function Navbar() {
                   key={item.label}
                   to={item.path}
                   className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
-                    ? "bg-gray-100/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
-                    : "text-gray-700 hover:text-gray-900 py-2"
+                      ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
+                      : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
                     }`}
                 >
                   {item.label}
                   {item.label !== "XSAT" && item.label !== "EVENTS" && (
                     <span
-                      className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 ${dropdownTransition} group-hover:w-full`}
+                      className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 dark:bg-white ${dropdownTransition} group-hover:w-full`}
                     />
                   )}
                 </Link>
               ))}
+
+              {/* Theme Toggle */}
+              <ThemeToggle />
 
               {isAuthenticated ? (
                 <ProfileMenu />
@@ -248,7 +252,7 @@ export default function Navbar() {
                 <div className="flex items-center p-1  ml-4 group">
                   <Link
                     to="/sign-in"
-                    className={`text-gray-600 hover:text-gray-900 ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50`}
+                    className={`text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50 dark:hover:bg-gray-700/50`}
                   >
                     Login
                   </Link>
@@ -265,7 +269,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
-              className={`md:hidden text-gray-700 hover:text-gray-900 p-2 rounded-lg hover:bg-gray-100/50 ${hoverTransition}`}
+              className={`md:hidden text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition}`}
             >
               <Menu size={24} />
             </button>
@@ -292,13 +296,13 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-[300px] bg-white z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
+              className="fixed inset-y-0 right-0 w-[300px] bg-white dark:bg-gray-900 z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
             >
               <div className="flex items-center justify-between mb-8">
                 <img src={companyLogo} alt="Logo" className="h-10 w-auto" />
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-500 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 >
                   <X size={24} />
                 </button>
@@ -309,7 +313,7 @@ export default function Navbar() {
                 <div className="mb-2">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center justify-between w-full text-gray-800 hover:text-black text-lg font-semibold py-3 px-4 rounded-xl hover:bg-gray-50 transition-colors"
+                    className="flex items-center justify-between w-full text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white text-lg font-semibold py-3 px-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                   >
                     Courses
                     <ChevronDown
@@ -324,14 +328,14 @@ export default function Navbar() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden bg-gray-50/50 rounded-xl mt-1 mx-2"
+                        className="overflow-hidden bg-gray-50/50 dark:bg-gray-800/50 rounded-xl mt-1 mx-2"
                       >
                         <div className="flex flex-col p-2">
                           {courses.map((course) => (
                             <Link
                               key={course.label}
                               to={course.path}
-                              className="py-3 px-4 text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg text-sm font-medium transition-colors"
+                              className="py-3 px-4 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium transition-colors"
                               onClick={() => setIsOpen(false)}
                             >
                               {course.label}
@@ -349,8 +353,8 @@ export default function Navbar() {
                     key={item.label}
                     to={item.path}
                     className={`flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${item.label === "XSAT" || item.label === "EVENTS"
-                      ? "text-[#FFBB00] bg-gray-50"
-                      : "text-gray-800 hover:text-black hover:bg-gray-50"
+                        ? "text-[#FFBB00] bg-gray-50 dark:bg-gray-800"
+                        : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
                       }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -372,7 +376,7 @@ export default function Navbar() {
                       <Link
                         to="/sign-in"
                         onClick={() => setIsOpen(false)}
-                        className="w-full text-center py-3 px-6 rounded-xl border border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors"
+                        className="w-full text-center py-3 px-6 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                       >
                         Login
                       </Link>
@@ -384,7 +388,10 @@ export default function Navbar() {
                         Sign Up
                       </Link>
                     </div>
-                  )}
+                  )}\n                  \n                  {/* Theme Toggle */}
+                  <div className="flex justify-center pt-4">
+                    <ThemeToggle />
+                  </div>
                 </div>
               </div>
             </motion.div>

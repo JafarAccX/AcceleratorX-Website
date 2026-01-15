@@ -30,11 +30,11 @@ const PartnerLogos = () => {
     );
 
     return (
-        <section className="w-full bg-white py-16 px-6 md:px-12 lg:px-24 overflow-hidden">
+        <section className="w-full bg-white dark:bg-gray-900 py-16 px-6 md:px-12 lg:px-24 overflow-hidden transition-colors duration-300">
             <div className="max-w-7xl mt-20 mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
                 {/* Left Side: Title */}
-                <div className="w-full lg:w-1/3 text-center lg:text-left z-10 bg-white">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A2B44] leading-tight">
+                <div className="w-full lg:w-1/3 text-center lg:text-left z-10 bg-white dark:bg-gray-900 transition-colors duration-300">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A2B44] dark:text-white leading-tight transition-colors duration-300">
                         Trusted by <span className="font-bold">2200+</span> Organisations for your AI Career
                     </h2>
                 </div>
@@ -42,15 +42,15 @@ const PartnerLogos = () => {
                 {/* Right Side: Animated Logo Sliders */}
                 <div className="w-full lg:w-2/3 relative">
                     <div className="mb-6">
-                        <h3 className="text-sm md:text-base font-bold text-[#0D47A1] uppercase tracking-wider text-center lg:text-left opacity-80">
+                        <h3 className="text-sm md:text-base font-bold text-[#0D47A1] dark:text-blue-400 uppercase tracking-wider text-center lg:text-left opacity-80 transition-colors duration-300">
                             Our Partners & Hiring Network:
                         </h3>
                     </div>
 
                     <div className="flex flex-col gap-2 relative">
                         {/* Gradient Fades for Slider */}
-                        <div className="absolute inset-y-0 -left-4 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-                        <div className="absolute inset-y-0 -right-4 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-y-0 -left-4 w-24 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+                        <div className="absolute inset-y-0 -right-4 w-24 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10 pointer-events-none transition-colors duration-300" />
 
                         <LogoRow partners={partnersRow1} />
                         <LogoRow partners={partnersRow2} reverse={true} />

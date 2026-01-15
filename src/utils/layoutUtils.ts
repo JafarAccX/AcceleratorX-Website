@@ -12,10 +12,7 @@ const defaultLayout: RouteLayout = {
 
 // Routes with custom layouts
 const routeLayouts: Record<string, RouteLayout> = {
-  // Admin routes
-  "/admin/ad-analysis": { showNavbar: false, showFooter: false },
-  "/admin/dashboard": { showNavbar: false, showFooter: false },
-  
+
   // Workshop routes
   "/workshop/dm-masterclass": { showNavbar: false, showFooter: false },
   "/workshop/da-masterclass": { showNavbar: false, showFooter: false },
@@ -26,7 +23,7 @@ const routeLayouts: Record<string, RouteLayout> = {
   "/workshop/gen-ai-masterclass-four": { showNavbar: false, showFooter: false },
   "/workshop/gen-ai-masterclass-fioth": { showNavbar: false, showFooter: false },
   "/workshop/ai-dm-fitm": { showNavbar: false, showFooter: false },
-  
+
   // Course routes
   "/courses/generative-ai-fb": { showNavbar: false, showFooter: false },
   "/courses/product-management-program-fb": { showNavbar: false, showFooter: false },
@@ -34,7 +31,7 @@ const routeLayouts: Record<string, RouteLayout> = {
   "/courses/product-management-program-eie": { showNavbar: false, showFooter: false },
   "/courses/data-analytics-program-eie": { showNavbar: false, showFooter: false },
   "/courses/no-code-tool-program-fb": { showNavbar: false, showFooter: false },
-  
+
   // Other routes
   "/thank-you": { showNavbar: false, showFooter: false },
   "/xsat": { showNavbar: false, showFooter: false },

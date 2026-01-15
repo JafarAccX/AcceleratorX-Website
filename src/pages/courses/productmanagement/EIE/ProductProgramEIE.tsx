@@ -46,21 +46,21 @@ const AccordionItem = ({ week }: { week: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-gray-200 rounded-lg mb-4 overflow-hidden">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left"
+                className="w-full flex items-center justify-between p-5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-left"
             >
                 <div>
-                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">
+                    <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1 transition-colors duration-300">
                         WEEK {week.week}
                     </span>
-                    <h4 className="text-lg font-bold text-gray-900">
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">
                         {week.topics.join(" & ")}
                     </h4>
                 </div>
                 <ChevronDown
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
                 />
             </button>
             <AnimatePresence>
@@ -71,12 +71,12 @@ const AccordionItem = ({ week }: { week: any }) => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="p-5 pt-0 text-gray-600 bg-white border-t border-gray-100">
+                        <div className="p-5 pt-0 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 transition-colors duration-300">
                             <div className="mb-4">
-                                <p className="font-semibold text-gray-800 mb-2">Key Skills:</p>
+                                <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Key Skills:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {week.skills.map((skill: string, sIdx: number) => (
-                                        <span key={sIdx} className="bg-blue-50 text-blue-600 px-2 py-0.5 rounded text-xs">
+                                        <span key={sIdx} className="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded text-xs transition-colors duration-300">
                                             {skill}
                                         </span>
                                     ))}
@@ -84,7 +84,7 @@ const AccordionItem = ({ week }: { week: any }) => {
                             </div>
                             {week.caseStudies && week.caseStudies.length > 0 && (
                                 <div>
-                                    <p className="font-semibold text-gray-800 mb-2">Case Studies:</p>
+                                    <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Case Studies:</p>
                                     <div className="flex gap-4">
                                         {week.caseStudies.map((logo: string, lIdx: number) => (
                                             <img key={lIdx} src={logo} alt="case study" className="h-6 object-contain opacity-70" />
@@ -333,7 +333,7 @@ export default function ProductProgramEIE() {
     };
 
     return (
-        <div className="bg-gradient-to-b from-gray-50 to-white py-20 text-[#0A0F1E]">
+        <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20 text-[#0A0F1E] dark:text-white transition-colors duration-300">
             <div ref={containerRef} className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row gap-12">
 
                 {isFixed && <div className="lg:w-1/4 flex-shrink-0" style={{ width: `${sidebarWidth}px`, maxWidth: `${sidebarWidth}px` }} />}
@@ -349,11 +349,11 @@ export default function ProductProgramEIE() {
                     } : {}}
                 >
                     <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
-                        <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] mb-8 leading-tight">
+                        <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight transition-colors duration-300">
                             AI Programs that help you become a Leader
                         </h2>
 
-                        <nav className="space-y-4 border-l-2 border-gray-200">
+                        <nav className="space-y-4 border-l-2 border-gray-200 dark:border-gray-700 transition-colors duration-300">
                             {SECTIONS.map((section) => (
                                 <button
                                     key={section.id}
@@ -411,27 +411,22 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Tools Which You Master as a Professional</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {tools.slice(0, 9).map((tool, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white border flex flex-col justify-center items-center border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                                    className="bg-white dark:bg-gray-800 border flex flex-col justify-center items-center border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="bg-gray-50 rounded-lg p-3 inline-block mb-4">
+                                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 inline-block mb-4 transition-colors duration-300">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                                     </div>
-                                    {/* <div className="mb-2">
-                                        <span className="text-[10px] font-bold uppercase tracking-wider bg-gray-100 text-gray-600 px-2 py-1 rounded">
-                                            TOOL
-                                        </span>
-                                    </div> */}
-                                    <h4 className="font-bold text-gray-900 mb-1">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500">{tool.description.substring(0, 50)}...</p>
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300">{tool.name}</h4>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{tool.description.substring(0, 50)}...</p>
                                 </div>
                             ))}
                         </div>
-                        <div className="h-px w-full bg-gray-200 mt-16"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="mentors" className="scroll-mt-24">
@@ -440,9 +435,9 @@ export default function ProductProgramEIE() {
                             {PM_MENTORS.map((mentor, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-gray-50 rounded-xl overflow-hidden border border-gray-100 group hover:shadow-md transition-all"
+                                    className="bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-600 group hover:shadow-md transition-all"
                                 >
-                                    <div className="aspect-square bg-gray-200 relative overflow-hidden">
+                                    <div className="aspect-square bg-gray-200 dark:bg-gray-600 relative overflow-hidden">
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}
@@ -450,18 +445,18 @@ export default function ProductProgramEIE() {
                                         />
                                     </div>
                                     <div className="p-4 text-center">
-                                        <h4 className="font-bold text-gray-900">{mentor.name}</h4>
-                                        <p className="text-sm text-gray-500">{mentor.role}</p>
+                                        <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{mentor.name}</h4>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">{mentor.role}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        <div className="h-px w-full bg-gray-200 mt-16"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">The Certificate Recognized By The Industry</h3>
-                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">The Certificate Recognized By The Industry</h3>
+                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
                                     src="/assets/programcertificates/PM_Cert_EIE.webp"
@@ -470,10 +465,10 @@ export default function ProductProgramEIE() {
                                 />
                             </div>
                             <div className="w-full md:w-1/2">
-                                <h4 className="text-xl font-serif font-bold text-gray-900 mb-4">
+                                <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
                                     Professional Certificate in AI Product Management
                                 </h4>
-                                <p className="text-gray-600 text-sm mb-6">
+                                <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 transition-colors duration-300">
                                     Validate your expertise with an industry-recognized certificate from AcceleratorX. Boost your LinkedIn profile and stand out to recruiters.
                                 </p>
                                 <ul className="space-y-3">
@@ -483,8 +478,8 @@ export default function ProductProgramEIE() {
                                         "Trusted by leading product-based companies",
                                         "Access to exclusive PM Alumni network",
                                     ].map((item, i) => (
-                                        <li key={i} className="flex gap-3 text-sm text-gray-700">
-                                            <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
+                                        <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                                            <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                                                 <Check size={10} />
                                             </div>
                                             {item}
@@ -493,11 +488,11 @@ export default function ProductProgramEIE() {
                                 </ul>
                             </div>
                         </div>
-                        <div className="h-px w-full bg-gray-200 mt-16"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">High-Paying Career Opportunities</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Opportunities</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
                                 { role: "AI Product Manager", pay: "₹18L - 35L", desc: "Lead AI-driven product strategy and development." },
@@ -507,45 +502,45 @@ export default function ProductProgramEIE() {
                             ].map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow"
+                                    className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 hover:shadow-md transition-all duration-300"
                                 >
                                     <div className="flex justify-between items-start mb-4">
-                                        <h4 className="font-bold text-lg text-gray-900 w-2/3">
+                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
                                             {item.role}
                                         </h4>
-                                        <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded whitespace-nowrap">{item.pay}</span>
+                                        <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">{item.pay}</span>
                                     </div>
-                                    <p className="text-gray-500 text-sm">
+                                    <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
                                         {item.desc}
                                     </p>
                                 </div>
                             ))}
                         </div>
-                        <div className="h-px w-full bg-gray-200 mt-16"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="pricing" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Make an Investment for your Future</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Make an Investment for your Future</h3>
                         <div className="flex justify-center">
-                            <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-shadow">
-                                <h4 className="font-bold text-gray-900 mb-2">Program Investment</h4>
-                                <p className="text-xs text-gray-500 mb-6">4-month intensive PM program</p>
+                            <div className="bg-blue-50/50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-all duration-300">
+                                <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Program Investment</h4>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">4-month intensive PM program</p>
 
                                 <div className="mb-2">
-                                    <span className="text-3xl font-bold text-blue-600">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
-                                    <span className="text-gray-400 text-xs ml-1">+ GST</span>
+                                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
+                                    <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
                                 </div>
 
                                 {/* Batch Selection */}
                                 {batches.length > 0 && (
                                     <div className="mb-4">
-                                        <label className="block text-left text-sm font-medium text-gray-700 mb-2">
+                                        <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                                             Select Batch
                                         </label>
                                         <select
                                             value={selectedBatchId || ''}
                                             onChange={(e) => setSelectedBatchId(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-300"
                                         >
                                             {batches.map((batch) => (
                                                 <option key={batch.Id} value={batch.Id}>
@@ -556,7 +551,7 @@ export default function ProductProgramEIE() {
                                     </div>
                                 )}
 
-                                <ul className="text-left space-y-3 my-8 text-sm text-gray-600">
+                                <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
                                     {[
                                         "4 month intensive live instructor-led training",
                                         "Build Your Dream Product (BYDP) project",
@@ -565,15 +560,15 @@ export default function ProductProgramEIE() {
                                         "Dedicated placement assistance",
                                     ].map((feat, i) => (
                                         <li key={i} className="flex gap-2">
-                                            <Check size={16} className="text-blue-500 flex-shrink-0" />
+                                            <Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
                                             <span>{feat}</span>
                                         </li>
                                     ))}
                                 </ul>
 
                                 {paymentCancelled && (
-                                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 text-left">
-                                        <p className="text-yellow-800 text-xs">
+                                    <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-3 mb-4 text-left transition-colors duration-300">
+                                        <p className="text-yellow-800 dark:text-yellow-200 text-xs transition-colors duration-300">
                                             Your previous payment was cancelled. Click below to try again.
                                         </p>
                                     </div>
@@ -599,7 +594,7 @@ export default function ProductProgramEIE() {
                                 </button>
 
                                 {!isAuthenticated && (
-                                    <p className="text-xs text-gray-500 mt-3">
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 transition-colors duration-300">
                                         Already have an account? You'll be redirected to sign in first.
                                     </p>
                                 )}
@@ -610,21 +605,21 @@ export default function ProductProgramEIE() {
                     {/* Payment Cancellation Modal */}
                     {showCancellationModal && (
                         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50">
-                            <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4 relative">
+                            <div className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 relative transition-colors duration-300">
                                 <button
                                     onClick={() => setShowCancellationModal(false)}
-                                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                                    className="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
                                 >
                                     ✕
                                 </button>
                                 <div className="text-center">
-                                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <svg className="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                                        <svg className="w-8 h-8 text-yellow-500 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                         </svg>
                                     </div>
-                                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Payment Cancelled</h3>
-                                    <p className="text-gray-600 mb-6">Your payment was cancelled. Would you like to try again?</p>
+                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Payment Cancelled</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mb-6 transition-colors duration-300">Your payment was cancelled. Would you like to try again?</p>
                                     <div className="flex gap-4">
                                         <button
                                             onClick={() => {
@@ -641,7 +636,7 @@ export default function ProductProgramEIE() {
                                                 setShowCancellationModal(false);
                                                 setPaymentCancelled(false);
                                             }}
-                                            className="flex-1 bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                                            className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
                                         >
                                             Cancel
                                         </button>

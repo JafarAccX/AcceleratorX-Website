@@ -18,7 +18,7 @@ const TeamMemberCard = ({
     viewport={{ once: true }}
     whileHover={{ y: -5 }}
     transition={{ duration: 0.3 }}
-    className="bg-blue-50/80 rounded-3xl overflow-hidden aspect-[4/5] relative group"
+    className="bg-blue-50/80 dark:bg-gray-800/80 rounded-3xl overflow-hidden aspect-[4/5] relative group transition-colors duration-300"
   >
     {image ? (
       <div className="w-full h-full relative">
@@ -47,9 +47,9 @@ const TeamMemberCard = ({
         </div>
       </div>
     ) : (
-      <div className="w-full h-full flex items-center justify-center bg-blue-100">
-        <div className="w-32 h-32 rounded-full bg-blue-200 flex items-center justify-center">
-          <span className="text-blue-400 text-4xl">?</span>
+      <div className="w-full h-full flex items-center justify-center bg-blue-100 dark:bg-gray-700 transition-colors duration-300">
+        <div className="w-32 h-32 rounded-full bg-blue-200 dark:bg-gray-600 flex items-center justify-center transition-colors duration-300">
+          <span className="text-blue-400 dark:text-gray-400 text-4xl transition-colors duration-300">?</span>
         </div>
       </div>
     )}
@@ -100,7 +100,7 @@ const Team = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap');
       `}</style>
@@ -110,7 +110,7 @@ const Team = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-blue-500 font-bold tracking-wider text-sm uppercase"
+            className="text-blue-500 dark:text-blue-400 font-bold tracking-wider text-sm uppercase transition-colors duration-300"
           >
             OUR LEADERSHIP TEAM
           </motion.span>
@@ -120,7 +120,7 @@ const Team = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900"
+            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white transition-colors duration-300"
             style={{ fontFamily: 'Cormorant Infant, serif' }}
           >
             Meet the Team Responsible <br className="hidden md:block" /> for Making Wonders

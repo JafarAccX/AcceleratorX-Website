@@ -552,10 +552,7 @@ async function createServer() {
                   return pageMetadata[path];
                 }
 
-                // Handle dynamic routes (like blog edit with ID)
-                if (path.startsWith('/admin/blogs/edit/')) {
-                  return pageMetadata['/admin/blogs/edit/:id'];
-                }
+
 
                 // Handle dynamic job routes
                 if (path.startsWith('/jobs/')) {
