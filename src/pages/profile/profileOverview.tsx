@@ -3,12 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { useUser } from "../../context/UserContext";
 import { useUpdateUser, useUploadProfilePicture } from "../../hooks/customer";
 import {
-  User, Mail, Phone, Globe, Award, Linkedin,
+  User, Mail, Phone, Globe, Linkedin,
   Github, Plus, Save, Camera, Calendar, Briefcase, DollarSign, Clock, BookOpen, GraduationCap
 } from "lucide-react";
 import { Customer } from "../../types/customer";
-// Project Components
-import ProjectManager from "./components/ProjectManager";
 
 export default function ProfileOverview() {
   // const navigate = useNavigate();
@@ -149,16 +147,16 @@ export default function ProfileOverview() {
     }
   };
 
-  if (!user) return <div className="min-h-screen bg-gray-50 flex items-center justify-center">Loading...</div>;
+  if (!user) return <div className="min-h-screen bg-gray-50 dark:bg-[#000000] flex items-center justify-center text-gray-900 dark:text-white transition-colors duration-300">Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12 px-4 sm:px-6 lg:px-8 font-sans text-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#000000] pt-24 pb-12 px-4 sm:px-6 lg:px-8 font-sans text-gray-900 dark:text-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
 
         {/* LEFT COLUMN: User Card & Navigation */}
         <div className="lg:col-span-3 space-y-6">
           {/* User Card */}
-          <div className="bg-white rounded-3xl shadow-sm p-6 text-center border border-gray-100">
+          <div className="bg-white dark:bg-[#171717] rounded-3xl shadow-sm p-6 text-center   transition-colors duration-300">
             <div className="relative inline-block mb-4 group">
               <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mx-auto ring-4 ring-white shadow-lg">
                 {user.ProfilePicture ? (
@@ -185,52 +183,51 @@ export default function ProfileOverview() {
               />
             </div>
 
-            <h2 className="text-xl font-bold text-gray-900">{user.FirstName} {user.LastName}</h2>
-            <p className="text-gray-500 text-sm mb-4">{user.Designation || "Designation not set"}</p>
-            <p className="text-gray-400 text-xs mb-6">{user.CurrentCompany || "Company not set"}</p>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300">{user.FirstName} {user.LastName}</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 transition-colors duration-300">{user.Designation || "Designation not set"}</p>
+            <p className="text-gray-400 dark:text-gray-500 text-xs mb-6 transition-colors duration-300">{user.CurrentCompany || "Company not set"}</p>
 
             <div className="flex justify-center gap-4 mb-6">
-              <button className="flex-1 bg-blue-600 text-white py-2 rounded-xl font-medium shadow-blue-200 shadow-lg hover:bg-blue-700 transition">
+              <button className="flex-1 bg-blue-600 text-white py-2 rounded-xl font-medium hover:bg-blue-700 transition">
                 Share
               </button>
               <button
                 onClick={() => window.open(`/u/${user.CustId}`, '_blank')}
-                className="flex-1 bg-gray-100 text-gray-700 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
+                className="flex-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 py-2 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
               >
                 View Public
               </button>
             </div>
 
-            <div className="flex justify-around text-center border-t border-gray-100 pt-6">
+            <div className="flex justify-around text-center border-t border-gray-100 dark:border-gray-700 pt-6 transition-colors duration-300">
               <div>
-                <div className="text-xl font-bold text-gray-900">0</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wide">Projects</div>
+                <div className="text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300">0</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide transition-colors duration-300">Projects</div>
               </div>
 
             </div>
           </div>
 
           {/* Navigation Menu (Desktop) */}
-          <div className="bg-white rounded-3xl shadow-sm p-4 border border-gray-100 hidden lg:block">
+          <div className="bg-white dark:bg-[#171717] rounded-3xl shadow-sm p-4   hidden lg:block transition-colors duration-300">
             <nav className="space-y-1">
               {[
                 { id: 'profile', label: 'Profile Settings', icon: User },
-                { id: 'projects', label: 'My Projects', icon: Award },
                 // { id: 'billing', label: 'Billing', icon: DollarSignIcon },
               ].map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id as any)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${activeTab === item.id
-                    ? 'bg-blue-50 text-blue-600 font-semibold'
-                    : 'text-gray-600 hover:bg-gray-50'
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${activeTab === item.id
+                    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold'
+                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
                     }`}
                 >
                   <item.icon size={20} />
                   {item.label}
                 </button>
               ))}
-              <button onClick={logout} className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 transition-all mt-4">
+              <button onClick={logout} className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 transition-all mt-4 duration-300">
                 <LogOutIcon size={20} />
                 Sign Out
               </button>
@@ -239,14 +236,14 @@ export default function ProfileOverview() {
         </div>
 
         {/* MIDDLE COLUMN: Main Content */}
-        <div className="lg:col-span-6 space-y-6">
+        <div className="lg:col-span-6 ">
           {/* Tabs (Mobile) */}
           <div className="lg:hidden flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
             {['profile', 'projects'].map(tab => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab as any)}
-                className={`px-6 py-2 rounded-full whitespace-nowrap ${activeTab === tab ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 border border-gray-200'
+                className={`px-6 py-2 rounded-full whitespace-nowrap transition-all duration-300 ${activeTab === tab ? 'bg-blue-600 text-white' : 'bg-white dark:bg-[#171717] text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-[#848484]'
                   }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -254,11 +251,11 @@ export default function ProfileOverview() {
             ))}
           </div>
 
-          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden min-h-[600px]">
-            <div className="p-6 border-b border-gray-100 flex justify-between items-center">
-              <h1 className="text-2xl font-bold text-gray-900">
+          <div className="bg-white dark:bg-[#171717] rounded-3xl shadow-sm   overflow-hidden min-h-[600px] transition-colors duration-300">
+            <div className="p-6 border-b border-gray-100 dark:border-[#848484]/30 flex justify-between items-center transition-colors duration-300">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
                 {activeTab === 'profile' && 'Profile Settings'}
-                {activeTab === 'projects' && 'My Projects'}
+
               </h1>
               {activeTab === 'profile' && (
                 <button
@@ -278,8 +275,8 @@ export default function ProfileOverview() {
                 <div className="space-y-8">
                   {/* Personal Info */}
                   <section>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <User size={18} className="text-blue-500" />
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300">
+                      <User size={18} className="text-blue-500 dark:text-blue-400" />
                       Personal Information
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -293,13 +290,13 @@ export default function ProfileOverview() {
                       <InputGroup label="Date of Birth" name="DOB" type="date" value={formData.DOB?.split('T')[0]} onChange={handleInputChange} icon={Calendar} />
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Gender</label>
+                        <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider transition-colors duration-300">Gender</label>
                         <div className="relative">
                           <select
                             name="Gender"
                             value={formData.Gender || ''}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition outline-none text-gray-900 appearance-none"
+                            className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#000000] border-transparent focus:bg-white dark:focus:bg-[#000000] focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition outline-none text-gray-900 dark:text-white appearance-none"
                           >
                             <option value="">Select Gender</option>
                             <option value="Male">Male</option>
@@ -312,12 +309,12 @@ export default function ProfileOverview() {
                     </div>
                   </section>
 
-                  <hr className="border-gray-100" />
+                  <hr className="border-gray-100 dark:border-[#848484]/30 transition-colors duration-300" />
 
                   {/* Professional Info */}
                   <section>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <Briefcase size={18} className="text-blue-500" />
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300">
+                      <Briefcase size={18} className="text-blue-500 dark:text-blue-400" />
                       Professional Details
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -330,12 +327,12 @@ export default function ProfileOverview() {
                     </div>
                   </section>
 
-                  <hr className="border-gray-100" />
+                  <hr className="border-gray-100 dark:border-[#848484]/30 transition-colors duration-300" />
 
                   {/* Education */}
                   <section>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <GraduationCap size={18} className="text-blue-500" />
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300">
+                      <GraduationCap size={18} className="text-blue-500 dark:text-blue-400" />
                       Education
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,12 +341,12 @@ export default function ProfileOverview() {
                     </div>
                   </section>
 
-                  <hr className="border-gray-100" />
+                  <hr className="border-gray-100 dark:border-[#848484]/30 transition-colors duration-300" />
 
                   {/* Links */}
                   <section>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <Globe size={18} className="text-blue-500" />
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300">
+                      <Globe size={18} className="text-blue-500 dark:text-blue-400" />
                       Social Profiles
                     </h3>
                     <div className="space-y-4">
@@ -361,10 +358,7 @@ export default function ProfileOverview() {
                 </div>
               )}
 
-              {/* PROJECT MANAGER */}
-              {activeTab === 'projects' && (
-                <ProjectManager />
-              )}
+
             </div>
           </div>
         </div>
@@ -372,8 +366,8 @@ export default function ProfileOverview() {
         {/* RIGHT COLUMN: Widgets */}
         <div className="lg:col-span-3 space-y-6">
           {/* Skills Widget */}
-          <div className="bg-white rounded-3xl shadow-sm p-6 border border-gray-100">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Skills</h3>
+          <div className="bg-white dark:bg-[#171717] rounded-3xl shadow-sm p-6   transition-colors duration-300">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Skills</h3>
 
             {/* Add Skill Input */}
             <div className="flex gap-2 mb-4">
@@ -382,7 +376,7 @@ export default function ProfileOverview() {
                 onChange={(e) => setNewSkill(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleAddSkill()}
                 placeholder="Add a skill..."
-                className="flex-1 px-3 py-2 w-[100px] bg-gray-50 rounded-xl border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm transition"
+                className="flex-1 px-3 py-2 w-[100px] bg-gray-50 dark:bg-[#000000] rounded-xl border-transparent focus:bg-white dark:focus:bg-[#000000] focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm transition text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
               <button
                 onClick={handleAddSkill}
@@ -396,7 +390,7 @@ export default function ProfileOverview() {
             <div className="flex flex-wrap gap-2">
               {getSkillsArray().length > 0 ? (
                 getSkillsArray().map((skill, i) => (
-                  <div key={i} className="group flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium hover:bg-blue-100 transition">
+                  <div key={i} className="group flex items-center gap-1.5 px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all duration-300">
                     {skill}
                     <button
                       onClick={() => handleRemoveSkill(skill)}
@@ -407,7 +401,7 @@ export default function ProfileOverview() {
                   </div>
                 ))
               ) : (
-                <p className="text-gray-400 text-sm">No skills listed yet.</p>
+                <p className="text-gray-400 dark:text-gray-500 text-sm transition-colors duration-300">No skills listed yet.</p>
               )}
             </div>
           </div>
@@ -421,11 +415,11 @@ export default function ProfileOverview() {
 // Helper Components
 const InputGroup = ({ label, name, value, onChange, icon: Icon, type = "text", disabled = false }: any) => (
   <div className="relative group">
-    <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">{label}</label>
+    <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider transition-colors duration-300">{label}</label>
     <div className="relative">
       {Icon && (
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <Icon className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
+          <Icon className="h-5 w-5 text-gray-400 dark:text-gray-500 group-focus-within:text-blue-500 transition-colors" />
         </div>
       )}
       <input
@@ -434,7 +428,7 @@ const InputGroup = ({ label, name, value, onChange, icon: Icon, type = "text", d
         value={value || ''}
         onChange={onChange}
         disabled={disabled}
-        className={`w-full ${Icon ? 'pl-11' : 'pl-4'} pr-4 py-3 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition outline-none disabled:opacity-60 disabled:cursor-not-allowed text-gray-900 placeholder-gray-400`}
+        className={`w-full ${Icon ? 'pl-11' : 'pl-4'} pr-4 py-3 rounded-xl bg-gray-50 dark:bg-[#000000] border-transparent focus:bg-white dark:focus:bg-[#000000] focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition outline-none disabled:opacity-60 disabled:cursor-not-allowed text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500`}
         placeholder={`Enter ${label}`}
       />
     </div>

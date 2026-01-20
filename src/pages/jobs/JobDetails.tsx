@@ -114,8 +114,8 @@ export default function JobDetails() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-white">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="flex min-h-screen items-center justify-center bg-white dark:bg-[#000000] transition-colors duration-300">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 dark:border-blue-400"></div>
       </div>
     );
   }
@@ -123,22 +123,22 @@ export default function JobDetails() {
   if (isError || !job) {
     const errorMessage = isError ? (error instanceof Error ? error.message : "An error occurred") : "Job not found";
     return (
-      <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white text-gray-900">
+      <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <button
               onClick={() => navigate("/jobs")}
-              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900"
+              className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
             >
               <ChevronLeft className="h-4 w-4" />
               Back to Jobs
             </button>
           </div>
-          <div className="rounded-xl bg-white p-8 text-center border border-gray-200 shadow-sm">
-            <p className="text-red-500">{errorMessage}</p>
+          <div className="rounded-xl bg-white dark:bg-[#171717] p-8 text-center border border-gray-200 dark:border-[#848484]/30 shadow-sm transition-colors duration-300">
+            <p className="text-red-500 dark:text-red-400 transition-colors duration-300">{errorMessage}</p>
             <button
               onClick={() => navigate("/jobs")}
-              className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
+              className="mt-4 rounded-lg bg-blue-500 dark:bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-300"
             >
               View All Jobs
             </button>
@@ -155,7 +155,7 @@ export default function JobDetails() {
     : extractSkillsFromDescription(job.JobDescription);
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white text-gray-900">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
       {/* Application Modal */}
       {showApplying && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -164,31 +164,31 @@ export default function JobDetails() {
             onClick={() => setShowApplying(false)}
           ></div>
 
-          <div className="relative bg-white rounded-lg p-6 shadow-xl border border-gray-200 max-w-md w-full m-4 z-10">
+          <div className="relative bg-white dark:bg-[#171717] rounded-lg p-6 shadow-xl border border-gray-200 dark:border-[#848484]/30 max-w-md w-full m-4 z-10 transition-colors duration-300">
             <button
               onClick={() => setShowApplying(false)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-gray-900 transition"
+              className="absolute top-3 right-3 text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
             >
               <X size={20} />
             </button>
 
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               {job.EasyApply ? "Apply with Profile" : "External Application"}
             </h3>
 
-            <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm leading-relaxed transition-colors duration-300">
               {job.EasyApply
                 ? "Your profile will be shared with employers. Ensure your details are up-to-date to improve your chances."
                 : "This position requires applying directly on the company's website. You'll be redirected to their application page."}
             </p>
 
             {!job.EasyApply && job.JobApplyURL && (
-              <div className="mb-4 p-3 bg-blue-50 border border-blue-100 rounded-lg">
-                <div className="flex items-center gap-2 text-blue-600 text-sm">
+              <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 rounded-lg transition-colors duration-300">
+                <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-sm transition-colors duration-300">
                   <ExternalLink size={16} />
                   <span>External application required</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 transition-colors duration-300">
                   You will be redirected to: {job.JobApplyURL ? new URL(job.JobApplyURL).hostname : ""}
                 </p>
               </div>
@@ -210,15 +210,6 @@ export default function JobDetails() {
       )}
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <button
-            onClick={() => navigate("/jobs")}
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Back to Jobs
-          </button>
-        </div>
 
         <div className="p-0 sm:p-0">
           {/* Header */}
@@ -226,7 +217,7 @@ export default function JobDetails() {
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-start gap-4 flex-1">
                 {job.CompanyLogoURL && (
-                  <div className="w-16 h-16 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-16 rounded-xl bg-gray-50 dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 flex items-center justify-center overflow-hidden flex-shrink-0 transition-colors duration-300">
                     <img
                       src={job.CompanyLogoURL}
                       alt={`${job.CompanyName} logo`}
@@ -238,8 +229,8 @@ export default function JobDetails() {
                   </div>
                 )}
                 <div className="flex-1">
-                  <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{job.JobName}</h1>
-                  <div className="flex items-center gap-2 text-xl text-gray-600 mb-2">
+                  <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{job.JobName}</h1>
+                  <div className="flex items-center gap-2 text-xl text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">
                     <Building2 className="h-5 w-5" />
                     <span>{job.CompanyName}</span>
                   </div>
@@ -248,7 +239,7 @@ export default function JobDetails() {
                       href={job.CompanyURL}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm transition"
+                      className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm transition-colors duration-300"
                     >
                       <Globe className="h-4 w-4" />
                       Company Website
@@ -268,32 +259,32 @@ export default function JobDetails() {
             </div>
 
             {/* Job Meta Information */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 border border-gray-100 rounded-lg">
-              <div className="flex items-center gap-2 text-gray-700">
-                <MapPin className="h-4 w-4 text-gray-400" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-lg transition-colors duration-300">
+              <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                <MapPin className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                 <div>
-                  <p className="text-xs text-gray-500">Location</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">Location</p>
                   <p className="text-sm font-medium">{job.Location || `${job.City}, ${job.Country}`}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-gray-700">
-                <Briefcase className="h-4 w-4 text-gray-400" />
+              <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                <Briefcase className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                 <div>
-                  <p className="text-xs text-gray-500">Job Type</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">Job Type</p>
                   <p className="text-sm font-medium capitalize">{job.JobType.replace("fulltime", "Full-time")}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-gray-700">
-                <Clock className="h-4 w-4 text-gray-400" />
+              <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                <Clock className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                 <div>
-                  <p className="text-xs text-gray-500">Experience</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">Experience</p>
                   <p className="text-sm font-medium capitalize">{job.RequiredExperience || "Not specified"}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-gray-700">
-                <Clock className="h-4 w-4 text-gray-400" />
+              <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                <Clock className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                 <div>
-                  <p className="text-xs text-gray-500">Posted</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">Posted</p>
                   <p className="text-sm font-medium">{new Date(job.CreatedDate).toLocaleDateString()}</p>
                 </div>
               </div>
@@ -307,20 +298,20 @@ export default function JobDetails() {
           </div>
 
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Job Description</h2>
-            <div className="prose prose-slate max-w-none text-gray-700">
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Job Description</h2>
+            <div className="prose prose-slate dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 transition-colors duration-300">
               <ReactMarkdown>{cleanedDescription}</ReactMarkdown>
             </div>
           </div>
 
           {skills.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Required Skills</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Required Skills</h2>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium border border-blue-100 hover:bg-blue-100 transition"
+                    className="px-4 py-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg text-sm font-medium border border-blue-100 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors duration-300"
                   >
                     {skill}
                   </span>
@@ -331,23 +322,23 @@ export default function JobDetails() {
 
           {job.Category && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Category</h2>
-              <span className="px-4 py-2 bg-purple-50 text-purple-600 rounded-lg text-sm font-medium border border-purple-100">
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Category</h2>
+              <span className="px-4 py-2 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg text-sm font-medium border border-purple-100 dark:border-purple-800 transition-colors duration-300">
                 {job.Category}
               </span>
             </div>
           )}
 
           {/* Apply Button */}
-          <div className="pt-6 border-t border-gray-200">
+          <div className="pt-6 border-t border-gray-200 dark:border-[#848484]/30 transition-colors duration-300">
             <button
               onClick={() => setShowApplying(true)}
               disabled={job.Deleted || !job.Active}
-              className={`w-full sm:w-auto px-8 py-3 text-lg font-medium rounded-lg transition ${job.Deleted || !job.Active
-                ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+              className={`w-full sm:w-auto px-8 py-3 text-lg font-medium rounded-lg transition-colors duration-300 ${job.Deleted || !job.Active
+                ? "bg-gray-200 dark:bg-[#171717] text-gray-500 dark:text-gray-400 cursor-not-allowed border dark:border-[#848484]/30"
                 : job.EasyApply
-                  ? "bg-blue-600 hover:bg-blue-700 text-white"
-                  : "bg-orange-600 hover:bg-orange-700 text-white"
+                  ? "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white"
+                  : "bg-orange-600 hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-600 text-white"
                 }`}
             >
               {job.Deleted || !job.Active
@@ -358,7 +349,7 @@ export default function JobDetails() {
             </button>
 
             {!job.EasyApply && job.JobApplyURL && (
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 transition-colors duration-300">
                 This will redirect you to {job.JobApplyURL ? new URL(job.JobApplyURL).hostname : ""}
               </p>
             )}

@@ -100,7 +100,7 @@ const Team = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
+    <section className="relative py-24 bg-white dark:bg-[#000000] overflow-hidden transition-colors duration-300">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap');
       `}</style>

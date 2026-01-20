@@ -80,13 +80,13 @@ const JobList = () => {
   const uniqueLocations = Array.from(new Set(jobs?.map((job) => job.Location).filter(Boolean) || []));
 
   // Get all unique skills from all jobs (RequiredSkills is a VARCHAR, likely comma-separated)
-  const allSkills = jobs
-    ? Array.from(new Set(
-      jobs
-        .filter(job => job.RequiredSkills)
-        .flatMap(job => job.RequiredSkills!.split(',').map(s => s.trim()))
-    ))
-    : [];
+  // const allSkills = jobs
+  //   ? Array.from(new Set(
+  //     jobs
+  //       .filter(job => job.RequiredSkills)
+  //       .flatMap(job => job.RequiredSkills!.split(',').map(s => s.trim()))
+  //   ))
+  //   : [];
 
   // Category list
   const categoryList = [
@@ -128,11 +128,11 @@ const JobList = () => {
     setSelectedSkills([]);
   };
 
-  const addSkill = (skill: string) => {
-    if (!selectedSkills.includes(skill)) {
-      setSelectedSkills([...selectedSkills, skill]);
-    }
-  };
+  // const addSkill = (skill: string) => {
+  //   if (!selectedSkills.includes(skill)) {
+  //     setSelectedSkills([...selectedSkills, skill]);
+  //   }
+  // };
 
   const removeSkill = (skill: string) => {
     setSelectedSkills(selectedSkills.filter((s) => s !== skill));
@@ -195,12 +195,12 @@ const JobList = () => {
         className="relative min-h-[300px] md:min-h-[400px] bg-cover bg-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden"
         style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
       >
-        <div className="absolute inset-0 bg-white/90 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-white/90 dark:bg-black/90 backdrop-blur-[2px] transition-colors duration-300"></div>
 
         <div className="relative container mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl text-center md:text-left">
             <h1
-              className="text-gray-900 mb-6 text-4xl md:text-5xl lg:text-[68px]"
+              className="text-gray-900 dark:text-white mb-6 text-4xl md:text-5xl lg:text-[68px] transition-colors duration-300"
               style={{
                 fontFamily: 'Cormorant Infant, serif',
                 fontWeight: 600,
@@ -209,27 +209,27 @@ const JobList = () => {
               }}
             >
               Everything you need,{" "}
-              <span className="text-blue-600">in one place.</span>
+              <span className="text-blue-600 dark:text-blue-400">in one place.</span>
             </h1>
-            <p className="text-sm md:text-lg text-gray-600 font-medium max-w-xl mx-auto md:mx-0">
+            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-400 font-medium max-w-xl mx-auto md:mx-0 transition-colors duration-300">
               Discover your next career opportunity from top companies hiring across various domains and technologies.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="bg-white min-h-screen">
+      <div className="bg-white dark:bg-[#000000] min-h-screen transition-colors duration-300">
         <div className="container mx-auto px-4 py-8">
           {/* Main Layout with Sidebar */}
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Desktop Filters Sidebar */}
             <aside className="hidden lg:block w-64 flex-shrink-0">
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 sticky top-24">
-                <h2 className="text-lg font-semibold text-gray-900 mb-6">Filters</h2>
+              <div className="bg-white dark:bg-[#171717] rounded-2xl p-6  sticky top-24 transition-colors duration-300">
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 transition-colors duration-300">Filters</h2>
 
                 {/* Category */}
                 <div className="mb-6">
-                  <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-3">
+                  <button className="flex items-center justify-between w-full text-left font-medium text-gray-900 dark:text-white mb-3 transition-colors duration-300">
                     <span>Category</span>
                   </button>
                   <div className="space-y-2">
@@ -239,9 +239,9 @@ const JobList = () => {
                           type="checkbox"
                           checked={selectedCategory === category}
                           onChange={(e) => setSelectedCategory(e.target.checked ? category : '')}
-                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                          className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
                         />
-                        <span className="text-sm text-gray-700">{category}</span>
+                        <span className="text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">{category}</span>
                       </label>
                     ))}
                   </div>
@@ -250,7 +250,7 @@ const JobList = () => {
                 {getActiveFiltersCount() > 0 && (
                   <button
                     onClick={clearFilters}
-                    className="w-full mt-4 py-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                    className="w-full mt-4 py-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-300"
                   >
                     Clear all filters
                   </button>
@@ -270,7 +270,7 @@ const JobList = () => {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder="Job title or keyword"
-                        className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm md:text-base"
+                        className="w-full pl-10 pr-4 py-3 rounded-full text-gray-900 dark:text-white bg-white dark:bg-[#171717] border border-gray-200 dark:border-[#848484]/30 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm md:text-base placeholder:text-gray-400 dark:placeholder:text-gray-500"
                       />
                       <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
                     </div>
@@ -280,7 +280,7 @@ const JobList = () => {
                         value={selectedLocation}
                         onChange={(e) => setSelectedLocation(e.target.value)}
                         placeholder="Location"
-                        className="w-full pl-10 pr-4 py-3 rounded-full text-black border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm md:text-base"
+                        className="w-full pl-10 pr-4 py-3 rounded-full text-gray-900 dark:text-white bg-white dark:bg-[#171717] border border-gray-200 dark:border-[#848484]/30 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm md:text-base placeholder:text-gray-400 dark:placeholder:text-gray-500"
                       />
                       <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
                     </div>
@@ -293,7 +293,7 @@ const JobList = () => {
                   <div className="lg:hidden md:col-span-1">
                     <button
                       onClick={() => setShowFilters(true)}
-                      className="w-full p-3 border border-gray-200 rounded-full flex items-center justify-center gap-2 text-gray-700 hover:bg-gray-50 transition-colors"
+                      className="w-full p-3 border border-gray-200 dark:border-[#848484]/30 rounded-full flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors duration-300"
                     >
                       <Filter className="h-5 w-5" />
                       <span className="md:hidden font-medium">Filters</span>
@@ -324,10 +324,10 @@ const JobList = () => {
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white z-[99999] shadow-2xl lg:hidden overflow-y-auto flex flex-col"
+                        className="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white dark:bg-gray-900 z-[99999] shadow-2xl lg:hidden overflow-y-auto flex flex-col transition-colors duration-300"
                       >
-                        <div className="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
-                          <h2 className="text-xl font-bold text-gray-900">Filters</h2>
+                        <div className="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between sticky top-0 bg-white dark:bg-gray-900 z-10 transition-colors duration-300">
+                          <h2 className="text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300">Filters</h2>
                           <button
                             onClick={() => setShowFilters(false)}
                             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -339,14 +339,14 @@ const JobList = () => {
                         <div className="p-6 space-y-8 flex-1">
                           {/* Company Filter */}
                           <div>
-                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-300">
                               <Briefcase className="h-4 w-4" />
                               Company
                             </label>
                             <select
                               value={selectedCompany}
                               onChange={(e) => setSelectedCompany(e.target.value)}
-                              className="w-full p-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                              className="w-full p-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors duration-300"
                             >
                               <option value="">All Companies</option>
                               {uniqueCompanies.map((company) => (
@@ -357,19 +357,19 @@ const JobList = () => {
 
                           {/* Category Filter */}
                           <div>
-                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-300">
                               Category
                             </label>
                             <div className="grid grid-cols-1 gap-2">
                               {categoryList.map((category) => (
-                                <label key={category} className="flex items-center p-3 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200 cursor-pointer transition-all">
+                                <label key={category} className="flex items-center p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 cursor-pointer transition-all duration-300">
                                   <input
                                     type="checkbox"
                                     checked={selectedCategory === category}
                                     onChange={(e) => setSelectedCategory(e.target.checked ? category : '')}
-                                    className="w-5 h-5 text-blue-600 border-gray-300 rounded"
+                                    className="w-5 h-5 text-blue-600 border-gray-300 dark:border-gray-600 rounded"
                                   />
-                                  <span className="ml-3 text-gray-700 font-medium">{category}</span>
+                                  <span className="ml-3 text-gray-700 dark:text-gray-300 font-medium transition-colors duration-300">{category}</span>
                                 </label>
                               ))}
                             </div>
@@ -377,13 +377,13 @@ const JobList = () => {
 
                           {/* Job Type Filter */}
                           <div>
-                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-300">
                               Job Type
                             </label>
                             <select
                               value={selectedJobType}
                               onChange={(e) => setSelectedJobType(e.target.value)}
-                              className="w-full p-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900"
+                              className="w-full p-3 rounded-xl bg-gray-50 dark:bg-[#171717] border border-gray-200 dark:border-[#848484]/30 text-gray-900 dark:text-white transition-colors duration-300"
                             >
                               <option value="">All Types</option>
                               {jobTypes.map((type) => (
@@ -394,14 +394,14 @@ const JobList = () => {
 
                           {/* Location Select (Alternative to Search) */}
                           <div>
-                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+                            <label className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-300">
                               <MapPin className="h-4 w-4" />
                               Location
                             </label>
                             <select
                               value={selectedLocation}
                               onChange={(e) => setSelectedLocation(e.target.value)}
-                              className="w-full p-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900"
+                              className="w-full p-3 rounded-xl bg-gray-50 dark:bg-[#171717] border border-gray-200 dark:border-[#848484]/30 text-gray-900 dark:text-white transition-colors duration-300"
                             >
                               <option value="">All Locations</option>
                               {uniqueLocations.map((loc) => (
@@ -411,10 +411,10 @@ const JobList = () => {
                           </div>
                         </div>
 
-                        <div className="p-6 bg-gray-50 border-t border-gray-100 flex gap-4 mt-auto">
+                        <div className="p-6 bg-gray-50 dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 flex gap-4 mt-auto transition-colors duration-300">
                           <button
                             onClick={clearFilters}
-                            className="flex-1 py-3 text-gray-600 font-semibold hover:text-gray-900 transition-colors"
+                            className="flex-1 py-3 text-gray-600 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                           >
                             Reset
                           </button>
@@ -433,10 +433,10 @@ const JobList = () => {
                 {/* Active Filters Display */}
                 {getActiveFiltersCount() > 0 && (
                   <div className="mb-6 flex flex-wrap gap-2 items-center">
-                    <span className="text-gray-400 text-sm">Active filters:</span>
+                    <span className="text-gray-400 dark:text-gray-500 text-sm transition-colors duration-300">Active filters:</span>
 
                     {selectedCompany && (
-                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                      <span className="bg-slate-800 dark:bg-[#171717] text-gray-300 dark:text-gray-200 px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors duration-300 border border-transparent dark:border-[#848484]/30">
                         Company: {selectedCompany}
                         <button onClick={() => setSelectedCompany("")}>
                           <X className="h-3 w-3 text-gray-400 hover:text-white" />
@@ -445,7 +445,7 @@ const JobList = () => {
                     )}
 
                     {selectedJobType && (
-                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                      <span className="bg-slate-800 dark:bg-[#171717] text-gray-300 dark:text-gray-200 px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors duration-300 border border-transparent dark:border-[#848484]/30">
                         Type: {selectedJobType}
                         <button onClick={() => setSelectedJobType("")}>
                           <X className="h-3 w-3 text-gray-400 hover:text-white" />
@@ -454,7 +454,7 @@ const JobList = () => {
                     )}
 
                     {selectedLocation && (
-                      <span className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                      <span className="bg-slate-800 dark:bg-[#171717] text-gray-300 dark:text-gray-200 px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors duration-300 border border-transparent dark:border-[#848484]/30">
                         Location: {selectedLocation}
                         <button onClick={() => setSelectedLocation("")}>
                           <X className="h-3 w-3 text-gray-400 hover:text-white" />
@@ -467,7 +467,7 @@ const JobList = () => {
                     {selectedSkills.map((skill) => (
                       <span
                         key={skill}
-                        className="bg-slate-800 text-gray-300 px-3 py-1 rounded-full text-sm flex items-center gap-1"
+                        className="bg-slate-800 dark:bg-[#171717] text-gray-300 dark:text-gray-200 px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors duration-300 border border-transparent dark:border-[#848484]/30"
                       >
                         Skill: {skill}
                         <button onClick={() => removeSkill(skill)}>
@@ -476,7 +476,7 @@ const JobList = () => {
                       </span>
                     ))}
 
-                    <button onClick={clearFilters} className="text-blue-400 hover:text-blue-300 text-sm underline">
+                    <button onClick={clearFilters} className="text-blue-400 dark:text-blue-500 hover:text-blue-300 dark:hover:text-blue-400 text-sm underline transition-colors duration-300">
                       Clear all
                     </button>
                   </div>
@@ -500,9 +500,9 @@ const JobList = () => {
                   ) : filteredJobs.length === 0 ? (
                     <div className="col-span-full flex justify-center py-12">
                       <div className="text-center p-6">
-                        <h2 className="text-xl font-bold mb-2 text-black">No Matching Jobs Found</h2>
-                        <p className="text-gray-400 mb-4">Try adjusting your filters to see more results</p>
-                        <button onClick={clearFilters} className="text-blue-400 hover:text-blue-300 underline">
+                        <h2 className="text-xl font-bold mb-2 text-black dark:text-white transition-colors duration-300">No Matching Jobs Found</h2>
+                        <p className="text-gray-400 dark:text-gray-500 mb-4 transition-colors duration-300">Try adjusting your filters to see more results</p>
+                        <button onClick={clearFilters} className="text-blue-400 dark:text-blue-500 hover:text-blue-300 dark:hover:text-blue-400 underline transition-colors duration-300">
                           Clear all filters
                         </button>
                       </div>
@@ -516,7 +516,7 @@ const JobList = () => {
                 {paginationInfo && paginationInfo.totalPages > 1 && (
                   <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                     {/* Pagination Info */}
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-gray-400 dark:text-gray-500 text-sm transition-colors duration-300">
                       Showing page {paginationInfo.currentPage} of {paginationInfo.totalPages}({paginationInfo.totalJobs} total
                       jobs)
                     </div>
@@ -528,8 +528,8 @@ const JobList = () => {
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={!paginationInfo.hasPreviousPage}
                         className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${paginationInfo.hasPreviousPage
-                          ? "bg-slate-800 hover:bg-slate-700 text-white"
-                          : "bg-slate-900 text-gray-500 cursor-not-allowed"
+                          ? "bg-slate-800 dark:bg-[#171717] hover:bg-slate-700 dark:hover:bg-[#1f1f1f] text-white border dark:border-[#848484]/30"
+                          : "bg-slate-200 dark:bg-[#171717]/50 text-gray-500 cursor-not-allowed border dark:border-[#848484]/10"
                           }`}
                       >
                         <ChevronLeft className="h-4 w-4" />
@@ -542,7 +542,7 @@ const JobList = () => {
                           <>
                             <button
                               onClick={() => handlePageChange(1)}
-                              className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
+                              className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 dark:bg-[#171717] hover:bg-slate-700 dark:hover:bg-[#1f1f1f] text-white transition-all border dark:border-[#848484]/30"
                             >
                               1
                             </button>
@@ -555,8 +555,8 @@ const JobList = () => {
                             key={pageNum}
                             onClick={() => handlePageChange(pageNum)}
                             className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${pageNum === paginationInfo.currentPage
-                              ? "bg-blue-600 text-white"
-                              : "bg-slate-800 hover:bg-slate-700 text-white"
+                              ? "bg-blue-600 dark:bg-blue-500 text-white border-transparent"
+                              : "bg-slate-800 dark:bg-[#171717] hover:bg-slate-700 dark:hover:bg-[#1f1f1f] text-white border dark:border-[#848484]/30"
                               }`}
                           >
                             {pageNum}
@@ -570,7 +570,7 @@ const JobList = () => {
                             )}
                             <button
                               onClick={() => handlePageChange(paginationInfo.totalPages)}
-                              className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 hover:bg-slate-700 text-white transition-all"
+                              className="px-3 py-2 rounded-lg text-sm font-medium bg-slate-800 dark:bg-[#171717] hover:bg-slate-700 dark:hover:bg-[#1f1f1f] text-white transition-all border dark:border-[#848484]/30"
                             >
                               {paginationInfo.totalPages}
                             </button>
@@ -583,8 +583,8 @@ const JobList = () => {
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={!paginationInfo.hasNextPage}
                         className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${paginationInfo.hasNextPage
-                          ? "bg-slate-800 hover:bg-slate-700 text-white"
-                          : "bg-slate-900 text-gray-500 cursor-not-allowed"
+                          ? "bg-slate-800 dark:bg-[#171717] hover:bg-slate-700 dark:hover:bg-[#1f1f1f] text-white border dark:border-[#848484]/30"
+                          : "bg-slate-200 dark:bg-[#171717]/50 text-gray-500 cursor-not-allowed border dark:border-[#848484]/10"
                           }`}
                       >
                         Next

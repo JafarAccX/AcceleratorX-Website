@@ -148,7 +148,7 @@ export const SignUpForm = () => {
   return (
     <div className="flex min-h-screen relative overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 dark:from-gray-900 dark:via-gray-800 dark:to-black transition-colors duration-300">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(120,119,198,0.3),_transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(255,255,255,0.1),_transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,_rgba(120,119,198,0.2),_transparent_50%)]"></div>
@@ -179,7 +179,7 @@ export const SignUpForm = () => {
       {/* Right side form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 relative z-10">
         <div className="w-full max-w-[600px]">
-          <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8 space-y-8">
+          <div className="backdrop-blur-xl bg-white/10 dark:bg-black/20 border border-white/20 dark:border-gray-700 rounded-2xl shadow-2xl p-8 space-y-8 transition-colors duration-300">
             {/* Header */}
             <div className="text-center space-y-3">
               <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
@@ -187,10 +187,10 @@ export const SignUpForm = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent transition-colors duration-300">
                 Create Account
               </h2>
-              <p className=" font-medium">
+              <p className="text-gray-700 dark:text-gray-300 font-medium transition-colors duration-300">
                 {!showOTP
                   ? "Join us today and get started"
                   : "Enter the verification code sent to your phone"}
@@ -202,7 +202,7 @@ export const SignUpForm = () => {
                 {/* Name Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold  block">
+                    <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 block transition-colors duration-300">
                       First Name
                     </label>
                     <div className="relative group">
@@ -224,7 +224,7 @@ export const SignUpForm = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold  block">
+                    <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 block transition-colors duration-300">
                       Last Name
                     </label>
                     <div className="relative group">
@@ -248,7 +248,7 @@ export const SignUpForm = () => {
 
                 {/* Email Field */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold  block">
+                  <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 block transition-colors duration-300">
                     Email Address
                   </label>
                   <div className="relative group">
@@ -271,7 +271,7 @@ export const SignUpForm = () => {
 
                 {/* Mobile Field */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold  block">
+                  <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 block transition-colors duration-300">
                     Mobile Number
                   </label>
                   <div className="relative group">
@@ -308,13 +308,13 @@ export const SignUpForm = () => {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <div className="text-center">
-                    <p className=" font-medium mb-4">
+                    <p className="text-gray-700 dark:text-gray-300 font-medium mb-4 transition-colors duration-300">
                       An OTP has been sent to your mobile number.
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold  block">
+                    <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 block transition-colors duration-300">
                       Verification Code
                     </label>
                     <div className="relative group">
@@ -356,8 +356,8 @@ export const SignUpForm = () => {
             )}
 
             {/* Sign in link */}
-            <div className="text-center pt-4 border-t border-gray-200">
-              <p className="">
+            <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
+              <p className="text-gray-700 dark:text-gray-300 transition-colors duration-300">
                 Already have an account?{" "}
                 <Link
                   to="/sign-in"
@@ -371,7 +371,7 @@ export const SignUpForm = () => {
           </div>
 
           {/* Additional decorative elements */}
-          <div className="mt-8 text-center text-white/60">
+          <div className="mt-8 text-center text-white/60 dark:text-gray-400 transition-colors duration-300">
             <p className="text-sm">
               Secure registration with mobile verification
             </p>

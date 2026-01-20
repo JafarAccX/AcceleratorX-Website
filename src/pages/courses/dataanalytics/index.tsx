@@ -5,7 +5,6 @@ import { SEO } from "../../../components/SEO";
 // Import EIE components lazily
 const DataHeroEIE = lazy(() => import("./EIE/DataHeroEIE"));
 const DataProgramEIE = lazy(() => import("./EIE/DataProgramEIE"));
-const WhoIsThisContentForEIE = lazy(() => import("./EIE/WhoIsThisContentForEIE"));
 const DataFAQEIE = lazy(() => import("./EIE/DataFAQEIE"));
 
 
@@ -25,7 +24,7 @@ const DataAnalyticsPage = () => {
         <SEO />
         <DataHeroEIE />
         {/* // <HeroWithAbouv /> */}
-        <WhoIsThisContentForEIE />
+        {/* <WhoIsThisContentForEIE /> */}
 
         <DataProgramEIE />
         <DataFAQEIE />

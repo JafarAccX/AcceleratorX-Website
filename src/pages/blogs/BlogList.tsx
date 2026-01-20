@@ -84,19 +84,19 @@ const BlogList: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center space-x-2">
+      <div className="min-h-screen bg-white dark:bg-[#000000] flex items-center justify-center space-x-2 transition-colors duration-300">
         <motion.div
-          className="w-3 h-3 bg-blue-500 rounded-full"
+          className="w-3 h-3 bg-blue-500 dark:bg-blue-400 rounded-full"
           animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
           transition={{ duration: 1, repeat: Infinity, delay: 0 }}
         />
         <motion.div
-          className="w-3 h-3 bg-blue-500 rounded-full"
+          className="w-3 h-3 bg-blue-500 dark:bg-blue-400 rounded-full"
           animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
           transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
         />
         <motion.div
-          className="w-3 h-3 bg-blue-500 rounded-full"
+          className="w-3 h-3 bg-blue-500 dark:bg-blue-400 rounded-full"
           animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
           transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
         />
@@ -105,7 +105,7 @@ const BlogList: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white pb-20">
+    <div className="min-h-screen bg-white dark:bg-[#000000] pb-20 transition-colors duration-300">
       {/* Import Font */}
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@600&display=swap');`}
@@ -121,7 +121,7 @@ const BlogList: React.FC = () => {
         <div className="max-w-[1300px] w-full px-6 flex flex-col md:flex-row items-center md:items-start justify-center gap-8 pt-20">
           <div className="max-w-xl text-center md:text-left">
             <h1
-              className="mb-4 text-[#1a1a1a]"
+              className="mb-4 text-[#1a1a1a] dark:text-white transition-colors duration-300"
               style={{
                 fontFamily: '"Cormorant Infant", serif',
                 fontWeight: 600,
@@ -134,7 +134,7 @@ const BlogList: React.FC = () => {
             </h1>
           </div>
           <div className="max-w-sm hidden md:block pt-4">
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque convallis nibh tristique augue sagittis, sit amet auctor neque ullamcorper. Pellentesque vel faucibus tellus.
             </p>
           </div>
@@ -145,15 +145,15 @@ const BlogList: React.FC = () => {
 
         {/* Header - "All Blogs" */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-[#0F172A] mb-8">All Blogs</h2>
+          <h2 className="text-3xl font-bold text-[#0F172A] dark:text-white mb-8 transition-colors duration-300">All Blogs</h2>
 
           {/* Categories */}
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => handleCategoryChange('')}
               className={`px-4 py-2.5 rounded-[10px] text-sm font-medium transition-all ${selectedCategory === ''
-                ? 'bg-black text-white border border-black'
-                : 'bg-white text-gray-700 border border-[#9D9D9D] hover:border-gray-900'
+                ? 'bg-black dark:bg-white text-white dark:text-black border border-black dark:border-white'
+                : 'bg-white dark:bg-[#171717] text-gray-700 dark:text-gray-300 border border-[#9D9D9D] dark:border-[#848484]/30 hover:border-gray-900 dark:hover:border-gray-400'
                 }`}
             >
               All Topics
@@ -163,8 +163,8 @@ const BlogList: React.FC = () => {
                 key={category.Id}
                 onClick={() => handleCategoryChange(category.Slug)}
                 className={`px-4 py-2.5 rounded-[10px] text-sm font-medium transition-all ${selectedCategory === category.Slug
-                  ? 'bg-black text-white border border-black'
-                  : 'bg-white text-gray-700 border border-[#9D9D9D] hover:border-gray-900'
+                  ? 'bg-black dark:bg-white text-white dark:text-black border border-black dark:border-white'
+                  : 'bg-white dark:bg-[#171717] text-gray-700 dark:text-gray-300 border border-[#9D9D9D] dark:border-[#848484]/30 hover:border-gray-900 dark:hover:border-gray-400'
                   }`}
               >
                 {category.Name}
@@ -188,7 +188,7 @@ const BlogList: React.FC = () => {
               <MotionLink
                 key={blog.Id}
                 to={`/blogs/${blog.Slug}`}
-                className="bg-white rounded-[20px] overflow-hidden group flex flex-col h-full hover:shadow-sm transition-shadow duration-300"
+                className=" rounded-[20px] overflow-hidden group flex flex-col h-full hover:shadow-sm dark:hover:shadow-gray-900/50 transition-all duration-300 "
                 variants={itemVariants}
               >
                 {/* Card Image */}
@@ -201,8 +201,8 @@ const BlogList: React.FC = () => {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     ) : (
-                      <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                        <span className="text-gray-300 text-4xl">📝</span>
+                      <div className="w-full h-full bg-gray-100 dark:bg-[#1f1f1f] flex items-center justify-center transition-colors duration-300">
+                        <span className="text-gray-300 dark:text-gray-500 text-4xl">📝</span>
                       </div>
                     )}
                     {/* Category Tag Overlay if desired, or place below */}
@@ -215,16 +215,16 @@ const BlogList: React.FC = () => {
 
                   {/* Meta Row: Category & Date */}
                   <div className="flex items-center justify-between text-xs font-semibold tracking-wide uppercase mb-3">
-                    <span className="text-blue-600">
+                    <span className="text-blue-600 dark:text-blue-400 transition-colors duration-300">
                       {blog.Categories && blog.Categories.length > 0 ? blog.Categories[0].Name : 'Article'}
                     </span>
-                    <span className="text-gray-500 font-medium normal-case">
+                    <span className="text-gray-500 dark:text-gray-400 font-medium normal-case transition-colors duration-300">
                       {formatDate(blog.CreatedAt)}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-[22px] leading-tight font-bold text-[#0F172A] mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-[22px] leading-tight font-bold text-[#0F172A] dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {blog.Title}
                   </h3>
 
@@ -232,11 +232,11 @@ const BlogList: React.FC = () => {
 
                   <div className="mt-auto pt-4 flex items-center gap-3">
                     {/* Author Avatar */}
-                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 dark:bg-[#1f1f1f] flex-shrink-0 transition-colors duration-300">
                       {blog.Author?.ProfileImage ? (
                         <img src={blog.Author.ProfileImage} alt={blog.Author.FullName} className="w-full h-full object-cover" />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-gray-500 font-bold">
+                        <div className="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400 font-bold transition-colors duration-300">
                           {blog.Author?.FullName?.[0] || 'A'}
                         </div>
                       )}
@@ -244,10 +244,10 @@ const BlogList: React.FC = () => {
 
 
                     <div className="flex flex-col">
-                      <span className="text-sm font-semibold text-[#0F172A]">
+                      <span className="text-sm font-semibold text-[#0F172A] dark:text-white transition-colors duration-300">
                         {blog.Author?.FullName || 'AcceleratorX Team'}
                       </span>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
                         Contributor
                       </span>
                     </div>
@@ -261,10 +261,10 @@ const BlogList: React.FC = () => {
 
         {blogs.length === 0 && !loading && (
           <div className="text-center py-20">
-            <p className="text-gray-500 text-lg">No articles found matching your criteria.</p>
+            <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors duration-300">No articles found matching your criteria.</p>
             <button
               onClick={() => { setSearchTerm(''); setSelectedCategory(''); }}
-              className="mt-4 text-blue-600 font-medium hover:underline"
+              className="mt-4 text-blue-600 dark:text-blue-400 font-medium hover:underline transition-colors duration-300"
             >
               Clear filters
             </button>

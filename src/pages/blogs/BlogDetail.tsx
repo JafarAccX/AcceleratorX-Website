@@ -49,27 +49,27 @@ const BlogDetail = () => {
         header: (block: any) => {
           const { text, level } = block.data;
           const slug = slugify(text);
-          return `<h${level} id="${slug}" class="scroll-mt-32 font-bold mb-4 mt-8 text-gray-900" style="font-family: 'Cormorant Infant', serif;">${text}</h${level}>`;
+          return `<h${level} id="${slug}" class="scroll-mt-32 font-bold mb-4 mt-8 text-gray-900 dark:text-white transition-colors duration-300" style="font-family: 'Cormorant Infant', serif;">${text}</h${level}>`;
         },
         paragraph: (block: any) => {
-          return `<p class="mb-6 leading-relaxed text-gray-700">${block.data.text}</p>`;
+          return `<p class="mb-6 leading-relaxed text-gray-700 dark:text-gray-300 transition-colors duration-300">${block.data.text}</p>`;
         },
         list: (block: any) => {
           const type = block.data.style === 'ordered' ? 'ol' : 'ul';
           const items = block.data.items.map((i: string) => `<li class="mb-2">${i}</li>`).join('');
-          return `<${type} class="list-disc pl-5 mb-6 space-y-2 text-gray-700">${items}</${type}>`;
+          return `<${type} class="list-disc pl-5 mb-6 space-y-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">${items}</${type}>`;
         },
         image: (block: any) => {
           return `<figure class="mb-6">
             <img src="${block.data.file.url}" alt="${block.data.caption || ''}" class="w-full rounded-lg" />
-            ${block.data.caption ? `<figcaption class="text-sm text-gray-600 mt-2 text-center">${block.data.caption}</figcaption>` : ''}
+            ${block.data.caption ? `<figcaption class="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center transition-colors duration-300">${block.data.caption}</figcaption>` : ''}
           </figure>`;
         },
         quote: (block: any) => {
-          return `<blockquote class="border-l-4 border-blue-500 pl-4 italic mb-6 text-gray-700">${block.data.text}</blockquote>`;
+          return `<blockquote class="border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic mb-6 text-gray-700 dark:text-gray-300 transition-colors duration-300">${block.data.text}</blockquote>`;
         },
         code: (block: any) => {
-          return `<pre class="bg-gray-100 p-4 rounded-lg mb-6 overflow-x-auto"><code>${block.data.code}</code></pre>`;
+          return `<pre class="bg-gray-100 dark:bg-[#171717] p-4 rounded-lg mb-6 overflow-x-auto transition-colors duration-300 border border-transparent dark:border-[#848484]/30"><code class="text-gray-900 dark:text-gray-100">${block.data.code}</code></pre>`;
         }
       });
 
@@ -258,20 +258,20 @@ const BlogDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen bg-white dark:bg-[#000000] flex items-center justify-center transition-colors duration-300">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 dark:border-blue-400"></div>
       </div>
     );
   }
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-white dark:bg-[#000000] flex items-center justify-center transition-colors duration-300">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Blog post not found</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Blog post not found</h2>
           <button
             onClick={() => navigate('/blogs')}
-            className="text-blue-600 hover:text-blue-700"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
           >
             Return to blogs
           </button>
@@ -303,8 +303,11 @@ const BlogDetail = () => {
         .blog-content h1, .blog-content h2, .blog-content h3, 
         .blog-content h4, .blog-content h5, .blog-content h6 {
           font-family: 'Cormorant Infant', serif;
-          color: #111827;
           font-weight: 700;
+        }
+        .dark .blog-content h1, .dark .blog-content h2, .dark .blog-content h3,
+        .dark .blog-content h4, .dark .blog-content h5, .dark .blog-content h6 {
+          color: #ffffff;
         }
         
         .blog-content h1 { font-size: 2.5rem; line-height: 1.2; margin-top: 2rem; margin-bottom: 1rem; }
@@ -349,16 +352,23 @@ const BlogDetail = () => {
           overflow-x: auto;
           margin: 1.5rem 0;
         }
+        .dark .blog-content pre {
+          background-color: #171717;
+          border: 1px solid rgba(132, 132, 132, 0.3);
+        }
         
         .blog-content code {
           font-family: 'Courier New', monospace;
           font-size: 0.875rem;
         }
+        .dark .blog-content code {
+          color: #f3f4f6;
+        }
       `}</style>
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-300">
         {/* Hero Section - Split Layout */}
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 py-16">
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 py-16 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left: Text Content */}
@@ -367,7 +377,7 @@ const BlogDetail = () => {
                   {blog.Categories?.map((category) => (
                     <span
                       key={category.Id}
-                      className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium transition-colors duration-300"
                     >
                       {category.Name}
                     </span>
@@ -375,13 +385,13 @@ const BlogDetail = () => {
                 </div>
 
                 <h1
-                  className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+                  className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight transition-colors duration-300"
                   style={{ fontFamily: 'Cormorant Infant, serif' }}
                 >
                   {blog.Title}
                 </h1>
 
-                <div className="flex items-center gap-6 text-gray-600">
+                <div className="flex items-center gap-6 text-gray-600 dark:text-gray-300 transition-colors duration-300">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-5 h-5" />
                     <span>{formatDate(blog.PublishedAt || blog.CreatedAt)}</span>
@@ -393,7 +403,7 @@ const BlogDetail = () => {
                 </div>
 
                 {blog.SEO_MetaDescription && (
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed transition-colors duration-300">
                     {blog.SEO_MetaDescription}
                   </p>
                 )}
@@ -430,8 +440,8 @@ const BlogDetail = () => {
             <div className="lg:col-span-4">
               <div className="space-y-8">
                 {/* Author Card - Static (not sticky) */}
-                <div className="p-4">
-                  <h3 className="text-xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Cormorant Infant, serif' }}>
+                <div className="p-4 bg-white dark:bg-[#171717] rounded-2xl  transition-colors duration-300 shadow-sm">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300" style={{ fontFamily: 'Cormorant Infant, serif' }}>
                     Author
                   </h3>
                   <div className="flex items-center gap-4">
@@ -447,16 +457,13 @@ const BlogDetail = () => {
                       )}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 text-lg leading-tight">
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-lg leading-tight transition-colors duration-300">
                         {blog.Author?.FullName || 'AcceleratorX Team'}
                       </h4>
-                      {/* <p className="text-sm text-gray-500 mt-1">
-                        COO @AcceleratorX
-                      </p> */}
                     </div>
                   </div>
                   {blog.Author?.Bio && (
-                    <p className="text-sm text-gray-600 mt-4 leading-relaxed">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-4 leading-relaxed transition-colors duration-300">
                       {blog.Author.Bio}
                     </p>
                   )}
@@ -472,9 +479,9 @@ const BlogDetail = () => {
                       }`}
                     style={isFixed ? { width: `${sidebarWidth}px` } : {}}
                   >
-                    <div className="p-6">
+                    <div className="p-6 bg-white dark:bg-[#171717] rounded-2xl transition-colors duration-300 shadow-sm">
                       <h3
-                        className="text-xl font-bold text-gray-900 mb-6"
+                        className="text-xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300"
                         style={{ fontFamily: 'Cormorant Infant, serif' }}
                       >
                         Table of Contents
@@ -487,8 +494,8 @@ const BlogDetail = () => {
                               <button
                                 onClick={() => scrollToSection(item.id)}
                                 className={`flex-1 text-left py-1.5 pr-2 text-xs transition-colors duration-200 leading-snug ${activeSection === item.id
-                                  ? 'text-gray-900 font-semibold'
-                                  : 'text-gray-600 group-hover:text-gray-900'
+                                  ? 'text-gray-900 dark:text-white font-semibold'
+                                  : 'text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white'
                                   }`}
                                 style={{
                                   fontSize: '0.95rem',
@@ -504,7 +511,7 @@ const BlogDetail = () => {
                                     e.stopPropagation();
                                     toggleSection(item.id);
                                   }}
-                                  className="mt-1 p-1 hover:bg-gray-200 rounded text-gray-400 hover:text-gray-600 transition-colors"
+                                  className="mt-1 p-1 hover:bg-gray-200 dark:hover:bg-[#1f1f1f] rounded text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                                   aria-label={expandedSections.has(item.id) ? 'Collapse' : 'Expand'}
                                 >
                                   <ChevronDown
@@ -517,14 +524,14 @@ const BlogDetail = () => {
 
                             {/* Children Items (H3, H4, etc.) */}
                             {item.children && item.children.length > 0 && expandedSections.has(item.id) && (
-                              <div className="ml-0 mt-1 space-y-1 pl-3 border-l-2 border-gray-200">
+                              <div className="ml-0 mt-1 space-y-1 pl-3 border-l-2 border-gray-200 dark:border-[#848484]/30 transition-colors duration-300">
                                 {item.children.map((child) => (
                                   <button
                                     key={child.id}
                                     onClick={() => scrollToSection(child.id)}
                                     className={`block w-full text-left py-1 transition-colors duration-200 leading-snug ${activeSection === child.id
-                                      ? 'text-gray-900 font-medium'
-                                      : 'text-gray-500 hover:text-gray-900'
+                                      ? 'text-gray-900 dark:text-white font-medium'
+                                      : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                                       }`}
                                     style={{
                                       fontSize: '0.875rem',

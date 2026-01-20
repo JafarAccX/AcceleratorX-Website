@@ -38,9 +38,9 @@ export default function DataFAQEIE() {
     };
 
     return (
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white dark:bg-[#000000] transition-colors duration-300">
             <div className="max-w-4xl mx-auto px-4">
-                <h2 className="text-4xl md:text-5xl font-serif text-[#001B3D] text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-serif text-[#001B3D] dark:text-white text-center mb-16 transition-colors duration-300">
                     Frequently Asked Questions
                 </h2>
 
@@ -50,21 +50,20 @@ export default function DataFAQEIE() {
                         return (
                             <div
                                 key={index}
-                                className="rounded-2xl overflow-hidden transition-all duration-300"
-                                style={{ backgroundColor: "#F3F3F3" }}
+                                className="rounded-2xl overflow-hidden bg-[#F3F3F3] dark:bg-[#171717] border border-transparent dark:border-[#848484]/30 transition-all duration-300"
                             >
                                 <button
                                     onClick={() => toggleFAQ(index)}
                                     className="w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none"
                                 >
-                                    <span className="text-lg md:text-xl font-semibold text-[#1A1A1A] pr-8">
+                                    <span className="text-lg md:text-xl font-semibold text-[#1A1A1A] dark:text-white pr-8 transition-colors duration-300">
                                         {faq.question}
                                     </span>
                                     <div className="flex-shrink-0">
                                         {isOpen ? (
-                                            <X className="w-6 h-6 text-[#1A1A1A]" />
+                                            <X className="w-6 h-6 text-[#1A1A1A] dark:text-white transition-colors duration-300" />
                                         ) : (
-                                            <Plus className="w-6 h-6 text-[#1A1A1A]" />
+                                            <Plus className="w-6 h-6 text-[#1A1A1A] dark:text-white transition-colors duration-300" />
                                         )}
                                     </div>
                                 </button>
@@ -77,8 +76,8 @@ export default function DataFAQEIE() {
                                             exit={{ height: 0, opacity: 0 }}
                                             transition={{ duration: 0.3, ease: "easeInOut" }}
                                         >
-                                            <div className="px-8 pb-8 text-gray-600 text-lg leading-relaxed">
-                                                <div className="h-px w-full bg-gray-200 mb-6 opacity-50" />
+                                            <div className="px-8 pb-8 text-gray-600 dark:text-gray-300 text-lg leading-relaxed transition-colors duration-300">
+                                                <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mb-6 opacity-50 transition-colors duration-300" />
                                                 {faq.answer.split('\n\n').map((paragraph, i) => (
                                                     <p key={i} className={i > 0 ? "mt-4" : ""}>
                                                         {paragraph}

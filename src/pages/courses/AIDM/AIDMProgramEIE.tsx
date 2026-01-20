@@ -86,10 +86,10 @@ const AccordionItem = ({ item }: { item: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-gray-200 dark:border-gray-700 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+        <div className="border border-gray-200 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-left"
+                className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
                 <div>
                     <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1 transition-colors duration-300">
@@ -110,7 +110,7 @@ const AccordionItem = ({ item }: { item: any }) => {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                     >
-                        <div className="p-5 pt-0 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                        <div className="p-5 pt-0 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
                             <p className="text-sm text-blue-600 dark:text-blue-400 italic mb-4 font-medium transition-colors duration-300">{item.goal}</p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
@@ -361,7 +361,7 @@ export default function AIDMProgramEIE() {
     };
 
     return (
-        <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20 text-[#0A0F1E] dark:text-white transition-colors duration-300">
+        <div className="dark:bg-[#000000] py-20 text-[#0A0F1E] dark:text-white transition-colors duration-300">
             <div ref={containerRef} className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row gap-12">
 
                 {isFixed && <div className="lg:w-1/4 flex-shrink-0" style={{ width: `${sidebarWidth}px`, maxWidth: `${sidebarWidth}px` }} />}
@@ -381,7 +381,7 @@ export default function AIDMProgramEIE() {
                             A Complete Road Map to Master AI Marketing
                         </h2>
 
-                        <nav className="space-y-4 border-l-2 border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                        <nav className="space-y-4 border-l-2 border-gray-200 dark:border-[#848484]/30 transition-colors duration-300">
                             {SECTIONS.map((section) => (
                                 <button
                                     key={section.id}
@@ -417,7 +417,7 @@ export default function AIDMProgramEIE() {
                                 </li>
                             ))}
                         </ul>
-                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-12 transition-colors duration-300"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-12 transition-colors duration-300"></div>
                     </section>
 
                     <section id="curriculum" className="scroll-mt-24">
@@ -435,7 +435,7 @@ export default function AIDMProgramEIE() {
                                 Download Full Syllabus <ChevronDown size={18} />
                             </button>
                         </div>
-                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
@@ -444,7 +444,7 @@ export default function AIDMProgramEIE() {
                             {AIDM_TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white dark:bg-gray-800 border flex flex-col justify-center items-center border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                                    className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
                                 >
                                     <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 inline-block mb-4 transition-colors duration-300">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
@@ -454,7 +454,7 @@ export default function AIDMProgramEIE() {
                                 </div>
                             ))}
                         </div>
-                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="mentors" className="scroll-mt-24">
@@ -463,9 +463,9 @@ export default function AIDMProgramEIE() {
                             {AIDM_MENTORS.map((mentor, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700 group hover:shadow-md transition-all duration-300"
+                                    className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="aspect-square bg-gray-200 dark:bg-gray-700 relative overflow-hidden transition-colors duration-300">
+                                    <div className="aspect-square bg-gray-200 dark:bg-[#848484]/30 relative overflow-hidden transition-colors duration-300">
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}
@@ -479,12 +479,12 @@ export default function AIDMProgramEIE() {
                                 </div>
                             ))}
                         </div>
-                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">The Certificate Recognized By The Industry</h3>
-                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-gray-800 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
                                     src="https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/22d117f5e0031a8a28264cb1534717baed3eb5b1.webp?alt=media&token=3e74db69-6da1-4083-bdb3-fb3944a27764"
@@ -517,7 +517,7 @@ export default function AIDMProgramEIE() {
                                 </ul>
                             </div>
                         </div>
-                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="career" className="scroll-mt-24">
@@ -531,7 +531,7 @@ export default function AIDMProgramEIE() {
                             ].map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 hover:shadow-md transition-all duration-300"
+                                    className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300"
                                 >
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
@@ -545,13 +545,13 @@ export default function AIDMProgramEIE() {
                                 </div>
                             ))}
                         </div>
-                        <div className="h-px w-full bg-gray-200 dark:bg-gray-700 mt-16 transition-colors duration-300"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="pricing" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in your AI-Ready Career</h3>
                         <div className="flex justify-center">
-                            <div className="bg-blue-50/50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-all duration-300">
+                            <div className="bg-blue-50/50 dark:bg-[#171717] border border-blue-100 dark:border-[#848484]/30 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-all duration-300">
                                 <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Nano-Degree Admission</h4>
                                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">16-week comprehensive training</p>
 
@@ -569,7 +569,7 @@ export default function AIDMProgramEIE() {
                                         <select
                                             value={selectedBatchId || ''}
                                             onChange={(e) => setSelectedBatchId(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-300"
+                                            className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
                                         >
                                             {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
                                         </select>

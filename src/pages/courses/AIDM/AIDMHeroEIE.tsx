@@ -96,7 +96,7 @@ export default function AIDMHeroEIE() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="lg:col-span-4"
                     >
-                        <div className="inline-flex items-center gap-2 bg-black dark:bg-white/10 border border-white/20 dark:border-white/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
+                        <div className="inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
                             <span className="w-2 h-2 rounded-full bg-white dark:bg-white"></span>
                             16 WEEKS PROGRAM
                         </div>
@@ -140,12 +140,12 @@ export default function AIDMHeroEIE() {
                     className="mt-24 flex flex-row gap-4 md:gap-6"
                 >
                     {/* Stat 1 */}
-                    <div className="flex-1 border border-white/20 dark:border-white/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-white/10 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-white/15 transition-colors duration-300">
+                    <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
                         <div className="mb-1 md:mb-2"><Counter end={12} suffix=" LPA" /></div>
                         <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average Salary Package</div>
                     </div>
                     {/* Stat 2 */}
-                    <div className="flex-1 border border-white/20 dark:border-white/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-white/10 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-white/15 transition-colors duration-300">
+                    <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
                         <div className="mb-1 md:mb-2"><Counter end={45000} suffix=" +" /></div>
                         <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Job Openings</div>
                     </div>

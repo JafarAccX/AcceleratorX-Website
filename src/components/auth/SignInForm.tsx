@@ -117,7 +117,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   return (
     <div className="flex min-h-screen relative overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 dark:from-gray-900 dark:via-gray-800 dark:to-black transition-colors duration-300">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(120,119,198,0.3),_transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(255,255,255,0.1),_transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,_rgba(120,119,198,0.2),_transparent_50%)]"></div>
@@ -148,7 +148,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       {/* Right side form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 relative z-10">
         <div className="w-full max-w-md">
-          <div className="backdrop-blur-xl bg-white/95 border border-white/20 rounded-2xl shadow-2xl p-8 space-y-8">
+          <div className="backdrop-blur-xl bg-white/95 dark:bg-black/20 border border-white/20 dark:border-gray-700 rounded-2xl shadow-2xl p-8 space-y-8 transition-colors duration-300">
             {/* Header */}
             <div className="text-center space-y-3">
               <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
@@ -156,10 +156,10 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent transition-colors duration-300">
                 Welcome Back
               </h2>
-              <p className="text-gray-600 font-medium">
+              <p className="text-gray-600 dark:text-gray-300 font-medium transition-colors duration-300">
                 {!showOTP
                   ? "Enter your phone number to receive an OTP"
                   : "Enter the verification code sent to your phone"}
@@ -169,7 +169,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
             {!showOTP ? (
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-semibold text-gray-700 block">
+                  <label htmlFor="phone" className="text-sm font-semibold text-gray-700 dark:text-gray-300 block transition-colors duration-300">
                     Phone Number
                   </label>
                   <div className="relative group">
@@ -205,7 +205,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
               <div className="space-y-6">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between mb-2">
-                    <label htmlFor="otp" className="text-sm font-semibold text-gray-700 block">
+                    <label htmlFor="otp" className="text-sm font-semibold text-gray-700 dark:text-gray-300 block transition-colors duration-300">
                       Verification Code
                     </label>
                     <button
@@ -277,8 +277,8 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
               </div>
             )}
             {/* Sign up link */}
-            <div className="text-center pt-4 border-t border-gray-200">
-              <p className="text-gray-600">
+            <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
+              <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                 Don't have an account?{" "}
                 <Link
                   to="/sign-up"
@@ -292,7 +292,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
           </div>
 
           {/* Additional decorative elements */}
-          <div className="mt-8 text-center text-white/60">
+          <div className="mt-8 text-center text-white/60 dark:text-gray-400 transition-colors duration-300">
             <p className="text-sm">
               Secure authentication powered by OTP verification
             </p>

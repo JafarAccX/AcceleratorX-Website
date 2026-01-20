@@ -23,8 +23,6 @@ const DataAnalyticsEntry = () => {
         <DataHeroEIE />
         {/* // <HeroWithAbouv courseName="Data Analytics" /> */}
         <WhoIsThisContentForEIE />
-
-        {/* component with the sticky functionality below  DataProgramEIE */}
         <DataProgramEIE />
       </Suspense>
     </>

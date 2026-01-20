@@ -176,7 +176,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-[10px] w-full left-1/2 -translate-x-1/2 z-[9999] md:w-[calc(100%-140px)] max-w-[1300px] ${menuTransition}`}
       >
-        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-gray-900/70 shadow-lg px-6 sm:px-8 w-full border border-gray-200/50 dark:border-gray-700/50">
+        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-[#000000]/70 shadow-lg px-6 sm:px-8 w-full border border-gray-200/50 dark:border-gray-700/50">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <div className={`relative group ${hoverTransition}`}>
@@ -230,8 +230,8 @@ export default function Navbar() {
                   key={item.label}
                   to={item.path}
                   className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
-                      ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
-                      : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
+                    ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
+                    : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
                     }`}
                 >
                   {item.label}
@@ -296,7 +296,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-[300px] bg-white dark:bg-gray-900 z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
+              className="fixed inset-y-0 right-0 w-[300px] bg-white dark:bg-[#000000] z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
             >
               <div className="flex items-center justify-between mb-8">
                 <img src={companyLogo} alt="Logo" className="h-10 w-auto" />
@@ -353,8 +353,8 @@ export default function Navbar() {
                     key={item.label}
                     to={item.path}
                     className={`flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${item.label === "XSAT" || item.label === "EVENTS"
-                        ? "text-[#FFBB00] bg-gray-50 dark:bg-gray-800"
-                        : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+                      ? "text-[#FFBB00] bg-gray-50 dark:bg-gray-800"
+                      : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
                       }`}
                     onClick={() => setIsOpen(false)}
                   >

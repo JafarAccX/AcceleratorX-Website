@@ -100,7 +100,7 @@ export default function ProgramsOffered() {
     };
 
     return (
-        <section className="bg-white dark:bg-gray-900 py-24 px-6 md:px-12 lg:px-24 transition-colors duration-300">
+        <section className="bg-white dark:bg-[#000000] py-24 px-6 md:px-12 lg:px-24 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
 
 
@@ -128,8 +128,8 @@ export default function ProgramsOffered() {
                                         className={`flex items-center gap-4 text-left transition-all duration-500 group`}
                                     >
                                         <div className={`w-3 h-3 rounded-none transition-all duration-500 ${activeSection === program.id
-                                                ? 'bg-[#1a71f6] scale-110 shadow-[0_0_10px_rgba(26,113,246,0.5)]'
-                                                : 'bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-400 dark:group-hover:bg-gray-500'
+                                            ? 'bg-[#1a71f6] scale-110 shadow-[0_0_10px_rgba(26,113,246,0.5)]'
+                                            : 'bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-400 dark:group-hover:bg-gray-500'
                                             }`} />
                                         <span className={`text-[11px] font-extrabold tracking-[0.15em] transition-all duration-500 uppercase ${activeSection === program.id ? 'text-[#1a71f6]' : 'text-gray-300 dark:text-gray-600 group-hover:text-gray-500 dark:group-hover:text-gray-400'
                                             }`}>

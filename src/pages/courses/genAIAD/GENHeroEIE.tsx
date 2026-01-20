@@ -97,7 +97,7 @@ export default function GENHeroEIE() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="lg:col-span-4"
                     >
-                        <div className="inline-flex items-center gap-2 bg-black border border-white/20 rounded-full px-5 py-2 text-white text-sm font-medium tracking-wide shadow-lg">
+                        <div className="inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg transition-all duration-300">
                             <span className="w-2 h-2 rounded-full bg-white"></span>
                             14 WEEKS PROGRAM
                         </div>
@@ -141,12 +141,12 @@ export default function GENHeroEIE() {
                     className="mt-24 flex flex-row gap-4 md:gap-6"
                 >
                     {/* Stat 1 */}
-                    <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+                    <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-all duration-300">
                         <div className="mb-1 md:mb-2"><Counter end={22} suffix=" LPA" /></div>
                         <div className="text-gray-300 text-xs md:text-base font-medium">Average Salary Package</div>
                     </div>
                     {/* Stat 2 */}
-                    <div className="flex-1 border border-white/20 rounded-2xl p-4 md:p-6 bg-white/5 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 transition-colors">
+                    <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-all duration-300">
                         <div className="mb-1 md:mb-2"><Counter end={50000} suffix=" +" /></div>
                         <div className="text-gray-300 text-xs md:text-base font-medium">Job Openings</div>
                     </div>
