@@ -2,6 +2,7 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AppDownloadPOP from "../components/AppDownloadPOP";
+import JetAnimation from "../components/JetAnimation";
 // import ChatWidget from "../components/ChatWidget";
 // import Loader from "../components/Loader";
 import { getRouteLayout } from "../utils/layoutUtils";
@@ -41,6 +42,11 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   return (
     <div className="relative">
+      {/* Jet Animation Background */}
+      <div className="absolute top-0 left-0 h-[700px] w-[600px] z-[9999] pointer-events-none ">
+        <JetAnimation />
+      </div>
+
       {showNavbar && <Navbar />}
 
       {/* Google Translate Widget */}

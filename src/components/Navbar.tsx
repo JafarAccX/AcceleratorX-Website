@@ -73,7 +73,7 @@ export default function Navbar() {
   if (isXSATRoute) {
     return (
       <header
-        className={`fixed top-0 left-0 right-0 z-[9999] backdrop-blur-sm ${menuTransition} ${isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-sm ${menuTransition} ${isScrolled ? "bg-black/80 shadow-lg border-b border-white/5" : "bg-transparent"
           }`}
       >
         <div className="container mx-auto px-4">
@@ -142,58 +142,6 @@ export default function Navbar() {
             <Link to="/" className="flex items-center space-x-2 hover:opacity-90">
               <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-16 object-contain" />
             </Link>
-
-            {/* Lottie badge overlayed on logo (client-side only) */}
-            {/* Christmas GIF overlay */}
-            <div className="absolute -top-8 -left-8 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-4 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-16 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-24 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-32 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-48 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="absolute -top-8 left-64 w-24 h-24 pointer-events-none transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-              <img
-                src="/xmas-lottie/Snowing.gif"
-                alt="Snowing effect"
-                className="w-full h-full object-contain"
-              />
-            </div>
           </div>
 
           {/* Desktop Menu */}

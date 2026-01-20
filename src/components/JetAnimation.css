@@ -1,0 +1,24 @@
+/* Jet Animation Styles */
+.jet-animation-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Optional: Add animation effects */
+.jet-animation-container.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Optional: Add subtle glow effect */
+.jet-animation-container.with-glow {
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+}
