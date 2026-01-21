@@ -4,7 +4,6 @@ import EnrollmentModal from "../../../components/EnrollmentModal";
 
 const GENHeroAd = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDownload, setIsDownload] = useState(false);
   const [showStickyHeader, setShowStickyHeader] = useState(false);
 
   useEffect(() => {
@@ -19,37 +18,15 @@ const GENHeroAd = () => {
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setIsDownload(false);
   };
 
   const handleModalSubmit = async () => {
-    if (isDownload) {
-      try {
-        const response = await fetch(
-          "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AcceleratorX%20Gen%20AI%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FjY2VsZXJhdG9yWCBHZW4gQUkgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzM4NzM1MTI1LCJleHAiOjE3NzAyNzExMjV9.t6cs2LulI_9QaZmYub0mjJL8Yqelj8hDnR6ESIh_8Jc"
-        );
-
-        if (response.ok) {
-          const blob = await response.blob();
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = "AcceleratorX-GenAI-Brochure.pdf";
-          document.body.appendChild(a);
-          a.click();
-          window.URL.revokeObjectURL(url);
-          document.body.removeChild(a);
-        }
-      } catch (error) {
-        console.error("Error downloading brochure:", error);
-      }
-    }
     handleModalClose();
   };
 
   const StickyEnrollHeader = () => (
     <div className="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-sm border-t border-gray-800 z-50 transition-transform duration-300 ease-out"
-         style={{ transform: showStickyHeader ? 'translateY(0)' : 'translateY(100%)' }}>
+      style={{ transform: showStickyHeader ? 'translateY(0)' : 'translateY(100%)' }}>
       <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="text-center sm:text-left">
@@ -75,7 +52,7 @@ const GENHeroAd = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-blue-950 to-black">
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(25,68,146,0.15)_0%,rgba(0,0,0,0.2)_100%)] animate-pulse-slow"></div>
-        
+
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -inset-[10px] opacity-50">
@@ -148,7 +125,6 @@ const GENHeroAd = () => {
               <button
                 onClick={() => {
                   setIsModalOpen(true);
-                  setIsDownload(true);
                 }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-blue-400/30 text-blue-100 font-semibold hover:bg-blue-500/10 transition-all duration-300 backdrop-blur-sm"
               >
@@ -162,7 +138,6 @@ const GENHeroAd = () => {
               isOpen={isModalOpen}
               onClose={handleModalClose}
               onSubmit={handleModalSubmit}
-              isDownload={isDownload}
             />
           </div>
         </div>

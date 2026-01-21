@@ -41,19 +41,12 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
 export default function DataHeroEIE() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setSelectedCourse } = useCourseContext();
-  const [isDownload, setIsDownload] = useState(false);
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setIsDownload(false);
   };
 
   const handleModalSubmit = () => {
-    if (isDownload) {
-      window.open(
-        "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AI%20Powered%20DA%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FJIFBvd2VyZWQgREEgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzQ2Mjc3MTU1LCJleHAiOjE4NzI0MjExNTV9.NWSk8RPs_nwupsr5Wfu6-EGpUzFFaVPrMKOVZmICPgw",
-      );
-    }
     handleModalClose();
   };
 
@@ -133,7 +126,6 @@ export default function DataHeroEIE() {
                 className="relative group"
                 onClick={() => {
                   setIsModalOpen(true);
-                  setIsDownload(true);
                 }}
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072]/50 to-[#96E072]/30 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>

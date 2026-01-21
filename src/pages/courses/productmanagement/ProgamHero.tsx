@@ -40,18 +40,12 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
 
 export default function ProgramHero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDownload, setIsDownload] = useState(false);
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setIsDownload(false);
   };
 
   const handleModalSubmit = () => {
-    if (isDownload) {
-      window.location.href =
-        "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/PM%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL1BNIEJyb2NodXJlLnBkZiIsImlhdCI6MTczNzM3NDkyNywiZXhwIjozMzI3MzM3NDkyN30.jPzAbYFDvcoA-nDaPMo6DAazFa7yrp4jhGkmHKcbd4o&t=2025-01-20T12%3A08%3A49.189Z";
-    }
     handleModalClose();
   };
 
@@ -106,7 +100,6 @@ export default function ProgramHero() {
                 className="w-full sm:w-auto border-2 border-blue-600 text-white px-6 md:px-8 py-3 rounded-full hover:bg-blue-600/10 transition"
                 onClick={() => {
                   setIsModalOpen(true);
-                  setIsDownload(true);
                 }}
               >
                 Download Curriculum
