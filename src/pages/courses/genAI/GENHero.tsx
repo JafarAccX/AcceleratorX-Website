@@ -78,7 +78,7 @@ const GENHero = () => {
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-gray-300 mb-8">
-             India’s first Non-code AI Automation Program for freshers, freelancers, and working professionals.
+              India’s first Non-code AI Automation Program for freshers, freelancers, and working professionals.
 
             </p>
 
@@ -92,7 +92,8 @@ const GENHero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:opacity-90 transition-opacity"
+                style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[#000080] font-bold hover:opacity-90 transition-opacity shadow-lg"
               >
                 Enroll Now
                 <ArrowRight className="w-5 h-5" />

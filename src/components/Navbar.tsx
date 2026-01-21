@@ -230,7 +230,8 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/sign-up"
-                  className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-lg text-sm font-medium ${hoverTransition} shadow-lg`}
+                  style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
+                  className={`text-[#000080] hover:opacity-90 px-5 py-1.5 rounded-lg text-sm font-bold ${hoverTransition} shadow-lg`}
                 >
                   Sign Up
                 </Link>
@@ -336,7 +337,8 @@ export default function Navbar() {
                 <Link
                   to="/sign-up"
                   onClick={() => setIsOpen(false)}
-                  className={`flex-1 text-center bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white py-2 rounded-lg text-xs font-medium ${hoverTransition} shadow-lg`}
+                  style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 25%, #FFFFFF 50%, #FFFFFF 75%, #008D00 100%)' }}
+                  className={`flex-1 text-center text-[#000080] py-2 rounded-lg text-xs font-bold ${hoverTransition} shadow-lg border border-white/10`}
                 >
                   Sign Up
                 </Link>

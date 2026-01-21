@@ -10,7 +10,7 @@ const LottieLoader = ({ size = 540 }: { size?: number }) => {
 
   useEffect(() => {
     let mounted = true;
-    fetch("/xmas-lottie/74c69080-9263-49ff-934c-d1851bd94048.json")
+    fetch("/republic-day/indian-flag-loader.json")
       .then((res) => res.json())
       .then((data) => {
         if (mounted) setAnimationData(data);

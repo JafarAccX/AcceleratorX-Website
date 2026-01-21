@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import EnrollmentModal from "../../../components/EnrollmentModal"; 
+import EnrollmentModal from "../../../components/EnrollmentModal";
 
 const GENHero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,28 +50,29 @@ const GENHero = () => {
         {/* Content */}
         <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
-            
+
 
             {/* Title */}
             <h1 className="text-4xl md:text-6xl font-bold mb-6 pb-4 bg-white text-transparent bg-clip-text">
-            Ultimate 8-Week Generative AI Program for Product Managers
+              Ultimate 8-Week Generative AI Program for Product Managers
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-gray-300 mb-8">
-            Learn GenAI, Build Real Products, and Launch Your PM Career Into the Future — No Tech Background Needed
+              Learn GenAI, Build Real Products, and Launch Your PM Career Into the Future — No Tech Background Needed
             </p>
 
             {/* Description */}
             <p className="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">
-            Limited Slots | No Coding Required | Starts This Month
+              Limited Slots | No Coding Required | Starts This Month
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:opacity-90 transition-opacity"
+                style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[#000080] font-bold hover:opacity-90 transition-opacity shadow-lg"
               >
                 Join the Waitlist Now
                 <ArrowRight className="w-5 h-5" />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useCourseContext } from '../../../context/courseContext';
-import EnrollmentModal from '../../../components/EnrollmentModal';  
+import EnrollmentModal from '../../../components/EnrollmentModal';
 // import { Spotlight } from '../../../components/Spotlight';
 // import { BackgroundLines } from '../../../components/background-animations/background-lines';
 
@@ -9,14 +9,14 @@ const AIDMHero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [downloadOnOpen, setDownloadOnOpen] = useState(false);
   // const [isDownload, setIsDownload] = useState(false);
-  const { setSelectedCourse } = useCourseContext(); 
+  const { setSelectedCourse } = useCourseContext();
 
   const handleEnrollClick = (download = false) => {
     console.log("Download:", download);
     setSelectedCourse("AI Digital Marketing");
     // setIsDownload(download);
-  setDownloadOnOpen(download);
-  setIsModalOpen(true);
+    setDownloadOnOpen(download);
+    setIsModalOpen(true);
   };
 
   return (
@@ -34,17 +34,17 @@ const AIDMHero: React.FC = () => {
               ease: 'easeOut',
             }}
           >
-            
+
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               Nano-Degree in AI Digital Marketing
               {/* <span className="bg-[#5CB338] bg-clip-text text-transparent"> Nano-Degree</span> */}
             </h2>
-            <p>16-Week Live Program with Job Assistance</p> <br/>
+            <p>16-Week Live Program with Job Assistance</p> <br />
 
             <p className="text-gray-300 mb-6">
-             This Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.
-</p>
+              This Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.
+            </p>
 
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div>
@@ -64,7 +64,8 @@ const AIDMHero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => handleEnrollClick(false)}
-                className="w-full sm:w-auto bg-[#5CB338] text-black font-semibold px-8 py-3 rounded-md hover:bg-[#4fb02f] transition"
+                style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
+                className="w-full sm:w-auto text-[#000080] font-bold px-8 py-3 rounded-md hover:opacity-90 transition shadow-lg"
               >
                 Apply Now
               </button>
@@ -85,7 +86,7 @@ const AIDMHero: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <div className="rounded-lg overflow-hidden shadow-2xl"> 
+            <div className="rounded-lg overflow-hidden shadow-2xl">
               <img
                 src="/assets/ai-digital-m/nano_degree.webp"
                 alt="AI Digital Marketing"
