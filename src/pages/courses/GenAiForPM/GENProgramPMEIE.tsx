@@ -368,7 +368,7 @@ export default function GENProgramPMEIE() {
                                     key={idx}
                                     className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 inline-block mb-4 transition-colors duration-300">
+                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                                     </div>
                                     <div className="mb-2">
@@ -392,7 +392,7 @@ export default function GENProgramPMEIE() {
                                     key={idx}
                                     className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="aspect-square bg-gray-200 dark:bg-[#848484]/30 relative overflow-hidden transition-colors duration-300">
+                                    <div className="aspect-square relative overflow-hidden transition-colors duration-300">
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}

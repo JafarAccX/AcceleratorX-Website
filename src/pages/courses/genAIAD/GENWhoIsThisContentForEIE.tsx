@@ -7,24 +7,24 @@ export default function GENWhoIsThisContentForEIE() {
             icon: TrendingUp,
             iconColor: "text-green-600 dark:text-green-400",
             iconBg: "bg-green-100 dark:bg-green-900/30",
-            value: "$1.8T",
-            label: "Market Size by 2030",
+            value: "$1.3T",
+            label: "AI market by 2030",
             description: "Generative AI is projected to add trillions to the global economy by 2030."
         },
         {
             icon: Briefcase,
             iconColor: "text-blue-600 dark:text-blue-400",
             iconBg: "bg-blue-100 dark:bg-blue-900/30",
-            value: "100M+",
-            label: "AI-Augmented Jobs",
+            value: "97M+",
+            label: "new AI & data jobs",
             description: "Over 100 million jobs will be transformed or created by Generative AI integration."
         },
         {
             icon: Target,
             iconColor: "text-purple-600 dark:text-purple-400",
             iconBg: "bg-purple-100 dark:bg-purple-900/30",
-            value: "45%",
-            label: "Operational Savings",
+            value: "40%",
+            label: "productivity gains using AI systems",
             description: "Companies are achieving up to 45% reduction in operational costs using AI automation."
         }
     ];
@@ -44,11 +44,11 @@ export default function GENWhoIsThisContentForEIE() {
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        The Explosive Growth of Generative AI
+                        The Growing Generative AI Industry
                     </h2>
 
                     <p className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
-                        Generative AI is the fastest-growing technology in history. From creative arts to enterprise automation, GenAI and AI Agents are redefining how we work, build, and innovate. Professionals with AI skills are now the most sought-after talent globally.
+                        Generative AI is no longer experimental. Companies are actively adopting LLMs, AI agents, and automation systems to replace manual workflows, scale decision-making, and build intelligent products.
                     </p>
                 </motion.div>
 

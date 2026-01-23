@@ -29,64 +29,40 @@ interface Batch {
 
 const SECTIONS = [
     { id: "why-this-program", label: "Why this Program" },
-    { id: "curriculum", label: "Learning Journey - Curriculum" },
+    { id: "curriculum", label: "Learning Journey (With tools embedded)" },
     { id: "tools", label: "Tools Which You Master as a Professional" },
     { id: "mentors", label: "Mentors" },
-    { id: "certificate", label: "The Certificate Recognized By The Industry" },
+    { id: "certificate", label: "Industry-Recognized Certification" },
     { id: "career", label: "High-Paying Career Opportunities" },
-    { id: "pricing", label: "Make an Investment for the AI Ready Future" },
+    { id: "pricing", label: "Make an Investment in Your AI-Ready Future" },
 ];
 
 const GEN_MENTORS = mentors.slice(0, 6);
 
 const CURRICULUM = [
     {
-        week: "1",
-        topics: ["Foundations of Generative AI", "AI Ecosystem Tools"],
-        goal: "Understand GenAI, explore 2025 AI stack, and automate everyday work.",
-        skills: ["Prompt Engineering", "AI Productivity", "Tool Exploration"],
+        week: "1-4",
+        topics: ["Generative AI Foundations"],
+        goal: "Learn how modern generative models work across text, image, video, and audio.",
+        skills: ["GPT-4o", "Claude 3.5", "Gemini", "DeepSeek", "Midjourney", "Stable Diffusion XL", "Runway Gen-2", "Pika Labs", "ElevenLabs", "Whisper", "Suno"],
     },
     {
-        week: "2",
-        topics: ["Deep Dive into LLMs", "Prompt Mastery"],
-        goal: "Master how LLMs think and guide them precisely with context engineering.",
-        skills: ["Context Engineering", "LLM Integration", "Advanced Prompting"],
+        week: "5-8",
+        topics: ["LLMs, Fine-Tuning & Vibe Coding"],
+        goal: "Understand how LLMs think, how they’re trained, and how to build apps using AI as your coding partner.",
+        skills: ["Hugging Face", "LoRA / QLoRA", "Cursor", "Windsurf", "Bolt.new", "Replit", "Prompt chaining"],
     },
     {
-        week: "3",
-        topics: ["Image & Video Generation"],
-        goal: "Use AI for high-end visual content creation and diffusion models.",
-        skills: ["Midjourney", "Stable Diffusion", "Runway ML"],
+        week: "9-12",
+        topics: ["AI Agents & Multi-Agent Systems"],
+        goal: "Move from single-model apps to autonomous reasoning systems.",
+        skills: ["LangChain", "CrewAI", "LangGraph", "Flowise"],
     },
     {
-        week: "4",
-        topics: ["Audio, Voice & Music Generation"],
-        goal: "Apply AI to voice synthesis and music creation.",
-        skills: ["ElevenLabs", "TTS", "AI Music Synthesis"],
-    },
-    {
-        week: "5-6",
-        topics: ["Machine Learning", "AI Ethics & Global Regulations"],
-        goal: "Fine-tune models and understand compliance, bias, and safe AI design.",
-        skills: ["Fine-tuning", "AI Ethics", "EU AI Act Compliance"],
-    },
-    {
-        week: "7-8",
-        topics: ["Vibe Coding", "Assisted AI Development"],
-        goal: "Build applications visually with Cursor AI, Replit, and Bolt.new.",
-        skills: ["No-code Dev", "Cursor AI", "Cloud Deployment"],
-    },
-    {
-        week: "9-10",
-        topics: ["AI Agents & Autonomous Systems"],
-        goal: "Master CrewAI, LangGraph, and multi-step reasoning systems.",
-        skills: ["LangChain", "CrewAI", "Autonomous Agents"],
-    },
-    {
-        week: "11-12",
-        topics: ["Multi-Agent Systems", "AI Automation with n8n"],
-        goal: "Automate complex enterprise workflows and connect model-to-tasks.",
-        skills: ["n8n", "Workflow Automation", "API Integration"],
+        week: "13-14",
+        topics: ["Automation, Deployment & Capstone"],
+        goal: "Combine AI + agents + automation into production-ready systems.",
+        skills: ["n8n", "Make", "Zapier AI", "FastAPI", "Docker", "Hugging Face Spaces", "LangFuse", "Helicone"],
     },
 ];
 
@@ -108,7 +84,7 @@ const AccordionItem = ({ item }: { item: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-gray-200 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+        <div className="border border-gray-200  dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
@@ -132,7 +108,7 @@ const AccordionItem = ({ item }: { item: any }) => {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                     >
-                        <div className="p-5 pt-0 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+                        <div className="p-5  text-gray-600 dark:text-gray-300 pt-4 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
                             <p className="text-sm text-blue-600 dark:text-blue-400 italic mb-3 font-medium transition-colors duration-300">{item.goal}</p>
                             <div className="mb-4">
                                 <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 text-xs uppercase tracking-wider transition-colors duration-300">Key Skills:</p>
@@ -221,7 +197,7 @@ export default function GENProgramEIE() {
         }
     };
 
-    const handleBuyCourse = async () => {
+    const handleBuyCourse = async (amount: number) => {
         if (!isAuthenticated) {
             navigate('/sign-in', { state: { from: location } });
             return;
@@ -236,7 +212,7 @@ export default function GENProgramEIE() {
             if (!razorpayLoaded) throw new Error('Failed to load Razorpay SDK');
 
             const orderResponse = await api.post('/course-checkout/create-order', {
-                courseId, batchId: selectedBatchId, amount: coursePrice.amount,
+                courseId, batchId: selectedBatchId, amount: amount,
             });
             if (!orderResponse.data.success) throw new Error(orderResponse.data.message || 'Failed to create order');
 
@@ -379,16 +355,21 @@ export default function GENProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-24">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Why this Program</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">An AI Program Built for the Real World</h3>
                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
-                            Our Generative AI program is built on the philosophy of "AI-Augmented Performance". We don't just teach models; we teach you how to build autonomous agents and complex automations that multiply your productivity.
+                            This is not a tool demo course or prompt-only training.
+                            At AcceleratorX, you learn how modern AI systems are actually built in 2025 — combining models, agents, automation, and deployment.
                         </p>
                         <ul className="space-y-3 mb-8">
                             {[
-                                "Master the 2025 AI Tool Stack (Midjourney, ElevenLabs, n8n)",
-                                "Build autonomous AI agents with CrewAI and LangGraph",
-                                "Learn 'Vibe Coding' - building apps without writing code",
-                                "Strategic understanding of AI Ethics and EU AI Act",
+                                "Work with state-of-the-art LLMs like GPT-4o, Claude 3.5, Gemini 1.5 Pro, DeepSeek R1, Llama 3, and Mistral",
+                                "Build text, image, video, and voice-based AI systems using Midjourney, Stable Diffusion XL, Runway Gen-2, Pika Labs, ElevenLabs, Whisper, Suno, and more",
+                                "Use AI-assisted coding (vibe coding) with Cursor, Windsurf, Bolt.new, and Replit",
+                                "Design autonomous AI agents and multi-agent systems using LangChain, CrewAI, LangGraph, and Flowise",
+                                "Automate real workflows using n8n, Make, and Zapier AI",
+                                "Deploy production-ready AI apps using Hugging Face Spaces, FastAPI, Docker, Render, Streamlit Cloud, and Hostinger",
+                                "Monitor and improve AI systems using LangFuse and Helicone",
+                                "This is how AI products are built in startups and enterprises today",
                             ].map((text, i) => (
                                 <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
                                     <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
@@ -400,7 +381,7 @@ export default function GENProgramEIE() {
                     </section>
 
                     <section id="curriculum" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Learning Journey - Curriculum</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Learning Journey (With tools embedded)</h3>
                         <p className="text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">
                             A comprehensive 14-week journey from prompt engineering to full multi-agent automation.
                         </p>
@@ -425,7 +406,7 @@ export default function GENProgramEIE() {
                                     key={idx}
                                     className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 inline-block mb-4 transition-colors duration-300">
+                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                                     </div>
                                     <div className="mb-2">
@@ -449,7 +430,7 @@ export default function GENProgramEIE() {
                                     key={idx}
                                     className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="aspect-square bg-gray-200 dark:bg-[#848484]/30 relative overflow-hidden transition-colors duration-300">
+                                    <div className="aspect-square relative overflow-hidden transition-colors duration-300">
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}
@@ -467,7 +448,7 @@ export default function GENProgramEIE() {
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">The Certificate Recognized By The Industry</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Certification</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-8 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
@@ -478,17 +459,18 @@ export default function GENProgramEIE() {
                             </div>
                             <div className="w-full md:w-1/2">
                                 <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
-                                    Professional Certificate in Generative AI & AI Agent Systems
+                                    Nano-Degree in Generative AI & AI Agent Building
                                 </h4>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 transition-colors duration-300">
-                                    Validate your expertise in the most sought-after skill of the decade. This certificate is recognized by top AI-first startups and tech giants.
+                                    This certification proves you can:
                                 </p>
                                 <ul className="space-y-3">
                                     {[
-                                        "Globally recognized AI certification",
-                                        "Digital badge for AI Expert verified status",
-                                        "Priority hiring access for AI roles",
-                                        "Exclusive GenAI Alumni community",
+                                        "Build AI-powered applications",
+                                        "Design autonomous agents",
+                                        "Automate workflows",
+                                        "Deploy and monitor AI systems",
+                                        "Backed by real projects, real tools, and real deployments.",
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                                             <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
@@ -504,13 +486,14 @@ export default function GENProgramEIE() {
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Career Opportunities in the AI Era</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Paths This Program Prepares You For</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
-                                { role: "AI Automation Engineer", pay: "₹22L - 45L", desc: "Design and implement autonomous AI agent workflows." },
-                                { role: "GenAI Product Strategist", pay: "₹18L - 35L", desc: "Lead the integration of GenAI into consumer products." },
-                                { role: "AI Ethics & Compliance Consultant", pay: "₹15L - 25L", desc: "Ensure AI systems meet global safety and legal norms." },
-                                { role: "Prompt Architect", pay: "₹12L - 22L", desc: "Craft complex context-aware prompts for enterprise systems." },
+                                { role: "Generative AI Engineer", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
+                                { role: "AI Agent Developer", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
+                                { role: "AI Automation Specialist", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
+                                { role: "AI Product Analyst", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
+                                { role: "AI Consultant / Strategist", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
                             ].map((item, idx) => (
                                 <div
                                     key={idx}
@@ -532,50 +515,72 @@ export default function GENProgramEIE() {
                     </section>
 
                     <section id="pricing" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Make an Investment for your Future</h3>
-                        <div className="flex justify-center">
-                            <div className="bg-blue-50/50 dark:bg-[#171717] border border-blue-100 dark:border-[#848484]/30 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-all duration-300">
-                                <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">GenAI Specialist Program</h4>
-                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">14-week intensive training</p>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Make an Investment in Your AI-Ready Future</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
+                            {[
+                                {
+                                    name: "Regular",
+                                    price: 32499,
+                                    features: ["Hands-on training", "Projects", "Certification", "Community"],
+                                    highlight: false
+                                },
+                                {
+                                    name: "Regular+",
+                                    price: 42499,
+                                    features: ["Advanced agent projects", "Live labs", "Career roadmap", "Priority hiring"],
+                                    highlight: true
+                                }
+                            ].map((plan, idx) => (
+                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-blue-500 dark:border-blue-500 shadow-md ring-1 ring-blue-500' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
+                                    {plan.highlight && (
+                                        <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                                            RECOMMENDED
+                                        </div>
+                                    )}
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">
+                                        Build AI Systems. Not Just Learn AI Tools.
+                                    </p>
 
-                                <div className="mb-2">
-                                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
-                                    <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
-                                </div>
-
-                                {batches.length > 0 && (
-                                    <div className="mb-4">
-                                        <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
-                                        <select
-                                            value={selectedBatchId || ''}
-                                            onChange={(e) => setSelectedBatchId(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
-                                        >
-                                            {batches.map((batch) => (
-                                                <option key={batch.Id} value={batch.Id}>
-                                                    {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
-                                                </option>
-                                            ))}
-                                        </select>
+                                    <div className="mb-2">
+                                        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
+                                        <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
                                     </div>
-                                )}
 
-                                <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                                    {["14 week live instructor-led GenAI training", "Build Your Own AI Agent project", "Advanced n8n & CrewAI tutorials", "Lifetime access to content and labs", "Job readiness & portfolio building"].map((feat, i) => (
-                                        <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
-                                    ))}
-                                </ul>
+                                    {batches.length > 0 && (
+                                        <div className="mb-4">
+                                            <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
+                                            <select
+                                                value={selectedBatchId || ''}
+                                                onChange={(e) => setSelectedBatchId(e.target.value)}
+                                                className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
+                                            >
+                                                {batches.map((batch) => (
+                                                    <option key={batch.Id} value={batch.Id}>
+                                                        {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    )}
 
-                                {isAuthenticated ? (
-                                    <button onClick={handleBuyCourse} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                        {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
-                                    </button>
-                                ) : (
-                                    <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                        Sign in to Enroll <ArrowRight size={16} />
-                                    </button>
-                                )}
-                            </div>
+                                    <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                                        {plan.features.map((feat, i) => (
+                                            <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                                        ))}
+                                    </ul>
+
+                                    {isAuthenticated ? (
+                                        <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                            {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
+                                        </button>
+                                    ) : (
+                                        <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                            Sign in to Enroll <ArrowRight size={16} />
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
                         </div>
                     </section>
 
@@ -587,7 +592,7 @@ export default function GENProgramEIE() {
                                     <p className="text-gray-600 dark:text-gray-400 mb-6 transition-colors duration-300">Your payment was not completed. Would you like to try again?</p>
                                     <div className="flex gap-4">
                                         <button onClick={() => setShowCancellationModal(false)} className="flex-1 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
-                                        <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(); }} className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Try Again</button>
+                                        <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(coursePrice.amount); }} className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Try Again</button>
                                     </div>
                                 </motion.div>
                             </motion.div>

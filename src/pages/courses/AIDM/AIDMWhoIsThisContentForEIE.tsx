@@ -40,16 +40,20 @@ export default function AIDMWhoIsThisContentForEIE() {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
-                        AI Digital Marketing - Industry Scale
+                        Why Digital Marketing Now
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        The Future of Marketing is AI-Powered
+                        Marketing Is Being Rebuilt with AI
                     </h2>
 
-                    <p className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
-                        The marketing landscape has shifted. Traditional digital marketing is being replaced by AI growth strategies, automated creative production, and intelligent data analysis. Stay relevant in 2025 by mastering the tools that are redefining the industry.
-                    </p>
+                    <div className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+
+
+                        <p>
+                            This program prepares you for how marketing actually works in 2025.
+                        </p>
+                    </div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

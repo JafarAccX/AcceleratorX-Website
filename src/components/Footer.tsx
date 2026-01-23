@@ -21,7 +21,7 @@ export default function Footer() {
 
           {/* Left Side: CTA Content */}
           <div className="space-y-8 max-w-2xl">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+            <h2 className="text-4xl  font-extrabold text-gray-900 leading-[1.1] tracking-tight">
               Don’t wait—revolutionize your <br />
               <span className="text-blue-600">AI workflow</span> and <span className="text-blue-600">AI specialised</span> <br />
               job roles today.

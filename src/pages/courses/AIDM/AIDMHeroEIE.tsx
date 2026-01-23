@@ -75,8 +75,8 @@ export default function AIDMHeroEIE() {
                     className="mb-10"
                 >
                     <h1 className="text-5xl md:text-7xl font-serif text-white dark:text-white leading-tight font-medium">
-                        Stay Ahead in Your Career with <br />
-                        <span className="italic">AI Digital Marketing</span>
+                        Become a Modern <br />
+                        <span className="italic">Digital Marketer Powered by AI</span>
                     </h1>
                 </motion.div>
 
@@ -98,7 +98,10 @@ export default function AIDMHeroEIE() {
                     >
                         <div className="inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
                             <span className="w-2 h-2 rounded-full bg-white dark:bg-white"></span>
-                            16 WEEKS PROGRAM
+                            16-Week Live, Hands-On Program
+                        </div>
+                        <div className="mt-4 text-gray-300 text-sm font-medium">
+                            Beginner → Intermediate | AI-First | Portfolio-Driven
                         </div>
                     </motion.div>
 
@@ -110,7 +113,7 @@ export default function AIDMHeroEIE() {
                         className="lg:col-span-8 items-end flex flex-col gap-4"
                     >
                         <p className="text-gray-200 dark:text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl text-right lg:text-left transition-colors duration-300">
-                            Become a top 1% marketer in the AI era. Master AI growth, marketing automation, and performance marketing through live classes, hands-on projects, and real-world capstone challenges.
+                            Learn to plan, create, automate, and scale marketing campaigns using Generative AI, performance marketing, analytics, and AI agents.
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-end lg:justify-start">
@@ -137,17 +140,17 @@ export default function AIDMHeroEIE() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-24 flex flex-row gap-4 md:gap-6"
+                    className="mt-24 flex flex-row gap-4 md:gap-6  lg:w-[240px]"
                 >
                     {/* Stat 1 */}
                     <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
-                        <div className="mb-1 md:mb-2"><Counter end={12} suffix=" LPA" /></div>
-                        <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average Salary Package</div>
+                        <div className="mb-1 md:mb-2"><Counter end={10} suffix=" LPA" /></div>
+                        <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average Marketing Salary</div>
                     </div>
                     {/* Stat 2 */}
                     <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
-                        <div className="mb-1 md:mb-2"><Counter end={45000} suffix=" +" /></div>
-                        <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Job Openings</div>
+                        <div className="mb-1 md:mb-2"><Counter end={50000} suffix=" +" /></div>
+                        <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Digital Marketing Job Openings</div>
                     </div>
                 </motion.div>
 

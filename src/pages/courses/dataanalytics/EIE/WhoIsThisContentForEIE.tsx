@@ -40,16 +40,27 @@ export default function WhoIsThisContentForEIE() {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
-                        Data Analytics - Market Scope
+                        Why Data Analytics Now
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        The Growing Data Analytics Industry
+                        Data Analysts Are Evolving into AI-Enabled Decision Makers
                     </h2>
 
-                    <p className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
-                        Data Analytics is transforming industries worldwide. Organizations are increasingly relying on data-driven insights to make strategic decisions, creating a massive demand for skilled professionals who can harness the power of AI and analytics.
-                    </p>
+                    <div className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                        <p className="mb-4">
+                            Companies no longer want spreadsheet-only analysts. They need professionals who can:
+                        </p>
+                        {/* <ul className="text-left md:text-center list-disc list-inside space-y-2 mb-6 inline-block md:block">
+                            <li>Work with SQL, Python, and BI tools</li>
+                            <li>Understand product metrics & user behavior</li>
+                            <li>Use AI to analyze faster and smarter</li>
+                            <li>Communicate insights clearly to stakeholders</li>
+                        </ul> */}
+                        <p>
+                            This program prepares you for modern data analyst roles, not outdated ones.
+                        </p>
+                    </div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

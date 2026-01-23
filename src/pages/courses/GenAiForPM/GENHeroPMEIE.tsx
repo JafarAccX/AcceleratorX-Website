@@ -138,7 +138,7 @@ export default function GENHeroPMEIE() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-24 flex flex-row gap-4 md:gap-6"
+                    className="mt-24 flex flex-row gap-4 md:gap-6  lg:w-[240px]"
                 >
                     {/* Stat 1 */}
                     <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">

@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import { useUser } from '../../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
 import { api } from '../../../../api';
-import { dataAnalyticsmodules, dataAnalyticsTools } from "../../../../utils/constants";
+import { dataAnalyticsTools } from "../../../../utils/constants";
 
 declare global {
   interface Window {
@@ -30,11 +30,11 @@ interface Batch {
 const SECTIONS = [
   { id: "why-this-program", label: "Why this Program" },
   { id: "curriculum", label: "Learning Journey - Curriculum" },
-  { id: "tools", label: "Tools Which You Master as a Professional" },
+  { id: "tools", label: "Tools & Frameworks" },
   { id: "mentors", label: "Mentors" },
-  { id: "certificate", label: "The Certificate Recognized By The Industry" },
-  { id: "career", label: "High-Paying Career Opportunities" },
-  { id: "pricing", label: "Make an Investment for the AI Ready Future" },
+  { id: "certificate", label: "Industry-Recognized Certification" },
+  { id: "career", label: "Career Outcomes" },
+  { id: "pricing", label: "Invest in Your Analytics Career" },
 ];
 
 const MENTORS = [
@@ -70,9 +70,71 @@ const MENTORS = [
   },
 ];
 
+const CURRICULUM = [
+  {
+    week: "1-3",
+    topics: ["Foundations of Data Analysis"],
+    goal: "Build strong fundamentals in data analytics. Learn data analysis lifecycle, Excel, Dataviz, and BI.",
+    skills: ["Data analysis lifecycle", "Excel for cleaning & dashboards", "Data visualization basics", "Introduction to BI tools"],
+    outcome: "You can analyze datasets and present insights clearly."
+  },
+  {
+    week: "4-6",
+    topics: ["SQL for Data Analysis"],
+    goal: "Learn how analysts work with real databases. Master SQL queries, joins, window functions and data cleaning.",
+    skills: ["SQL queries, joins & aggregations", "Window functions & subqueries", "Data cleaning using SQL"],
+    outcome: "You can extract and analyze data from relational databases."
+  },
+  {
+    week: "7-9",
+    topics: ["Statistics & Analytics Thinking"],
+    goal: "Learn how to reason with data, not just visualize it. Cover stats, probability, hypothesis testing, and regression.",
+    skills: ["Descriptive statistics", "Probability & hypothesis testing", "Correlation & regression"],
+    outcome: "You can interpret data confidently and avoid false conclusions."
+  },
+  {
+    week: "10-13",
+    topics: ["Python for Data Analysis"],
+    goal: "Use Python for scalable analysis. Work with Pandas, Matplotlib, Seaborn, EDA, and Intro to ML.",
+    skills: ["Python fundamentals", "Pandas for data manipulation", "Matplotlib & Seaborn", "Exploratory Data Analysis (EDA)", "Intro to machine learning"],
+    outcome: "You can analyze complex datasets using Python."
+  },
+  {
+    week: "14-20",
+    topics: ["BI, Dashboards & Product Analytics"],
+    goal: "Specialize in product and business analytics. Build interactive dashboards, Product KPIs, Funnels, and A/B tests.",
+    skills: ["Interactive dashboards (Tableau / Power BI)", "Product KPIs (DAU, MAU, retention)", "Funnels & cohort analysis", "A/B test reporting"],
+    outcome: "You can support product and growth decisions with data."
+  },
+  {
+    week: "19-20",
+    topics: ["AI Tools & Automation for Analysts"],
+    goal: "Learn how AI accelerates analytics work. Use AI for query generation, code assistance, and insight summarization.",
+    skills: ["SQL query generation", "Python code assistance", "Automated data cleaning", "Insight summarization", "Predictive analytics with AutoML"],
+    outcome: "You become a faster, AI-enabled analyst."
+  },
+  {
+    week: "21-24",
+    topics: ["Capstone Project"],
+    goal: "Solve a real-world product analytics problem. Deliver end-to-end analysis and a final stakeholder presentation.",
+    skills: ["End-to-end analysis", "Cohort, funnel & churn insights", "Predictive modeling", "Interactive dashboards", "Final stakeholder presentation"],
+    outcome: "Complete portfolio-ready project."
+  }
+];
+
+const DATA_TOOLS = [
+  { name: "Excel", description: "Foundational tool for data cleaning and analysis." },
+  { name: "SQL", description: "MySQL / BigQuery for database querying." },
+  { name: "Python", description: "Pandas, Matplotlib, Seaborn, scikit-learn for advanced analysis." },
+  { name: "Tableau / Power BI", description: "Industry standard tools for dashboarding." },
+  { name: "Google Analytics / Mixpanel", description: "Essential for product and web analytics." },
+  { name: "Modern Data Stack", description: "BigQuery, dbt, and modern BI concepts." },
+  { name: "AI Tools", description: "For analytics automation and productivity." },
+];
+
 // --- Components ---
 
-const AccordionItem = ({ module, index }: { module: any; index: number }) => {
+const AccordionItem = ({ module }: { module: any }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -81,14 +143,16 @@ const AccordionItem = ({ module, index }: { module: any; index: number }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
       >
-        <div>
-          <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1 transition-colors duration-300">
-            MODULE {index + 1}
-          </span>
-          <h4 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{module.title}</h4>
+        <div className="flex-1">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
+              WEEK {module.week}
+            </span>
+          </div>
+          <h4 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{module.topics.join(" & ")}</h4>
         </div>
         <ChevronDown
-          className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
+          className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
       <AnimatePresence>
@@ -99,7 +163,28 @@ const AccordionItem = ({ module, index }: { module: any; index: number }) => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="p-5 pt-0 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">{module.description}</div>
+            <div className="p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+              {module.goal && (
+                <p className="text-sm text-gray-700 dark:text-gray-200 mb-4 font-medium transition-colors duration-300">
+                  {module.goal}
+                </p>
+              )}
+              {module.skills && (
+                <div className="mb-4">
+                  <p className="font-semibold mb-2 transition-colors duration-300 text-xs uppercase text-gray-500 dark:text-gray-400">What you'll learn:</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    {module.skills.map((skill: string, i: number) => (
+                      <li key={i} className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">{skill}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {module.outcome && (
+                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10">
+                  <p className="text-sm font-semibold text-green-600 dark:text-green-400">Outcome: {module.outcome}</p>
+                </div>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -122,6 +207,7 @@ export default function DataProgramEIE() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [batches, setBatches] = useState<Batch[]>([]);
   const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
+  const [selectedPlanPrice, setSelectedPlanPrice] = useState<number>(0);
   const [showCancellationModal, setShowCancellationModal] = useState(false);
 
   const coursePrice = COURSE_PRICES.DATA_ANALYTICS;
@@ -165,14 +251,15 @@ export default function DataProgramEIE() {
     finally { setIsProcessing(false); setShowCancellationModal(true); }
   };
 
-  const handleBuyCourse = async () => {
+  const handleBuyCourse = async (amount: number) => {
+    setSelectedPlanPrice(amount);
     if (!isAuthenticated) { navigate('/sign-in', { state: { from: location } }); return; }
     if (!selectedBatchId) { toast.error('Please select a batch first'); return; }
     setIsProcessing(true);
     try {
       const razorpayLoaded = await initializeRazorpay();
       if (!razorpayLoaded) throw new Error('Failed to load Razorpay SDK');
-      const orderResponse = await api.post('/course-checkout/create-order', { courseId, batchId: selectedBatchId, amount: coursePrice.amount });
+      const orderResponse = await api.post('/course-checkout/create-order', { courseId, batchId: selectedBatchId, amount: amount });
       if (!orderResponse.data.success) throw new Error(orderResponse.data.message || 'Failed to create order');
       const { orderId, enrollmentId } = orderResponse.data.data;
       const options = {
@@ -307,23 +394,24 @@ export default function DataProgramEIE() {
         <main className="lg:w-3/4 space-y-24">
           {/* Section 1: Why this Program */}
           <section id="why-this-program" className="scroll-mt-24">
-            <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Why this Program</h3>
+            <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Built for Real Analytics & Product Teams</h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque convallis nibh tristique augue
-              sagittis, sit amet auctor neque ullamcorper. Pellentesque vel faucibus tellus. Nullam ullamcorper ut metus
-              sed eleifend. Maecenas sed lorem pharetra, interdum tellus luctus, commodo libero.
+              This is not just a theory course. At AcceleratorX, you’ll work with real datasets, build end-to-end dashboards, perform product & user analysis, apply AI tools to automate analysis, and graduate with a capstone-grade analytics portfolio.
             </p>
             <ul className="space-y-3 mb-8">
-              {[1, 2, 3, 4].map((i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
+              {[
+                "Work with real datasets",
+                "Build end-to-end dashboards",
+                "Perform product & user analysis",
+                "Apply AI tools to automate analysis",
+                "Graduate with a capstone-grade analytics portfolio"
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
                   <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                  <span>{text}</span>
                 </li>
               ))}
             </ul>
-            <button className="text-blue-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-              Read More <ArrowRight size={16} />
-            </button>
             <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-12 transition-colors duration-300"></div>
           </section>
 
@@ -331,12 +419,11 @@ export default function DataProgramEIE() {
           <section id="curriculum" className="scroll-mt-24">
             <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Learning Journey - Curriculum</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque convallis nibh tristique augue
-              sagittis.
+              A complete roadmap from Foundations to Advanced AI-Powered Analytics
             </p>
             <div>
-              {dataAnalyticsmodules.map((module, idx) => (
-                <AccordionItem key={idx} module={module} index={idx} />
+              {CURRICULUM.map((module, idx) => (
+                <AccordionItem key={idx} module={module} />
               ))}
             </div>
             <div className="mt-8 flex justify-center">
@@ -351,17 +438,16 @@ export default function DataProgramEIE() {
           <section id="tools" className="scroll-mt-24">
             <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {dataAnalyticsTools.slice(0, 6).map((tool, idx) => (
+              {DATA_TOOLS.map((tool, idx) => (
                 <div
                   key={idx}
-                  className="bg-white dark:bg-[#171717] border  flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 inline-block mb-4 transition-colors duration-300">
-                    <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
+                  <div className="p-3 inline-block mb-4 transition-colors duration-300">
+                    <img src={dataAnalyticsTools.find(t => t.name.includes(tool.name.split(' ')[0]))?.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                   </div>
-
-                  <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300">{tool.name}</h4>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{tool.description.substring(0, 50)}...</p>
+                  <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300 text-center">{tool.description}</p>
                 </div>
               ))}
             </div>
@@ -377,7 +463,7 @@ export default function DataProgramEIE() {
                   key={idx}
                   className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300"
                 >
-                  <div className="aspect-square bg-gray-200 dark:bg-[#848484]/30 relative overflow-hidden">
+                  <div className="aspect-square relative overflow-hidden">
                     <img
                       src={mentor.image || "/placeholder.svg"}
                       alt={mentor.name}
@@ -396,7 +482,7 @@ export default function DataProgramEIE() {
 
           {/* Section 5: Certificate */}
           <section id="certificate" className="scroll-mt-24">
-            <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">The Certificate Recognized By The Industry</h3>
+            <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree</h3>
             <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
               <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                 <img
@@ -408,18 +494,17 @@ export default function DataProgramEIE() {
               </div>
               <div className="w-full md:w-1/2">
                 <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
-                  Get Your Degree in AI Data Analytics
+                  Nano Degree in AI-Powered Data Analytics
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 transition-colors duration-300">
-                  Show the world your expertise in AI Marketing and stand out in a competitive AI Marketing jobs and get
-                  hired easily.
+                  Validates your ability to:
                 </p>
                 <ul className="space-y-3">
                   {[
-                    "Industry recognized Nano-Degree in AI Data Analytics",
-                    "Verified badge + unique verification ID",
-                    "Trusted by 2500+ companies and agencies",
-                    "Lifetime exclusive alumni community access",
+                    "Analyze and interpret data",
+                    "Build dashboards",
+                    "Support product decisions",
+                    "Use AI responsibly in analytics",
                   ].map((item, i) => (
                     <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                       <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
@@ -436,22 +521,25 @@ export default function DataProgramEIE() {
 
           {/* Section 6: Career Opportunities */}
           <section id="career" className="scroll-mt-24">
-            <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Opportunities</h3>
+            <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Roles You’ll Be Ready For</h3>
             <div className="grid md:grid-cols-2 gap-6">
-              {[1, 2, 3, 4].map((item) => (
+              {[
+                "Data Analyst",
+                "Product Analyst",
+                "Business Analyst",
+                "Growth / Marketing Analyst",
+                "Junior Analytics Engineer"
+              ].map((role) => (
                 <div
-                  key={item}
+                  key={role}
                   className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
-                      Artificial Intelligence Consultants & Strategists
+                      {role}
                     </h4>
-                    <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded transition-colors duration-300">₹12L - 25L</span>
+                    <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded transition-colors duration-300">₹6 LPA – ₹15 LPA+</span>
                   </div>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
-                    Help businesses integrate AI solutions and develop AI strategies.
-                  </p>
                 </div>
               ))}
             </div>
@@ -460,42 +548,72 @@ export default function DataProgramEIE() {
 
           {/* Section 7: Pricing */}
           <section id="pricing" className="scroll-mt-24">
-            <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Make an Investment for the AI Ready Future</h3>
-            <div className="flex justify-center">
-              <div className="bg-blue-50/50 dark:bg-[#171717] border border-blue-100 dark:border-[#848484]/30 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-all duration-300">
-                <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Regular</h4>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">Comprehensive AI learning program</p>
+            <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in Your Analytics Career</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
+              {[
+                {
+                  name: "Regular",
+                  price: 32499,
+                  features: ["Core analytics + product analytics", "AI tools basics", "Certification"],
+                  highlight: false
+                },
+                {
+                  name: "Regular+",
+                  price: 42499,
+                  features: ["Advanced projects", "Capstone depth", "Career roadmap & priority hiring"],
+                  highlight: true
+                }
+              ].map((plan, idx) => (
+                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-blue-500 dark:border-blue-500 shadow-md ring-1 ring-blue-500' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
+                  {plan.highlight && (
+                    <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                      RECOMMENDED
+                    </div>
+                  )}
+                  <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
 
-                <div className="mb-2">
-                  <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
-                  <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
-                </div>
-
-                {batches.length > 0 && (
-                  <div className="mb-4">
-                    <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
-                    <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
-                      {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
-                    </select>
+                  <div className="mb-2">
+                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
+                    <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
                   </div>
-                )}
 
-                <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                  {["6 month intensive live instructor-led training", "Hands-on projects tackling real-world challenges", "Industry-recognized certification", "Lifetime access to all program materials", "Career mentorship and guidance"].map((feat, i) => (
-                    <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
-                  ))}
-                </ul>
+                  {batches.length > 0 && (
+                    <div className="mb-4">
+                      <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
+                      <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
+                        {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
+                      </select>
+                    </div>
+                  )}
 
-                {isAuthenticated ? (
-                  <button onClick={handleBuyCourse} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                  <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                    {plan.features.map((feat, i) => (
+                      <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                    ))}
+                  </ul>
+
+                  <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
                     {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
                   </button>
-                ) : (
-                  <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                    Sign in to Enroll <ArrowRight size={16} />
-                  </button>
-                )}
-              </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Final CTA Section */}
+          <section className="text-center py-20  lg:mx-0 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('/assets/grid-pattern.png')] opacity-10"></div>
+            <div className="relative z-10 max-w-3xl mx-auto px-6">
+              <h2 className="text-4xl font-serif font-bold text-white mb-6">Turn Data into Decisions — Faster with AI</h2>
+              <p className="text-blue-100 text-lg mb-10">
+                AcceleratorX helps you become a job-ready, AI-powered data analyst with real projects and real impact.
+              </p>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="px-10 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+              >
+                Apply Now
+              </button>
             </div>
           </section>
 
@@ -507,7 +625,7 @@ export default function DataProgramEIE() {
                   <p className="text-gray-600 mb-6">Your payment was not completed. Would you like to try again?</p>
                   <div className="flex gap-4">
                     <button onClick={() => setShowCancellationModal(false)} className="flex-1 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Cancel</button>
-                    <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(); }} className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Try Again</button>
+                    <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(selectedPlanPrice); }} className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Try Again</button>
                   </div>
                 </motion.div>
               </motion.div>

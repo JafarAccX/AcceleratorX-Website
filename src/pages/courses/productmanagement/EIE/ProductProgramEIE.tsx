@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight, Check } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
-import { weeklyData, tools, mentors } from "../../../../utils/constants";
+import { mentors } from "../../../../utils/constants";
 import { COURSE_PRICES, COURSE_IDS } from "../../../../utils/constants_price";
 import { useUser } from "../../../../context/UserContext";
 import { api } from "../../../../api";
@@ -30,15 +30,101 @@ interface Batch {
 
 const SECTIONS = [
     { id: "why-this-program", label: "Why this Program" },
-    { id: "curriculum", label: "Learning Journey - Curriculum" },
-    { id: "tools", label: "Tools Which You Master as a Professional" },
+    { id: "curriculum", label: "Learning Journey (Core PM + AI PM)" },
+    { id: "tools", label: "Tools & Frameworks" },
     { id: "mentors", label: "Mentors" },
-    { id: "certificate", label: "The Certificate Recognized By The Industry" },
-    { id: "career", label: "High-Paying Career Opportunities" },
-    { id: "pricing", label: "Make an Investment for the AI Ready Future" },
+    { id: "certificate", label: "Industry-Recognized Certification" },
+    { id: "career", label: "Career Outcomes" },
+    { id: "pricing", label: "Invest in Your Product Management Career" },
 ];
 
 const PM_MENTORS = mentors.slice(0, 6);
+
+const CURRICULUM = [
+    // Part A: Core Product Management (Weeks 1-12)
+    {
+        week: "1-2",
+        topics: ["Foundations of Product Management"],
+        goal: "Understand the PM role, responsibilities, and product lifecycle. Learn to handle ambiguity and own outcomes.",
+        skills: ["PM Mindset", "Stakeholder Management", "Ambiguity Handling"],
+    },
+    {
+        week: "3-4",
+        topics: ["Users, Problems & Market Understanding"],
+        goal: "Learn how great products start with real problems. Conduct user interviews, create personas, and size markets.",
+        skills: ["User Interviews", "Personas", "Jobs-To-Be-Done", "Market Sizing (TAM/SAM/SOM)"],
+    },
+    {
+        week: "5-6",
+        topics: ["Product Strategy & Roadmapping"],
+        goal: "Move from insights to clear product direction. Build vision, strategy, and competitive analysis.",
+        skills: ["Product Vision", "Value Proposition", "Competitive Analysis", "Roadmapping"],
+    },
+    {
+        week: "7-8",
+        topics: ["Product Execution & Documentation"],
+        goal: "Translate strategy into execution. Write PRDs, understand UX fundamentals, and prioritize features.",
+        skills: ["PRD Writing", "UX Fundamentals", "Wireframing", "Prioritization (RICE/MoSCoW)"],
+    },
+    {
+        week: "9-10",
+        topics: ["MVPs, Metrics & Analytics"],
+        goal: "Learn to measure what matters. Design MVPs and define North Star metrics and funnels.",
+        skills: ["MVP Design", "North Star Metric", "Funnels & Cohorts", "Data-Informed Decisions"],
+    },
+    {
+        week: "11-12",
+        topics: ["GTM, Launch & Growth"],
+        goal: "Take products to market confidently. Plan launches, pricing, and positioning.",
+        skills: ["GTM Strategy", "Pricing & Positioning", "Launch Planning", "Post-Launch Analysis"],
+    },
+
+    // Part B: AI Product Management (Weeks 13-18)
+    {
+        week: "13",
+        topics: ["Introduction to AI Product Management"],
+        goal: "Understand how AI changes discovery, design, and delivery. AI-first vs AI-assisted products.",
+        skills: ["AI-First Thinking", "AI Value Assessment", "Data & Models as Product"],
+    },
+    {
+        week: "14",
+        topics: ["AI Product Discovery & Problem Framing"],
+        goal: "Learn to frame AI-appropriate problems. Evaluate data feasibility, risks, and trust.",
+        skills: ["Data Feasibility", "AI Risk Assessment", "Trust & UX for AI"],
+    },
+    {
+        week: "15",
+        topics: ["AI Models, LLMs & Modern AI Stack"],
+        goal: "Understand trade-offs in ML, LLMs vs SLMs, and prompting frameworks without needing to code.",
+        skills: ["ML Basics", "LLMs vs SLMs", "Prompting for PMs", "Cost-Latency Trade-offs"],
+    },
+    {
+        week: "16",
+        topics: ["AI PRDs, Metrics & Iteration"],
+        goal: "Write AI-specific requirements. Design for human-in-the-loop and define AI success metrics.",
+        skills: ["AI PRDs", "Human-in-the-loop", "AI Success Metrics", "Model Monitoring"],
+    },
+    {
+        week: "17",
+        topics: ["Building AI Products & Rapid MVPs"],
+        goal: "Build faster in the AI era. Practice rapid AI MVPs and vibe coding.",
+        skills: ["Rapid Prototyping", "Vibe Coding", "AI Workflows"],
+    },
+    {
+        week: "18",
+        topics: ["Advanced AI Systems, Ethics & Career"],
+        goal: "Prepare for AI PM interviews. Understand RAG, Agents, and Responsible AI.",
+        skills: ["RAG Architecture", "AI Agents", "Responsible AI", "Interview Prep"],
+    },
+];
+
+const PM_TOOLS = [
+    { name: "Product Frameworks", description: "JTBD, AARRR, North Star, RICE, Kano", image: "/assets/genAITools/gpt4.webp" },
+    { name: "Research & Strategy", description: "Tools for user interviews, personas, and market sizing", image: "/assets/genAITools/claude.webp" },
+    { name: "Analytics & Experimentation", description: "Funnels, cohorts, and feedback loops", image: "/assets/genAITools/midjourney.webp" },
+    { name: "AI Tools", description: "For research, PRDs, prototyping, and automation", image: "/assets/genAITools/runway.webp" },
+    { name: "Vibe Coding", description: "Tools to build and demo AI-powered MVPs", image: "/assets/genAITools/elevenlabs.webp" }
+];
 
 // --- Components ---
 
@@ -72,6 +158,11 @@ const AccordionItem = ({ week }: { week: any }) => {
                         transition={{ duration: 0.3 }}
                     >
                         <div className="p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717]  transition-colors duration-300">
+                            {week.goal && (
+                                <p className="text-sm text-blue-600 dark:text-blue-400 italic mb-3 font-medium transition-colors duration-300">
+                                    {week.goal}
+                                </p>
+                            )}
                             <div className="mb-4">
                                 <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Key Skills:</p>
                                 <div className="flex flex-wrap gap-2">
@@ -115,7 +206,6 @@ export default function ProductProgramEIE() {
     const [isProcessing, setIsProcessing] = useState(false);
     const [batches, setBatches] = useState<Batch[]>([]);
     const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
-    const [paymentCancelled, setPaymentCancelled] = useState(false);
     const [showCancellationModal, setShowCancellationModal] = useState(false);
 
     const coursePrice = COURSE_PRICES.PM_PROGRAM;
@@ -174,14 +264,13 @@ export default function ProductProgramEIE() {
         } catch (error) {
             console.error('Error handling payment cancellation:', error);
         } finally {
-            setPaymentCancelled(true);
             setIsProcessing(false);
             setShowCancellationModal(true);
         }
     };
 
     // Handle course purchase
-    const handleBuyCourse = async () => {
+    const handleBuyCourse = async (amount: number) => {
         // Check if user is authenticated
         if (!isAuthenticated) {
             // Redirect to sign-in with current path as callback
@@ -207,7 +296,7 @@ export default function ProductProgramEIE() {
             const orderResponse = await api.post('/course-checkout/create-order', {
                 courseId,
                 batchId: selectedBatchId,
-                amount: coursePrice.amount,
+                amount: amount,
             });
 
             if (!orderResponse.data.success) {
@@ -372,33 +461,35 @@ export default function ProductProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-24">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6">Why this Program</h3>
-                        <p className="text-gray-600 leading-relaxed mb-6">
-                            Our AI Product Management program is designed for professionals who want to lead the next generation of tech products. We combine strategic product thinking with hands-on AI implementation.
+                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">A Product Management Program Built for Real-World PM Roles</h3>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
+                            This is not a theory-heavy PM course.
+                            AcceleratorX trains you to think and operate like a real Product Manager — handling ambiguity, making trade-offs, working with engineers & designers, and shipping products.
                         </p>
                         <ul className="space-y-3 mb-8">
                             {[
-                                "Hands-on AI implementation for real products",
-                                "Strategic product life-cycle management",
-                                "Advanced roadmap and feature prioritization",
-                                "Direct mentorship from senior PM leaders",
+                                "Covers core PM + AI Product Management",
+                                "Strong focus on problem discovery and decision-making",
+                                "Real deliverables: PRDs, roadmaps, MVPs, metrics",
+                                "Hands-on exposure to AI-powered product workflows",
+                                "Career-ready capstone and mock interviews",
                             ].map((text, i) => (
-                                <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
+                                <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
                                     <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
                                     <span>{text}</span>
                                 </li>
                             ))}
                         </ul>
-                        <div className="h-px w-full bg-gray-200 mt-12"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-12 transition-colors duration-300"></div>
                     </section>
 
                     <section id="curriculum" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6">Learning Journey - Curriculum</h3>
-                        <p className="text-gray-600 mb-8">
-                            A comprehensive 4-month journey covering everything from user research to AI scaling.
+                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">LEARNING JOURNEY (CORE PM + AI PM)</h3>
+                        <p className="text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">
+                            A comprehensive journey covering everything from user research to AI scaling.
                         </p>
                         <div>
-                            {weeklyData.slice(0, 10).map((week, idx) => (
+                            {CURRICULUM.map((week, idx) => (
                                 <AccordionItem key={idx} week={week} />
                             ))}
                         </div>
@@ -407,22 +498,22 @@ export default function ProductProgramEIE() {
                                 Download Full Curriculum <ChevronDown size={18} />
                             </button>
                         </div>
-                        <div className="h-px w-full bg-gray-200 mt-16"></div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">TOOLS & FRAMEWORKS (EMBEDDED ACROSS PROGRAM)</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                            {tools.slice(0, 9).map((tool, idx) => (
+                            {PM_TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
                                     className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 inline-block mb-4 transition-colors duration-300">
+                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                                     </div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{tool.description.substring(0, 50)}...</p>
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300 text-center">{tool.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -455,7 +546,7 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">The Certificate Recognized By The Industry</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree in Product Management</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-8 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
@@ -466,17 +557,18 @@ export default function ProductProgramEIE() {
                             </div>
                             <div className="w-full md:w-1/2">
                                 <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
-                                    Professional Certificate in AI Product Management
+                                    Nano Degree: Product Management & AI Product Management
                                 </h4>
                                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 transition-colors duration-300">
-                                    Validate your expertise with an industry-recognized certificate from AcceleratorX. Boost your LinkedIn profile and stand out to recruiters.
+                                    This certification validates your ability to:
                                 </p>
                                 <ul className="space-y-3">
                                     {[
-                                        "Globally recognized certification",
-                                        "Shareable digital badge for LinkedIn",
-                                        "Trusted by leading product-based companies",
-                                        "Access to exclusive PM Alumni network",
+                                        "Discover and validate problems",
+                                        "Build and launch products",
+                                        "Make data-driven decisions",
+                                        "Design and manage AI-enabled products",
+                                        "Backed by real PM deliverables and AI product thinking.",
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                                             <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
@@ -492,13 +584,15 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Opportunities</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Product Roles This Program Prepares You For</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
-                                { role: "AI Product Manager", pay: "₹18L - 35L", desc: "Lead AI-driven product strategy and development." },
-                                { role: "Growth Product Manager", pay: "₹15L - 28L", desc: "Focus on user acquisition and monetization scaling." },
-                                { role: "Technical Product Manager", pay: "₹20L - 40L", desc: "Bridge the gap between complex engineering and product." },
-                                { role: "Product Strategist", pay: "₹14L - 25L", desc: "Develop market enter strategies and long-term vision." },
+                                { role: "Product Manager", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
+                                { role: "Associate / Junior PM", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
+                                { role: "AI Product Manager", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
+                                { role: "Product Analyst", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
+                                { role: "Growth PM", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
+                                { role: "Founder / Product Owner", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
                             ].map((item, idx) => (
                                 <div
                                     key={idx}
@@ -520,85 +614,65 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="pricing" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Make an Investment for your Future</h3>
-                        <div className="flex justify-center">
-                            <div className="bg-blue-50/50 dark:bg-[#171717] border border-blue-100 dark:border-[#848484]/30 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-all duration-300">
-                                <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Program Investment</h4>
-                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">4-month intensive PM program</p>
-
-                                <div className="mb-2">
-                                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
-                                    <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
-                                </div>
-
-                                {/* Batch Selection */}
-                                {batches.length > 0 && (
-                                    <div className="mb-4">
-                                        <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
-                                            Select Batch
-                                        </label>
-                                        <select
-                                            value={selectedBatchId || ''}
-                                            onChange={(e) => setSelectedBatchId(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
-                                        >
-                                            {batches.map((batch) => (
-                                                <option key={batch.Id} value={batch.Id}>
-                                                    {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                )}
-
-                                <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                                    {[
-                                        "4 month intensive live instructor-led training",
-                                        "Build Your Dream Product (BYDP) project",
-                                        "Access to AI templates and frameworks",
-                                        "Lifetime access to content and alumni",
-                                        "Dedicated placement assistance",
-                                    ].map((feat, i) => (
-                                        <li key={i} className="flex gap-2">
-                                            <Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
-                                            <span>{feat}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                {paymentCancelled && (
-                                    <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-3 mb-4 text-left transition-colors duration-300">
-                                        <p className="text-yellow-800 dark:text-yellow-200 text-xs transition-colors duration-300">
-                                            Your previous payment was cancelled. Click below to try again.
-                                        </p>
-                                    </div>
-                                )}
-
-                                <button
-                                    onClick={handleBuyCourse}
-                                    disabled={isProcessing || isAuthLoading}
-                                    className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {isProcessing ? (
-                                        <>
-                                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                            <span>Processing...</span>
-                                        </>
-                                    ) : isAuthenticated ? (
-                                        paymentCancelled ? 'Retry Payment' : 'Enroll Now'
-                                    ) : (
-                                        <>
-                                            Sign in to Enroll <ArrowRight size={16} />
-                                        </>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in Your Product Management Career</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
+                            {[
+                                {
+                                    name: "Regular",
+                                    price: 32499,
+                                    features: ["Core PM + AI PM training", "Projects", "Certification"],
+                                    highlight: false
+                                },
+                                {
+                                    name: "Regular+",
+                                    price: 42499,
+                                    features: ["Advanced AI PM focus", "Capstone", "Career roadmap", "Priority hiring"],
+                                    highlight: true
+                                }
+                            ].map((plan, idx) => (
+                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-blue-500 dark:border-blue-500 shadow-md ring-1 ring-blue-500' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
+                                    {plan.highlight && (
+                                        <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                                            RECOMMENDED
+                                        </div>
                                     )}
-                                </button>
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
 
-                                {!isAuthenticated && (
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 transition-colors duration-300">
-                                        Already have an account? You'll be redirected to sign in first.
-                                    </p>
-                                )}
-                            </div>
+                                    <div className="mb-2">
+                                        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
+                                        <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
+                                    </div>
+
+                                    {batches.length > 0 && (
+                                        <div className="mb-4">
+                                            <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
+                                            <select
+                                                value={selectedBatchId || ''}
+                                                onChange={(e) => setSelectedBatchId(e.target.value)}
+                                                className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
+                                            >
+                                                {batches.map((batch) => (
+                                                    <option key={batch.Id} value={batch.Id}>
+                                                        {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    )}
+
+                                    <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                                        {plan.features.map((feat, i) => (
+                                            <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                                        ))}
+                                    </ul>
+
+                                    {/* Payment Cancellation Message - moved inside card or maybe just globally? user didn't ask but logic exists. leaving it out of card for now as per design */}
+
+                                    <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || isAuthLoading || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        {isProcessing ? <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : isAuthenticated ? 'Enroll Now' : <>Sign in to Enroll <ArrowRight size={16} /></>}
+                                    </button>
+                                </div>
+                            ))}
                         </div>
                     </section>
 
@@ -624,8 +698,7 @@ export default function ProductProgramEIE() {
                                         <button
                                             onClick={() => {
                                                 setShowCancellationModal(false);
-                                                setPaymentCancelled(false);
-                                                handleBuyCourse();
+                                                handleBuyCourse(coursePrice.amount);
                                             }}
                                             className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                                         >
@@ -634,7 +707,6 @@ export default function ProductProgramEIE() {
                                         <button
                                             onClick={() => {
                                                 setShowCancellationModal(false);
-                                                setPaymentCancelled(false);
                                             }}
                                             className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
                                         >

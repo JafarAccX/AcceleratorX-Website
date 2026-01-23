@@ -27,13 +27,13 @@ interface Batch {
 // --- Data & Constants ---
 
 const SECTIONS = [
-    { id: "why-this-program", label: "Why this Nano-Degree" },
-    { id: "curriculum", label: "Learning Journey - 16 Weeks" },
-    { id: "tools", label: "Master AI Marketing Tools" },
-    { id: "mentors", label: "Mentors from DrinksPrime, TargetG & more" },
-    { id: "certificate", label: "Industry Recognized Certificate" },
-    { id: "career", label: "Job Placement & Career Outcomes" },
-    { id: "pricing", label: "Investment for the Future" },
+    { id: "why-this-program", label: "Why this Program" },
+    { id: "curriculum", label: "Learning Journey - Curriculum" },
+    { id: "tools", label: "Tools & Frameworks" },
+    { id: "mentors", label: "Mentors" },
+    { id: "certificate", label: "Industry-Recognized Certification" },
+    { id: "career", label: "Career Outcomes" },
+    { id: "pricing", label: "Invest in Your Marketing Career" },
 ];
 
 const AIDM_MENTORS = [
@@ -44,42 +44,57 @@ const AIDM_MENTORS = [
 
 const CURRICULUM = [
     {
-        month: "1",
-        title: "Foundations & AI Content Creation",
-        goal: "Master the fundamentals of digital marketing and use AI for high-speed content production.",
-        weeks: ["Digital Marketing Foundations", "AI-Powered Content (SEO)", "Visual Storytelling (Midjourney/Runway)", "Video & Audio with AI"],
-        skills: ["Funnel Mapping", "Generative AI", "Content Strategy"],
+        week: "1-2",
+        topics: ["Digital Marketing Foundations + AI"],
+        goal: "Understand marketing fundamentals, funnels, and AI-driven audience research.",
+        skills: ["Marketing fundamentals & funnels", "Consumer journey mapping", "Market & audience research using AI"],
+        outcome: "Clear understanding of how growth funnels work."
     },
     {
-        month: "2",
-        title: "Growth Channels & Paid Media",
-        goal: "Lead high-ROI campaigns on Google and Meta using AI for strategy and ad creative.",
-        weeks: ["Paid Ads with AI (Meta/Google)", "Social Media Growth", "Data Analytics (GA4)", "Conversion Optimization (CRO)"],
-        skills: ["Media Buying", "A/B Testing", "Data Analysis"],
+        week: "3-4",
+        topics: ["AI-Powered Content, SEO & Creative"],
+        goal: "Master content creation, SEO, and visual storytelling with Generative AI.",
+        skills: ["SEO & keyword research with AI", "Blog & content creation using AI", "Visual storytelling with generative AI", "Image, video & audio creation"],
+        outcome: "You can produce high-quality content at scale."
     },
     {
-        month: "3",
-        title: "Automation & E-commerce",
-        goal: "Integrate AI into business operations with n8n workflow automation and B2B growth tools.",
-        weeks: ["Workflow Automation (n8n)", "Email & Drip Marketing", "B2B Growth (Apollo/Clay)", "E-commerce Marketing"],
-        skills: ["Automation Ops", "Lead Gen", "lifecycle Marketing"],
+        week: "5-6",
+        topics: ["Performance Marketing & Growth"],
+        goal: "Plan and execute high-ROI campaigns on Google & Meta using AI optimization.",
+        skills: ["Google Ads & Meta Ads campaigns", "AI-assisted ad copy & creatives", "A/B testing & optimization", "Influencer & social media growth"],
+        outcome: "You can plan and execute paid growth campaigns."
     },
     {
-        month: "4",
-        title: "AI Agents & Career Launch",
-        goal: "Build autonomous marketing agents with CrewAI and finish with a real capstone showcase.",
-        weeks: ["Building AI Marketing Agents", "Campaign Automation Deep-dive", "Growth Hacking Loops", "Career Prep & Capstone"],
-        skills: ["Agentic Frameworks", "Portfolio Building", "Client Readiness"],
+        week: "7-8",
+        topics: ["Analytics, CRO & Optimization"],
+        goal: "Measure performance and optimize conversions using data and behavior analysis.",
+        skills: ["Google Analytics 4 (GA4)", "Marketing dashboards & KPIs", "Conversion rate optimization", "Heatmaps & user behavior analysis"],
+        outcome: "You can measure what works and improve conversions."
     },
+    {
+        week: "9-14",
+        topics: ["Marketing Automation & AI Agents"],
+        goal: "Build automated workflows and multi-agent systems for scalable marketing.",
+        skills: ["Automated workflows (lead → CRM → email → social)", "AI-powered email & drip campaigns", "Multi-agent marketing systems", "Fully automated campaign pipelines"],
+        outcome: "You become a scalable, automation-first marketer."
+    },
+    {
+        week: "15-16",
+        topics: ["Growth, Experimentation & Capstone"],
+        goal: "Design growth experiments and launch a multi-channel capstone campaign.",
+        skills: ["Design growth experiments", "Build a personal marketing portfolio", "Create an AI-powered, multi-channel capstone campaign"],
+        outcome: "You graduate with proof of real marketing skills."
+    }
 ];
 
 const AIDM_TOOLS = [
-    { name: "ChatGPT", description: "Prompt engineering & research", image: "/assets/genAITools/gpt4.webp" },
-    { name: "Midjourney", description: "AI Visual & creative generation", image: "/assets/aidmtools/ido.webp" },
-    { name: "n8n", description: "Advanced workflow automation", image: "/assets/genAITools/n8n-seeklogo.webp" },
-    { name: "Jasper", description: "AI copywriting platform", image: "/assets/dmAITools/jasper.webp" },
-    { name: "GA4", description: "Data analytics & insight", image: "/assets/dmAITools/googleanalytics.webp" },
-    { name: "Apollo.io", description: "B2B lead generation", image: "/assets/aidmtools/Apollo.io.webp" },
+    { name: "Generative AI", description: "ChatGPT, Jasper, Perplexity", image: "/assets/genAITools/gpt4.webp" },
+    { name: "SEO & Research", description: "Ubersuggest, SEMrush, Google Trends", image: "/assets/dmAITools/googleanalytics.webp" },
+    { name: "Creative Tools", description: "Canva AI, Adobe Firefly, Runway, Pika", image: "/assets/aidmtools/ido.webp" },
+    { name: "Paid Ads", description: "Google Ads, Meta Ads", image: "/assets/aidmtools/Apollo.io.webp" },
+    { name: "Analytics & CRO", description: "GA4, Looker Studio, Hotjar", image: "/assets/dmAITools/googleanalytics.webp" },
+    { name: "Automation", description: "n8n, Make, HubSpot", image: "/assets/genAITools/n8n-seeklogo.webp" },
+    { name: "AI Agents", description: "AI marketing agents & workflow tools", image: "/assets/dmAITools/jasper.webp" },
 ];
 
 const AccordionItem = ({ item }: { item: any }) => {
@@ -91,16 +106,16 @@ const AccordionItem = ({ item }: { item: any }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
-                <div>
-                    <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1 transition-colors duration-300">
-                        MONTH {item.month}
-                    </span>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">
-                        {item.title}
-                    </h4>
+                <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                        <span className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
+                            WEEK {item.week}
+                        </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{item.topics.join(" & ")}</h4>
                 </div>
                 <ChevronDown
-                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
                 />
             </button>
             <AnimatePresence>
@@ -109,32 +124,29 @@ const AccordionItem = ({ item }: { item: any }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
                     >
-                        <div className="p-5 pt-0 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
-                            <p className="text-sm text-blue-600 dark:text-blue-400 italic mb-4 font-medium transition-colors duration-300">{item.goal}</p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 text-xs uppercase tracking-wider transition-colors duration-300">Weeks/Topics:</p>
-                                    <ul className="space-y-1">
-                                        {item.weeks.map((week: string, wIdx: number) => (
-                                            <li key={wIdx} className="text-xs flex items-center gap-2">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 dark:bg-blue-500"></div>
-                                                {week}
-                                            </li>
+                        <div className="p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+                            {item.goal && (
+                                <p className="text-sm text-gray-700 dark:text-gray-200 mb-4 font-medium transition-colors duration-300">
+                                    {item.goal}
+                                </p>
+                            )}
+                            {item.skills && (
+                                <div className="mb-4">
+                                    <p className="font-semibold mb-2 transition-colors duration-300 text-xs uppercase text-gray-500 dark:text-gray-400">What you'll learn:</p>
+                                    <ul className="list-disc list-inside space-y-1">
+                                        {item.skills.map((skill: string, i: number) => (
+                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">{skill}</li>
                                         ))}
                                     </ul>
                                 </div>
-                                <div>
-                                    <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 text-xs uppercase tracking-wider transition-colors duration-300">Key Skills:</p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {item.skills.map((skill: string, sIdx: number) => (
-                                            <span key={sIdx} className="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded text-[10px] font-bold transition-colors duration-300">
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
+                            )}
+                            {item.outcome && (
+                                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10">
+                                    <p className="text-sm font-semibold text-green-600 dark:text-green-400">Outcome: {item.outcome}</p>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </motion.div>
                 )}
@@ -146,7 +158,7 @@ const AccordionItem = ({ item }: { item: any }) => {
 export default function AIDMProgramEIE() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { user, isAuthenticated, isLoading: isAuthLoading } = useUser();
+    const { user, isAuthenticated } = useUser();
 
     const [activeSection, setActiveSection] = useState("why-this-program");
     const [isFixed, setIsFixed] = useState(false);
@@ -158,7 +170,7 @@ export default function AIDMProgramEIE() {
     const [isProcessing, setIsProcessing] = useState(false);
     const [batches, setBatches] = useState<Batch[]>([]);
     const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
-    const [paymentCancelled, setPaymentCancelled] = useState(false);
+    const [selectedPlanPrice, setSelectedPlanPrice] = useState<number>(0);
     const [showCancellationModal, setShowCancellationModal] = useState(false);
 
     const coursePrice = COURSE_PRICES.AIDM_NANO_DEGREE;
@@ -214,14 +226,14 @@ export default function AIDMProgramEIE() {
         } catch (error) {
             console.error('Error handling payment cancellation:', error);
         } finally {
-            setPaymentCancelled(true);
             setIsProcessing(false);
             setShowCancellationModal(true);
         }
     };
 
     // Handle course purchase
-    const handleBuyCourse = async () => {
+    const handleBuyCourse = async (amount: number) => {
+        setSelectedPlanPrice(amount);
         if (!isAuthenticated) {
             navigate('/sign-in', { state: { from: location } });
             return;
@@ -243,7 +255,7 @@ export default function AIDMProgramEIE() {
             const orderResponse = await api.post('/course-checkout/create-order', {
                 courseId,
                 batchId: selectedBatchId,
-                amount: coursePrice.amount,
+                amount: amount,
             });
 
             if (!orderResponse.data.success) {
@@ -400,16 +412,17 @@ export default function AIDMProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-24">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Why this Nano-Degree</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Built for Real-World Marketing Roles</h3>
                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
-                            Our 16-week Nano-Degree is the only program that deeply integrates Generative AI with core performance marketing. You don't just learn marketing; you learn how to automate it, scale it, and lead it.
+                            This is not a theory-heavy marketing course. At AcceleratorX, you will build real campaigns, use AI for content, ads, analytics, and automation, work across SEO, paid ads, social, email, CRO, and design end-to-end marketing funnels.
                         </p>
                         <ul className="space-y-3 mb-8">
                             {[
-                                "100% live training by industry experts from DrinkPrime, TargetG and etc.",
-                                "Hands-on mastery of 20+ AI marketing tools",
-                                "Job assistance & placement support after completion",
-                                "Advanced AI agent building workshops for marketing ops",
+                                "Build real campaigns, not mock slides",
+                                "Use AI for content, ads, analytics, and automation",
+                                "Work across SEO, paid ads, social, email, CRO",
+                                "Design end-to-end marketing funnels",
+                                "Graduate with a portfolio + capstone campaign"
                             ].map((text, i) => (
                                 <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
                                     <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
@@ -421,9 +434,9 @@ export default function AIDMProgramEIE() {
                     </section>
 
                     <section id="curriculum" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Learning Journey - 16 Weeks</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Learning Journey - Curriculum</h3>
                         <p className="text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
-                            A structured 4-month journey from digital foundations to building autonomous AI marketing agents.
+                            A structured 16-week journey from digital foundations to autonomous AI marketing agents.
                         </p>
                         <div>
                             {CURRICULUM.map((item, idx) => (
@@ -439,18 +452,18 @@ export default function AIDMProgramEIE() {
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Master AI Marketing Tools</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {AIDM_TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
                                     className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 inline-block mb-4 transition-colors duration-300">
+                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                                     </div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{tool.description}</p>
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300 text-center">{tool.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -465,7 +478,7 @@ export default function AIDMProgramEIE() {
                                     key={idx}
                                     className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="aspect-square bg-gray-200 dark:bg-[#848484]/30 relative overflow-hidden transition-colors duration-300">
+                                    <div className="aspect-square relative overflow-hidden transition-colors duration-300">
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}
@@ -483,7 +496,7 @@ export default function AIDMProgramEIE() {
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">The Certificate Recognized By The Industry</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
@@ -495,17 +508,18 @@ export default function AIDMProgramEIE() {
                             </div>
                             <div className="w-full md:w-1/2">
                                 <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
-                                    Professional Nano-Degree in AI Digital Marketing
+                                    Nano Degree in AI-Powered Digital Marketing
                                 </h4>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 transition-colors duration-300">
-                                    Validate your expertise in the future of marketing with a certificate acknowledged by 2200+ companies worldwide.
+                                    Validates your ability to:
                                 </p>
                                 <ul className="space-y-3">
                                     {[
-                                        "Globally recognized industry certification",
-                                        "Digital badge for verified AI Marketer status",
-                                        "Placement & Hiring assistance provided",
-                                        "Lifetime access to professional network",
+                                        "Run AI-driven campaigns",
+                                        "Create & optimize content",
+                                        "Analyze performance",
+                                        "Automate marketing workflows",
+                                        "Execute end-to-end growth strategies"
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                                             <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
@@ -521,27 +535,26 @@ export default function AIDMProgramEIE() {
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Career Outcomes & High Paying Roles</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Roles You’ll Be Ready For</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
-                                { role: "AI Performance Marketer", pay: "₹15L - 35L", desc: "Scale global ad accounts using intelligent bid and creative automation." },
-                                { role: "Growth Lead (AI Ops)", pay: "₹20L - 45L", desc: "Design full-funnel growth engines powered by autonomous agents." },
-                                { role: "Senior Marketing Analyst", pay: "₹12L - 28L", desc: "Leverage GA4 and AI to forecast trends and drive conversion." },
-                                { role: "Creative Strategist (GenAI)", pay: "₹10L - 22L", desc: "Direct AI-first content labs for consumer brands." },
-                            ].map((item, idx) => (
+                                "Digital Marketing Executive",
+                                "Performance Marketer",
+                                "Growth Marketer",
+                                "Content & SEO Specialist",
+                                "Marketing Automation Specialist",
+                                "Freelance Marketer / Consultant"
+                            ].map((role, idx) => (
                                 <div
                                     key={idx}
                                     className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300"
                                 >
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
-                                            {item.role}
+                                            {role}
                                         </h4>
-                                        <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">{item.pay}</span>
+                                        <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">₹5 LPA – ₹15 LPA+</span>
                                     </div>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
-                                        {item.desc}
-                                    </p>
                                 </div>
                             ))}
                         </div>
@@ -549,88 +562,72 @@ export default function AIDMProgramEIE() {
                     </section>
 
                     <section id="pricing" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in your AI-Ready Career</h3>
-                        <div className="flex justify-center">
-                            <div className="bg-blue-50/50 dark:bg-[#171717] border border-blue-100 dark:border-[#848484]/30 rounded-2xl p-8 max-w-sm w-full text-center hover:shadow-lg transition-all duration-300">
-                                <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Nano-Degree Admission</h4>
-                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">16-week comprehensive training</p>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in Your Marketing Career</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
+                            {[
+                                {
+                                    name: "Regular",
+                                    price: 32499,
+                                    features: ["Core AI-powered marketing", "Projects", "Certification"],
+                                    highlight: false
+                                },
+                                {
+                                    name: "Regular+",
+                                    price: 42499,
+                                    features: ["Advanced automation", "AI agents", "Capstone depth", "Career roadmap"],
+                                    highlight: true
+                                }
+                            ].map((plan, idx) => (
+                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-blue-500 dark:border-blue-500 shadow-md ring-1 ring-blue-500' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
+                                    {plan.highlight && (
+                                        <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                                            RECOMMENDED
+                                        </div>
+                                    )}
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
 
-                                <div className="mb-2">
-                                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {coursePrice.amount.toLocaleString('en-IN')}</span>
-                                    <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
-                                </div>
-
-                                {/* Batch Selection */}
-                                {batches.length > 0 && (
-                                    <div className="mb-4">
-                                        <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
-                                            Select Batch
-                                        </label>
-                                        <select
-                                            value={selectedBatchId || ''}
-                                            onChange={(e) => setSelectedBatchId(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
-                                        >
-                                            {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
-                                        </select>
+                                    <div className="mb-2">
+                                        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
+                                        <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
                                     </div>
-                                )}
 
-                                <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                                    {[
-                                        "16-Week live instructor-led program",
-                                        "Masters 20+ top-tier AI marketing tools",
-                                        "Job placement & career assistance",
-                                        "Live capstone project & portfolio support",
-                                        "Alumni access for lifetime",
-                                    ].map((feat, i) => (
-                                        <li key={i} className="flex gap-2">
-                                            <Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
-                                            <span>{feat}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                    {batches.length > 0 && (
+                                        <div className="mb-4">
+                                            <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
+                                            <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
+                                                {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
+                                            </select>
+                                        </div>
+                                    )}
 
-                                {isAuthLoading ? (
-                                    <button
-                                        disabled
-                                        className="w-full py-3 bg-gray-400 dark:bg-gray-600 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
-                                    >
-                                        <Loader2 size={16} className="animate-spin" />
-                                        <span>Loading...</span>
+                                    <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                                        {plan.features.map((feat, i) => (
+                                            <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                                        ))}
+                                    </ul>
+
+                                    <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
                                     </button>
-                                ) : isAuthenticated ? (
-                                    <button
-                                        onClick={handleBuyCourse}
-                                        disabled={isProcessing || batches.length === 0}
-                                        className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
-                                    >
-                                        {isProcessing ? (
-                                            <>
-                                                <Loader2 size={16} className="animate-spin" />
-                                                <span>Processing...</span>
-                                            </>
-                                        ) : batches.length === 0 ? (
-                                            "No batches available"
-                                        ) : paymentCancelled ? (
-                                            <>
-                                                Try Again <ArrowRight size={16} />
-                                            </>
-                                        ) : (
-                                            <>
-                                                Enroll Now <ArrowRight size={16} />
-                                            </>
-                                        )}
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => navigate('/sign-in', { state: { from: location } })}
-                                        className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
-                                    >
-                                        Sign in to Enroll <ArrowRight size={16} />
-                                    </button>
-                                )}
-                            </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Final CTA Section */}
+                    <section className="text-center py-20  mx-4 lg:mx-0 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[url('/assets/grid-pattern.png')] opacity-10"></div>
+                        <div className="relative z-10 max-w-3xl mx-auto px-6">
+                            <h2 className="text-4xl font-serif font-bold text-white mb-6">Market Smarter. Scale Faster. Powered by AI.</h2>
+                            <p className="text-blue-100 text-lg mb-10">
+                                AcceleratorX helps you become a job-ready, AI-first digital marketer with real campaigns and real impact.
+                            </p>
+                            <button
+                                onClick={() => scrollToSection('pricing')}
+                                className="px-10 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+                            >
+                                Apply Now
+                            </button>
                         </div>
                     </section>
 
@@ -665,8 +662,7 @@ export default function AIDMProgramEIE() {
                                         <button
                                             onClick={() => {
                                                 setShowCancellationModal(false);
-                                                setPaymentCancelled(false);
-                                                handleBuyCourse();
+                                                handleBuyCourse(selectedPlanPrice);
                                             }}
                                             className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                                         >

@@ -76,7 +76,8 @@ export default function GENHeroEIE() {
                     className="mb-10"
                 >
                     <h1 className="text-5xl md:text-7xl font-serif text-white leading-tight font-medium">
-                        Stay Ahead in Your Career with <br />
+                        Stay Ahead in Your Career with
+                        <br />
                         <span className="italic">Generative AI & AI Agents</span>
                     </h1>
                 </motion.div>
@@ -111,7 +112,7 @@ export default function GENHeroEIE() {
                         className="lg:col-span-8 items-end flex flex-col gap-4"
                     >
                         <p className="text-gray-200 text-lg leading-relaxed mb-10 max-w-2xl text-right lg:text-left">
-                            Launch Your AI Career – Master GenAI, AI Agents & Automation Without Coding. The world is rapidly transitioning towards AI-driven automation, and the demand for AI professionals is growing exponentially. Master the tools of the future today.
+                            Learn to build, automate, and deploy real-world AI systems using Generative AI, LLMs, autonomous agents, and production-grade workflows.
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
@@ -138,16 +139,16 @@ export default function GENHeroEIE() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-24 flex flex-row gap-4 md:gap-6"
+                    className="mt-24 flex flex-row gap-4 md:gap-6  lg:w-[240px]"
                 >
                     {/* Stat 1 */}
                     <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-all duration-300">
-                        <div className="mb-1 md:mb-2"><Counter end={22} suffix=" LPA" /></div>
+                        <div className="mb-1 md:mb-2"><Counter end={16} suffix=" LPA" /></div>
                         <div className="text-gray-300 text-xs md:text-base font-medium">Average Salary Package</div>
                     </div>
                     {/* Stat 2 */}
                     <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-all duration-300">
-                        <div className="mb-1 md:mb-2"><Counter end={50000} suffix=" +" /></div>
+                        <div className="mb-1 md:mb-2"><Counter end={40000} suffix=" +" /></div>
                         <div className="text-gray-300 text-xs md:text-base font-medium">Job Openings</div>
                     </div>
                 </motion.div>

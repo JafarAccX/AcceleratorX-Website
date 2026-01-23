@@ -7,9 +7,10 @@ import EnrollmentModal from "../../../../components/EnrollmentModal";
 interface CounterProps {
   end: number;
   suffix?: string;
+  prefix?: string;
 }
 
-const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
+const Counter: React.FC<CounterProps> = ({ end, suffix = "", prefix = "" }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
 
   return (
     <span className="text-xl md:text-3xl font-bold text-white dark:text-white">
-      {count}
+      {prefix}{count}
       {suffix}
     </span>
   );
@@ -77,8 +78,8 @@ export default function ProgramHeroEIE() {
           className="mb-10"
         >
           <h1 className="text-5xl md:text-7xl font-serif text-white dark:text-white leading-tight font-medium">
-            Stay Ahead in Your Career with <br />
-            <span className="italic">AI Product Management</span>
+            Build, Launch & Scale Products — <br />
+            <span className="italic">From PM Fundamentals to AI Products</span>
           </h1>
         </motion.div>
 
@@ -100,7 +101,7 @@ export default function ProgramHeroEIE() {
           >
             <div className="inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
               <span className="w-2 h-2 rounded-full bg-white dark:bg-white"></span>
-              16 WEEKS PROGRAM
+              18-Week Live Product Management Program
             </div>
           </motion.div>
 
@@ -112,7 +113,7 @@ export default function ProgramHeroEIE() {
             className="lg:col-span-8 items-end flex flex-col gap-4"
           >
             <p className="text-gray-200 text-lg leading-relaxed mb-10 max-w-2xl text-right lg:text-left">
-              Master AI product management with India’s top AI Product Management Program. Dive into AI Product Management, leverage product management tools, gain real-world experience, Build Your Own Product and take your product management career to the next level.
+              Master end-to-end Product Management — from user discovery and strategy to execution, analytics, and AI-powered product development.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
@@ -139,17 +140,17 @@ export default function ProgramHeroEIE() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-24 flex flex-row gap-4 md:gap-6"
+          className="mt-24 flex flex-row gap-4 md:gap-6  lg:w-[240px]"
         >
           {/* Stat 1 */}
           <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
-            <div className="mb-1 md:mb-2"><Counter end={18} suffix=" LPA" /></div>
-            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average Salary Package</div>
+            <div className="mb-1 md:mb-2"><Counter end={15} suffix=" LPA" /></div>
+            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average PM Salary</div>
           </div>
           {/* Stat 2 */}
           <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
-            <div className="mb-1 md:mb-2"><Counter end={25000} suffix=" +" /></div>
-            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Job Openings</div>
+            <div className="mb-1 md:mb-2"><Counter end={30000} suffix=" +" /></div>
+            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Product & PM Job Openings</div>
           </div>
         </motion.div>
 

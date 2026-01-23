@@ -50,7 +50,7 @@ export default function DataHeroEIE() {
 
   const handleModalSubmit = () => {
     if (isDownload) {
-      // Replace with actual brochure link if different
+      // Replace with actual brochure link
       window.open(
         "https://grdwabozcrwjwdytwpqa.supabase.co/storage/v1/object/sign/resumes/AI%20Powered%20DA%20Brochure.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXN1bWVzL0FJIFBvd2VyZWQgREEgQnJvY2h1cmUucGRmIiwiaWF0IjoxNzQ2Mjc3MTU1LCJleHAiOjE4NzI0MjExNTV9.NWSk8RPs_nwupsr5Wfu6-EGpUzFFaVPrMKOVZmICPgw",
       );
@@ -80,8 +80,8 @@ export default function DataHeroEIE() {
           className="mb-10"
         >
           <h1 className="text-5xl md:text-7xl font-serif text-white dark:text-white leading-tight font-medium">
-            Stay Ahead in Your Career with <br />
-            <span className="italic">AI Data Analytics</span>
+            Become an <br />
+            <span className="italic">AI-Powered Data Analyst</span>
           </h1>
         </motion.div>
 
@@ -103,7 +103,10 @@ export default function DataHeroEIE() {
           >
             <div className="inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
               <span className="w-2 h-2 rounded-full bg-white dark:bg-white"></span>
-              22 WEEKS PROGRAM
+              5–6 Month Live Program (22–24 Weeks)
+            </div>
+            <div className="mt-4 text-gray-300 text-sm font-medium">
+              Beginner → Intermediate | Hands-On | Product Analytics Focus
             </div>
           </motion.div>
 
@@ -115,7 +118,7 @@ export default function DataHeroEIE() {
             className="lg:col-span-8 items-end flex flex-col gap-4"
           >
             <p className="text-gray-200 dark:text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl ml-auto text-right lg:text-left lg:ml-0 lg:mr-0 transition-colors duration-300">
-              Accelerate your career with AI-driven data analytics. Obtain experiential learning in AI analytics, data storytelling, visualization, and an analytical tool designed for professionals. Build an AI-powered dashboard and a data analyst portfolio that helps you get hired.
+              Learn to analyze data, build dashboards, and drive product decisions using modern analytics, Python, SQL, BI tools, and AI-assisted workflows.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
@@ -142,17 +145,17 @@ export default function DataHeroEIE() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-24 flex flex-row gap-4 md:gap-6"
+          className="mt-24 flex flex-row gap-4 md:gap-6  lg:w-[240px]"
         >
           {/* Stat 1 */}
           <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
-            <div className="mb-1 md:mb-2"><Counter end={16} suffix=" LPA" /></div>
-            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average Salary Package</div>
+            <div className="mb-1 md:mb-2"><Counter end={12} suffix=" LPA" /></div>
+            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average Analytics Salary</div>
           </div>
           {/* Stat 2 */}
           <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
-            <div className="mb-1 md:mb-2"><Counter end={40000} suffix=" +" /></div>
-            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Job Openings</div>
+            <div className="mb-1 md:mb-2"><Counter end={100000} suffix=" +" /></div>
+            <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Data & Analytics Job Openings</div>
           </div>
         </motion.div>
 

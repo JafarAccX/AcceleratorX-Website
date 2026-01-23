@@ -7,25 +7,25 @@ export default function PMWhoIsThisContentForEIE() {
             icon: TrendingUp,
             iconColor: "text-green-600 dark:text-green-400",
             iconBg: "bg-green-100 dark:bg-green-900/30",
-            value: "$25B+",
-            label: "Market Size by 2030",
-            description: "The global product management software and services market is growing exponentially."
+            value: "Growing",
+            label: "Across Sectors",
+            description: "Product roles growing across SaaS, fintech, healthtech, AI & consumer tech"
         },
         {
             icon: Briefcase,
             iconColor: "text-blue-600 dark:text-blue-400",
             iconBg: "bg-blue-100 dark:bg-blue-900/30",
-            value: "10M+",
-            label: "Global PM Job Roles",
-            description: "Companies are heavily recruiting AI-powered Product Managers to lead complex initiatives."
+            value: "Redefined",
+            label: "Product Lifecycle",
+            description: "AI is redefining how products are discovered, built, and optimized"
         },
         {
             icon: Target,
             iconColor: "text-purple-600 dark:text-purple-400",
             iconBg: "bg-purple-100 dark:bg-purple-900/30",
-            value: "50%",
-            label: "Faster Launch Time",
-            description: "AI adoption in product management helps teams launch products 50% faster."
+            value: "Advantage",
+            label: "Career Edge",
+            description: "PMs with AI literacy have a strong career edge"
         }
     ];
 
@@ -40,15 +40,15 @@ export default function PMWhoIsThisContentForEIE() {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
-                        Product Management - Market Scope
+                        Product Management in the AI Era
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        The Evolving Product Leadership Landscape
+                        Product Managers are no longer just roadmap owners.
                     </h2>
 
                     <p className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
-                        Product Management is at the heart of every successful tech company. With the rise of AI, the role has evolved from simple coordination to strategic leadership, requiring a deep understanding of data, users, and automated workflows.
+                        Modern PMs are expected to think strategically, execute cross-functionally, and leverage AI to build faster, smarter, and scalable products.
                     </p>
                 </motion.div>
 
