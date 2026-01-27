@@ -12,7 +12,7 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
         <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
             <div className="text-center mb-16">
                 {/* Title: Plus Jakarta Sans, 48px, lowercase, gradient */}
-                <h2 className="lowercase font-['Plus_Jakarta_Sans'] font-bold text-[48px] leading-[100%] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#D358FF] via-[#D358FF] to-[#48A2EB] tracking-normal">
+                <h2 className="lowercase p-2 font-['Plus_Jakarta_Sans'] font-bold text-[48px] leading-[100%] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 tracking-normal">
                     what you’ll build
                 </h2>
                 <p className="text-gray-400 text-lg">You'll build things like:</p>
@@ -32,12 +32,12 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
 
             <div className="text-center flex flex-col items-center">
                 {/* Mentors Text: Poppins, 18px, gradient */}
-                <div className="flex items-center justify-center gap-2 mb-8">
-                    <span className="text-2xl text-[#C836FE]">«</span>
-                    <p className="font-['Poppins'] font-medium text-[18px] leading-[100%] bg-clip-text text-transparent bg-gradient-to-r from-[#C836FE] to-[#4CABF8]">
+                <div className="flex items-center justify-center gap-2 mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500">
+                    <span className="text-2xl ">«</span>
+                    <p className="font-['Poppins'] font-medium text-[18px] leading-[100%]">
                         Everything is built LIVE with mentors
                     </p>
-                    <span className="text-2xl text-[#4CABF8]">»</span>
+                    <span className="text-2xl ">»</span>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-6">

@@ -200,6 +200,14 @@ export const pageMetadata: Record<string, PageMetadata> = {
     canonicalUrl: "https://acceleratorx.org/courses/n8n-automation"
   },
 
+  "/advance-ai-crash-course": {
+    title: "Advanced AI Crash Course | AcceleratorX",
+    description: "Join the Advanced AI Crash Course to build real-world AI agents, master modern frameworks, and learn from industry experts.",
+    ogTitle: "Advanced AI Crash Course - AcceleratorX",
+    ogDescription: "Build AI Agents, work with modern frameworks, and learn from the best in this intensive crash course.",
+    canonicalUrl: "https://acceleratorx.org/advance-ai-crash-course"
+  },
+
   // "/courses/onsite-workshopz": {
   //   title: "Onsite Workshops | AcceleratorX",
   //   description: "Join AcceleratorX's onsite workshops in AI, Data Analytics, and Product Management for immersive, hands-on learning experiences.",

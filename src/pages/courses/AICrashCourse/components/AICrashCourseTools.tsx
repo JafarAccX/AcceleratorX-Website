@@ -3,8 +3,8 @@ const AICrashCourseTools = () => {
     return (
         <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                    Tools & technologies <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">you’ll use</span>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 ">
+                    Tools & technologies <span className=" text-white">you’ll use</span>
                 </h2>
                 <p className="text-gray-400 mb-2">Real Stack. Real Skills.</p>
                 <p className="text-gray-300">You won't just "hear about" tools. You'll build with them live</p>
@@ -81,7 +81,7 @@ const AICrashCourseTools = () => {
             </div>
 
             <div className="text-center mt-12">
-                <p className="text-purple-400 text-sm md:text-base flex items-center justify-center gap-2">
+                <p className=" text-sm md:text-base flex items-center justify-center gap-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
                     <span className="text-xl">«</span> These are tools used by modern AI teams, startups, and builders. <span className="text-xl">»</span>
                 </p>
             </div>

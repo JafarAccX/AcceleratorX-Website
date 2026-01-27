@@ -1,5 +1,5 @@
 
-import { ArrowUpRight } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 const AICrashCourseCurriculum = () => {
     return (
@@ -11,7 +11,7 @@ const AICrashCourseCurriculum = () => {
                     AI is no longer optional.
                 </p>
                 <h2 className="text-4xl md:text-6xl font-black mb-6 text-white tracking-tight">
-                    what you’ll actually <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">learn</span>
+                    what you’ll actually <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500">learn</span>
                 </h2>
 
                 <div className="flex flex-col items-center gap-2">
@@ -44,29 +44,29 @@ const AICrashCourseCurriculum = () => {
 
                     {/* Card 1 - Top Left */}
                     <div className="flex justify-center md:justify-end">
-                        <CurriculumCard title="Building AI agents" />
+                        <CurriculumCard title="Building AI agents" widthClass="md:w-[460px]" />
                     </div>
 
                     {/* Card 2 - Top Right */}
                     <div className="flex justify-center md:justify-start">
-                        <CurriculumCard title="Modern AI frameworks" />
+                        <CurriculumCard title="Modern AI frameworks" widthClass="md:w-[460px]" />
                     </div>
 
                     {/* Card 3 - Bottom Left */}
                     <div className="flex justify-center md:justify-end">
-                        <CurriculumCard title="Real-world AI workflows" />
+                        <CurriculumCard title="Real-world AI workflows" widthClass="md:w-[350px]" />
                     </div>
 
                     {/* Card 4 - Bottom Right */}
                     <div className="flex justify-center md:justify-start">
-                        <CurriculumCard title="Multi-agent systems" />
+                        <CurriculumCard title="Multi-agent systems" widthClass="md:w-[350px]" />
                     </div>
 
                 </div>
             </div>
 
             <div className="text-center mt-16">
-                <p className="text-purple-400 text-lg md:text-xl font-medium flex items-center justify-center gap-3">
+                <p className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 text-lg md:text-xl font-medium flex items-center justify-center gap-3">
                     <span className="text-2xl opacity-80">«</span> You will build, not just watch <span className="text-2xl opacity-80">»</span>
                 </p>
             </div>
@@ -74,11 +74,11 @@ const AICrashCourseCurriculum = () => {
     );
 };
 
-const CurriculumCard = ({ title }: { title: string }) => (
-    <div className="bg-black border border-[#252525] rounded-xl p-5 flex items-center gap-4 hover:border-purple-500/50 transition-all w-full max-w-sm h-20 shadow-lg relative group">
+const CurriculumCard = ({ title, widthClass = "max-w-sm" }: { title: string, widthClass?: string }) => (
+    <div className={`bg-black border border-[#252525] rounded-xl p-5 flex items-center gap-4 hover:border-purple-500/50 transition-all w-full ${widthClass} h-20 shadow-lg relative group`}>
         {/* Green Icon Box */}
         <div className="w-10 h-10 rounded-lg bg-[#0F1C15] border border-green-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-            <ArrowUpRight className="text-[#22C55E] w-5 h-5" />
+            <TrendingUp className="text-[#22C55E] w-5 h-5" />
         </div>
         <span className="text-lg font-medium text-gray-200">{title}</span>
     </div>

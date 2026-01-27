@@ -15,6 +15,11 @@ const mentors: Mentor[] = [
         role: "AI Lead"
     },
     {
+        name: "Nitya Sagar",
+        image: "/advance-crashcourse/builders/nitya.png",
+        role: "AI Product Manager"
+    },
+    {
         name: "Anjali Sharma",
         image: "/advance-crashcourse/builders/anjali.png",
         role: "AI Engineer"
@@ -25,8 +30,8 @@ const mentors: Mentor[] = [
         role: "Full Stack Engineer"
     },
     {
-        name: "Dr. P", // Placeholder based on image if needed, or just reusing existing
-        image: "/advance-crashcourse/builders/nitish.png", // Reusing for now as implied by 'crousle'
+        name: "Dr. Prashant",
+        image: "/advance-crashcourse/builders/dr-prashant.png",
         role: "AI Researcher"
     },
 ];
@@ -37,7 +42,7 @@ const AICrashCourseMentors = () => {
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
             const { current } = scrollRef;
-            const scrollAmount = 300;
+            const scrollAmount = 320; // Card width + gap
             if (direction === 'left') {
                 current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             } else {
@@ -51,20 +56,20 @@ const AICrashCourseMentors = () => {
             <div className="text-center mb-16">
                 {/* Title: Plus Jakarta Sans, 48px, lowercase */}
                 <h2 className="lowercase font-['Plus_Jakarta_Sans'] font-bold text-[40px] md:text-[48px] leading-[100%] mb-4 text-white">
-                    learn from <span className="text-[#D358FF]">builders</span>, not just trainers
+                    learn from <span className="bg-clip-text text-transparent bg-[linear-gradient(90deg,#CC3FFF_27.88%,#48A2EB_59.13%)]">builders</span>, not just trainers
                 </h2>
                 <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
-                    This crash course is led by AI practitioners who actively build real systems, not just teach theory
+                    Built & deployed AI agents, Resolved production issues, Explained system functionality, Guided professionals in various fields
                 </p>
 
-                <p className="text-white text-center font-medium mb-6">You'll learn from mentors who:</p>
+                {/* <p className="text-white text-center font-medium mb-6">You'll learn from mentors who:</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 max-w-4xl mx-auto text-left text-gray-300 text-sm md:text-base">
                     <BenefitItem text="Build & deploy AI agents in real-world scenarios" />
                     <BenefitItem text="Understand production challenges (latency, cost, failures)" />
                     <BenefitItem text="Explain why a system works, not just how" />
                     <BenefitItem text="Have mentored working professionals across roles" />
-                </div>
+                </div> */}
             </div>
 
 
@@ -95,7 +100,7 @@ const AICrashCourseMentors = () => {
                 {/* Mentors Row */}
                 <div
                     ref={scrollRef}
-                    className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide justify-center md:justify-start lg:justify-center"
+                    className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {mentors.map((mentor, index) => (
@@ -115,7 +120,7 @@ const AICrashCourseMentors = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                    <button className="text-[#D358FF] hover:text-white transition-colors flex items-center justify-center gap-2 mx-auto uppercase tracking-widest text-sm font-bold border-b border-purple-500/30 pb-1">
+                    <button className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 hover:text-white transition-colors flex items-center justify-center gap-2 mx-auto uppercase tracking-widest text-sm font-bold border-b border-purple-500/30 pb-1">
                         <span className="text-2xl">«</span> Builder to builder learning <span className="text-2xl">»</span>
                     </button>
                     <p className="text-gray-400 mt-4 text-sm">

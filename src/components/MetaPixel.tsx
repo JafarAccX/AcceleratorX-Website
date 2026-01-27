@@ -20,12 +20,12 @@ declare global {
 const loadFacebookPixel = () => {
   // Skip on server-side
   if (typeof window === 'undefined' || window.fbq) return;
-  
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (function(f: any, b: any, e: any, v: any, n: any, t: any, s: any) {
+  (function (f: any, b: any, e: any, v: any, n: any, t: any, s: any) {
     if (f.fbq) return;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    n = f.fbq = function(...args: any[]) {
+    n = f.fbq = function (...args: any[]) {
       if (n.callMethod) {
         n.callMethod(...args);
       } else {
@@ -51,7 +51,7 @@ const initializePixel = (pixelId: string) => {
     console.warn('Facebook Pixel not loaded');
     return;
   }
-  
+
   // Initialize the pixel
   window.fbq('init', pixelId);
 };
@@ -75,6 +75,7 @@ const PAGE_VIEW_ROUTES = [
   "/workshop/da-masterclass-bxwxy",
   "/courses/gen-ai-for-pms",
   "/courses/ai-digital-marketing",
+  "/advance-ai-crash-course",
 ];
 
 const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];
@@ -115,7 +116,7 @@ export const MetaPixel = () => {
 
   useEffect(() => {
     if (!isClient) return;
-    
+
     // Load Facebook Pixel script
     loadFacebookPixel();
   }, [isClient]);
@@ -146,12 +147,12 @@ export const MetaPixel = () => {
         console.log(`Tracking PageView for pixel: ${pixelId}`);
         window.fbq('track', 'PageView');
       }
-      
+
       if (isLeadRoute) {
         console.log(`Tracking Lead for pixel: ${pixelId}`);
         window.fbq('track', 'Lead');
       }
-      
+
       if (isCompleteRegistrationRoute) {
         console.log(`Tracking CompleteRegistration for pixel: ${pixelId}`);
         window.fbq('track', 'CompleteRegistration');

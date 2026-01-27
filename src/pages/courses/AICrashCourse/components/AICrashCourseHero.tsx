@@ -44,33 +44,32 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                         Build Real AI Agents. Not Just Prompts.
                     </p>
 
-                    {/* Main Title - Reduced Size */}
-                    <div className="mb-6">
-                        <span className="block text-3xl md:text-5xl font-bold text-white mb-1">
-                            Advanced
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500">
+                    {/* Main Title */}
+                    <h1 className="text-center font-['Plus_Jakarta_Sans'] font-bold text-[36px] md:text-[54px] leading-[1.2] md:leading-[76px] tracking-normal mb-6">
+                        <span className="text-white">Advanced </span>
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500">
                             AI Crash Course
-                        </h1>
-                    </div>
+                        </span>
+                    </h1>
 
                     <div className="flex items-center gap-2 text-amber-500 font-semibold mb-8 text-sm md:text-base">
                         <span>⭐</span> Limited seats
                     </div>
 
-                    {/* Features Pills - Darker Style */}
-                    <div className="flex flex-wrap justify-center gap-4 mb-12">
-                        <FeaturePill text="20 Live Sessions" icon="↗" isGreen={true} />
-                        <FeaturePill text="100% Practical" icon="💼" isBlue={true} />
-                        <FeaturePill text="For Working Professional" icon="⏱️" />
-                    </div>
+
 
                     <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
                         <button
                             onClick={onEnroll}
-                            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-bold text-base md:text-lg flex items-center transition-all shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_30px_rgba(147,51,234,0.7)] ring-1 ring-purple-400/50"
+                            className="relative w-[166px] h-[48px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center group"
+                            style={{
+                                background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #AC0AE7 32.08%, #48A2EB 74.28%) border-box',
+                                border: '2px solid transparent',
+                            }}
                         >
-                            Enroll Now <span className="ml-2">→</span>
+                            <span className="text-white font-bold text-base flex items-center">
+                                Enroll Now <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                            </span>
                         </button>
 
                         <a href="#" className="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors flex items-center text-sm md:text-base">

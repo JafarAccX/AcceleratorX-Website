@@ -8,6 +8,7 @@ import AICrashCourseMentors from "./components/AICrashCourseMentors";
 import AICrashCourseTools from "./components/AICrashCourseTools";
 import AICrashCoursePricing from "./components/AICrashCoursePricing";
 import AICrashCourseFAQ from "./components/AICrashCourseFAQ";
+import AICrashCourseSchedule from "./components/AICrashCourseSchedule";
 
 const AICrashCoursePage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,6 +37,7 @@ const AICrashCoursePage = () => {
                 <AICrashCourseProjects onEnroll={handleEnroll} />
                 <AICrashCourseMentors />
                 <AICrashCourseTools />
+                <AICrashCourseSchedule />
                 <AICrashCoursePricing onEnroll={handleEnroll} />
                 <AICrashCourseFAQ />
 
