@@ -106,7 +106,7 @@ export default function Season2EnrollmentModal({ isOpen, onClose, onSubmit }: Se
         designation: "",
     });
 
-    const courseName = "AI Crash Course (Season 2)";
+    const courseName = "AI Crash Course";
 
     const openBrochure = () => {
         try {

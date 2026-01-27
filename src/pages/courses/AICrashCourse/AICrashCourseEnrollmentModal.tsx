@@ -104,7 +104,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
         designation: "",
     });
 
-    const courseName = "Advanced AI Crash Course";
+    const courseName = "AI Crash Course";
 
     const openBrochure = () => {
         try {
