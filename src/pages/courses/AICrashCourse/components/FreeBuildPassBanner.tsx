@@ -41,20 +41,27 @@ export default function FreeBuildPassBanner({ isOpen, onClose, onClaim }: FreeBu
                             <X className="h-6 w-6" />
                         </button>
 
-                        {/* Image Banner */}
-                        <div className="rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(172,10,231,0.3)] border border-[#AC0AE7]/30 relative">
-                            <img
-                                src="/offer-banners/buildpass.jpeg"
-                                alt="Free Build Pass"
-                                className="w-full h-auto object-cover transform transition-transform duration-300 group-hover:scale-[1.02]"
-                            />
-
-                            {/* Hover overlay hint */}
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                                <span className="opacity-0 group-hover:opacity-100 bg-[#AC0AE7] text-white px-6 py-2 rounded-full font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                                    Claim Now
-                                </span>
+                        {/* Content Container */}
+                        <div className="flex flex-col items-center gap-6">
+                            {/* Image Banner */}
+                            <div className="rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(249,115,22,0.3)] border border-orange-500/30 relative">
+                                <img
+                                    src="/offer-banners/buildpass.jpeg"
+                                    alt="Free Build Pass"
+                                    className="w-full h-auto object-cover transform transition-transform duration-300 group-hover:scale-[1.01]"
+                                />
                             </div>
+
+                            {/* Always Visible Claim Button */}
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onClaim();
+                                }}
+                                className="bg-gradient-to-r from-orange-600 to-amber-500 text-white px-10 py-4 rounded-full font-bold text-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] transform hover:scale-105 transition-all duration-300"
+                            >
+                                Claim Now Free
+                            </button>
                         </div>
                     </motion.div>
                 </motion.div>

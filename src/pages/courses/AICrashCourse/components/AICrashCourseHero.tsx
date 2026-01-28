@@ -90,24 +90,24 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
     );
 };
 
-interface FeaturePillProps {
-    text: string;
-    icon?: string;
-    isGreen?: boolean;
-    isBlue?: boolean;
-}
+// interface FeaturePillProps {
+//     text: string;
+//     icon?: string;
+//     isGreen?: boolean;
+//     isBlue?: boolean;
+// }
 
-const FeaturePill = ({ text, icon, isGreen, isBlue }: FeaturePillProps) => {
-    let iconColor = "text-gray-400";
-    if (isGreen) iconColor = "text-green-500";
-    if (isBlue) iconColor = "text-blue-500";
+// const FeaturePill = ({ text, icon, isGreen, isBlue }: FeaturePillProps) => {
+//     let iconColor = "text-gray-400";
+//     if (isGreen) iconColor = "text-green-500";
+//     if (isBlue) iconColor = "text-blue-500";
 
-    return (
-        <div className="flex items-center justify-center gap-[14px] w-[258px] h-[57px] bg-black border border-[#252525] px-5 py-4 rounded-lg text-gray-200 text-sm font-medium hover:border-gray-700 transition-colors">
-            {icon && <span className={iconColor}>{icon}</span>}
-            <span>{text}</span>
-        </div>
-    );
-};
+//     return (
+//         <div className="flex items-center justify-center gap-[14px] w-[258px] h-[57px] bg-black border border-[#252525] px-5 py-4 rounded-lg text-gray-200 text-sm font-medium hover:border-gray-700 transition-colors">
+//             {icon && <span className={iconColor}>{icon}</span>}
+//             <span>{text}</span>
+//         </div>
+//     );
+// };
 
 export default AICrashCourseHero;

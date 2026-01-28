@@ -167,27 +167,54 @@ const MentorCard = ({ mentor }: { mentor: Mentor }) => {
                 </div>
 
                 {/* Back Face */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-[#111] border border-purple-500/50 p-6 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(172,10,231,0.2)]">
-                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500 mb-4">
-                        <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover object-top" />
+                <div
+                    className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden flex flex-col shadow-xl"
+                    style={{
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)',
+                        transformStyle: 'preserve-3d',
+                        background: 'linear-gradient(to top, white 0%, #C5E2FF 50%, #C5E2FF 0%)'
+                    }}
+                >
+                    {/* Image Section */}
+                    <div className="w-full h-[55%] relative overflow-hidden">
+                        <img
+                            src={mentor.image}
+                            alt={mentor.name}
+                            className="w-full h-full object-cover object-top"
+                        />
                     </div>
 
-                    <h3 className="text-white font-bold text-2xl mb-1">{mentor.name}</h3>
-                    <p className="text-purple-400 font-medium mb-1">{mentor.company}</p>
-                    <p className="text-gray-400 text-sm mb-6">{mentor.role}</p>
+                    {/* Content Section */}
+                    <div className="flex-1 px-6 py-4 flex flex-col justify-center text-left">
+                        <h3 className="text-black font-bold text-2xl leading-tight mb-2">
+                            {mentor.name}
+                        </h3>
 
-                    {mentor.linkedin && (
-                        <a
-                            href={mentor.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#006097] text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <Linkedin className="w-4 h-4" />
-                            Connect
-                        </a>
-                    )}
+                        <div className="space-y-0.5 mb-6">
+                            <p className="text-gray-800 text-sm font-medium leading-snug">
+                                {mentor.role}
+                            </p>
+                            <p className="text-gray-800 text-sm font-medium leading-snug">
+                                {mentor.company}
+                            </p>
+                        </div>
+
+                        {mentor.linkedin && (
+                            <a
+                                href={mentor.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-black font-semibold text-sm hover:opacity-80 transition-opacity"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <div className="bg-[#0077b5] text-white p-1 rounded-sm">
+                                    <Linkedin className="w-4 h-4 fill-white" />
+                                </div>
+                                <span className="font-bold">{mentor.name}</span>
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
