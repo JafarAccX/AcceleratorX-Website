@@ -1,5 +1,5 @@
 
-import React from "react";
+import { Check, Download, Hourglass, Calendar } from "lucide-react";
 
 interface AICrashCoursePricingProps {
     onEnroll: () => void;
@@ -10,71 +10,93 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
         <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center">
 
             {/* Title */}
-            <h2 className="text-white font-['Plus_Jakarta_Sans'] font-bold text-[36px] leading-[100%] text-center mb-12">
-                The <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#CC3FFF] to-[#48A2EB]">pricing</span> solution
-            </h2>
+            <div className="text-center mb-16">
+                <h2 className="text-white font-['Plus_Jakarta_Sans'] font-bold text-3xl md:text-5xl mb-4">
+                    Simple, Transparent <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#AC0AE7] to-[#48A2EB]">Pricing</span>
+                </h2>
+                <p className="text-gray-400 text-lg">
+                    No tiers. No confusion. One complete program.
+                </p>
+            </div>
 
             {/* Main Card */}
-            <div className="w-full max-w-4xl border border-[#252525] rounded-xl bg-black p-8 md:p-16 flex flex-col items-center relative">
+            <div className="w-full max-w-[500px] border border-[#AC0AE7]/30 rounded-3xl bg-[#0a0a0a] p-8 md:p-10 flex flex-col relative shadow-[0_0_60px_rgba(172,10,231,0.15)] overflow-hidden">
 
-                {/* Price Box */}
-                <div className="  rounded-xl p-8 mb-8 text-center w-full max-w-sm">
-                    <p className="text-gray-400 text-lg mb-2">in just</p>
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                        <span className="text-[#48A2EB] text-4xl md:text-5xl font-bold">₹4,999</span>
-                        <span className="text-white text-4xl md:text-5xl font-bold">+ GST</span>
+                {/* Top purple glow inside card */}
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#AC0AE7] to-[#48A2EB]"></div>
+                <div className="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[200px] h-[100px] bg-[#AC0AE7]/20 blur-[60px] rounded-full pointer-events-none"></div>
+
+                {/* Price Section */}
+                <div className="text-center mb-10">
+                    <p className="text-gray-500 text-xs font-bold tracking-widest uppercase mb-4">Total Investment</p>
+                    <div className="flex items-end justify-center gap-2 mb-6">
+                        <span className="text-white text-5xl md:text-6xl font-bold font-['Plus_Jakarta_Sans']">₹4,999</span>
+                        <span className="text-gray-400 text-xl font-medium mb-1.5">+ GST</span>
                     </div>
-                    <p className="text-gray-400 text-sm">
-                        That's <span className="text-[#D358FF]">₹250</span> per session
-                    </p>
-                </div>
-
-                {/* NO Section */}
-                <div className="text-center mb-8">
-                    <p className="text-white uppercase tracking-widest font-bold mb-6">NO</p>
-                    <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-                        <NoItem text="Fake discounts" />
-                        <NoItem text="Upsells" />
-                        <NoItem text="Hidden costs" />
+                    <div className="inline-block bg-[#1A1A1A] border border-[#333] rounded-full px-4 py-1.5">
+                        <span className="text-gray-300 text-sm font-medium">Full Program Access</span>
                     </div>
                 </div>
 
-                {/* Limited Seats */}
-                <div className="flex items-center gap-2 mb-10">
-                    <span className="text-amber-500 text-xl">★</span>
-                    <span className="text-white font-medium italic">Limited seats</span>
+                {/* Features List */}
+                <div className="space-y-5 mb-10 pl-2">
+                    <PricingFeature text="20 Live Sessions" />
+                    <PricingFeature text="100% Practical Learning" />
+                    <PricingFeature text="Session Recordings Included" />
+                    <PricingFeature text="Real AI Systems & Agents" />
+                    <PricingFeature text="Mentor Guidance" />
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col md:flex-row items-center gap-6">
-                    {/* Enroll Button */}
+                <div className="space-y-6">
                     <button
                         onClick={onEnroll}
-                        className="relative w-[166px] h-[48px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center group"
+                        className="w-full h-[56px] rounded-xl flex items-center justify-center group relative overflow-hidden transition-transform hover:scale-[1.02]"
                         style={{
-                            background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #AC0AE7 32.08%, #48A2EB 74.28%) border-box',
-                            border: '2px solid transparent',
+                            background: 'linear-gradient(90deg, #8B5CF6 0%, #AC0AE7 100%)',
                         }}
                     >
-                        <span className="text-white font-bold text-base flex items-center">
-                            Enroll Now <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                        </span>
+                        <span className="text-white font-bold text-lg relative z-10">Enroll Now</span>
+                        {/* Button Glow on Hover */}
+                        <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </button>
 
-                    <a href="#" className="text-gray-300 hover:text-white hover:underline transition-colors border-b border-gray-600 pb-0.5 text-sm md:text-base flex items-center gap-1">
-                        Download Detailed Brochure <span className="text-lg">»</span>
-                    </a>
+                    <button
+                        onClick={onEnroll}
+                        className="w-full flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium border border-[#333] hover:border-[#555] rounded-xl h-[48px]"
+                    >
+                        <Download className="w-4 h-4" />
+                        Download Detailed Brochure
+                    </button>
+                </div>
+
+                {/* Footer Icons */}
+                <div className="mt-10 pt-8 border-t border-[#222] flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-medium text-[#AC0AE7]">
+                    <div className="flex items-center gap-2">
+                        <Hourglass className="w-3.5 h-3.5" />
+                        <span>Limited Seats Available</span>
+                    </div>
+                    <div className="hidden sm:block text-[#333]">|</div>
+                    <div className="flex items-center gap-2">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>Next Batch Starting Soon</span>
+                    </div>
                 </div>
 
             </div>
+
+            <p className="text-gray-500 text-sm mt-8">
+                One-time payment. No hidden costs.
+            </p>
+
         </section>
     );
 };
 
-const NoItem = ({ text }: { text: string }) => (
-    <div className="flex items-center gap-2">
-        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#D358FF] to-[#48A2EB]"></div>
-        <span className="text-gray-300">{text}</span>
+const PricingFeature = ({ text }: { text: string }) => (
+    <div className="flex items-center gap-3">
+        <Check className="w-5 h-5 text-[#AC0AE7] shrink-0" />
+        <span className="text-gray-300 font-medium">{text}</span>
     </div>
 );
 

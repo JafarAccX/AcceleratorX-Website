@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Plus, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -63,8 +63,8 @@ const FAQItemCard = ({ faq, isOpen, onClick }: { faq: FAQItem, isOpen: boolean, 
         <div
             onClick={onClick}
             className={`w-full rounded-[16px] p-[30px] cursor-pointer transition-all duration-300 relative overflow-hidden group ${isOpen
-                    ? "bg-transparent"
-                    : "bg-black border border-[#252525] hover:border-[#48A2EB]/50"
+                ? "bg-transparent"
+                : "bg-black border border-[#252525] hover:border-[#48A2EB]/50"
                 }`}
             style={isOpen ? {
                 background: '#06060614', // From specs

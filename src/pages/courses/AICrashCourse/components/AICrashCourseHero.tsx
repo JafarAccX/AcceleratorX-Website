@@ -53,7 +53,7 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                     </h1>
 
                     <div className="flex items-center gap-2 text-amber-500 font-semibold mb-8 text-sm md:text-base">
-                        <span>⭐</span> Limited seats
+                        <span>⭐</span> Master  Sessions <span>⭐</span>
                     </div>
 
 

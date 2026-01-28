@@ -1,5 +1,5 @@
 
-import React from "react";
+
 import { Check, Calendar, Briefcase, Clock, Battery } from "lucide-react";
 
 const AICrashCourseSchedule = () => {
@@ -48,16 +48,34 @@ const AICrashCourseSchedule = () => {
                     </div>
 
                     <div className="space-y-3">
-                        <ScheduleRow day="Mon" leftText="Work" rightText="Class" rightColor="purple" />
+                        <ScheduleRow day="Mon" leftText="Work" rightText="Free" rightColor="dark" />
                         <ScheduleRow day="Tue" leftText="Work" rightText="Free" rightColor="dark" />
-                        <ScheduleRow day="Wed" leftText="Work" rightText="Class" rightColor="purple" />
+                        <ScheduleRow day="Wed" leftText="Work" rightText="Free" rightColor="dark" />
                         <ScheduleRow day="Thu" leftText="Work" rightText="Free" rightColor="dark" />
-                        <ScheduleRow day="Fri" leftText="Work" rightText="Q&A" rightColor="purple" />
-                        {/* Saturday Row - Full width practice */}
+                        <ScheduleRow day="Fri" leftText="Work" rightText="Free" rightColor="dark" />
+
+                        {/* Weekend Rows */}
                         <div className="flex items-center gap-4 text-sm font-medium">
                             <span className="w-8 text-gray-500 flex-shrink-0">Sat</span>
-                            <div className="flex-1 h-10 rounded-lg bg-[#AC0AE7] flex items-center justify-center text-white font-semibold">
-                                Practice
+                            <div className="grid grid-cols-2 gap-2 flex-1">
+                                <div className="bg-[#AC0AE7] text-white rounded-lg py-2.5 flex items-center justify-center font-semibold">
+                                    Class
+                                </div>
+                                <div className="bg-[#1A1A1A] text-gray-400 rounded-lg py-2.5 flex items-center justify-center">
+                                    Free
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 text-sm font-medium">
+                            <span className="w-8 text-gray-500 flex-shrink-0">Sun</span>
+                            <div className="grid grid-cols-2 gap-2 flex-1">
+                                <div className="bg-[#AC0AE7] text-white rounded-lg py-2.5 flex items-center justify-center font-semibold">
+                                    Class
+                                </div>
+                                <div className="bg-[#1A1A1A] text-gray-400 rounded-lg py-2.5 flex items-center justify-center">
+                                    Free
+                                </div>
                             </div>
                         </div>
                     </div>
