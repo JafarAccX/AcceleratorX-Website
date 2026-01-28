@@ -1,38 +1,49 @@
 
-import { useRef } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { useRef, useState } from "react";
+import { ChevronRight, ChevronLeft, Linkedin } from "lucide-react";
+import { cn } from "../../../../lib/utils";
 
 interface Mentor {
     name: string;
     image: string;
-    role?: string;
+    role: string;
+    company: string;
+    linkedin?: string;
 }
 
 const mentors: Mentor[] = [
     {
-        name: "Nitish M L Setty",
-        image: "/advance-crashcourse/builders/nitish.png",
-        role: "AI Lead"
+        name: "Himangi Sharma",
+        image: "/advance-crashcourse/builders/nitya.png", // Placeholder
+        role: "Data Scientist",
+        company: "Mastercard",
+        linkedin: "https://www.linkedin.com/in/himangi-sharma"
     },
     {
-        name: "Nitya Sagar",
-        image: "/advance-crashcourse/builders/nitya.png",
-        role: "AI Product Manager"
+        name: "Ashu Mishra",
+        image: "/advance-crashcourse/builders/ashu.png",
+        role: "Senior Product Manager",
+        company: "Zigram"
+    },
+    {
+        name: "Pranali Bose",
+        image: "/advance-crashcourse/builders/nitya.png", // Placeholder
+        role: "Software Engineer (Data Science)",
+        company: "Apple",
+        linkedin: "https://www.linkedin.com/in/pranalibose"
     },
     {
         name: "Anjali Sharma",
         image: "/advance-crashcourse/builders/anjali.png",
-        role: "AI Engineer"
-    },
-    {
-        name: "Ashu",
-        image: "/advance-crashcourse/builders/ashu.png",
-        role: "Full Stack Engineer"
+        role: "AI Product Manager",
+        company: "Mesha",
+        linkedin: "https://www.linkedin.com/in/anjalisharmaaa/"
     },
     {
         name: "Dr. Prashant",
         image: "/advance-crashcourse/builders/dr-prashant.png",
-        role: "AI Researcher"
+        role: "Professor",
+        company: "Unknown University"
     },
 ];
 
@@ -54,27 +65,16 @@ const AICrashCourseMentors = () => {
     return (
         <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
             <div className="text-center mb-16">
-                {/* Title: Plus Jakarta Sans, 48px, lowercase */}
                 <h2 className="lowercase font-['Plus_Jakarta_Sans'] font-bold text-[40px] md:text-[48px] leading-[100%] mb-4 text-white">
                     learn from <span className="bg-clip-text text-transparent bg-[linear-gradient(90deg,#CC3FFF_27.88%,#48A2EB_59.13%)]">builders</span>, not just trainers
                 </h2>
                 <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
                     Built & deployed AI agents, Resolved production issues, Explained system functionality, Guided professionals in various fields
                 </p>
-
-                {/* <p className="text-white text-center font-medium mb-6">You'll learn from mentors who:</p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 max-w-4xl mx-auto text-left text-gray-300 text-sm md:text-base">
-                    <BenefitItem text="Build & deploy AI agents in real-world scenarios" />
-                    <BenefitItem text="Understand production challenges (latency, cost, failures)" />
-                    <BenefitItem text="Explain why a system works, not just how" />
-                    <BenefitItem text="Have mentored working professionals across roles" />
-                </div> */}
             </div>
 
-
             <div className="relative max-w-6xl mx-auto">
-                {/* Scroll Buttons with gradient border and shadow */}
+                {/* Scroll Buttons */}
                 <button
                     onClick={() => scroll('left')}
                     className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-10 w-[56px] h-[56px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center bg-black transition-transform hover:scale-105 hidden md:flex"
@@ -100,22 +100,11 @@ const AICrashCourseMentors = () => {
                 {/* Mentors Row */}
                 <div
                     ref={scrollRef}
-                    className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide"
+                    className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide px-4"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {mentors.map((mentor, index) => (
-                        <div key={index} className="flex-shrink-0 w-[280px] md:w-[300px] bg-white rounded-2xl overflow-hidden snap-center group">
-                            <div className="relative h-[340px] bg-gray-200">
-                                <img
-                                    src={mentor.image}
-                                    alt={mentor.name}
-                                    className="w-full h-full object-cover object-top"
-                                />
-                            </div>
-                            <div className="p-4 bg-white text-center">
-                                <h3 className="text-black font-bold text-xl">{mentor.name}</h3>
-                            </div>
-                        </div>
+                        <MentorCard key={index} mentor={mentor} />
                     ))}
                 </div>
 
@@ -139,11 +128,70 @@ const AICrashCourseMentors = () => {
     );
 };
 
-const BenefitItem = ({ text }: { text: string }) => (
-    <div className="flex items-start gap-3">
-        <span className="w-3 h-3 rounded-full bg-[#D358FF] mt-1.5 flex-shrink-0"></span>
-        <span>{text}</span>
-    </div>
-);
+const MentorCard = ({ mentor }: { mentor: Mentor }) => {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    return (
+        <div
+            className="group w-[280px] md:w-[300px] h-[380px] perspective-1000 flex-shrink-0 cursor-pointer"
+            onMouseEnter={() => setIsFlipped(true)}
+            onMouseLeave={() => setIsFlipped(false)}
+            onClick={() => setIsFlipped(!isFlipped)}
+        >
+            <div
+                className={cn(
+                    "relative w-full h-full transition-all duration-500",
+                    isFlipped ? "" : ""
+                )}
+                style={{
+                    transformStyle: 'preserve-3d',
+                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                }}
+            >
+                {/* Front Face */}
+                <div
+                    className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden bg-white shadow-xl"
+                    style={{ backfaceVisibility: 'hidden' }}
+                >
+                    <div className="h-full w-full relative">
+                        <img
+                            src={mentor.image}
+                            alt={mentor.name}
+                            className="w-full h-full object-contain object-top"
+                        />
+                        {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
+                            <h3 className="text-white font-bold text-xl text-center">{mentor.name}</h3>
+                            <p className="text-gray-300 text-sm text-center font-medium">{mentor.company}</p>
+                        </div> */}
+                    </div>
+                </div>
+
+                {/* Back Face */}
+                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-[#111] border border-purple-500/50 p-6 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(172,10,231,0.2)]">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500 mb-4">
+                        <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover object-top" />
+                    </div>
+
+                    <h3 className="text-white font-bold text-2xl mb-1">{mentor.name}</h3>
+                    <p className="text-purple-400 font-medium mb-1">{mentor.company}</p>
+                    <p className="text-gray-400 text-sm mb-6">{mentor.role}</p>
+
+                    {mentor.linkedin && (
+                        <a
+                            href={mentor.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#006097] text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <Linkedin className="w-4 h-4" />
+                            Connect
+                        </a>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default AICrashCourseMentors;
