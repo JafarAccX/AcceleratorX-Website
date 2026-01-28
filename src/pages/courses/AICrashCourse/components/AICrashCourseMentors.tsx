@@ -77,7 +77,7 @@ const AICrashCourseMentors = () => {
                 {/* Scroll Buttons */}
                 <button
                     onClick={() => scroll('left')}
-                    className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-10 w-[56px] h-[56px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center bg-black transition-transform hover:scale-105 hidden md:flex"
+                    className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-10 w-[56px] h-[56px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center bg-black transition-transform hover:scale-105 md:flex"
                     style={{
                         background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #AC0AE7 32.08%, #48A2EB 74.28%) border-box',
                         border: '2px solid transparent',
@@ -87,7 +87,7 @@ const AICrashCourseMentors = () => {
                 </button>
                 <button
                     onClick={() => scroll('right')}
-                    className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-10 w-[56px] h-[56px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center bg-black transition-transform hover:scale-105 hidden md:flex"
+                    className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-10 w-[56px] h-[56px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center bg-black transition-transform hover:scale-105 md:flex"
                     style={{
                         background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #AC0AE7 32.08%, #48A2EB 74.28%) border-box',
                         border: '2px solid transparent',
