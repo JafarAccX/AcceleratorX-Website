@@ -1,6 +1,8 @@
 
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import AICrashCourseEnrollmentModal from "./AICrashCourseEnrollmentModal";
+import FreeBuildPassModal from "./components/FreeBuildPassModal";
+import FreeBuildPassBanner from "./components/FreeBuildPassBanner";
 import AICrashCourseHero from "./components/AICrashCourseHero";
 import AICrashCourseCurriculum from "./components/AICrashCourseCurriculum";
 import AICrashCourseProjects from "./components/AICrashCourseProjects";
@@ -12,9 +14,28 @@ import AICrashCourseSchedule from "./components/AICrashCourseSchedule";
 
 const AICrashCoursePage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPassModalOpen, setIsPassModalOpen] = useState(false);
+    const [isBannerOpen, setIsBannerOpen] = useState(false);
 
     const handleEnroll = () => {
         setIsModalOpen(true);
+    };
+
+    // Auto-open "Free Build Pass" BANNER after 4 seconds
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            // Only open if the main enrollment modal isn't already open and pass modal isn't open
+            if (!isModalOpen && !isPassModalOpen) {
+                setIsBannerOpen(true);
+            }
+        }, 4000);
+
+        return () => clearTimeout(timer);
+    }, [isModalOpen, isPassModalOpen]);
+
+    const handleClaimPass = () => {
+        setIsBannerOpen(false);
+        setIsPassModalOpen(true);
     };
 
     return (
@@ -22,6 +43,17 @@ const AICrashCoursePage = () => {
             <AICrashCourseEnrollmentModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
+            />
+
+            <FreeBuildPassModal
+                isOpen={isPassModalOpen}
+                onClose={() => setIsPassModalOpen(false)}
+            />
+
+            <FreeBuildPassBanner
+                isOpen={isBannerOpen}
+                onClose={() => setIsBannerOpen(false)}
+                onClaim={handleClaimPass}
             />
 
             {/* Global Background (Noise) */}

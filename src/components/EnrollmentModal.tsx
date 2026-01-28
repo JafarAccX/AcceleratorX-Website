@@ -212,6 +212,8 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit, customData 
         gclid: utmData.gclid,
         ttclid: utmData.ttclid,
         msclkid: utmData.msclkid,
+        internal_campaign_code: new URLSearchParams(window.location.search).get("internal_campaign_code") || undefined,
+        internal_campaign_name: new URLSearchParams(window.location.search).get("internal_campaign_name") || undefined,
         ...customData, // Merge custom overrides (e.g., scholarship info)
       };
 

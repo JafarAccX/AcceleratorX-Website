@@ -4,21 +4,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { createEnrollment } from "../../../api/enrollmentApi";
-import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
+import { createEnrollment } from "../../../../api/enrollmentApi";
+import { trackFormSubmission, getUTMDataForDB } from "../../../../utils/metaPixel";
 
 const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
 
-interface AICrashCourseEnrollmentModalProps {
+interface FreeBuildPassModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSubmit?: () => void;
 }
 
-// Hardcoded brochure for AI Crash Course (using Gen AI or similar as placeholder if no specific one)
-// Default to "Generative AI" brochure as it fits "AI Crash Course".
-const AI_CRASH_COURSE_BROCHURE = {
-    title: "AI Crash Course",
+// Reusing the same brochure logic as the main crash course for now
+const BUILD_PASS_BROCHURE = {
+    title: "AI Crash Course Build Pass",
     url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1769087535130_Build_Session.pdf?alt=media&token=8e54fe45-68ec-4000-960b-3ed53623c1eb"
 };
 
@@ -91,7 +90,7 @@ async function sendWhatsAppMessage({
     }
 }
 
-export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit }: AICrashCourseEnrollmentModalProps) {
+export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBuildPassModalProps) {
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -109,7 +108,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
     const openBrochure = () => {
         try {
             const a = document.createElement("a");
-            a.href = AI_CRASH_COURSE_BROCHURE.url;
+            a.href = BUILD_PASS_BROCHURE.url;
             a.target = "_blank";
             a.rel = "noopener noreferrer";
             document.body.appendChild(a);
@@ -160,8 +159,8 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                 gclid: utmData.gclid,
                 ttclid: utmData.ttclid,
                 msclkid: utmData.msclkid,
-                internal_campaign_code: new URLSearchParams(window.location.search).get("internal_campaign_code") || undefined,
-                internal_campaign_name: new URLSearchParams(window.location.search).get("internal_campaign_name") || undefined,
+                internal_campaign_code: "WEBSITE_POPUP",
+                internal_campaign_name: "Free Build Pass Banner",
             };
 
             await createEnrollment(submissionData);
@@ -169,7 +168,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
             await sendWhatsAppMessage({
                 phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
                 name: formData.name,
-                broucher: AI_CRASH_COURSE_BROCHURE,
+                broucher: BUILD_PASS_BROCHURE,
             });
 
             // Track form submission
@@ -183,7 +182,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
             trackingFormData.append("workExperience", formData.workExperience);
             await trackFormSubmission(trackingFormData);
 
-            toast.success("Spot reserved! Opening brochure...");
+            toast.success("Build Pass Claimed! Opening brochure...");
             openBrochure();
 
             if (onSubmit) onSubmit();
@@ -195,7 +194,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
 
         } catch (error) {
             console.error("Error submitting form:", error);
-            toast.error("Failed to submit enrollment. Please try again.");
+            toast.error("Failed to submit. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
@@ -205,26 +204,25 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    key="ai-crash-course-modal"
+                    key="free-build-pass-modal"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] flex items-center justify-center p-4 overflow-y-auto"
                 >
-                    {/* Matching Style to AI Crash Course Page */}
-                    <div className="relative w-full max-w-lg mx-auto bg-[#0a0a0a] border border-[#252525] rounded-2xl shadow-[0_0_50px_rgba(172,10,231,0.15)] overflow-hidden">
+                    <div className="relative w-full max-w-lg mx-auto bg-[#0a0a0a] border border-green-500/50 rounded-2xl shadow-[0_0_50px_rgba(34,197,94,0.15)] overflow-hidden">
 
-                        {/* Top Gradient Line */}
-                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#AC0AE7] to-[#48A2EB]"></div>
+                        {/* Top Gradient Line - Green for "Free/Success" vibe */}
+                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-green-500 to-emerald-400"></div>
 
                         <div className="flex flex-col max-h-[90vh] overflow-y-auto custom-scrollbar">
                             <div className="sticky top-0 bg-[#0a0a0a]/95 px-8 pt-8 pb-4 z-10 flex justify-between items-start backdrop-blur-md">
                                 <div>
                                     <h3 className="text-3xl font-bold text-white mb-2 font-['Plus_Jakarta_Sans']">
-                                        Secure Your Spot
+                                        Claim Free Build Pass
                                     </h3>
                                     <p className="text-gray-400 text-base font-medium">
-                                        Advanced <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#AC0AE7] to-[#48A2EB]">AI Crash Course</span>
+                                        Unlock your access to the <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500">AI Crash Course</span>
                                     </p>
                                 </div>
                                 <button
@@ -243,7 +241,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                                             <input
                                                 type="text"
                                                 required
-                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-[#AC0AE7] focus:ring-1 focus:ring-[#AC0AE7] outline-none transition-all placeholder:text-gray-600"
+                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-600"
                                                 placeholder="John Doe"
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -255,7 +253,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                                             <input
                                                 type="email"
                                                 required
-                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-[#AC0AE7] focus:ring-1 focus:ring-[#AC0AE7] outline-none transition-all placeholder:text-gray-600"
+                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-600"
                                                 placeholder="john@example.com"
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -271,7 +269,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                                                 <input
                                                     type="tel"
                                                     required
-                                                    className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-[#AC0AE7] focus:ring-1 focus:ring-[#AC0AE7] outline-none transition-all placeholder:text-gray-600"
+                                                    className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-600"
                                                     placeholder="9876543210"
                                                     value={formData.phone}
                                                     onChange={(e) => {
@@ -287,7 +285,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                                             <input
                                                 type="text"
                                                 required
-                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-[#AC0AE7] focus:ring-1 focus:ring-[#AC0AE7] outline-none transition-all placeholder:text-gray-600"
+                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-600"
                                                 placeholder="Software Engineer"
                                                 value={formData.designation}
                                                 onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
@@ -299,7 +297,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                                                 <label className="text-sm font-medium text-gray-400">Education</label>
                                                 <select
                                                     required
-                                                    className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-[#AC0AE7] focus:ring-1 focus:ring-[#AC0AE7] outline-none transition-all appearance-none cursor-pointer"
+                                                    className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none transition-all appearance-none cursor-pointer"
                                                     value={formData.education}
                                                     onChange={(e) => setFormData({ ...formData, education: e.target.value })}
                                                 >
@@ -314,7 +312,7 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                                                 <label className="text-sm font-medium text-gray-400">Experience</label>
                                                 <select
                                                     required
-                                                    className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-[#AC0AE7] focus:ring-1 focus:ring-[#AC0AE7] outline-none transition-all appearance-none cursor-pointer"
+                                                    className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none transition-all appearance-none cursor-pointer"
                                                     value={formData.workExperience}
                                                     onChange={(e) => setFormData({ ...formData, workExperience: e.target.value })}
                                                 >
@@ -332,18 +330,18 @@ export default function AICrashCourseEnrollmentModal({ isOpen, onClose, onSubmit
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full relative h-[56px] rounded-[50px] shadow-[0px_0px_20px_0px_rgba(172,10,231,0.5)] flex items-center justify-center group disabled:opacity-70 disabled:cursor-not-allowed hover:scale-[1.02] transition-transform"
+                                            className="w-full relative h-[56px] rounded-[50px] shadow-[0px_0px_20px_0px_rgba(34,197,94,0.5)] flex items-center justify-center group disabled:opacity-70 disabled:cursor-not-allowed hover:scale-[1.02] transition-transform"
                                             style={{
-                                                background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #AC0AE7 32.08%, #48A2EB 74.28%) border-box',
+                                                background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #22c55e 32.08%, #34d399 74.28%) border-box',
                                                 border: '2px solid transparent',
                                             }}
                                         >
                                             <span className="text-white font-bold text-lg">
-                                                {isSubmitting ? "Submitting..." : "Join the Crash Course →"}
+                                                {isSubmitting ? "Claiming..." : "Claim Build Pass →"}
                                             </span>
                                         </button>
                                         <p className="text-xs text-center text-gray-500 mt-4">
-                                            Limited seats available. Join 2000+ builders.
+                                            Limited time offer. Join 2000+ builders.
                                         </p>
                                     </div>
                                 </form>

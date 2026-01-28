@@ -165,6 +165,8 @@ export default function Season2EnrollmentModal({ isOpen, onClose, onSubmit }: Se
                 gclid: utmData.gclid,
                 ttclid: utmData.ttclid,
                 msclkid: utmData.msclkid,
+                internal_campaign_code: new URLSearchParams(window.location.search).get("internal_campaign_code") || undefined,
+                internal_campaign_name: new URLSearchParams(window.location.search).get("internal_campaign_name") || undefined,
             };
 
             await createEnrollment(submissionData);
