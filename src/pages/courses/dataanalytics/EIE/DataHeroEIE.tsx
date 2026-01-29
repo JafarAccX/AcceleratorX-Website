@@ -41,11 +41,9 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
 export default function DataHeroEIE() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setSelectedCourse } = useCourseContext();
-  const [isDownload, setIsDownload] = useState(false);
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setIsDownload(false);
   };
 
   const handleModalSubmit = () => {

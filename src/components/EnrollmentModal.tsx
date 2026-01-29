@@ -26,7 +26,7 @@ const BROCHURES: Record<string, { title: string; url: string }> = {
   },
   "Product Management": {
     title: "Product Management",
-    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1762861871432_notes_AcceleratorX_PM_Brochure-compressed.pdf?alt=media&token=f21f29c9-522a-4d26-a948-2ab6f19a4760",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1768997735586_aipm-broucher-compressed.pdf?alt=media&token=a821e497-52e9-4238-ad3b-bf9cf5aa9635",
   },
   "Generative AI": {
     title: "Generative AI",
@@ -212,6 +212,8 @@ export default function EnrollmentModal({ isOpen, onClose, onSubmit, customData 
         gclid: utmData.gclid,
         ttclid: utmData.ttclid,
         msclkid: utmData.msclkid,
+        internal_campaign_code: new URLSearchParams(window.location.search).get("internal_campaign_code") || undefined,
+        internal_campaign_name: new URLSearchParams(window.location.search).get("internal_campaign_name") || undefined,
         ...customData, // Merge custom overrides (e.g., scholarship info)
       };
 

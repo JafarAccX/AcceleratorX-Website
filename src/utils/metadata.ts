@@ -200,6 +200,47 @@ export const pageMetadata: Record<string, PageMetadata> = {
     canonicalUrl: "https://acceleratorx.org/courses/n8n-automation"
   },
 
+  "/advance-ai-crash-course": {
+    title: "Advanced AI Crash Course | AcceleratorX",
+    description: "Join the Advanced AI Crash Course to build real-world AI agents, master modern frameworks, and learn from industry experts.",
+    ogTitle: "Advanced AI Crash Course - AcceleratorX",
+    ogDescription: "Build AI Agents, work with modern frameworks, and learn from the best in this intensive crash course.",
+    canonicalUrl: "https://acceleratorx.org/advance-ai-crash-course"
+  },
+
+  // "/courses/onsite-workshopz": {
+  //   title: "Onsite Workshops | AcceleratorX",
+  //   description: "Join AcceleratorX's onsite workshops in AI, Data Analytics, and Product Management for immersive, hands-on learning experiences.",
+  //   ogTitle: "AcceleratorX Onsite Workshops",
+  //   ogDescription: "Learn through in-person sessions at AcceleratorX's onsite workshops.",
+  //   canonicalUrl: "https://acceleratorx.org/courses/onsite-workshopz"
+  // },
+
+  // Admin Routes
+  // "/admin/blogs": {
+  //   title: "Admin Blogs Dashboard | AcceleratorX",
+  //   description: "Manage blog content in the AcceleratorX admin dashboard. Create, edit, and publish blogs to engage learners and professionals.",
+  //   ogTitle: "AcceleratorX Blogs Admin",
+  //   ogDescription: "Access AcceleratorX's admin portal for blog management and publishing.",
+  //   canonicalUrl: "https://acceleratorx.org/admin/blogs"
+  // },
+
+  // "/admin/blogs/new": {
+  //   title: "Create New Blog | AcceleratorX Admin",
+  //   description: "Add and publish new blog posts through the AcceleratorX admin system to share insights, updates, and learning content.",
+  //   ogTitle: "Create Blog - AcceleratorX Admin",
+  //   ogDescription: "Write and publish new blog posts with the AcceleratorX admin dashboard.",
+  //   canonicalUrl: "https://acceleratorx.org/admin/blogs/new"
+  // },
+
+  // "/admin/blogs/edit/:id": {
+  //   title: "Edit Blog Post | AcceleratorX Admin",
+  //   description: "Update and manage existing blog posts with the AcceleratorX admin editor to keep content fresh, accurate, and engaging for learners.",
+  //   ogTitle: "Edit Blog - AcceleratorX Admin",
+  //   ogDescription: "Access the AcceleratorX admin editor to update and optimize blog content.",
+  //   canonicalUrl: "https://acceleratorx.org/admin/blogs"
+  // },
+
   // Success Pages
   "/thank-you": {
     title: "Thank You | AcceleratorX",

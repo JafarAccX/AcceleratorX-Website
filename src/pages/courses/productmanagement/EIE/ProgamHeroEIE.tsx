@@ -46,7 +46,6 @@ export default function ProgramHeroEIE() {
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setIsDownload(false);
   };
 
   const handleModalSubmit = () => {

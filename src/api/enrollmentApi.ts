@@ -19,6 +19,8 @@ export interface EnrollmentData {
     gclid?: string;
     ttclid?: string;
     msclkid?: string;
+    internal_campaign_code?: string;
+    internal_campaign_name?: string;
 }
 
 export const createEnrollment = async (data: EnrollmentData) => {

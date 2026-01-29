@@ -39,6 +39,11 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   return (
     <div className="relative">
+      {/* Jet Animation Background */}
+      <div className="absolute top-0 left-0 h-[700px] w-[600px] z-[9999] pointer-events-none ">
+        <JetAnimation />
+      </div>
+
       {showNavbar && <Navbar />}
 
       {/* Google Translate Widget */}
