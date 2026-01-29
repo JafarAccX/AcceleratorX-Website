@@ -65,12 +65,12 @@ export default function DataHeroEIE() {
   return (
     <section
       className="relative min-h-[800px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
-      style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
+      style={{ backgroundImage: "url('/redesign/ai-da/ai-da-hero.webp')" }}
     >
       {/* Dark overlay for text readability if needed, though image seems dark blue */}
       {/* <div className="absolute inset-0 bg-black/20 pointer-events-none"></div> */}
 
-      <div className="max-w-7xl  mx-auto px-4 relative z-10">
+      <div className="max-w-7xl  mx-auto px-4 relative z-10 pt-10">
 
         {/* Title Section */}
         <motion.div

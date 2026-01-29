@@ -108,7 +108,7 @@ const AccordionItem = ({ item }: { item: any }) => {
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
+                        <span className="text-xs font-bold text-[#9EFF1F] dark:text-[#9EFF1F] bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
                             WEEK {item.week}
                         </span>
                     </div>
@@ -298,7 +298,7 @@ export default function AIDMProgramEIE() {
                     email: user?.Email || '',
                     contact: '',
                 },
-                theme: { color: '#2563EB' },
+                theme: { color: '#9EFF1F' },
                 modal: {
                     ondismiss: () => handlePaymentCancellation(enrollmentId),
                 },
@@ -399,7 +399,7 @@ export default function AIDMProgramEIE() {
                                     key={section.id}
                                     onClick={() => scrollToSection(section.id)}
                                     className={`block pl-4 py-1 text-left text-sm font-medium transition-all duration-300 w-full ${activeSection === section.id
-                                        ? "border-l-2 border-blue-600 -ml-0.5 text-blue-600 font-bold"
+                                        ? "border-l-2 border-[#9EFF1F] -ml-0.5 text-[#9EFF1F] font-bold"
                                         : "text-gray-500 hover:text-gray-900"
                                         }`}
                                 >
@@ -425,7 +425,7 @@ export default function AIDMProgramEIE() {
                                 "Graduate with a portfolio + capstone campaign"
                             ].map((text, i) => (
                                 <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
-                                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[#9EFF1F] flex-shrink-0"></span>
                                     <span>{text}</span>
                                 </li>
                             ))}
@@ -433,7 +433,12 @@ export default function AIDMProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-12 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="curriculum" className="scroll-mt-24">
+                    <section id="curriculum" className="scroll-mt-24 relative">
+
+                        <img src="/redesign/ai-dm/n8n.png" alt="n8n" className="h-16 w-16 absolute top-40 -left-56" />
+                        <img src="/redesign/ai-dm/planet.png" alt="n8n" className=" rotate-180  w-36 absolute top-64 -left-36" />
+                        <img src="/redesign/ai-dm/greeen.png" alt="n8n" className="h-16 w-16 absolute top-[700px] -left-56" />
+
                         <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Learning Journey - Curriculum</h3>
                         <p className="text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
                             A structured 16-week journey from digital foundations to autonomous AI marketing agents.
@@ -497,12 +502,12 @@ export default function AIDMProgramEIE() {
 
                     <section id="certificate" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree</h3>
-                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
                                     src="https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/22d117f5e0031a8a28264cb1534717baed3eb5b1.webp?alt=media&token=3e74db69-6da1-4083-bdb3-fb3944a27764"
                                     alt="AI Digital Marketing Certificate"
-                                    className="w-full h-auto border-4 border-white dark:border-gray-700 shadow-xl transition-colors duration-300"
+                                    className="w-full h-auto rounded-md shadow-xl transition-colors duration-300"
                                     onError={(e) => { e.currentTarget.src = "/assets/programcertificates/Gen_AI_Cert.webp" }}
                                 />
                             </div>
@@ -522,7 +527,7 @@ export default function AIDMProgramEIE() {
                                         "Execute end-to-end growth strategies"
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
-                                            <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                                            <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-[#9EFF1F] dark:text-[#9EFF1F] flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                                                 <Check size={10} />
                                             </div>
                                             {item}
@@ -534,7 +539,8 @@ export default function AIDMProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="career" className="scroll-mt-24">
+                    <section id="career" className="scroll-mt-24 relative">
+                        <img src="/redesign/ai-dm/hubspot.png" alt="green" className="h-24 w-2h-24 absolute top-[700px] -left-56" />
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Roles You’ll Be Ready For</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
@@ -578,23 +584,23 @@ export default function AIDMProgramEIE() {
                                     highlight: true
                                 }
                             ].map((plan, idx) => (
-                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-blue-500 dark:border-blue-500 shadow-md ring-1 ring-blue-500' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
+                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-[#9EFF1F] dark:border-[#9EFF1F] shadow-md ring-1 ring-[#9EFF1F]' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
                                     {plan.highlight && (
-                                        <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                                        <div className="absolute top-0 right-0 bg-[#9EFF1F] text-black text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                                             RECOMMENDED
                                         </div>
                                     )}
                                     <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
 
                                     <div className="mb-2">
-                                        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
+                                        <span className="text-3xl font-bold text-[#9EFF1F] dark:text-[#9EFF1F] transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
                                         <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
                                     </div>
 
                                     {batches.length > 0 && (
                                         <div className="mb-4">
                                             <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
-                                            <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
+                                            <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-[#9EFF1F] focus:border-[#9EFF1F] bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
                                                 {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
                                             </select>
                                         </div>
@@ -602,11 +608,11 @@ export default function AIDMProgramEIE() {
 
                                     <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
                                         {plan.features.map((feat, i) => (
-                                            <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                                            <li key={i} className="flex gap-2"><Check size={16} className="text-[#9EFF1F] dark:text-[#9EFF1F] flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
                                         ))}
                                     </ul>
 
-                                    <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                    <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-[#9EFF1F] hover:bg-[#8EEE0F] disabled:bg-gray-400 text-black font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
                                         {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
                                     </button>
                                 </div>
@@ -614,22 +620,6 @@ export default function AIDMProgramEIE() {
                         </div>
                     </section>
 
-                    {/* Final CTA Section */}
-                    <section className="text-center py-20  mx-4 lg:mx-0 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('/assets/grid-pattern.png')] opacity-10"></div>
-                        <div className="relative z-10 max-w-3xl mx-auto px-6">
-                            <h2 className="text-4xl font-serif font-bold text-white mb-6">Market Smarter. Scale Faster. Powered by AI.</h2>
-                            <p className="text-blue-100 text-lg mb-10">
-                                AcceleratorX helps you become a job-ready, AI-first digital marketer with real campaigns and real impact.
-                            </p>
-                            <button
-                                onClick={() => scrollToSection('pricing')}
-                                className="px-10 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
-                            >
-                                Apply Now
-                            </button>
-                        </div>
-                    </section>
 
                     {/* Payment Cancellation Modal */}
                     <AnimatePresence>
@@ -664,7 +654,7 @@ export default function AIDMProgramEIE() {
                                                 setShowCancellationModal(false);
                                                 handleBuyCourse(selectedPlanPrice);
                                             }}
-                                            className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                                            className="flex-1 py-2 bg-[#9EFF1F] text-black rounded-lg hover:bg-[#8EEE0F]"
                                         >
                                             Try Again
                                         </button>

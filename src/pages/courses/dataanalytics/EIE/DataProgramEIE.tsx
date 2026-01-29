@@ -360,7 +360,7 @@ export default function DataProgramEIE() {
         {/* Sticky Sidebar */}
         <aside
           ref={sidebarRef}
-          className={`lg:w-1/4 self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''
+          className={`lg:w-1/4 self-start flex-shrink-0 relative transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''
             }`}
           style={isFixed ? {
             width: `${sidebarWidth}px`,
@@ -368,7 +368,8 @@ export default function DataProgramEIE() {
             maxHeight: 'calc(100vh - 4rem)'
           } : {}}
         >
-          <div className={isFixed ? ' lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
+          <img src="/redesign/ai-da/half-planet.png" alt="AI Programs that helps to become a Professional" className="absolute -top-36 -left-28" />
+          <div className={isFixed ? 'relative lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : 'relative'}>
             <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight transition-colors duration-300">
               AI Programs that helps to become a Professional
             </h2>
@@ -393,7 +394,9 @@ export default function DataProgramEIE() {
         {/* Main Content Area */}
         <main className="lg:w-3/4 space-y-24">
           {/* Section 1: Why this Program */}
-          <section id="why-this-program" className="scroll-mt-24">
+          <section id="why-this-program" className="scroll-mt-24 relative">
+            <img src="/redesign/ai-da/numpy.png" alt="Numpy" className="absolute h-24 w-24 -top-20 right-40" />
+
             <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Built for Real Analytics & Product Teams</h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
               This is not just a theory course. At AcceleratorX, you’ll work with real datasets, build end-to-end dashboards, perform product & user analysis, apply AI tools to automate analysis, and graduate with a capstone-grade analytics portfolio.
@@ -435,7 +438,8 @@ export default function DataProgramEIE() {
           </section>
 
           {/* Section 3: Tools */}
-          <section id="tools" className="scroll-mt-24">
+          <section id="tools" className="scroll-mt-24 relative">
+            <img src="/redesign/ai-da/Google-Analytics.png" className="absolute -left-96 top-10 h-24 w-24" />
             <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {DATA_TOOLS.map((tool, idx) => (
@@ -483,12 +487,12 @@ export default function DataProgramEIE() {
           {/* Section 5: Certificate */}
           <section id="certificate" className="scroll-mt-24">
             <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree</h3>
-            <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+            <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 transition-colors duration-300">
               <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1759121116707_thumbnail_DA.webp?alt=media&token=580278fb-675a-468f-a2b9-1e01ecf97f7f"
+                  src="/redesign/ai-da/DA.webp"
                   alt="AI Data Analytics Certificate"
-                  className="w-full h-auto border-4 border-white dark:border-gray-700 shadow-xl"
+                  className="w-full h-auto rounded-md shadow-xl"
                   onError={(e) => { e.currentTarget.src = "/assets/programcertificates/Gen_AI_Cert.webp" }}
                 />
               </div>
@@ -600,22 +604,7 @@ export default function DataProgramEIE() {
             </div>
           </section>
 
-          {/* Final CTA Section */}
-          <section className="text-center py-20  lg:mx-0 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/assets/grid-pattern.png')] opacity-10"></div>
-            <div className="relative z-10 max-w-3xl mx-auto px-6">
-              <h2 className="text-4xl font-serif font-bold text-white mb-6">Turn Data into Decisions — Faster with AI</h2>
-              <p className="text-blue-100 text-lg mb-10">
-                AcceleratorX helps you become a job-ready, AI-powered data analyst with real projects and real impact.
-              </p>
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="px-10 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
-              >
-                Apply Now
-              </button>
-            </div>
-          </section>
+
 
           <AnimatePresence>
             {showCancellationModal && (

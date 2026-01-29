@@ -5,6 +5,7 @@ import { SEO } from "../../../components/SEO";
 const AIDMHeroEIE = lazy(() => import("../AIDM/AIDMHeroEIE"));
 const AIDMWhoIsThisContentForEIE = lazy(() => import("../AIDM/AIDMWhoIsThisContentForEIE"));
 const AIDMProgramEIE = lazy(() => import("../AIDM/AIDMProgramEIE"));
+const AIDMFAQEIE = lazy(() => import("../AIDM/AIDMFAQEIE"));
 
 const AIDMEntry = () => {
   const {
@@ -28,6 +29,7 @@ const AIDMEntry = () => {
         <AIDMHeroEIE />
         <AIDMWhoIsThisContentForEIE />
         <AIDMProgramEIE />
+        <AIDMFAQEIE />
       </Suspense>
     </>
   );

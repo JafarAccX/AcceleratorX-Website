@@ -46,38 +46,38 @@ const FAQS = [
     },
     {
         question: "What kinds of AI programs does AcceleratorX offer?",
-        answer: "AcceleratorX offers comprehensive programs in AI-Powered Data Analytics, covering everything from data collection and cleaning to advanced analytics, machine learning, and AI-driven insights. Our curriculum is designed to make you job-ready with real-world projects and hands-on experience."
+        answer: "AcceleratorX offers comprehensive programs in AI-Powered Digital Marketing, covering everything from SEO and content creation to marketing automation and AI agents. Our curriculum is designed to make you job-ready with real-world projects and hands-on experience."
     },
     {
         question: "Will I receive a certificate after completing the program?",
-        answer: "Yes! Upon successful completion of the program, you'll receive an Industry-Recognized Nano Degree in AI-Powered Data Analytics. This certificate validates your skills in data analysis, visualization, statistical modeling, and AI-powered analytics."
+        answer: "Yes! Upon successful completion of the program, you'll receive an Industry-Recognized Nano Degree in AI-Powered Digital Marketing. This certificate validates your skills in running AI-driven campaigns, content creation, analytics, and marketing automation."
     },
     {
         question: "Are there real-world projects included in the course?",
-        answer: "Absolutely! You'll work with real datasets throughout the program, including a comprehensive capstone project. You'll build actual analytics dashboards, perform product and user analysis, create predictive models, and develop AI-powered analytics solutions that you can showcase in your portfolio."
+        answer: "Absolutely! You'll work on real campaigns throughout the program, including a comprehensive capstone project. You'll build actual marketing campaigns, create content using AI tools, run paid ads, and develop automated marketing workflows that you can showcase in your portfolio."
     },
     {
         question: "What kind of support is available if I get stuck during the program?",
-        answer: "You'll have access to mentors from leading companies, community support, and dedicated assistance throughout your learning journey. Our mentors include professionals from top analytics teams who provide guidance and answer your questions."
+        answer: "You'll have access to mentors from leading brands, community support, and dedicated assistance throughout your learning journey. Our mentors include professionals from companies like DrinkPrime, Neuwriter.ai, and other industry leaders who provide guidance and answer your questions."
     }
 ];
 
-export default function DataFAQEIE() {
+export default function AIDMFAQEIE() {
     return (
         <section className="relative py-20 mx-4 lg:mx-0 overflow-hidden rounded-3xl">
             {/* Background Image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/redesign/ai-da/astronot.webp')" }}
+                style={{ backgroundImage: "url('/redesign/ai-dm/pricing-bg.webp')" }}
             >
                 <div className="absolute inset-0 bg-black/40"></div>
             </div>
 
-            {/* Decorative Half Moon - Right */}
+            {/* Decorative Logo - Left */}
             <img
-                src="/redesign/ai-da/hald-space-moon.png"
-                alt="Half Moon"
-                className="absolute right-8 top-24 w-32 h-32 object-contain opacity-90 hidden lg:block"
+                src="/redesign/ai-dm/mailchamp.png"
+                alt="Mailchimp"
+                className="absolute left-8 top-24 w-20 h-20 object-contain opacity-80 hidden lg:block"
             />
 
             {/* Content */}

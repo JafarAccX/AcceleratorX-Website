@@ -63,7 +63,7 @@ export default function AIDMHeroEIE() {
     return (
         <section
             className="relative min-h-[800px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
-            style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
+            style={{ backgroundImage: "url('/redesign/ai-dm/dm.png')" }}
         >
             <div className="max-w-7xl mx-auto px-4 relative z-10">
 

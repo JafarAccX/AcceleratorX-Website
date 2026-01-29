@@ -25,7 +25,6 @@ const DataAnalyticsPage = () => {
         <DataHeroEIE />
         {/* // <HeroWithAbouv /> */}
         {/* <WhoIsThisContentForEIE /> */}
-
         <DataProgramEIE />
         <DataFAQEIE />
       </Suspense>

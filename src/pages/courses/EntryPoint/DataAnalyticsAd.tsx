@@ -1,6 +1,7 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
+import DataFAQEIE from "../dataanalytics/EIE/DataFAQEIE";
 
 const DataHeroEIE = lazy(() => import("../dataanalytics/EIE/DataHeroEIE"));
 const DataProgramEIE = lazy(() => import("../dataanalytics/EIE/DataProgramEIE"));
@@ -23,6 +24,8 @@ const DataAnalyticsAd = () => {
         <DataHeroEIE />
         <WhoIsThisContentForEIE />
         <DataProgramEIE />
+
+        <DataFAQEIE />
       </Suspense>
     </>
   );

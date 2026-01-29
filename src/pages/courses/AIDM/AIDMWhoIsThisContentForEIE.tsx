@@ -31,7 +31,10 @@ export default function AIDMWhoIsThisContentForEIE() {
 
     return (
         <section className="py-20 bg-white dark:bg-[#000000] transition-colors duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+                <img src="/redesign/ai-dm/claude.png" alt="claude" className="h-16 w-16 absolute -bottom-20 right-20" />
+                <img src="/redesign/ai-dm/copilot.png" alt="copilot" className="h-24 w-24 absolute top-20 right-40" />
+                <img src="/redesign/ai-dm/make.png" alt="make" className="h-24 w-24 absolute top-5 left-10" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -39,7 +42,7 @@ export default function AIDMWhoIsThisContentForEIE() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                    <div className="inline-block text-[#9EFF1F]  font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
                         Why Digital Marketing Now
                     </div>
 
