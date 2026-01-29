@@ -66,8 +66,11 @@ export default function ProgramHeroEIE() {
   return (
     <section
       className="relative min-h-[800px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
-      style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
     >
+
+      <div className="absolute inset-0 z-0 top-20 bg-no-repeat bg-cover bg-center"
+        style={{ backgroundImage: "url('/redesign/main-hero/main-lp-hero.png')" }}
+      />
       <div className="max-w-7xl mx-auto px-4 relative z-10">
 
         {/* Title Section */}
