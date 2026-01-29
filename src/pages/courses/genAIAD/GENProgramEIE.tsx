@@ -109,12 +109,12 @@ const AccordionItem = ({ item }: { item: any }) => {
                         exit={{ height: 0, opacity: 0 }}
                     >
                         <div className="p-5  text-gray-600 dark:text-gray-300 pt-4 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
-                            <p className="text-sm text-blue-600 dark:text-blue-400 italic mb-3 font-medium transition-colors duration-300">{item.goal}</p>
+                            <p className="text-sm text-[#FC6401] dark:text-[#FC6401] italic mb-3 font-medium transition-colors duration-300">{item.goal}</p>
                             <div className="mb-4">
                                 <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 text-xs uppercase tracking-wider transition-colors duration-300">Key Skills:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {item.skills.map((skill: string, sIdx: number) => (
-                                        <span key={sIdx} className="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded text-[10px] font-bold transition-colors duration-300">
+                                        <span key={sIdx} className="bg-orange-50 dark:bg-orange-900/30 text-[#FC6401] dark:text-[#FC6401] px-2 py-0.5 rounded text-[10px] font-bold transition-colors duration-300">
                                             {skill}
                                         </span>
                                     ))}
@@ -323,7 +323,7 @@ export default function GENProgramEIE() {
 
                 <aside
                     ref={sidebarRef}
-                    className={`lg:w-1/4 self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''
+                    className={`lg:w-1/4 relative self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''
                         }`}
                     style={isFixed ? {
                         width: `${sidebarWidth}px`,
@@ -331,7 +331,15 @@ export default function GENProgramEIE() {
                         maxHeight: 'calc(100vh - 4rem)'
                     } : {}}
                 >
-                    <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
+                    <img
+                        src="/redesign/gen-ai/deepseek.png"
+                        alt="Langchain"
+                        className="absolute -top-20 -left-10 object-contain w-24 h-24 opacity-80 hidden lg:block animate-float"
+                    />
+                    <div className={isFixed ? 'relative lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : 'relative'}>
+
+
+
                         <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight transition-colors duration-300">
                             AI Programs that help you become a Leader
                         </h2>
@@ -342,7 +350,7 @@ export default function GENProgramEIE() {
                                     key={section.id}
                                     onClick={() => scrollToSection(section.id)}
                                     className={`block pl-4 py-1 text-left text-sm font-medium transition-all duration-300 w-full ${activeSection === section.id
-                                        ? "border-l-2 border-blue-600 -ml-0.5 text-blue-600 font-bold"
+                                        ? "border-l-2 border-[#FC6401] -ml-0.5 text-[#FC6401] font-bold"
                                         : "text-gray-500 hover:text-gray-900"
                                         }`}
                                 >
@@ -372,7 +380,7 @@ export default function GENProgramEIE() {
                                 "This is how AI products are built in startups and enterprises today",
                             ].map((text, i) => (
                                 <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
-                                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[#FC6401] flex-shrink-0"></span>
                                     <span>{text}</span>
                                 </li>
                             ))}
@@ -422,7 +430,12 @@ export default function GENProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="mentors" className="scroll-mt-24">
+                    <section id="mentors" className="scroll-mt-24 relative">
+                        <img
+                            src="/redesign/gen-ai/coming-asr.png"
+                            alt="Langchain"
+                            className="absolute -bottom-20 -left-96 object-contain opacity-80 hidden lg:block animate-float"
+                        />
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Mentors from Top AI Labs</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                             {GEN_MENTORS.map((mentor, idx) => (
@@ -449,12 +462,12 @@ export default function GENProgramEIE() {
 
                     <section id="certificate" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Certification</h3>
-                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-8 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-8  transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
-                                    src="https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-recordings%2F1758277065291_thumbnail_PM_Cert_EIE.webp?alt=media&token=afe76364-aa9a-460f-a3c2-edcda829c3dd"
+                                    src="/redesign/gen-ai/GEN-AI.webp"
                                     alt="Generative AI Certificate"
-                                    className="w-full h-auto border-4 border-white dark:border-gray-700 transition-colors duration-300 shadow-xl"
+                                    className="w-full h-auto transition-colors duration-300 shadow-xl"
                                 />
                             </div>
                             <div className="w-full md:w-1/2">
@@ -473,7 +486,7 @@ export default function GENProgramEIE() {
                                         "Backed by real projects, real tools, and real deployments.",
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
-                                            <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                                            <div className="mt-0.5 w-4 h-4 rounded-full bg-orange-100 dark:bg-orange-900/30 text-[#FC6401] dark:text-[#FC6401] flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                                                 <Check size={10} />
                                             </div>
                                             {item}
@@ -485,7 +498,12 @@ export default function GENProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="career" className="scroll-mt-24">
+                    <section id="career" className="scroll-mt-24 relative">
+                        <img
+                            src="/redesign/gen-ai/midjourney.png"
+                            alt="Langchain"
+                            className="absolute top-0 -left-64 object-contain opacity-80 hidden lg:block animate-float"
+                        />
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Paths This Program Prepares You For</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
@@ -503,7 +521,7 @@ export default function GENProgramEIE() {
                                         <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
                                             {item.role}
                                         </h4>
-                                        <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">{item.pay}</span>
+                                        <span className="bg-orange-100 dark:bg-orange-900/30 text-[#FC6401] dark:text-[#FC6401] text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">{item.pay}</span>
                                     </div>
                                     <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
                                         {item.desc}
@@ -514,7 +532,12 @@ export default function GENProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="pricing" className="scroll-mt-24">
+                    <section id="pricing" className="scroll-mt-24 relative">
+                        <img
+                            src="/redesign/gen-ai/google-cloud.png"
+                            alt="google-cloud"
+                            className="absolute top-0 -left-64 object-contain opacity-80 hidden lg:block animate-float"
+                        />
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Make an Investment in Your AI-Ready Future</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
                             {[
@@ -531,9 +554,9 @@ export default function GENProgramEIE() {
                                     highlight: true
                                 }
                             ].map((plan, idx) => (
-                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-blue-500 dark:border-blue-500 shadow-md ring-1 ring-blue-500' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
+                                <div key={idx} className={`bg-orange-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-[#FC6401] dark:border-[#FC6401] shadow-md ring-1 ring-[#FC6401]' : 'border-orange-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
                                     {plan.highlight && (
-                                        <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                                        <div className="absolute top-0 right-0 bg-[#FC6401] text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                                             RECOMMENDED
                                         </div>
                                     )}
@@ -543,7 +566,7 @@ export default function GENProgramEIE() {
                                     </p>
 
                                     <div className="mb-2">
-                                        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
+                                        <span className="text-3xl font-bold text-[#FC6401] dark:text-[#FC6401] transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
                                         <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
                                     </div>
 
@@ -553,7 +576,7 @@ export default function GENProgramEIE() {
                                             <select
                                                 value={selectedBatchId || ''}
                                                 onChange={(e) => setSelectedBatchId(e.target.value)}
-                                                className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
+                                                className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-[#FC6401] focus:border-[#FC6401] bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
                                             >
                                                 {batches.map((batch) => (
                                                     <option key={batch.Id} value={batch.Id}>
@@ -566,16 +589,16 @@ export default function GENProgramEIE() {
 
                                     <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
                                         {plan.features.map((feat, i) => (
-                                            <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                                            <li key={i} className="flex gap-2"><Check size={16} className="text-[#FC6401] dark:text-[#FC6401] flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
                                         ))}
                                     </ul>
 
                                     {isAuthenticated ? (
-                                        <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-[#FC6401] hover:bg-[#E55A01] disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
                                             {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
                                         </button>
                                     ) : (
-                                        <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-[#FC6401] hover:bg-[#E55A01] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
                                             Sign in to Enroll <ArrowRight size={16} />
                                         </button>
                                     )}
@@ -592,7 +615,7 @@ export default function GENProgramEIE() {
                                     <p className="text-gray-600 dark:text-gray-400 mb-6 transition-colors duration-300">Your payment was not completed. Would you like to try again?</p>
                                     <div className="flex gap-4">
                                         <button onClick={() => setShowCancellationModal(false)} className="flex-1 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
-                                        <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(coursePrice.amount); }} className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Try Again</button>
+                                        <button onClick={() => { setShowCancellationModal(false); handleBuyCourse(coursePrice.amount); }} className="flex-1 py-2 bg-[#FC6401] text-white rounded-lg hover:bg-[#E55A01] transition-colors">Try Again</button>
                                     </div>
                                 </motion.div>
                             </motion.div>

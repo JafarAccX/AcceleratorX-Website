@@ -13,8 +13,8 @@ export default function GENWhoIsThisContentForEIE() {
         },
         {
             icon: Briefcase,
-            iconColor: "text-blue-600 dark:text-blue-400",
-            iconBg: "bg-blue-100 dark:bg-blue-900/30",
+            iconColor: "text-[#FC6401] dark:text-[#FC6401]",
+            iconBg: "bg-orange-100 dark:bg-orange-900/30",
             value: "97M+",
             label: "new AI & data jobs",
             description: "Over 100 million jobs will be transformed or created by Generative AI integration."
@@ -30,16 +30,27 @@ export default function GENWhoIsThisContentForEIE() {
     ];
 
     return (
-        <section className="py-20 bg-white dark:bg-[#000000] transition-colors duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="py-20 bg-white dark:bg-[#000000] transition-colors duration-300 relative overflow-hidden">
+            {/* Rocket Icon - Left Side */}
+            <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#FC6401] dark:text-[#FC6401] opacity-60 rotate-45">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" fillOpacity="0.2" />
+                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" fillOpacity="0.2" />
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
+                    className="relative"
                 >
-                    <div className="inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                    <div className="inline-block bg-orange-50 dark:bg-orange-900/30 text-[#FC6401] dark:text-[#FC6401] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
                         Generative AI - Market Scope
                     </div>
 
@@ -50,6 +61,16 @@ export default function GENWhoIsThisContentForEIE() {
                     <p className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         Generative AI is no longer experimental. Companies are actively adopting LLMs, AI agents, and automation systems to replace manual workflows, scale decision-making, and build intelligent products.
                     </p>
+                    <img
+                        src="/redesign/gen-ai/chatgpt.png"
+                        alt="Langchain"
+                        className="absolute -right-24 top-24 w-16 h-16 object-contain opacity-80 hidden lg:block animate-float"
+                    />
+                    <img
+                        src="/redesign/gen-ai/ast2.png"
+                        alt="Langchain"
+                        className="absolute -right-24 top-44  object-contain opacity-80 hidden lg:block animate-float"
+                    />
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

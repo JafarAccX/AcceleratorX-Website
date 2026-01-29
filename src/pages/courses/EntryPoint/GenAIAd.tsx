@@ -5,6 +5,7 @@ import { SEO } from "../../../components/SEO";
 const GENHeroEIE = lazy(() => import("../genAIAD/GENHeroEIE"));
 const GENWhoIsThisContentForEIE = lazy(() => import("../genAIAD/GENWhoIsThisContentForEIE"));
 const GENProgramEIE = lazy(() => import("../genAIAD/GENProgramEIE"));
+const GENFAQEIE = lazy(() => import("../genAIAD/GENFAQEIE"));
 
 const GenAICourseAD = () => {
   const {
@@ -23,6 +24,7 @@ const GenAICourseAD = () => {
         <GENHeroEIE />
         <GENWhoIsThisContentForEIE />
         <GENProgramEIE />
+        <GENFAQEIE />
       </Suspense>
     </>
   );

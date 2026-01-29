@@ -66,6 +66,13 @@ export default function GENHeroEIE() {
             className="relative min-h-[800px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
             style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
         >
+            {/* Decorative Images */}
+            <img
+                src="/redesign/gen-ai/claude.png"
+                alt="Claude AI"
+                className="absolute right-8 top-32 w-16 h-16 object-contain opacity-80 hidden lg:block animate-float-delayed"
+            />
+
             <div className="max-w-7xl mx-auto px-4 relative z-10">
 
                 {/* Title Section */}
@@ -90,7 +97,10 @@ export default function GENHeroEIE() {
                     className="w-full h-px bg-white/20 mb-10 origin-left"
                 ></motion.div>
 
-                <div className="grid lg:grid-cols-12 gap-8 items-start">
+                {/* Ellipse Background - Behind Description */}
+
+
+                <div className="grid lg:grid-cols-12 gap-8 items-start relative z-10">
                     {/* Left Col - Program Badge */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -109,8 +119,12 @@ export default function GENHeroEIE() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="lg:col-span-8 items-end flex flex-col gap-4"
+                        className="lg:col-span-8 items-end flex flex-col gap-4 relative bg-red"
                     >
+                        <div
+                            className="absolute -right-32 top-2/3 -translate-y-1/2 w-[1080px] h-[1080px] bg-contain bg-center bg-no-repeat opacity-40 dark:opacity-30 pointer-events-none"
+                            style={{ backgroundImage: "url('/redesign/gen-ai/elips.webp')" }}
+                        ></div>
                         <p className="text-gray-200 text-lg leading-relaxed mb-10 max-w-2xl text-right lg:text-left">
                             Learn to build, automate, and deploy real-world AI systems using Generative AI, LLMs, autonomous agents, and production-grade workflows.
                         </p>
@@ -139,8 +153,13 @@ export default function GENHeroEIE() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-24 flex flex-row gap-4 md:gap-6  lg:w-[240px]"
+                    className="mt-24 flex flex-row gap-4 md:gap-6  lg:w-[240px] relative"
                 >
+                    <img
+                        src="/redesign/gen-ai/langchain.png"
+                        alt="Langchain"
+                        className="absolute -left-24 top-24 w-16 h-16 object-contain opacity-80 hidden lg:block animate-float"
+                    />
                     {/* Stat 1 */}
                     <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-all duration-300">
                         <div className="mb-1 md:mb-2"><Counter end={16} suffix=" LPA" /></div>
