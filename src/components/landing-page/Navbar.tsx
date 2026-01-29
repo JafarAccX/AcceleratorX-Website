@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import companyLogo from "/redesign/logo-bg-black.webp";
+import companyLogo from "/redesign/logo-no-bg.webp";
 import { useUser } from "../../context/UserContext";
 import ProfileMenu from "../navbar/ProfileMenu";
 import ThemeToggle from "../ThemeToggle";
