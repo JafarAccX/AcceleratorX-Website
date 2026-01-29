@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import AppDownloadPOP from "../components/AppDownloadPOP";
 import { getRouteLayout } from "../utils/layoutUtils";
 import Navbar from "../components/landing-page/Navbar";
+import JetAnimation from "../components/JetAnimation";
 
 const Footer = lazy(() => import("../components/Footer"));
 const EnrollmentModal = lazy(() => import("../components/EnrollmentModal"));

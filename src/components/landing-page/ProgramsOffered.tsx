@@ -174,125 +174,43 @@ export default function ProgramsOffered() {
                                     {/* Glassmorphic Shadow Background */}
                                     <div className="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700" />
 
-                                    <div className="relative rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] bg-gradient-to-br from-[#4facfe] to-[#00f2fe] p-[1.5px]">
-                                        <div className="rounded-[1.9rem] overflow-hidden bg-white/20 backdrop-blur-3xl aspect-[1.4/1] relative">
-                                            {/* Representing the mock/code UI in the screenshot */}
-                                            <div className="absolute inset-0 flex items-center justify-center p-8">
-                                                <div className="w-full h-full bg-[#0B0D11] rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-white/5">
-                                                    {/* Browser Header */}
-                                                    <div className="h-8 bg-[#1A1D23] flex items-center px-4 gap-2 flex-shrink-0 border-b border-white/5">
-                                                        <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80" />
-                                                        <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80" />
-                                                        <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]/80" />
-                                                        {program.id === 'ai-data-analytics' && (
-                                                            <div className="ml-auto text-[10px] font-mono text-gray-500 opacity-60">Stable Diffusion Cold Starts</div>
-                                                        )}
-                                                    </div>
-                                                    <div className="p-6 font-mono text-[13px] md:text-[14px] text-white/90 leading-relaxed selection:bg-blue-500/30">
-                                                        {program.id === 'ai-product-management' && (
-                                                            <pre className="whitespace-pre-wrap">
-                                                                <span className="text-pink-400">01</span>  inference_image = (<br />
-                                                                <span className="text-pink-400">02</span>      Image.debian_slim()<br />
-                                                                <span className="text-pink-400">03</span>      .uv_pip_install(<br />
-                                                                <span className="text-pink-400">04</span>          <span className="text-green-400">"torch==2.7.1"</span>,<br />
-                                                                <span className="text-pink-400">05</span>          <span className="text-green-400">"transformers==4.53.2"</span>,<br />
-                                                                <span className="text-pink-400">06</span>      )<br />
-                                                                <span className="text-pink-400">07</span>  )<br />
-                                                                <span className="text-pink-400">08</span>  @app.function(image=inference_image, gpu=<span className="text-green-400">"B200"</span>)<br />
-                                                                <span className="text-pink-400">09</span>  <span className="text-blue-400">def</span> <span className="text-yellow-400">inference</span>():<br />
-                                                                <span className="text-pink-400">10</span>  ...
-                                                            </pre>
-                                                        )}
-                                                        {program.id === 'ai-data-analytics' && (
-                                                            <div className="space-y-4 pt-2">
-                                                                <div className="flex justify-between items-center text-green-400">
-                                                                    <span>Modal (with memory snapshots)</span>
-                                                                    <span className="text-white/60">0.08s</span>
-                                                                </div>
-                                                                <div className="flex justify-between items-center text-green-400">
-                                                                    <span>Modal</span>
-                                                                    <span className="text-white/60">0.08s</span>
-                                                                </div>
-                                                                <div className="flex justify-between items-center text-white/70">
-                                                                    <span>Provider A</span>
-                                                                    <span className="text-white/60">8s</span>
-                                                                </div>
-                                                                <div className="flex justify-between items-center text-white/70">
-                                                                    <span>Provider B</span>
-                                                                    <span className="text-white/60">8s</span>
-                                                                </div>
-                                                                <div className="flex justify-between items-center text-white/70">
-                                                                    <span>Kubernetes + EC2</span>
-                                                                    <span className="text-white/60">8s</span>
-                                                                </div>
-                                                            </div>
-                                                        )}
-                                                        {program.id === 'generative-ai' && (
-                                                            <div className="space-y-6 pt-2">
-                                                                <div className="flex items-center gap-4">
-                                                                    <span className="bg-white/5 py-1 px-3 rounded-md text-[11px] text-gray-400">gpu= <span className="text-white">"B200"</span></span>
-                                                                </div>
-                                                                <div className="flex items-center gap-2">
-                                                                    <span className="text-pink-400">01</span>
-                                                                    <span className="text-blue-400">@app.function</span>(
-                                                                    <span className="bg-white/10 py-1 px-4 rounded-md text-[11px] text-green-400 border border-white/10">gpu=<span className="text-white">"A100"</span></span>
-                                                                    )
-                                                                </div>
-                                                                <div className="flex items-center gap-4 pl-8">
-                                                                    <span className="bg-white/5 py-1 px-3 rounded-md text-[11px] text-gray-400">gpu= <span className="text-white">"H100"</span></span>
-                                                                </div>
-                                                                <div className="grid grid-cols-2 gap-8 pt-4 border-t border-white/5">
-                                                                    <div>
-                                                                        <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Capacity</div>
-                                                                        <div className="text-green-400 text-xs bg-green-400/10 px-2 py-0.5 rounded inline-block">1,500+</div>
-                                                                    </div>
-                                                                    <div>
-                                                                        <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Regions</div>
-                                                                        <div className="flex flex-wrap gap-1 text-[9px] text-gray-400">
-                                                                            <span className="bg-white/5 px-2 py-0.5 rounded">eu-west</span>
-                                                                            <span className="bg-white/5 px-2 py-0.5 rounded">us-east</span>
-                                                                            <span className="bg-white/5 px-2 py-0.5 rounded">...</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        )}
-                                                        {program.id === 'ai-digital-marketing' && (
-                                                            <div className="space-y-6">
-                                                                <div className="flex justify-between items-center">
-                                                                    <div className="flex items-center gap-1.5 font-sans">
-                                                                        <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                                                                        <span className="text-[11px] text-gray-300">Live Usage</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="grid grid-cols-2 gap-8 pt-4">
-                                                                    <div className="space-y-1">
-                                                                        <div className="text-[10px] text-gray-500">Time <span className="ml-1 text-white">00:00am</span></div>
-                                                                        <div className="text-[10px] text-gray-500">Containers <span className="ml-1 text-white">4</span></div>
-                                                                        <div className="text-[10px] text-gray-500">GPU Utilization <span className="ml-1 text-white">87%</span></div>
-                                                                    </div>
-                                                                </div>
-                                                                {/* Visual Graph Mock */}
-                                                                <div className="h-28 w-full flex items-end gap-[2px] pt-4 relative">
-                                                                    <svg className="absolute inset-x-0 bottom-0 w-full h-full text-green-500/80" preserveAspectRatio="none" viewBox="0 0 100 100">
-                                                                        <path d="M0 80 L15 100 L30 85 L45 95 L60 65 L75 75 L90 50 L100 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                                                                        <path d="M0 80 L15 100 L30 85 L45 95 L60 65 L75 75 L90 50 L100 60 V100 H0 Z" fill="url(#graph-gradient)" opacity="0.15" />
-                                                                        <defs>
-                                                                            <linearGradient id="graph-gradient" x1="0" x2="0" y1="0" y2="1">
-                                                                                <stop offset="0%" stopColor="currentColor" />
-                                                                                <stop offset="100%" stopColor="transparent" />
-                                                                            </linearGradient>
-                                                                        </defs>
-                                                                    </svg>
-                                                                    <div className="absolute bottom-8 right-8 bg-[#1A1D23] rounded-md px-3 py-1 border border-white/5 shadow-xl">
-                                                                        <span className="text-[10px] text-gray-400">1028 GPUs</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div className="relative rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] aspect-[1.4/1]">
+                                        {/* Background Image */}
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center"
+                                            style={{ backgroundImage: "url('/redesign/main-page/card-bg.webp')" }}
+                                        />
+
+                                        {/* Program-specific Overlay Image */}
+                                        <div className="absolute inset-0 flex items-center justify-center p-8">
+                                            {program.id === 'ai-product-management' && (
+                                                <img
+                                                    src="/redesign/main-page/ai-pm.webp"
+                                                    alt="AI Product Management"
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            )}
+                                            {program.id === 'ai-data-analytics' && (
+                                                <img
+                                                    src="/redesign/main-page/da.webp"
+                                                    alt="AI Data Analytics"
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            )}
+                                            {program.id === 'generative-ai' && (
+                                                <img
+                                                    src="/redesign/main-page/ganai.webp"
+                                                    alt="Generative AI"
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            )}
+                                            {program.id === 'ai-digital-marketing' && (
+                                                <img
+                                                    src="/redesign/main-page/dm.webp"
+                                                    alt="AI Digital Marketing"
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            )}
                                         </div>
                                     </div>
                                 </div>
