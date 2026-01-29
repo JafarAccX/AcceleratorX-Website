@@ -423,13 +423,13 @@ export default function ProductProgramEIE() {
 
     return (
         <div className="dark:bg-[#000000] py-20 text-[#0A0F1E] dark:text-white transition-colors duration-300">
-            <div ref={containerRef} className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row gap-12">
+            <div ref={containerRef} className="max-w-7xl  mx-auto px-4 lg:px-8 flex flex-col lg:flex-row gap-12">
 
                 {isFixed && <div className="lg:w-1/4 flex-shrink-0" style={{ width: `${sidebarWidth}px`, maxWidth: `${sidebarWidth}px` }} />}
 
                 <aside
                     ref={sidebarRef}
-                    className={`lg:w-1/4 self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''
+                    className={`lg:w-1/4 relative self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''
                         }`}
                     style={isFixed ? {
                         width: `${sidebarWidth}px`,
@@ -437,6 +437,8 @@ export default function ProductProgramEIE() {
                         maxHeight: 'calc(100vh - 4rem)'
                     } : {}}
                 >
+                    <img src="/redesign/ai-pm/Google-Analytics.png" alt="Google Analytics" className="h-16 w-16 absolute -top-16 -left-20" />
+
                     <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
                         <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight transition-colors duration-300">
                             AI Programs that help you become a Leader
@@ -483,12 +485,14 @@ export default function ProductProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-12 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="curriculum" className="scroll-mt-24">
+                    <section id="curriculum" className="scroll-mt-24 relative">
+                        <img src="/redesign/ai-pm/github.png" alt="github" className="h-16 w-16 absolute top-40 -right-20" />
+
                         <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">LEARNING JOURNEY (CORE PM + AI PM)</h3>
                         <p className="text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">
                             A comprehensive journey covering everything from user research to AI scaling.
                         </p>
-                        <div>
+                        <div className="relative">
                             {CURRICULUM.map((week, idx) => (
                                 <AccordionItem key={idx} week={week} />
                             ))}
@@ -497,6 +501,7 @@ export default function ProductProgramEIE() {
                             <button className="px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-colors flex items-center gap-2">
                                 Download Full Curriculum <ChevronDown size={18} />
                             </button>
+                            <img src="/redesign/ai-pm/ast.png" alt="slack" className="absolute bottom-40 -left-[400px]" />
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
@@ -520,13 +525,16 @@ export default function ProductProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="mentors" className="scroll-mt-24">
+                    <section id="mentors" className="scroll-mt-24 relative">
+                        <img src="/redesign/ai-pm/mentor-section-bg.png" alt="mentor-section-bg" className="absolute bottom-40 -left-[320px] rotate-12" />
+
                         <h3 className="text-2xl font-serif font-bold mb-8">Mentors from Top Tech Leaders</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {PM_MENTORS.map((mentor, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all"
+                                    className="bg-gray-50 relative dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all"
                                 >
                                     <div className="aspect-square bg-gray-200 dark:bg-gray-600 relative overflow-hidden">
                                         <img
@@ -547,10 +555,10 @@ export default function ProductProgramEIE() {
 
                     <section id="certificate" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree in Product Management</h3>
-                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-8 border border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+                        <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-8  transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
-                                    src="/assets/programcertificates/PM_Cert_EIE.webp"
+                                    src="/redesign/ai-pm/PM-certificate.webp"
                                     alt="Product Management Certificate"
                                     className="w-full h-auto"
                                 />
@@ -613,7 +621,8 @@ export default function ProductProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="pricing" className="scroll-mt-24">
+                    <section id="pricing" className="scroll-mt-24 relative">
+                        <img src="/redesign/ai-pm/Miro-Logo.png" alt="Miro-Logo" className="absolute w-24 h-24 bottom-40 -left-[400px] rotate-12" />
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in Your Product Management Career</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
                             {[

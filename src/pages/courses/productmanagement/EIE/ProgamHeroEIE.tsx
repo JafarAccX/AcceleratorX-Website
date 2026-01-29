@@ -65,13 +65,13 @@ export default function ProgramHeroEIE() {
 
   return (
     <section
-      className="relative min-h-[800px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
+      className="relative min-h-[800px] pt-20 h-screen overflow-hidden"
     >
 
-      <div className="absolute inset-0 z-0 top-20 bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: "url('/redesign/main-hero/main-lp-hero.png')" }}
+      <div className="absolute inset-0 z-0 bg-no-repeat bg-cover bg-top"
+        style={{ backgroundImage: "url('/redesign/ai-pm/ai-pm-bg.webp')" }}
       />
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 relative z-10 pt-20">
 
         {/* Title Section */}
         <motion.div

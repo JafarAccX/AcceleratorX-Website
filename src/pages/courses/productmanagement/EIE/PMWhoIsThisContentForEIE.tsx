@@ -30,7 +30,8 @@ export default function PMWhoIsThisContentForEIE() {
     ];
 
     return (
-        <section className="py-20 bg-white dark:bg-[#000000] transition-colors duration-300">
+        <section className="py-20 relative bg-white dark:bg-[#000000] transition-colors duration-300">
+            <img src="/redesign/ai-pm/slack.png" alt="slack" className="h-16 w-16 absolute top-40 right-40" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
                 <motion.div
