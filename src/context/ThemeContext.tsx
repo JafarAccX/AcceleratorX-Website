@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, ReactNode } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -11,17 +11,8 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-    const [theme, setThemeState] = useState<Theme>(() => {
-        // Skip localStorage access on server-side
-        if (typeof window === 'undefined') return 'dark';
-
-        // Check localStorage first
-        const savedTheme = localStorage.getItem('theme') as Theme | null;
-        if (savedTheme) return savedTheme;
-
-        // Default to dark mode for the website
-        return 'dark';
-    });
+    // Always use dark mode - no state needed
+    const theme: Theme = 'dark';
 
     useEffect(() => {
         // Skip on server-side
@@ -32,19 +23,23 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         // Remove both classes first
         root.classList.remove('light', 'dark');
 
-        // Add the current theme class
-        root.classList.add(theme);
+        // Always add dark class
+        root.classList.add('dark');
 
-        // Save to localStorage
-        localStorage.setItem('theme', theme);
-    }, [theme]);
+        // Remove any saved theme preference to enforce dark mode
+        localStorage.removeItem('theme');
+    }, []);
 
+    // Disabled toggle - does nothing
     const toggleTheme = () => {
-        setThemeState(prev => prev === 'light' ? 'dark' : 'light');
+        // Theme toggle is disabled - always dark mode
+        console.log('Theme toggle is disabled. Website is locked to dark mode.');
     };
 
-    const setTheme = (newTheme: Theme) => {
-        setThemeState(newTheme);
+    // Disabled setter - does nothing
+    const setTheme = (_newTheme: Theme) => {
+        // Theme setting is disabled - always dark mode
+        console.log('Theme setting is disabled. Website is locked to dark mode.');
     };
 
     return (

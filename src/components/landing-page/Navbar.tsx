@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import companyLogo from "/redesign/logo-no-bg.webp";
 import { useUser } from "../../context/UserContext";
 import ProfileMenu from "../navbar/ProfileMenu";
-import ThemeToggle from "../ThemeToggle";
 
 // Add CSS classes for transitions
 const dropdownTransition = "transition-all duration-300 ease-in-out";
@@ -243,8 +242,7 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              {/* Theme Toggle */}
-              <ThemeToggle />
+
 
               {isAuthenticated ? (
                 <ProfileMenu />
@@ -388,10 +386,7 @@ export default function Navbar() {
                         Sign Up
                       </Link>
                     </div>
-                  )}\n                  \n                  {/* Theme Toggle */}
-                  <div className="flex justify-center pt-4">
-                    <ThemeToggle />
-                  </div>
+                  )}
                 </div>
               </div>
             </motion.div>
