@@ -12,6 +12,7 @@ export const COURSE_IDS = {
     GENAI_FOR_PM: 'f2e1d0c9-8b7a-4693-a5d4-563340123456',
     AI_DATA_ANALYTICS_SELF_PACED: 'f2e1d0c9-8b7a-4693-a5d4-563340654333',
     N8N_WORKFLOW: 'a2f9d4b7-1c6e-4f3a-8b2d-9c123456abcd',
+    DATA_SCIENCE: 'd3f4e5d6-c7b8-4a9b-8d7c-6b5a4b3a2a1b',
 } as const;
 
 // Course prices configuration
@@ -50,5 +51,12 @@ export const COURSE_PRICES = {
         amountInPaise: 2499900,
         gstPercentage: 18,
         name: 'GenAI for Product Managers'
+    },
+    DATA_SCIENCE: {
+        courseId: COURSE_IDS.DATA_SCIENCE,
+        amount: 32499,
+        amountInPaise: 3249900,
+        gstPercentage: 18,
+        name: 'Data Science Career Accelerator'
     },
 } as const;

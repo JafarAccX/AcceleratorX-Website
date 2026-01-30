@@ -21,9 +21,15 @@ const ProductManagementPageEIE = lazy(
 
 const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
 const AdvanceGenAIEntry = lazy(() => import("../pages/courses/EntryPoint/AdvanceGenAIEntry"));
+const DataScienceEntry = lazy(() => import("../pages/courses/EntryPoint/DataScienceEntry"));
 
 export const courseRoutes = [
   // Main Course Routes
+  <Route
+    key="course-data-science"
+    path="/courses/data-science"
+    element={<DataScienceEntry />}
+  />,
   <Route
     key="course-advance-genai"
     path="/courses/advance-generative-ai"

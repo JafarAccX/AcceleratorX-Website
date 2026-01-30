@@ -196,7 +196,7 @@ export default function AdvanceGenAIProgramEIE() {
                     style={isFixed ? { width: sidebarWidth } : {}}
                 >
                     <div className="relative">
-                        <img src="/redesign/advance-gen-ai/crewai%201.png" alt="ai" className="h-10 absolute -top-16 left-0 opacity-40 animate-float" />
+                        <img src="/redesign/advance-gen-ai/astroid.webp" alt="ai" className="absolute -top-16 left-0 opacity-40 animate-float" />
                         <h2 className="text-3xl font-serif font-bold mb-10 leading-tight">
                             Build AI Agents. <br /><span className="italic font-light">Not Just AI Skills.</span>
                         </h2>

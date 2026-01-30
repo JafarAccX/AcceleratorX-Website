@@ -40,6 +40,14 @@ const BROCHURES: Record<string, { title: string; url: string }> = {
     title: "AI Powered Data Analytics",
     url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293290835_notes_AI_Powered_DA_Brochure.pdf?alt=media&token=1bbeb25b-e1aa-49e2-8752-3e7a6b7b4e52",
   },
+  "Advance Generative AI": {
+    title: "Advance Generative AI & AI Agent Building",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1761905010664_notes_new_AcceleratorX_Gen_AI_Brochure-compressed.pdf?alt=media&token=53d0ad2d-4d03-435c-8d31-4c03fc476c78",
+  },
+  "Data Science": {
+    title: "Data Science Career Accelerator",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293290835_notes_AI_Powered_DA_Brochure.pdf?alt=media&token=1bbeb25b-e1aa-49e2-8752-3e7a6b7b4e52",
+  },
 };
 
 // Helper to resolve brochure by (possibly varied) course name

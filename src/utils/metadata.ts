@@ -144,6 +144,13 @@ export const pageMetadata: Record<string, PageMetadata> = {
     ogDescription: "Learn data analytics skills to analyze, visualize, and make smarter decisions.",
     canonicalUrl: "https://acceleratorx.org/courses/data-analytics"
   },
+  "/courses/data-science": {
+    title: "Data Science Career Accelerator | AcceleratorX",
+    description: "Become a Production-Ready Data Scientist. Build real ML systems, not just notebooks. 25 Live Sessions • Build-First • 2025 Ready.",
+    ogTitle: "AcceleratorX Data Science Career Accelerator",
+    ogDescription: "Build real ML systems and master production-ready Data Science with AcceleratorX's intensive 25-session program.",
+    canonicalUrl: "https://acceleratorx.org/courses/data-science"
+  },
 
   "/courses/product-management": {
     title: "Product Management Course | AcceleratorX",

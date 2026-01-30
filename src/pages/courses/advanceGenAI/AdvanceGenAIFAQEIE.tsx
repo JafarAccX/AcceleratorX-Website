@@ -35,7 +35,6 @@ export default function AdvanceGenAIFAQEIE() {
             className="py-24 bg-cover bg-center transition-colors duration-300 relative"
             style={{ backgroundImage: "url('/redesign/advance-gen-ai/faq-bg.webp')" }}
         >
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
             <div className="max-w-4xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">

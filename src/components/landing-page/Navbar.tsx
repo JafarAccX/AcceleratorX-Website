@@ -59,6 +59,7 @@ export default function Navbar() {
     { label: "AI Product Management", path: "/courses/product-management" },
     { label: "AI Digital Marketing", path: "/courses/ai-digital-marketing" },
     { label: "AI Data Analytics", path: "/courses/data-analytics" },
+    { label: "AI Data Science", path: "/courses/data-science" },
     { label: "Generative AI", path: "/courses/generative-ai" },
     { label: "Advance Gen AI", path: "/courses/advance-generative-ai" },
   ];
