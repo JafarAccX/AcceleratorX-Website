@@ -5,7 +5,6 @@ import { Route } from "react-router-dom";
 const ProductManagementEntry = lazy(() => import("../pages/courses/EntryPoint/ProductManagementEntry"));
 const DataAnalyticsEntry = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsEntry"));
 const DataAnalyticsAd = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsAd"));
-const GenAiForPMEntry = lazy(() => import("../pages/courses/EntryPoint/GenAiForPMEntry"));
 
 // Course Pages
 const GenAICourse = lazy(
@@ -42,7 +41,6 @@ export const courseRoutes = [
   />,
   <Route key="course-da-entry" path="/courses/data-analytics" element={<DataAnalyticsEntry />} />,
   <Route key="course-genai-entry" path="/courses/generative-ai" element={<GenAICourse />} />,
-  <Route key="course-genai-pm" path="/courses/gen-ai-for-pms" element={<GenAiForPMEntry />} />,
   <Route key="course-aidm" path="/courses/ai-digital-marketing" element={<AIDMEntry />} />,
 
   // Ad Course Routes
