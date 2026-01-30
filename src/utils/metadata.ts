@@ -112,6 +112,15 @@ export const pageMetadata: Record<string, PageMetadata> = {
     canonicalUrl: "https://acceleratorx.org/courses/generative-ai"
   },
 
+  "/courses/advance-generative-ai": {
+    title: "Advance Generative AI & AI Agent Building | AcceleratorX",
+    description: "Master the art of building autonomous AI agents, multi-agent systems, and production-ready intelligent workflows in our 10-week specialized program.",
+    ogTitle: "Advance Generative AI - Build AI Agents",
+    ogDescription: "The most comprehensive program on building autonomous AI agents and multi-agent systems.",
+    ogImage: "/redesign/advance-gen-ai/hero-bg.webp",
+    canonicalUrl: "https://acceleratorx.org/courses/advance-generative-ai"
+  },
+
   "/courses/generative-ai-fb": {
     title: "Generative AI Fast-Track Course | AcceleratorX",
     description: "Enroll in AcceleratorX's fast-track Generative AI program designed to help professionals quickly adopt AI tools and applications.",
@@ -142,14 +151,6 @@ export const pageMetadata: Record<string, PageMetadata> = {
     ogTitle: "AcceleratorX Product Management Course",
     ogDescription: "Master product frameworks and tools in AcceleratorX's PM course.",
     canonicalUrl: "https://acceleratorx.org/courses/product-management"
-  },
-
-  "/courses/gen-ai-for-pms": {
-    title: "Generative AI for Product Managers | AcceleratorX",
-    description: "Learn how Product Managers can use Generative AI for product strategy, automation, and innovation in AcceleratorX's specialized course.",
-    ogTitle: "AcceleratorX GenAI for PMs Course",
-    ogDescription: "Discover Generative AI applications tailored for Product Managers.",
-    canonicalUrl: "https://acceleratorx.org/courses/gen-ai-for-pms"
   },
 
   "/courses/product-management-program-fb": {

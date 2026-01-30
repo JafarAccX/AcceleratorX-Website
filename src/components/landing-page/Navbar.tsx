@@ -57,18 +57,10 @@ export default function Navbar() {
 
   const courses = [
     { label: "AI Product Management", path: "/courses/product-management" },
-    { label: "Generative AI for Product Managers", path: "/courses/gen-ai-for-pms" },
     { label: "AI Digital Marketing", path: "/courses/ai-digital-marketing" },
     { label: "AI Data Analytics", path: "/courses/data-analytics" },
     { label: "Generative AI", path: "/courses/generative-ai" },
-    // {
-    //   label: "AI Performance Marketing",
-    //   path: "/courses/advance-performance-marketing-with-ai",
-    // },
-    // {
-    //   label: "Automation with n8n",
-    //   path: "/courses/n8n-automation",
-    // },
+    { label: "Advance Gen AI", path: "/courses/advance-generative-ai" },
   ];
 
   if (isXSATRoute) {

@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import LottieLoader from "./components/LottieLoader";
@@ -17,9 +17,17 @@ const queryClient = new QueryClient();
 
 function AppContent() {
   const { isLoading } = useUser();
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Only show loader on client-side when actually loading
-  if (typeof window !== 'undefined' && isLoading) {
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // On initial load, isLoading is true. 
+  // On server, we render the app content.
+  // On client, we must also render app content for the first pass to avoid hydration mismatch.
+  // After hydration (isMounted = true), if we are still loading, then we can show the loader.
+  if (isMounted && isLoading) {
     return <LottieLoader />;
   }
 
