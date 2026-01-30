@@ -19,8 +19,8 @@ export const MetaTrackingDebugger: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Only show in development
-  if (import.meta.env.MODE !== 'development') {
+  // Only show in local development or if explicitly enabled
+  if (import.meta.env.MODE !== 'development' || !window.location.hostname.includes('localhost')) {
     return null;
   }
 
@@ -46,41 +46,41 @@ export const MetaTrackingDebugger: React.FC = () => {
           ✕
         </button>
       </div>
-      
+
       {debugInfo && (
         <div className="space-y-2">
           <div>
             <strong>Cached Events:</strong> {debugInfo.cachedEvents}
           </div>
-          
+
           <div>
             <strong>Initialized Pixels:</strong>
             <div className="ml-2">
-              {debugInfo.initializedPixels.length > 0 
+              {debugInfo.initializedPixels.length > 0
                 ? debugInfo.initializedPixels.map(pixel => (
-                    <div key={pixel} className="text-green-400">
-                      ✓ {pixel.slice(-6)}
-                    </div>
-                  ))
+                  <div key={pixel} className="text-green-400">
+                    ✓ {pixel.slice(-6)}
+                  </div>
+                ))
                 : <div className="text-red-400">None</div>
               }
             </div>
           </div>
-          
+
           <div>
             <strong>Recent Events:</strong>
             <div className="ml-2 max-h-40 overflow-y-auto">
-              {debugInfo.events.length > 0 
+              {debugInfo.events.length > 0
                 ? debugInfo.events.slice(-5).map(([, event], idx) => (
-                    <div key={idx} className="text-blue-400 text-xs">
-                      {event.eventType} | {event.route} | {event.eventId.slice(-6)}
-                    </div>
-                  ))
+                  <div key={idx} className="text-blue-400 text-xs">
+                    {event.eventType} | {event.route} | {event.eventId.slice(-6)}
+                  </div>
+                ))
                 : <div className="text-gray-400">None</div>
               }
             </div>
           </div>
-          
+
           <div className="pt-2 border-t border-gray-700">
             <div><strong>Route:</strong> {window.location.pathname}</div>
             <div><strong>Meta Event ID:</strong> {window.__META_EVENT_ID__?.slice(-6) || 'None'}</div>
