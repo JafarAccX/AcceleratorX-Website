@@ -12,13 +12,13 @@ interface Mentor {
 }
 
 const mentors: Mentor[] = [
-    {
-        name: "Himangi Sharma",
-        image: "/advance-crashcourse/builders/nitya.png", // Placeholder
-        role: "Data Scientist",
-        company: "Mastercard",
-        linkedin: "https://www.linkedin.com/in/himangi-sharma"
-    },
+    // {
+    //     name: "Himangi Sharma",
+    //     image: "/advance-crashcourse/builders/nitya.png", // Placeholder
+    //     role: "Data Scientist",
+    //     company: "Mastercard",
+    //     linkedin: "https://www.linkedin.com/in/himangi-sharma"
+    // },
     {
         name: "Ashu Mishra",
         image: "/advance-crashcourse/builders/ashu.png",
@@ -26,11 +26,11 @@ const mentors: Mentor[] = [
         company: "Zigram"
     },
     {
-        name: "Pranali Bose",
+        name: "Nitya Sagar",
         image: "/advance-crashcourse/builders/nitya.png", // Placeholder
         role: "Software Engineer (Data Science)",
         company: "Apple",
-        linkedin: "https://www.linkedin.com/in/pranalibose"
+        linkedin: "https://www.linkedin.com/in/nitya-sagar/"
     },
     {
         name: "Anjali Sharma",
