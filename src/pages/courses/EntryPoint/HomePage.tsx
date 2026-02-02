@@ -7,6 +7,7 @@ import { useCourseContext } from "../../../context/courseContext";
 import Hero from "../../../components/landing-page/Hero";
 import PartnerLogos from "../../../components/landing-page/PartnerLogos";
 import ProgramsOffered from "../../../components/landing-page/ProgramsOffered";
+import OfflineExperience from "../../../components/landing-page/OfflineExperience";
 import { SEO } from "../../../components/SEO";
 
 const HomePage = () => {
@@ -24,6 +25,7 @@ const HomePage = () => {
         <Hero />
         <PartnerLogos />
         <ProgramsOffered />
+        <OfflineExperience />
       </Suspense>
     </>
   );

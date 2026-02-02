@@ -5,6 +5,7 @@ import { SEO } from "../../../components/SEO";
 const ProgramHeroEIE = lazy(() => import("../productmanagement/EIE/ProgamHeroEIE"));
 const PMWhoIsThisContentForEIE = lazy(() => import("../productmanagement/EIE/PMWhoIsThisContentForEIE"));
 const ProductProgramEIE = lazy(() => import("../productmanagement/EIE/ProductProgramEIE"));
+const ProductManagementFAQEIE = lazy(() => import("../productmanagement/EIE/ProductManagementFAQEIE"));
 
 const ProductManagementEntry = () => {
   const {
@@ -23,6 +24,7 @@ const ProductManagementEntry = () => {
         <ProgramHeroEIE />
         <PMWhoIsThisContentForEIE />
         <ProductProgramEIE />
+        <ProductManagementFAQEIE />
       </Suspense>
     </>
   );

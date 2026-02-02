@@ -1,16 +1,16 @@
 const PartnerLogos = () => {
     const partnersRow1 = [
-        { src: '/redesign/main-hero/lp-companies/compaies-1.png', alt: 'Microsoft' },
-        { src: '/redesign/main-hero/lp-companies/compaies-2.png', alt: 'PayU' },
-        { src: '/redesign/main-hero/lp-companies/compaies-3.png', alt: 'Walmart' },
-        { src: '/redesign/main-hero/lp-companies/compaies-4.png', alt: 'Company 4' },
+        { src: '/redesign/main-page/main-hero/compaies-1.png', alt: 'Microsoft' },
+        { src: '/redesign/main-page/main-hero/compaies-2.png', alt: 'PayU' },
+        { src: '/redesign/main-page/main-hero/compaies-3.png', alt: 'Walmart' },
+        { src: '/redesign/main-page/main-hero/compaies-4.png', alt: 'Company 4' },
     ];
 
     const partnersRow2 = [
-        { src: '/redesign/main-hero/lp-companies/compaies-5.png', alt: 'Deloitte' },
-        { src: '/redesign/main-hero/lp-companies/compaies-6.png', alt: 'Company 6' },
-        { src: '/redesign/main-hero/lp-companies/compaies-7.png', alt: 'Peakmind' },
-        { src: '/redesign/main-hero/lp-companies/compaies.png', alt: 'Additional Partner' },
+        { src: '/redesign/main-page/main-hero/compaies-5.png', alt: 'Deloitte' },
+        { src: '/redesign/main-page/main-hero/compaies-6.png', alt: 'Company 6' },
+        { src: '/redesign/main-page/main-hero/compaies-7.png', alt: 'Peakmind' },
+        { src: '/redesign/main-page/main-hero/compaies.png', alt: 'Additional Partner' },
     ];
 
     const LogoRow = ({ partners, reverse = false }: { partners: any[], reverse?: boolean }) => (
@@ -30,10 +30,10 @@ const PartnerLogos = () => {
     );
 
     return (
-        <section className="w-full bg-white dark:bg-[#000000] py-16 px-6 md:px-12 lg:px-24 overflow-hidden transition-colors duration-300">
+        <section className="w-full  py-16 px-6 md:px-12 lg:px-24 overflow-hidden transition-colors duration-300">
             <div className="max-w-7xl mt-20 mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
                 {/* Left Side: Title */}
-                <div className="w-full lg:w-1/3 text-center lg:text-left z-10 bg-white dark:bg-[#000000] transition-colors duration-300">
+                <div className="w-full lg:w-1/3 text-center lg:text-left z-10 transition-colors duration-300">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A2B44] dark:text-white leading-tight transition-colors duration-300">
                         Trusted by <span className="font-bold">2200+</span> Organisations for your AI Career
                     </h2>
@@ -48,9 +48,6 @@ const PartnerLogos = () => {
                     </div>
 
                     <div className="flex flex-col gap-2 relative">
-                        {/* Gradient Fades for Slider */}
-                        <div className="absolute inset-y-0 -left-4 w-24 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10 pointer-events-none transition-colors duration-300" />
-                        <div className="absolute inset-y-0 -right-4 w-24 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10 pointer-events-none transition-colors duration-300" />
 
                         <LogoRow partners={partnersRow1} />
                         <LogoRow partners={partnersRow2} reverse={true} />
