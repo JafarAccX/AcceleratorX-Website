@@ -8,6 +8,7 @@ import Hero from "../../../components/landing-page/Hero";
 import PartnerLogos from "../../../components/landing-page/PartnerLogos";
 import ProgramsOffered from "../../../components/landing-page/ProgramsOffered";
 import ToolsCovered from "../../../components/landing-page/ToolsCovered";
+import BuildrXSection from "../../../components/landing-page/BuildrXSection";
 import OfflineExperience from "../../../components/landing-page/OfflineExperience";
 import { SEO } from "../../../components/SEO";
 
@@ -27,6 +28,7 @@ const HomePage = () => {
         <PartnerLogos />
         <ProgramsOffered />
         <ToolsCovered />
+        <BuildrXSection />
         <OfflineExperience />
       </Suspense>
     </>
