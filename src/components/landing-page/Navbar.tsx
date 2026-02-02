@@ -52,7 +52,7 @@ export default function Navbar() {
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Jobs Portal", path: "/jobs" },
-    { label: "New Events", path: "/events" },
+    { label: "Buildrx", path: "https://buildrx.org" },
   ];
 
   const courses = [
@@ -217,23 +217,39 @@ export default function Navbar() {
               </div>
 
               {/* Menu Items */}
-              {menuItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.path}
-                  className={`relative group ${hoverTransition} ${item.label === "XSAT" || item.label === "EVENTS"
+              {menuItems.map((item) => {
+                const isExternal = item.path.startsWith("http");
+                const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
+                const baseClasses = `relative group ${hoverTransition} ${isHighlighted
                     ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
                     : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
-                    }`}
-                >
-                  {item.label}
-                  {item.label !== "XSAT" && item.label !== "EVENTS" && (
-                    <span
-                      className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 dark:bg-white ${dropdownTransition} group-hover:w-full`}
-                    />
-                  )}
-                </Link>
-              ))}
+                  }`;
+
+                return isExternal ? (
+                  <a
+                    key={item.label}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={baseClasses}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    className={baseClasses}
+                  >
+                    {item.label}
+                    {!isHighlighted && (
+                      <span
+                        className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 dark:bg-white ${dropdownTransition} group-hover:w-full`}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
 
 
 
@@ -339,25 +355,48 @@ export default function Navbar() {
                 </div>
 
                 {/* Menu Items */}
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    to={item.path}
-                    className={`flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${item.label === "XSAT" || item.label === "EVENTS"
+                {menuItems.map((item) => {
+                  const isExternal = item.path.startsWith("http");
+                  const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
+                  const baseClasses = `flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${isHighlighted
                       ? "text-[#FFBB00] bg-gray-50 dark:bg-gray-800"
                       : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
-                      }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <span>{item.label}</span>
-                    {(item.label === "XSAT" || item.label === "EVENTS") && (
-                      <span className="flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                      </span>
-                    )}
-                  </Link>
-                ))}
+                    }`;
+
+                  return isExternal ? (
+                    <a
+                      key={item.label}
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={baseClasses}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span>{item.label}</span>
+                      {isHighlighted && (
+                        <span className="flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                      )}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.label}
+                      to={item.path}
+                      className={baseClasses}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span>{item.label}</span>
+                      {isHighlighted && (
+                        <span className="flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
 
                 <div className="mt-auto pt-8 border-t border-gray-100">
                   {isAuthenticated ? (
