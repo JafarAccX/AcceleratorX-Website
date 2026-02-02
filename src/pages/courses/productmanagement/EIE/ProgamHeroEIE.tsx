@@ -68,7 +68,7 @@ export default function ProgramHeroEIE() {
     >
 
       <div className="absolute inset-0 z-0 bg-no-repeat bg-cover bg-top"
-        style={{ backgroundImage: "url('/redesign/ai-pm/ai-pm-bg.webp')" }}
+        style={{ backgroundImage: "url('/redesign/ai-pm/ai-pm-bg-1.webp')" }}
       />
       <div className="max-w-7xl mx-auto px-4 relative z-10 pt-20">
 

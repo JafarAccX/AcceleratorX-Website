@@ -68,7 +68,7 @@ export default function DataFAQEIE() {
             {/* Background Image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/redesign/ai-da/astronot.webp')" }}
+                style={{ backgroundImage: "url('/redesign/ai-da/astronot-1.webp')" }}
             >
                 <div className="absolute inset-0 bg-black/40"></div>
             </div>

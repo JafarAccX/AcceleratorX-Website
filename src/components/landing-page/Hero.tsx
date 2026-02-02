@@ -8,7 +8,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("/redesign/main-page/main-hero.webp")',
+          backgroundImage: 'url("/redesign/main-page/main-hero-1.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center 20%',
         }}

@@ -80,7 +80,7 @@ export default function GENHeroEIE() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-10"
+                    className="mb-10 relative z-20"
                 >
                     <h1 className="text-5xl md:text-7xl font-serif text-white leading-tight font-medium">
                         Stay Ahead in Your Career with
@@ -122,14 +122,14 @@ export default function GENHeroEIE() {
                         className="lg:col-span-8 items-end flex flex-col gap-4 relative bg-red"
                     >
                         <div
-                            className="absolute -right-32 top-2/3 -translate-y-1/2 w-[1080px] h-[1080px] bg-contain bg-center bg-no-repeat opacity-40 dark:opacity-30 pointer-events-none"
+                            className="absolute -right-32 top-2/3 -translate-y-1/2 w-[1080px] h-[1080px] opacity-45 bg-contain bg-center bg-no-repeat pointer-events-none"
                             style={{ backgroundImage: "url('/redesign/gen-ai/elips.webp')" }}
                         ></div>
-                        <p className="text-gray-200 text-lg leading-relaxed mb-10 max-w-2xl text-right lg:text-left">
+                        <p className="text-gray-200 relative text-lg leading-relaxed mb-10 max-w-2xl text-right lg:text-left">
                             Learn to build, automate, and deploy real-world AI systems using Generative AI, LLMs, autonomous agents, and production-grade workflows.
                         </p>
 
-                        <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
+                        <div className="flex relative flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
                             <button
                                 onClick={() => setIsModalOpen(true)}
                                 className="px-8 py-3.5 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
