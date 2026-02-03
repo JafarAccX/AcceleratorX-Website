@@ -72,9 +72,12 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                             </span>
                         </button>
 
-                        <a href="#" className="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors flex items-center text-sm md:text-base">
+                        <button
+                            onClick={onEnroll}
+                            className="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors flex items-center text-sm md:text-base"
+                        >
                             Download Detailed Brochure <span className="ml-1">»</span>
-                        </a>
+                        </button>
                     </div>
 
                     {/* Price Box */}
