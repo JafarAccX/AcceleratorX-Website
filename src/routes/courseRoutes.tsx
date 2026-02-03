@@ -22,9 +22,15 @@ const ProductManagementPageEIE = lazy(
 );
 
 const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
+const AllProgramsPage = lazy(() => import("../pages/courses/allprograms-ads/AllProgramsPage"));
 
 export const courseRoutes = [
   // Main Course Routes
+  <Route
+    key="course-all"
+    path="/courses/all-programs"
+    element={<AllProgramsPage />}
+  />,
   <Route
     key="course-pm"
     path="/courses/product-management"

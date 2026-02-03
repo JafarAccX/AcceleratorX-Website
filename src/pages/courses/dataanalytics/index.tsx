@@ -1,6 +1,5 @@
 import { Suspense, useEffect, lazy } from "react";
-import { useCourseContext } from "../../../context/courseContext";
-import HeroWithAbouv from "../../../components/HeroWithAbouv";
+import { useCourseContext } from "../../../context/courseContext"
 import StickyBookNav from "../../../components/StickyBookNav";
 import { SEO } from "../../../components/SEO";
 
