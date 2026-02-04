@@ -300,7 +300,7 @@ export default function EnrollmentModalADS({ isOpen, onClose, onSubmit, program,
 
             setTimeout(() => {
                 onClose();
-                navigate("/thank-you", { state: { courseName: formData.course } });
+                navigate("/thank-you", { state: { courseName: formData.course, fromAllPrograms: true } });
             }, 800);
 
         } catch (error) {

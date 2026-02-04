@@ -6,6 +6,7 @@ const PIXEL_ID_DEFAULT = import.meta.env.VITE_META_PIXEL_ID as string | undefine
 const PIXEL_ID_DA = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT as string | undefined;
 const PIXEL_ID_DA_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND as string | undefined;
 const PIXEL_ID_AIDM = import.meta.env.VITE_META_PIXEL_ID_AI_DIGITAL_MARKETING as string | undefined;
+const PIXEL_ID_ALL_PROGRAMS = "335455716937994";
 
 declare global {
   interface Window {
@@ -58,6 +59,7 @@ const initializePixel = (pixelId: string) => {
 
 
 const PAGE_VIEW_ROUTES = [
+  "/courses/all-programs",
   "/courses/product-management-program-fb",
   "/courses/data-analytics-program-fb",
   "/courses/data-analytics-program-fb-b",
@@ -84,6 +86,7 @@ const COMPLETE_REGISTRATION_ROUTES = ["/thank-you", "/workshop-registration/succ
 const DA_ROUTES = ["/courses/data-analytics-program-fb", "/courses/data-analytics"];
 const DA_ROUTES_SECOND = ["/courses/data-analytics-program-fb-b", "/courses/generative-ai-fb-b"];
 const AIDM_ROUTES = ["/courses/ai-digital-marketing"];
+const ALL_PROGRAMS_ROUTES = ["/courses/all-programs"];
 
 export const MetaPixel = () => {
   const location = useLocation();
@@ -98,11 +101,15 @@ export const MetaPixel = () => {
   const isDaCourse = selectedCourse === "Data Analytics";
   const isAIDMRoute = AIDM_ROUTES.includes(location.pathname);
   const isAIDMCourse = selectedCourse === "AI Digital Marketing";
+  const isAllProgramsRoute = ALL_PROGRAMS_ROUTES.includes(location.pathname);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const fromAllPrograms = (location.state as any)?.fromAllPrograms;
 
   let pixelId: string | undefined = PIXEL_ID_DEFAULT;
   if (isDaRouteSecond) pixelId = PIXEL_ID_DA_SECOND;
   else if (isDaRoute || isDaCourse) pixelId = PIXEL_ID_DA;
   else if (isAIDMRoute || isAIDMCourse) pixelId = PIXEL_ID_AIDM;
+  else if (isAllProgramsRoute || fromAllPrograms) pixelId = PIXEL_ID_ALL_PROGRAMS;
 
   const isPageViewRoute = PAGE_VIEW_ROUTES.includes(location.pathname);
   const isLeadRoute = LEAD_ROUTES.includes(location.pathname);
