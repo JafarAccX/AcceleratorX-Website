@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useCourseContext } from "../../../../context/courseContext";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
+import { Typewriter } from "../../../../components/common/Typewriter";
 
 interface CounterProps {
   end: number;
@@ -36,47 +37,6 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "", prefix = "" }) => {
       {prefix}{count}
       {suffix}
     </span>
-  );
-};
-
-const Typewriter = ({ text, onComplete }: { text: string; onComplete: () => void }) => {
-  const [isTypingDone, setIsTypingDone] = useState(false);
-  const characters = text.split("");
-
-  return (
-    <div className="flex items-center gap-1 mb-6">
-      <motion.div
-        className="font-mono text-white/50  text-2xl tracking-[0.1em] uppercase"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          visible: { transition: { staggerChildren: 0.08 } }
-        }}
-        onAnimationComplete={() => {
-          setTimeout(onComplete, 500);
-          setIsTypingDone(true);
-        }}
-      >
-        {characters.map((char, index) => (
-          <motion.span
-            key={index}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 }
-            }}
-          >
-            {char}
-          </motion.span>
-        ))}
-        {!isTypingDone && (
-          <motion.span
-            animate={{ opacity: [1, 0] }}
-            transition={{ repeat: Infinity, duration: 0.8 }}
-            className="inline-block w-1.5 h-3.5 bg-blue-500 ml-1 align-middle"
-          />
-        )}
-      </motion.div>
-    </div>
   );
 };
 
@@ -115,6 +75,7 @@ export default function ProgramHeroEIE() {
         <Typewriter
           text="HUMAN CENTRED PRODUCT DETECTED . . ."
           onComplete={() => setIsTypingDone(true)}
+          className="mb-6"
         />
 
         {isTypingDone && (

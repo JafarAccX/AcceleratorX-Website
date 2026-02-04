@@ -753,3 +753,14 @@ html {
 .gradient-blob-4 {
   background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 80%);
 }
+
+@font-face {
+  font-family: 'Dogica';
+  src: url('/all-programs-amit-camp/font/dogica.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-dogica {
+  font-family: 'Dogica', monospace;
+}
