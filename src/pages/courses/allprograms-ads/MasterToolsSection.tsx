@@ -43,18 +43,31 @@ export default function MasterToolsSection({ program }: { program: any }) {
 
                 {/* Tools Logo Grid */}
                 <div className="flex flex-wrap justify-center items-center gap-4 max-w-5xl mx-auto mb-24">
-                    {tools.map((tool: string, idx: number) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.05 * idx }}
-                            className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-semibold hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                        >
-                            {tool}
-                        </motion.div>
-                    ))}
+                    {tools.map((tool: any, idx: number) => {
+                        const name = typeof tool === 'string' ? tool : tool.name;
+                        const icon = typeof tool === 'object' ? tool.icon : null;
+
+                        return (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.05 * idx }}
+                                className={`relative group flex flex-col items-center justify-center gap-3 rounded-2xl  transition-all duration-300 ${icon ? 'w-28 h-28 p-4' : 'px-6 py-3'}`}
+                            >
+
+
+                                <img
+                                    src={icon}
+                                    alt={name}
+                                    className="w-full h-full object-contain filter group-hover:brightness-110 transition-all"
+                                />
+
+
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
                 {/* Heading Case-Studies */}

@@ -14,8 +14,16 @@ export const programContent: Record<string, any> = {
         ],
         masterTools: {
             tools: [
-                "Figma", "Jira", "Google Analytics", "Notion", "Miro", "Asana", "GitHub", "MixPanel",
-                "Amplitude", "Postman", "Whimsical", "+ 20 tools"
+                { name: "Figma", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/Figma.png" },
+                { name: "Jira", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/Jira.png" },
+                { name: "Notion", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/Notion.png" },
+                { name: "Miro", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/miro.png" },
+                { name: "Asana", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/asana.png" },
+                { name: "GitHub", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/GitHub.png" },
+                { name: "MixPanel", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/mixpanel.png" },
+                { name: "Postman", icon: "/all-programs-amit-camp/Nano Degree in AI Product Management/Postman.png" },
+
+                { name: "+ 20 tools" }
             ],
             caseStudies: [
                 "ChatGPT", "perplexity", "Spotify", "Duolingo", "Notion", "Stripe",
@@ -111,9 +119,24 @@ export const programContent: Record<string, any> = {
         ],
         masterTools: {
             tools: [
-                "Microsoft Copilot", "ChatGPT", "Claude", "Gemini", "Midjourney", "Runway", "ElevenLabs",
-                "Vapi", "cursor", "bolt", "replit", "Langchain", "crewai", "Flowise", "n8n", "Make",
-                "Zapier", "Hugging Face", "Docker", "+15 tools"
+                { name: "Microsoft Copilot", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/copilot.png" },
+                { name: "ChatGPT", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/chatgpt.png" },
+                { name: "Claude", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/claude.png" },
+                { name: "Gemini", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/gemini.png" },
+                { name: "Midjourney", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/midjourney.png" },
+                { name: "Runway", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/runway.png" },
+                { name: "ElevenLabs", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/elevenlas.png" },
+                { name: "Vapi", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/vapi.png" },
+                { name: "cursor", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/cursor.png" },
+                { name: "bolt", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/bolt.png" },
+                { name: "replit", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/replit.png" },
+                { name: "Langchain", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/langchain.png" },
+                { name: "crewai", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/crewai.png" },
+                { name: "Flowise", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/flowise.png" },
+                { name: "Zapier", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/zapier.png" },
+                { name: "Hugging Face", icon: "/all-programs-amit-camp/Generative AI & AI Automation Program/huggingface.png" },
+
+                { name: "+15 tools" }
             ],
             caseStudies: [
                 "AI Productivity Toolkit", "Prompt Engineering Lab", "Image Generation Project",
@@ -198,9 +221,22 @@ export const programContent: Record<string, any> = {
         ],
         masterTools: {
             tools: [
-                "Tableau", "Power BI", "Looker", "Google Analytics", "Mixpanel", "Python", "R",
-                "Jupyter Notebook", "Pandas", "NumPy", "Matplotlib", "SQL", "MySQL",
-                "Scikit-learn", "TensorFlow", "Keras", "GitHub"
+                { name: "Tableau", icon: "/all-programs-amit-camp/AI Data Analytics Program/tableau.png" },
+                { name: "Power BI", icon: "/all-programs-amit-camp/AI Data Analytics Program/powerbi.png" },
+                { name: "Looker", icon: "/all-programs-amit-camp/AI Data Analytics Program/looker.png" },
+                { name: "Google Analytics", icon: "/all-programs-amit-camp/AI Data Analytics Program/google-analytics.png" },
+                { name: "Mixpanel", icon: "/all-programs-amit-camp/AI Data Analytics Program/mixpanel.png" },
+                { name: "Python", icon: "/all-programs-amit-camp/AI Data Analytics Program/python.png" },
+                { name: "Jupyter Notebook", icon: "/all-programs-amit-camp/AI Data Analytics Program/jupyter.png" },
+                { name: "Pandas", icon: "/all-programs-amit-camp/AI Data Analytics Program/pandas.png" },
+                { name: "NumPy", icon: "/all-programs-amit-camp/AI Data Analytics Program/numpy.png" },
+                { name: "Matplotlib", icon: "/all-programs-amit-camp/AI Data Analytics Program/matplotlib.png" },
+                { name: "SQL", icon: "/all-programs-amit-camp/AI Data Analytics Program/sql.png" },
+                { name: "MySQL", icon: "/all-programs-amit-camp/AI Data Analytics Program/mysql.png" },
+                { name: "TensorFlow", icon: "/all-programs-amit-camp/AI Data Analytics Program/tensorflow.png" },
+                { name: "Keras", icon: "/all-programs-amit-camp/AI Data Analytics Program/keras.png" },
+                { name: "GitHub", icon: "/all-programs-amit-camp/AI Data Analytics Program/GitHub.png" },
+
             ],
             caseStudies: [
                 "Interactive Data Dashboard", "SQL Sales Analysis", "EDA Project",
@@ -304,9 +340,20 @@ export const programContent: Record<string, any> = {
         ],
         masterTools: {
             tools: [
-                "ChatGPT", "Claude", "Runway Gen-3", "Pika Labs", "Stable Diffusion XL",
-                "Leonardo AI", "Ideogram", "CapCut AI", "OpusClip", "CrewAI", "AutoGen",
-                "n8n", "Make", "Jasper", "AdCreative.ai", "+20 tools"
+
+                { name: "Claude", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/claude.png" },
+                { name: "Runway Gen-3", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/runway.png" },
+                { name: "Pika Labs", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/pika.png" },
+                { name: "Stable Diffusion XL", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/stability.png" },
+                { name: "Leonardo AI", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/leonardo.png" },
+                { name: "Ideogram", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/ideogram.png" },
+                { name: "CapCut AI", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/capcut.png" },
+                { name: "OpusClip", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/opusclip.png" },
+                { name: "CrewAI", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/crewai.png" },
+                { name: "n8n", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/n8n.png" },
+                { name: "Jasper", icon: "/all-programs-amit-camp/Nano Degree in AI Digital Marketing/jasper.png" },
+
+                { name: "+20 tools" }
             ],
             caseStudies: [
                 "AI Content Engine", "SEO & Keyword Research", "AI Visual Campaign",
@@ -394,9 +441,16 @@ export const programContent: Record<string, any> = {
         ],
         masterTools: {
             tools: [
-                "ChatGPT", "Hugging Face", "CrewAI", "LangChain", "LangGraph", "AutoGen",
-                "NVIDIA NIM / NAT Toolkit", "Google ADK", "MCP Servers", "ACP",
-                "Browser Agent Frameworks", "AI Coding Agents", "Voice Agent Frameworks"
+                { name: "ChatGPT", icon: "/all-programs-amit-camp/Advanced AI Crash Course/chatgpt.png" },
+                { name: "Hugging Face", icon: "/all-programs-amit-camp/Advanced AI Crash Course/huggingface.png" },
+                { name: "CrewAI", icon: "/all-programs-amit-camp/Advanced AI Crash Course/crewai.png" },
+                { name: "LangChain", icon: "/all-programs-amit-camp/Advanced AI Crash Course/langchain.png" },
+                { name: "LangGraph", icon: "/all-programs-amit-camp/Advanced AI Crash Course/langgraph.png" },
+
+                { name: "MCP Servers", icon: "/all-programs-amit-camp/Advanced AI Crash Course/modelcontextprotocol.png" },
+                { name: "Voice Agent Frameworks", icon: "/all-programs-amit-camp/Advanced AI Crash Course/aivoiceagent.png" },
+                { name: "AI Coding Agents", icon: "/all-programs-amit-camp/Advanced AI Crash Course/agentdevelopment.png" },
+
             ],
             caseStudies: [
                 "LLM Fine-Tuning", "Multi-Agent System", "Autonomous Research Agent",

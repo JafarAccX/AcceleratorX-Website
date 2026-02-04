@@ -55,7 +55,7 @@ export default function CertificationSection({ program }: { program: any }) {
                     <img
                         src={content.image}
                         alt={`${content.title} Certificate`}
-                        className="w-full h-auto rounded-lg shadow-2xl border border-white/5"
+                        className="w-full max-w-[500px] mx-auto h-auto rounded-lg shadow-2xl border border-white/5"
                     />
                 </motion.div>
             </div>
