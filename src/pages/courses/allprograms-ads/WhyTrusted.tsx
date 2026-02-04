@@ -64,7 +64,13 @@ export default function WhyTrusted() {
             </div>
 
             {/* Marquee Section */}
-            <div className="flex flex-col gap-6 w-full">
+            <div className="flex flex-col gap-6 w-full max-w-7xl mx-auto relative">
+                {/* Left Gradient Blur */}
+                <div className="absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none backdrop-blur-[1px]" />
+
+                {/* Right Gradient Blur */}
+                <div className="absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none backdrop-blur-[1px]" />
+
                 {/* Row 1: Right to Left */}
                 <div className="relative flex overflow-hidden w-full">
                     <motion.div

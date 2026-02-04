@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
 import { programContent } from "./programsData";
 
 interface ProgramDetailHeroProps {
@@ -10,7 +9,7 @@ interface ProgramDetailHeroProps {
         color: string;
         link: string;
     };
-    onBack: () => void;
+    onEnroll: () => void;
 }
 
 // Helper to get random colors for tags
@@ -25,7 +24,7 @@ const tagColors = [
     "bg-amber-900/50 border-amber-500/30 text-amber-200"
 ];
 
-export default function ProgramDetailHero({ program, onBack }: ProgramDetailHeroProps) {
+export default function ProgramDetailHero({ program, onEnroll }: ProgramDetailHeroProps) {
     const content = programContent[program.label]?.hero;
 
     if (!content) return null;
@@ -39,17 +38,6 @@ export default function ProgramDetailHero({ program, onBack }: ProgramDetailHero
             <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <div className="w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at center, #3B82F6 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
-
-            {/* Back Button */}
-            <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                onClick={onBack}
-                className="absolute top-10 left-10 mt-20 flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all z-20"
-            >
-                <ArrowLeft size={18} />
-                <span>Back</span>
-            </motion.button>
 
             <div className="max-w-7xl mx-auto text-center relative z-10">
                 {/* Intake Badge */}
@@ -103,15 +91,24 @@ export default function ProgramDetailHero({ program, onBack }: ProgramDetailHero
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 }}
                 >
-                    <button className="px-12 py-4 rounded-xl border border-blue-500 text-blue-400 font-bold text-lg hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                    <button
+                        onClick={onEnroll}
+                        className="px-12 py-4 rounded-xl border border-blue-500 text-blue-400 font-bold text-lg hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+                    >
                         Enroll Now
                     </button>
                 </motion.div>
             </div>
 
             {/* Bottom Marquee Tags */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden py-10 opacity-70">
-                <div className="flex flex-col gap-4">
+            <div className="w-full overflow-hidden mt-4 py-10 opacity-70 max-w-7xl mx-auto">
+                <div className="flex flex-col gap-4 relative ">
+                    {/* Left Gradient Blur */}
+                    <div className="absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none backdrop-blur-[1px]" />
+
+                    {/* Right Gradient Blur */}
+                    <div className="absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none backdrop-blur-[1px]" />
+
                     <motion.div
                         animate={{ x: [0, -2000] }}
                         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}

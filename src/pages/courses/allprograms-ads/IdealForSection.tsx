@@ -41,7 +41,13 @@ export default function IdealForSection({ program }: { program: any }) {
             </div>
 
             {/* Marquee Section */}
-            <div className="flex flex-col gap-6 w-full">
+            <div className="flex flex-col gap-6 w-full relative max-w-7xl mx-auto">
+                {/* Left Gradient Blur */}
+                <div className="absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none backdrop-blur-[1px]" />
+
+                {/* Right Gradient Blur */}
+                <div className="absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none backdrop-blur-[1px]" />
+
                 <div className="relative flex overflow-hidden w-full">
                     <motion.div
                         className="flex flex-nowrap gap-4"
