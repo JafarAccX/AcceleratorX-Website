@@ -86,7 +86,7 @@ export const programContent: Record<string, any> = {
         certification: {
             title: "AI Product Manager Certification",
             description: "This nano degree in AI product management is a 100% live, online, hands-on AI product management program designed for professionals who want to upskill and start their career in AI product management, master AI product strategy, build there own products and crack high-paying product manager roles.",
-            image: "/all-programs-amit-camp/cert.png"
+            image: "/redesign/certificates/PM.webp"
         },
         outcomes: [
             "Build your AI Product Manager Portfolio",
@@ -174,7 +174,7 @@ export const programContent: Record<string, any> = {
         certification: {
             title: "Generative AI Certification",
             description: "This Generative AI & AI Automation Program is a 100% live, online, hands-on AI program designed for freshers, tech and non-tech professionals who want to build AI workflows rather than learning theory and crack high-paying AI-led roles.",
-            image: "/all-programs-amit-camp/cert.png"
+            image: "/redesign/certificates/GEN-AI.webp"
         },
         outcomes: [
             "Build & deploy your own custom AI agents",
@@ -280,7 +280,7 @@ export const programContent: Record<string, any> = {
         certification: {
             title: "AI Data Analytics Certification",
             description: "This is India’s best AI Data Analytics Program. It’s a 100% live, hands-on AI data analytics program designed for freshers, tech and non-tech professionals who want to build and get the best AI data analytics certification rather than learning theory and crack high-paying AI data analyst roles.",
-            image: "/all-programs-amit-camp/cert.png"
+            image: "/redesign/certificates/DA.webp"
         },
         outcomes: [
             "Build AI Dashboards",
@@ -369,7 +369,7 @@ export const programContent: Record<string, any> = {
         certification: {
             title: "AI Marketing Certification",
             description: "This AI Digital Marketing Nano Degree is a 100% live, online, hands-on AI digital marketing course designed for freshers, tech and non-tech professionals who want to apply artificial intelligence in digital marketing, use AI tools for digital marketing, build real AI marketing automation workflows, and earn an AI marketing certification to crack high-paying, AI-led digital marketing roles.",
-            image: "/all-programs-amit-camp/cert.png"
+            image: "/redesign/certificates/AI-DM.webp"
         },
         outcomes: [
             "Build AI Marketing Automations",
@@ -468,7 +468,7 @@ export const programContent: Record<string, any> = {
         certification: {
             title: "Advanced AI Course Certificate",
             description: "This is India’s best Advanced AI crash course. It’s a 100% live, hands-on advanced AI program designed for freshers, tech and non-tech professionals who want to build a portfolio, get the best AI certification, and crack high-paying AI roles.",
-            image: "/all-programs-amit-camp/cert.png"
+            image: "/redesign/certificates/ADV-GEN-AI.webp"
         },
         outcomes: [
             "Build & Deploy AI Agents",
