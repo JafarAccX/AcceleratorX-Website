@@ -1,6 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
+import DataScienceEntry from "../pages/courses/EntryPoint/DataScienceEntry";
+import AdvanceGenAIEntry from "../pages/courses/EntryPoint/AdvanceGenAIEntry";
 
 const ProductManagementEntry = lazy(() => import("../pages/courses/EntryPoint/ProductManagementEntry"));
 const DataAnalyticsEntry = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsEntry"));
@@ -19,8 +21,7 @@ const ProductManagementPageEIE = lazy(
 );
 
 const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
-const AdvanceGenAIEntry = lazy(() => import("../pages/courses/EntryPoint/AdvanceGenAIEntry"));
-const DataScienceEntry = lazy(() => import("../pages/courses/EntryPoint/DataScienceEntry"));
+const AllProgramsPage = lazy(() => import("../pages/courses/allprograms-ads/AllProgramsPage"));
 
 export const courseRoutes = [
   // Main Course Routes
@@ -33,6 +34,11 @@ export const courseRoutes = [
     key="course-advance-genai"
     path="/courses/advance-generative-ai"
     element={<AdvanceGenAIEntry />}
+  />,
+  <Route
+    key="course-all"
+    path="/courses/all-programs"
+    element={<AllProgramsPage />}
   />,
   <Route
     key="course-pm"
