@@ -1,6 +1,8 @@
 
 
-import type React from "react"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
+import { Typewriter } from "../../../components/common/Typewriter"
 
 interface ProductCardProps {
   title: string
@@ -61,6 +63,8 @@ const AIToolsIllustration: React.FC = () => (
 )
 
 const ProductsSection: React.FC = () => {
+  const [isTypingDone, setIsTypingDone] = useState(false)
+
   const products = [
     {
       title: "AI-Powered Data Analysis",
@@ -90,27 +94,40 @@ const ProductsSection: React.FC = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            What You’ll Learn
-            <br />
-            <span className="text-white">at a Glance</span>
-          </h2>
-        </div>
+        <Typewriter
+          text="SCANNING LEARNING MODULES . . ."
+          onComplete={() => setIsTypingDone(true)}
+          className="mb-8"
+        />
 
-        {/* Product Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {products.map((product, index) => (
-            <ProductCard
-              key={index}
-              title={product.title}
-              description={product.description}
-              illustration={product.illustration}
-            />
-          ))}
-        </div>
+        {isTypingDone && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            {/* Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                What You’ll Learn
+                <br />
+                <span className="text-white">at a Glance</span>
+              </h2>
+            </div>
 
+            {/* Product Cards */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {products.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  title={product.title}
+                  description={product.description}
+                  illustration={product.illustration}
+                />
+              ))}
+            </div>
+          </motion.div>
+        )}
 
       </div>
     </section>
