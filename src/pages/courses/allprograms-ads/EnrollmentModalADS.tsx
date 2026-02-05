@@ -268,8 +268,8 @@ export default function EnrollmentModalADS({ isOpen, onClose, onSubmit, program,
                 gclid: utmData.gclid,
                 ttclid: utmData.ttclid,
                 msclkid: utmData.msclkid,
-                internal_campaign_code: new URLSearchParams(window.location.search).get("internal_campaign_code") || "AMITCC",
-                internal_campaign_name: new URLSearchParams(window.location.search).get("internal_campaign_name") || "amit campaign",
+                internal_campaign_code: "AMITCC",
+                internal_campaign_name: "amit campaign",
                 ...customData,
             };
 

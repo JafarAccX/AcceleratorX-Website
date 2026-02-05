@@ -1,7 +1,124 @@
 import { motion } from "framer-motion";
 import { User, Mail, Phone, Briefcase, GraduationCap, Award, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { createEnrollment } from "../../../api/enrollmentApi";
+import { trackFormSubmission, getUTMDataForDB } from "../../../utils/metaPixel";
 import toast from "react-hot-toast";
+
+const omniAccessToken = import.meta.env.VITE_OMNI_ACCESS_TOKEN;
+
+const BROCHURES: Record<string, { title: string; url: string }> = {
+    "AI Digital Marketing": {
+        title: "AI Digital Marketing Syllabus",
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758802254913_notes_new_nano_19th_Sept%2C_2025-compressed.pdf?alt=media&token=42c3ad1b-7519-461b-aad6-ea9f4f5c7be7",
+    },
+    "Product Management": {
+        title: "Product Management",
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1768997735586_aipm-broucher-compressed.pdf?alt=media&token=a821e497-52e9-4238-ad3b-bf9cf5aa9635",
+    },
+    "Generative AI": {
+        title: "Generative AI",
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1761905010664_notes_new_AcceleratorX_Gen_AI_Brochure-compressed.pdf?alt=media&token=53d0ad2d-4d03-435c-8d31-4c03fc476c78",
+    },
+    "Gen AI for PMs": {
+        title: "Gen AI for PMs",
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758294289672_notes_Gen_ai_pm.pdf?alt=media&token=c84b8402-1bc1-40be-8baa-e00c0a4fff36",
+    },
+    "Data Analytics": {
+        title: "AI Powered Data Analytics",
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293290835_notes_AI_Powered_DA_Brochure.pdf?alt=media&token=1bbeb25b-e1aa-49e2-8752-3e7a6b7b4e52",
+    },
+    "Advanced AI Crash Course": {
+        title: "AI Crash Course Build Pass",
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1769087535130_Build_Session.pdf?alt=media&token=8e54fe45-68ec-4000-960b-3ed53623c1eb"
+    }
+};
+
+function resolveBrochure(course?: string | null) {
+    if (!course) return BROCHURES["AI Digital Marketing"]; // default
+
+    const lower = course.toLowerCase();
+
+    if (lower.includes("product management")) return BROCHURES["Product Management"];
+    if (lower.includes("generative ai") || lower.includes("automation")) return BROCHURES["Generative AI"];
+    if (lower.includes("data analytics") || lower.includes("data analyst")) return BROCHURES["Data Analytics"];
+    if (lower.includes("digital marketing") || lower.includes("marketing")) return BROCHURES["AI Digital Marketing"];
+    if (lower.includes("crash course")) return BROCHURES["Advanced AI Crash Course"];
+
+    // Fallback check against keys
+    const foundKey = Object.keys(BROCHURES).find(k => k.toLowerCase() === lower);
+    return foundKey ? BROCHURES[foundKey] : BROCHURES["AI Digital Marketing"];
+}
+
+async function sendWhatsAppMessage({
+    phone,
+    name,
+    broucher,
+}: {
+    phone: string;
+    name: string;
+    broucher: { title: string; url: string };
+}) {
+    console.log("Sending WhatsApp message to:", phone);
+    try {
+        const response = await fetch("https://wb.omni.tatatelebusiness.com/whatsapp-cloud/messages", {
+            method: "POST",
+            headers: {
+                "accept": "application/json",
+                "Authorization": `Bearer ${omniAccessToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "to": (() => {
+                    const cleaned = phone.replace(/^\+/, '');
+                    return cleaned.length === 10 ? `91${cleaned}` : cleaned;
+                })(),
+                "type": "template",
+                "source": "external",
+                "template": {
+                    "name": "registration_request_2",
+                    "language": {
+                        "code": "en"
+                    },
+                    "components": [
+                        {
+                            "type": "header",
+                            "parameters": [
+                                {
+                                    "type": "document",
+                                    "document": {
+                                        "link": broucher.url,
+                                        "filename": broucher.title
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "body",
+                            "parameters": [
+                                {
+                                    "type": "text",
+                                    "text": name
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metaData": {
+                    "custom_callback_data": ""
+                }
+            }),
+        });
+
+        if (!response.ok) {
+            const data = await response.json();
+            console.error("WhatsApp API error:", data);
+        }
+    } catch (error) {
+        console.error("Error sending WhatsApp message:", error);
+    }
+}
 
 const programOptions = [
     "AI Product Management",
@@ -21,10 +138,103 @@ export default function AllProgramsHero() {
         program: "",
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const openBrochure = (courseName?: string | null) => {
+        try {
+            const { url } = resolveBrochure(courseName);
+            const a = document.createElement("a");
+            a.href = url;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } catch (err) {
+            console.error("Failed to open brochure:", err);
+        }
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simplified handle for now
-        toast.success("Thank you for your interest! We will contact you soon.");
+        if (isSubmitting) return;
+
+        if (formData.phone.length < 10 || formData.phone.length > 12) {
+            toast.error("Please enter a valid phone number (10-12 digits)");
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            toast.error("Please enter a valid email address");
+            return;
+        }
+
+        if (!formData.program) {
+            toast.error("Please select a program");
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            const utmData = getUTMDataForDB();
+            const submissionData = {
+                full_name: formData.name,
+                phone_number: formData.phone,
+                email: formData.email,
+                education_level: formData.education,
+                course: formData.program,
+                work_experience: formData.experience,
+                designation: formData.designation,
+                utm_source: utmData.utm_source,
+                utm_medium: utmData.utm_medium,
+                utm_campaign: utmData.utm_campaign,
+                utm_term: utmData.utm_term,
+                utm_content: utmData.utm_content,
+                referrer: utmData.referrer,
+                landing_page_url: utmData.landing_page_url,
+                fbclid: utmData.fbclid,
+                gclid: utmData.gclid,
+                ttclid: utmData.ttclid,
+                msclkid: utmData.msclkid,
+                internal_campaign_code: "AMITCC",
+                internal_campaign_name: "amit campaign",
+            };
+
+            await createEnrollment(submissionData);
+
+            const broucherData = resolveBrochure(formData.program);
+
+            await sendWhatsAppMessage({
+                phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                name: formData.name,
+                broucher: broucherData,
+            });
+
+            const trackingFormData = new FormData();
+            trackingFormData.append("name", formData.name);
+            trackingFormData.append("email", formData.email);
+            trackingFormData.append("phone", formData.phone);
+            trackingFormData.append("education", formData.education);
+            trackingFormData.append("designation", formData.designation);
+            trackingFormData.append("course", formData.program);
+            trackingFormData.append("workExperience", formData.experience);
+            await trackFormSubmission(trackingFormData);
+
+            toast.success("Enrollment submitted successfully! Opening brochure...");
+            openBrochure(formData.program);
+
+            setTimeout(() => {
+                navigate("/thank-you", { state: { courseName: formData.program, fromAllPrograms: true } });
+            }, 800);
+
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            toast.error("Failed to submit enrollment. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -229,9 +439,14 @@ export default function AllProgramsHero() {
 
                             <button
                                 type="submit"
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                                disabled={isSubmitting}
+                                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/70 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center justify-center"
                             >
-                                Submit
+                                {isSubmitting ? (
+                                    <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                ) : (
+                                    "Submit"
+                                )}
                             </button>
                         </form>
                     </div>
