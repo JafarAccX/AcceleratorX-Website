@@ -3,7 +3,7 @@ export const programContent: Record<string, any> = {
         hero: {
             title: "Nano Degree in AI Product Management",
             badge: "Only 25 intakes per batch",
-            description: "Mentor-led, cohort-based online AI programs for working professionals, founders, and freshers. Upskill in AI product management, generative AI & AI automation, AI data analytics, and AI digital marketing.",
+            description: "This Nano Degree in AI Product Management is a mentor-led, hands-on AI product management course designed for professionals who want to build, launch, and scale AI-powered products. This AI productmanagement nano degree focuses on real-world product management for AI products, covering the full AIproduct lifecycle management process. From problem discovery and AI product strategy to execution andoptimisation. Through live sessions and practicalprojects, learners gain structured training ad earn andindustry recognised AI product management certification. The program is beginner-friendly and ideal forworking professionals, freshers and career switchers, preparing learners for high-paying product managerroles.",
             duration: "Duration: 4 months",
             tags: ["Professional AI Certification", "Build Your Own Product", "Get Hired", "AI PM Tools", "Beginner-friendly", "Exclusive AI PM Community", "100% Job Assistance", "750+ Success Stories"]
         },
@@ -107,7 +107,7 @@ export const programContent: Record<string, any> = {
         hero: {
             title: "Generative AI & AI Automation Program",
             badge: "Only 25 intakes per batch",
-            description: "Build Custom AI Automations & Agents. Master Generative AI and automation in 4 months by building real AI agents and business workflows with 20+ tools.",
+            description: "This Generative AI & AI Automation Program is a mentor-led, hands-on generative AI course designed forprofessionals who want to build, deploy, and scale real-world AI automations. This program focuses onpractical generative AI training and AI automation for business, covering end-to-end workflow fromproblem identification and solution design to implementation and optimisation. Through live sessions andpractical projects, learners gain structured training and earn and industry recognised generative AI and AIautomation certification. The program is beginner-friendly and ideal for working professionals, freshers andcareer switchers, preparing learners for high-paying AI jobs involving automation, agents and applied AIsystems.",
             duration: "Duration: 4 months",
             tags: ["Professional AI Certification", "Build Custom AI Automations & Agents", "Get Hired in AI roles", "20+ AI Tools", "Beginner-friendly", "AI Workflow Automation", "Business Application", "Exclusive AI Community", "100% Job Assistance", "637+ Success Stories"]
         },
@@ -210,14 +210,14 @@ export const programContent: Record<string, any> = {
         hero: {
             title: "AI Data Analytics Program",
             badge: "Only 25 intakes per batch",
-            description: "Become a job-ready AI Data Analyst in 6 months by building real dashboards and business-driven analytics with 20+ AI Analytics Tools.",
+            description: "This AI data Analytics Program is a mentor-led, hands-on AI data analytics course designed forprofessionals who want to analyse and interpret data using AI. This program focuses on practical dataanalytics with AI, covering real-world AI-powered data analysis and a complete analytics workflow, fromdata cleaning and exploration to insights, prediction and optimisation. Through live sessions and practicalprojects, learners gain structured training and earn and industry recognised AI data analytics certification.This is beginner-friendly and ideal for working professionals, freshers and career switchers, helping themlearn AI data analytics skills required to prepare for in-demand and high-paying AI data analyst rolesacross industries.",
             duration: "Duration: 6 months",
-            tags: ["Professional AI Data Analyst Certification", "Build Custom AI Dashboard", "Get Hired in AI DA roles", "20+ AI Analytics Tools", "Beginner-friendly", "Business Application", "Exclusive Analyst Community", "100% Job Assistance", "978+ Success Stories"]
+            tags: ["Professional AI Data Analyst Certification", "Get Hired in AI Data Analytics roles", "20+ AI Data Analytics Tools", "Build Custom AI Dashboard", "Get Hired in AI DA roles", "20+ AI Analytics Tools", "Beginner-friendly", "Business Application", "Exclusive Analyst Community", "100% Job Assistance", "978+ Success Stories"]
         },
         idealFor: [
             "Freshers", "business analysts", "entrepreneurs", "freelancers",
             "sales leaders", "ops team", "C-suite-level", "software engineers",
-            "consultants", "digital marketers", "non-tech professionals", "data analysts", "job seekers"
+            "consultants", "digital marketers", "non-tech professionals", "marketing data analysts", "data analysts", "job seekers"
         ],
         masterTools: {
             tools: [
@@ -315,8 +315,7 @@ export const programContent: Record<string, any> = {
         ],
         certification: {
             title: "AI Data Analytics Certification",
-            description: "This is India’s best AI Data Analytics Program. It’s a 100% live, hands-on AI data analytics program designed for freshers, tech and non-tech professionals who want to build and get the best AI data analytics certification rather than learning theory and crack high-paying AI data analyst roles.",
-            image: "/redesign/certificates/DA.webp"
+            description: "This is India’s best AI Data Analytics Program. It’s a 100% live, hands-on AI data analytics program designed for freshers, tech and non-tech professionals who want to build hands-on experience in AI data analysis and get the best AI data analytics certification by understanding how data analysis and generative AI work in real business scenarios and crack high-paying AI data analyst roles.", image: "/redesign/certificates/DA.webp"
         },
         outcomes: [
             "Build AI Dashboards",
@@ -329,7 +328,7 @@ export const programContent: Record<string, any> = {
         hero: {
             title: "Nano Degree in AI Digital Marketing",
             badge: "Only 25 intakes per batch",
-            description: "Launch your AI marketing career in 4 months by building real marketing automations with 20+ AI tools.",
+            description: "The AI Digital Marketing Program is a result-driven AI digital marketing course built for professionals who want to use AI to plan, execute, and optimise modern marketing campaigns. This hands-on program helps learners understand how AI tools for digital marketing are used across content creation, performance marketing, analytics, and automation. Through live, mentor-led sessions and practical projects, Participants earn an industry-recognised AI marketing certification while learning how AI improves targeting, personalisation, and conversion outcomes. Designed as a beginner friendly et, career-focused AI digital marketing nano degree, this program is ideal for working professionals, freelancers, career swithers and founders",
             duration: "Duration: 4 months",
             tags: ["Professional AI Digital Marketing Certification", "Build Custom Marketing Automations", "Get Hired in AI Marketing roles", "20+ AI Marketing Tools", "Beginner-friendly", "Business Application", "Exclusive Marketing Community", "100% Job Assistance", "673+ Success Stories"]
         },
@@ -415,7 +414,7 @@ export const programContent: Record<string, any> = {
         ],
         certification: {
             title: "AI Marketing Certification",
-            description: "This AI Digital Marketing Nano Degree is a 100% live, online, hands-on AI digital marketing course designed for freshers, tech and non-tech professionals who want to apply artificial intelligence in digital marketing, use AI tools for digital marketing, build real AI marketing automation workflows, and earn an AI marketing certification to crack high-paying, AI-led digital marketing roles.",
+            description: "This AI Digital Marketing Nano Degree is a 100% live, online, hands-on AI digital marketing course designed for freshers, tech and non-tech professionals who want to apply artificial intelligence in digital marketing, analyse digital marketing data, use AI tools for digital marketing, build real AI marketing automation workflows, and earn an AI marketing certification to crack high-paying, AI-led digital marketing roles.",
             image: "/redesign/certificates/AI-DM.webp"
         },
         outcomes: [
@@ -429,7 +428,7 @@ export const programContent: Record<string, any> = {
         hero: {
             title: "Advanced AI Crash Course",
             badge: "Only 25 intakes per batch",
-            description: "Fast-track your AI skills in 6 weeks by building real AI systems and automations across business use cases.",
+            description: "The Advanced AI Crash Course is an intensive advanced AI course designed for professionals who want to movequickly form fundamentals to real-world AI applications. This hands-on AI crash course focuses on advanced AI training, covering practical AI systems, modern frameworks, and applied use cases used in industry today. Through live mentor-led sessions and focused projects, students gain practical AI training that bridges theory and execution. This program is designed for working professionals, developers, and career switcher, this program helps learners learn advanced AI fast and build confidence in deploying real AI solutions. As a beginner-friendly yet outcome-driven advanced AI course online, it prepares participants for high-impact roles requiring strong applied AI and system -level understanding.",
             duration: "Duration: 6 weeks",
             tags: ["Advanced AI Certification", "Build AI Systems and Automations", "Get Hired in AI roles", "20+ AI Tools", "Beginner-friendly", "Business Use Cases", "Exclusive AI Builder Community", "300+ Success Stories"]
         },

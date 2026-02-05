@@ -78,6 +78,7 @@ const PAGE_VIEW_ROUTES = [
   "/courses/gen-ai-for-pms",
   "/courses/ai-digital-marketing",
   "/advance-ai-crash-course",
+  "/courses/datascience-program-fb",
 ];
 
 const LEAD_ROUTES = ["/thank-you", "/workshop-registration/success", "/workshop-payment/success/"];

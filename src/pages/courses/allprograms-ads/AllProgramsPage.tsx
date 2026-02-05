@@ -58,6 +58,7 @@ export default function AllProgramsPage() {
                 <ProgramSelector onSelectProgram={setSelectedProgram} />)}
             <EnrollmentProcess />
             {!selectedProgram && (<AllProgramsFAQ />)}
+
             <CTASection />
             {selectedProgram && (
                 <ProgramSelector onSelectProgram={setSelectedProgram} />)}

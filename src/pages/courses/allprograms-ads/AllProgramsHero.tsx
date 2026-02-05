@@ -277,26 +277,28 @@ export default function AllProgramsHero() {
                         />
                     </div>
                     <h2 className="text-[#3B82F6] font-bold text-4xl mb-4">
-                        India's #1 AI Upskilling Programs
+                        AcceleratorX AI Courses
                     </h2>
                     <h1 className="text-white text-4xl leading-tight mb-8">
-                        For Working Professionals,<br />
-                        Founders and Freshers
+                        For Working Professionals,<br /> Freshers and Business Owners
                     </h1>
 
                     <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl">
-                        Mentor-led, cohort-based online AI programs for working professionals, founders, and freshers.
-                        Upskill in AI product management, generative AI & AI automation, AI data analytics, and AI digital marketing.
+                        AcceleratorX AI courses are built by industry experts with 10+ years of experience
+                        working in top product-based companies like Apple, Microsoft, Publicis Sapient,
+                        Walmart, and many more. AcceleratorX AI programs are especially designed for
+                        working professionals, business owners, and freshers. Focusing on real AI building, real
+                        project and real career outcomes.
                     </p>
 
-                    <div className="flex flex-wrap gap-4 mb-12 max-w-[500px]">
+                    <div className="grid grid-cols-2 gap-4 mb-12 max-w-[600px]">
                         {programOptions.map((program, idx) => (
                             <motion.div
                                 key={program}
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 + idx * 0.1 }}
-                                className={`px-6 py-2 rounded-full border text-sm font-semibold cursor-pointer transition-all
+                                className={`px-6 py-2 rounded-full border w-full text-lg font-semibold cursor-pointer transition-all
                   ${idx === 0 ? "border-blue-500/50 bg-blue-500/10 text-blue-400" : ""}
                   ${idx === 1 ? "border-orange-500/50 bg-orange-500/10 text-orange-400" : ""}
                   ${idx === 2 ? "border-green-500/50 bg-green-500/10 text-green-400" : ""}

@@ -78,9 +78,32 @@ export default function ProgramSelector({ onSelectProgram }: ProgramSelectorProp
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="text-gray-400 text-lg md:text-xl"
                     >
-                        Gain Skills That Get You Hired
+                        Gain skills and get hired
+
                     </motion.p>
                 </div>
+
+
+
+
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-gray-400 text-lg md:text-xl max-w-7xl my-8 mx-auto leading-relaxed text-center"
+                >
+                    Choosing the right path starts with selecting an AI course that aligns with your
+                    long-term career goals. AccelratorX offers structured AI upskilling programs across AI
+                    product management, generative AI and AI automation, AI data analytics, and AI
+                    digital marketing, designed for real industry roles. Each AI certification program
+                    focuses on practical learning. Whether you enroll in an AI product management
+                    course, a project-driven generative AI course, an AI data analytics course or an IA
+                    digital marketing course, you gain job-ready skills that employers value. These
+                    programs are ideal for professionals and freshers looking to build AI skills and get
+                    hired or switch into AI roles.
+
+                </motion.p>
 
                 {/* Programs Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

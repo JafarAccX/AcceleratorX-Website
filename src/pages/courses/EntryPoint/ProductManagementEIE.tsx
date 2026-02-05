@@ -1,4 +1,6 @@
 import { useEffect, Suspense, lazy } from "react";
+import HeaderEIE from "../../../components/HeaderEIE";
+import StickyBookNav from "../../../components/StickyBookNav";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
 
