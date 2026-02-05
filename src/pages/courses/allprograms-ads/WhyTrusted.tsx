@@ -57,9 +57,17 @@ export default function WhyTrusted() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-gray-400 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed"
                 >
-                    We don't just "teach" AI. We help you understand how to use AI to solve real business problems.
-                    Our build-first, mentor-led programs focus on practical AI career outcomes that help you transition
-                    into AI product manager, AI data analyst, AI marketer, and various other AI job roles.
+                    AcceleratorX offers structured AI upskilling programs designed for working
+                    professionals and freshers who want practical, job-ready AI skills. Our mentor-led
+                    programs cover AI product management, generative AI and AI automation, AI data
+                    analytics, and AI digital marketing, with a strong focus on real-world applications.
+                    Each AI certification program is built around hands-on projects, industry-relevant
+                    tools, and business use cases to help learners apply artificial intelligence at work.
+                    Whether you choose an AI product management course, a project-based generative
+                    AI course, an AI data analytics course or an AI digital marketing course, the learning
+                    Experience is beginner-friendly and career-focused. With live sessions, the latest
+                    curriculum, and outcome-driven training, AcceleratorX helps learners build practical
+                    AI skills that align with current industry hiring needs.
                 </motion.p>
             </div>
 
