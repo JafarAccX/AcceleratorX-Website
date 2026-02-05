@@ -41,24 +41,68 @@ const FAQItem = ({ question, answer, defaultOpen = false }: { question: string; 
 
 const FAQS = [
     {
-        question: "What kind of background do I need to join the AI program at AcceleratorX?",
-        answer: "You don't need any prior AI or programming experience to join. The program is designed for beginners, freelancers, working professionals or entrepreneurs looking to enter the AI domain.\n\nAcceleratorX offers a no-code, hands-on learning path, so you can learn practical AI skills without needing to write code."
+        question: "Is this program suitable for beginners in digital marketing?",
+        answer: "Yes. This is a beginner-friendly AI digital marketing program, designed for students, freshers, and non-marketing backgrounds"
     },
     {
-        question: "What kinds of AI programs does AcceleratorX offer?",
-        answer: "AcceleratorX offers comprehensive programs in AI-Powered Digital Marketing, covering everything from SEO and content creation to marketing automation and AI agents. Our curriculum is designed to make you job-ready with real-world projects and hands-on experience."
+        question: "Do I need prior marketing experience?",
+        answer: "No prior marketing experience is required. The program starts from digital marketing fundamentals and gradually introduces AI-powered strategies"
     },
     {
-        question: "Will I receive a certificate after completing the program?",
-        answer: "Yes! Upon successful completion of the program, you'll receive an Industry-Recognized Nano Degree in AI-Powered Digital Marketing. This certificate validates your skills in running AI-driven campaigns, content creation, analytics, and marketing automation."
+        question: "How is AI used throughout the marketing curriculum?",
+        answer: "AI is integrated across content creation, SEO, ads, analytics, automation, and optimization, making marketing faster and more data-driven."
     },
     {
-        question: "Are there real-world projects included in the course?",
-        answer: "Absolutely! You'll work on real campaigns throughout the program, including a comprehensive capstone project. You'll build actual marketing campaigns, create content using AI tools, run paid ads, and develop automated marketing workflows that you can showcase in your portfolio."
+        question: "Will I learn SEO, paid ads, and content together?",
+        answer: "Yes. You’ll learn SEO, performance marketing, and content marketing as a single, connected growth system."
     },
     {
-        question: "What kind of support is available if I get stuck during the program?",
-        answer: "You'll have access to mentors from leading brands, community support, and dedicated assistance throughout your learning journey. Our mentors include professionals from companies like DrinkPrime, Neuwriter.ai, and other industry leaders who provide guidance and answer your questions."
+        question: "Does the program cover real marketing campaigns?",
+        answer: "Yes. You’ll work on real-world marketing campaigns, including planning, execution, optimization, and reporting."
+    },
+    {
+        question: "Will I learn AI tools for content creation?",
+        answer: "Yes. You’ll learn AI tools for content creation, including ad copies, blogs, emails, social media posts, and creatives."
+    },
+    {
+        question: "Is performance marketing included in this program?",
+        answer: "Yes. The program includes performance marketing, covering paid ads, funnels, targeting, budgets, and ROI optimization"
+    },
+    {
+        question: "Will I learn marketing analytics and CRO?",
+        answer: "Yes. You’ll learn marketing analytics, conversion rate optimization (CRO), and data-driven decision-making."
+    },
+    {
+        question: "Does the program include automation and AI agents?",
+        answer: "Yes. You’ll learn marketing automation, AI workflows, and AI agents for lead generation, follow-ups, and campaign optimization."
+    },
+    {
+        question: "Is this useful for freelancers and founders?",
+        answer: "Absolutely. This program is ideal for freelancers, founders, solopreneurs, and agency builders."
+    },
+    {
+        question: "Will I build a digital marketing portfolio?",
+        answer: "Yes. You’ll build a portfolio of real AI-powered marketing projects showcasing practical skills."
+    },
+    {
+        question: "Is this program suitable for working professionals?",
+        answer: "Yes. Designed for working professionals, with flexible learning and practical, career-relevant skills."
+    },
+    {
+        question: "Can this help me get hired faster?",
+        answer: "Yes. The program focuses on job-ready marketing skills, real projects, and tools companies actually use."
+    },
+    {
+        question: "Does the program cover social media marketing?",
+        answer: "Yes. You’ll learn social media marketing, content strategy, growth tactics, and AI-assisted scheduling and analytics."
+    },
+    {
+        question: "Will I learn how to scale campaigns using AI?",
+        answer: "Yes. You’ll learn how to scale marketing campaigns using AI, automation, audience insights, and performance optimization."
+    },
+    {
+        question: "What marketing roles does this prepare me for?",
+        answer: "You can target roles like Digital Marketing Executive, Performance Marketer, SEO Specialist, Growth Marketer, AI Marketing Specialist, and Freelancer."
     }
 ];
 

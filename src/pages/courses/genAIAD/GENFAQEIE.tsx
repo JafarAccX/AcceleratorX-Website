@@ -41,24 +41,68 @@ const FAQItem = ({ question, answer, defaultOpen = false }: { question: string; 
 
 const FAQS = [
     {
-        question: "What kind of background do I need to join the AI program at AcceleratorX?",
-        answer: "You don't need any prior AI or programming experience to join. The program is designed for beginners, freelancers, working professionals or entrepreneurs looking to enter the AI domain.\n\nAcceleratorX offers a no-code, hands-on learning path, so you can learn practical AI skills without needing to write code."
+        question: "Is this program suitable for non-technical beginners?",
+        answer: "Yes. This program is 100% beginner-friendly and designed for non-technical learners, students, creators, marketers, founders, and professionals."
     },
     {
-        question: "What kinds of AI programs does AcceleratorX offer?",
-        answer: "AcceleratorX offers comprehensive programs in Generative AI and AI Agents, covering everything from LLM fundamentals and prompt engineering to building autonomous agents and production-grade AI systems. Our curriculum is designed to make you job-ready with real-world projects and hands-on experience."
+        question: "Do I need coding experience to learn Generative AI?",
+        answer: "No coding experience is required. You’ll learn no-code and low-code Generative AI tools with simple, practical workflows. Paralley, you will also learn about how to get your hands on basic python and its use."
     },
     {
-        question: "Will I receive a certificate after completing the program?",
-        answer: "Yes! Upon successful completion of the program, you'll receive an Industry-Recognized Nano Degree in Generative AI & AI Agents. This certificate validates your skills in building AI systems, working with LLMs, creating autonomous agents, and deploying production-grade AI solutions."
+        question: "Will I understand how GenAI actually works?",
+        answer: "Yes. The program explains how Generative AI works internally in a simple, easy-to-understand way — without heavy math or theory."
     },
     {
-        question: "Are there real-world projects included in the course?",
-        answer: "Absolutely! You'll build real AI systems throughout the program, including a comprehensive capstone project. You'll create AI agents, develop LLM-powered applications, build automation workflows, and deploy production-ready AI solutions that you can showcase in your portfolio."
+        question: "Does the program include hands-on projects?",
+        answer: "Yes. This is a hands-on Generative AI program with real use cases and practical projects in every module."
     },
     {
-        question: "What kind of support is available if I get stuck during the program?",
-        answer: "You'll have access to mentors from leading AI companies, community support, and dedicated assistance throughout your learning journey. Our mentors include professionals working with cutting-edge AI technologies who provide guidance and answer your questions."
+        question: "Will I build real AI-powered applications?",
+        answer: "Yes. You’ll build real AI-powered applications like content generators, chatbots, automation tools, and AI assistants, AI Agents."
+    },
+    {
+        question: "Which Generative AI tools are covered?",
+        answer: "You’ll work with popular Generative AI tools for text, images, video, chatbots,AI Agent building, Multi-Agent orchestration and automation used across industries."
+    },
+    {
+        question: "Is this useful for business and non-tech roles?",
+        answer: "Absolutely. The program is highly valuable for marketing, sales, HR, product, founders, consultants, and creators."
+    },
+    {
+        question: "Will I learn AI automation workflows?",
+        answer: "Yes. You’ll learn AI automation workflows to save time, automate tasks, and improve productivity using GenAI."
+    },
+    {
+        question: "Does the program cover text, image, and video generation?",
+        answer: "Yes. The program covers text generation, image generation, and video generation using modern Generative AI tools."
+    },
+    {
+        question: "Is AI ethics and responsible AI included?",
+        answer: "Yes. You’ll learn AI ethics, responsible AI usage, data privacy, and real-world AI limitations."
+    },
+    {
+        question: "Can this help me monetize AI skills?",
+        answer: "Yes. You’ll learn how to monetize Generative AI skills through freelancing, content creation, consulting, and business use cases"
+    },
+    {
+        question: "Is this suitable for working professionals?",
+        answer: "Yes. Designed for working professionals, with flexible learning and practical outcomes that fit busy schedules."
+    },
+    {
+        question: "Will I build a GenAI portfolio?",
+        answer: "Yes. You’ll build a portfolio of Generative AI projects that showcase real skills, not just certificates."
+    },
+    {
+        question: "How is this different from prompt-only courses?",
+        answer: "Prompt-only courses teach commands. This program teaches end-to-end Generative AI usage, workflows, tools, automation, and real applications."
+    },
+    {
+        question: "Will this help in freelancing or consulting?",
+        answer: "Yes. The program prepares you for AI freelancing, consulting, and client-based work with real deliverables."
+    },
+    {
+        question: "What opportunities open up after this program?",
+        answer: "You can explore roles and opportunities like elevation in your current role, AI Automation Specialist, AI Consultant, Freelancer, or Business AI Strategist."
     }
 ];
 

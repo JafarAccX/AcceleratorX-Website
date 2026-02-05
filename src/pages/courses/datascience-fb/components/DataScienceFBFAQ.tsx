@@ -4,24 +4,68 @@ import { Plus, X } from "lucide-react";
 
 const faqData = [
     {
-        question: "I’m a Data Analyst with no prior ML experience. Is this program for me?",
-        answer: "Absolutely. This program is specifically designed for builders transitioning from Analyst or Fresher roles. We move beyond SQL and dashboards to teach you how to frame ambiguous problems and build models that survive production."
+        question: "Is this program suitable for beginners in Data Science?",
+        answer: "Yes. This program is beginner-friendly for Data Science aspirants and structured to move from fundamentals to real-world applications"
     },
     {
-        question: "What kind of production-grade projects will I build?",
-        answer: "You will graduate with an end-to-end Capstone project showcased on BuildrX. Projects include credit/risk churn modeling, revenue forecasting, and building autonomous data analysis agents using real-world datasets."
+        question: "What prior knowledge is required before joining?",
+        answer: "Basic logical thinking and curiosity are enough. No advanced math or prior ML experience is required to get started."
     },
     {
-        question: "What tangible outcomes will I have by the end of the program?",
-        answer: "We focus on 'Employability Assets' rather than just a certificate. You will graduate with a deployed ML pipeline, a professional portfolio, and a mindset shift that prepares you for 2025-ready DS roles."
+        question: "How is this different from typical ML or Python courses?",
+        answer: "Unlike isolated ML or Python courses, this program teaches end-to-end Data Science, combining data preparation, modeling, evaluation, and deployment."
     },
     {
-        question: "How does this program make me hireable as a Data Scientist?",
-        answer: "Most DS projects fail due to bad problem framing. We fix that gap by training you in causal thinking, error analysis, and business decisioning—the exact skills hiring managers look for beyond 'knowing Python'."
+        question: "Will I work on end-to-end data science projects?",
+        answer: "Yes. You’ll work on complete data science projects from problem definition to deployment-ready solutions."
     },
     {
-        question: "How does the mentorship and feedback system work?",
-        answer: "This isn't a recorded video class. You get live sessions in small-batch cohorts (1:10 ratio) with direct feedback on your modeling work and error analysis critiques from practicing Data Scientists."
+        question: "How much math and statistics are involved?",
+        answer: "Only practical, applied math and statistics needed to understand and improve models — no heavy theory or proofs."
+    },
+    {
+        question: "Does the program cover real-world machine learning problems?",
+        answer: "Yes. You’ll solve real-world ML problems like prediction, classification, recommendation, and forecasting."
+    },
+    {
+        question: "Will I learn model deployment and MLOps concepts?",
+        answer: "Yes. The program covers model deployment basics, MLOps concepts, versioning, and monitoring"
+    },
+    {
+        question: "Is Generative AI included in this program?",
+        answer: "Yes. You’ll get exposure to Generative AI concepts and applications, connecting traditional ML with modern AI systems"
+    },
+    {
+        question: "Will I build production-grade ML models?",
+        answer: "Yes. You’ll build production-grade machine learning models, focusing on performance, scalability, and reliability."
+    },
+    {
+        question: "Is this suitable for Data Analysts transitioning to Data Science?",
+        answer: "Absolutely. This program is ideal for Data Analysts transitioning into Data Scientist roles."
+    },
+    {
+        question: "Will I create a portfolio with real projects?",
+        answer: "Yes. You’ll build a strong Data Science portfolio with real, end-to-end projects."
+    },
+    {
+        question: "How does this program align with current industry hiring?",
+        answer: "The curriculum is aligned with current industry expectations, focusing on practical skills companies actually hire for."
+    },
+    {
+        question: "Is this program more practical or theory-heavy?",
+        answer: "The program is highly practical and project-driven, with theory taught only when needed for real-world application."
+    },
+    {
+        question: "Can working professionals manage this program?",
+        answer: "Yes. Designed for working professionals, with flexible schedules and applied learning"
+    },
+    {
+        question: "Will this help with Data Scientist interviews?",
+        answer: "Yes. You’ll receive Data Scientist interview preparation, including ML case discussions, project walkthroughs, and resume guidance."
+    },
+    {
+        question: "What Data Science roles can I target after completion?",
+        answer: "You can target roles such as Data Scientist, Applied ML Engineer (junior), Decision Scientist, and Analytics Scientist."
     }
 ];
 

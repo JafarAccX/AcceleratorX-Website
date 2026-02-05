@@ -41,24 +41,68 @@ const FAQItem = ({ question, answer, defaultOpen = false }: { question: string; 
 
 const FAQS = [
     {
-        question: "What kind of background do I need to join the AI program at AcceleratorX?",
-        answer: "You don't need any prior AI or programming experience to join. The program is designed for beginners, freelancers, working professionals or entrepreneurs looking to enter the AI domain.\n\nAcceleratorX offers a no-code, hands-on learning path, so you can learn practical AI skills without needing to write code."
+        question: "Is this program beginner-friendly?",
+        answer: "Yes. This is a beginner-friendly Data Analytics program designed for students, freshers, and non-technical learners."
     },
     {
-        question: "What kinds of AI programs does AcceleratorX offer?",
-        answer: "AcceleratorX offers comprehensive programs in AI-Powered Data Analytics, covering everything from data collection and cleaning to advanced analytics, machine learning, and AI-driven insights. Our curriculum is designed to make you job-ready with real-world projects and hands-on experience."
+        question: "Do I need prior coding or statistics knowledge?",
+        answer: "No prior coding or statistics background is required. The program starts from analytics fundamentals and builds step by step."
     },
     {
-        question: "Will I receive a certificate after completing the program?",
-        answer: "Yes! Upon successful completion of the program, you'll receive an Industry-Recognized Nano Degree in AI-Powered Data Analytics. This certificate validates your skills in data analysis, visualization, statistical modeling, and AI-powered analytics."
+        question: "Will I learn SQL and Python from scratch?",
+        answer: "Yes. You’ll learn SQL and Python from scratch, focused on practical data analysis and real-world use cases."
     },
     {
-        question: "Are there real-world projects included in the course?",
-        answer: "Absolutely! You'll work with real datasets throughout the program, including a comprehensive capstone project. You'll build actual analytics dashboards, perform product and user analysis, create predictive models, and develop AI-powered analytics solutions that you can showcase in your portfolio."
+        question: "Is this focused more on dashboards or decision-making?",
+        answer: "The program focuses on decision-driven analytics, not just dashboards — teaching how data supports business and product decisions."
     },
     {
-        question: "What kind of support is available if I get stuck during the program?",
-        answer: "You'll have access to mentors from leading companies, community support, and dedicated assistance throughout your learning journey. Our mentors include professionals from top analytics teams who provide guidance and answer your questions."
+        question: "Will I work with real-world datasets?",
+        answer: "Yes. You’ll analyze real-world datasets from business, marketing, finance, and product scenarios."
+    },
+    {
+        question: "Does the program include business and product analytics?",
+        answer: "Yes. The curriculum includes business analytics and product analytics, covering KPIs, funnels, cohorts, and metrics."
+    },
+    {
+        question: "How much Excel is covered in the program?",
+        answer: "Excel is covered extensively, including formulas, pivot tables, data cleaning, and analysis workflows."
+    },
+    {
+        question: "Will I learn data visualization tools?",
+        answer: "Yes. You’ll learn data visualization tools like looker studio, Power Bi, Tableau to create clear, impactful charts and dashboards."
+    },
+    {
+        question: "Is this suitable for career switchers?",
+        answer: "Yes. This program is ideal for career switchers transitioning into data analytics roles from non-technical backgrounds."
+    },
+    {
+        question: "Does the program include AI-assisted analytics?",
+        answer: "Yes. You’ll learn AI-assisted analytics, including using AI tools to speed up analysis and generate insights."
+    },
+    {
+        question: "Will I build an analytics portfolio?",
+        answer: "Yes. You’ll build a strong data analytics portfolio with real projects that demonstrate practical skills."
+    },
+    {
+        question: "Is this program suitable for working professionals?",
+        answer: "Yes. Designed for working professionals, with flexible learning and practical, job-relevant skills."
+    },
+    {
+        question: "How job-ready will I be after completion?",
+        answer: "You’ll be job-ready for entry-level and junior analytics roles, with hands-on experience and interview preparation."
+    },
+    {
+        question: "What kind of analytics roles does this prepare me for?",
+        answer: "The program prepares you for roles like Data Analyst, Business Analyst, Product Analyst, and Junior Analytics roles."
+    },
+    {
+        question: "Is this different from generic data analytics courses?",
+        answer: "Yes. This program focuses on real business problems, decision-making, and practical tools, not just theory or tools."
+    },
+    {
+        question: "Will I get an interview and career guidance?",
+        answer: "Yes. The program includes interview preparation, resume guidance, portfolio review, and career support."
     }
 ];
 

@@ -6,24 +6,68 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FAQ_DATA = [
     {
-        question: "Do I need coding experience for this program?",
-        answer: "While we use frameworks like LangGraph and CrewAI that are code-friendly, beginners can follow along. Basic Python knowledge is helpful but we provide foundations to get you started with building agents."
+        question: "Is this program suitable for beginners in AI?",
+        answer: "Yes. This program is beginner-friendly for AI aspirants with basic logical thinking, programming curiosity, or tech background. It starts from AI foundations and progresses to advanced AI engineering"
     },
     {
-        question: "How is this different from a regular Generative AI course?",
-        answer: "Most courses focus on prompt engineering and using chatbots. This program is about building 'Autonomous Agents'—systems that use reasoning, memory, and tools to complete complex tasks without humans in the loop."
+        question: "How is this different from a basic Generative AI program?",
+        answer: "Basic Generative AI programs focus on tool usage and prompt writing. This program focuses on AI system engineering, agent architecture, RAG pipelines, and real-world deployment."
     },
     {
-        question: "What kind of agents will I build?",
-        answer: "You will build research agents, customer support agents that use tools, multi-agent marketing teams, and data analyst agents that can reason over product metrics."
+        question: "Do I need strong coding skills to join?",
+        answer: "No. You don’t need advanced coding skills, Basic understanding of Python is enough. The program teaches practical Python for AI, system logic, and engineering workflows step by step."
     },
     {
-        question: "Does the program include live labs?",
-        answer: "Yes, especially in the Regular+ plan, we have live mentor-led labs where we build and deploy agents together on real-world infrastructure."
+        question: "Will I build AI agents from scratch?",
+        answer: "Yes. You will design, build, and optimize AI agents from scratch, including memory, reasoning, tools, and workflows."
     },
     {
-        question: "What is the duration of the program?",
-        answer: "This is a 10-week intensive specialized program designed for professionals and builders."
+        question: "Does the program cover RAG systems?",
+        answer: "Yes. You’ll build end-to-end Retrieval-Augmented Generation (RAG) systems using vector databases, embeddings, and real-world data."
+    },
+    {
+        question: "Are multi-agent systems included?",
+        answer: "Yes. The program includes multi-agent architectures, agent collaboration, task delegation, and coordination strategies."
+    },
+    {
+        question: "Will I work with open-source AI frameworks?",
+        answer: "Yes. You’ll work with popular open-source AI frameworks and tools used by startups and AI engineering teams."
+    },
+    {
+        question: "Is this program more engineering-focused?",
+        answer: "This is for anyone who wants to build their own agents & their AI application. This is a hands-on AI engineering program, focused on architecture, pipelines, reliability, scalability, and system design."
+    },
+    {
+        question: "Will I deploy real AI systems?",
+        answer: "Yes. You’ll deploy real AI applications and AI agents, not just notebooks or theoretical demos."
+    },
+    {
+        question: "Does the program include production-level projects?",
+        answer: "Yes. Projects are production-grade, covering performance optimization, latency, cost efficiency, and scalability."
+    },
+    {
+        question: "Will I build a portfolio-ready AI capstone?",
+        answer: "Yes. You’ll complete a strong AI engineering capstone project that is fully portfolio-ready and recruiter-facing."
+    },
+    {
+        question: "Is this aligned with AI engineering roles?",
+        answer: "Yes. The curriculum aligns directly with AI Engineer, GenAI Engineer, AI Agent Engineer, and Applied AI roles."
+    },
+    {
+        question: "How advanced is the curriculum?",
+        answer: "The curriculum is advanced and industry-aligned, covering reasoning systems, memory, RAG optimization,Agent orchestration, and deployment."
+    },
+    {
+        question: "Is this suitable for working professionals?",
+        answer: "Yes. The program is designed for working professionals, career switchers, and serious AI builders, with flexible learning and hands-on projects."
+    },
+    {
+        question: "Will I learn system design for AI applications?",
+        answer: "Yes. You’ll learn AI system design, including architecture decisions, scaling strategies, and production trade-offs."
+    },
+    {
+        question: "Who should choose this program over basic GenAI courses?",
+        answer: "This program is ideal for learners who want to build AI systems, not just use AI tools, and aim for real AI engineering roles or startup-level AI work."
     }
 ];
 
