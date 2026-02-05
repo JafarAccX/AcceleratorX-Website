@@ -38,6 +38,16 @@ export default function CTASection() {
                     Take First Step Towards Your AI Career Before It's Too Late
                 </motion.h2>
 
+                {/* Description */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.25 }}
+                    className="text-gray-400 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed mb-8"
+                >
+                    Join 12,700+ professionals who’ve accelerated their careers through mentor-led, job-focused AI upskilling programs built for real industry roles. Whether you are looking to transition into AI product management, generative AI and automation, AI data analytics, or AI digital marketing, AccelratorX helps you gain practical, job ready ai skills through live sessions and hands-on custom projects.
+                </motion.p>
                 {/* Subtext */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}

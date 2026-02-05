@@ -49,11 +49,34 @@ export default function TrustedLogos() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="text-gray-400 text-lg md:text-xl mb-16"
                 >
-                    for AI, Product, Marketing and Data Analyst jobs hiring
+                    Mentor-led AI Upskilling Programs
+
+                </motion.p>
+
+                {/* Description */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-gray-400 text-lg md:text-xl max-w-7xl mx-auto leading-relaxed"
+                >
+                    AcceleratorX AI courses are trusted by over 1700+ companies hiring for AI product
+                    management, generative AI, AI data analytics and AI digital marketing roles. Our
+                    programs help you understand how companies use AI in real-world workflows, making
+                    you prepared for today’s job market. From structured courses in AI product
+                    management training and generative AI courses with automation, to AI-led data
+                    analytics training and AI digital marketing programs, each course focuses on
+                    practical outcomes rather than theory. Learners gain hands-on experience with AI
+                    tools, AI workflow automation and applied AI strategies used by modern teams. This
+                    industry-backed approach makes AcceleratorX ideal for Professionals seeking AI
+                    certification programs, career transition into AI roles, or advanced AI skills that
+                    employers hire for.
+
                 </motion.p>
 
                 {/* Logo Grid */}
-                <div className="flex flex-wrap justify-center items-center gap-2 max-w-5xl mx-auto">
+                <div className="flex flex-wrap justify-center items-center gap-2 max-w-7xl space-y-8 mx-auto">
                     {logos.map((logo, idx) => (
                         <motion.div
                             key={logo.name}
@@ -61,7 +84,7 @@ export default function TrustedLogos() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.1 * idx }}
-                            className="w-32  h-12  flex items-center justify-center transition-all duration-300"
+                            className="w-44 h-16 flex items-center justify-center transition-all duration-300"
                         >
                             <img
                                 src={logo.src}
@@ -71,6 +94,7 @@ export default function TrustedLogos() {
                         </motion.div>
                     ))}
                 </div>
+                <p className="my-12 text-gray-400 text-lg">and many more</p>
             </div>
         </section>
     );

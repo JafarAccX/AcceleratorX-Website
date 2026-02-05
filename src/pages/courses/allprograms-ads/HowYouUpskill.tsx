@@ -53,6 +53,25 @@ export default function HowYouUpskill() {
                 >
                     How You Upskill at AcceleratorX
                 </motion.h2>
+                {/* Description */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-gray-400 text-lg md:text-xl max-w-7xl my-8 mx-auto leading-relaxed"
+                >
+                    At AcceleratorX, our mentor-led learning model is designed to support a practical AI upskilling
+                    A program that aligns with real industry needs. Through live sessions and a project-first AI
+                    curriculum, learners gain hands-on experience in AI product management, generative AI, AI
+                    automation, AI data analytics, and AI digital marketing. Each program focuses on applying AI to
+                    real business use cases, helping learners understand workflows such as AI product lifecycle
+                    management, AI-led data analysis, AI workflow automation, and the use of AI tools for digital
+                    marketing. With continuous feedback, structured reviews, and career-focused guidance, these AI
+                    certification programs help working professionals and freshers build job-ready AI skills with
+                    confidence
+
+                </motion.p>
 
                 {/* Features Grid */}
                 <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
