@@ -8,7 +8,7 @@ import DataScienceFBTools from "./components/DataScienceFBTools";
 import DataScienceFBPricing from "./components/DataScienceFBPricing";
 import DataScienceFBSchedule from "./components/DataScienceFBSchedule";
 import DataScienceFBFAQ from "./components/DataScienceFBFAQ";
-import EnrollmentModalADS from "../allprograms-ads/EnrollmentModalADS";
+import EnrollmentModalDS from "./components/EnrollmentModalDS";
 
 const DataScienceFBPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,12 +19,12 @@ const DataScienceFBPage = () => {
 
     return (
         <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-blue-500 selection:text-white">
-            <EnrollmentModalADS
+            <EnrollmentModalDS
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 program={{
-                    label: "AI DA", // Matches PROGRAM_THEMES key
-                    title: "AI Powered Data Analytics", // Ensures resolveBrochure finds "Data Analytics"
+                    label: "Data Science", // Matches PROGRAM_THEMES key in EnrollmentModalDS
+                    title: "Data Science Program", // Ensures resolveBrochure finds "Data Science" / falls back correctly
                     description: "Master Data Science & Analytics with AI",
                     color: "blue",
                     link: "",
