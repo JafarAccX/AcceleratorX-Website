@@ -7,25 +7,32 @@ import EnrollmentModal from '../../../components/EnrollmentModal';
 const pricingOptions = [
   {
     title: "Early-bird",
-    price: "₹29,999 + GST",
-    originalPrice: "₹49,999", 
+    price: "₹19,999 + GST",
+    originalPrice: "₹49,999",
     highlight: true,
-    discount: "40% Off"
+    discount: "60% Off"
   },
-  {
-    title: "Standard",
-    price: "₹39,999 + GST",
-    originalPrice: "₹49,999", 
-    highlight: false,
-    discount: "20% Off"
-  },
-  {
-    title: "Installments",
-    price: "₹1,967*",
-    originalPrice: "", 
-    highlight: false,
-    discount: "(18 months no cost EMI)"
-  }
+  // {
+  //   title: "Early-bird",
+  //   price: "₹29,999 + GST",
+  //   originalPrice: "₹49,999", 
+  //   highlight: true,
+  //   discount: "40% Off"
+  // },
+  // {
+  //   title: "Standard",
+  //   price: "₹39,999 + GST",
+  //   originalPrice: "₹49,999", 
+  //   highlight: false,
+  //   discount: "20% Off"
+  // },
+  // {
+  //   title: "Installments",
+  //   price: "₹1,967*",
+  //   originalPrice: "", 
+  //   highlight: false,
+  //   discount: "(18 months no cost EMI)"
+  // }
 ];
 
 const pricingFeatures = [
@@ -75,7 +82,8 @@ const AIDMPricing: React.FC = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        {/* grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 */}
+        <div className=" max-w-[500px] mx-auto mb-12">
           {pricingOptions.map((option, index) => (
             <motion.div
               key={index}
@@ -83,11 +91,10 @@ const AIDMPricing: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`relative rounded-3xl p-8 border transition-all duration-300 ${
-                option.highlight 
-                  ? 'bg-[#0F0F0F] border-[#5CB338] shadow-lg shadow-[#5CB338]/20' 
-                  : 'bg-[#0F0F0F] border-white/10 hover:border-[#5CB338]/50'
-              }`}
+              className={`relative rounded-3xl p-8 border transition-all duration-300 ${option.highlight
+                ? 'bg-[#0F0F0F] border-[#5CB338] shadow-lg shadow-[#5CB338]/20'
+                : 'bg-[#0F0F0F] border-white/10 hover:border-[#5CB338]/50'
+                }`}
             >
               {/* Popular Badge */}
               {option.highlight && (
@@ -125,11 +132,10 @@ const AIDMPricing: React.FC = () => {
                 onClick={handleEnrollClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-full py-3 px-6 rounded-xl font-bold transition-all duration-300 ${
-                  option.highlight
-                    ? 'bg-[#5CB338] hover:bg-[#5CB338]/90 text-white shadow-lg shadow-[#5CB338]/25'
-                    : 'border-2 border-[#5CB338] text-[#5CB338] hover:bg-[#5CB338]/10'
-                }`}
+                className={`w-full py-3 px-6 rounded-xl font-bold transition-all duration-300 ${option.highlight
+                  ? 'bg-[#5CB338] hover:bg-[#5CB338]/90 text-white shadow-lg shadow-[#5CB338]/25'
+                  : 'border-2 border-[#5CB338] text-[#5CB338] hover:bg-[#5CB338]/10'
+                  }`}
               >
                 {option.highlight ? 'Lock Early-Bird Spot' : 'Enroll Now'}
               </motion.button>
@@ -138,7 +144,7 @@ const AIDMPricing: React.FC = () => {
         </div>
 
         {/* Features Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -165,7 +171,7 @@ const AIDMPricing: React.FC = () => {
             ))}
           </div>
         </motion.div>
-        
+
         {/* Testimonial */}
         {/* <motion.div 
           initial={{ opacity: 0, y: 20 }}

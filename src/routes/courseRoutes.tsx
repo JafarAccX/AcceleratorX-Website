@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
+import DataScienceFBPage from "../pages/courses/datascience-fb/DataScienceFBPage";
 
 const ProductManagementEntry = lazy(() => import("../pages/courses/EntryPoint/ProductManagementEntry"));
 const DataAnalyticsEntry = lazy(() => import("../pages/courses/EntryPoint/DataAnalyticsEntry"));
@@ -40,13 +41,7 @@ export const courseRoutes = [
   <Route key="course-genai-entry" path="/courses/generative-ai" element={<GenAICourse />} />,
   <Route key="course-genai-pm" path="/courses/gen-ai-for-pms" element={<GenAiForPMEntry />} />,
   <Route key="course-aidm" path="/courses/ai-digital-marketing" element={<AIDMEntry />} />,
-  // <Route
-  //   key="course-dmai"
-  //   path="/courses/advance-performance-marketing-with-ai"
-  //   element={<DMAICourse />}
-  // />,
 
-  // Ad Course Routes
   <Route
     key="course-pm-fb"
     path="/courses/product-management-program-fb"
@@ -71,6 +66,11 @@ export const courseRoutes = [
     key="course-da-eie"
     path="/courses/data-analytics-program-eie"
     element={<DataAnalyticsAd />}
+  />,
+  <Route
+    key="course-ds-fb"
+    path="/courses/datascience-program-fb"
+    element={<DataScienceFBPage />}
   />,
   <Route key="course-genai-fb" path="/courses/generative-ai-fb" element={<GenAICourseAD />} />,
   <Route key="course-genai-fb-b" path="/courses/generative-ai-fb-b" element={<GenAICourseAD />} />,
