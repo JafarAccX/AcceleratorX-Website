@@ -66,7 +66,7 @@ export default function DataScienceHeroEIE() {
     return (
         <section
             className="relative min-h-[800px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
-            style={{ backgroundImage: "url('/redesign/ai-da/ai-da-hero.webp')" }}
+            style={{ backgroundImage: "url('/redesign/data-science/datascience-heor.webp" }}
         >
             <div className="max-w-7xl mx-auto px-4 relative z-10 pt-10">
                 <Typewriter
@@ -123,8 +123,8 @@ export default function DataScienceHeroEIE() {
                                 className="lg:col-span-8 items-end flex flex-col gap-4"
                             >
                                 <p className="text-gray-200 dark:text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl ml-auto text-right lg:text-left lg:ml-0 lg:mr-0 transition-colors duration-300">
-                                    Build real machine learning systems, not just notebooks. Master the art of framing business problems, evaluating models, and deploying production-ready ML pipelines.
-                                </p>
+                                    Build real ML systems.
+                                    Not just notebooks. </p>
 
                                 <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
                                     <button
