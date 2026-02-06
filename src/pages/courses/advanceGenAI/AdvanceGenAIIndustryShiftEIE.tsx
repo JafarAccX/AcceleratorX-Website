@@ -49,10 +49,10 @@ export default function AdvanceGenAIIndustryShiftEIE() {
                     </div>
 
                     <h2 className="text-4xl md:text-6xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        From AI Models to <br /><span className="italic font-light">Autonomous AI Agents</span>
+                        From AI Models to Autonomous AI Agents
                     </h2>
 
-                    <div className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <div className="max-w-7xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         <p>
                             The next wave of AI is not chatbots—it’s agents that think, decide, and act. Agentic systems are transforming how products are built, operations are automated, and decisions are made at scale.
                         </p>
