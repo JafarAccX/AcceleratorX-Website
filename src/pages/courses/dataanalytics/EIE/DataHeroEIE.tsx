@@ -90,8 +90,7 @@ export default function DataHeroEIE() {
               className="mb-10"
             >
               <h1 className="text-5xl md:text-7xl font-serif text-white dark:text-white leading-tight font-medium">
-                Become an <br />
-                <span className="italic">AI-Powered Data Analyst</span>
+                AI Data Analytics
               </h1>
             </motion.div>
 

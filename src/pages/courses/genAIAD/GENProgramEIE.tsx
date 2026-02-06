@@ -407,6 +407,15 @@ export default function GENProgramEIE() {
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
+
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Skillverse You Acually Master</h3>
+                        <div className="w-full mb-16">
+                            <img
+                                src="/redesign/gen-ai/gen-ai-skilverse.png"
+                                alt="Skillverse You Actually Master"
+                                className="w-full h-auto object-contain rounded-xl"
+                            />
+                        </div>
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {GEN_TOOLS.map((tool, idx) => (
@@ -417,11 +426,7 @@ export default function GENProgramEIE() {
                                     <div className="p-3 inline-block mb-4 transition-colors duration-300">
                                         <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
                                     </div>
-                                    <div className="mb-2">
-                                        <span className="text-[10px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded transition-colors duration-300">
-                                            TOOL
-                                        </span>
-                                    </div>
+
                                     <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300">{tool.name}</h4>
                                     <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{tool.description}</p>
                                 </div>
@@ -532,51 +537,47 @@ export default function GENProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="pricing" className="scroll-mt-24 relative">
-                        <img
-                            src="/redesign/gen-ai/google-cloud.png"
-                            alt="google-cloud"
-                            className="absolute top-0 -left-64 object-contain opacity-80 hidden lg:block animate-float"
-                        />
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Make an Investment in Your AI-Ready Future</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
-                            {[
-                                {
-                                    name: "Regular",
-                                    price: 32499,
-                                    features: ["Hands-on training", "Projects", "Certification", "Community"],
-                                    highlight: false
-                                },
-                                {
-                                    name: "Regular+",
-                                    price: 42499,
-                                    features: ["Advanced agent projects", "Live labs", "Career roadmap", "Priority hiring"],
-                                    highlight: true
-                                }
-                            ].map((plan, idx) => (
-                                <div key={idx} className={`bg-orange-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-[#FC6401] dark:border-[#FC6401] shadow-md ring-1 ring-[#FC6401]' : 'border-orange-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
-                                    {plan.highlight && (
-                                        <div className="absolute top-0 right-0 bg-[#FC6401] text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
-                                            RECOMMENDED
-                                        </div>
-                                    )}
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-300">
-                                        Build AI Systems. Not Just Learn AI Tools.
-                                    </p>
+                    <section id="pricing" className="scroll-mt-24">
+                        <div className="text-center mb-16">
+                            <h3 className="text-4xl font-serif font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
+                        </div>
+                        <div className="flex justify-center max-w-5xl mx-auto">
+                            <div
+                                className="relative rounded-[10px] p-[1px] w-[375px]"
+                                style={{
+                                    background: "linear-gradient(180deg, #FC6401 0%, rgba(252, 100, 1, 0) 100%)",
+                                    boxShadow: "4px 4px 10px 0px #FC640166",
+                                }}
+                            >
+                                <div
+                                    className="bg-[#171717] rounded-[9px] p-6 h-full flex flex-col items-center text-center relative overflow-hidden"
+                                    style={{
+                                        boxShadow: "-4px -4px 10px 0px #FC640166",
+                                    }}
+                                >
+                                    {/* Gradient Overlay */}
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            background: "linear-gradient(142.89deg, rgba(252, 100, 1, 0.2) 0%, rgba(252, 100, 1, 0) 100%)",
+                                        }}
+                                    ></div>
 
-                                    <div className="mb-2">
-                                        <span className="text-3xl font-bold text-[#FC6401] dark:text-[#FC6401] transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
-                                        <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
+                                    <h4 className="font-bold text-white text-2xl mb-2 relative z-10">Regular +</h4>
+                                    <p className="text-gray-300 text-sm mb-6 relative z-10">Generative AI & AI Agent Building</p>
+
+                                    <div className="mb-4 relative z-10">
+                                        <span className="text-4xl font-bold text-[#FC6401]">₹ 39,999</span>
+                                        <span className="text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 
                                     {batches.length > 0 && (
-                                        <div className="mb-4">
-                                            <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
+                                        <div className="mb-6 w-full relative z-10">
+                                            <label className="block text-left text-sm font-medium text-gray-300 mb-2">Select Batch</label>
                                             <select
                                                 value={selectedBatchId || ''}
                                                 onChange={(e) => setSelectedBatchId(e.target.value)}
-                                                className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-[#FC6401] focus:border-[#FC6401] bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
+                                                className="w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#FC6401] focus:border-[#FC6401] bg-black text-white"
                                             >
                                                 {batches.map((batch) => (
                                                     <option key={batch.Id} value={batch.Id}>
@@ -587,23 +588,45 @@ export default function GENProgramEIE() {
                                         </div>
                                     )}
 
-                                    <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                                        {plan.features.map((feat, i) => (
-                                            <li key={i} className="flex gap-2"><Check size={16} className="text-[#FC6401] dark:text-[#FC6401] flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+
+                                    <ul className="text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
+                                        {[
+                                            "3-month intensive, live instructor-led training",
+                                            "Hands-on projects tackling real-world AI challenges",
+                                            "Industry-recognised certification",
+                                            "Lifetime access to all program materials",
+                                            "Exclusive AI community membership",
+                                            "Career mentorship and guidance",
+                                            "Build a strong portfolio with AI Solutions",
+                                            "Learn to Build Automations",
+                                            "Show your products through BuildrX",
+                                            "Direct Hiring Channel Access"
+                                        ].map((f, i) => (
+                                            <li key={i} className="flex gap-2 items-start">
+                                                <span className="text-gray-400 mt-1">•</span>
+                                                <span>{f}</span>
+                                            </li>
                                         ))}
                                     </ul>
 
                                     {isAuthenticated ? (
-                                        <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-[#FC6401] hover:bg-[#E55A01] disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                            {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
+                                        <button
+                                            onClick={() => handleBuyCourse(39999)}
+                                            disabled={isProcessing || batches.length === 0}
+                                            className="w-full py-3 bg-[#FC6401] hover:bg-[#e55a00] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
+                                        >
+                                            {isProcessing ? <><Loader2 size={18} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Apply Now <ArrowRight size={18} /></>}
                                         </button>
                                     ) : (
-                                        <button onClick={() => navigate('/sign-in', { state: { from: location } })} className="w-full py-3 bg-[#FC6401] hover:bg-[#E55A01] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                            Sign in to Enroll <ArrowRight size={16} />
+                                        <button
+                                            onClick={() => navigate('/sign-in', { state: { from: location } })}
+                                            className="w-full py-3 bg-[#FC6401] hover:bg-[#e55a00] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                        >
+                                            Sign in to Enroll <ArrowRight size={18} />
                                         </button>
                                     )}
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </section>
 

@@ -58,7 +58,7 @@ export default function GENWhoIsThisContentForEIE() {
                         The Growing Generative AI Industry
                     </h2>
 
-                    <p className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <p className="max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         Generative AI is no longer experimental. Companies are actively adopting LLMs, AI agents, and automation systems to replace manual workflows, scale decision-making, and build intelligent products.
                     </p>
                     <img

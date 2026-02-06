@@ -44,22 +44,12 @@ export default function WhoIsThisContentForEIE() {
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        Data Analysts Are Evolving into AI-Enabled Decision Makers
+                        The Growing Data Analytics Industry
                     </h2>
 
-                    <div className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <div className="max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         <p className="mb-4">
-                            Companies no longer want spreadsheet-only analysts. They need professionals who can:
-                        </p>
-                        {/* <ul className="text-left md:text-center list-disc list-inside space-y-2 mb-6 inline-block md:block">
-                            <li>Work with SQL, Python, and BI tools</li>
-                            <li>Understand product metrics & user behavior</li>
-                            <li>Use AI to analyze faster and smarter</li>
-                            <li>Communicate insights clearly to stakeholders</li>
-                        </ul> */}
-                        <p>
-                            This program prepares you for modern data analyst roles, not outdated ones.
-                        </p>
+                            The data analytics sector is experiencing unprecedented growth. It presents significant opportunities in market size, salary, and job openings.</p>
                     </div>
                 </motion.div>
 

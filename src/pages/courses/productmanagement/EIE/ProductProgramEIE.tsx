@@ -506,6 +506,31 @@ export default function ProductProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
+                    <section id="bydp" className="scroll-mt-24">
+                        <div className="bg-[#171717] rounded-2xl p-8 md:p-12 border border-[#848484]/30 relative overflow-hidden shadow-2xl">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+
+                            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-10 text-white relative z-10">Build your dream product</h3>
+
+                            <div className="space-y-10 relative z-10">
+                                <div>
+                                    <h4 className="text-xl font-bold text-blue-400 mb-3">What is BYDP?</h4>
+                                    <p className="text-gray-300 text-lg leading-relaxed">
+                                        Build Your Dream Product (BYDP) is a structured design and development process that turns raw ideas into usable, market-ready digital products-fast, focused, and without guesswork.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 className="text-xl font-bold text-blue-400 mb-3">Why BYDP?</h4>
+                                    <p className="text-gray-300 text-lg leading-relaxed">
+                                        Because building the wrong product is more expensive than building it right. BYDP aligns strategy, design, and execution so you ship something users actually want, not just something that looks good.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
+                    </section>
+
                     <section id="tools" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">TOOLS & FRAMEWORKS (EMBEDDED ACROSS PROGRAM)</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -592,27 +617,25 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Product Roles This Program Prepares You For</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Opportunities</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
-                                { role: "Product Manager", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
-                                { role: "Associate / Junior PM", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
-                                { role: "AI Product Manager", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
-                                { role: "Product Analyst", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
-                                { role: "Growth PM", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
-                                { role: "Founder / Product Owner", pay: "₹8 LPA – ₹20 LPA+", desc: "India & global product roles" },
+                                { role: "Product Manager", pay: "₹12L - 25L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
+                                { role: "Associate / Junior PM", pay: "₹12L - 25L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
+                                { role: "Founder / Product Owner", pay: "₹12L - 25L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
+                                { role: "AI Product Manager", pay: "₹12L - 25L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
                             ].map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300"
+                                    className="bg-[#171717] border border-[#848484]/30 rounded-xl p-8 hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="flex justify-between items-start mb-4">
-                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <h4 className="font-bold text-2xl text-white transition-colors duration-300">
                                             {item.role}
                                         </h4>
-                                        <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">{item.pay}</span>
+                                        <span className="bg-[#5BA4E5] text-black text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap transition-colors duration-300">{item.pay}</span>
                                     </div>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
+                                    <p className="text-gray-400 text-sm transition-colors duration-300 leading-relaxed">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -623,42 +646,49 @@ export default function ProductProgramEIE() {
 
                     <section id="pricing" className="scroll-mt-24 relative">
                         <img src="/redesign/ai-pm/Miro-Logo.png" alt="Miro-Logo" className="absolute w-24 h-24 bottom-40 -left-[400px] rotate-12" />
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in Your Product Management Career</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
-                            {[
-                                {
-                                    name: "Regular",
-                                    price: 32499,
-                                    features: ["Core PM + AI PM training", "Projects", "Certification"],
-                                    highlight: false
-                                },
-                                {
-                                    name: "Regular+",
-                                    price: 42499,
-                                    features: ["Advanced AI PM focus", "Capstone", "Career roadmap", "Priority hiring"],
-                                    highlight: true
-                                }
-                            ].map((plan, idx) => (
-                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-blue-500 dark:border-blue-500 shadow-md ring-1 ring-blue-500' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
-                                    {plan.highlight && (
-                                        <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
-                                            RECOMMENDED
-                                        </div>
-                                    )}
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
 
-                                    <div className="mb-2">
-                                        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
-                                        <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
+                        <div className="text-center mb-16">
+                            <h3 className="text-4xl font-serif font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
+                        </div>
+
+                        <div className="flex justify-center max-w-5xl mx-auto">
+                            <div
+                                className="relative rounded-[10px] p-[1px] w-[375px]"
+                                style={{
+                                    background: "linear-gradient(180deg, #5BA4E5 0%, rgba(91, 164, 229, 0) 100%)",
+                                    boxShadow: "4px 4px 10px 0px #5BA4E566",
+                                }}
+                            >
+                                <div
+                                    className="bg-[#171717] rounded-[9px] p-6 h-full flex flex-col items-center text-center relative overflow-hidden"
+                                    style={{
+                                        boxShadow: "-4px -4px 10px 0px #5BA4E566",
+                                    }}
+                                >
+                                    {/* Gradient Overlay */}
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            background: "linear-gradient(142.89deg, rgba(91, 164, 229, 0.2) 0%, rgba(91, 164, 229, 0) 100%)",
+                                        }}
+                                    ></div>
+
+                                    <h4 className="font-bold text-white text-2xl mb-2 relative z-10">Regular</h4>
+                                    <p className="text-gray-300 text-sm mb-6 relative z-10">AI Product Management</p>
+
+                                    <div className="mb-4 relative z-10">
+                                        <span className="text-4xl font-bold text-[#5BA4E5]">₹ 49,999</span>
+                                        <span className="text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 
+                                    {/* Batch Selection Logic */}
                                     {batches.length > 0 && (
-                                        <div className="mb-4">
-                                            <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
+                                        <div className="mb-6 w-full relative z-10">
+                                            <label className="block text-left text-sm font-medium text-gray-300 mb-2">Select Batch</label>
                                             <select
                                                 value={selectedBatchId || ''}
                                                 onChange={(e) => setSelectedBatchId(e.target.value)}
-                                                className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300"
+                                                className="w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#5BA4E5] focus:border-[#5BA4E5] bg-black text-white"
                                             >
                                                 {batches.map((batch) => (
                                                     <option key={batch.Id} value={batch.Id}>
@@ -669,19 +699,46 @@ export default function ProductProgramEIE() {
                                         </div>
                                     )}
 
-                                    <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                                        {plan.features.map((feat, i) => (
-                                            <li key={i} className="flex gap-2"><Check size={16} className="text-blue-500 dark:text-blue-400 flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                                    <ul className="text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
+                                        {[
+                                            "4-month intensive, live instructor-led training",
+                                            "Hands-on building AI Products",
+                                            "Industry-recognised certification",
+                                            "Lifetime access to all program materials",
+                                            "Exclusive AI community membership",
+                                            "Career mentorship and guidance",
+                                            "Build a strong product portfolio",
+                                            "Interview preparation for product roles",
+                                            "Build your dream product",
+                                            "Get exclusive access to PM Job openings"
+                                        ].map((f, i) => (
+                                            <li key={i} className="flex gap-2 items-start">
+                                                <span className="text-gray-400 mt-1">•</span>
+                                                <span>{f}</span>
+                                            </li>
                                         ))}
                                     </ul>
 
-                                    {/* Payment Cancellation Message - moved inside card or maybe just globally? user didn't ask but logic exists. leaving it out of card for now as per design */}
+                                    {/* Button Logic */}
+                                    {isAuthenticated ? (
+                                        <button
+                                            onClick={() => handleBuyCourse(49999)}
+                                            disabled={isProcessing || batches.length === 0}
+                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
+                                        >
+                                            {isProcessing ? <><div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Apply Now <ArrowRight size={18} /></>}
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => navigate('/sign-in', { state: { from: location } })}
+                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                        >
+                                            Sign in to Enroll <ArrowRight size={18} />
+                                        </button>
+                                    )}
 
-                                    <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || isAuthLoading || batches.length === 0} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                        {isProcessing ? <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : isAuthenticated ? 'Enroll Now' : <>Sign in to Enroll <ArrowRight size={16} /></>}
-                                    </button>
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </section>
 

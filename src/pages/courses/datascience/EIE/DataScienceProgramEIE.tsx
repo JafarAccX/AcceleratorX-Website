@@ -277,7 +277,8 @@ export default function DataScienceProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-24">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6 italic text-[#3B82F6]">Stop Learning Algorithms. Start Becoming a Data Scientist.</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-6 italic text-[#3B82F6]">AI Programs that helps to
+                            become a Professional</h3>
                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Designed for serious DS careers, this program matches how Data Science roles work today. You won't just learn Python; you'll build models that survive production and influence real business decisions.</p>
                         <ul className="space-y-3 mb-8">
                             {["Frame real business problems", "Build ML systems, not just notebooks", "Deploy & monitor ML pipelines", "Direct feedback on models", "Small-batch cohorts for deep learning"].map((text, i) => (
@@ -362,26 +363,97 @@ export default function DataScienceProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16"></div>
                     </section>
 
-                    <section id="pricing" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Invest in Your Career</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
-                            {[
-                                { name: "Regular", price: coursePrice.amount, features: ["Core DS training", "Captsone projects", "Certification", "Community access"], highlight: false },
-                                { name: "Regular+", price: 42499, features: ["Everything in Regular", "Advanced ML + GenAI", "Priority placement support", "1:1 Mentorship"], highlight: true }
-                            ].map((plan, idx) => (
-                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-[#3B82F6] shadow-md ring-1 ring-[#3B82F6]' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
-                                    {plan.highlight && <div className="absolute top-0 right-0 bg-[#3B82F6] text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">RECOMMENDED</div>}
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-2">{plan.name}</h4>
-                                    <div className="mb-2"><span className="text-3xl font-bold text-[#3B82F6]">₹ {plan.price.toLocaleString('en-IN')}</span><span className="text-gray-400 dark:text-gray-500 text-xs ml-1">+ GST</span></div>
+                    <section id="pricing" className="scroll-mt-24 relative">
+                        <div className="text-center mb-16">
+                            <h3 className="text-4xl font-serif font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
+                        </div>
+
+                        <div className="flex justify-center max-w-5xl mx-auto">
+                            <div
+                                className="relative rounded-[10px] p-[1px] w-[375px]"
+                                style={{
+                                    background: "linear-gradient(180deg, #5BA4E5 0%, rgba(91, 164, 229, 0) 100%)",
+                                    boxShadow: "4px 4px 10px 0px #5BA4E566",
+                                }}
+                            >
+                                <div
+                                    className="bg-[#171717] rounded-[9px] p-6 h-full flex flex-col items-center text-center relative overflow-hidden"
+                                    style={{
+                                        boxShadow: "-4px -4px 10px 0px #5BA4E566",
+                                    }}
+                                >
+                                    {/* Gradient Overlay */}
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            background: "linear-gradient(142.89deg, rgba(91, 164, 229, 0.2) 0%, rgba(91, 164, 229, 0) 100%)",
+                                        }}
+                                    ></div>
+
+                                    <h4 className="font-bold text-white text-2xl mb-2 relative z-10">Regular</h4>
+                                    <p className="text-gray-300 text-sm mb-6 relative z-10">Comprehensive AI training program</p>
+
+                                    <div className="mb-4 relative z-10">
+                                        <span className="text-4xl font-bold text-[#5BA4E5]">₹ 32,499</span>
+                                        <span className="text-gray-400 text-sm ml-1">+ GST</span>
+                                    </div>
+
+                                    {/* Batch Selection Logic */}
                                     {batches.length > 0 && (
-                                        <div className="mb-4 text-left"><label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select Batch</label>
-                                            <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm bg-white dark:bg-black text-white">{batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}</select>
+                                        <div className="mb-6 w-full relative z-10">
+                                            <label className="block text-left text-sm font-medium text-gray-300 mb-2">Select Batch</label>
+                                            <select
+                                                value={selectedBatchId || ''}
+                                                onChange={(e) => setSelectedBatchId(e.target.value)}
+                                                className="w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#5BA4E5] focus:border-[#5BA4E5] bg-black text-white"
+                                            >
+                                                {batches.map((batch) => (
+                                                    <option key={batch.Id} value={batch.Id}>
+                                                        {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
+                                                    </option>
+                                                ))}
+                                            </select>
                                         </div>
                                     )}
-                                    <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300">{plan.features.map((feat, i) => (<li key={i} className="flex gap-2"><Check size={16} className="text-[#3B82F6] flex-shrink-0" /><span>{feat}</span></li>))}</ul>
-                                    <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-[#3B82F6] hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">{isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}</button>
+
+                                    <ul className="text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
+                                        {[
+                                            "3-month intensive, live instructor-led training",
+                                            "Hands-on projects tackling real-world AI challenges",
+                                            "Industry-recognised certification",
+                                            "Lifetime access to all program materials",
+                                            "Exclusive AI community membership",
+                                            "Career mentorship and guidance",
+                                            "Build a strong project portfolio",
+                                            "Interview preparation for AI roles"
+                                        ].map((f, i) => (
+                                            <li key={i} className="flex gap-2 items-start">
+                                                <span className="text-gray-400 mt-1">•</span>
+                                                <span>{f}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    {/* Button Logic */}
+                                    {isAuthenticated ? (
+                                        <button
+                                            onClick={() => handleBuyCourse(32499)}
+                                            disabled={isProcessing || batches.length === 0}
+                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
+                                        >
+                                            {isProcessing ? <><div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Apply Now <ArrowRight size={18} /></>}
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => navigate('/sign-in', { state: { from: location } })}
+                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                        >
+                                            Sign in to Enroll <ArrowRight size={18} />
+                                        </button>
+                                    )}
+
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </section>
 

@@ -88,8 +88,8 @@ export default function AIDMHeroEIE() {
                             className="mb-10"
                         >
                             <h1 className="text-5xl md:text-7xl font-serif text-white dark:text-white leading-tight font-medium">
-                                Become a Modern <br />
-                                <span className="italic">Digital Marketer Powered by AI</span>
+
+                                AI Digital Marketing
                             </h1>
                         </motion.div>
 

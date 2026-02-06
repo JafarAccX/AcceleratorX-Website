@@ -43,28 +43,12 @@ export default function WhoIsThisContentForEIE() {
                     </div>
 
                     <h2 className="text-4xl md:text-6xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        Beyond Algorithms – <br /><span className="italic font-light">Build Production-Ready ML</span>
-                    </h2>
+                        The Growing Data Science Industry</h2>
 
-                    <div className="max-w-3xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <div className="max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         <p className="mb-8">
-                            Forward-thinking companies don't just hire for Python skills. They hire builders who can:
-                        </p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-12">
-                            {[
-                                "Frame real business problems as DS problems",
-                                "Build & evaluate ML models correctly",
-                                "Handle uncertainty & failure cases",
-                                "Deploy & monitor ML pipelines",
-                                "Explain decisions to stakeholders",
-                                "Outcome: You think like a real Data Scientist."
-                            ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-3 bg-gray-50 dark:bg-[#171717] p-4 rounded-xl border border-gray-100 dark:border-white/5">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] flex-shrink-0" />
-                                    <span className="text-sm font-medium">{item}</span>
-                                </div>
-                            ))}
-                        </div>
+                            After this program, you will frame real business problems as DS problems, build and evaluate ML models correctly, handle uncertainty and failure cases, deploy and monitor ML pipelines, and explain decisions to stakeholders, so you can think like a real data scientist.</p>
+
                     </div>
                 </motion.div>
 

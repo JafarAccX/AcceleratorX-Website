@@ -457,6 +457,14 @@ export default function AIDMProgramEIE() {
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
+                        <div className="w-full mb-16">
+                            <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Skillverse You Acually Master</h3>
+                            <img
+                                src="/redesign/ai-dm/toolsverse.webp"
+                                alt="Skillverse You Actually Master"
+                                className="w-full h-auto object-contain rounded-xl"
+                            />
+                        </div>
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {AIDM_TOOLS.map((tool, idx) => (
@@ -541,82 +549,125 @@ export default function AIDMProgramEIE() {
 
                     <section id="career" className="scroll-mt-24 relative">
                         <img src="/redesign/ai-dm/hubspot.png" alt="green" className="h-24 w-2h-24 absolute top-[700px] -left-56" />
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Roles You’ll Be Ready For</h3>
+                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Opportunities</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
-                                "Digital Marketing Executive",
-                                "Performance Marketer",
-                                "Growth Marketer",
-                                "Content & SEO Specialist",
-                                "Marketing Automation Specialist",
-                                "Freelance Marketer / Consultant"
-                            ].map((role, idx) => (
+                                { role: "AI Marketer", pay: "₹15L - 30L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
+                                { role: "AI Content and SEO Specialist", pay: "₹10L - 25L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
+                                { role: "Performance Marketer", pay: "₹15L - 30L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
+                                { role: "AI Growth Marketer", pay: "₹15L - 40L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
+                            ].map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300"
+                                    className="bg-[#171717] border border-[#848484]/30 rounded-xl p-8 hover:shadow-md transition-all duration-300"
                                 >
-                                    <div className="flex justify-between items-start mb-4">
-                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
-                                            {role}
+                                    <div className="flex justify-between items-start mb-6">
+                                        <h4 className="font-bold text-2xl text-white transition-colors duration-300">
+                                            {item.role}
                                         </h4>
-                                        <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">₹5 LPA – ₹15 LPA+</span>
+                                        <span className="bg-[#9EFF1F] text-black text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap transition-colors duration-300">{item.pay}</span>
                                     </div>
+                                    <p className="text-gray-400 text-sm transition-colors duration-300 leading-relaxed">
+                                        {item.desc}
+                                    </p>
                                 </div>
                             ))}
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="pricing" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Invest in Your Marketing Career</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-4xl mx-auto">
-                            {[
-                                {
-                                    name: "Regular",
-                                    price: 32499,
-                                    features: ["Core AI-powered marketing", "Projects", "Certification"],
-                                    highlight: false
-                                },
-                                {
-                                    name: "Regular+",
-                                    price: 42499,
-                                    features: ["Advanced automation", "AI agents", "Capstone depth", "Career roadmap"],
-                                    highlight: true
-                                }
-                            ].map((plan, idx) => (
-                                <div key={idx} className={`bg-blue-50/50 dark:bg-[#171717] border ${plan.highlight ? 'border-[#9EFF1F] dark:border-[#9EFF1F] shadow-md ring-1 ring-[#9EFF1F]' : 'border-blue-100 dark:border-[#848484]/30'} rounded-2xl p-8 w-full text-center hover:shadow-lg transition-all duration-300 relative`}>
-                                    {plan.highlight && (
-                                        <div className="absolute top-0 right-0 bg-[#9EFF1F] text-black text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
-                                            RECOMMENDED
-                                        </div>
-                                    )}
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{plan.name}</h4>
+                    <section id="pricing" className="scroll-mt-24 relative">
+                        <div className="text-center mb-16">
+                            <h3 className="text-4xl font-serif font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
+                        </div>
 
-                                    <div className="mb-2">
-                                        <span className="text-3xl font-bold text-[#9EFF1F] dark:text-[#9EFF1F] transition-colors duration-300">₹ {plan.price.toLocaleString('en-IN')}</span>
-                                        <span className="text-gray-400 dark:text-gray-500 text-xs ml-1 transition-colors duration-300">+ GST</span>
+                        <div className="flex justify-center max-w-5xl mx-auto">
+                            <div
+                                className="relative rounded-[10px] p-[1px] w-[375px]"
+                                style={{
+                                    background: "linear-gradient(180deg, #9EFF1F 0%, rgba(158, 255, 31, 0) 100%)",
+                                    boxShadow: "4px 4px 10px 0px #9EFF1F66",
+                                }}
+                            >
+                                <div
+                                    className="bg-[#171717] rounded-[9px] p-6 h-full flex flex-col items-center text-center relative overflow-hidden"
+                                    style={{
+                                        boxShadow: "-4px -4px 10px 0px #9EFF1F66",
+                                    }}
+                                >
+                                    {/* Gradient Overlay */}
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            background: "linear-gradient(142.89deg, rgba(158, 255, 31, 0.2) 0%, rgba(158, 255, 31, 0) 100%)",
+                                        }}
+                                    ></div>
+
+                                    <h4 className="font-bold text-white text-2xl mb-2 relative z-10">AI Marketing Track</h4>
+                                    <p className="text-gray-300 text-sm mb-6 relative z-10">AI Digital Marketing</p>
+
+                                    <div className="mb-4 relative z-10">
+                                        <span className="text-4xl font-bold text-[#9EFF1F]">₹ 29,999</span>
+                                        <span className="text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 
+                                    {/* Batch Selection Logic */}
                                     {batches.length > 0 && (
-                                        <div className="mb-4">
-                                            <label className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">Select Batch</label>
-                                            <select value={selectedBatchId || ''} onChange={(e) => setSelectedBatchId(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-[#848484]/30 rounded-lg text-sm focus:ring-[#9EFF1F] focus:border-[#9EFF1F] bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
-                                                {batches.map((batch) => (<option key={batch.Id} value={batch.Id}>{batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</option>))}
+                                        <div className="mb-6 w-full relative z-10">
+                                            <label className="block text-left text-sm font-medium text-gray-300 mb-2">Select Batch</label>
+                                            <select
+                                                value={selectedBatchId || ''}
+                                                onChange={(e) => setSelectedBatchId(e.target.value)}
+                                                className="w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#9EFF1F] focus:border-[#9EFF1F] bg-black text-white"
+                                            >
+                                                {batches.map((batch) => (
+                                                    <option key={batch.Id} value={batch.Id}>
+                                                        {batch.Batch} - Starts {new Date(batch.StartDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
+                                                    </option>
+                                                ))}
                                             </select>
                                         </div>
                                     )}
 
-                                    <ul className="text-left space-y-3 my-8 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                                        {plan.features.map((feat, i) => (
-                                            <li key={i} className="flex gap-2"><Check size={16} className="text-[#9EFF1F] dark:text-[#9EFF1F] flex-shrink-0 transition-colors duration-300" /><span>{feat}</span></li>
+                                    <ul className="text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
+                                        {[
+                                            "4-month intensive, live instructor-led training",
+                                            "Hands-on AI Marketing Campaigns",
+                                            "Industry-recognised certification",
+                                            "Lifetime access to all program materials",
+                                            "Exclusive marketing community membership",
+                                            "Career mentorship and guidance",
+                                            "Build a strong marketing portfolio",
+                                            "Learn to build Marketing Agents",
+                                            "Learn to automate your marketing funnel"
+                                        ].map((f, i) => (
+                                            <li key={i} className="flex gap-2 items-start">
+                                                <span className="text-gray-400 mt-1">•</span>
+                                                <span>{f}</span>
+                                            </li>
                                         ))}
                                     </ul>
 
-                                    <button onClick={() => handleBuyCourse(plan.price)} disabled={isProcessing || batches.length === 0} className="w-full py-3 bg-[#9EFF1F] hover:bg-[#8EEE0F] disabled:bg-gray-400 text-black font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-                                        {isProcessing ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Enroll Now <ArrowRight size={16} /></>}
-                                    </button>
+                                    {/* Button Logic */}
+                                    {isAuthenticated ? (
+                                        <button
+                                            onClick={() => handleBuyCourse(29999)}
+                                            disabled={isProcessing || batches.length === 0}
+                                            className="w-full py-3 bg-[#9EFF1F] hover:bg-[#8EEE0F] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
+                                        >
+                                            {isProcessing ? <><div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Apply Now <ArrowRight size={18} /></>}
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => navigate('/sign-in', { state: { from: location } })}
+                                            className="w-full py-3 bg-[#9EFF1F] hover:bg-[#8EEE0F] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                        >
+                                            Sign in to Enroll <ArrowRight size={18} />
+                                        </button>
+                                    )}
+
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </section>
 
