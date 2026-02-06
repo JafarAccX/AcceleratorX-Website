@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check, Loader2 } from "lucide-react";
+import { ChevronDown, ArrowRight, Check } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
@@ -276,6 +276,7 @@ export default function DataScienceProgramEIE() {
                 </aside>
 
                 <main className="lg:w-3/4 space-y-24">
+
                     <section id="why-this-program" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-6 italic text-[#3B82F6]">AI Programs that helps to
                             become a Professional</h3>
@@ -291,13 +292,17 @@ export default function DataScienceProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-12"></div>
                     </section>
 
-                    <section id="curriculum" className="scroll-mt-24">
+                    <section id="curriculum" className="scroll-mt-24 relative">
+                        <img src="/redesign/ai-pm/github.png" alt="github" className="h-16 w-16 absolute top-40 -right-20" />
+
                         <h3 className="text-2xl font-serif font-bold mb-6">Program Structure - 25 Sessions • 5 Phases</h3>
                         <p className="text-gray-600 dark:text-gray-300 mb-8">Everything is hands-on. Move from the Analyst mindset to becoming a Data Scientist.</p>
                         <div>{CURRICULUM.map((module, idx) => <AccordionItem key={idx} module={module} />)}</div>
                         <div className="mt-8 flex justify-center">
                             <button className="px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg flex items-center gap-2">View Curriculum <ChevronDown size={18} /></button>
                         </div>
+                        <img src="/redesign/data-science/astroid.webp" alt="slack" className="absolute bottom-40 -left-[400px] w-[200px]" />
+
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16"></div>
                     </section>
 

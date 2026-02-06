@@ -62,7 +62,7 @@ export default function DataScienceFAQEIE() {
         <section
             id="faq"
             className="py-24 bg-cover bg-center transition-colors duration-300 relative"
-            style={{ backgroundImage: "url('/redesign/ai-da/astronot.webp')" }}
+            style={{ backgroundImage: "url('/redesign/data-science/ds-faqs.webp')" }}
         >
             <div className="max-w-4xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">

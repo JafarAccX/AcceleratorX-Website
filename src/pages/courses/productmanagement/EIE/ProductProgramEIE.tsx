@@ -194,7 +194,7 @@ const AccordionItem = ({ week }: { week: any }) => {
 export default function ProductProgramEIE() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { user, isAuthenticated, isLoading: isAuthLoading } = useUser();
+    const { user, isAuthenticated } = useUser();
 
     const [activeSection, setActiveSection] = useState("why-this-program");
     const [isFixed, setIsFixed] = useState(false);
