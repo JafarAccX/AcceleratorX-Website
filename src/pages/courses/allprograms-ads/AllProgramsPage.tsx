@@ -15,7 +15,6 @@ import MasterToolsSection from "./MasterToolsSection";
 import CurriculumRoadmap from "./CurriculumRoadmap";
 import CertificationSection from "./CertificationSection";
 import ProgramOutcomeSection from "./ProgramOutcomeSection";
-import Navbar from "../../../components/Navbar";
 import EnrollmentModalADS from "./EnrollmentModalADS";
 
 export default function AllProgramsPage() {
@@ -24,7 +23,6 @@ export default function AllProgramsPage() {
 
     return (
         <main className="bg-black relative">
-            <Navbar />
             {selectedProgram ? (
                 <>
                     <motion.button
