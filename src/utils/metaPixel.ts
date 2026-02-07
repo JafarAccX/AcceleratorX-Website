@@ -29,15 +29,18 @@ const DEFAULT_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
 const DA_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT;
 const DA_PIXEL_ID_SECOND = import.meta.env.VITE_META_PIXEL_ID_DA_DIRECT_SECOND;
 const AIDM_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_AI_DIGITAL_MARKETING;
+const DATA_SCIENCE_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID_DATA_SCIENCE;
 
 const DEFAULT_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN;
 const DA_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT;
 const DA_ACCESS_TOKEN_SECOND = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DA_DIRECT_SECOND;
 const AIDM_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_AI_DIGITAL_MARKETING;
+const DATA_SCIENCE_ACCESS_TOKEN = import.meta.env.VITE_META_CONVERSION_API_ACCESS_TOKEN_DATA_SCIENCE;
 
 const DA_COURSE_NAMES = ["Data Analytics"]; // You can also match by route if needed
 const AIDM_COURSE_NAMES = ["AI Digital Marketing"];
 const AIDM_ROUTES = ["/courses/ai-digital-marketing"];
+const DATA_SCIENCE_ROUTES = ["/courses/datascience-program-fb"];
 
 const hashData = async (data: string): Promise<string> => {
   const hashBuffer = await window.crypto.subtle.digest(
@@ -89,7 +92,8 @@ const getMetaConfig = (course?: string) => {
   const isDASecondRoute = window.location.pathname === "/courses/data-analytics-program-fb-b";
   const isAIDM = AIDM_COURSE_NAMES.includes(course || "");
   const isAIDMRoute = AIDM_ROUTES.includes(window.location.pathname);
-  
+  const isDataScienceRoute = DATA_SCIENCE_ROUTES.includes(window.location.pathname);
+
   if (isDASecondRoute) {
     return { pixelId: DA_PIXEL_ID_SECOND, accessToken: DA_ACCESS_TOKEN_SECOND };
   }
@@ -98,6 +102,9 @@ const getMetaConfig = (course?: string) => {
   }
   if (isAIDM || isAIDMRoute) {
     return { pixelId: AIDM_PIXEL_ID, accessToken: AIDM_ACCESS_TOKEN };
+  }
+  if (isDataScienceRoute) {
+    return { pixelId: DATA_SCIENCE_PIXEL_ID, accessToken: DATA_SCIENCE_ACCESS_TOKEN };
   }
   return { pixelId: DEFAULT_PIXEL_ID, accessToken: DEFAULT_ACCESS_TOKEN };
 };
