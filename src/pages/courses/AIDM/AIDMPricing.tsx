@@ -7,7 +7,7 @@ import EnrollmentModal from '../../../components/EnrollmentModal';
 const pricingOptions = [
   {
     title: "Early-bird",
-    price: "₹19,999 + GST",
+    price: "29,999 + GST",
     originalPrice: "₹49,999",
     highlight: true,
     discount: "60% Off"
