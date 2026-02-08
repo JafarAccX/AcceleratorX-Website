@@ -28,6 +28,27 @@ const PROGRAMS = [
         title: "AI in Digital Marketing",
         description: "Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.",
         image: "/assets/week7.webp"
+    },
+    {
+        id: "advanced-generative-ai",
+        label: "ADVANCED GENERATIVE AI",
+        title: "Advanced Generative AI",
+        description: "Gen AI and Agentic AI specialisation is designed for beginners, providing a no-code pathway to mastering generative AI, AI Agents, and the powerful tools of automation. Secure your expertise with India’s first solution-based AI automation program.",
+        image: "/redesign/main-page/adv-gen-ai.webp"
+    },
+    {
+        id: "data-science",
+        label: "DATA SCIENCE",
+        title: "Data Science",
+        description: "Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.",
+        image: "/redesign/main-page/data-science.webp"
+    },
+    {
+        id: "product-analytics",
+        label: "PRODUCT ANALYTICS",
+        title: "Product Analytics",
+        description: "Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.",
+        image: "/redesign/main-page/product-analytics.webp"
     }
 ];
 
@@ -208,6 +229,27 @@ export default function ProgramsOffered() {
                                                 <img
                                                     src="/redesign/main-page/dm.webp"
                                                     alt="AI Digital Marketing"
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            )}
+                                            {program.id === 'advanced-generative-ai' && (
+                                                <img
+                                                    src="/redesign/main-page/adv-gen-ai.webp"
+                                                    alt="Advanced Generative AI"
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            )}
+                                            {program.id === 'data-science' && (
+                                                <img
+                                                    src="/redesign/main-page/data-science.webp"
+                                                    alt="Data Science"
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            )}
+                                            {program.id === 'product-analytics' && (
+                                                <img
+                                                    src="/redesign/main-page/product-analytics.webp"
+                                                    alt="Product Analytics"
                                                     className="w-full h-full object-contain"
                                                 />
                                             )}
