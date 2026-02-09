@@ -25,7 +25,6 @@ interface EnrollmentModalADSProps {
     customData?: Partial<EnrollmentData>;
 }
 
-// Brochure Map covering the programs in AllProgramsPage
 const BROCHURES: Record<string, { title: string; url: string }> = {
     "AI Digital Marketing": {
         title: "AI Digital Marketing Syllabus",
@@ -292,6 +291,14 @@ export default function EnrollmentModalADS({ isOpen, onClose, onSubmit, program,
             trackingFormData.append("course", formData.course);
             trackingFormData.append("workExperience", formData.workExperience);
             await trackFormSubmission(trackingFormData);
+
+            // Google Ads Tracking
+            if (window.gtag) {
+                window.gtag('event', 'generate_lead', {
+                    'send_to': 'AW-10956877740',
+                    'event_callback': () => console.log('Google Ads lead event sent')
+                });
+            }
 
             toast.success("Enrollment submitted successfully! Opening brochure...");
             openBrochure(formData.course);
