@@ -223,47 +223,30 @@ export default function AdvanceGenAIProgramEIE() {
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY + 100;
-
             if (containerRef.current && sidebarRef.current) {
                 const containerTop = containerRef.current.offsetTop;
                 const containerBottom = containerTop + containerRef.current.offsetHeight;
                 const sidebarHeight = sidebarRef.current.offsetHeight;
                 const viewportCenter = window.scrollY + window.innerHeight / 2;
                 const sidebarCenter = containerTop + sidebarHeight / 2;
-
                 const shouldStartFixed = viewportCenter > sidebarCenter;
                 const sidebarBottom = window.scrollY + window.innerHeight / 2 + sidebarHeight / 2;
                 const shouldStopFixed = sidebarBottom > containerBottom;
-
                 setIsFixed(shouldStartFixed && !shouldStopFixed);
-
-                if (!isFixed) {
-                    setSidebarWidth(sidebarRef.current.offsetWidth);
-                }
+                if (!isFixed) setSidebarWidth(sidebarRef.current.offsetWidth);
             }
-
             for (const section of SECTIONS) {
                 const element = document.getElementById(section.id);
-                if (element) {
-                    const offsetTop = element.offsetTop;
-                    const offsetBottom = offsetTop + element.offsetHeight;
-
-                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-                        setActiveSection(section.id);
-                        break;
-                    }
+                if (element && scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
+                    setActiveSection(section.id);
+                    break;
                 }
             }
         };
-
-        if (sidebarRef.current) {
-            setSidebarWidth(sidebarRef.current.offsetWidth);
-        }
-
+        if (sidebarRef.current) setSidebarWidth(sidebarRef.current.offsetWidth);
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", handleScroll);
         handleScroll();
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("resize", handleScroll);
@@ -286,19 +269,19 @@ export default function AdvanceGenAIProgramEIE() {
 
                 <aside
                     ref={sidebarRef}
-                    className={`lg:w-1/4 relative self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'fixed top-1/2 -translate-y-1/2 z-10' : ''}`}
+                    className={`lg:w-1/4 self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''}`}
                     style={isFixed ? {
                         width: `${sidebarWidth}px`,
                         maxWidth: `${sidebarWidth}px`,
                         maxHeight: 'calc(100vh - 4rem)'
                     } : {}}
                 >
-                    <div className="relative">
+                    <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : 'relative'}>
                         <img src="/redesign/advance-gen-ai/astroid.webp" alt="ai" className="absolute -top-16 left-0 opacity-40 animate-float" />
-                        <h2 className="text-3xl font-serif font-bold mb-10 leading-tight">
+                        <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight">
                             Build AI Agents. <br /><span className="italic font-light">Not Just AI Skills.</span>
                         </h2>
-                        <nav className="space-y-4 border-l-2 border-gray-200 dark:border-[#848484]/30 transition-colors duration-300">
+                        <nav className="space-y-4 border-l-2 border-gray-200 dark:border-[#848484]/30">
                             {SECTIONS.map((section) => (
                                 <button
                                     key={section.id}
