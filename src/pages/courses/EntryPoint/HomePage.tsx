@@ -1,5 +1,5 @@
 import { useEffect, Suspense } from "react";
-import LottieLoader from "../../../components/LottieLoader";
+import Loader from "../../../components/Loader";
 // import BecomeAMentorFeatures from "../../../components/BecomeAMentorFeatures";
 // import CTA from "../../../components/CTA";
 
@@ -23,7 +23,7 @@ const HomePage = () => {
   return (
     <>
       <SEO />
-      <Suspense fallback={<LottieLoader />}>
+      <Suspense fallback={<Loader />}>
         <Hero />
         <PartnerLogos />
         <ProgramsOffered />

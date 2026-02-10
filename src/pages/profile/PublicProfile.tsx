@@ -5,7 +5,7 @@ import {
     User, Mail, Globe, Linkedin,
     Github, BookOpen, Clock, DollarSign, Calendar, Briefcase, GraduationCap
 } from "lucide-react";
-import LottieLoader from "../../components/LottieLoader";
+import Loader from "../../components/Loader";
 import { projectService } from "../../services/projectService";
 import { Project } from "../../types/project.types";
 import ProjectCard from "../project-listing/components/ProjectCard";
@@ -45,7 +45,7 @@ export default function PublicProfile() {
         }
     };
 
-    if (isLoading) return <div className="min-h-screen flex items-center justify-center"><LottieLoader /></div>;
+    if (isLoading) return <div className="min-h-screen flex items-center justify-center"><Loader /></div>;
     if (error || !user) return <div className="min-h-screen flex items-center justify-center text-red-500">Profile not found</div>;
 
     const getSkillsArray = () => {

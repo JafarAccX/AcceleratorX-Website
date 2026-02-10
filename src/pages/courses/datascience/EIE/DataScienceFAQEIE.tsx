@@ -4,24 +4,68 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
     {
-        question: "Is this beginner friendly?",
-        answer: "No. Basic Python & data knowledge (like SQL or Excel) is required to get the most out of this career accelerator. We focus on role transitions and production-ready skills."
+        question: "Is this program suitable for beginners in Data Science?",
+        answer: "Yes. This program is beginner-friendly for Data Science aspirants and structured to move from fundamentals to real-world applications"
     },
     {
-        question: "Will GenAI be covered?",
-        answer: "Absolutely. We include dedicated modules on Generative AI, embeddings, and building agentic workflows for autonomous data science tasks."
+        question: "What prior knowledge is required before joining?",
+        answer: "Basic logical thinking and curiosity are enough. No advanced math or prior ML experience is required to get started."
     },
     {
-        question: "Is this theory-heavy?",
-        answer: "No. The program is build-first and decision-focused. While we cover the necessary mathematical foundations, the emphasis is on solving real business problems with production-ready systems."
+        question: "How is this different from typical ML or Python courses?",
+        answer: "Unlike isolated ML or Python courses, this program teaches end-to-end Data Science, combining data preparation, modeling, evaluation, and deployment."
     },
     {
-        question: "Will this help in DS interviews?",
-        answer: "Yes. You will work on real case studies and build 'decision narratives' that show interviewers you don't just know algorithms, but how to drive business impact."
+        question: "Will I work on end-to-end data science projects?",
+        answer: "Yes. You’ll work on complete data science projects from problem definition to deployment-ready solutions."
     },
     {
-        question: "Can working professionals join?",
-        answer: "Yes. The program is designed for working professionals (Analysts, Engineers, etc.) looking to transition into Data Science roles or upskill to modern industry standards."
+        question: "How much math and statistics are involved?",
+        answer: "Only practical, applied math and statistics needed to understand and improve models — no heavy theory or proofs."
+    },
+    {
+        question: "Does the program cover real-world machine learning problems?",
+        answer: "Yes. You’ll solve real-world ML problems like prediction, classification, recommendation, and forecasting."
+    },
+    {
+        question: "Will I learn model deployment and MLOps concepts?",
+        answer: "Yes. The program covers model deployment basics, MLOps concepts, versioning, and monitoring"
+    },
+    {
+        question: "Is Generative AI included in this program?",
+        answer: "Yes. You’ll get exposure to Generative AI concepts and applications, connecting traditional ML with modern AI systems"
+    },
+    {
+        question: "Will I build production-grade ML models?",
+        answer: "Yes. You’ll build production-grade machine learning models, focusing on performance, scalability, and reliability."
+    },
+    {
+        question: "Is this suitable for Data Analysts transitioning to Data Science?",
+        answer: "Absolutely. This program is ideal for Data Analysts transitioning into Data Scientist roles."
+    },
+    {
+        question: "Will I create a portfolio with real projects?",
+        answer: "Yes. You’ll build a strong Data Science portfolio with real, end-to-end projects."
+    },
+    {
+        question: "How does this program align with current industry hiring?",
+        answer: "The curriculum is aligned with current industry expectations, focusing on practical skills companies actually hire for."
+    },
+    {
+        question: "Is this program more practical or theory-heavy?",
+        answer: "The program is highly practical and project-driven, with theory taught only when needed for real-world application."
+    },
+    {
+        question: "Can working professionals manage this program?",
+        answer: "Yes. Designed for working professionals, with flexible schedules and applied learning"
+    },
+    {
+        question: "Will this help with Data Scientist interviews?",
+        answer: "Yes. You’ll receive Data Scientist interview preparation, including ML case discussions, project walkthroughs, and resume guidance."
+    },
+    {
+        question: "What Data Science roles can I target after completion?",
+        answer: "You can target roles such as Data Scientist, Applied ML Engineer (junior), Decision Scientist, and Analytics Scientist."
     }
 ];
 

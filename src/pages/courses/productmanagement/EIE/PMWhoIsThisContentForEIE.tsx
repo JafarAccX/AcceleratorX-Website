@@ -30,9 +30,11 @@ export default function PMWhoIsThisContentForEIE() {
     ];
 
     return (
-        <section className="py-20 relative bg-white dark:bg-[#000000] transition-colors duration-300">
-            <img src="/redesign/ai-pm/slack.png" alt="slack" className="h-16 w-16 absolute top-40 right-40" />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="py-20 relative bg-white dark:bg-[#000000] transition-colors duration-300 overflow-hidden">
+            <img src="/redesign/ai-pm/slack.png" alt="slack" className="h-16 w-16 absolute top-40 right-20 opacity-20 md:opacity-100" />
+            <img src="/redesign/ai-pm/github.png" alt="github" className="h-14 w-14 absolute bottom-40 left-20 opacity-20 md:opacity-100 rotate-12" />
+            <img src="/redesign/ai-pm/Miro-Logo.png" alt="miro" className="h-16 w-16 absolute top-20 left-40 opacity-20 md:opacity-100 -rotate-12" />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

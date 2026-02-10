@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import LottieLoader from "./LottieLoader";
+import Loader from "./Loader";
 import { MainLayout } from "../layouts/MainLayout";
 import { RouteLogic } from "../routes/utils/routeUtils";
 import { mainRoutes } from "../routes/mainRoutes";
@@ -26,7 +26,7 @@ export const AppRoutes = () => {
     <>
       <RouteLogic setSelectedCourse={setSelectedCourse} />
       <MainLayout>
-        <Suspense fallback={<LottieLoader />}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             {mainRoutes}
             {workshopRoutes}

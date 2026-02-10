@@ -71,6 +71,9 @@ export default function ProgramHeroEIE() {
         style={{ backgroundImage: "url('/redesign/ai-pm/ai-pm-bg-1.webp')" }}
       />
 
+      <img src="/redesign/ai-pm/slack.png" alt="slack" className="h-16 w-16 absolute top-40 left-10 opacity-20 md:opacity-50 animate-pulse" />
+      <img src="/redesign/ai-pm/Google-Analytics.png" alt="analytics" className="h-14 w-14 absolute bottom-40 right-10 opacity-20 md:opacity-50" />
+
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <Typewriter
           text="HUMAN CENTRED PRODUCT DETECTED . . ."
@@ -96,7 +99,7 @@ export default function ProgramHeroEIE() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <img src="/redesign/logo-no-bg.webp" className="w-16 h-16 object-contain brightness-0 invert opacity-50" alt="" />
+                  <img src="/redesign/ai-pm/ai-pm-bg-1.webp" className="w-16 h-16 object-contain brightness-0 invert opacity-50" alt="" />
                 </motion.div>
               </div>
             </div>

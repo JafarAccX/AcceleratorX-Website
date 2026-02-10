@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Linkedin } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
-import { mentors } from "../../../../utils/constants";
 import { COURSE_PRICES, COURSE_IDS } from "../../../../utils/constants_price";
 import { useUser } from "../../../../context/UserContext";
 import { api } from "../../../../api";
@@ -38,7 +37,32 @@ const SECTIONS = [
     { id: "pricing", label: "Invest in Your Product Management Career" },
 ];
 
-const PM_MENTORS = mentors.slice(0, 6);
+const PM_MENTORS = [
+    {
+        name: "Nitya Sagar",
+        role: "Software Engineer (DS) at Apple",
+        image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
+        linkedin: "https://www.linkedin.com/in/nitya-sagar/",
+    },
+    {
+        name: "Ravi Ahlawat",
+        role: "Senior PM at Paytm",
+        image: "/redesign/ai-pm/ai-pm-mentors/Ravi Ahlawat.png",
+        linkedin: "https://www.linkedin.com/in/raviahlawat09/",
+    },
+    {
+        name: "Ruchir Rana",
+        role: "PM at AcceleratorX",
+        image: "/redesign/ai-pm/ai-pm-mentors/Ruchir Rana.png",
+        linkedin: "https://www.linkedin.com/in/ruchir-rana007",
+    },
+    {
+        name: "Subhasis Chandra",
+        role: "Senior PM at Publicis Sapient",
+        image: "/redesign/ai-pm/ai-pm-mentors/Subhasis Chandra.png",
+        linkedin: "https://www.linkedin.com/in/subhasis-chandra",
+    },
+];
 
 const CURRICULUM = [
     // Part A: Core Product Management (Weeks 1-12)
@@ -501,7 +525,7 @@ export default function ProductProgramEIE() {
                             <button className="px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-colors flex items-center gap-2">
                                 Download Full Curriculum <ChevronDown size={18} />
                             </button>
-                            <img src="/redesign/ai-pm/ast.png" alt="slack" className="absolute bottom-40 -left-[400px]" />
+                            <img src="/redesign/ai-pm/ast.png" alt="astronaut" className="absolute bottom-40 -left-[400px]" />
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
@@ -529,6 +553,18 @@ export default function ProductProgramEIE() {
                             </div>
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
+                    </section>
+
+                    <section id="skillverse" className="scroll-mt-24">
+                        <div className="w-full mb-16">
+                            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-10 text-white relative z-10">Skillverse You Actually Master</h3>
+
+                            <img
+                                src="/redesign/ai-pm/pm-skillverse.webp"
+                                alt="Skillverse You Actually Master"
+                                className="w-full h-auto object-contain rounded-2xl shadow-2xl"
+                            />
+                        </div>
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
@@ -561,16 +597,29 @@ export default function ProductProgramEIE() {
                                     key={idx}
                                     className="bg-gray-50 relative dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all"
                                 >
-                                    <div className="aspect-square bg-gray-200 dark:bg-gray-600 relative overflow-hidden">
+                                    <div className="aspect-square relative overflow-hidden">
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
-                                    <div className="p-4 text-center">
+                                    <div className="p-4 text-center relative">
                                         <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{mentor.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">{mentor.role}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{mentor.role}</p>
+                                        {mentor.linkedin && (
+                                            <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                                <a
+                                                    href={mentor.linkedin}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-1.5 text-[#0077b5] hover:text-[#005582] font-semibold text-xs transition-colors"
+                                                >
+                                                    <Linkedin size={14} fill="currentColor" />
+                                                    <span>LinkedIn</span>
+                                                </a>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}

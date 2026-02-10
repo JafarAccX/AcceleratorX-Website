@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Check, ArrowRight } from "lucide-react";
+import { ChevronDown, Check, ArrowRight, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../context/UserContext';
 
@@ -66,9 +66,30 @@ const TOOLS = [
 
 
 const MENTORS = [
-    { name: "Kumar Savino", role: "Associate Director", company: "Walmart", image: "/assets/mentor/kumar.webp", bio: "Enterprise AI & Intelligent Systems" },
-    { name: "Ravi Ahlawat", role: "Senior Data Scientist", company: "Paytm", image: "/assets/mentor/ravi.webp", bio: "Agentic Analytics & AI Automation" },
-    { name: "Chloe Thomas", role: "Senior AI Engineer", company: "Google", image: "/assets/mentor/ankita.webp", bio: "LLMs, Multi-Agent Systems & Production AI" },
+    {
+        name: "Anjali Sharma",
+        role: "AI Product Manager @ Mesha",
+        image: "/redesign/advance-gen-ai/gen-ai-mentors/Anjali Sharma.png",
+        linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
+    },
+    {
+        name: "Dr. Prashant",
+        role: "AI Research Scientist & Professor",
+        image: "/redesign/advance-gen-ai/gen-ai-mentors/Dr. Prashant.png",
+        linkedin: "https://www.linkedin.com/in/dr-prashant/",
+    },
+    {
+        name: "Nitish M L Setty",
+        role: "GenAI & ML Lead",
+        image: "/redesign/advance-gen-ai/gen-ai-mentors/Nitish M L Setty.png",
+        linkedin: "https://www.linkedin.com/in/nitish-m-l-setty/",
+    },
+    {
+        name: "Pranali Bose",
+        role: "Senior GenAI Solutions Architect",
+        image: "/redesign/advance-gen-ai/gen-ai-mentors/Pranali Bose.png",
+        linkedin: "https://www.linkedin.com/in/pranali-bose/",
+    },
 ];
 
 const AccordionItem = ({ item }: { item: any }) => {
@@ -285,11 +306,24 @@ export default function AdvanceGenAIProgramEIE() {
                             {MENTORS.map((m, i) => (
                                 <div key={i} className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
                                     <div className="aspect-square relative overflow-hidden">
-                                        <img src={m.image} alt={m.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        <img src={m.image} alt={m.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                                     </div>
                                     <div className="p-4 text-center">
                                         <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{m.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">{m.role}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{m.role}</p>
+                                        {m.linkedin && (
+                                            <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                                <a
+                                                    href={m.linkedin}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-1.5 text-[#0077b5] hover:text-[#005582] font-semibold text-xs transition-colors"
+                                                >
+                                                    <Linkedin size={14} fill="currentColor" />
+                                                    <span>LinkedIn</span>
+                                                </a>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}

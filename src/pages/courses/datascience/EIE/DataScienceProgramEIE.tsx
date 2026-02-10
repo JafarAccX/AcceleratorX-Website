@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
@@ -27,6 +27,7 @@ interface Batch {
 const SECTIONS = [
     { id: "why-this-program", label: "Why this Program" },
     { id: "curriculum", label: "Learning Journey" },
+    { id: "skillverse", label: "Skillverse" },
     { id: "tools", label: "Tools & DS Stack" },
     { id: "mentors", label: "Mentors" },
     { id: "certificate", label: "Certification" },
@@ -35,9 +36,12 @@ const SECTIONS = [
 ];
 
 const MENTORS = [
-    { name: "Kumar Savino", role: "Associate Director", company: "Walmart", image: "/assets/mentor/preeti.webp", bio: "Enterprise ML & Scalable Analytics" },
-    { name: "Ravi Ahlawat", role: "Senior Data Scientist", company: "Paytm", image: "/assets/mentor/ravi.webp", bio: "Production ML Systems" },
-    { name: "Aakash Maurya", role: "Sr. ML Engineer", company: "Nagarro", image: "/assets/mentor/akash.webp", bio: "Deployment & MLOps Specialization" },
+    { name: "Ravi Ahlawat", role: "Senior PM", company: "Paytm", image: "/redesign/data-science/mentors/Ravi Ahlawat.png", bio: "Production ML Systems", linkedin: "https://www.linkedin.com/in/raviahlawat09/" },
+    { name: "Aakash Maurya", role: "Sr. ML Engineer", company: "Nagarro", image: "/redesign/data-science/mentors/Aakash Maurya.png", bio: "Deployment & MLOps Specialization", linkedin: "https://www.linkedin.com/in/aakash-maurya/" },
+    { name: "Nitish Setty", role: "Analytics Lead", company: "DataFlow", image: "/redesign/data-science/mentors/Nitish Setty.png", bio: "Advanced Data Modeling", linkedin: "https://www.linkedin.com/in/nitish-setty/" },
+    { name: "Shubham Swaraj", role: "BI Developer", company: "InsightTech", image: "/redesign/data-science/mentors/Shubham Swaraj.png", bio: "Business Intelligence Solutions", linkedin: "https://www.linkedin.com/in/shubham-swaraj/" },
+    { name: "Himangi Sharma", role: "Senior AI Engineer", company: "Google", image: "/redesign/data-science/mentors/Himangi Sharma.png", bio: "AI Infrastructure & Scalability", linkedin: "https://www.linkedin.com/in/himangi-sharma" },
+    { name: "Preeti Money", role: "Associate Director", company: "Walmart", image: "/redesign/data-science/mentors/Preeti Money.png", bio: "Enterprise ML & Scalable Analytics", linkedin: "https://www.linkedin.com/in/preeti-money/" },
 ];
 
 const CURRICULUM = [
@@ -306,6 +310,18 @@ export default function DataScienceProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16"></div>
                     </section>
 
+                    <section id="skillverse" className="scroll-mt-24">
+                        <div className="w-full mb-16">
+                            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-10 text-white relative z-10">Skillverse You Actually Master</h3>
+
+                            <img
+                                src="/redesign/data-science/ds-skillverses.webp"
+                                alt="Skillverse You Actually Master"
+                                className="w-full h-auto object-contain rounded-2xl shadow-2xl"
+                            />
+                        </div>
+                    </section>
+
                     <section id="tools" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8">Tools You’ll Master</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -324,11 +340,24 @@ export default function DataScienceProgramEIE() {
                         <h3 className="text-2xl font-serif font-bold mb-8">Mentors from Industry</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                             {MENTORS.map((m, i) => (
-                                <div key={i} className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
-                                    <div className="aspect-square relative overflow-hidden"><img src={m.image} alt={m.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
+                                <div key={i} className="bg-gray-50 relative dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
+                                    <div className="aspect-square relative overflow-hidden"><img src={m.image} alt={m.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" /></div>
                                     <div className="p-4 text-center">
                                         <h4 className="font-bold text-gray-900 dark:text-white">{m.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400">{m.role} @ {m.company}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{m.role} @ {m.company}</p>
+                                        {m.linkedin && (
+                                            <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                                <a
+                                                    href={m.linkedin}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-1.5 text-[#0077b5] hover:text-[#005582] font-semibold text-xs transition-colors"
+                                                >
+                                                    <Linkedin size={14} fill="currentColor" />
+                                                    <span>LinkedIn</span>
+                                                </a>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}

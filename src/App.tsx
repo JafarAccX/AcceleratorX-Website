@@ -1,7 +1,7 @@
 import { Suspense, useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import LottieLoader from "./components/LottieLoader";
+import Loader from "./components/Loader";
 import { CourseProvider } from "./context/courseContext";
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./components/ScrollToTop";
@@ -28,7 +28,7 @@ function AppContent() {
   // On client, we must also render app content for the first pass to avoid hydration mismatch.
   // After hydration (isMounted = true), if we are still loading, then we can show the loader.
   if (isMounted && isLoading) {
-    return <LottieLoader />;
+    return <Loader />;
   }
 
   return (
@@ -55,7 +55,7 @@ function App() {
         <HelmetProvider>
           <CourseProvider>
             <UserProvider>
-              <Suspense fallback={<LottieLoader />}>
+              <Suspense fallback={<Loader />}>
                 <AppContent />
               </Suspense>
               <MetaTrackingDebugger />

@@ -3,12 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check, Loader2 } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Loader2, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../utils/constants_price';
 import { api } from '../../../api';
-import { mentors } from "../../../utils/constants";
 
 declare global {
     interface Window {
@@ -37,7 +36,32 @@ const SECTIONS = [
     { id: "pricing", label: "Make an Investment in Your AI-Ready Future" },
 ];
 
-const GEN_MENTORS = mentors.slice(0, 6);
+const GEN_MENTORS = [
+    {
+        name: "Anjali Sharma",
+        role: "AI Product Manager @ Mesha",
+        image: "/redesign/gen-ai/gen-ai-mentors/Anjali Sharma.png",
+        linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
+    },
+    {
+        name: "Dr. Prashant",
+        role: "AI Research Scientist & Professor",
+        image: "/redesign/gen-ai/gen-ai-mentors/Dr. Prashant.png",
+        linkedin: "https://www.linkedin.com/in/dr-prashant/",
+    },
+    {
+        name: "Nitish M L Setty",
+        role: "GenAI & ML Lead",
+        image: "/redesign/gen-ai/gen-ai-mentors/Nitish M L Setty.png",
+        linkedin: "https://www.linkedin.com/in/nitish-m-l-setty/",
+    },
+    {
+        name: "Pranali Bose",
+        role: "Senior GenAI Solutions Architect",
+        image: "/redesign/gen-ai/gen-ai-mentors/Pranali Bose.png",
+        linkedin: "https://www.linkedin.com/in/pranali-bose/",
+    },
+];
 
 const CURRICULUM = [
     {
@@ -452,12 +476,25 @@ export default function GENProgramEIE() {
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
                                     <div className="p-4 text-center">
                                         <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{mentor.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">{mentor.role}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{mentor.role}</p>
+                                        {mentor.linkedin && (
+                                            <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                                <a
+                                                    href={mentor.linkedin}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-1.5 text-[#0077b5] hover:text-[#005582] font-semibold text-xs transition-colors"
+                                                >
+                                                    <Linkedin size={14} fill="currentColor" />
+                                                    <span>LinkedIn</span>
+                                                </a>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}

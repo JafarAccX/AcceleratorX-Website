@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check, Loader2 } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Loader2, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
@@ -41,32 +41,38 @@ const MENTORS = [
   {
     name: "Ravi Ahlawat",
     role: "Senior PM at Paytm",
-    image: "/assets/mentor/ravi.webp",
+    image: "/redesign/ai-da/mentors/Ravi Ahlawat.png",
+    linkedin: "https://www.linkedin.com/in/raviahlawat09/",
   },
   {
     name: "Aakash Maurya",
     role: "Sr. ML Engineer at Nagarro",
-    image: "/assets/mentor/akash.webp",
+    image: "/redesign/ai-da/mentors/Aakash Maurya.png",
+    linkedin: "https://www.linkedin.com/in/aakash-maurya/",
   },
   {
     name: "Nitish Setty",
     role: "Analytics Lead at DataFlow",
-    image: "/assets/mentor/nitish.webp",
+    image: "/redesign/ai-da/mentors/Nitish Setty.png",
+    linkedin: "https://www.linkedin.com/in/nitish-setty/",
   },
   {
     name: "Shubham Swaraj",
     role: "BI Developer at InsightTech",
-    image: "/assets/mentor/Shubham.webp",
+    image: "/redesign/ai-da/mentors/Shubham Swaraj.png",
+    linkedin: "https://www.linkedin.com/in/shubham-swaraj/",
   },
   {
-    name: "Chloe Thomas",
+    name: "Himangi Sharma",
     role: "Senior AI Engineer - Google",
-    image: "/assets/mentor/himangi.webp",
+    image: "/redesign/ai-da/mentors/Himangi Sharma.png",
+    linkedin: "https://www.linkedin.com/in/himangi-sharma",
   },
   {
-    name: "Kumar Savino",
+    name: "Preeti Money",
     role: "Associate Director at Walmart",
-    image: "/assets/mentor/preeti.webp",
+    image: "/redesign/ai-da/mentors/Preeti Money.png",
+    linkedin: "https://www.linkedin.com/in/preeti-money/",
   },
 ];
 
@@ -479,12 +485,25 @@ export default function DataProgramEIE() {
                     <img
                       src={mentor.image || "/placeholder.svg"}
                       alt={mentor.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-4 text-center">
+                  <div className="p-4 text-center relative">
                     <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{mentor.name}</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">{mentor.role}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{mentor.role}</p>
+                    {mentor.linkedin && (
+                      <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                        <a
+                          href={mentor.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-[#0077b5] hover:text-[#005582] font-semibold text-xs transition-colors"
+                        >
+                          <Linkedin size={14} fill="currentColor" />
+                          <span>LinkedIn</span>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
