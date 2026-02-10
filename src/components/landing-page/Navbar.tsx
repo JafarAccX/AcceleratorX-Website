@@ -221,8 +221,8 @@ export default function Navbar() {
                 const isExternal = item.path.startsWith("http");
                 const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
                 const baseClasses = `relative group ${hoverTransition} ${isHighlighted
-                    ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
-                    : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
+                  ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
+                  : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
                   }`;
 
                 return isExternal ? (
@@ -303,13 +303,13 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-[300px] bg-white dark:bg-[#000000] z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
+              className="fixed inset-y-0 right-0 w-[300px]  shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
             >
               <div className="flex items-center justify-between mb-8">
                 <img src={companyLogo} alt="Logo" className="h-10 w-auto" />
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded-full transition-colors"
                 >
                   <X size={24} />
                 </button>
@@ -320,7 +320,7 @@ export default function Navbar() {
                 <div className="mb-2">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center justify-between w-full text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white text-lg font-semibold py-3 px-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center justify-between w-full text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white text-lg font-semibold py-3 px-4 rounded-xl  transition-colors"
                   >
                     Courses
                     <ChevronDown
@@ -335,14 +335,14 @@ export default function Navbar() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden bg-gray-50/50 dark:bg-gray-800/50 rounded-xl mt-1 mx-2"
+                        className="overflow-hidden rounded-xl mt-1 mx-2"
                       >
                         <div className="flex flex-col p-2">
                           {courses.map((course) => (
                             <Link
                               key={course.label}
                               to={course.path}
-                              className="py-3 px-4 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium transition-colors"
+                              className="py-3 px-4 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white  rounded-lg text-sm font-medium transition-colors"
                               onClick={() => setIsOpen(false)}
                             >
                               {course.label}
@@ -359,8 +359,8 @@ export default function Navbar() {
                   const isExternal = item.path.startsWith("http");
                   const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
                   const baseClasses = `flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${isHighlighted
-                      ? "text-[#FFBB00] bg-gray-50 dark:bg-gray-800"
-                      : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+                    ? "text-[#FFBB00]"
+                    : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white "
                     }`;
 
                   return isExternal ? (

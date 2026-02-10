@@ -83,12 +83,72 @@ const CURRICULUM = [
 ];
 
 const TOOLS = [
-    { name: "Python", description: "Pandas, Scikit-learn, PyTorch", image: "/assets/dmAITools/make.webp" }, // Placeholder images
-    { name: "SQL", description: "Advanced querying & data modeling", image: "/assets/dmAITools/sql.png" },
-    { name: "MLOps", description: "MLFlow, DVC, Weights & Biases", image: "/assets/dmAITools/n8n.png" },
-    { name: "Cloud", description: "AWS SageMaker, Google Vertex AI", image: "/assets/dmAITools/canvaai.webp" },
-    { name: "GenAI", description: "LangChain, OpenAI, HuggingFace", image: "/redesign/advance-gen-ai/chatgpt.png" },
-    { name: "BI", description: "Tableau, PowerBI for decision impact", image: "/assets/dmAITools/tableau.png" },
+    {
+        name: "Claude",
+        category: "LLM & Research",
+        image: "/redesign/data-science/tools/claude.png",
+        description: "Advanced AI for content strategy, research, and copywriting."
+    },
+    {
+        name: "n8n",
+        category: "Workflows",
+        image: "/redesign/data-science/tools/n8n.png",
+        description: "Open-source workflow automation for marketing pipelines."
+    },
+    {
+        name: "CrewAI",
+        category: "AI Agents",
+        image: "/redesign/data-science/tools/crewai.png",
+        description: "Framework for orchestrating autonomous AI agents."
+    },
+    {
+        name: "Jasper",
+        category: "AI Copywriting",
+        image: "/redesign/data-science/tools/jasper.png",
+        description: "Enterprise-grade AI platform for marketing content."
+    },
+    {
+        name: "CapCut",
+        category: "Video Editing",
+        image: "/redesign/data-science/tools/capcut.png",
+        description: "Pro-level video editing and effects for social content."
+    },
+    {
+        name: "Runway",
+        category: "Video Generation",
+        image: "/redesign/data-science/tools/runway.png",
+        description: "Next-gen AI tools for creative video production."
+    },
+    {
+        name: "Leonardo.ai",
+        category: "Image Generation",
+        image: "/redesign/data-science/tools/leonardo.png",
+        description: "Full-stack AI image generation platform."
+    },
+    {
+        name: "Ideogram",
+        category: "AI Design",
+        image: "/redesign/data-science/tools/ideogram.png",
+        description: "Text-to-image AI focused on typography and design."
+    },
+    {
+        name: "OpusClip",
+        category: "Video Automation",
+        image: "/redesign/data-science/tools/opusclip.png",
+        description: "AI-powered tool for creating viral short-form clips."
+    },
+    {
+        name: "Pika Labs",
+        category: "Video Generation",
+        image: "/redesign/data-science/tools/pika.png",
+        description: "Idea-to-video platform for high-quality animation."
+    },
+    {
+        name: "Stability AI",
+        category: "Deep Learning",
+        image: "/redesign/data-science/tools/stability.png",
+        description: "Open-source foundational models for creative AI."
+    }
 ];
 
 const AccordionItem = ({ module }: { module: any }) => {
@@ -324,12 +384,24 @@ export default function DataScienceProgramEIE() {
 
                     <section id="tools" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8">Tools You’ll Master</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {TOOLS.map((tool, idx) => (
-                                <div key={idx} className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                                    <div className="p-3 inline-block mb-4"><img src={tool.image} alt={tool.name} className="w-8 h-8 object-contain" /></div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 text-center">{tool.description}</p>
+                                <div
+                                    key={idx}
+                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
+                                >
+                                    <div className="p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                                        <img
+                                            src={tool.image}
+                                            alt={tool.name}
+                                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                    </div>
+                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                        {tool.category}
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>

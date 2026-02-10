@@ -143,11 +143,54 @@ const CURRICULUM = [
 ];
 
 const PM_TOOLS = [
-    { name: "Product Frameworks", description: "JTBD, AARRR, North Star, RICE, Kano", image: "/assets/genAITools/gpt4.webp" },
-    { name: "Research & Strategy", description: "Tools for user interviews, personas, and market sizing", image: "/assets/genAITools/claude.webp" },
-    { name: "Analytics & Experimentation", description: "Funnels, cohorts, and feedback loops", image: "/assets/genAITools/midjourney.webp" },
-    { name: "AI Tools", description: "For research, PRDs, prototyping, and automation", image: "/assets/genAITools/runway.webp" },
-    { name: "Vibe Coding", description: "Tools to build and demo AI-powered MVPs", image: "/assets/genAITools/elevenlabs.webp" }
+    {
+        name: "Jira",
+        category: "Product Management",
+        image: "/redesign/ai-pm/tools/Jira.png",
+        description: "Standard tool for agile project management and issue tracking."
+    },
+    {
+        name: "Asana",
+        category: "Project Management",
+        image: "/redesign/ai-pm/tools/asana.png",
+        description: "Work management platform for team collaboration."
+    },
+    {
+        name: "Notion",
+        category: "Documentation",
+        image: "/redesign/ai-pm/tools/Notion.png",
+        description: "All-in-one workspace for notes, docs, and knowledge management."
+    },
+    {
+        name: "Figma",
+        category: "Design",
+        image: "/redesign/ai-pm/tools/Figma.png",
+        description: "Collaborative interface design tool for teams."
+    },
+    {
+        name: "Miro",
+        category: "Whiteboarding",
+        image: "/redesign/ai-pm/tools/miro.png",
+        description: "Online visual collaboration platform for brainstorming."
+    },
+    {
+        name: "Mixpanel",
+        category: "Analytics",
+        image: "/redesign/ai-pm/tools/mixpanel.png",
+        description: "Leading platform for user behavior analytics."
+    },
+    {
+        name: "Postman",
+        category: "API Testing",
+        image: "/redesign/ai-pm/tools/Postman.png",
+        description: "Platform for building and using APIs."
+    },
+    {
+        name: "GitHub",
+        category: "Collaboration",
+        image: "/redesign/ai-pm/tools/GitHub.png",
+        description: "Platform for version control and development collaboration."
+    }
 ];
 
 // --- Components ---
@@ -569,17 +612,24 @@ export default function ProductProgramEIE() {
 
                     <section id="tools" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">TOOLS & FRAMEWORKS (EMBEDDED ACROSS PROGRAM)</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {PM_TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
                                 >
-                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
-                                        <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
+                                    <div className="p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                                        <img
+                                            src={tool.image}
+                                            alt={tool.name}
+                                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                                        />
                                     </div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300 text-center">{tool.description}</p>
+                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                        {tool.category}
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>

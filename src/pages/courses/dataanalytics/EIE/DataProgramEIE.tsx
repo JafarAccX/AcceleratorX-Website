@@ -3,12 +3,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check, Loader2, Linkedin } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
 import { api } from '../../../../api';
-import { dataAnalyticsTools } from "../../../../utils/constants";
+
 
 declare global {
   interface Window {
@@ -129,13 +129,96 @@ const CURRICULUM = [
 ];
 
 const DATA_TOOLS = [
-  { name: "Excel", description: "Foundational tool for data cleaning and analysis." },
-  { name: "SQL", description: "MySQL / BigQuery for database querying." },
-  { name: "Python", description: "Pandas, Matplotlib, Seaborn, scikit-learn for advanced analysis." },
-  { name: "Tableau / Power BI", description: "Industry standard tools for dashboarding." },
-  { name: "Google Analytics / Mixpanel", description: "Essential for product and web analytics." },
-  { name: "Modern Data Stack", description: "BigQuery, dbt, and modern BI concepts." },
-  { name: "AI Tools", description: "For analytics automation and productivity." },
+  {
+    name: "Python",
+    category: "Programming",
+    image: "/redesign/ai-da/tools/python.png",
+    description: "Versatile language for data engineering & analysis."
+  },
+  {
+    name: "SQL",
+    category: "Databases",
+    image: "/redesign/ai-da/tools/sql.png",
+    description: "Standard language for managing relational databases."
+  },
+  {
+    name: "Pandas",
+    category: "Data Manipulation",
+    image: "/redesign/ai-da/tools/pandas.png",
+    description: "Powerful library for data analysis & manipulation."
+  },
+  {
+    name: "NumPy",
+    category: "Numerical Computing",
+    image: "/redesign/ai-da/tools/numpy.png",
+    description: "Fundamental package for scientific computing."
+  },
+  {
+    name: "Matplotlib",
+    category: "Visualization",
+    image: "/redesign/ai-da/tools/matplotlib.png",
+    description: "Comprehensive library for static visualizations."
+  },
+  {
+    name: "Power BI",
+    category: "Business Intelligence",
+    image: "/redesign/ai-da/tools/powerbi.png",
+    description: "Interactive data visualization & reporting."
+  },
+  {
+    name: "Tableau",
+    category: "Business Intelligence",
+    image: "/redesign/ai-da/tools/tableau.png",
+    description: "Visual analytics platform for business insights."
+  },
+  {
+    name: "MySQL",
+    category: "Databases",
+    image: "/redesign/ai-da/tools/mysql.png",
+    description: "Popular open-source relational database system."
+  },
+  {
+    name: "Jupyter",
+    category: "Development",
+    image: "/redesign/ai-da/tools/jupyter.png",
+    description: "Interactive computing environment for data science."
+  },
+  {
+    name: "Google Analytics",
+    category: "Web Analytics",
+    image: "/redesign/ai-da/tools/google-analytics.png",
+    description: "Platform for tracking & reporting website traffic."
+  },
+  {
+    name: "Mixpanel",
+    category: "Product Analytics",
+    image: "/redesign/ai-da/tools/mixpanel.png",
+    description: "Advanced analytics for product insights & tracking."
+  },
+  {
+    name: "Looker",
+    category: "Business Intelligence",
+    image: "/redesign/ai-da/tools/looker.png",
+    description: "Modern BI & data exploration platform."
+  },
+  {
+    name: "TensorFlow",
+    category: "Machine Learning",
+    image: "/redesign/ai-da/tools/tensorflow.png",
+    description: "End-to-end platform for machine learning."
+  },
+  {
+    name: "Keras",
+    category: "Deep Learning",
+    image: "/redesign/ai-da/tools/keras.png",
+    description: "High-level neural networks API for AI development."
+  },
+  {
+    name: "GitHub",
+    category: "Collaboration",
+    image: "/redesign/ai-da/tools/GitHub.png",
+    description: "Platform for version control & code collaboration."
+  }
 ];
 
 // --- Components ---
@@ -455,17 +538,24 @@ export default function DataProgramEIE() {
             </div>
             <img src="/redesign/ai-da/Google-Analytics.png" className="absolute -left-96 top-10 h-24 w-24" />
             <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {DATA_TOOLS.map((tool, idx) => (
                 <div
                   key={idx}
-                  className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
                 >
-                  <div className="p-3 inline-block mb-4 transition-colors duration-300">
-                    <img src={dataAnalyticsTools.find(t => t.name.includes(tool.name.split(' ')[0]))?.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
+                  <div className=" p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                    <img
+                      src={tool.image}
+                      alt={tool.name}
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
-                  <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300 text-center">{tool.description}</p>
+                  <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                    {tool.category}
+                  </div>
+                  <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
+                  <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                 </div>
               ))}
             </div>

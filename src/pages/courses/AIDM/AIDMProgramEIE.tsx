@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Check, Loader2, Linkedin } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../utils/constants_price';
@@ -88,13 +88,72 @@ const CURRICULUM = [
 ];
 
 const AIDM_TOOLS = [
-    { name: "Generative AI", description: "ChatGPT, Jasper, Perplexity", image: "/assets/genAITools/gpt4.webp" },
-    { name: "SEO & Research", description: "Ubersuggest, SEMrush, Google Trends", image: "/assets/dmAITools/googleanalytics.webp" },
-    { name: "Creative Tools", description: "Canva AI, Adobe Firefly, Runway, Pika", image: "/assets/aidmtools/ido.webp" },
-    { name: "Paid Ads", description: "Google Ads, Meta Ads", image: "/assets/aidmtools/Apollo.io.webp" },
-    { name: "Analytics & CRO", description: "GA4, Looker Studio, Hotjar", image: "/assets/dmAITools/googleanalytics.webp" },
-    { name: "Automation", description: "n8n, Make, HubSpot", image: "/assets/genAITools/n8n-seeklogo.webp" },
-    { name: "AI Agents", description: "AI marketing agents & workflow tools", image: "/assets/dmAITools/jasper.webp" },
+    {
+        name: "Claude",
+        category: "LLM & Research",
+        image: "/redesign/ai-dm/tools/claude.png",
+        description: "Advanced AI for content strategy, research, and copywriting."
+    },
+    {
+        name: "n8n",
+        category: "Workflows",
+        image: "/redesign/ai-dm/tools/n8n.png",
+        description: "Open-source workflow automation for marketing pipelines."
+    },
+    {
+        name: "CrewAI",
+        category: "AI Agents",
+        image: "/redesign/ai-dm/tools/crewai.png",
+        description: "Framework for orchestrating autonomous AI agents."
+    },
+    {
+        name: "Jasper",
+        category: "AI Copywriting",
+        image: "/redesign/ai-dm/tools/jasper.png",
+        description: "Enterprise-grade AI platform for marketing content."
+    },
+    {
+        name: "CapCut",
+        category: "Video Editing",
+        image: "/redesign/ai-dm/tools/capcut.png",
+        description: "Pro-level video editing and effects for social content."
+    },
+    {
+        name: "Runway",
+        category: "Video Generation",
+        image: "/redesign/ai-dm/tools/runway.png",
+        description: "Next-gen AI tools for creative video production."
+    },
+    {
+        name: "Leonardo.ai",
+        category: "Image Generation",
+        image: "/redesign/ai-dm/tools/leonardo.png",
+        description: "Full-stack AI image generation platform."
+    },
+    {
+        name: "Ideogram",
+        category: "AI Design",
+        image: "/redesign/ai-dm/tools/ideogram.png",
+        description: "Text-to-image AI focused on typography and design."
+    },
+    {
+        name: "OpusClip",
+        category: "Video Automation",
+        image: "/redesign/ai-dm/tools/opusclip.png",
+        description: "AI-powered tool for creating viral short-form clips."
+    },
+    {
+        name: "Pika Labs",
+        category: "Video Generation",
+        image: "/redesign/ai-dm/tools/pika.png",
+        description: "Idea-to-video platform for high-quality animation."
+    },
+    {
+        name: "Stability AI",
+        category: "Deep Learning",
+        image: "/redesign/ai-dm/tools/stability.png",
+        description: "Open-source foundational models for creative AI."
+    }
 ];
 
 const AccordionItem = ({ item }: { item: any }) => {
@@ -466,17 +525,24 @@ export default function AIDMProgramEIE() {
                             />
                         </div>
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {AIDM_TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
                                 >
-                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
-                                        <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
+                                    <div className="p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                                        <img
+                                            src={tool.image}
+                                            alt={tool.name}
+                                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                                        />
                                     </div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300 text-center">{tool.description}</p>
+                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                        {tool.category}
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>

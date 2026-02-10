@@ -91,15 +91,102 @@ const CURRICULUM = [
 ];
 
 const GEN_TOOLS = [
-    { name: "Chat-GPT", description: "Advanced text generation", image: "/assets/genAITools/gpt4.webp" },
-    { name: "Claude", description: "Complex reasoning and analysis", image: "/assets/genAITools/claude.webp" },
-    { name: "Midjourney", description: "High-quality art generation", image: "/assets/genAITools/midjourney.webp" },
-    { name: "Runway", description: "AI video creation suite", image: "/assets/genAITools/runway.webp" },
-    { name: "ElevenLabs", description: "Professional voice synthesis", image: "/assets/genAITools/elevenlabs.webp" },
-    { name: "n8n", description: "Workflow automation platform", image: "/assets/genAITools/n8n-seeklogo.webp" },
-    { name: "CrewAI", description: "Multi-agent framework", image: "/assets/genAITools/crewai.webp" },
-    { name: "LangChain", description: "LLM application framework", image: "/assets/genAITools/langchain.webp" },
-    { name: "Cursor AI", description: "AI-powered coding editor", image: "/assets/genAITools/claude.webp" } // Using substitute image if needed
+    {
+        name: "Bolt",
+        category: "AI Coding",
+        image: "/redesign/gen-ai/tools/bolt.png",
+        description: "Full-stack web application builder powered by AI."
+    },
+    {
+        name: "ChatGPT",
+        category: "LLM",
+        image: "/redesign/gen-ai/tools/chatgpt.png",
+        description: "Industry-leading language model for diverse tasks."
+    },
+    {
+        name: "Claude",
+        category: "LLM",
+        image: "/redesign/gen-ai/tools/claude.png",
+        description: "Advanced reasoning and safe AI interactions."
+    },
+    {
+        name: "Copilot",
+        category: "AI Assistant",
+        image: "/redesign/gen-ai/tools/copilot.png",
+        description: "Integrated AI for productivity and development."
+    },
+    {
+        name: "CrewAI",
+        category: "AI Agents",
+        image: "/redesign/gen-ai/tools/crewai.png",
+        description: "Framework for multi-agent autonomous systems."
+    },
+    {
+        name: "Cursor",
+        category: "AI Code Editor",
+        image: "/redesign/gen-ai/tools/cursor.png",
+        description: "Next-gen editor with deep AI integration."
+    },
+    {
+        name: "ElevenLabs",
+        category: "Audio AI",
+        image: "/redesign/gen-ai/tools/elevenlas.png",
+        description: "High-fidelity text-to-speech and voice cloning."
+    },
+    {
+        name: "Flowise",
+        category: "AI Orchestration",
+        image: "/redesign/gen-ai/tools/flowise.png",
+        description: "Drag-and-drop tool for building LLM apps."
+    },
+    {
+        name: "Gemini",
+        category: "LLM",
+        image: "/redesign/gen-ai/tools/gemini.png",
+        description: "Google's multi-modal generative AI model."
+    },
+    {
+        name: "Hugging Face",
+        category: "Model Hub",
+        image: "/redesign/gen-ai/tools/huggingface.png",
+        description: "The home of open-source machine learning."
+    },
+    {
+        name: "LangChain",
+        category: "Framework",
+        image: "/redesign/gen-ai/tools/langchain.png",
+        description: "Building applications with LLMs through chaining."
+    },
+    {
+        name: "Midjourney",
+        category: "Image Gen",
+        image: "/redesign/gen-ai/tools/midjourney.png",
+        description: "Premium artistic image generation platform."
+    },
+    {
+        name: "Replit",
+        category: "Cloud IDE",
+        image: "/redesign/gen-ai/tools/replit.png",
+        description: "Collaborative platform for building and hosting apps."
+    },
+    {
+        name: "Runway",
+        category: "Video AI",
+        image: "/redesign/gen-ai/tools/runway.png",
+        description: "Creative suite for AI-powered video generation."
+    },
+    {
+        name: "Vapi",
+        category: "Voice AI",
+        image: "/redesign/gen-ai/tools/vapi.png",
+        description: "Platform for building voice-driven AI agents."
+    },
+    {
+        name: "Zapier",
+        category: "Automation",
+        image: "/redesign/gen-ai/tools/zapier.png",
+        description: "Connecting apps and automating workflows with AI."
+    }
 ];
 
 // --- Components ---
@@ -441,18 +528,24 @@ export default function GENProgramEIE() {
                             />
                         </div>
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {GEN_TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
                                 >
-                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
-                                        <img src={tool.image || "/placeholder.svg"} alt={tool.name} className="w-8 h-8 object-contain" />
+                                    <div className="p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                                        <img
+                                            src={tool.image}
+                                            alt={tool.name}
+                                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                                        />
                                     </div>
-
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{tool.description}</p>
+                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                        {tool.category}
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>

@@ -59,9 +59,54 @@ const CURRICULUM = [
 
 
 const TOOLS = [
-    { name: "Make", description: "Workflow automation for AI agents", image: "/redesign/advance-gen-ai/tools/make.png" },
-    { name: "Simplified", description: "Agent-powered marketing & design", image: "/redesign/advance-gen-ai/tools/simplified.png" },
-    { name: "Claude", description: "Advanced reasoning for AI agents", image: "/redesign/advance-gen-ai/tools/claude.png" },
+    {
+        name: "Agent Development",
+        category: "Agentic AI",
+        image: "/redesign/advance-gen-ai/tools/agentdevelopment.png",
+        description: "Platforms for building autonomous agents."
+    },
+    {
+        name: "AI Voice Agent",
+        category: "Voice AI",
+        image: "/redesign/advance-gen-ai/tools/aivoiceagent.png",
+        description: "Building voice-driven autonomous systems."
+    },
+    {
+        name: "ChatGPT",
+        category: "LLM",
+        image: "/redesign/advance-gen-ai/tools/chatgpt.png",
+        description: "Foundation for reasoning and dialogue."
+    },
+    {
+        name: "CrewAI",
+        category: "Framework",
+        image: "/redesign/advance-gen-ai/tools/crewai.png",
+        description: "Framework for multi-agent autonomous teams."
+    },
+    {
+        name: "Hugging Face",
+        category: "Model Hub",
+        image: "/redesign/advance-gen-ai/tools/huggingface.png",
+        description: "The home of open-source machine learning models."
+    },
+    {
+        name: "LangChain",
+        category: "Framework",
+        image: "/redesign/advance-gen-ai/tools/langchain.png",
+        description: "Building language model applications through chaining."
+    },
+    {
+        name: "LangGraph",
+        category: "Agent Orchestration",
+        image: "/redesign/advance-gen-ai/tools/langgraph.png",
+        description: "Advanced orchestration for agentic workflows."
+    },
+    {
+        name: "Model Context Protocol",
+        category: "Protocol",
+        image: "/redesign/advance-gen-ai/tools/modelcontextprotocol.png",
+        description: "Standards for connecting LLMs to external data sources."
+    }
 ];
 
 
@@ -286,14 +331,24 @@ export default function AdvanceGenAIProgramEIE() {
                             />
                         </div>
                         <h3 className="text-2xl font-serif font-bold mb-8">AI Agent Tools You’ll Master</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {TOOLS.map((tool, idx) => (
-                                <div key={idx} className="bg-white dark:bg-[#171717] border flex flex-col justify-center items-center border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                                    <div className="p-3 inline-block mb-4 transition-colors duration-300">
-                                        <img src={tool.image} alt={tool.name} className=" object-contain" />
+                                <div
+                                    key={idx}
+                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
+                                >
+                                    <div className="p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                                        <img
+                                            src={tool.image}
+                                            alt={tool.name}
+                                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                                        />
                                     </div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300 text-center">{tool.name}</h4>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300 text-center">{tool.description}</p>
+                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                        {tool.category}
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>
