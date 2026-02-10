@@ -303,7 +303,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-[300px]  shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
+              className="fixed inset-y-0 right-0 w-[300px] bg-white dark:bg-[#000000] z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
             >
               <div className="flex items-center justify-between mb-8">
                 <img src={companyLogo} alt="Logo" className="h-10 w-auto" />

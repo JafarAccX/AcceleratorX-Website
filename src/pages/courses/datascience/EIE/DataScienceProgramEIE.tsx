@@ -384,7 +384,7 @@ export default function DataScienceProgramEIE() {
 
                     <section id="tools" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8">Tools You’ll Master</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                             {TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
@@ -410,7 +410,7 @@ export default function DataScienceProgramEIE() {
 
                     <section id="mentors" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8">Mentors from Industry</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {MENTORS.map((m, i) => (
                                 <div key={i} className="bg-gray-50 relative dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
                                     <div className="aspect-square relative overflow-hidden"><img src={m.image} alt={m.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" /></div>

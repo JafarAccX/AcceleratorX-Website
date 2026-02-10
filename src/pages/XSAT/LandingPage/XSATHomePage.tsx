@@ -287,7 +287,7 @@ function XSATHomePage() {
           </div>
 
           {/* Scholarship Cards */}
-          <div className="hero-cards grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+          <div className="hero-cards grid grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
             {[
               {
                 title: "Full Scholarship",
@@ -436,7 +436,7 @@ function XSATHomePage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-16">
               Why Appear for XSAT?
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
                   icon: <LightbulbIcon className="w-6 h-6" />,

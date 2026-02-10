@@ -223,43 +223,75 @@ export default function AdvanceGenAIProgramEIE() {
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY + 100;
+
             if (containerRef.current && sidebarRef.current) {
                 const containerTop = containerRef.current.offsetTop;
                 const containerBottom = containerTop + containerRef.current.offsetHeight;
                 const sidebarHeight = sidebarRef.current.offsetHeight;
-                const shouldStartFixed = window.scrollY + window.innerHeight / 2 > containerTop + sidebarHeight / 2;
-                const shouldStopFixed = window.scrollY + window.innerHeight / 2 + sidebarHeight / 2 > containerBottom;
+                const viewportCenter = window.scrollY + window.innerHeight / 2;
+                const sidebarCenter = containerTop + sidebarHeight / 2;
+
+                const shouldStartFixed = viewportCenter > sidebarCenter;
+                const sidebarBottom = window.scrollY + window.innerHeight / 2 + sidebarHeight / 2;
+                const shouldStopFixed = sidebarBottom > containerBottom;
+
                 setIsFixed(shouldStartFixed && !shouldStopFixed);
-                if (!isFixed) setSidebarWidth(sidebarRef.current.offsetWidth);
+
+                if (!isFixed) {
+                    setSidebarWidth(sidebarRef.current.offsetWidth);
+                }
             }
+
             for (const section of SECTIONS) {
                 const element = document.getElementById(section.id);
-                if (element && scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
-                    setActiveSection(section.id);
-                    break;
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                        setActiveSection(section.id);
+                        break;
+                    }
                 }
             }
         };
+
+        if (sidebarRef.current) {
+            setSidebarWidth(sidebarRef.current.offsetWidth);
+        }
+
         window.addEventListener("scroll", handleScroll);
-        window.addEventListener("resize", () => setSidebarWidth(sidebarRef.current?.offsetWidth || 0));
-        return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleScroll);
+        handleScroll();
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleScroll);
+        };
     }, [isFixed]);
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
-        if (element) window.scrollTo({ top: element.offsetTop - 80, behavior: "smooth" });
+        if (element) {
+            const y = element.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
     };
 
     return (
         <div className="dark:bg-[#000000] py-20 text-[#0A0F1E] dark:text-white transition-colors duration-300">
             <div ref={containerRef} className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row gap-12">
 
-                {isFixed && <div className="lg:w-1/4" style={{ width: sidebarWidth }} />}
+                {isFixed && <div className="lg:w-1/4 flex-shrink-0" style={{ width: `${sidebarWidth}px`, maxWidth: `${sidebarWidth}px` }} />}
 
                 <aside
                     ref={sidebarRef}
-                    className={`lg:w-1/4 self-start transition-all duration-200 ${isFixed ? 'fixed top-1/2 -translate-y-1/2 z-10' : ''}`}
-                    style={isFixed ? { width: sidebarWidth } : {}}
+                    className={`lg:w-1/4 relative self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'fixed top-1/2 -translate-y-1/2 z-10' : ''}`}
+                    style={isFixed ? {
+                        width: `${sidebarWidth}px`,
+                        maxWidth: `${sidebarWidth}px`,
+                        maxHeight: 'calc(100vh - 4rem)'
+                    } : {}}
                 >
                     <div className="relative">
                         <img src="/redesign/advance-gen-ai/astroid.webp" alt="ai" className="absolute -top-16 left-0 opacity-40 animate-float" />
@@ -331,7 +363,7 @@ export default function AdvanceGenAIProgramEIE() {
                             />
                         </div>
                         <h3 className="text-2xl font-serif font-bold mb-8">AI Agent Tools You’ll Master</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                             {TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
@@ -357,7 +389,7 @@ export default function AdvanceGenAIProgramEIE() {
 
                     <section id="mentors" className="scroll-mt-24">
                         <h3 className="text-2xl font-serif font-bold mb-8">Mentors from Top AI Teams</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {MENTORS.map((m, i) => (
                                 <div key={i} className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
                                     <div className="aspect-square relative overflow-hidden">

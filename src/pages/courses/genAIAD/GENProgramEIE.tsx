@@ -528,7 +528,7 @@ export default function GENProgramEIE() {
                             />
                         </div>
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                             {GEN_TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
@@ -559,7 +559,7 @@ export default function GENProgramEIE() {
                             className="absolute -bottom-20 -left-96 object-contain opacity-80 hidden lg:block animate-float"
                         />
                         <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Mentors from Top AI Labs</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {GEN_MENTORS.map((mentor, idx) => (
                                 <div
                                     key={idx}
