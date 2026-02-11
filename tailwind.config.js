@@ -30,6 +30,8 @@ export default {
         display: ['Space Grotesk', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
         body: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        heading: ['Epilogue', 'system-ui', 'sans-serif'], // For h1, h2, h3, etc.
+        sans: ['Open Sans', 'system-ui', 'sans-serif'], // For body text
       },
       animation: {
         float: "float 6s ease-in-out infinite",

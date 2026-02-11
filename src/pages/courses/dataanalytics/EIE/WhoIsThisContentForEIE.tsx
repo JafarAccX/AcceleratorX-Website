@@ -39,15 +39,15 @@ export default function WhoIsThisContentForEIE() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                    <div className="font-sans inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
                         Why Data Analytics Now
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
                         The Growing Data Analytics Industry
                     </h2>
 
-                    <div className="max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <div className="font-sans max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         <p className="mb-4">
                             The data analytics sector is experiencing unprecedented growth. It presents significant opportunities in market size, salary, and job openings.</p>
                     </div>
@@ -67,15 +67,15 @@ export default function WhoIsThisContentForEIE() {
                                 <stat.icon size={24} />
                             </div>
 
-                            <h3 className="text-4xl font-serif text-[#0A0F1E] dark:text-white font-medium mb-3 transition-colors duration-300">
+                            <h3 className="font-heading text-4xl font-medium text-[#0A0F1E] dark:text-white mb-3 transition-colors duration-300">
                                 {stat.value}
                             </h3>
 
-                            <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
+                            <h4 className="font-heading text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
                                 {stat.label}
                             </h4>
 
-                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
+                            <p className="font-sans text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
                                 {stat.description}
                             </p>
                         </motion.div>

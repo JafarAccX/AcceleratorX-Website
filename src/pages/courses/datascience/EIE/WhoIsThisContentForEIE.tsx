@@ -41,14 +41,14 @@ export default function WhoIsThisContentForEIE() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="inline-block text-[#3B82F6] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                    <div className="font-sans inline-block text-[#3B82F6] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
                         Data Science Hiring Has Changed
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
+                    <h2 className="font-heading text-4xl md:text-6xl font-bold text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
                         The Growing Data Science Industry</h2>
 
-                    <div className="max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <div className="font-sans max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         <p className="mb-8">
                             After this program, you will frame real business problems as DS problems, build and evaluate ML models correctly, handle uncertainty and failure cases, deploy and monitor ML pipelines, and explain decisions to stakeholders, so you can think like a real data scientist.</p>
 
@@ -69,15 +69,15 @@ export default function WhoIsThisContentForEIE() {
                                 <stat.icon size={28} />
                             </div>
 
-                            <h3 className="text-5xl font-serif text-[#0A0F1E] dark:text-white font-medium mb-3 transition-colors duration-300">
+                            <h3 className="font-heading text-5xl font-medium text-[#0A0F1E] dark:text-white mb-3 transition-colors duration-300">
                                 {stat.value}
                             </h3>
 
-                            <h4 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
+                            <h4 className="font-heading text-xl font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
                                 {stat.label}
                             </h4>
 
-                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
+                            <p className="font-sans text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
                                 {stat.description}
                             </p>
                         </motion.div>

@@ -44,11 +44,11 @@ export default function PMWhoIsThisContentForEIE() {
                 >
 
 
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
                         Product Management in the AI Era
                     </h2>
 
-                    <p className="max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <p className="font-sans max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         Modern PMs are expected to think strategically, execute cross-functionally, and leverage AI to build faster, smarter, and scalable products.
                     </p>
                 </motion.div>
@@ -67,15 +67,15 @@ export default function PMWhoIsThisContentForEIE() {
                                 <stat.icon size={24} />
                             </div>
 
-                            <h3 className="text-4xl font-serif text-[#0A0F1E] dark:text-white font-medium mb-3 transition-colors duration-300">
+                            <h3 className="font-heading text-4xl font-medium text-[#0A0F1E] dark:text-white mb-3 transition-colors duration-300">
                                 {stat.value}
                             </h3>
 
-                            <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
+                            <h4 className="font-heading text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
                                 {stat.label}
                             </h4>
 
-                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
+                            <p className="font-sans text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
                                 {stat.description}
                             </p>
                         </motion.div>

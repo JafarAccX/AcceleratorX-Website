@@ -7,19 +7,19 @@ const AICrashCourseCurriculum = () => {
 
             {/* Header Section */}
             <div className="text-center mb-12 relative z-10">
-                <p className="text-gray-400 text-sm md:text-base font-medium mb-2 tracking-wide">
+                <p className="font-sans text-gray-400 text-sm md:text-base font-medium mb-2 tracking-wide">
                     AI is no longer optional.
                 </p>
-                <h2 className="text-4xl md:text-6xl font-black mb-6 text-white tracking-tight">
+                <h2 className="font-heading text-4xl md:text-6xl font-black mb-6 text-white tracking-tight">
                     what you’ll actually <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500">learn</span>
                 </h2>
 
                 <div className="flex flex-col items-center gap-2">
-                    <p className="text-gray-400 text-sm md:text-lg">
+                    <p className="font-sans text-gray-400 text-sm md:text-lg">
                         This is not about: Just prompts, Just APIs, Just theory
                     </p>
                     <div className="flex flex-col items-center">
-                        <p className="text-white font-semibold text-lg">
+                        <p className="font-heading text-white font-semibold text-lg">
                             This is about:
                         </p>
                         {/* Vertical line start */}
@@ -66,7 +66,7 @@ const AICrashCourseCurriculum = () => {
             </div>
 
             <div className="text-center mt-16">
-                <p className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 text-lg md:text-xl font-medium flex items-center justify-center gap-3">
+                <p className="font-sans bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 text-lg md:text-xl font-medium flex items-center justify-center gap-3">
                     <span className="text-2xl opacity-80">«</span> You will build, not just watch <span className="text-2xl opacity-80">»</span>
                 </p>
             </div>
@@ -80,7 +80,7 @@ const CurriculumCard = ({ title, widthClass = "max-w-sm" }: { title: string, wid
         <div className="w-10 h-10 rounded-lg bg-[#0F1C15] border border-green-900/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
             <TrendingUp className="text-[#22C55E] w-5 h-5" />
         </div>
-        <span className="text-lg font-medium text-gray-200">{title}</span>
+        <span className="font-sans text-lg font-medium text-gray-200">{title}</span>
     </div>
 );
 

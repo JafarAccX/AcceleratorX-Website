@@ -16,7 +16,7 @@ const DataAnalyticsPage = () => {
   }, [setSelectedCourse]);
 
   return (
-    <div className="relative pt-28">
+    <div className="relative pt-28 font-sans">
 
 
 

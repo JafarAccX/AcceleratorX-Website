@@ -44,15 +44,15 @@ export default function AdvanceGenAIIndustryShiftEIE() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="inline-block text-[#3B82F6] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                    <div className="font-sans inline-block text-[#3B82F6] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
                         Agentic AI • Industry Shift
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
+                    <h2 className="font-heading text-4xl md:text-6xl text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
                         From AI Models to Autonomous AI Agents
                     </h2>
 
-                    <div className="max-w-7xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
+                    <div className="font-sans max-w-7xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
                         <p>
                             The next wave of AI is not chatbots—it’s agents that think, decide, and act. Agentic systems are transforming how products are built, operations are automated, and decisions are made at scale.
                         </p>
@@ -73,15 +73,15 @@ export default function AdvanceGenAIIndustryShiftEIE() {
                                 <stat.icon size={28} />
                             </div>
 
-                            <h3 className="text-5xl font-serif text-[#0A0F1E] dark:text-white font-medium mb-3 transition-colors duration-300">
+                            <h3 className="font-heading text-5xl text-[#0A0F1E] dark:text-white font-medium mb-3 transition-colors duration-300">
                                 {stat.value}
                             </h3>
 
-                            <h4 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
+                            <h4 className="font-heading text-xl font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
                                 {stat.label}
                             </h4>
 
-                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
+                            <p className="font-sans text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300">
                                 {stat.description}
                             </p>
                         </motion.div>

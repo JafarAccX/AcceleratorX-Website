@@ -16,7 +16,7 @@ const DataSciencePage = () => {
     }, [setSelectedCourse]);
 
     return (
-        <div className="relative pt-28">
+        <div className="relative pt-28 font-sans">
             <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
                 <SEO
                     title="Data Science Career Accelerator | AcceleratorX"

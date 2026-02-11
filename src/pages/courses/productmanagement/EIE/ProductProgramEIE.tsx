@@ -208,7 +208,7 @@ const AccordionItem = ({ week }: { week: any }) => {
                     <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1 transition-colors duration-300">
                         WEEK {week.week}
                     </span>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">
+                    <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">
                         {week.topics.join(" & ")}
                     </h4>
                 </div>
@@ -226,7 +226,7 @@ const AccordionItem = ({ week }: { week: any }) => {
                     >
                         <div className="p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717]  transition-colors duration-300">
                             {week.goal && (
-                                <p className="text-sm text-blue-600 dark:text-blue-400 italic mb-3 font-medium transition-colors duration-300">
+                                <p className="font-sans text-sm text-blue-600 dark:text-blue-400 italic mb-3 font-medium transition-colors duration-300">
                                     {week.goal}
                                 </p>
                             )}
@@ -234,7 +234,7 @@ const AccordionItem = ({ week }: { week: any }) => {
                                 <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Key Skills:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {week.skills.map((skill: string, sIdx: number) => (
-                                        <span key={sIdx} className="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded text-xs transition-colors duration-300">
+                                        <span key={sIdx} className="font-sans bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded text-xs transition-colors duration-300">
                                             {skill}
                                         </span>
                                     ))}
@@ -242,7 +242,7 @@ const AccordionItem = ({ week }: { week: any }) => {
                             </div>
                             {week.caseStudies && week.caseStudies.length > 0 && (
                                 <div>
-                                    <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Case Studies:</p>
+                                    <p className="font-sans font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Case Studies:</p>
                                     <div className="flex gap-4">
                                         {week.caseStudies.map((logo: string, lIdx: number) => (
                                             <img key={lIdx} src={logo} alt="case study" className="h-6 object-contain opacity-70" />
@@ -507,7 +507,7 @@ export default function ProductProgramEIE() {
                     <img src="/redesign/ai-pm/Google-Analytics.png" alt="Google Analytics" className="h-16 w-16 absolute -top-16 -left-20" />
 
                     <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
-                        <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight transition-colors duration-300">
+                        <h2 className="font-heading text-3xl font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight transition-colors duration-300">
                             AI Programs that help you become a Leader
                         </h2>
 
@@ -516,7 +516,7 @@ export default function ProductProgramEIE() {
                                 <button
                                     key={section.id}
                                     onClick={() => scrollToSection(section.id)}
-                                    className={`block pl-4 py-1 text-left text-sm font-medium transition-all duration-300 w-full ${activeSection === section.id
+                                    className={`font-sans block pl-4 py-1 text-left text-sm font-medium transition-all duration-300 w-full ${activeSection === section.id
                                         ? "border-l-2 border-blue-600 -ml-0.5 text-blue-600 font-bold"
                                         : "text-gray-500 hover:text-gray-900"
                                         }`}
@@ -530,8 +530,8 @@ export default function ProductProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-24">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">A Product Management Program Built for Real-World PM Roles</h3>
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
+                        <h3 className="font-heading text-2xl font-bold mb-6 dark:text-white transition-colors duration-300">A Product Management Program Built for Real-World PM Roles</h3>
+                        <p className="font-sans text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
                             This is not a theory-heavy PM course.
                             AcceleratorX trains you to think and operate like a real Product Manager — handling ambiguity, making trade-offs, working with engineers & designers, and shipping products.
                         </p>
@@ -543,7 +543,7 @@ export default function ProductProgramEIE() {
                                 "Hands-on exposure to AI-powered product workflows",
                                 "Career-ready capstone and mock interviews",
                             ].map((text, i) => (
-                                <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
+                                <li key={i} className="font-sans flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
                                     <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
                                     <span>{text}</span>
                                 </li>
@@ -555,8 +555,8 @@ export default function ProductProgramEIE() {
                     <section id="curriculum" className="scroll-mt-24 relative">
                         <img src="/redesign/ai-pm/github.png" alt="github" className="h-16 w-16 absolute top-40 -right-20" />
 
-                        <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">LEARNING JOURNEY (CORE PM + AI PM)</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">
+                        <h3 className="font-heading text-2xl font-bold mb-6 dark:text-white transition-colors duration-300">LEARNING JOURNEY (CORE PM + AI PM)</h3>
+                        <p className="font-sans text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">
                             A comprehensive journey covering everything from user research to AI scaling.
                         </p>
                         <div className="relative">
@@ -565,7 +565,7 @@ export default function ProductProgramEIE() {
                             ))}
                         </div>
                         <div className="mt-8 flex justify-center">
-                            <button className="px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-colors flex items-center gap-2">
+                            <button className="font-sans px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-colors flex items-center gap-2">
                                 Download Full Curriculum <ChevronDown size={18} />
                             </button>
                             <img src="/redesign/ai-pm/ast.png" alt="astronaut" className="absolute bottom-40 -left-[400px]" />
@@ -577,19 +577,19 @@ export default function ProductProgramEIE() {
                         <div className="bg-[#171717] rounded-2xl p-8 md:p-12 border border-[#848484]/30 relative overflow-hidden shadow-2xl">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
-                            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-10 text-white relative z-10">Build your dream product</h3>
+                            <h3 className="font-heading text-3xl md:text-4xl font-bold mb-10 text-white relative z-10">Build your dream product</h3>
 
                             <div className="space-y-10 relative z-10">
                                 <div>
-                                    <h4 className="text-xl font-bold text-blue-400 mb-3">What is BYDP?</h4>
-                                    <p className="text-gray-300 text-lg leading-relaxed">
+                                    <h4 className="font-heading text-xl font-bold text-blue-400 mb-3">What is BYDP?</h4>
+                                    <p className="font-sans text-gray-300 text-lg leading-relaxed">
                                         Build Your Dream Product (BYDP) is a structured design and development process that turns raw ideas into usable, market-ready digital products-fast, focused, and without guesswork.
                                     </p>
                                 </div>
 
                                 <div>
-                                    <h4 className="text-xl font-bold text-blue-400 mb-3">Why BYDP?</h4>
-                                    <p className="text-gray-300 text-lg leading-relaxed">
+                                    <h4 className="font-heading text-xl font-bold text-blue-400 mb-3">Why BYDP?</h4>
+                                    <p className="font-sans text-gray-300 text-lg leading-relaxed">
                                         Because building the wrong product is more expensive than building it right. BYDP aligns strategy, design, and execution so you ship something users actually want, not just something that looks good.
                                     </p>
                                 </div>
@@ -600,7 +600,7 @@ export default function ProductProgramEIE() {
 
                     <section id="skillverse" className="scroll-mt-24">
                         <div className="w-full mb-16">
-                            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-10 text-white relative z-10">Skillverse You Actually Master</h3>
+                            <h3 className="font-heading text-3xl md:text-4xl font-bold mb-10 text-white relative z-10">Skillverse You Actually Master</h3>
 
                             <img
                                 src="/redesign/ai-pm/pm-skillverse.webp"
@@ -611,7 +611,7 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">TOOLS & FRAMEWORKS (EMBEDDED ACROSS PROGRAM)</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white transition-colors duration-300">TOOLS & FRAMEWORKS (EMBEDDED ACROSS PROGRAM)</h3>
                         <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                             {PM_TOOLS.map((tool, idx) => (
                                 <div
@@ -625,11 +625,11 @@ export default function ProductProgramEIE() {
                                             className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
-                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                    <div className="font-sans inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
                                         {tool.category}
                                     </div>
-                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
-                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
+                                    <h4 className="font-heading text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="font-sans text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -639,7 +639,7 @@ export default function ProductProgramEIE() {
                     <section id="mentors" className="scroll-mt-24 relative">
                         <img src="/redesign/ai-pm/mentor-section-bg.png" alt="mentor-section-bg" className="absolute bottom-40 -left-[320px] rotate-12" />
 
-                        <h3 className="text-2xl font-serif font-bold mb-8">Mentors from Top Tech Leaders</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Mentors from Top Tech Leaders</h3>
 
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {PM_MENTORS.map((mentor, idx) => (
@@ -655,8 +655,8 @@ export default function ProductProgramEIE() {
                                         />
                                     </div>
                                     <div className="p-4 text-center relative">
-                                        <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{mentor.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{mentor.role}</p>
+                                        <h4 className="font-heading font-bold text-gray-900 dark:text-white transition-colors duration-300">{mentor.name}</h4>
+                                        <p className="font-sans text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{mentor.role}</p>
                                         {mentor.linkedin && (
                                             <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                                                 <a
@@ -678,7 +678,7 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree in Product Management</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white transition-colors duration-300">Industry-Recognized Nano Degree in Product Management</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-8  transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img
@@ -688,10 +688,10 @@ export default function ProductProgramEIE() {
                                 />
                             </div>
                             <div className="w-full md:w-1/2">
-                                <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+                                <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
                                     Nano Degree: Product Management & AI Product Management
                                 </h4>
-                                <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 transition-colors duration-300">
+                                <p className="font-sans text-gray-600 dark:text-gray-300 text-sm mb-6 transition-colors duration-300">
                                     This certification validates your ability to:
                                 </p>
                                 <ul className="space-y-3">
@@ -702,7 +702,7 @@ export default function ProductProgramEIE() {
                                         "Design and manage AI-enabled products",
                                         "Backed by real PM deliverables and AI product thinking.",
                                     ].map((item, i) => (
-                                        <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                                        <li key={i} className="font-sans flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                                             <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                                                 <Check size={10} />
                                             </div>
@@ -716,7 +716,7 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Opportunities</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Opportunities</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
                                 { role: "Product Manager", pay: "₹12L - 25L", desc: "Help businesses integrate AI solutions and develop AI strategies" },
@@ -729,12 +729,12 @@ export default function ProductProgramEIE() {
                                     className="bg-[#171717] border border-[#848484]/30 rounded-xl p-8 hover:shadow-md transition-all duration-300"
                                 >
                                     <div className="flex justify-between items-start mb-6">
-                                        <h4 className="font-bold text-2xl text-white transition-colors duration-300">
+                                        <h4 className="font-heading font-bold text-2xl text-white transition-colors duration-300">
                                             {item.role}
                                         </h4>
-                                        <span className="bg-[#5BA4E5] text-black text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap transition-colors duration-300">{item.pay}</span>
+                                        <span className="font-sans bg-[#5BA4E5] text-black text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap transition-colors duration-300">{item.pay}</span>
                                     </div>
-                                    <p className="text-gray-400 text-sm transition-colors duration-300 leading-relaxed">
+                                    <p className="font-sans text-gray-400 text-sm transition-colors duration-300 leading-relaxed">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -747,7 +747,7 @@ export default function ProductProgramEIE() {
                         <img src="/redesign/ai-pm/Miro-Logo.png" alt="Miro-Logo" className="absolute w-24 h-24 bottom-40 -left-[400px] rotate-12" />
 
                         <div className="text-center mb-16">
-                            <h3 className="text-4xl font-serif font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
+                            <h3 className="font-heading text-4xl font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
                         </div>
 
                         <div className="flex justify-center max-w-5xl mx-auto">
@@ -772,12 +772,12 @@ export default function ProductProgramEIE() {
                                         }}
                                     ></div>
 
-                                    <h4 className="font-bold text-white text-2xl mb-2 relative z-10">Regular</h4>
-                                    <p className="text-gray-300 text-sm mb-6 relative z-10">AI Product Management</p>
+                                    <h4 className="font-heading font-bold text-white text-2xl mb-2 relative z-10">Regular</h4>
+                                    <p className="font-sans text-gray-300 text-sm mb-6 relative z-10">AI Product Management</p>
 
                                     <div className="mb-4 relative z-10">
-                                        <span className="text-4xl font-bold text-[#5BA4E5]">₹ 49,999</span>
-                                        <span className="text-gray-400 text-sm ml-1">+ GST</span>
+                                        <span className="font-heading text-4xl font-bold text-[#5BA4E5]">₹ 49,999</span>
+                                        <span className="font-sans text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 
                                     {/* Batch Selection Logic */}
@@ -787,7 +787,7 @@ export default function ProductProgramEIE() {
                                             <select
                                                 value={selectedBatchId || ''}
                                                 onChange={(e) => setSelectedBatchId(e.target.value)}
-                                                className="w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#5BA4E5] focus:border-[#5BA4E5] bg-black text-white"
+                                                className="font-sans w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#5BA4E5] focus:border-[#5BA4E5] bg-black text-white"
                                             >
                                                 {batches.map((batch) => (
                                                     <option key={batch.Id} value={batch.Id}>
@@ -798,7 +798,7 @@ export default function ProductProgramEIE() {
                                         </div>
                                     )}
 
-                                    <ul className="text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
+                                    <ul className="font-sans text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
                                         {[
                                             "4-month intensive, live instructor-led training",
                                             "Hands-on building AI Products",
@@ -823,14 +823,14 @@ export default function ProductProgramEIE() {
                                         <button
                                             onClick={() => handleBuyCourse(49999)}
                                             disabled={isProcessing || batches.length === 0}
-                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
+                                            className="font-sans w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
                                         >
                                             {isProcessing ? <><div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Apply Now <ArrowRight size={18} /></>}
                                         </button>
                                     ) : (
                                         <button
                                             onClick={() => navigate('/sign-in', { state: { from: location } })}
-                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                            className="font-sans w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
                                         >
                                             Sign in to Enroll <ArrowRight size={18} />
                                         </button>

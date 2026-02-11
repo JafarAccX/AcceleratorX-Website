@@ -40,7 +40,7 @@ const AICrashCourseFAQ = () => {
 
     return (
         <section className="py-20 px-4 md:px-8 max-w-4xl mx-auto flex flex-col items-center">
-            <h2 className="text-white font-['Plus_Jakarta_Sans'] font-bold text-[36px] md:text-[48px] leading-[100%] text-center mb-16">
+            <h2 className="font-heading text-white font-bold text-[36px] md:text-[48px] leading-[100%] text-center mb-16">
                 Frequently Asked Questions
             </h2>
 
@@ -76,7 +76,7 @@ const FAQItemCard = ({ faq, isOpen, onClick }: { faq: FAQItem, isOpen: boolean, 
             } : {}}
         >
             <div className="flex justify-between items-start gap-4">
-                <h3 className="text-white font-medium text-lg leading-tight flex-1">
+                <h3 className="font-heading text-white font-medium text-lg leading-tight flex-1">
                     {faq.question}
                 </h3>
                 <span className="text-white flex-shrink-0 mt-0.5">
@@ -93,7 +93,7 @@ const FAQItemCard = ({ faq, isOpen, onClick }: { faq: FAQItem, isOpen: boolean, 
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                     >
-                        <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                        <p className="font-sans text-gray-300 text-sm md:text-base leading-relaxed">
                             {faq.answer}
                         </p>
                     </motion.div>

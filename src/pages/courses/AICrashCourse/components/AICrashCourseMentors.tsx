@@ -65,10 +65,10 @@ const AICrashCourseMentors = () => {
     return (
         <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
             <div className="text-center mb-16">
-                <h2 className="lowercase font-['Plus_Jakarta_Sans'] font-bold text-[40px] md:text-[48px] leading-[100%] mb-4 text-white">
+                <h2 className="lowercase font-heading font-bold text-[40px] md:text-[48px] leading-[100%] mb-4 text-white">
                     learn from <span className="bg-clip-text text-transparent bg-[linear-gradient(90deg,#CC3FFF_27.88%,#48A2EB_59.13%)]">builders</span>, not just trainers
                 </h2>
-                <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
+                <p className="font-sans text-gray-400 text-lg max-w-3xl mx-auto mb-8">
                     Built & deployed AI agents, Resolved production issues, Explained system functionality, Guided professionals in various fields
                 </p>
             </div>
@@ -109,13 +109,13 @@ const AICrashCourseMentors = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                    <button className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 hover:text-white transition-colors flex items-center justify-center gap-2 mx-auto uppercase tracking-widest text-sm font-bold border-b border-purple-500/30 pb-1">
+                    <button className="font-sans bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 hover:text-white transition-colors flex items-center justify-center gap-2 mx-auto uppercase tracking-widest text-sm font-bold border-b border-purple-500/30 pb-1">
                         <span className="text-2xl">«</span> Builder to builder learning <span className="text-2xl">»</span>
                     </button>
-                    <p className="text-gray-400 mt-4 text-sm">
+                    <p className="font-sans text-gray-400 mt-4 text-sm">
                         You're not learning about AI, you're learning from people who build it.
                     </p>
-                    <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-4 text-sm font-medium">
+                    <div className="font-sans mt-4 flex flex-col md:flex-row items-center justify-center gap-4 text-sm font-medium">
                         <span className="text-gray-300">to Know More About Mentors</span>
                         <a href="#" className="text-white border-b border-white pb-0.5 hover:opacity-80 flex items-center gap-1">
                             Download Brochure <span className="text-lg">»</span>
@@ -187,15 +187,15 @@ const MentorCard = ({ mentor }: { mentor: Mentor }) => {
 
                     {/* Content Section */}
                     <div className="flex-1 px-6 py-4 flex flex-col justify-center text-left">
-                        <h3 className="text-black font-bold text-2xl leading-tight mb-2">
+                        <h3 className="font-heading text-black font-bold text-2xl leading-tight mb-2">
                             {mentor.name}
                         </h3>
 
                         <div className="space-y-0.5 mb-6">
-                            <p className="text-gray-800 text-sm font-medium leading-snug">
+                            <p className="font-sans text-gray-800 text-sm font-medium leading-snug">
                                 {mentor.role}
                             </p>
-                            <p className="text-gray-800 text-sm font-medium leading-snug">
+                            <p className="font-sans text-gray-800 text-sm font-medium leading-snug">
                                 {mentor.company}
                             </p>
                         </div>

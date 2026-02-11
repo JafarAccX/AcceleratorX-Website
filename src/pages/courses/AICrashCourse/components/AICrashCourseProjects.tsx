@@ -12,10 +12,10 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
         <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
             <div className="text-center mb-16">
                 {/* Title: Plus Jakarta Sans, 48px, lowercase, gradient */}
-                <h2 className="lowercase p-2 font-['Plus_Jakarta_Sans'] font-bold text-[48px] leading-[100%] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 tracking-normal">
+                <h2 className="lowercase p-2 font-heading font-bold text-[48px] leading-[100%] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500 tracking-normal">
                     what you’ll build
                 </h2>
-                <p className="text-gray-400 text-lg">You'll build things like:</p>
+                <p className="font-sans text-gray-400 text-lg">You'll build things like:</p>
             </div>
 
             {/* Pill Grid */}
@@ -34,7 +34,7 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
                 {/* Mentors Text: Poppins, 18px, gradient */}
                 <div className="flex items-center justify-center gap-2 mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500">
                     <span className="text-2xl ">«</span>
-                    <p className="font-['Poppins'] font-medium text-[18px] leading-[100%]">
+                    <p className="font-sans font-medium text-[18px] leading-[100%]">
                         Everything is built LIVE with mentors
                     </p>
                     <span className="text-2xl ">»</span>
@@ -50,7 +50,7 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
                             border: '2px solid transparent',
                         }}
                     >
-                        <span className="text-white font-bold text-base flex items-center">
+                        <span className="font-sans text-white font-bold text-base flex items-center">
                             Enroll Now <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                         </span>
                     </button>
@@ -62,15 +62,15 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
                             border: '2px solid transparent',
                         }}
                     >
-                        <span className="text-white font-bold text-base flex items-center">
+                        <span className="font-sans text-white font-bold text-base flex items-center">
                             Download Brochure <span className="ml-2 group-hover:translate-x-1 transition-transform">»</span>
                         </span>
                     </button>
                 </div>
 
                 <div className="mt-8 border border-purple-500/30 bg-black/50 backdrop-blur-md rounded-xl p-4 md:p-6 inline-block">
-                    <p className="text-gray-400 text-sm mb-1">in just</p>
-                    <p className="text-3xl md:text-4xl font-bold text-white">₹4,999 + GST</p>
+                    <p className="font-sans text-gray-400 text-sm mb-1">in just</p>
+                    <p className="font-heading text-3xl md:text-4xl font-bold text-white">₹4,999 + GST</p>
                 </div>
             </div>
         </section>
@@ -80,7 +80,7 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
 const ProjectPill = ({ text, icon }: { text: string, icon?: React.ReactNode }) => (
     <div className="w-[242px] h-[56px] rounded-[10px] bg-black border border-[#84848480] flex items-center justify-center gap-[14px] px-[18px] py-[16px] hover:border-[#D358FF] transition-all cursor-default">
         {icon && <span className="text-gray-400">{icon}</span>}
-        <span className="text-gray-200 font-medium text-sm whitespace-nowrap overflow-hidden text-ellipsis">{text}</span>
+        <span className="font-sans text-gray-200 font-medium text-sm whitespace-nowrap overflow-hidden text-ellipsis">{text}</span>
     </div>
 );
 

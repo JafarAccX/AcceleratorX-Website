@@ -11,10 +11,10 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
 
             {/* Title */}
             <div className="text-center mb-16">
-                <h2 className="text-white font-['Plus_Jakarta_Sans'] font-bold text-3xl md:text-5xl mb-4">
+                <h2 className="font-heading text-white font-bold text-3xl md:text-5xl mb-4">
                     Simple, Transparent <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#AC0AE7] to-[#48A2EB]">Pricing</span>
                 </h2>
-                <p className="text-gray-400 text-lg">
+                <p className="font-sans text-gray-400 text-lg">
                     No tiers. No confusion. One complete program.
                 </p>
             </div>
@@ -28,13 +28,13 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
 
                 {/* Price Section */}
                 <div className="text-center mb-10">
-                    <p className="text-gray-500 text-xs font-bold tracking-widest uppercase mb-4">Total Investment</p>
+                    <p className="font-sans text-gray-500 text-xs font-bold tracking-widest uppercase mb-4">Total Investment</p>
                     <div className="flex items-end justify-center gap-2 mb-6">
-                        <span className="text-white text-5xl md:text-6xl font-bold font-['Plus_Jakarta_Sans']">₹4,999</span>
-                        <span className="text-gray-400 text-xl font-medium mb-1.5">+ GST</span>
+                        <span className="font-heading text-white text-5xl md:text-6xl font-bold">₹4,999</span>
+                        <span className="font-sans text-gray-400 text-xl font-medium mb-1.5">+ GST</span>
                     </div>
                     <div className="inline-block bg-[#1A1A1A] border border-[#333] rounded-full px-4 py-1.5">
-                        <span className="text-gray-300 text-sm font-medium">Full Program Access</span>
+                        <span className="font-sans text-gray-300 text-sm font-medium">Full Program Access</span>
                     </div>
                 </div>
 
@@ -56,14 +56,14 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
                             background: 'linear-gradient(90deg, #8B5CF6 0%, #AC0AE7 100%)',
                         }}
                     >
-                        <span className="text-white font-bold text-lg relative z-10">Enroll Now</span>
+                        <span className="font-sans text-white font-bold text-lg relative z-10">Enroll Now</span>
                         {/* Button Glow on Hover */}
                         <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </button>
 
                     <button
                         onClick={onEnroll}
-                        className="w-full flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium border border-[#333] hover:border-[#555] rounded-xl h-[48px]"
+                        className="font-sans w-full flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium border border-[#333] hover:border-[#555] rounded-xl h-[48px]"
                     >
                         <Download className="w-4 h-4" />
                         Download Detailed Brochure
@@ -85,7 +85,7 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
 
             </div>
 
-            <p className="text-gray-500 text-sm mt-8">
+            <p className="font-sans text-gray-500 text-sm mt-8">
                 One-time payment. No hidden costs.
             </p>
 
@@ -96,7 +96,7 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
 const PricingFeature = ({ text }: { text: string }) => (
     <div className="flex items-center gap-3">
         <Check className="w-5 h-5 text-[#AC0AE7] shrink-0" />
-        <span className="text-gray-300 font-medium">{text}</span>
+        <span className="font-sans text-gray-300 font-medium">{text}</span>
     </div>
 );
 

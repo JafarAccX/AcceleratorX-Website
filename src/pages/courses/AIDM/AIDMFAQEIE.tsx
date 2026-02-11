@@ -12,7 +12,7 @@ const FAQItem = ({ question, answer, defaultOpen = false }: { question: string; 
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
             >
-                <h4 className="text-lg font-semibold text-white pr-4">{question}</h4>
+                <h4 className="font-heading text-lg font-semibold text-white pr-4">{question}</h4>
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                     {isOpen ? (
                         <span className="text-white text-xl font-light">×</span>
@@ -29,7 +29,7 @@ const FAQItem = ({ question, answer, defaultOpen = false }: { question: string; 
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="px-6 pb-6 text-gray-300 leading-relaxed whitespace-pre-line">
+                        <div className="font-sans px-6 pb-6 text-gray-300 leading-relaxed whitespace-pre-line">
                             {answer}
                         </div>
                     </motion.div>
@@ -126,7 +126,7 @@ export default function AIDMFAQEIE() {
 
             {/* Content */}
             <div className="relative z-10 max-w-4xl mx-auto px-6">
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-heading font-bold text-white text-center mb-12">
                     Frequently Asked Questions
                 </h2>
 

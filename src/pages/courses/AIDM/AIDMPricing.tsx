@@ -69,14 +69,14 @@ const AIDMPricing: React.FC = () => {
     <section className="py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-2xl font-medium text-gray-400 mb-4">
+          <h2 className="font-heading text-2xl font-medium text-gray-400 mb-4">
             Investment
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h3 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
             Start You AI Marketing Journey Today
 
           </h3>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="font-sans text-lg text-gray-400 max-w-2xl mx-auto">
             We have designed a flexible enrolment plans so you can start learning without financial commitment.
           </p>
         </div>
@@ -99,7 +99,7 @@ const AIDMPricing: React.FC = () => {
               {/* Popular Badge */}
               {option.highlight && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-[#5CB338] text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium">
+                  <div className="font-sans bg-[#5CB338] text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium">
                     <Star className="w-4 h-4" />
                     Most Popular
                   </div>
@@ -108,7 +108,7 @@ const AIDMPricing: React.FC = () => {
 
               {/* Header */}
               <div className="text-center mb-6">
-                <h4 className="text-xl font-bold text-white mb-2">{option.title}</h4>
+                <h4 className="font-heading text-xl font-bold text-white mb-2">{option.title}</h4>
                 {option.discount && (
                   <span className="inline-block bg-[#5CB338]/10 text-[#5CB338] px-3 py-1 rounded-full text-sm font-medium mb-4">
                     {option.discount}
@@ -119,9 +119,9 @@ const AIDMPricing: React.FC = () => {
               {/* Pricing */}
               <div className="text-center mb-6">
                 <div className="flex items-baseline justify-center gap-2 mb-2">
-                  <span className="text-3xl font-bold text-[#5CB338]">{option.price}</span>
+                  <span className="font-heading text-3xl font-bold text-[#5CB338]">{option.price}</span>
                   {option.originalPrice && (
-                    <span className="text-lg text-gray-400 line-through">{option.originalPrice}</span>
+                    <span className="font-sans text-lg text-gray-400 line-through">{option.originalPrice}</span>
                   )}
                 </div>
 
@@ -132,7 +132,7 @@ const AIDMPricing: React.FC = () => {
                 onClick={handleEnrollClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-full py-3 px-6 rounded-xl font-bold transition-all duration-300 ${option.highlight
+                className={`font-sans w-full py-3 px-6 rounded-xl font-bold transition-all duration-300 ${option.highlight
                   ? 'bg-[#5CB338] hover:bg-[#5CB338]/90 text-white shadow-lg shadow-[#5CB338]/25'
                   : 'border-2 border-[#5CB338] text-[#5CB338] hover:bg-[#5CB338]/10'
                   }`}
@@ -150,7 +150,7 @@ const AIDMPricing: React.FC = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto bg-[#0F0F0F] border border-white/10 rounded-xl p-8"
         >
-          <h4 className="text-2xl font-bold text-white text-center mb-8">
+          <h4 className="font-heading text-2xl font-bold text-white text-center mb-8">
             What's Included in All Plans
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -166,7 +166,7 @@ const AIDMPricing: React.FC = () => {
                 <div className="w-5 h-5 rounded-full bg-[#5CB338]/10 flex items-center justify-center flex-shrink-0">
                   <Check className="w-3 h-3 text-[#5CB338]" />
                 </div>
-                <span className="text-gray-300 text-sm">{feature}</span>
+                <span className="font-sans text-gray-300 text-sm">{feature}</span>
               </motion.div>
             ))}
           </div>

@@ -82,10 +82,10 @@ export default function AdvanceGenAIFAQEIE() {
 
             <div className="max-w-4xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
                         Common Questions
                     </h2>
-                    <p className="text-gray-300">Everything you need to know about the Agentic AI program.</p>
+                    <p className="font-sans text-gray-300">Everything you need to know about the Agentic AI program.</p>
                 </div>
 
                 <div className="space-y-4">
@@ -98,7 +98,7 @@ export default function AdvanceGenAIFAQEIE() {
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                 className="w-full flex items-center justify-between p-6 text-left"
                             >
-                                <span className="text-lg font-bold text-white">{faq.question}</span>
+                                <span className="font-heading text-lg font-bold text-white">{faq.question}</span>
                                 {openIndex === index ? (
                                     <ChevronUp className="text-[#3B82F6]" />
                                 ) : (
@@ -114,7 +114,7 @@ export default function AdvanceGenAIFAQEIE() {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3 }}
                                     >
-                                        <div className="p-6 pt-0 text-gray-300 leading-relaxed border-t border-white/5">
+                                        <div className="font-sans p-6 pt-0 text-gray-300 leading-relaxed border-t border-white/5">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

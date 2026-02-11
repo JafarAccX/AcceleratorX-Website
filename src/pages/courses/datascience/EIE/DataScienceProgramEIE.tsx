@@ -165,7 +165,7 @@ const AccordionItem = ({ module }: { module: any }) => {
                             {module.week}
                         </span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">{module.topics.join(" & ")}</h4>
+                    <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">{module.topics.join(" & ")}</h4>
                 </div>
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[#3B82F6] text-white rotate-180' : 'bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#3B82F6] hover:text-white'}`}>
                     <ChevronDown size={20} />
@@ -175,13 +175,13 @@ const AccordionItem = ({ module }: { module: any }) => {
                 {isOpen && (
                     <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
                         <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
-                            <p className="text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">{module.goal}</p>
+                            <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">{module.goal}</p>
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div>
                                     <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">What you'll learn:</p>
                                     <ul className="space-y-2">
                                         {module.skills.map((skill: string, i: number) => (
-                                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                            <li key={i} className="font-sans flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
                                                 <div className="mt-1 w-1.5 h-1.5 rounded-full bg-[#3B82F6] flex-shrink-0" />
                                                 {skill}
                                             </li>
@@ -189,8 +189,8 @@ const AccordionItem = ({ module }: { module: any }) => {
                                     </ul>
                                 </div>
                                 <div className="bg-green-50/50 dark:bg-green-900/10 p-4 rounded-xl border border-green-100 dark:border-green-900/30 self-start">
-                                    <p className="text-sm font-bold text-green-700 dark:text-green-400 mb-1">Outcome:</p>
-                                    <p className="text-sm text-green-800 dark:text-green-300">{module.outcome}</p>
+                                    <p className="font-sans text-sm font-bold text-green-700 dark:text-green-400 mb-1">Outcome:</p>
+                                    <p className="font-sans text-sm text-green-800 dark:text-green-300">{module.outcome}</p>
                                 </div>
                             </div>
                         </div>
@@ -330,10 +330,10 @@ export default function DataScienceProgramEIE() {
                 {isFixed && <div className="lg:w-1/4 flex-shrink-0" style={{ width: `${sidebarWidth}px`, maxWidth: `${sidebarWidth}px` }} />}
                 <aside ref={sidebarRef} className={`lg:w-1/4 self-start flex-shrink-0 transition-all duration-200 ${isFixed ? 'lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:z-10' : ''}`} style={isFixed ? { width: `${sidebarWidth}px`, maxWidth: `${sidebarWidth}px`, maxHeight: 'calc(100vh - 4rem)' } : {}}>
                     <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
-                        <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight">Master Production-Ready Data Science</h2>
+                        <h2 className="font-heading text-3xl font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight">Master Production-Ready Data Science</h2>
                         <nav className="space-y-4 border-l-2 border-gray-200 dark:border-[#848484]/30">
                             {SECTIONS.map((section) => (
-                                <button key={section.id} onClick={() => scrollToSection(section.id)} className={`block pl-4 py-1 text-left text-sm font-medium transition-all duration-300 w-full ${activeSection === section.id ? "border-l-2 border-[#3B82F6] -ml-0.5 text-[#3B82F6] font-bold" : "text-gray-500 hover:text-gray-900"}`}>{section.label}</button>
+                                <button key={section.id} onClick={() => scrollToSection(section.id)} className={`font-sans block pl-4 py-1 text-left text-sm font-medium transition-all duration-300 w-full ${activeSection === section.id ? "border-l-2 border-[#3B82F6] -ml-0.5 text-[#3B82F6] font-bold" : "text-gray-500 hover:text-gray-900"}`}>{section.label}</button>
                             ))}
                         </nav>
                     </div>
@@ -342,12 +342,12 @@ export default function DataScienceProgramEIE() {
                 <main className="lg:w-3/4 space-y-24">
 
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-6 italic text-[#3B82F6]">AI Programs that helps to
+                        <h3 className="font-heading text-2xl font-bold mb-6 italic text-[#3B82F6]">AI Programs that helps to
                             become a Professional</h3>
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Designed for serious DS careers, this program matches how Data Science roles work today. You won't just learn Python; you'll build models that survive production and influence real business decisions.</p>
+                        <p className="font-sans text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Designed for serious DS careers, this program matches how Data Science roles work today. You won't just learn Python; you'll build models that survive production and influence real business decisions.</p>
                         <ul className="space-y-3 mb-8">
                             {["Frame real business problems", "Build ML systems, not just notebooks", "Deploy & monitor ML pipelines", "Direct feedback on models", "Small-batch cohorts for deep learning"].map((text, i) => (
-                                <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
+                                <li key={i} className="font-sans flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
                                     <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[#3B82F6] flex-shrink-0" />
                                     <span>{text}</span>
                                 </li>
@@ -359,11 +359,11 @@ export default function DataScienceProgramEIE() {
                     <section id="curriculum" className="scroll-mt-24 relative">
                         <img src="/redesign/ai-pm/github.png" alt="github" className="h-16 w-16 absolute top-40 -right-20" />
 
-                        <h3 className="text-2xl font-serif font-bold mb-6">Program Structure - 25 Sessions • 5 Phases</h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-8">Everything is hands-on. Move from the Analyst mindset to becoming a Data Scientist.</p>
+                        <h3 className="font-heading text-2xl font-bold mb-6">Program Structure - 25 Sessions • 5 Phases</h3>
+                        <p className="font-sans text-gray-600 dark:text-gray-300 mb-8">Everything is hands-on. Move from the Analyst mindset to becoming a Data Scientist.</p>
                         <div>{CURRICULUM.map((module, idx) => <AccordionItem key={idx} module={module} />)}</div>
                         <div className="mt-8 flex justify-center">
-                            <button className="px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg flex items-center gap-2">View Curriculum <ChevronDown size={18} /></button>
+                            <button className="font-sans px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg flex items-center gap-2">View Curriculum <ChevronDown size={18} /></button>
                         </div>
                         <img src="/redesign/data-science/astroid.webp" alt="slack" className="absolute bottom-40 -left-[400px] w-[200px]" />
 
@@ -372,7 +372,7 @@ export default function DataScienceProgramEIE() {
 
                     <section id="skillverse" className="scroll-mt-24">
                         <div className="w-full mb-16">
-                            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-10 text-white relative z-10">Skillverse You Actually Master</h3>
+                            <h3 className="font-heading text-3xl md:text-4xl font-bold mb-10 text-white relative z-10">Skillverse You Actually Master</h3>
 
                             <img
                                 src="/redesign/data-science/ds-skillverses.webp"
@@ -383,7 +383,7 @@ export default function DataScienceProgramEIE() {
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Tools You’ll Master</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Tools You’ll Master</h3>
                         <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                             {TOOLS.map((tool, idx) => (
                                 <div
@@ -397,11 +397,11 @@ export default function DataScienceProgramEIE() {
                                             className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
-                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                    <div className="font-sans inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
                                         {tool.category}
                                     </div>
-                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
-                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
+                                    <h4 className="font-heading text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="font-sans text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -409,14 +409,14 @@ export default function DataScienceProgramEIE() {
                     </section>
 
                     <section id="mentors" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Mentors from Industry</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Mentors from Industry</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {MENTORS.map((m, i) => (
                                 <div key={i} className="bg-gray-50 relative dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
                                     <div className="aspect-square relative overflow-hidden"><img src={m.image} alt={m.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" /></div>
                                     <div className="p-4 text-center">
-                                        <h4 className="font-bold text-gray-900 dark:text-white">{m.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{m.role} @ {m.company}</p>
+                                        <h4 className="font-heading font-bold text-gray-900 dark:text-white">{m.name}</h4>
+                                        <p className="font-sans text-sm text-gray-500 dark:text-gray-400 mb-2">{m.role} @ {m.company}</p>
                                         {m.linkedin && (
                                             <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                                                 <a
@@ -438,15 +438,15 @@ export default function DataScienceProgramEIE() {
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Industry-Recognized Certification</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Industry-Recognized Certification</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform"><img src="/redesign/advance-gen-ai/ADV-GEN-AI.webp" alt="Data Science Certificate" className="w-full h-auto rounded-md shadow-xl" /></div>
                             <div className="w-full md:w-1/2">
-                                <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4">Nano-Degree in Production Data Science</h4>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">Validates your ability to build ML systems, handle drift, and deploy scalable pipelines.</p>
+                                <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4">Nano-Degree in Production Data Science</h4>
+                                <p className="font-sans text-gray-600 dark:text-gray-400 text-sm mb-6">Validates your ability to build ML systems, handle drift, and deploy scalable pipelines.</p>
                                 <ul className="space-y-3">
                                     {["Frame & build ML models", "Deploy & monitor pipelines", "Handle model failures", "Influence business results"].map((f, i) => (
-                                        <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300"><div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-[#3B82F6] flex items-center justify-center flex-shrink-0"><Check size={10} /></div>{f}</li>
+                                        <li key={i} className="font-sans flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300"><div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-[#3B82F6] flex items-center justify-center flex-shrink-0"><Check size={10} /></div>{f}</li>
                                     ))}
                                 </ul>
                             </div>
@@ -455,13 +455,13 @@ export default function DataScienceProgramEIE() {
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Roles You’ll Be Ready For</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Roles You’ll Be Ready For</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {["Data Scientist", "ML Engineer", "Product Data Scientist", "Analytics Manager", "DS Consultant"].map((role) => (
                                 <div key={role} className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                                     <div className="flex justify-between items-start mb-4">
-                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3">{role}</h4>
-                                        <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded">₹8 LPA – ₹25 LPA+</span>
+                                        <h4 className="font-heading font-bold text-lg text-gray-900 dark:text-white w-2/3">{role}</h4>
+                                        <span className="font-sans bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded">₹8 LPA – ₹25 LPA+</span>
                                     </div>
                                 </div>
                             ))}
@@ -471,7 +471,7 @@ export default function DataScienceProgramEIE() {
 
                     <section id="pricing" className="scroll-mt-24 relative">
                         <div className="text-center mb-16">
-                            <h3 className="text-4xl font-serif font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
+                            <h3 className="font-heading text-4xl font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
                         </div>
 
                         <div className="flex justify-center max-w-5xl mx-auto">
@@ -496,12 +496,12 @@ export default function DataScienceProgramEIE() {
                                         }}
                                     ></div>
 
-                                    <h4 className="font-bold text-white text-2xl mb-2 relative z-10">Regular</h4>
-                                    <p className="text-gray-300 text-sm mb-6 relative z-10">Comprehensive AI training program</p>
+                                    <h4 className="font-heading font-bold text-white text-2xl mb-2 relative z-10">Regular</h4>
+                                    <p className="font-sans text-gray-300 text-sm mb-6 relative z-10">Comprehensive AI training program</p>
 
                                     <div className="mb-4 relative z-10">
-                                        <span className="text-4xl font-bold text-[#5BA4E5]">₹ 32,499</span>
-                                        <span className="text-gray-400 text-sm ml-1">+ GST</span>
+                                        <span className="font-heading text-4xl font-bold text-[#5BA4E5]">₹ 32,499</span>
+                                        <span className="font-sans text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 
                                     {/* Batch Selection Logic */}
@@ -511,7 +511,7 @@ export default function DataScienceProgramEIE() {
                                             <select
                                                 value={selectedBatchId || ''}
                                                 onChange={(e) => setSelectedBatchId(e.target.value)}
-                                                className="w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#5BA4E5] focus:border-[#5BA4E5] bg-black text-white"
+                                                className="font-sans w-full px-3 py-2 border border-[#848484]/30 rounded-lg text-sm focus:ring-[#5BA4E5] focus:border-[#5BA4E5] bg-black text-white"
                                             >
                                                 {batches.map((batch) => (
                                                     <option key={batch.Id} value={batch.Id}>
@@ -522,7 +522,7 @@ export default function DataScienceProgramEIE() {
                                         </div>
                                     )}
 
-                                    <ul className="text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
+                                    <ul className="font-sans text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
                                         {[
                                             "3-month intensive, live instructor-led training",
                                             "Hands-on projects tackling real-world AI challenges",
@@ -545,14 +545,14 @@ export default function DataScienceProgramEIE() {
                                         <button
                                             onClick={() => handleBuyCourse(32499)}
                                             disabled={isProcessing || batches.length === 0}
-                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
+                                            className="font-sans w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
                                         >
                                             {isProcessing ? <><div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Apply Now <ArrowRight size={18} /></>}
                                         </button>
                                     ) : (
                                         <button
                                             onClick={() => navigate('/sign-in', { state: { from: location } })}
-                                            className="w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                            className="font-sans w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
                                         >
                                             Sign in to Enroll <ArrowRight size={18} />
                                         </button>

@@ -210,7 +210,7 @@ export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBu
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] flex items-center justify-center p-4 overflow-y-auto"
                 >
-                    <div className="relative w-full max-w-lg mx-auto bg-[#0a0a0a] border border-orange-500/50 rounded-2xl shadow-[0_0_50px_rgba(249,115,22,0.15)] overflow-hidden">
+                    <div className="font-sans relative w-full max-w-lg mx-auto bg-[#0a0a0a] border border-orange-500/50 rounded-2xl shadow-[0_0_50px_rgba(249,115,22,0.15)] overflow-hidden">
 
                         {/* Top Gradient Line - Orange theme */}
                         <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-orange-500 to-amber-400"></div>
@@ -218,7 +218,7 @@ export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBu
                         <div className="flex flex-col max-h-[90vh] overflow-y-auto custom-scrollbar">
                             <div className="sticky top-0 bg-[#0a0a0a]/95 px-8 pt-8 pb-4 z-10 flex justify-between items-start backdrop-blur-md">
                                 <div>
-                                    <h3 className="text-3xl font-bold text-white mb-2 font-['Plus_Jakarta_Sans']">
+                                    <h3 className="font-heading text-3xl font-bold text-white mb-2">
                                         Claim Free Build Pass
                                     </h3>
                                     <p className="text-gray-400 text-base font-medium">
@@ -241,7 +241,7 @@ export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBu
                                             <input
                                                 type="text"
                                                 required
-                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
+                                                className="font-sans w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
                                                 placeholder="John Doe"
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -253,7 +253,7 @@ export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBu
                                             <input
                                                 type="email"
                                                 required
-                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
+                                                className="font-sans w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
                                                 placeholder="john@example.com"
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -269,7 +269,7 @@ export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBu
                                                 <input
                                                     type="tel"
                                                     required
-                                                    className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
+                                                    className="font-sans w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
                                                     placeholder="9876543210"
                                                     value={formData.phone}
                                                     onChange={(e) => {
@@ -285,7 +285,7 @@ export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBu
                                             <input
                                                 type="text"
                                                 required
-                                                className="w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
+                                                className="font-sans w-full bg-[#111] text-white px-4 py-3.5 rounded-xl border border-[#333] focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all placeholder:text-gray-600"
                                                 placeholder="Software Engineer"
                                                 value={formData.designation}
                                                 onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
@@ -330,7 +330,7 @@ export default function FreeBuildPassModal({ isOpen, onClose, onSubmit }: FreeBu
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full relative h-[56px] rounded-[50px] shadow-[0px_0px_20px_0px_rgba(249,115,22,0.5)] flex items-center justify-center group disabled:opacity-70 disabled:cursor-not-allowed hover:scale-[1.02] transition-transform"
+                                            className="font-sans w-full relative h-[56px] rounded-[50px] shadow-[0px_0px_20px_0px_rgba(249,115,22,0.5)] flex items-center justify-center group disabled:opacity-70 disabled:cursor-not-allowed hover:scale-[1.02] transition-transform"
                                             style={{
                                                 background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #ea580c 32.08%, #fbbf24 74.28%) border-box',
                                                 border: '2px solid transparent',

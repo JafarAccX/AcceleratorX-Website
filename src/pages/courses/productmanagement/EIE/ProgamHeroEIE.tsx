@@ -33,7 +33,7 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "", prefix = "" }) => {
   }, [end]);
 
   return (
-    <span className="text-xl md:text-3xl font-bold text-white dark:text-white">
+    <span className="font-heading text-xl md:text-3xl font-bold text-white dark:text-white">
       {prefix}{count}
       {suffix}
     </span>
@@ -89,7 +89,7 @@ export default function ProgramHeroEIE() {
           >
             {/* Title Section */}
             <div className="flex justify-between items-start mb-10">
-              <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight">
+              <h1 className="font-heading text-5xl md:text-7xl font-bold text-white leading-tight">
                 AI Product Management
               </h1>
               {/* Logo/Icon space if needed */}
@@ -120,7 +120,7 @@ export default function ProgramHeroEIE() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="lg:col-span-4"
               >
-                <div className="inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
+                <div className="font-sans inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
                   <span className="w-2 h-2 rounded-full bg-white dark:bg-white animate-pulse"></span>
                   18-Week Live Product Management Program
                 </div>
@@ -133,21 +133,21 @@ export default function ProgramHeroEIE() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="lg:col-span-8 lg:items-end flex flex-col gap-4"
               >
-                <p className="text-gray-200 text-lg leading-relaxed mb-6 max-w-2xl text-left lg:text-right">
+                <p className="font-sans text-gray-200 text-lg leading-relaxed mb-6 max-w-2xl text-left lg:text-right">
                   Master end-to-end Product Management — from user discovery and strategy to execution, analytics, and AI-powered product development.
                 </p>
 
                 <div className="flex flex-wrap gap-4 justify-start lg:justify-end">
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="px-8 py-3.5 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
+                    className="font-sans px-8 py-3.5 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
                   >
                     Apply Now
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                   <button
                     onClick={() => { setIsModalOpen(true); setIsDownload(true); }}
-                    className="px-8 py-3.5 bg-[#FFC107] hover:bg-yellow-500 text-black rounded-full font-semibold transition-all shadow-lg hover:shadow-yellow-500/30 flex items-center gap-2 group"
+                    className="font-sans px-8 py-3.5 bg-[#FFC107] hover:bg-yellow-500 text-black rounded-full font-semibold transition-all shadow-lg hover:shadow-yellow-500/30 flex items-center gap-2 group"
                   >
                     Get Full Curriculum
                     <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
@@ -165,11 +165,11 @@ export default function ProgramHeroEIE() {
             >
               <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
                 <div className="mb-1 md:mb-2"><Counter end={16} suffix=" LPA" /></div>
-                <div className="text-gray-300 dark:text-gray-300 text-xs md:text-sm font-medium transition-colors duration-300">Average Salary Package</div>
+                <div className="font-sans text-gray-300 dark:text-gray-300 text-xs md:text-sm font-medium transition-colors duration-300">Average Salary Package</div>
               </div>
               <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
                 <div className="mb-1 md:mb-2"><Counter end={40000} suffix=" +" /></div>
-                <div className="text-gray-300 dark:text-gray-300 text-xs md:text-sm font-medium transition-colors duration-300">Job Openings</div>
+                <div className="font-sans text-gray-300 dark:text-gray-300 text-xs md:text-sm font-medium transition-colors duration-300">Job Openings</div>
               </div>
             </motion.div>
           </motion.div>

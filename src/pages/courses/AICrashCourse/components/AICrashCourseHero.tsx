@@ -40,19 +40,19 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                 </div>
 
                 <div className="animate-fade-in-up flex flex-col items-center">
-                    <p className="text-gray-300 font-medium tracking-wide mb-4 text-sm md:text-base">
+                    <p className="font-sans text-gray-300 font-medium tracking-wide mb-4 text-sm md:text-base">
                         Build Real AI Agents. Not Just Prompts.
                     </p>
 
                     {/* Main Title */}
-                    <h1 className="text-center font-['Plus_Jakarta_Sans'] font-bold text-[36px] md:text-[54px] leading-[1.2] md:leading-[76px] tracking-normal mb-6">
+                    <h1 className="font-heading text-center font-bold text-[36px] md:text-[54px] leading-[1.2] md:leading-[76px] tracking-normal mb-6">
                         <span className="text-white">Advanced </span>
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-500 to-pink-500">
                             AI Crash Course
                         </span>
                     </h1>
 
-                    <div className="flex items-center gap-2 text-amber-500 font-semibold mb-8 text-sm md:text-base">
+                    <div className="font-sans flex items-center gap-2 text-amber-500 font-semibold mb-8 text-sm md:text-base">
                         <span>⭐</span> Master  Sessions <span>⭐</span>
                     </div>
 
@@ -67,7 +67,7 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                                 border: '2px solid transparent',
                             }}
                         >
-                            <span className="text-white font-bold text-base flex items-center">
+                            <span className="font-sans text-white font-bold text-base flex items-center">
                                 Enroll Now <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                             </span>
                         </button>
@@ -79,7 +79,7 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                                 border: '2px solid transparent',
                             }}
                         >
-                            <span className="text-white font-bold text-base flex items-center">
+                            <span className="font-sans text-white font-bold text-base flex items-center">
                                 Download Brochure <span className="ml-2 group-hover:translate-x-1 transition-transform">»</span>
                             </span>
                         </button>
@@ -88,8 +88,8 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                     {/* Price Box */}
                     <div className="mt-4  bg-black/80 backdrop-blur-md rounded-xl p-4 md:p-6 inline-block shadow-2xl relative overflow-hidden group">
                         <div className="absolute inset-0 bg-purple-600/5 group-hover:bg-purple-600/10 transition-colors"></div>
-                        <p className="text-gray-400 text-sm mb-1 relative z-10">in just</p>
-                        <p className="text-3xl md:text-4xl font-bold text-white relative z-10">₹4,999 + GST</p>
+                        <p className="font-sans text-gray-400 text-sm mb-1 relative z-10">in just</p>
+                        <p className="font-heading text-3xl md:text-4xl font-bold text-white relative z-10">₹4,999 + GST</p>
                     </div>
 
                 </div>

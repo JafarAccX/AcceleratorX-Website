@@ -148,11 +148,11 @@ const AccordionItem = ({ item }: { item: any }) => {
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <span className="text-[10px] font-bold text-[#FC6401] bg-[#FC6401]/10 px-3 py-1 rounded-full uppercase tracking-widest">
+                        <span className="font-sans text-[10px] font-bold text-[#FC6401] bg-[#FC6401]/10 px-3 py-1 rounded-full uppercase tracking-widest">
                             MODULE {item.module}
                         </span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">{item.topics.join(" & ")}</h4>
+                    <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">{item.topics.join(" & ")}</h4>
                 </div>
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[#FC6401] text-white rotate-180' : 'bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#FC6401] hover:text-white'}`}>
                     <ChevronDown size={20} />
@@ -167,7 +167,7 @@ const AccordionItem = ({ item }: { item: any }) => {
                         transition={{ duration: 0.3 }}
                     >
                         <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
-                            <p className="text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
+                            <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
                                 {item.goal}
                             </p>
                             <div className="grid md:grid-cols-2 gap-8">
@@ -278,7 +278,7 @@ export default function AdvanceGenAIProgramEIE() {
                 >
                     <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : 'relative'}>
                         <img src="/redesign/advance-gen-ai/astroid.webp" alt="ai" className="absolute -top-16 left-0 opacity-40 animate-float" />
-                        <h2 className="text-3xl font-serif font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight">
+                        <h2 className="font-heading text-3xl font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight">
                             Build AI Agents. <br /><span className="italic font-light">Not Just AI Skills.</span>
                         </h2>
                         <nav className="space-y-4 border-l-2 border-gray-200 dark:border-[#848484]/30">
@@ -297,9 +297,9 @@ export default function AdvanceGenAIProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-32">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="text-3xl font-serif font-bold mb-8 italic text-[#FC6401]">AI Programs that helps to
+                        <h3 className="font-heading text-3xl font-bold mb-8 italic text-[#FC6401]">AI Programs that helps to
                             become a Professional</h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-10 font-light">
+                        <p className="font-sans text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-10 font-light">
                             This is not a generic AI course. AcceleratorX is designed to teach you how AI agents are actually built and deployed in production. You’ll go beyond prompts and learn how to create autonomous, tool-using agents and multi-agent systems.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6">
@@ -325,7 +325,7 @@ export default function AdvanceGenAIProgramEIE() {
                     </section>
 
                     <section id="curriculum" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Learning Journey – Curriculum</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Learning Journey – Curriculum</h3>
                         <div className="space-y-4">
                             {CURRICULUM.map((item, idx) => <AccordionItem key={idx} item={item} />)}
                         </div>
@@ -345,7 +345,7 @@ export default function AdvanceGenAIProgramEIE() {
                                 className="w-full h-auto object-contain rounded-xl"
                             />
                         </div>
-                        <h3 className="text-2xl font-serif font-bold mb-8">AI Agent Tools You’ll Master</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">AI Agent Tools You’ll Master</h3>
                         <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                             {TOOLS.map((tool, idx) => (
                                 <div
@@ -362,8 +362,8 @@ export default function AdvanceGenAIProgramEIE() {
                                     <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
                                         {tool.category}
                                     </div>
-                                    <h4 className="text-xl font-bold text-white mb-2">{tool.name}</h4>
-                                    <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
+                                    <h4 className="font-heading text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                    <p className="font-sans text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -371,7 +371,7 @@ export default function AdvanceGenAIProgramEIE() {
                     </section>
 
                     <section id="mentors" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Mentors from Top AI Teams</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Mentors from Top AI Teams</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                             {MENTORS.map((m, i) => (
                                 <div key={i} className="bg-gray-50 dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
@@ -379,8 +379,8 @@ export default function AdvanceGenAIProgramEIE() {
                                         <img src={m.image} alt={m.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                                     </div>
                                     <div className="p-4 text-center">
-                                        <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{m.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{m.role}</p>
+                                        <h4 className="font-heading font-bold text-gray-900 dark:text-white transition-colors duration-300">{m.name}</h4>
+                                        <p className="font-sans text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 mb-2">{m.role}</p>
                                         {m.linkedin && (
                                             <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                                                 <a
@@ -402,14 +402,14 @@ export default function AdvanceGenAIProgramEIE() {
                     </section>
 
                     <section id="certificate" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Industry-Recognized Certification</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Industry-Recognized Certification</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img src="/redesign/advance-gen-ai/ADV-GEN-AI.webp" alt="Certification" className="w-full h-auto rounded-md shadow-xl transition-colors duration-300" />
                             </div>
                             <div className="w-full md:w-1/2">
-                                <h4 className="text-xl font-serif font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Nano-Degree in Agentic AI & Intelligent Systems</h4>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 transition-colors duration-300">Prove your ability to design and deploy autonomous AI agents. Stand out with a credential that signals real agent-building expertise.</p>
+                                <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Nano-Degree in Agentic AI & Intelligent Systems</h4>
+                                <p className="font-sans text-gray-600 dark:text-gray-400 text-sm mb-6 transition-colors duration-300">Prove your ability to design and deploy autonomous AI agents. Stand out with a credential that signals real agent-building expertise.</p>
                                 <ul className="space-y-3">
                                     {["Industry-recognized Agentic AI Nano-Degree", "Verifiable digital credential", "Portfolio of deployed AI agents"].map((f, i) => (
                                         <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
@@ -426,7 +426,7 @@ export default function AdvanceGenAIProgramEIE() {
                     </section>
 
                     <section id="career" className="scroll-mt-24">
-                        <h3 className="text-2xl font-serif font-bold mb-8">Careers Powered by AI Agents</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-8">Careers Powered by AI Agents</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
                                 { title: "AI Agent Engineer", desc: "Build autonomous agents and intelligent systems" },
@@ -436,12 +436,12 @@ export default function AdvanceGenAIProgramEIE() {
                             ].map((c, i) => (
                                 <div key={i} className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                                     <div className="flex justify-between items-start mb-4">
-                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
+                                        <h4 className="font-heading font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
                                             {c.title}
                                         </h4>
-                                        <span className="bg-[#FC6401]/10 text-[#FC6401] text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">₹12L – ₹25L+</span>
+                                        <span className="font-sans bg-[#FC6401]/10 text-[#FC6401] text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">₹12L – ₹25L+</span>
                                     </div>
-                                    <p className="text-sm text-gray-500 leading-relaxed font-light">{c.desc}</p>
+                                    <p className="font-sans text-sm text-gray-500 leading-relaxed font-light">{c.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -450,7 +450,7 @@ export default function AdvanceGenAIProgramEIE() {
 
                     <section id="pricing" className="scroll-mt-24">
                         <div className="text-center mb-16">
-                            <h3 className="text-4xl font-serif font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
+                            <h3 className="font-heading text-4xl font-bold mb-4 text-white">Make an Investment for the AI Ready Future</h3>
                         </div>
                         <div className="flex justify-center max-w-5xl mx-auto">
                             <div
@@ -474,15 +474,15 @@ export default function AdvanceGenAIProgramEIE() {
                                         }}
                                     ></div>
 
-                                    <h4 className="font-bold text-white text-2xl mb-2 relative z-10">Advanced +</h4>
-                                    <p className="text-gray-300 text-sm mb-6 relative z-10">Comprehensive AI training program</p>
+                                    <h4 className="font-heading font-bold text-white text-2xl mb-2 relative z-10">Advanced +</h4>
+                                    <p className="font-sans text-gray-300 text-sm mb-6 relative z-10">Comprehensive AI training program</p>
 
                                     <div className="mb-8 relative z-10">
-                                        <span className="text-4xl font-bold text-[#FC6401]">₹ 49,999</span>
-                                        <span className="text-gray-400 text-sm ml-1">+ GST</span>
+                                        <span className="font-sans text-4xl font-bold text-[#FC6401]">₹ 49,999</span>
+                                        <span className="font-sans text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 
-                                    <ul className="text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
+                                    <ul className="font-sans text-left space-y-3 mb-8 text-sm text-gray-300 w-full relative z-10">
                                         {[
                                             "10-week agentic AI program",
                                             "Hands-on AI agent projects",
@@ -500,7 +500,7 @@ export default function AdvanceGenAIProgramEIE() {
 
                                     <button
                                         onClick={() => handleBuyCourse(49999)}
-                                        className="w-full py-3 bg-[#FC6401] hover:bg-[#e55a00] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                        className="font-sans w-full py-3 bg-[#FC6401] hover:bg-[#e55a00] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
                                     >
                                         Apply Now <ArrowRight size={18} />
                                     </button>

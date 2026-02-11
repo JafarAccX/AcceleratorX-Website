@@ -32,7 +32,7 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
     }, [end]);
 
     return (
-        <span className="text-xl md:text-3xl font-bold text-white dark:text-white">
+        <span className="font-heading text-xl md:text-3xl font-bold text-white dark:text-white">
             {count}
             {suffix}
         </span>
@@ -87,7 +87,7 @@ export default function DataScienceHeroEIE() {
                             transition={{ duration: 0.6 }}
                             className="mb-10"
                         >
-                            <h1 className="text-5xl md:text-7xl font-serif text-white dark:text-white leading-tight font-medium">
+                            <h1 className="font-heading text-5xl md:text-7xl text-white dark:text-white leading-tight font-medium">
                                 Become a <br />
                                 <span className="italic font-light text-[#3B82F6]">Production-Ready Data Scientist</span>
                             </h1>
@@ -107,11 +107,11 @@ export default function DataScienceHeroEIE() {
                                 transition={{ duration: 0.6, delay: 0.4 }}
                                 className="lg:col-span-4"
                             >
-                                <div className="inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
+                                <div className="font-sans inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
                                     <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse"></span>
                                     25 Live Sessions • Build-First
                                 </div>
-                                <div className="mt-4 text-gray-300 text-sm font-medium">
+                                <div className="font-sans mt-4 text-gray-300 text-sm font-medium">
                                     2025 Ready | Real ML Systems | End-to-End MLOps
                                 </div>
                             </motion.div>
@@ -122,21 +122,21 @@ export default function DataScienceHeroEIE() {
                                 transition={{ duration: 0.6, delay: 0.4 }}
                                 className="lg:col-span-8 items-end flex flex-col gap-4"
                             >
-                                <p className="text-gray-200 dark:text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl ml-auto text-right lg:text-left lg:ml-0 lg:mr-0 transition-colors duration-300">
+                                <p className="font-sans text-gray-200 dark:text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl ml-auto text-right lg:text-left lg:ml-0 lg:mr-0 transition-colors duration-300">
                                     Build real ML systems.
                                     Not just notebooks. </p>
 
                                 <div className="flex flex-wrap gap-4 justify-center md:justify-end lg:justify-start">
                                     <button
                                         onClick={() => setIsModalOpen(true)}
-                                        className="px-8 py-3.5 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
+                                        className="font-sans px-8 py-3.5 bg-[#3B82F6] hover:bg-blue-600 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 group"
                                     >
                                         Apply Now
                                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                     </button>
                                     <button
                                         onClick={() => { setIsModalOpen(true); setIsDownload(true); }}
-                                        className="px-8 py-3.5 bg-white hover:bg-gray-100 text-black rounded-full font-semibold transition-all shadow-lg flex items-center gap-2 group"
+                                        className="font-sans px-8 py-3.5 bg-white hover:bg-gray-100 text-black rounded-full font-semibold transition-all shadow-lg flex items-center gap-2 group"
                                     >
                                         View Curriculum
                                         <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
@@ -153,11 +153,11 @@ export default function DataScienceHeroEIE() {
                         >
                             <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
                                 <div className="mb-1 md:mb-2"><Counter end={14} suffix=" LPA" /></div>
-                                <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average DS Salary</div>
+                                <div className="font-sans text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">Average DS Salary</div>
                             </div>
                             <div className="flex-1 border border-white/20 dark:border-[#848484]/30 rounded-2xl p-4 md:p-6 bg-white/5 dark:bg-[#171717]/50 backdrop-blur-sm min-w-0 md:min-w-[240px] hover:bg-white/10 dark:hover:bg-[#171717]/80 transition-colors duration-300">
                                 <div className="mb-1 md:mb-2"><Counter end={50000} suffix=" +" /></div>
-                                <div className="text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">DS & ML Job Openings</div>
+                                <div className="font-sans text-gray-300 dark:text-gray-300 text-xs md:text-base font-medium transition-colors duration-300">DS & ML Job Openings</div>
                             </div>
                         </motion.div>
                     </motion.div>

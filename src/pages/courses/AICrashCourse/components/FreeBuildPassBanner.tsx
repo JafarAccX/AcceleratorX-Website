@@ -58,7 +58,7 @@ export default function FreeBuildPassBanner({ isOpen, onClose, onClaim }: FreeBu
                                     e.stopPropagation();
                                     onClaim();
                                 }}
-                                className="bg-gradient-to-r from-orange-600 to-amber-500 text-white px-10 py-4 rounded-full font-bold text-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] transform hover:scale-105 transition-all duration-300"
+                                className="font-sans bg-gradient-to-r from-orange-600 to-amber-500 text-white px-10 py-4 rounded-full font-bold text-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] transform hover:scale-105 transition-all duration-300"
                             >
                                 Claim Now Free
                             </button>

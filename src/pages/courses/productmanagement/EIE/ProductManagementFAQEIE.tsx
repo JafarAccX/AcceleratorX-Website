@@ -78,7 +78,7 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-white dark:hover:bg-[#1f1f1f] transition-colors"
             >
-                <span className="font-bold text-gray-900 dark:text-white transition-colors duration-300">{question}</span>
+                <span className="font-heading font-bold text-gray-900 dark:text-white transition-colors duration-300">{question}</span>
                 <ChevronDown
                     className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
                 />
@@ -91,7 +91,7 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="p-6 pt-0 text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">
+                        <div className="font-sans p-6 pt-0 text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">
                             {answer}
                         </div>
                     </motion.div>
@@ -111,7 +111,7 @@ export default function ProductManagementFAQEIE() {
             <img src="/redesign/ai-pm/ast.png" alt="astronaut" className="absolute -bottom-10 -right-20 w-64 h-64 object-contain opacity-20 md:opacity-40 pointer-events-none" />
             <div className="max-w-4xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-4 transition-colors duration-300">
+                    <h2 className="font-heading text-3xl md:text-5xl font-bold text-[#0A0F1E] dark:text-white mb-4 transition-colors duration-300">
                         Frequently Asked <br />
                         <span className="italic font-light">Questions</span>
                     </h2>
