@@ -32,7 +32,7 @@ export default function WhoIsThisContentForEIE() {
     return (
         <section className="py-24 bg-white dark:bg-[#000000] transition-colors duration-300 relative overflow-hidden">
 
-            <img src="/redesign/ai-da/numpy.png" alt="slack" className="h-16 w-16 absolute top-40 right-40" />
+            <img src="/redesign/ai-da/numpy.png" alt="slack" className="h-16 w-16 absolute top-96 md:top-40 right-0 md:right-40" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <motion.div

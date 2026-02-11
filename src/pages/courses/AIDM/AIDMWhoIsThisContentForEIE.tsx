@@ -33,8 +33,8 @@ export default function AIDMWhoIsThisContentForEIE() {
         <section className="py-20 bg-white dark:bg-[#000000] transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
                 <img src="/redesign/ai-dm/claude.png" alt="claude" className="h-16 w-16 absolute -bottom-20 right-20" />
-                <img src="/redesign/ai-dm/copilot.png" alt="copilot" className="h-24 w-24 absolute top-20 right-40" />
-                <img src="/redesign/ai-dm/make.png" alt="make" className="h-24 w-24 absolute top-5 left-10" />
+                <img src="/redesign/ai-dm/copilot.png" alt="copilot" className="h-24 w-24 absolute -top-20 md:top-20 right-40" />
+                <img src="/redesign/ai-dm/make.png" alt="make" className="h-24 w-24 absolute top-48 md:top-5 left-10" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ export default function AIDMWhoIsThisContentForEIE() {
                         Why Digital Marketing Now
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
+                    <h2 className="text-4xl md:text-5xl relative z-10 font-serif text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
                         Marketing Is Being Rebuilt with AI
                     </h2>
 

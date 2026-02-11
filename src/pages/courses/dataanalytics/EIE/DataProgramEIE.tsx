@@ -484,7 +484,7 @@ export default function DataProgramEIE() {
         <main className="lg:w-3/4 space-y-24">
           {/* Section 1: Why this Program */}
           <section id="why-this-program" className="scroll-mt-24 relative">
-            <img src="/redesign/ai-da/numpy.png" alt="Numpy" className="absolute h-24 w-24 -top-20 right-40" />
+            <img src="/redesign/ai-da/numpy.png" alt="Numpy" className="absolute h-24 w-24 top-48 md:-top-20 md:right-40 right-0" />
 
             <h3 className="text-2xl font-serif font-bold mb-6 dark:text-white transition-colors duration-300">Built for Real Analytics & Product Teams</h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
