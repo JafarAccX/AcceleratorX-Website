@@ -27,12 +27,15 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { login } = useUser();
+  const [authMethod, setAuthMethod] = useState<"phone" | "email">("phone");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [timer, setTimer] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
   const [otpFocused, setOtpFocused] = useState(false);
+  const [emailFocused, setEmailFocused] = useState(false);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -47,16 +50,26 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
   }, [showOTP, timer]);
 
   const handleSendOTP = async () => {
-    if (!phone || phone.length < 7) { // Minimum length for international numbers
-      toast.error("Please enter a valid phone number");
-      return;
+    if (authMethod === "phone") {
+      if (!phone || phone.length < 10) {
+        toast.error("Please enter a valid 10-digit phone number");
+        return;
+      }
+    } else {
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        toast.error("Please enter a valid email address");
+        return;
+      }
     }
 
     setIsProcessing(true);
     try {
-      const response = await api.post("/auth/request-otp", {
-        phoneNumber: phone,
-      });
+      let response;
+      if (authMethod === "phone") {
+        response = await api.post("/auth/request-otp", { phoneNumber: phone });
+      } else {
+        response = await api.post("/auth/email/send-otp", { email: email.toLowerCase() });
+      }
 
       if (response.data.success) {
         toast.success("OTP sent successfully!");
@@ -84,10 +97,18 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
 
     setIsProcessing(true);
     try {
-      const response = await api.post("/auth/verify-otp", {
-        phoneNumber: phone,
-        otpCode: otpToVerify,
-      });
+      let response;
+      if (authMethod === "phone") {
+        response = await api.post("/auth/verify-otp", {
+          phoneNumber: phone,
+          otpCode: otpToVerify,
+        });
+      } else {
+        response = await api.post("/auth/email/login", {
+          email: email.toLowerCase(),
+          otpCode: otpToVerify,
+        });
+      }
 
       if (response.data.success) {
         toast.success("Login successful!");
@@ -161,31 +182,67 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
               </h2>
               <p className="text-gray-600 font-medium">
                 {!showOTP
-                  ? "Enter your phone number to receive an OTP"
-                  : "Enter the verification code sent to your phone"}
+                  ? `Enter your ${authMethod === 'phone' ? 'phone number' : 'email'} to receive an OTP`
+                  : `Enter the verification code sent to your ${authMethod === 'phone' ? 'phone' : 'email'}`}
               </p>
             </div>
+
+            {!showOTP && (
+              <div className="flex p-1 bg-gray-100 rounded-xl">
+                <button
+                  onClick={() => setAuthMethod("phone")}
+                  className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${authMethod === "phone"
+                    ? "bg-white text-blue-600 shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                    }`}
+                >
+                  Phone
+                </button>
+                <button
+                  onClick={() => setAuthMethod("email")}
+                  className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${authMethod === "email"
+                    ? "bg-white text-blue-600 shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                    }`}
+                >
+                  Email
+                </button>
+              </div>
+            )}
 
             {!showOTP ? (
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-semibold text-gray-700 block">
-                    Phone Number
+                  <label htmlFor={authMethod === 'phone' ? 'phone' : 'email'} className="text-sm font-semibold text-gray-700 block">
+                    {authMethod === 'phone' ? 'Phone Number' : 'Email Address'}
                   </label>
                   <div className="relative group">
-                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${phone ? 'opacity-100' : 'opacity-0'
+                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl transition-opacity duration-300 ${(authMethod === 'phone' ? phone : email) ? 'opacity-100' : 'opacity-0'
                       }`} style={{ padding: '2px' }}>
                       <div className="w-full h-full bg-white rounded-lg"></div>
                     </div>
                     <div className="relative">
-                      <input
-                        id="phone"
-                        type="tel"
-                        placeholder="Enter 10 digit mobile number"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
-                      />
+                      {authMethod === 'phone' ? (
+                        <input
+                          id="phone"
+                          type="tel"
+                          placeholder="Enter 10 digit mobile number"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
+                        />
+                      ) : (
+                        <input
+                          id="email"
+                          type="email"
+                          placeholder="Enter your email address"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          onFocus={() => setEmailFocused(true)}
+                          onBlur={() => setEmailFocused(false)}
+                          className="relative w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-transparent bg-gray-50/80 backdrop-blur-sm transition-all duration-300 text-gray-900 font-medium placeholder:text-gray-400"
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -215,7 +272,7 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
                       }}
                       className="text-xs flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium transition-colors"
                     >
-                      <span>{phone}</span>
+                      <span>{authMethod === 'phone' ? phone : email}</span>
                       <Edit2 className="w-3 h-3" />
                     </button>
                   </div>

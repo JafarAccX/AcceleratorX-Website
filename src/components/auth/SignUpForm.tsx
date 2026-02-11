@@ -30,6 +30,7 @@ export const SignUpForm = () => {
     email: "",
     mobile: "",
   });
+  const [verifyMethod, setVerifyMethod] = useState<"phone" | "email">("phone");
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -56,13 +57,21 @@ export const SignUpForm = () => {
   };
 
   const handleSendOTP = async () => {
-    if (!formState.firstName || !formState.lastName || !formState.email) {
-      toast.error("Please fill in your name and email first.");
+    if (!formState.firstName || !formState.lastName) {
+      toast.error("Please fill in your name first.");
       return;
     }
-    if (!formState.mobile || formState.mobile.length < 7) {
-      toast.error("Please enter a valid phone number");
-      return;
+
+    if (verifyMethod === "phone") {
+      if (!formState.mobile || formState.mobile.length < 10) {
+        toast.error("Please enter a valid 10-digit phone number");
+        return;
+      }
+    } else {
+      if (!formState.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) {
+        toast.error("Please enter a valid email address");
+        return;
+      }
     }
     // if (existingUser) {
     //   toast.error(
@@ -73,9 +82,12 @@ export const SignUpForm = () => {
 
     setIsProcessing(true);
     try {
-      const response = await api.post("/auth/request-otp", {
-        phoneNumber: formState.mobile,
-      });
+      let response;
+      if (verifyMethod === "phone") {
+        response = await api.post("/auth/request-otp", { phoneNumber: formState.mobile });
+      } else {
+        response = await api.post("/auth/email/send-otp", { email: formState.email?.toLowerCase() });
+      }
 
       if (response.status === 200 && response.data.success) {
         setShowOTP(true);
@@ -106,18 +118,30 @@ export const SignUpForm = () => {
 
     setIsProcessing(true);
     try {
-      const payload = {
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-        email: formState.email,
-        mobile: formState.mobile,
-        callingCode: "+91",
-        otpCode: otp,
-      };
+      let response;
+      if (verifyMethod === "phone") {
+        const payload = {
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          email: formState.email?.toLowerCase(),
+          mobile: formState.mobile,
+          callingCode: "+91",
+          otpCode: otp,
+        };
+        response = await api.post("/auth/register", payload);
+      } else {
+        const payload = {
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          email: formState.email?.toLowerCase(),
+          mobile: formState.mobile,
+          callingCode: formState.mobile ? "+91" : null,
+          otpCode: otp,
+        };
+        response = await api.post("/auth/email/register", payload);
+      }
 
-      console.log(payload);
-
-      const response = await api.post("/auth/register", payload);
+      console.log(response);
 
       if (response.status === 201 && response.data.success) {
         const { user, accessToken } = response.data;
@@ -193,9 +217,32 @@ export const SignUpForm = () => {
               <p className=" font-medium">
                 {!showOTP
                   ? "Join us today and get started"
-                  : "Enter the verification code sent to your phone"}
+                  : `Enter the verification code sent to your ${verifyMethod === 'phone' ? 'phone' : 'email'}`}
               </p>
             </div>
+
+            {!showOTP && (
+              <div className="flex p-1 bg-gray-100/10 rounded-xl">
+                <button
+                  onClick={() => setVerifyMethod("phone")}
+                  className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${verifyMethod === "phone"
+                    ? "bg-white text-blue-600 shadow-sm"
+                    : "text-gray-300 hover:text-white"
+                    }`}
+                >
+                  Verify via Phone
+                </button>
+                <button
+                  onClick={() => setVerifyMethod("email")}
+                  className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${verifyMethod === "email"
+                    ? "bg-white text-blue-600 shadow-sm"
+                    : "text-gray-300 hover:text-white"
+                    }`}
+                >
+                  Verify via Email
+                </button>
+              </div>
+            )}
 
             {!showOTP ? (
               <div className="space-y-6">
@@ -309,7 +356,7 @@ export const SignUpForm = () => {
                 <div className="space-y-4">
                   <div className="text-center">
                     <p className=" font-medium mb-4">
-                      An OTP has been sent to your mobile number.
+                      An OTP has been sent to your {verifyMethod === 'phone' ? 'mobile number' : 'email address'}.
                     </p>
                   </div>
 
@@ -373,7 +420,7 @@ export const SignUpForm = () => {
           {/* Additional decorative elements */}
           <div className="mt-8 text-center text-white/60">
             <p className="text-sm">
-              Secure registration with mobile verification
+              Secure registration with {verifyMethod === 'phone' ? 'mobile' : 'email'} verification
             </p>
           </div>
         </div>
