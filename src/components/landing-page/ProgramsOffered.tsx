@@ -152,7 +152,7 @@ export default function ProgramsOffered() {
                                             ? 'bg-[#1a71f6] scale-110 shadow-[0_0_10px_rgba(26,113,246,0.5)]'
                                             : 'bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-400 dark:group-hover:bg-gray-500'
                                             }`} />
-                                        <span className={`text-[11px] font-extrabold tracking-[0.15em] transition-all duration-500 uppercase ${activeSection === program.id ? 'text-[#1a71f6]' : 'text-gray-300 dark:text-gray-600 group-hover:text-gray-500 dark:group-hover:text-gray-400'
+                                        <span className={`font-sans text-[11px] font-extrabold tracking-[0.15em] transition-all duration-500 uppercase ${activeSection === program.id ? 'text-[#1a71f6]' : 'text-gray-300 dark:text-gray-600 group-hover:text-gray-500 dark:group-hover:text-gray-400'
                                             }`}>
                                             {program.label}
                                         </span>
@@ -167,12 +167,12 @@ export default function ProgramsOffered() {
 
                         {/* Header */}
                         <div className=" flex flex-col items-start gap-4 justify-start">
-                            <p className="text-[#3b82f6] dark:text-blue-400 font-bold text-xs tracking-[0.2em] uppercase mb-4 opacity-80 transition-colors duration-300">
-                                PROGRAMS WE OFFER
+                            <p className="font-sans text-[#3b82f6] dark:text-blue-400 font-bold text-xs tracking-[0.2em] uppercase mb-4 opacity-80 transition-colors duration-300">
+                                prior PROGRAMS WE OFFER
                             </p>
 
 
-                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-light text-[#1A2B44] dark:text-white leading-[1.1] max-w-4xl text-center lg:text-left transition-colors duration-300">
+                            <h2 className="font-heading text-4xl md:text-5xl lg:text-7xl font-light text-[#1A2B44] dark:text-white leading-[1.1] max-w-4xl text-center lg:text-left transition-colors duration-300">
                                 AI Programs that helps to become a <span className="italic">Professional</span>
                             </h2>
 
@@ -184,10 +184,10 @@ export default function ProgramsOffered() {
                                 className="border-t border-gray-100 dark:border-gray-800 py-24 md:py-32 flex flex-col md:flex-row gap-12 items-center md:items-start scroll-mt-20 transition-colors duration-300"
                             >
                                 <div className="w-full md:w-1/2 md:pr-12">
-                                    <h3 className="text-3xl md:text-4xl font-serif font-medium text-[#1A2B44] dark:text-white mb-8 transition-colors duration-300">
+                                    <h3 className="font-heading text-3xl md:text-4xl font-medium text-[#1A2B44] dark:text-white mb-8 transition-colors duration-300">
                                         {program.title}
                                     </h3>
-                                    <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light lg:text-xl transition-colors duration-300">
+                                    <p className="font-sans text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light lg:text-xl transition-colors duration-300">
                                         {program.description}
                                     </p>
                                 </div>

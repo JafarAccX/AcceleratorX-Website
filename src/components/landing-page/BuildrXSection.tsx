@@ -31,7 +31,7 @@ const BuildrXSection = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-wide uppercase drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                            className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-wide uppercase drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
                         >
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-blue-200" style={{ textShadow: '0 0 30px rgba(59, 130, 246, 0.4)' }}>
                                 BUILD. UPLOAD. GET HIRED.
@@ -47,7 +47,7 @@ const BuildrXSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="text-white/90 text-xl md:text-2xl underline decoration-blue-400/50 underline-offset-8 hover:text-white hover:decoration-blue-400 transition-all duration-300"
+                            className="font-sans text-white/90 text-xl md:text-2xl underline decoration-blue-400/50 underline-offset-8 hover:text-white hover:decoration-blue-400 transition-all duration-300"
                         >
                             Let The World See What You Can Build
                         </motion.a>
@@ -61,7 +61,7 @@ const BuildrXSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
-                            className="inline-block mt-8 px-10 py-5 bg-[#5b36f0] hover:bg-[#4a25e1] text-white text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_10px_30px_-10px_rgba(91,54,240,0.5)]"
+                            className="font-sans inline-block mt-8 px-10 py-5 bg-[#5b36f0] hover:bg-[#4a25e1] text-white text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_10px_30px_-10px_rgba(91,54,240,0.5)]"
                         >
                             Start Building Your Modern Resume
                         </motion.a>

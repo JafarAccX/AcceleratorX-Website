@@ -32,7 +32,7 @@ const ToolsCovered = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[#3b82f6] font-bold text-xs tracking-[0.2em] uppercase"
+                        className="font-sans text-[#3b82f6] font-bold text-xs tracking-[0.2em] uppercase"
                     >
                         AI TOOLS COVERED
                     </motion.p>
@@ -41,7 +41,7 @@ const ToolsCovered = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-serif font-light text-white leading-tight"
+                        className="font-heading text-4xl md:text-5xl font-light text-white leading-tight"
                     >
                         Master the AI Stack <br />
                         <span className="font-medium">Professionals Actually Use</span>

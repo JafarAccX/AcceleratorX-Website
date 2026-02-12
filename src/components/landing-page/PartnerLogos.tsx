@@ -34,7 +34,7 @@ const PartnerLogos = () => {
             <div className="max-w-7xl mt-20 mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
                 {/* Left Side: Title */}
                 <div className="w-full lg:w-1/3 text-center lg:text-left z-10 transition-colors duration-300">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A2B44] dark:text-white leading-tight transition-colors duration-300">
+                    <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A2B44] dark:text-white leading-tight transition-colors duration-300">
                         Trusted by <span className="font-bold">2200+</span> Organisations for your AI Career
                     </h2>
                 </div>
@@ -42,7 +42,7 @@ const PartnerLogos = () => {
                 {/* Right Side: Animated Logo Sliders */}
                 <div className="w-full lg:w-2/3 relative">
                     <div className="mb-6">
-                        <h3 className="text-sm md:text-base font-bold text-[#0D47A1] dark:text-blue-400 uppercase tracking-wider text-center lg:text-left opacity-80 transition-colors duration-300">
+                        <h3 className="font-heading text-sm md:text-base font-bold text-[#0D47A1] dark:text-blue-400 uppercase tracking-wider text-center lg:text-left opacity-80 transition-colors duration-300">
                             Our Partners & Hiring Network:
                         </h3>
                     </div>

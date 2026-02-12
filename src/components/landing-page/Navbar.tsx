@@ -85,7 +85,7 @@ export default function Navbar() {
                   <button
                     key={item.label}
                     onClick={() => scrollToSection(item.href)}
-                    className={`text-white/90 hover:text-white ${hoverTransition} relative group py-2`}
+                    className={`font-sans text-white/90 hover:text-white ${hoverTransition} relative group py-2`}
                   >
                     {item.label}
                     <span
@@ -139,7 +139,7 @@ export default function Navbar() {
                     <button
                       key={item.label}
                       onClick={() => scrollToSection(item.href)}
-                      className={`text-left text-lg text-white/90 hover:text-white ${hoverTransition} py-3 px-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10`}
+                      className={`font-sans text-left text-lg text-white/90 hover:text-white ${hoverTransition} py-3 px-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10`}
                     >
                       {item.label}
                     </button>
@@ -148,8 +148,8 @@ export default function Navbar() {
 
                 <div className="mt-auto pt-8">
                   <div className="p-4 rounded-2xl bg-gradient-to-br from-[#FFBB00]/20 to-transparent border border-[#FFBB00]/10">
-                    <p className="text-sm text-white/70 mb-4">Ready to accelerate?</p>
-                    <button className="w-full bg-[#FFBB00] text-black py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                    <p className="font-sans text-sm text-white/70 mb-4">Ready to accelerate?</p>
+                    <button className="font-sans w-full bg-[#FFBB00] text-black py-3 rounded-xl font-bold flex items-center justify-center gap-2">
                       Register Now
                       <ArrowRight size={18} />
                     </button>
@@ -186,7 +186,7 @@ export default function Navbar() {
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
                 <button
-                  className={`flex items-center gap-1 text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
+                  className={`font-sans flex items-center gap-1 text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
                 >
                   Courses
                   <ChevronDown
@@ -207,7 +207,7 @@ export default function Navbar() {
                       <Link
                         key={course.label}
                         to={course.path}
-                        className={`block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition} text-xs font-medium`}
+                        className={`font-sans block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition} text-xs font-medium`}
                       >
                         {course.label}
                       </Link>
@@ -220,7 +220,7 @@ export default function Navbar() {
               {menuItems.map((item) => {
                 const isExternal = item.path.startsWith("http");
                 const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
-                const baseClasses = `relative group ${hoverTransition} ${isHighlighted
+                const baseClasses = `font-sans relative group ${hoverTransition} ${isHighlighted
                   ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
                   : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
                   }`;
@@ -259,13 +259,13 @@ export default function Navbar() {
                 <div className="flex items-center p-1  ml-4 group">
                   <Link
                     to="/sign-in"
-                    className={`text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50 dark:hover:bg-gray-700/50`}
+                    className={`font-sans text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50 dark:hover:bg-gray-700/50`}
                   >
                     Login
                   </Link>
                   <Link
                     to="/sign-up"
-                    className={`bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-full text-sm font-medium ${hoverTransition} shadow-md`}
+                    className={`font-sans bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-full text-sm font-medium ${hoverTransition} shadow-md`}
                   >
                     Sign Up
                   </Link>
@@ -320,7 +320,7 @@ export default function Navbar() {
                 <div className="mb-2">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center justify-between w-full text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white text-lg font-semibold py-3 px-4 rounded-xl  transition-colors"
+                    className="font-sans flex items-center justify-between w-full text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white text-lg font-semibold py-3 px-4 rounded-xl  transition-colors"
                   >
                     Courses
                     <ChevronDown
@@ -342,7 +342,7 @@ export default function Navbar() {
                             <Link
                               key={course.label}
                               to={course.path}
-                              className="py-3 px-4 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white  rounded-lg text-sm font-medium transition-colors"
+                              className="font-sans py-3 px-4 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white  rounded-lg text-sm font-medium transition-colors"
                               onClick={() => setIsOpen(false)}
                             >
                               {course.label}
@@ -358,7 +358,7 @@ export default function Navbar() {
                 {menuItems.map((item) => {
                   const isExternal = item.path.startsWith("http");
                   const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
-                  const baseClasses = `flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${isHighlighted
+                  const baseClasses = `font-sans flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${isHighlighted
                     ? "text-[#FFBB00]"
                     : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white "
                     }`;
@@ -406,14 +406,14 @@ export default function Navbar() {
                       <Link
                         to="/sign-in"
                         onClick={() => setIsOpen(false)}
-                        className="w-full text-center py-3 px-6 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                        className="font-sans w-full text-center py-3 px-6 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                       >
                         Login
                       </Link>
                       <Link
                         to="/sign-up"
                         onClick={() => setIsOpen(false)}
-                        className="w-full text-center py-3 px-6 rounded-xl bg-[#1a71f6] text-white font-semibold shadow-lg shadow-blue-500/20 hover:bg-blue-600 transition-all active:scale-[0.98]"
+                        className="font-sans w-full text-center py-3 px-6 rounded-xl bg-[#1a71f6] text-white font-semibold shadow-lg shadow-blue-500/20 hover:bg-blue-600 transition-all active:scale-[0.98]"
                       >
                         Sign Up
                       </Link>

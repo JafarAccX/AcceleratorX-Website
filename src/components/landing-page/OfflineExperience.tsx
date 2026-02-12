@@ -44,10 +44,10 @@ const OfflineExperience = () => {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
             <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
-                <p className="text-blue-500 font-bold tracking-widest text-xs uppercase mb-2">
+                <p className="font-sans text-blue-500 font-bold tracking-widest text-xs uppercase mb-2">
                     OFFLINE EXPERIENCE
                 </p>
-                <h2 className="text-3xl md:text-5xl font-serif font-bold text-white">
+                <h2 className="font-heading text-3xl md:text-5xl font-bold text-white">
                     Sneak Peak of Our Offline Experience
                 </h2>
             </div>

@@ -29,7 +29,7 @@ export default function Hero() {
         {/* Top Section: Headline & Animation */}
         <div className="flex-1 flex flex-col justify-center pt-32 pb-10">
           <div className="max-w-6xl">
-            <h1 className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-light tracking-tight text-white dark:text-white font-serif italic">
+            <h1 className="font-heading text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-light tracking-tight text-white dark:text-white italic">
               <TypeAnimation
                 sequence={["Build", 2000, "Lead", 2000, "Succeed", 2000]}
                 wrapper="span"
@@ -52,14 +52,14 @@ export default function Hero() {
             {/* Left: Badge Pill */}
             <div className="flex items-center gap-2.5 bg-black dark:bg-black/80 border border-white/30 dark:border-white/30 rounded-full px-5 py-2 self-start ring-1 ring-white/5 shadow-xl">
               <div className="w-2 h-2 rounded-full bg-white dark:bg-white shadow-[0_0_8px_white] animate-pulse" />
-              <span className="text-[10px] md:text-xs font-mono tracking-[0.25em] font-medium text-white dark:text-white uppercase opacity-90">
+              <span className="font-sans text-[10px] md:text-xs tracking-[0.25em] font-medium text-white dark:text-white uppercase opacity-90">
                 AI-Powered Program
               </span>
             </div>
 
             {/* Right: Subtext and Main Button */}
             <div className="flex flex-col items-end justify-end gap-6">
-              <p className="text-lg md:text-xl text-white/90 dark:text-white/90 max-w-md font-light leading-relaxed">
+              <p className="font-sans text-lg md:text-xl text-white/90 dark:text-white/90 max-w-md font-light leading-relaxed">
                 Accelerate your career with a job-ready AI program.
               </p>
 
@@ -72,7 +72,7 @@ export default function Hero() {
                       section.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="group flex items-center justify-end  gap-3 bg-[#FFC107]  hover:bg-[#FFD54F] active:scale-95 text-black px-8 py-3.5 rounded-lg font-bold text-lg shadow-[0_10px_30px_-10px_rgba(255,193,7,0.3)] transition-all duration-300"
+                  className="font-sans group flex items-center justify-end  gap-3 bg-[#FFC107]  hover:bg-[#FFD54F] active:scale-95 text-black px-8 py-3.5 rounded-lg font-bold text-lg shadow-[0_10px_30px_-10px_rgba(255,193,7,0.3)] transition-all duration-300"
                 >
                   Explore Programs
                   <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
@@ -85,7 +85,7 @@ export default function Hero() {
         {/* Bottom Section: App Download Badges */}
         <div className="pb-12 pt-6">
           <div className="flex flex-col gap-4">
-            <p className="text-sm md:text-base font-medium text-white/70 dark:text-white/70 tracking-wide text-center md:text-left">
+            <p className="font-sans text-sm md:text-base font-medium text-white/70 dark:text-white/70 tracking-wide text-center md:text-left">
               Download our App for exciting offers!
             </p>
             <div className="flex items-center justify-center md:justify-start gap-4">
