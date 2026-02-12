@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import AppDownloadPOP from "../components/AppDownloadPOP";
 import { getRouteLayout } from "../utils/layoutUtils";
 import Navbar from "../components/landing-page/Navbar";
-import JetAnimation from "../components/JetAnimation";
 
 const Footer = lazy(() => import("../components/Footer"));
 const EnrollmentModal = lazy(() => import("../components/EnrollmentModal"));
@@ -40,10 +39,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   return (
     <div className="relative">
-      {/* Jet Animation Background */}
-      <div className="absolute top-0 left-0 h-[700px] w-[600px] z-[9999] pointer-events-none ">
-        <JetAnimation />
-      </div>
+
 
       {showNavbar && <Navbar />}
 
