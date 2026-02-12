@@ -168,7 +168,7 @@ export default function ProgramsOffered() {
                         {/* Header */}
                         <div className=" flex flex-col items-start gap-4 justify-start">
                             <p className="font-sans text-[#3b82f6] dark:text-blue-400 font-bold text-xs tracking-[0.2em] uppercase mb-4 opacity-80 transition-colors duration-300">
-                                prior PROGRAMS WE OFFER
+                                PROGRAMS WE OFFER
                             </p>
 
 

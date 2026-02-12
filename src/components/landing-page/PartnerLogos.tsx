@@ -1,16 +1,18 @@
 const PartnerLogos = () => {
     const partnersRow1 = [
-        { src: '/redesign/main-page/main-hero/compaies-1.png', alt: 'Microsoft' },
-        { src: '/redesign/main-page/main-hero/compaies-2.png', alt: 'PayU' },
-        { src: '/redesign/main-page/main-hero/compaies-3.png', alt: 'Walmart' },
-        { src: '/redesign/main-page/main-hero/compaies-4.png', alt: 'Company 4' },
+        { src: '/redesign/main-page/main-hero/microsoft.png', alt: 'Microsoft' },
+        { src: '/redesign/main-page/main-hero/mastercard.png', alt: 'Mastercard' },
+        { src: '/redesign/main-page/main-hero/deloitte.png', alt: 'Deloitte' },
+        { src: '/redesign/main-page/main-hero/bajaj-finaserv.png', alt: 'Bajaj Finserv' },
+        { src: '/redesign/main-page/main-hero/Bank_of_America_logo.png', alt: 'Bank of America' },
     ];
 
     const partnersRow2 = [
-        { src: '/redesign/main-page/main-hero/compaies-5.png', alt: 'Deloitte' },
-        { src: '/redesign/main-page/main-hero/compaies-6.png', alt: 'Company 6' },
-        { src: '/redesign/main-page/main-hero/compaies-7.png', alt: 'Peakmind' },
-        { src: '/redesign/main-page/main-hero/compaies.png', alt: 'Additional Partner' },
+        { src: '/redesign/main-page/main-hero/Philips_logo.png', alt: 'Philips' },
+        { src: '/redesign/main-page/main-hero/publicis-sapient.png', alt: 'Publicis Sapient' },
+        { src: '/redesign/main-page/main-hero/razorpay.png', alt: 'Razorpay' },
+        { src: '/redesign/main-page/main-hero/paisabazaar.png', alt: 'Paisabazaar' },
+        { src: '/redesign/main-page/main-hero/india.png', alt: 'India' },
     ];
 
     const LogoRow = ({ partners, reverse = false }: { partners: any[], reverse?: boolean }) => (

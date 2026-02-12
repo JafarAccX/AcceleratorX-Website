@@ -96,9 +96,9 @@ export default function Hero() {
                 className="hover:scale-105 transition-transform active:scale-95"
               >
                 <img
-                  src="/redesign/main-hero/app-store.png"
+                  src="/redesign/main-page/main-hero/app-store.jpg"
                   alt="Download on the App Store"
-                  className="h-10 md:h-8 w-auto"
+                  className="w-56"
                 />
               </a>
               <a
@@ -108,9 +108,9 @@ export default function Hero() {
                 className="hover:scale-105 transition-transform active:scale-95"
               >
                 <img
-                  src="/redesign/main-hero/play-store.png"
+                  src="/redesign/main-page/main-hero/play-store.jpg"
                   alt="Get it on Google Play"
-                  className="h-14  md:h-[46px] w-auto"
+                  className="w-56"
                 />
               </a>
             </div>

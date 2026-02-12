@@ -47,10 +47,12 @@ const TeamMemberCard = ({
         </div>
       </div>
     ) : (
-      <div className="w-full h-full flex items-center justify-center bg-blue-100 dark:bg-gray-700 transition-colors duration-300">
-        <div className="w-32 h-32 rounded-full bg-blue-200 dark:bg-gray-600 flex items-center justify-center transition-colors duration-300">
-          <span className="text-blue-400 dark:text-gray-400 text-4xl transition-colors duration-300">?</span>
+      <div className="w-full h-full flex flex-col items-center justify-center bg-blue-100 dark:bg-gray-700 transition-colors duration-300 p-6 text-center">
+        <div className="w-32 h-32 rounded-full bg-blue-200 dark:bg-gray-600 flex items-center justify-center transition-colors duration-300 mb-4">
+          <span className="text-blue-400 dark:text-gray-400 text-6xl font-light transition-colors duration-300">+</span>
         </div>
+        <h3 className="text-2xl font-bold text-gray-700 dark:text-gray-200">{name}</h3>
+        {role && <p className="text-blue-500 dark:text-blue-400 mt-2 font-medium">{role}</p>}
       </div>
     )}
   </motion.div>
@@ -74,28 +76,11 @@ const Team = () => {
     // Adding placeholders/repeats to fill the grid as per the visual suggestion of "Meet the Team"
     // In a real scenario, we'd have distinct data. Only duplicating for UI demo purposes if needed or leaving empty slots.
     // The user image shows 6 slots. I'll mock 4 more.
+
     {
-      name: "Team Lead",
-      role: "Product Manager",
-      // Placeholder image
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600&h=800"
-    },
-    {
-      name: "Senior Developer",
-      role: "Tech Lead",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600&h=800"
-    },
-    {
-      name: "Design Lead",
-      role: "UI/UX Designer",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600&h=800"
-    },
-    {
-      // Empty slot stylistic placeholder as per the "user icon" in the reference image grid?
-      // Or just another member. I'll put a generic one.
-      name: "Join Us",
-      role: "We are hiring",
-      image: "" // This will trigger the placeholder state
+      name: "You Can Be Next",
+      role: "Join Our Team",
+      image: ""
     }
   ];
 
