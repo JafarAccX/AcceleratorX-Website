@@ -56,8 +56,7 @@ export default function Hero() {
                     section.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
-                className="group inline-flex w-full items-center justify-center rounded-lg px-8 py-3 text-[#000080] font-bold shadow-lg hover:shadow-xl transition-all hover:opacity-90"
+                className="group inline-flex w-full items-center justify-center rounded-lg px-8 py-3 bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white font-bold shadow-lg hover:shadow-xl transition-all"
                 aria-label="Explore Programs"
               >
                 Explore Programs
