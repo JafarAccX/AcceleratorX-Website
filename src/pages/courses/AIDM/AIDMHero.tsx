@@ -64,8 +64,7 @@ const AIDMHero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => handleEnrollClick(false)}
-                style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
-                className="w-full sm:w-auto text-[#000080] font-bold px-8 py-3 rounded-md hover:opacity-90 transition shadow-lg"
+                className="w-full sm:w-auto bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white font-bold px-8 py-3 rounded-md transition shadow-lg"
               >
                 Apply Now
               </button>

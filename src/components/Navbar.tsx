@@ -19,6 +19,7 @@ const xsatNavItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isPlatformsDropdownOpen, setIsPlatformsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isAuthenticated } = useUser();
   const location = useLocation();
@@ -51,7 +52,6 @@ export default function Navbar() {
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Jobs Portal", path: "/jobs" },
-    { label: "New Events", path: "/events" },
   ];
 
   const courses = [
@@ -222,20 +222,58 @@ export default function Navbar() {
             {isAuthenticated ? (
               <ProfileMenu />
             ) : (
-              <div className="flex items-center p-1 bg-white/5 rounded-xl border border-white/10 ml-4 group">
+              <div className="flex items-center gap-3 ml-4">
                 <Link
                   to="/sign-in"
                   className={`text-gray-400 hover:text-white ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-lg hover:bg-white/5`}
                 >
                   Login
                 </Link>
-                <Link
-                  to="/sign-up"
-                  style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
-                  className={`text-[#000080] hover:opacity-90 px-5 py-1.5 rounded-lg text-sm font-bold ${hoverTransition} shadow-lg`}
+
+                {/* Our Platforms Dropdown */}
+                <div
+                  className="relative group"
+                  onMouseEnter={() => setIsPlatformsDropdownOpen(true)}
+                  onMouseLeave={() => setIsPlatformsDropdownOpen(false)}
                 >
-                  Sign Up
-                </Link>
+                  <button
+                    className={`flex items-center gap-1 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black px-5 py-1.5 rounded-lg text-sm font-bold ${hoverTransition} shadow-lg shadow-amber-500/50 border border-amber-400/30 relative overflow-hidden`}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></span>
+                    <span className="relative">Our Platforms</span>
+                    <ChevronDown
+                      size={16}
+                      className={`${dropdownTransition} relative`}
+                      style={{
+                        transform: isPlatformsDropdownOpen ? "rotate(180deg)" : "rotate(0)",
+                      }}
+                    />
+                  </button>
+
+                  <div
+                    className={`absolute right-0 top-full pt-2 w-48 ${dropdownTransition} ${isPlatformsDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                      }`}
+                  >
+                    <div className="bg-gradient-to-b from-amber-50 to-yellow-50 backdrop-blur-md border border-amber-200 rounded-xl shadow-xl shadow-amber-500/20 overflow-hidden">
+                      <a
+                        href="https://buildrx.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`block px-4 py-2.5 text-gray-800 hover:text-black hover:bg-amber-100 ${hoverTransition} text-sm font-medium`}
+                      >
+                        BuildRX
+                      </a>
+                      <a
+                        href="https://lms.acceleratorx.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`block px-4 py-2.5 text-gray-800 hover:text-black hover:bg-amber-100 ${hoverTransition} text-sm font-medium`}
+                      >
+                        LMS
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -327,22 +365,56 @@ export default function Navbar() {
             <ProfileMenu />
           ) : (
             <div className="flex flex-col space-y-3 pt-2">
-              <div className="flex items-center p-1 bg-white/5 rounded-xl border border-white/5">
-                <Link
-                  to="/sign-in"
-                  onClick={() => setIsOpen(false)}
-                  className={`flex-1 text-center text-gray-400 hover:text-white ${hoverTransition} py-2 text-xs font-medium rounded-lg hover:bg-white/5`}
+              <Link
+                to="/sign-in"
+                onClick={() => setIsOpen(false)}
+                className={`text-center text-gray-400 hover:text-white ${hoverTransition} py-2.5 text-sm font-medium rounded-lg hover:bg-white/5 border border-white/10`}
+              >
+                Login
+              </Link>
+
+              {/* Our Platforms Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsPlatformsDropdownOpen(!isPlatformsDropdownOpen)}
+                  className={`w-full flex items-center justify-center gap-1 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black py-2.5 rounded-lg text-sm font-bold ${hoverTransition} shadow-lg shadow-amber-500/50 border border-amber-400/30 relative overflow-hidden`}
                 >
-                  Login
-                </Link>
-                <Link
-                  to="/sign-up"
-                  onClick={() => setIsOpen(false)}
-                  style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 25%, #FFFFFF 50%, #FFFFFF 75%, #008D00 100%)' }}
-                  className={`flex-1 text-center text-[#000080] py-2 rounded-lg text-xs font-bold ${hoverTransition} shadow-lg border border-white/10`}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></span>
+                  <span className="relative">Our Platforms</span>
+                  <ChevronDown
+                    size={16}
+                    className={`${dropdownTransition} relative`}
+                    style={{
+                      transform: isPlatformsDropdownOpen ? "rotate(180deg)" : "rotate(0)",
+                    }}
+                  />
+                </button>
+
+                <div
+                  className={`overflow-hidden ${dropdownTransition} ${isPlatformsDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    }`}
                 >
-                  Sign Up
-                </Link>
+                  <div className="mt-2 space-y-2 pl-4 border-l-2 border-amber-400/50 bg-gradient-to-r from-amber-50/10 to-transparent rounded-r-lg">
+                    <a
+                      href="https://buildrx.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className={`block py-2 px-2 text-amber-200 hover:text-amber-100 hover:bg-amber-500/10 rounded ${hoverTransition} text-sm font-medium`}
+                    >
+                      BuildRX
+                    </a>
+                    <a
+                      href="https://lms.acceleratorx.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className={`block py-2 px-2 text-amber-200 hover:text-amber-100 hover:bg-amber-500/10 rounded ${hoverTransition} text-sm font-medium`}
+                    >
+                      LMS
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           )}

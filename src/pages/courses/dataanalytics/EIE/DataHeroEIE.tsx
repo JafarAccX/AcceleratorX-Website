@@ -112,12 +112,11 @@ export default function DataHeroEIE() {
               <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#96E072] to-[#96E072]/70 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                 <div
-                  className="relative px-8 py-3 rounded-full flex items-center justify-center group cursor-pointer"
-                  style={{ background: 'linear-gradient(to bottom right, #FF8F00 0%, #FFFFFF 40%, #FFFFFF 50%, #FFFFFF 55%, #008D00 100%)' }}
+                  className="relative px-8 py-3 bg-[#1a71f6] hover:bg-[#1a71f6]/90 rounded-full flex items-center justify-center group cursor-pointer"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  <span className="text-[#000080] font-bold">Apply Now</span>
-                  <ArrowRight className="ml-2 h-5 w-5 text-[#000080] group-hover:translate-x-1 transition-transform" />
+                  <span className="text-white font-bold">Apply Now</span>
+                  <ArrowRight className="ml-2 h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
                 </div>
               </motion.button>
               <motion.button

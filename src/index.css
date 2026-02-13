@@ -140,6 +140,10 @@ html {
   animation: shimmer 4s infinite linear;
 }
 
+.animate-shimmer {
+  animation: shimmer 3s infinite linear;
+}
+
 @keyframes puzzleAnimation {
   0% {
     background-position: 0 0;
