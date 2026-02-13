@@ -230,53 +230,54 @@ export default function Navbar() {
                   Login
                 </Link>
 
-                {/* Our Platforms Dropdown */}
-                <div
-                  className="relative group"
-                  onMouseEnter={() => setIsPlatformsDropdownOpen(true)}
-                  onMouseLeave={() => setIsPlatformsDropdownOpen(false)}
-                >
-                  <button
-                    className={`flex items-center gap-1 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black px-5 py-1.5 rounded-lg text-sm font-bold ${hoverTransition} shadow-lg shadow-amber-500/50 border border-amber-400/30 relative overflow-hidden`}
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></span>
-                    <span className="relative">Our Platforms</span>
-                    <ChevronDown
-                      size={16}
-                      className={`${dropdownTransition} relative`}
-                      style={{
-                        transform: isPlatformsDropdownOpen ? "rotate(180deg)" : "rotate(0)",
-                      }}
-                    />
-                  </button>
-
-                  <div
-                    className={`absolute right-0 top-full pt-2 w-48 ${dropdownTransition} ${isPlatformsDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
-                      }`}
-                  >
-                    <div className="bg-gradient-to-b from-amber-50 to-yellow-50 backdrop-blur-md border border-amber-200 rounded-xl shadow-xl shadow-amber-500/20 overflow-hidden">
-                      <a
-                        href="https://buildrx.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`block px-4 py-2.5 text-gray-800 hover:text-black hover:bg-amber-100 ${hoverTransition} text-sm font-medium`}
-                      >
-                        BuildRX
-                      </a>
-                      <a
-                        href="https://lms.acceleratorx.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`block px-4 py-2.5 text-gray-800 hover:text-black hover:bg-amber-100 ${hoverTransition} text-sm font-medium`}
-                      >
-                        LMS
-                      </a>
-                    </div>
-                  </div>
-                </div>
               </div>
             )}
+
+            <div
+              className="relative group"
+              onMouseEnter={() => setIsPlatformsDropdownOpen(true)}
+              onMouseLeave={() => setIsPlatformsDropdownOpen(false)}
+            >
+              <button
+                className={`flex items-center gap-1 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black px-5 py-1.5 rounded-lg text-sm font-bold ${hoverTransition} shadow-lg shadow-amber-500/50 border border-amber-400/30 relative overflow-hidden`}
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></span>
+                <span className="relative">Our Platforms</span>
+                <ChevronDown
+                  size={16}
+                  className={`${dropdownTransition} relative`}
+                  style={{
+                    transform: isPlatformsDropdownOpen ? "rotate(180deg)" : "rotate(0)",
+                  }}
+                />
+              </button>
+
+              <div
+                className={`absolute right-0 top-full pt-2 w-48 ${dropdownTransition} ${isPlatformsDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                  }`}
+              >
+                <div className="bg-gradient-to-b from-amber-50 to-yellow-50 backdrop-blur-md border border-amber-200 rounded-xl shadow-xl shadow-amber-500/20 overflow-hidden">
+                  <a
+                    href="https://buildrx.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block px-4 py-2.5 text-gray-800 hover:text-black hover:bg-amber-100 ${hoverTransition} text-sm font-medium`}
+                  >
+                    BuildRX
+                  </a>
+                  <a
+                    href="https://lms.acceleratorx.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block px-4 py-2.5 text-gray-800 hover:text-black hover:bg-amber-100 ${hoverTransition} text-sm font-medium`}
+                  >
+                    LMS
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+
 
           {/* Mobile Menu Button */}
           <button
