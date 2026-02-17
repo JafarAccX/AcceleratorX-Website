@@ -68,9 +68,14 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
                     </button>
                 </div>
 
-                <div className="mt-8 border border-purple-500/30 bg-black/50 backdrop-blur-md rounded-xl p-4 md:p-6 inline-block">
-                    <p className="text-gray-400 text-sm mb-1">in just</p>
-                    <p className="text-3xl md:text-4xl font-bold text-white">₹4,999 + GST</p>
+                <div className="mt-8 border border-red-500/50 bg-black/50 backdrop-blur-md rounded-xl p-4 md:p-6 inline-block relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-red-600/90 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg z-20 shadow-[0_0_10px_rgba(220,38,38,0.5)] uppercase tracking-wider">
+                        Price Hike
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <p className="text-gray-500 text-lg line-through decoration-red-500/70 decoration-2 mb-1">₹4,999 + GST</p>
+                        <p className="text-3xl md:text-4xl font-bold text-white">₹14,999 + GST</p>
+                    </div>
                 </div>
             </div>
         </section>

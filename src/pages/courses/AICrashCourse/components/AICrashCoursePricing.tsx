@@ -20,7 +20,10 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
             </div>
 
             {/* Main Card */}
-            <div className="w-full max-w-[500px] border border-[#AC0AE7]/30 rounded-3xl bg-[#0a0a0a] p-8 md:p-10 flex flex-col relative shadow-[0_0_60px_rgba(172,10,231,0.15)] overflow-hidden">
+            <div className="w-full max-w-[500px] border border-red-500/50 rounded-3xl bg-[#0a0a0a] p-8 md:p-10 flex flex-col relative shadow-[0_0_60px_rgba(172,10,231,0.15)] overflow-hidden">
+                <div className="absolute top-0 right-0 bg-red-600/90 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl z-20 shadow-[0_0_10px_rgba(220,38,38,0.5)] uppercase tracking-wider">
+                    Price Hike
+                </div>
 
                 {/* Top purple glow inside card */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#AC0AE7] to-[#48A2EB]"></div>
@@ -29,9 +32,12 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
                 {/* Price Section */}
                 <div className="text-center mb-10">
                     <p className="text-gray-500 text-xs font-bold tracking-widest uppercase mb-4">Total Investment</p>
-                    <div className="flex items-end justify-center gap-2 mb-6">
-                        <span className="text-white text-5xl md:text-6xl font-bold font-['Plus_Jakarta_Sans']">₹4,999</span>
-                        <span className="text-gray-400 text-xl font-medium mb-1.5">+ GST</span>
+                    <div className="flex flex-col items-center justify-center gap-0 mb-6">
+                        <span className="text-gray-500 text-2xl line-through decoration-red-500/70 decoration-2 font-bold font-['Plus_Jakarta_Sans']">₹4,999 + GST</span>
+                        <div className="flex items-end gap-2">
+                            <span className="text-white text-5xl md:text-6xl font-bold font-['Plus_Jakarta_Sans']">₹14,999</span>
+                            <span className="text-gray-400 text-xl font-medium mb-1.5">+ GST</span>
+                        </div>
                     </div>
                     <div className="inline-block bg-[#1A1A1A] border border-[#333] rounded-full px-4 py-1.5">
                         <span className="text-gray-300 text-sm font-medium">Full Program Access</span>
