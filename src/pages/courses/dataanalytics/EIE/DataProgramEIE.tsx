@@ -142,6 +142,12 @@ const DATA_TOOLS = [
     description: "Standard language for managing relational databases."
   },
   {
+    name: "Excel",
+    category: "Data Analysis",
+    image: "/redesign/ai-da/tools/excel.png",
+    description: "Essential tool for data entry, analysis, and visualization."
+  },
+  {
     name: "Pandas",
     category: "Data Manipulation",
     image: "/redesign/ai-da/tools/pandas.png",
@@ -154,15 +160,15 @@ const DATA_TOOLS = [
     description: "Fundamental package for scientific computing."
   },
   {
-    name: "Matplotlib",
-    category: "Visualization",
-    image: "/redesign/ai-da/tools/matplotlib.png",
-    description: "Comprehensive library for static visualizations."
+    name: "Jupyter",
+    category: "Development",
+    image: "/redesign/ai-da/tools/jupyter.png",
+    description: "Interactive computing environment for data science."
   },
   {
     name: "Power BI",
     category: "Business Intelligence",
-    image: "/redesign/ai-da/tools/powerbi.png",
+    image: "/redesign/ai-da/tools/power-bi.png",
     description: "Interactive data visualization & reporting."
   },
   {
@@ -172,16 +178,16 @@ const DATA_TOOLS = [
     description: "Visual analytics platform for business insights."
   },
   {
-    name: "MySQL",
-    category: "Databases",
-    image: "/redesign/ai-da/tools/mysql.png",
-    description: "Popular open-source relational database system."
+    name: "Looker",
+    category: "Business Intelligence",
+    image: "/redesign/ai-da/tools/looker.png",
+    description: "Modern BI & data exploration platform."
   },
   {
-    name: "Jupyter",
-    category: "Development",
-    image: "/redesign/ai-da/tools/jupyter.png",
-    description: "Interactive computing environment for data science."
+    name: "Metabase",
+    category: "Business Intelligence",
+    image: "/redesign/ai-da/tools/metabase.png",
+    description: "Open source analytics for everyone."
   },
   {
     name: "Google Analytics",
@@ -196,10 +202,46 @@ const DATA_TOOLS = [
     description: "Advanced analytics for product insights & tracking."
   },
   {
-    name: "Looker",
-    category: "Business Intelligence",
-    image: "/redesign/ai-da/tools/looker.png",
-    description: "Modern BI & data exploration platform."
+    name: "MySQL",
+    category: "Databases",
+    image: "/redesign/ai-da/tools/mysql.png",
+    description: "Popular open-source relational database system."
+  },
+  {
+    name: "Snowflake",
+    category: "Data Warehouse",
+    image: "/redesign/ai-da/tools/snowflake.png",
+    description: "Cloud-based data warehousing platform."
+  },
+  {
+    name: "Google BigQuery",
+    category: "Data Warehouse",
+    image: "/redesign/ai-da/tools/google-bigquery.png",
+    description: "Serverless, highly scalable data warehouse."
+  },
+  {
+    name: "dbt",
+    category: "Data Transformation",
+    image: "/redesign/ai-da/tools/dbt.png",
+    description: "Transform data in your warehouse."
+  },
+  {
+    name: "Matplotlib",
+    category: "Visualization",
+    image: "/redesign/ai-da/tools/matplotlib.png",
+    description: "Comprehensive library for static visualizations."
+  },
+  {
+    name: "Seaborn",
+    category: "Visualization",
+    image: "/redesign/ai-da/tools/seaborn.png",
+    description: "Statistical data visualization based on matplotlib."
+  },
+  {
+    name: "Scikit-Learn",
+    category: "Machine Learning",
+    image: "/redesign/ai-da/tools/scikit-lear.png",
+    description: "Simple and efficient tools for predictive analysis."
   },
   {
     name: "TensorFlow",
@@ -212,6 +254,24 @@ const DATA_TOOLS = [
     category: "Deep Learning",
     image: "/redesign/ai-da/tools/keras.png",
     description: "High-level neural networks API for AI development."
+  },
+  {
+    name: "Google AutoML",
+    category: "Machine Learning",
+    image: "/redesign/ai-da/tools/googe-automl.png",
+    description: "Train high-quality custom machine learning models."
+  },
+  {
+    name: "ChatGPT",
+    category: "AI Assistant",
+    image: "/redesign/ai-da/tools/chatgpt.png",
+    description: "AI-powered coding assistance and content generation."
+  },
+  {
+    name: "Gemini",
+    category: "AI Assistant",
+    image: "/redesign/ai-da/tools/gemini.png",
+    description: "Multimodal AI model for advanced reasoning."
   },
   {
     name: "GitHub",

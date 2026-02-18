@@ -92,34 +92,94 @@ const CURRICULUM = [
 
 const GEN_TOOLS = [
     {
-        name: "Bolt",
-        category: "AI Coding",
-        image: "/redesign/gen-ai/tools/bolt.png",
-        description: "Full-stack web application builder powered by AI."
-    },
-    {
-        name: "ChatGPT",
+        name: "GPT-4o",
         category: "LLM",
-        image: "/redesign/gen-ai/tools/chatgpt.png",
-        description: "Industry-leading language model for diverse tasks."
+        image: "/redesign/gen-ai/tools/gpt.png",
+        description: "OpenAI's latest flagship model for advanced reasoning."
     },
     {
-        name: "Claude",
+        name: "Claude 3.5",
         category: "LLM",
         image: "/redesign/gen-ai/tools/claude.png",
-        description: "Advanced reasoning and safe AI interactions."
+        description: "Anthropic's safest and most capable AI model."
     },
     {
-        name: "Copilot",
-        category: "AI Assistant",
-        image: "/redesign/gen-ai/tools/copilot.png",
-        description: "Integrated AI for productivity and development."
+        name: "Gemini 1.5 Pro",
+        category: "LLM",
+        image: "/redesign/gen-ai/tools/gemini.png",
+        description: "Google's multimodal AI with massive context window."
     },
     {
-        name: "CrewAI",
-        category: "AI Agents",
-        image: "/redesign/gen-ai/tools/crewai.png",
-        description: "Framework for multi-agent autonomous systems."
+        name: "Llama 3",
+        category: "LLM",
+        image: "/redesign/gen-ai/tools/lama-3.png",
+        description: "Meta's state-of-the-art open source language model."
+    },
+    {
+        name: "DeepSeek",
+        category: "LLM",
+        image: "/redesign/gen-ai/tools/deepseek.png",
+        description: "Advanced open-weights model for code and reasoning."
+    },
+    {
+        name: "Mistral AI",
+        category: "LLM",
+        image: "/redesign/gen-ai/tools/mistral-ai.png",
+        description: "Europe's leading open models for enterprise AI."
+    },
+    {
+        name: "Midjourney",
+        category: "Image Gen",
+        image: "/redesign/gen-ai/tools/midjournry.png",
+        description: "Premium artistic image generation platform."
+    },
+    {
+        name: "Stable Diffusion",
+        category: "Image Gen",
+        image: "/redesign/gen-ai/tools/stable-diffusion.png",
+        description: "Leading open-source image generation model."
+    },
+    {
+        name: "Flux",
+        category: "Image Gen",
+        image: "/redesign/gen-ai/tools/flux.png",
+        description: "Next-gen image model with exceptional detail."
+    },
+    {
+        name: "Leonardo.Ai",
+        category: "Image Gen",
+        image: "/redesign/gen-ai/tools/leonardo-ai.png",
+        description: "Full-stack AI image generation platform."
+    },
+    {
+        name: "Runway Gen-2",
+        category: "Video AI",
+        image: "/redesign/gen-ai/tools/runway.png",
+        description: "Creative suite for AI-powered video generation."
+    },
+    {
+        name: "Pika Labs",
+        category: "Video AI",
+        image: "/redesign/gen-ai/tools/pika-labs.png",
+        description: "Idea-to-video platform for high-quality animation."
+    },
+    {
+        name: "Suno",
+        category: "Audio AI",
+        image: "/redesign/gen-ai/tools/suno.png",
+        description: "Create professional-quality songs with AI."
+    },
+    {
+        name: "Udio",
+        category: "Audio AI",
+        image: "/redesign/gen-ai/tools/udio.png",
+        description: "AI music generation for creators."
+    },
+    {
+        name: "ElevenLabs",
+        category: "Voice AI",
+        image: "/redesign/gen-ai/tools/eleven-labs.png",
+        description: "High-fidelity text-to-speech and voice cloning."
     },
     {
         name: "Cursor",
@@ -128,40 +188,10 @@ const GEN_TOOLS = [
         description: "Next-gen editor with deep AI integration."
     },
     {
-        name: "ElevenLabs",
-        category: "Audio AI",
-        image: "/redesign/gen-ai/tools/elevenlas.png",
-        description: "High-fidelity text-to-speech and voice cloning."
-    },
-    {
-        name: "Flowise",
-        category: "AI Orchestration",
-        image: "/redesign/gen-ai/tools/flowise.png",
-        description: "Drag-and-drop tool for building LLM apps."
-    },
-    {
-        name: "Gemini",
-        category: "LLM",
-        image: "/redesign/gen-ai/tools/gemini.png",
-        description: "Google's multi-modal generative AI model."
-    },
-    {
-        name: "Hugging Face",
-        category: "Model Hub",
-        image: "/redesign/gen-ai/tools/huggingface.png",
-        description: "The home of open-source machine learning."
-    },
-    {
-        name: "LangChain",
-        category: "Framework",
-        image: "/redesign/gen-ai/tools/langchain.png",
-        description: "Building applications with LLMs through chaining."
-    },
-    {
-        name: "Midjourney",
-        category: "Image Gen",
-        image: "/redesign/gen-ai/tools/midjourney.png",
-        description: "Premium artistic image generation platform."
+        name: "Bolt.new",
+        category: "AI Coding",
+        image: "/redesign/gen-ai/tools/bolt.png",
+        description: "Full-stack web application builder powered by AI."
     },
     {
         name: "Replit",
@@ -170,16 +200,76 @@ const GEN_TOOLS = [
         description: "Collaborative platform for building and hosting apps."
     },
     {
-        name: "Runway",
-        category: "Video AI",
-        image: "/redesign/gen-ai/tools/runway.png",
-        description: "Creative suite for AI-powered video generation."
+        name: "LangChain",
+        category: "Framework",
+        image: "/redesign/gen-ai/tools/langchain.png",
+        description: "Building applications with LLMs through chaining."
     },
     {
-        name: "Vapi",
-        category: "Voice AI",
-        image: "/redesign/gen-ai/tools/vapi.png",
-        description: "Platform for building voice-driven AI agents."
+        name: "CrewAI",
+        category: "AI Agents",
+        image: "/redesign/gen-ai/tools/crew-ai.png",
+        description: "Framework for multi-agent autonomous systems."
+    },
+    {
+        name: "LangGraph",
+        category: "AI Agents",
+        image: "/redesign/gen-ai/tools/lnaggraph.png",
+        description: "Build stateful, multi-actor applications with LLMs."
+    },
+    {
+        name: "Flowise",
+        category: "AI Orchestration",
+        image: "/redesign/gen-ai/tools/flowwise.png",
+        description: "Drag-and-drop tool for building LLM apps."
+    },
+    {
+        name: "AutoTrain",
+        category: "Model Training",
+        image: "/redesign/gen-ai/tools/auto-train.png",
+        description: "No-code tool to train state-of-the-art models."
+    },
+    {
+        name: "Google Colab",
+        category: "Development",
+        image: "/redesign/gen-ai/tools/colab.png",
+        description: "Hosted Jupyter notebook service."
+    },
+    {
+        name: "Hugging Face",
+        category: "Model Hub",
+        image: "/redesign/gen-ai/tools/spaces.png",
+        description: "The home of open-source machine learning."
+    },
+    {
+        name: "LangFuse",
+        category: "LLM Ops",
+        image: "/redesign/gen-ai/tools/langfuse.png",
+        description: "Open source LLM engineering platform."
+    },
+    {
+        name: "Helicone",
+        category: "LLM Ops",
+        image: "/redesign/gen-ai/tools/helicone.png",
+        description: "Open-source observability for LLMs."
+    },
+    {
+        name: "FastAPI",
+        category: "Deployment",
+        image: "/redesign/gen-ai/tools/fast-api.png",
+        description: "Modern, fast web framework for building APIs."
+    },
+    {
+        name: "Docker",
+        category: "Deployment",
+        image: "/redesign/gen-ai/tools/docker.png",
+        description: "Platform for developing, shipping, and running apps."
+    },
+    {
+        name: "Render",
+        category: "Deployment",
+        image: "/redesign/gen-ai/tools/render.png",
+        description: "Unified cloud to build and run all your apps."
     },
     {
         name: "Zapier",

@@ -60,52 +60,154 @@ const CURRICULUM = [
 
 const TOOLS = [
     {
-        name: "Agent Development",
-        category: "Agentic AI",
-        image: "/redesign/advance-gen-ai/tools/agentdevelopment.png",
-        description: "Platforms for building autonomous agents."
-    },
-    {
-        name: "AI Voice Agent",
-        category: "Voice AI",
-        image: "/redesign/advance-gen-ai/tools/aivoiceagent.png",
-        description: "Building voice-driven autonomous systems."
-    },
-    {
-        name: "ChatGPT",
+        name: "Llama 3",
         category: "LLM",
-        image: "/redesign/advance-gen-ai/tools/chatgpt.png",
-        description: "Foundation for reasoning and dialogue."
+        image: "/redesign/advance-gen-ai/tools/Llama3.png",
+        description: "Meta's state-of-the-art open source language model."
     },
     {
-        name: "CrewAI",
-        category: "Framework",
-        image: "/redesign/advance-gen-ai/tools/crewai.png",
-        description: "Framework for multi-agent autonomous teams."
+        name: "Mistral AI",
+        category: "LLM",
+        image: "/redesign/advance-gen-ai/tools/Mistralai.png",
+        description: "High-performance open weights model."
     },
     {
-        name: "Hugging Face",
-        category: "Model Hub",
-        image: "/redesign/advance-gen-ai/tools/huggingface.png",
-        description: "The home of open-source machine learning models."
+        name: "Gemma",
+        category: "LLM",
+        image: "/redesign/advance-gen-ai/tools/Gemma.png",
+        description: "Build AI with Google's lightweight open models."
+    },
+    {
+        name: "Ollama",
+        category: "Local Deployment",
+        image: "/redesign/advance-gen-ai/tools/Ollama.png",
+        description: "Run LLMs locally on your own machine."
     },
     {
         name: "LangChain",
         category: "Framework",
-        image: "/redesign/advance-gen-ai/tools/langchain.png",
-        description: "Building language model applications through chaining."
+        image: "/redesign/advance-gen-ai/tools/Langchain.png",
+        description: "Building applications with LLMs through chaining."
     },
     {
         name: "LangGraph",
-        category: "Agent Orchestration",
-        image: "/redesign/advance-gen-ai/tools/langgraph.png",
-        description: "Advanced orchestration for agentic workflows."
+        category: "Agents",
+        image: "/redesign/advance-gen-ai/tools/LangGraph.png",
+        description: "Build stateful, multi-actor applications with LLMs."
     },
     {
-        name: "Model Context Protocol",
-        category: "Protocol",
-        image: "/redesign/advance-gen-ai/tools/modelcontextprotocol.png",
-        description: "Standards for connecting LLMs to external data sources."
+        name: "CrewAI",
+        category: "Agents",
+        image: "/redesign/advance-gen-ai/tools/Crewai.png",
+        description: "Framework for orchestrating autonomous AI agents."
+    },
+    {
+        name: "Transformers",
+        category: "Library",
+        image: "/redesign/advance-gen-ai/tools/Transformers.png",
+        description: "State-of-the-art Machine Learning for Pytorch, TensorFlow, and JAX."
+    },
+    {
+        name: "PyTorch",
+        category: "Framework",
+        image: "/redesign/advance-gen-ai/tools/pytorch.png",
+        description: "Open source machine learning framework."
+    },
+    {
+        name: "CUDA",
+        category: "Compute",
+        image: "/redesign/advance-gen-ai/tools/Cuda.png",
+        description: "Parallel computing platform and programming model."
+    },
+    {
+        name: "Python",
+        category: "Language",
+        image: "/redesign/advance-gen-ai/tools/Python.png",
+        description: "The primary programming language for AI."
+    },
+    {
+        name: "PEFT",
+        category: "Fine-tuning",
+        image: "/redesign/advance-gen-ai/tools/Peft.png",
+        description: "Parameter-Efficient Fine-Tuning methods."
+    },
+    {
+        name: "LoRA",
+        category: "Fine-tuning",
+        image: "/redesign/advance-gen-ai/tools/lora.png",
+        description: "Low-Rank Adaptation of Large Language Models."
+    },
+    {
+        name: "BitsAndBytes",
+        category: "Optimization",
+        image: "/redesign/advance-gen-ai/tools/Bitsandbytes.png",
+        description: "Quantization enabling massive models on accessible hardware."
+    },
+    {
+        name: "Datasets",
+        category: "Data",
+        image: "/redesign/advance-gen-ai/tools/Datasets.png",
+        description: "Hugging Face library for accessing ML datasets."
+    },
+    {
+        name: "ChromaDB",
+        category: "Vector DB",
+        image: "/redesign/advance-gen-ai/tools/Chroma.png",
+        description: "Open-source embedding database."
+    },
+    {
+        name: "BGE-M3",
+        category: "Embeddings",
+        image: "/redesign/advance-gen-ai/tools/BGEm3.png",
+        description: "Multi-lingual, Multi-Functionality, Multi-Granularity embeddings."
+    },
+    {
+        name: "Instructor XL",
+        category: "Embeddings",
+        image: "/redesign/advance-gen-ai/tools/Instructorxl.png",
+        description: "Instruction-finetuned text embeddings."
+    },
+    {
+        name: "BLIP",
+        category: "Multimodal",
+        image: "/redesign/advance-gen-ai/tools/Blip.png",
+        description: "Bootstrapping Language-Image Pre-training."
+    },
+    {
+        name: "CLIP",
+        category: "Multimodal",
+        image: "/redesign/advance-gen-ai/tools/Clipsai.png",
+        description: "Contrastive Language-Image Pre-Training."
+    },
+    {
+        name: "Gradio",
+        category: "UI",
+        image: "/redesign/advance-gen-ai/tools/Gradio.png",
+        description: "Build and share Machine Learning apps."
+    },
+    {
+        name: "FastAPI",
+        category: "Deployment",
+        image: "/redesign/advance-gen-ai/tools/Fastapi.png",
+        description: "Modern, fast web framework for building APIs."
+    },
+    {
+        name: "Docker",
+        category: "Deployment",
+        image: "/redesign/advance-gen-ai/tools/Docker.png",
+        description: "Platform for developing, shipping, and running apps."
+    },
+    {
+        name: "LangFuse",
+        category: "Observability",
+        image: "/redesign/advance-gen-ai/tools/Langfuse.png",
+        description: "Open source LLM engineering platform."
+    },
+    {
+        name: "Weights & Biases",
+        category: "Tracking",
+        image: "/redesign/advance-gen-ai/tools/Weights&Biases.png",
+        description: "Developer tools for machine learning."
     }
 ];
 

@@ -89,7 +89,7 @@ export default function DataScienceHeroEIE() {
                         >
                             <h1 className="font-heading text-5xl md:text-7xl text-white dark:text-white leading-tight font-medium">
                                 Become a <br />
-                                <span className="italic font-light text-[#3B82F6]">Production-Ready Data Scientist</span>
+                                <span className=" font-light text-[#3B82F6]">Production-Ready Data Scientist</span>
                             </h1>
                         </motion.div>
 

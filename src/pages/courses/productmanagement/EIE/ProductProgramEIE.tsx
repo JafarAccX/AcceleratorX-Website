@@ -162,15 +162,21 @@ const PM_TOOLS = [
         description: "All-in-one workspace for notes, docs, and knowledge management."
     },
     {
+        name: "Confluence",
+        category: "Documentation",
+        image: "/redesign/ai-pm/tools/confluence.png",
+        description: "Collaborative workspace for team knowledge."
+    },
+    {
         name: "Figma",
         category: "Design",
-        image: "/redesign/ai-pm/tools/Figma.png",
+        image: "/redesign/ai-pm/tools/figma.png",
         description: "Collaborative interface design tool for teams."
     },
     {
         name: "Miro",
         category: "Whiteboarding",
-        image: "/redesign/ai-pm/tools/miro.png",
+        image: "/redesign/ai-pm/tools/micro.png",
         description: "Online visual collaboration platform for brainstorming."
     },
     {
@@ -180,16 +186,106 @@ const PM_TOOLS = [
         description: "Leading platform for user behavior analytics."
     },
     {
+        name: "Google Analytics",
+        category: "Analytics",
+        image: "/redesign/ai-pm/tools/google-analytics.png",
+        description: "Platform for tracking & reporting website traffic."
+    },
+    {
         name: "Postman",
         category: "API Testing",
         image: "/redesign/ai-pm/tools/Postman.png",
-        description: "Platform for building and using APIs."
+        description: "Platform for building and testing APIs."
     },
     {
         name: "GitHub",
         category: "Collaboration",
         image: "/redesign/ai-pm/tools/GitHub.png",
         description: "Platform for version control and development collaboration."
+    },
+    {
+        name: "ChatGPT",
+        category: "AI Assistant",
+        image: "/redesign/ai-pm/tools/chatgpt.png",
+        description: "AI-powered assistant for ideation and drafting."
+    },
+    {
+        name: "Claude",
+        category: "AI Assistant",
+        image: "/redesign/ai-pm/tools/claude.png",
+        description: "Advanced AI for reasoning and analysis."
+    },
+    {
+        name: "Gemini",
+        category: "AI Assistant",
+        image: "/redesign/ai-pm/tools/gemini.png",
+        description: "Multimodal AI model for advanced reasoning."
+    },
+    {
+        name: "CrewAI",
+        category: "AI Agents",
+        image: "/redesign/ai-pm/tools/crewai.png",
+        description: "Framework for orchestrating autonomous AI agents."
+    },
+    {
+        name: "LangChain",
+        category: "AI Framework",
+        image: "/redesign/ai-pm/tools/langchain.png",
+        description: "Building applications with LLMs through composability."
+    },
+    {
+        name: "LangGraph",
+        category: "AI Framework",
+        image: "/redesign/ai-pm/tools/langgrapg.png",
+        description: "Building stateful, multi-actor applications with LLMs."
+    },
+    {
+        name: "Hugging Face",
+        category: "AI Models",
+        image: "/redesign/ai-pm/tools/hugging-face.png",
+        description: "Platform for building, training, and deploying ML models."
+    },
+    {
+        name: "Excel",
+        category: "Data Analysis",
+        image: "/redesign/ai-pm/tools/excel.png",
+        description: "Essential tool for data organization and analysis."
+    },
+    {
+        name: "Google Sheets",
+        category: "Data Analysis",
+        image: "/redesign/ai-pm/tools/google-sheets.png",
+        description: "Collaborative spreadsheets for real-time data work."
+    },
+    {
+        name: "Power BI",
+        category: "Business Intelligence",
+        image: "/redesign/ai-pm/tools/power-bi.png",
+        description: "Interactive data visualization & reporting."
+    },
+    {
+        name: "Tableau",
+        category: "Business Intelligence",
+        image: "/redesign/ai-pm/tools/tableau.png",
+        description: "Visual analytics platform for business insights."
+    },
+    {
+        name: "Looker",
+        category: "Business Intelligence",
+        image: "/redesign/ai-pm/tools/looker.png",
+        description: "Modern BI & data exploration platform."
+    },
+    {
+        name: "Google BigQuery",
+        category: "Data Warehouse",
+        image: "/redesign/ai-pm/tools/google-big-query.png",
+        description: "Serverless, highly scalable data warehouse."
+    },
+    {
+        name: "MySQL",
+        category: "Databases",
+        image: "/redesign/ai-pm/tools/mysql.png",
+        description: "Popular open-source relational database system."
     }
 ];
 

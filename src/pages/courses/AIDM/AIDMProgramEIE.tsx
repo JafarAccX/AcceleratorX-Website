@@ -89,70 +89,220 @@ const CURRICULUM = [
 
 const AIDM_TOOLS = [
     {
+        name: "ChatGPT",
+        category: "LLM",
+        image: "/redesign/ai-dm/tools/Chatgpt.png",
+        description: "Industry-leading language model for content & strategy."
+    },
+    {
         name: "Claude",
         category: "LLM & Research",
-        image: "/redesign/ai-dm/tools/claude.png",
-        description: "Advanced AI for content strategy, research, and copywriting."
+        image: "/redesign/ai-dm/tools/Claude.png",
+        description: "Advanced AI for nuanced copywriting and research."
     },
     {
-        name: "n8n",
-        category: "Workflows",
-        image: "/redesign/ai-dm/tools/n8n.png",
-        description: "Open-source workflow automation for marketing pipelines."
+        name: "Perplexity",
+        category: "AI Search",
+        image: "/redesign/ai-dm/tools/Perplexity.png",
+        description: "Real-time AI search engine for market intelligence."
     },
     {
-        name: "CrewAI",
-        category: "AI Agents",
-        image: "/redesign/ai-dm/tools/crewai.png",
-        description: "Framework for orchestrating autonomous AI agents."
+        name: "Google Ads",
+        category: "Ad Platform",
+        image: "/redesign/ai-dm/tools/Googleads.png",
+        description: "Platform for running search, display, and video ads."
+    },
+    {
+        name: "Meta Ads Manager",
+        category: "Ad Platform",
+        image: "/redesign/ai-dm/tools/Meta ads manager.png",
+        description: "Manage ads across Facebook, Instagram, and Messenger."
+    },
+    {
+        name: "Google Trends",
+        category: "Market Research",
+        image: "/redesign/ai-dm/tools/Googletrends.png",
+        description: "Analyze search popularity and discover market trends."
+    },
+    {
+        name: "Exploding Topics",
+        category: "Trend Discovery",
+        image: "/redesign/ai-dm/tools/Explodingtopics.png",
+        description: "Discover rapidly growing topics before they peak."
+    },
+    {
+        name: "Semrush",
+        category: "SEO & Marketing",
+        image: "/redesign/ai-dm/tools/Semrush.png",
+        description: "All-in-one suite for SEO, PPC, and content marketing."
+    },
+    {
+        name: "Ubersuggest",
+        category: "SEO",
+        image: "/redesign/ai-dm/tools/Ubersuggest.png",
+        description: "SEO tool for keyword ideas and site audits."
+    },
+    {
+        name: "Surfer SEO",
+        category: "Content Optimization",
+        image: "/redesign/ai-dm/tools/Surfer seo.png",
+        description: "AI tool to optimize content for search engine rankings."
+    },
+    {
+        name: "Yoast SEO",
+        category: "SEO",
+        image: "/redesign/ai-dm/tools/Yoast.png",
+        description: "Leading SEO plugin for optimizing website content."
     },
     {
         name: "Jasper",
         category: "AI Copywriting",
-        image: "/redesign/ai-dm/tools/jasper.png",
-        description: "Enterprise-grade AI platform for marketing content."
+        image: "/redesign/ai-dm/tools/Jasper.png",
+        description: "On-brand AI copilot for enterprise marketing teams."
+    },
+    {
+        name: "Copy.ai",
+        category: "AI Copywriting",
+        image: "/redesign/ai-dm/tools/Copyai.png",
+        description: "AI-powered copywriter for marketing materials."
+    },
+    {
+        name: "Notion AI",
+        category: "Productivity",
+        image: "/redesign/ai-dm/tools/Notion ai.png",
+        description: "AI integrated into your workspace for writing and summary."
+    },
+    {
+        name: "Adobe Firefly",
+        category: "Generative Design",
+        image: "/redesign/ai-dm/tools/Adobefirefly.png",
+        description: "Generative AI for creators, integrated into Adobe apps."
+    },
+    {
+        name: "Canva AI",
+        category: "Design",
+        image: "/redesign/ai-dm/tools/Canvaai.png",
+        description: "AI tools within Canva for magic design and editing."
+    },
+    {
+        name: "Leonardo.ai",
+        category: "Image Generation",
+        image: "/redesign/ai-dm/tools/Leonardo.ai.png",
+        description: "Create production-quality visual assets with AI."
+    },
+    {
+        name: "Ideogram",
+        category: "Image Generation",
+        image: "/redesign/ai-dm/tools/Ideogram.png",
+        description: "Advanced text-to-image generator with typography support."
+    },
+    {
+        name: "Stability AI",
+        category: "Image Generation",
+        image: "/redesign/ai-dm/tools/Stability.ai.png",
+        description: "Open models for image, video, and audio generation."
+    },
+    {
+        name: "Runway",
+        category: "Video AI",
+        image: "/redesign/ai-dm/tools/Runway.png",
+        description: "Advanced video editing and generation with AI."
+    },
+    {
+        name: "Pika Labs",
+        category: "Video AI",
+        image: "/redesign/ai-dm/tools/Pika labs.png",
+        description: "Text-to-video platform for animation and creation."
+    },
+    {
+        name: "Kaiber",
+        category: "Video AI",
+        image: "/redesign/ai-dm/tools/Kaiber.png",
+        description: "AI creative lab for video and audio generation."
+    },
+    {
+        name: "VEO",
+        category: "Video AI",
+        image: "/redesign/ai-dm/tools/Veo3.png",
+        description: "Next-gen AI video generation model."
     },
     {
         name: "CapCut",
         category: "Video Editing",
         image: "/redesign/ai-dm/tools/capcut.png",
-        description: "Pro-level video editing and effects for social content."
+        description: "All-in-one video editor with AI features."
     },
     {
-        name: "Runway",
-        category: "Video Generation",
-        image: "/redesign/ai-dm/tools/runway.png",
-        description: "Next-gen AI tools for creative video production."
+        name: "Descript",
+        category: "AV Editing",
+        image: "/redesign/ai-dm/tools/descript.png",
+        description: "Edit audio and video like a text document."
     },
     {
-        name: "Leonardo.ai",
-        category: "Image Generation",
-        image: "/redesign/ai-dm/tools/leonardo.png",
-        description: "Full-stack AI image generation platform."
+        name: "Opus Clip",
+        category: "Video Repurposing",
+        image: "/redesign/ai-dm/tools/Opus clip.png",
+        description: "Repurpose long video into viral shorts with AI."
     },
     {
-        name: "Ideogram",
-        category: "AI Design",
-        image: "/redesign/ai-dm/tools/ideogram.png",
-        description: "Text-to-image AI focused on typography and design."
+        name: "ElevenLabs",
+        category: "Voice AI",
+        image: "/redesign/ai-dm/tools/Elevenlabs.png",
+        description: "Realistic AI speech synthesis and voice cloning."
     },
     {
-        name: "OpusClip",
-        category: "Video Automation",
-        image: "/redesign/ai-dm/tools/opusclip.png",
-        description: "AI-powered tool for creating viral short-form clips."
+        name: "Buffer",
+        category: "Social Media",
+        image: "/redesign/ai-dm/tools/Buffer.png",
+        description: "Social media toolkit for scheduling and publishing."
     },
     {
-        name: "Pika Labs",
-        category: "Video Generation",
-        image: "/redesign/ai-dm/tools/pika.png",
-        description: "Idea-to-video platform for high-quality animation."
+        name: "Metricool",
+        category: "Analytics",
+        image: "/redesign/ai-dm/tools/Metricool.png",
+        description: "Analyze, manage, and measure digital content."
     },
     {
-        name: "Stability AI",
-        category: "Deep Learning",
-        image: "/redesign/ai-dm/tools/stability.png",
-        description: "Open-source foundational models for creative AI."
+        name: "Lately",
+        category: "Social AI",
+        image: "/redesign/ai-dm/tools/Lately.png",
+        description: "AI that turns long-form content into social posts."
+    },
+    {
+        name: "Predis.ai",
+        category: "Social Content",
+        image: "/redesign/ai-dm/tools/Predis ai.png",
+        description: "Generate ready-to-publish social media posts with AI."
+    },
+    {
+        name: "n8n",
+        category: "Automation",
+        image: "/redesign/ai-dm/tools/n8n.png",
+        description: "Workflow automation tool for technical marketers."
+    },
+    {
+        name: "Funnelytics",
+        category: "Funnel Mapping",
+        image: "/redesign/ai-dm/tools/Funnelytics.png",
+        description: "Map, track, and analyze your marketing funnels."
+    },
+    {
+        name: "GrowthBook",
+        category: "Experimentation",
+        image: "/redesign/ai-dm/tools/Growthbook.png",
+        description: "Open source platform for feature flagging and A/B testing."
+    },
+    {
+        name: "CrewAI",
+        category: "AI Agents",
+        image: "/redesign/ai-dm/tools/Crew.ai.png",
+        description: "Framework for building multi-agent AI teams."
+    },
+    {
+        name: "Nano Banana",
+        category: "Marketing",
+        image: "/redesign/ai-dm/tools/Nano banana.png",
+        description: "Specialized tool for marketing optimization."
     }
 ];
 
