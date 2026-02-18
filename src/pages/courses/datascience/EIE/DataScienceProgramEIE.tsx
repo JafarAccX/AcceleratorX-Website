@@ -84,70 +84,94 @@ const CURRICULUM = [
 
 const TOOLS = [
     {
-        name: "Claude",
-        category: "LLM & Research",
-        image: "/redesign/data-science/tools/claude.png",
-        description: "Advanced AI for content strategy, research, and copywriting."
+        name: "Python",
+        category: "Data Structure & Algo",
+        image: "/redesign/data-science/tools/python.png",
+        description: "Foundation for all Data Science workflows."
     },
     {
-        name: "n8n",
-        category: "Workflows",
-        image: "/redesign/data-science/tools/n8n.png",
-        description: "Open-source workflow automation for marketing pipelines."
+        name: "Jupyter Notebooks",
+        category: "Data Analysis",
+        image: "/redesign/data-science/tools/jupyter.png",
+        description: "Interactive computing for data exploration."
     },
     {
-        name: "CrewAI",
-        category: "AI Agents",
-        image: "/redesign/data-science/tools/crewai.png",
-        description: "Framework for orchestrating autonomous AI agents."
+        name: "NumPy",
+        category: "Scientific Computing",
+        image: "/redesign/data-science/tools/numpy.png",
+        description: "Fundamental package for numerical computation."
     },
     {
-        name: "Jasper",
-        category: "AI Copywriting",
-        image: "/redesign/data-science/tools/jasper.png",
-        description: "Enterprise-grade AI platform for marketing content."
+        name: "Pandas",
+        category: "Data Manipulation",
+        image: "/redesign/data-science/tools/pandas.png",
+        description: "High-performance data analysis tools."
     },
     {
-        name: "CapCut",
-        category: "Video Editing",
-        image: "/redesign/data-science/tools/capcut.png",
-        description: "Pro-level video editing and effects for social content."
+        name: "Matplotlib",
+        category: "Data Visualization",
+        image: "/redesign/data-science/tools/matplotlib.png",
+        description: "Comprehensive library for creating static plots."
     },
     {
-        name: "Runway",
-        category: "Video Generation",
-        image: "/redesign/data-science/tools/runway.png",
-        description: "Next-gen AI tools for creative video production."
+        name: "Seaborn",
+        category: "Statistical Viz",
+        image: "/redesign/data-science/tools/saeborn.png",
+        description: "High-level interface for attractive statistical graphics."
     },
     {
-        name: "Leonardo.ai",
-        category: "Image Generation",
-        image: "/redesign/data-science/tools/leonardo.png",
-        description: "Full-stack AI image generation platform."
+        name: "Scikit-Learn",
+        category: "Machine Learning",
+        image: "/redesign/data-science/tools/scikit-learn.png",
+        description: "Simple and efficient tools for predictive analysis."
     },
     {
-        name: "Ideogram",
-        category: "AI Design",
-        image: "/redesign/data-science/tools/ideogram.png",
-        description: "Text-to-image AI focused on typography and design."
+        name: "Statsmodels",
+        category: "Statistical Modeling",
+        image: "/redesign/data-science/tools/statsmodels.png",
+        description: "Statistical modeling and hypothesis testing."
     },
     {
-        name: "OpusClip",
-        category: "Video Automation",
-        image: "/redesign/data-science/tools/opusclip.png",
-        description: "AI-powered tool for creating viral short-form clips."
+        name: "XGBoost",
+        category: "Advanced ML",
+        image: "/redesign/data-science/tools/xgboost.png",
+        description: "Optimized distributed gradient boosting library."
     },
     {
-        name: "Pika Labs",
-        category: "Video Generation",
-        image: "/redesign/data-science/tools/pika.png",
-        description: "Idea-to-video platform for high-quality animation."
+        name: "SHAP",
+        category: "Model Interpretability",
+        image: "/redesign/data-science/tools/shap.png",
+        description: "Explainable AI to understand model predictions."
     },
     {
-        name: "Stability AI",
-        category: "Deep Learning",
-        image: "/redesign/data-science/tools/stability.png",
-        description: "Open-source foundational models for creative AI."
+        name: "Hugging Face",
+        category: "NLP & GenAI",
+        image: "/redesign/data-science/tools/huggingface.png",
+        description: "State-of-the-art models for natural language processing."
+    },
+    {
+        name: "ChatGPT",
+        category: "AI Assistant",
+        image: "/redesign/data-science/tools/chatgpt.png",
+        description: "AI-powered coding assistance and content generation."
+    },
+    {
+        name: "FastAPI",
+        category: "Model Deployment",
+        image: "/redesign/data-science/tools/fastapi.png",
+        description: "Modern, fast web framework for building APIs."
+    },
+    {
+        name: "GitHub",
+        category: "Version Control",
+        image: "/redesign/data-science/tools/GitHub.png",
+        description: "Collaboration and version control for your projects."
+    },
+    {
+        name: "LightGBM",
+        category: "Neural Networks",
+        image: "/redesign/data-science/tools/Untitled design (32) 1.png",
+        description: "Advanced deep learning frameworks and architectures."
     }
 ];
 

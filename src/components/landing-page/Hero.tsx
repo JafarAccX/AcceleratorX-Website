@@ -8,7 +8,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("/redesign/main-page/main-hero-1.webp")',
+          backgroundImage: 'url("/redesign/main-page/main-hero-bg.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center 20%',
         }}
@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="flex-1 flex flex-col justify-center pt-32 pb-10">
           <div className="max-w-6xl">
             <h1 className="font-heading text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-light tracking-tight text-white dark:text-white italic">
-              <TypeAnimation
+              {/* <TypeAnimation
                 sequence={["Build", 2000, "Lead", 2000, "Succeed", 2000]}
                 wrapper="span"
                 speed={50}
@@ -39,8 +39,12 @@ export default function Hero() {
                 cursor={false}
               />
               <span className="not-italic font-normal"> with</span>
+              <br />*/}
+              <span className="not-italic font-normal">Built for Your Next</span>
               <br />
-              <span className="not-italic font-normal">Artificial Intelligence</span>
+              <span className="not-italic font-normal"> Career</span>
+
+
             </h1>
           </div>
 
