@@ -93,15 +93,7 @@ export default function ProgramHeroEIE() {
                 AI Product Management
               </h1>
               {/* Logo/Icon space if needed */}
-              <div className="hidden md:block">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                >
-                  <img src="/redesign/ai-pm/ai-pm-bg-1.webp" className="w-16 h-16 object-contain brightness-0 invert opacity-50" alt="" />
-                </motion.div>
-              </div>
+
             </div>
 
             {/* Divider */}

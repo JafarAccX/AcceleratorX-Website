@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-blue-600 dark:bg-blue-900 transition-colors duration-300">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap');
       `}</style>
 
       {/* Background Image with Blue Overlay */}
@@ -25,6 +25,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="bg-black/80 dark:bg-white/10 text-white px-6 py-2 rounded-full text-sm font-medium tracking-wide mb-8 inline-flex items-center gap-2 backdrop-blur-sm transition-colors duration-300"
+          style={{ fontFamily: 'Open Sans, sans-serif' }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
           ABOUT US
@@ -36,7 +37,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-white dark:text-white mb-6 leading-tight"
-          style={{ fontFamily: 'Cormorant Infant, serif' }}
+          style={{ fontFamily: 'Epilogue, sans-serif' }}
         >
           Innovations Dedicated to Shaping <br /> Your Future Forward
         </motion.h1>
@@ -47,6 +48,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           className="text-blue-100 dark:text-blue-200 text-lg md:text-xl font-medium tracking-wide transition-colors duration-300"
+          style={{ fontFamily: 'Open Sans, sans-serif' }}
         >
           We Make Learning AI Accessible For All
         </motion.p>

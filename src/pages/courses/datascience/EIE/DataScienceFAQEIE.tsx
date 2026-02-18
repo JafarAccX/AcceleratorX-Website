@@ -112,7 +112,7 @@ export default function DataScienceFAQEIE() {
                 <div className="text-center mb-16">
                     <h2 className="font-heading text-3xl md:text-5xl font-bold text-[#0A0F1E] dark:text-white mb-4 transition-colors duration-300">
                         Frequently Asked <br />
-                        <span className="italic font-light">Questions</span>
+                        <span className=" font-light">Questions</span>
                     </h2>
                     <p className="text-gray-500 dark:text-gray-400 transition-colors duration-300">Everything you need to know about the Data Science Career Accelerator</p>
                 </div>

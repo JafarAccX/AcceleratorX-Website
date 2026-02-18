@@ -173,7 +173,7 @@ export default function ProgramsOffered() {
 
 
                             <h2 className="font-heading text-4xl md:text-5xl lg:text-7xl font-light text-[#1A2B44] dark:text-white leading-[1.1] max-w-4xl text-center lg:text-left transition-colors duration-300">
-                                AI Programs that helps to become a <span className="italic">Professional</span>
+                                AI Programs that helps to become a <span className="">Professional</span>
                             </h2>
 
                         </div>

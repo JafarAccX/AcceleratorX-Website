@@ -87,7 +87,7 @@ const Team = () => {
   return (
     <section className="relative py-24 bg-white dark:bg-[#000000] overflow-hidden transition-colors duration-300">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap');
       `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 space-y-4">
@@ -96,6 +96,7 @@ const Team = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-blue-500 dark:text-blue-400 font-bold tracking-wider text-sm uppercase transition-colors duration-300"
+            style={{ fontFamily: 'Open Sans, sans-serif' }}
           >
             OUR LEADERSHIP TEAM
           </motion.span>
@@ -106,7 +107,7 @@ const Team = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white transition-colors duration-300"
-            style={{ fontFamily: 'Cormorant Infant, serif' }}
+            style={{ fontFamily: 'Epilogue, sans-serif' }}
           >
             Meet the Team Responsible <br className="hidden md:block" /> for Making Wonders
           </motion.h2>

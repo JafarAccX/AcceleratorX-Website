@@ -1,4 +1,4 @@
-import { TypeAnimation } from "react-type-animation";
+// import { TypeAnimation } from "react-type-animation";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
@@ -76,10 +76,10 @@ export default function Hero() {
                       section.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="font-sans group flex items-center justify-end  gap-3 bg-[#FFC107]  hover:bg-[#FFD54F] active:scale-95 text-black px-8 py-3.5 rounded-lg font-bold text-lg shadow-[0_10px_30px_-10px_rgba(255,193,7,0.3)] transition-all duration-300"
+                  className="font-sans group flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-2xl text-lg font-medium border border-white/20 shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.6)] hover:border-blue-500/50 transition-all duration-300 active:scale-95"
                 >
                   Explore Programs
-                  <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
+                  <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1 text-gray-400 group-hover:text-white" />
                 </button>
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function Hero() {
                 <img
                   src="/redesign/main-page/main-hero/app-store.jpg"
                   alt="Download on the App Store"
-                  className="w-56"
+                  className="w-48"
                 />
               </a>
               <a

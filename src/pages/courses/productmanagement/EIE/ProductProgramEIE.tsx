@@ -747,7 +747,7 @@ export default function ProductProgramEIE() {
                                         <img
                                             src={mentor.image || "/placeholder.svg"}
                                             alt={mentor.name}
-                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
                                     <div className="p-4 text-center relative">
