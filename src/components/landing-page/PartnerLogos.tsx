@@ -19,7 +19,7 @@ const PartnerLogos = () => {
         <div className="relative flex overflow-hidden w-full py-4">
             <div className={`flex gap-12 whitespace-nowrap animate-slide-${reverse ? 'right' : 'left'}`}>
                 {[...partners, ...partners, ...partners].map((partner, index) => (
-                    <div key={index} className="flex-shrink-0 w-32 md:w-40 h-12 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    <div key={index} className="flex-shrink-0 w-32 md:w-40 h-12 flex items-center justify-center transition-all duration-300">
                         <img
                             src={partner.src}
                             alt={partner.alt}

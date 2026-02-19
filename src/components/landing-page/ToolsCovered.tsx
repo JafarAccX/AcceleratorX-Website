@@ -1,24 +1,32 @@
 import { motion } from "framer-motion";
 
 const LOGOS = [
-    "/redesign/main-page/logos/0_8MnQXRlwlM7phGBp.png",
-    "/redesign/main-page/logos/1b3a2eaf-81bc-4bc5-b4fd-7bf4270f0a82 (1).png",
-    "/redesign/main-page/logos/LangChain-logo.png",
-    "/redesign/main-page/logos/Mistral-AI-Icon-Logo-Vector.svg-.png",
-    "/redesign/main-page/logos/4282cc12-2bfd-40e5-a638-9eaab14d9464.png",
-    "/redesign/main-page/logos/cropped-cropped-brush.png",
-    "/redesign/main-page/logos/OIP.jpg",
-    "/redesign/main-page/logos/OIP (1).jpg",
-    "/redesign/main-page/logos/OIP (2).jpg",
-    "/redesign/main-page/logos/OIP (3).jpg",
-    "/redesign/main-page/logos/OIP (4).jpg",
-    "/redesign/main-page/logos/OIP (5).jpg",
-    "/redesign/main-page/logos/OIP (6).jpg",
-    "/redesign/main-page/logos/OIP (7).jpg",
-    "/redesign/main-page/logos/OIP (8).jpg",
-    "/redesign/main-page/logos/OIP (9).jpg",
-    "/redesign/main-page/logos/OIP (10).jpg",
-    "/redesign/main-page/logos/OIP (11).jpg",
+    "/redesign/advance-gen-ai/tools/BGEm3.png",
+    "/redesign/advance-gen-ai/tools/Bitsandbytes.png",
+    "/redesign/advance-gen-ai/tools/Blip.png",
+    "/redesign/advance-gen-ai/tools/Chroma.png",
+    "/redesign/advance-gen-ai/tools/Clipsai.png",
+    "/redesign/advance-gen-ai/tools/Crewai.png",
+    "/redesign/advance-gen-ai/tools/Cuda.png",
+    "/redesign/advance-gen-ai/tools/Datasets.png",
+    "/redesign/advance-gen-ai/tools/Docker.png",
+    "/redesign/advance-gen-ai/tools/Fastapi.png",
+    "/redesign/advance-gen-ai/tools/Gemma.png",
+    "/redesign/advance-gen-ai/tools/Gradio.png",
+    "/redesign/advance-gen-ai/tools/Instructorxl.png",
+    "/redesign/advance-gen-ai/tools/Langchain.png",
+    "/redesign/advance-gen-ai/tools/Langfuse.png",
+    "/redesign/advance-gen-ai/tools/LangGraph.png",
+    "/redesign/advance-gen-ai/tools/Llama3.png",
+    "/redesign/advance-gen-ai/tools/Llm.png",
+    "/redesign/advance-gen-ai/tools/lora.png",
+    "/redesign/advance-gen-ai/tools/Mistralai.png",
+    "/redesign/advance-gen-ai/tools/Ollama.png",
+    "/redesign/advance-gen-ai/tools/Peft.png",
+    "/redesign/advance-gen-ai/tools/Python.png",
+    "/redesign/advance-gen-ai/tools/pytorch.png",
+    "/redesign/advance-gen-ai/tools/Transformers.png",
+    "/redesign/advance-gen-ai/tools/Weights&Biases.png"
 ];
 
 const ToolsCovered = () => {
@@ -57,12 +65,12 @@ const ToolsCovered = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
-                            className=" p-4 aspect-square flex items-center justify-center hover:bg-white/20 transition-all duration-300 group backdrop-blur-sm"
+                            className=" p-4  flex items-center justify-center transition-all duration-300 group backdrop-blur-sm"
                         >
                             <img
                                 src={logo}
                                 alt={`Partner tool ${index + 1}`}
-                                className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300"
+                                className="w-full h-full object-contain transition-all duration-300"
                             />
                         </motion.div>
                     ))}
