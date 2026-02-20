@@ -45,7 +45,7 @@ const PartnerLogos = () => {
                 <div className="w-full lg:w-2/3 relative">
                     <div className="mb-6">
                         <h3 className="font-heading text-sm md:text-base font-bold text-[#0D47A1] dark:text-blue-400 uppercase tracking-wider text-center lg:text-left opacity-80 transition-colors duration-300">
-                            Our Partners & Hiring Network:
+                            Our Learners Work At:
                         </h3>
                     </div>
 
