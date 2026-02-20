@@ -8,7 +8,7 @@ import { ProgramBadge } from "../common/ProgramBadge";
 export default function Hero() {
   const [isTypingDone, setIsTypingDone] = useState(false);
   return (
-    <div className="relative min-h-screen w-full px-4 overflow-hidden bg-black dark:bg-black text-white selection:bg-blue-500/30">
+    <div className="relative min-h-screen  w-full px-4 overflow-hidden bg-black dark:bg-black text-white selection:bg-blue-500/30">
       {/* Background Image with Person */}
       <motion.div
         initial={{ scale: 1 }}

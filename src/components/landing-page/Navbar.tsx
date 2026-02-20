@@ -171,7 +171,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-[10px] w-full left-1/2 -translate-x-1/2 z-[9999] md:w-[calc(100%-140px)] max-w-[1300px] ${menuTransition}`}
+        className={`fixed top-[10px] w-full left-1/2 -translate-x-1/2 z-[9999] max-w-7xl ${menuTransition}`}
       >
         <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-[#000000]/70 shadow-lg px-6 sm:px-8 w-full border border-gray-200/50 dark:border-gray-700/50">
           <div className="flex items-center justify-between h-full">
