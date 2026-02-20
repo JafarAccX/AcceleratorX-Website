@@ -6,7 +6,6 @@ import BlogDetail from "../pages/blogs/BlogDetail";
 // // Lazy-load heavy pages that were previously imported eagerly
 const WorkshopPaymentSuccess = lazy(() => import("../pages/workshop-payment/Success"));
 const CoursePaymentSuccess = lazy(() => import("../pages/course-payment/Success"));
-const XSATEntry = lazy(() => import("../pages/courses/EntryPoint/XSATEntry"));
 const EventManagementPage = lazy(() => import("../pages/events/event"));
 const RegistrationSuccess = lazy(() => import("../pages/events/registration-successful"));
 
@@ -32,7 +31,6 @@ export const mainRoutes = [
   <Route key="privacy" path="/privacy-policy" element={<Privacy />} />,
   <Route key="terms" path="/terms-and-conditions" element={<Terms />} />,
   <Route key="refund" path="/refund-policy" element={<Refund />} />,
-  <Route key="xsat" path="/xsat" element={<XSATEntry />} />,
   <Route key="events" path="/events" element={<Events />} />,
   <Route key="event-pm" path="/event/PMtakedown/view" element={<EventManagementPage />} />,
 
