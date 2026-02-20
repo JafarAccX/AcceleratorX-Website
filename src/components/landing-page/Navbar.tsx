@@ -20,6 +20,7 @@ const xsatNavItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isPlatformsDropdownOpen, setIsPlatformsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isAuthenticated } = useUser();
   const location = useLocation();
@@ -52,7 +53,11 @@ export default function Navbar() {
     { label: "About", path: "/about-us" },
     { label: "Blog", path: "/blogs" },
     { label: "Jobs Portal", path: "/jobs" },
-    { label: "Buildrx", path: "https://buildrx.org" },
+  ];
+
+  const platforms = [
+    { label: "BuildRX", path: "https://buildrx.org" },
+    { label: "LMS", path: "https://lms.acceleratorx.org" },
   ];
 
   const courses = [
@@ -219,7 +224,7 @@ export default function Navbar() {
               {/* Menu Items */}
               {menuItems.map((item) => {
                 const isExternal = item.path.startsWith("http");
-                const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
+                const isHighlighted = item.label === "XSAT";
                 const baseClasses = `font-sans relative group ${hoverTransition} ${isHighlighted
                   ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
                   : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
@@ -251,6 +256,45 @@ export default function Navbar() {
                 );
               })}
 
+              {/* Our Platforms Dropdown */}
+              <div
+                className="relative group"
+                onMouseEnter={() => setIsPlatformsDropdownOpen(true)}
+                onMouseLeave={() => setIsPlatformsDropdownOpen(false)}
+              >
+                <button
+                  className={`font-sans flex items-center gap-1 text-[#FFBB00] font-semibold bg-gray-100/50 dark:bg-gray-800/50 px-4 py-1.5 rounded-lg border border-[#FFBB00]/20 hover:border-[#FFBB00]/40 ${hoverTransition}`}
+                >
+                  Our Platforms
+                  <ChevronDown
+                    size={16}
+                    className={`${dropdownTransition}`}
+                    style={{
+                      transform: isPlatformsDropdownOpen ? "rotate(180deg)" : "rotate(0)",
+                    }}
+                  />
+                </button>
+
+                <div
+                  className={`absolute left-0 top-full pt-2 w-48 ${dropdownTransition} ${isPlatformsDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                    }`}
+                >
+                  <div className="dark:bg-black/95 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden">
+                    {platforms.map((platform) => (
+                      <a
+                        key={platform.label}
+                        href={platform.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`font-sans block px-4 py-2.5 text-[#FFBB00] hover:bg-[#FFBB00]/10 ${hoverTransition} text-sm font-semibold border-b border-gray-100 dark:border-gray-800 last:border-0`}
+                      >
+                        {platform.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
 
 
               {isAuthenticated ? (
@@ -263,12 +307,12 @@ export default function Navbar() {
                   >
                     Login
                   </Link>
-                  <Link
+                  {/* <Link
                     to="/sign-up"
                     className={`font-sans bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-full text-sm font-medium ${hoverTransition} shadow-md`}
                   >
                     Sign Up
-                  </Link>
+                  </Link> */}
                 </div>
               )}
             </div>
@@ -357,7 +401,7 @@ export default function Navbar() {
                 {/* Menu Items */}
                 {menuItems.map((item) => {
                   const isExternal = item.path.startsWith("http");
-                  const isHighlighted = item.label === "XSAT" || item.label === "Buildrx";
+                  const isHighlighted = item.label === "XSAT";
                   const baseClasses = `font-sans flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${isHighlighted
                     ? "text-[#FFBB00]"
                     : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white "
@@ -397,6 +441,46 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
+
+                {/* Mobile Our Platforms Dropdown */}
+                <div className="mb-2">
+                  <button
+                    onClick={() => setIsPlatformsDropdownOpen(!isPlatformsDropdownOpen)}
+                    className="font-sans flex items-center justify-between w-full text-[#FFBB00] hover:text-[#FFBB00]/80 text-lg font-semibold py-3 px-4 rounded-xl transition-colors"
+                  >
+                    Our Platforms
+                    <ChevronDown
+                      size={20}
+                      className={`transition-transform duration-300 ${isPlatformsDropdownOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {isPlatformsDropdownOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden rounded-xl mt-1 mx-2"
+                      >
+                        <div className="flex flex-col p-2">
+                          {platforms.map((platform) => (
+                            <a
+                              key={platform.label}
+                              href={platform.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-sans py-3 px-4 text-[#FFBB00] hover:bg-[#FFBB00]/10 rounded-lg text-sm font-medium transition-colors"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {platform.label}
+                            </a>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 <div className="mt-auto pt-8 border-t border-gray-100">
                   {isAuthenticated ? (
