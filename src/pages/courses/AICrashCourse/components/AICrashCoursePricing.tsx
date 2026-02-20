@@ -21,7 +21,10 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
             </div>
 
             {/* Main Card */}
-            <div className="w-full max-w-[500px] border border-[#AC0AE7]/30 rounded-3xl bg-[#0a0a0a] p-8 md:p-10 flex flex-col relative shadow-[0_0_60px_rgba(172,10,231,0.15)] overflow-hidden">
+            <div className="w-full max-w-[500px] border border-red-500/50 rounded-3xl bg-[#0a0a0a] p-8 md:p-10 flex flex-col relative shadow-[0_0_60px_rgba(172,10,231,0.15)] overflow-hidden">
+                <div className="absolute top-0 right-0 bg-red-600/90 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl z-20 shadow-[0_0_10px_rgba(220,38,38,0.5)] uppercase tracking-wider">
+                    Price Hike
+                </div>
 
                 {/* Top purple glow inside card */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#AC0AE7] to-[#48A2EB]"></div>

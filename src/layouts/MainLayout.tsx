@@ -39,8 +39,6 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   return (
     <div className="relative">
-
-
       {showNavbar && <Navbar />}
 
       {/* Google Translate Widget */}

@@ -135,7 +135,7 @@ export const SignUpForm = () => {
           lastName: formState.lastName,
           email: formState.email?.toLowerCase(),
           mobile: formState.mobile,
-          callingCode: formState.mobile ? "+91" : null,
+          callingCode: "+91", // Always send calling code, even if mobile is empty
           otpCode: otp,
         };
         response = await api.post("/auth/email/register", payload);

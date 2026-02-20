@@ -77,10 +77,16 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
                     </div>
 
                     {/* Price Box */}
-                    <div className="mt-4  bg-black/80 backdrop-blur-md rounded-xl p-4 md:p-6 inline-block shadow-2xl relative overflow-hidden group">
+                    {/* Price Box */}
+                    <div className="mt-4  bg-black/80 backdrop-blur-md rounded-xl p-4 md:p-6 inline-block shadow-2xl relative overflow-hidden group border border-red-500/50">
+                        <div className="absolute top-0 right-0 bg-red-600/90 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg z-20 shadow-[0_0_10px_rgba(220,38,38,0.5)] uppercase tracking-wider">
+                            Price Hike
+                        </div>
                         <div className="absolute inset-0 bg-purple-600/5 group-hover:bg-purple-600/10 transition-colors"></div>
-                        <p className="font-sans text-gray-400 text-sm mb-1 relative z-10">in just</p>
-                        <p className="font-heading text-3xl md:text-4xl font-bold text-white relative z-10">₹4,999 + GST</p>
+                        <div className="relative z-10 flex flex-col items-center">
+                            <p className="font-sans text-gray-500 text-lg line-through decoration-red-500/70 decoration-2 mb-1">₹4,999 + GST</p>
+                            <p className="font-heading text-3xl md:text-4xl font-bold text-white">₹14,999 + GST</p>
+                        </div>
                     </div>
 
                 </div>
