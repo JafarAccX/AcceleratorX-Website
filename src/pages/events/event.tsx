@@ -398,7 +398,7 @@ export function EventDetails() {
                       transition={{ duration: 0.5 }}
                     >
                       <div className="bg-gradient-to-r h-full mb-10 from-purple-900/20 to-pink-900/20 p-6 rounded-xl border border-purple-800/20 space-y-8">
-                        <p className="text-gray-300 italic mb-4">"{testimonials[currentTestimonial].text}"</p>
+                        <p className="text-gray-300  mb-4">"{testimonials[currentTestimonial].text}"</p>
                         <div className="flex items-center">
                           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mr-3">
                             <span className="font-bold">{testimonials[currentTestimonial].author.charAt(0)}</span>
@@ -421,9 +421,8 @@ export function EventDetails() {
                     <button
                       key={index}
                       onClick={() => setCurrentTestimonial(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        currentTestimonial === index ? "bg-purple-500 w-6" : "bg-gray-600"
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${currentTestimonial === index ? "bg-purple-500 w-6" : "bg-gray-600"
+                        }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
                   ))}

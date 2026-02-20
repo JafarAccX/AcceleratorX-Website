@@ -179,7 +179,7 @@ const AIDMPricing: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mt-12 bg-[#0F0F0F] border border-white/10 rounded-xl p-6 max-w-2xl mx-auto"
         >
-          <p className="text-gray-300 italic mb-4">
+          <p className="text-gray-300  mb-4">
             "Master hands-on AI labs, capstone, and automation flows and save 40–60% time and increase efficiency."
           </p>
         </motion.div> */}

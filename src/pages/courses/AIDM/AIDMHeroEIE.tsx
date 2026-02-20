@@ -68,9 +68,23 @@ export default function AIDMHeroEIE() {
             className="relative min-h-[800px] bg-cover bg-center pt-32 pb-20 overflow-hidden"
             style={{ backgroundImage: "url('/redesign/ai-dm/dm.png')" }}
         >
+            {/* Background Planet */}
+            <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="absolute top-0 right-0 h-full w-1/2 z-0 pointer-events-none select-none overflow-hidden hidden md:block"
+            >
+                <img
+                    src="/redesign/ai-dm/bg-planet.png"
+                    alt="Planet"
+                    className="h-full w-auto object-contain object-right opacity-80 scale-110 translate-x-1/4"
+                />
+            </motion.div>
+
             <div className="max-w-7xl mx-auto px-4  md:pt-20 relative z-10">
                 <Typewriter
-                    text="SCANNING FOR VISIBILITY . . ."
+                    text="SCANNING FOR VISIBILITY..."
                     onComplete={() => setIsTypingDone(true)}
                     className="mb-8"
                 />

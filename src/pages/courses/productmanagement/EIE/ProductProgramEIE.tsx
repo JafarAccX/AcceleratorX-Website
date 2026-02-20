@@ -324,7 +324,7 @@ const AccordionItem = ({ week }: { week: any }) => {
                     >
                         <div className="p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717]  transition-colors duration-300">
                             {week.goal && (
-                                <p className="font-sans text-sm text-blue-600 dark:text-blue-400 italic mb-3 font-medium transition-colors duration-300">
+                                <p className="font-sans text-sm text-blue-600 dark:text-blue-400  mb-3 font-medium transition-colors duration-300">
                                     {week.goal}
                                 </p>
                             )}

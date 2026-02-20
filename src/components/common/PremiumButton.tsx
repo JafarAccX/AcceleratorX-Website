@@ -31,7 +31,7 @@ export const PremiumButton = ({
                     repeat: Infinity,
                     ease: "linear",
                 }}
-                className="absolute inset-[-250%] bg-[conic-gradient(from_0deg_at_50%_50%,#3b82f6_0%,#6366f1_10%,transparent_30%,transparent_70%,#6366f1_90%,#3b82f6_100%)] opacity-40 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute inset-[-250%] bg-[conic-gradient(from_0deg_at_50%_50%,#3b82f6_0%,#ffffff_10%,#6366f1_20%,transparent_40%,transparent_60%,#6366f1_80%,#ffffff_90%,#3b82f6_100%)] opacity-40 group-hover:opacity-100 transition-opacity duration-500"
             />
 
             {/* Button Body with Glassmorphism */}

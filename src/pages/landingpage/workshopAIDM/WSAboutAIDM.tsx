@@ -160,7 +160,7 @@ const WSAboutAIDM = () => {
                   <FaCertificate className="w-6 h-6" />
                   <h3 className="text-xl font-bold">Certification Included</h3>
                 </div>
-                <p className="text-gray-200 mb-3 text-sm italic font-medium">
+                <p className="text-gray-200 mb-3 text-sm  font-medium">
                   Micro-Certification in AI Marketing
                 </p>
                 <p className="text-gray-200 mb-3 text-sm">

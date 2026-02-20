@@ -383,7 +383,7 @@ export default function DataScienceProgramEIE() {
                 <main className="lg:w-3/4 space-y-24">
 
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="font-heading text-2xl font-bold mb-6 italic text-[#3B82F6]">AI Programs that helps to
+                        <h3 className="font-heading text-2xl font-bold mb-6  text-[#3B82F6]">AI Programs that helps to
                             become a Professional</h3>
                         <p className="font-sans text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Designed for serious DS careers, this program matches how Data Science roles work today. You won't just learn Python; you'll build models that survive production and influence real business decisions.</p>
                         <ul className="space-y-3 mb-8">

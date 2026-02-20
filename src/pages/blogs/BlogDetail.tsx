@@ -66,7 +66,7 @@ const BlogDetail = () => {
           </figure>`;
         },
         quote: (block: any) => {
-          return `<blockquote class="border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic mb-6 text-gray-700 dark:text-gray-300 transition-colors duration-300">${block.data.text}</blockquote>`;
+          return `<blockquote class="border-l-4 border-blue-500 dark:border-blue-400 pl-4  mb-6 text-gray-700 dark:text-gray-300 transition-colors duration-300">${block.data.text}</blockquote>`;
         },
         code: (block: any) => {
           return `<pre class="bg-gray-100 dark:bg-[#171717] p-4 rounded-lg mb-6 overflow-x-auto transition-colors duration-300 border border-transparent dark:border-[#848484]/30"><code class="text-gray-900 dark:text-gray-100">${block.data.code}</code></pre>`;

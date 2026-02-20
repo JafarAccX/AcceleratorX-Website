@@ -312,7 +312,7 @@ const AccordionItem = ({ item }: { item: any }) => {
                         exit={{ height: 0, opacity: 0 }}
                     >
                         <div className="p-5  text-gray-600 dark:text-gray-300 pt-4 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
-                            <p className="font-sans text-sm text-[#FC6401] dark:text-[#FC6401] italic mb-3 font-medium transition-colors duration-300">{item.goal}</p>
+                            <p className="font-sans text-sm text-[#FC6401] dark:text-[#FC6401]  mb-3 font-medium transition-colors duration-300">{item.goal}</p>
                             <div className="mb-4">
                                 <p className="font-sans font-semibold text-gray-800 dark:text-gray-200 mb-2 text-xs uppercase tracking-wider transition-colors duration-300">Key Skills:</p>
                                 <div className="flex flex-wrap gap-2">

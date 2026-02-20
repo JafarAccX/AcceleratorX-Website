@@ -398,7 +398,7 @@ export default function AdvanceGenAIProgramEIE() {
                     <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : 'relative'}>
                         <img src="/redesign/advance-gen-ai/astroid.webp" alt="ai" className="absolute -top-16 left-0 opacity-40 animate-float" />
                         <h2 className="font-heading text-3xl font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight">
-                            Build AI Agents. <br /><span className="italic font-light">Not Just AI Skills.</span>
+                            Build AI Agents. <br /><span className=" font-light">Not Just AI Skills.</span>
                         </h2>
                         <nav className="space-y-4 border-l-2 border-gray-200 dark:border-[#848484]/30">
                             {SECTIONS.map((section) => (
