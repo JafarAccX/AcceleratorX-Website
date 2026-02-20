@@ -8,6 +8,8 @@ import toast from 'react-hot-toast';
 import { useUser } from '../../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
 import { api } from '../../../../api';
+import { PremiumButton } from "../../../../components/common/PremiumButton";
+import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 
 declare global {
@@ -359,6 +361,21 @@ export default function DataProgramEIE() {
   const [selectedPlanPrice, setSelectedPlanPrice] = useState<number>(0);
   const [showCancellationModal, setShowCancellationModal] = useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDownload, setIsDownload] = useState(false);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setIsDownload(false);
+  };
+
+  const handleModalSubmit = () => {
+    if (isDownload) {
+      // Logic for curriculum download
+    }
+    handleModalClose();
+  };
+
   const coursePrice = COURSE_PRICES.DATA_ANALYTICS;
   const courseId = COURSE_IDS.DATA_ANALYTICS;
   const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -579,9 +596,15 @@ export default function DataProgramEIE() {
               ))}
             </div>
             <div className="mt-8 flex justify-center">
-              <button className="font-sans px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-colors flex items-center gap-2">
-                Download Full Curriculum <ChevronDown size={18} />
-              </button>
+              <PremiumButton
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setIsDownload(true);
+                }}
+                icon={<ChevronDown size={18} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
+              >
+                Download Full Curriculum
+              </PremiumButton>
             </div>
             <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
           </section>
@@ -841,6 +864,7 @@ export default function DataProgramEIE() {
           </AnimatePresence>
         </main>
       </div>
+      <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} />
     </div>
   );
 }

@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Check, ArrowRight, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../context/UserContext';
+import { PremiumButton } from "../../../components/common/PremiumButton";
+import EnrollmentModal from "../../../components/EnrollmentModal";
 
 declare global {
     interface Window {
@@ -308,6 +310,21 @@ export default function AdvanceGenAIProgramEIE() {
     const sidebarRef = useRef<HTMLElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDownload, setIsDownload] = useState(false);
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setIsDownload(false);
+    };
+
+    const handleModalSubmit = () => {
+        if (isDownload) {
+            // Logic for roadmap download
+        }
+        handleModalClose();
+    };
+
     // Using dummy IDs for now or mapping based on constants if available
 
 
@@ -432,9 +449,15 @@ export default function AdvanceGenAIProgramEIE() {
                             {CURRICULUM.map((item, idx) => <AccordionItem key={idx} item={item} />)}
                         </div>
                         <div className="mt-12 flex justify-center">
-                            <button className="px-10 py-4 bg-[#FC6401] hover:bg-[#e55a00] text-black font-extrabold rounded-full shadow-xl transition-all flex items-center gap-3">
-                                Download Agentic AI Roadmap <ChevronDown size={20} />
-                            </button>
+                            <PremiumButton
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setIsDownload(true);
+                                }}
+                                icon={<ChevronDown size={20} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
+                            >
+                                Download Agentic AI Roadmap
+                            </PremiumButton>
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
@@ -612,6 +635,7 @@ export default function AdvanceGenAIProgramEIE() {
                     </section>
                 </main>
             </div>
+            <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} />
         </div>
     );
 }

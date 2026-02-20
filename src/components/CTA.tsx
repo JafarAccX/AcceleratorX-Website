@@ -49,7 +49,7 @@ export default function CTA() {
           {/* Decorative Divider */}
           <div className="mt-12">
             <div
-              
+
               className="mx-auto w-16 h-1 bg-gradient-to-r from-blue-500 to-blue-600"
             ></div>
           </div>

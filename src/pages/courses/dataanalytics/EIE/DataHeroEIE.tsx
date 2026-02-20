@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useCourseContext } from "../../../../context/courseContext";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 import { Typewriter } from "../../../../components/common/Typewriter";
+import { PremiumButton } from "../../../../components/common/PremiumButton";
 
 interface CounterProps {
   end: number;
@@ -89,7 +90,7 @@ export default function DataHeroEIE() {
               transition={{ duration: 0.6 }}
               className="mb-10"
             >
-              <h1 className="font-heading text-5xl md:text-7xl text-white dark:text-white leading-tight font-medium">
+              <h1 className="font-heading text-[2.75rem] sm:text-6xl   leading-[1.1] font-light tracking-tight text-white dark:text-white ">
                 AI Data Analytics
               </h1>
             </motion.div>
@@ -138,13 +139,12 @@ export default function DataHeroEIE() {
                     Apply Now
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button
+                  <PremiumButton
                     onClick={() => { setIsModalOpen(true); setIsDownload(true); }}
-                    className="font-sans px-8 py-3.5 bg-[#FFC107] hover:bg-yellow-500 text-black rounded-full font-semibold transition-all shadow-lg hover:shadow-yellow-500/30 flex items-center gap-2 group"
+                    icon={<ChevronDown size={18} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
                   >
                     Get Full Curriculum
-                    <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
-                  </button>
+                  </PremiumButton>
                 </div>
               </motion.div>
             </div>

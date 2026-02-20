@@ -1,5 +1,6 @@
 
-import { Check, Download, Hourglass, Calendar } from "lucide-react";
+import { Check, Download, Hourglass, Calendar, ArrowRight } from "lucide-react";
+import { PremiumButton } from "../../../../components/common/PremiumButton";
 
 interface AICrashCoursePricingProps {
     onEnroll: () => void;
@@ -49,25 +50,21 @@ const AICrashCoursePricing: React.FC<AICrashCoursePricingProps> = ({ onEnroll })
 
                 {/* Actions */}
                 <div className="space-y-6">
-                    <button
+                    <PremiumButton
                         onClick={onEnroll}
-                        className="w-full h-[56px] rounded-xl flex items-center justify-center group relative overflow-hidden transition-transform hover:scale-[1.02]"
-                        style={{
-                            background: 'linear-gradient(90deg, #8B5CF6 0%, #AC0AE7 100%)',
-                        }}
+                        className="w-full"
+                        icon={<ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />}
                     >
-                        <span className="font-sans text-white font-bold text-lg relative z-10">Enroll Now</span>
-                        {/* Button Glow on Hover */}
-                        <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    </button>
+                        Enroll Now
+                    </PremiumButton>
 
-                    <button
+                    <PremiumButton
                         onClick={onEnroll}
-                        className="font-sans w-full flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium border border-[#333] hover:border-[#555] rounded-xl h-[48px]"
+                        className="w-full"
+                        icon={<Download className="w-4 h-4" />}
                     >
-                        <Download className="w-4 h-4" />
                         Download Detailed Brochure
-                    </button>
+                    </PremiumButton>
                 </div>
 
                 {/* Footer Icons */}

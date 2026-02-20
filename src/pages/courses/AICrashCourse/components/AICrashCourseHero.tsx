@@ -1,5 +1,6 @@
 
 import React from "react";
+import { PremiumButton } from "../../../../components/common/PremiumButton";
 
 interface AICrashCourseHeroProps {
     onEnroll: () => void;
@@ -59,30 +60,20 @@ const AICrashCourseHero: React.FC<AICrashCourseHeroProps> = ({ onEnroll }) => {
 
 
                     <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
-                        <button
+                        <PremiumButton
                             onClick={onEnroll}
-                            className="relative w-[166px] h-[48px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center group"
-                            style={{
-                                background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #AC0AE7 32.08%, #48A2EB 74.28%) border-box',
-                                border: '2px solid transparent',
-                            }}
+                            className="w-[166px]"
+                            icon={<span className="group-hover:translate-x-1 transition-transform">→</span>}
                         >
-                            <span className="font-sans text-white font-bold text-base flex items-center">
-                                Enroll Now <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                            </span>
-                        </button>
+                            Enroll Now
+                        </PremiumButton>
 
-                        <button
+                        <PremiumButton
                             onClick={onEnroll}
-                            className="relative w-[240px] h-[48px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center group"
-                            style={{
-                                border: '2px solid transparent',
-                            }}
+                            className="w-[240px]"
                         >
-                            <span className="font-sans text-white font-bold text-base flex items-center">
-                                Download Brochure <span className="ml-2 group-hover:translate-x-1 transition-transform">»</span>
-                            </span>
-                        </button>
+                            Download Brochure
+                        </PremiumButton>
                     </div>
 
                     {/* Price Box */}

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useCourseContext } from "../../../../context/courseContext";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 import { Typewriter } from "../../../../components/common/Typewriter";
+import { PremiumButton } from "../../../../components/common/PremiumButton";
 
 interface CounterProps {
     end: number;
@@ -134,13 +135,12 @@ export default function DataScienceHeroEIE() {
                                         Apply Now
                                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                     </button>
-                                    <button
+                                    <PremiumButton
                                         onClick={() => { setIsModalOpen(true); setIsDownload(true); }}
-                                        className="font-sans px-8 py-3.5 bg-white hover:bg-gray-100 text-black rounded-full font-semibold transition-all shadow-lg flex items-center gap-2 group"
+                                        icon={<ChevronDown size={18} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
                                     >
                                         View Curriculum
-                                        <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
-                                    </button>
+                                    </PremiumButton>
                                 </div>
                             </motion.div>
                         </div>

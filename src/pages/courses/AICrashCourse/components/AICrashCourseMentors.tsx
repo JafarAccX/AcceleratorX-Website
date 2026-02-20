@@ -47,7 +47,9 @@ const mentors: Mentor[] = [
     },
 ];
 
-const AICrashCourseMentors = () => {
+import { PremiumButton } from "../../../../components/common/PremiumButton";
+
+const AICrashCourseMentors = ({ onEnroll }: { onEnroll?: () => void }) => {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     const scroll = (direction: 'left' | 'right') => {
@@ -115,11 +117,15 @@ const AICrashCourseMentors = () => {
                     <p className="font-sans text-gray-400 mt-4 text-sm">
                         You're not learning about AI, you're learning from people who build it.
                     </p>
-                    <div className="font-sans mt-4 flex flex-col md:flex-row items-center justify-center gap-4 text-sm font-medium">
+                    <div className="font-sans mt-8 flex flex-col items-center justify-center gap-4">
                         <span className="text-gray-300">to Know More About Mentors</span>
-                        <a href="#" className="text-white border-b border-white pb-0.5 hover:opacity-80 flex items-center gap-1">
-                            Download Brochure <span className="text-lg">»</span>
-                        </a>
+                        <PremiumButton
+                            onClick={onEnroll}
+                            className="w-[240px]"
+                            icon={<span className="text-lg">»</span>}
+                        >
+                            Download Brochure
+                        </PremiumButton>
                     </div>
                 </div>
 

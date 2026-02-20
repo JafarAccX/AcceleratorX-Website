@@ -2,6 +2,7 @@ import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Typewriter } from "../common/Typewriter";
+import { PremiumButton } from "../common/PremiumButton";
 
 export default function Hero() {
   const [isTypingDone, setIsTypingDone] = useState(false);
@@ -34,6 +35,53 @@ export default function Hero() {
         <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
+      {/* Plus Animation Background Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1, duration: 1.5 }}
+          className="absolute top-[60%] left-[5%] md:left-[8%] opacity-40 md:opacity-60"
+        >
+          <div id="plus-animation" className="relative group">
+            {/* Subtle Glow behind the badge */}
+            <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full scale-150" />
+
+
+
+
+
+            {/* Floating Pluses around the badge */}
+            {[...Array(12)].map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  opacity: [0.05, 0.25, 0.05],
+                  y: [0, Math.sin(i * 30) * 40, 0],
+                  x: [0, Math.cos(i * 30) * 40, 0],
+                  rotate: [0, 90, 0],
+                  scale: [0.8, 1.2, 0.8],
+                }}
+                transition={{
+                  duration: 5 + (i % 4),
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.3,
+                }}
+                className="absolute text-white/30 font-light pointer-events-none"
+                style={{
+                  top: `${Math.sin(i * 30) * 100 + 10}px`,
+                  left: `${Math.cos(i * 30) * 120 + 40}px`,
+                  fontSize: `${14 + (i % 3) * 4}px`,
+                }}
+              >
+                +
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
       {/* Main Content Container */}
       <div className="relative z-10 flex max-w-7xl mx-auto  flex-col min-h-screen">
         <div className="pt-32">
@@ -54,17 +102,8 @@ export default function Hero() {
             {/* Top Section: Headline & Animation */}
             <div className="flex-1 flex flex-col justify-center pb-10">
               <div className="max-w-6xl">
-                <h1 className="font-heading text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-light tracking-tight text-white dark:text-white italic">
-                  {/* <TypeAnimation
-                sequence={["Build", 2000, "Lead", 2000, "Succeed", 2000]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-                className="inline-block "
-                cursor={false}
-              />
-              <span className="not-italic font-normal"> with</span>
-              <br />*/}
+                <h1 className="font-heading text-[2.75rem] sm:text-6xl   leading-[1.1] font-light tracking-tight text-white dark:text-white ">
+
                   <span className="not-italic font-normal">Built for Your Next</span>
                   <br />
                   <span className="not-italic font-normal"> Career</span>
@@ -78,14 +117,28 @@ export default function Hero() {
 
               {/* Middle Info & CTA Row */}
               <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
-                {/* Left: Badge Pill */}
-                <div className="flex items-center gap-2.5 bg-black dark:bg-black/80 border border-white/30 dark:border-white/30 rounded-full px-5 py-2 self-start ring-1 ring-white/5 shadow-xl">
-                  <div className="w-2 h-2 rounded-full bg-white dark:bg-white shadow-[0_0_8px_white] animate-pulse" />
-                  <span className="font-sans text-[10px] md:text-xs tracking-[0.25em] font-medium text-white dark:text-white uppercase opacity-90">
-                    AI-Powered Program
-                  </span>
-                </div>
 
+                <div className="relative inline-flex items-center">
+
+                  {/* Pulse Layer */}
+                  <div className="absolute inset-0 rounded-full bg-yellow-400/70 blur-md animate-pulse"></div>
+
+                  {/* Main Badge */}
+                  <div className="relative flex items-center gap-2 rounded-full px-5 py-2
+                  bg-black dark:bg-black/80
+                  border border-white/30
+                  ring-1 ring-white/5
+                  shadow-xl">
+
+                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_white]" />
+
+                    <span className="font-sans text-[10px] md:text-xs tracking-[0.25em]
+                     font-medium text-white uppercase opacity-90">
+                      AI-Powered Program
+                    </span>
+
+                  </div>
+                </div>
                 {/* Right: Subtext and Main Button */}
                 <div className="flex flex-col items-end justify-end gap-6">
                   <p className="font-sans text-lg md:text-xl text-white/90 dark:text-white/90 max-w-md font-light leading-relaxed">
@@ -93,19 +146,17 @@ export default function Hero() {
                   </p>
 
                   <div className="w-full  flex items-end justify-end">
-
-                    <button
+                    <PremiumButton
                       onClick={() => {
                         const section = document.getElementById("features");
                         if (section) {
                           section.scrollIntoView({ behavior: "smooth" });
                         }
                       }}
-                      className="font-sans group flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-2xl text-lg font-medium border border-white/20 shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.6)] hover:border-blue-500/50 transition-all duration-300 active:scale-95"
+                      icon={<ChevronDown className="w-5 h-5 text-blue-400 group-hover:text-white" />}
                     >
                       Explore Programs
-                      <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1 text-gray-400 group-hover:text-white" />
-                    </button>
+                    </PremiumButton>
                   </div>
                 </div>
               </div>

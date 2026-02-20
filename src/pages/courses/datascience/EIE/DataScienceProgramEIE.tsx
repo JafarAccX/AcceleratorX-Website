@@ -8,6 +8,8 @@ import toast from 'react-hot-toast';
 import { useUser } from '../../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../../utils/constants_price';
 import { api } from '../../../../api';
+import { PremiumButton } from "../../../../components/common/PremiumButton";
+import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 declare global {
     interface Window {
@@ -313,6 +315,21 @@ export default function DataScienceProgramEIE() {
         } catch (error: any) { toast.error(error.message || 'Failed to process payment. Please try again.'); setIsProcessing(false); }
     };
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDownload, setIsDownload] = useState(false);
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setIsDownload(false);
+    };
+
+    const handleModalSubmit = () => {
+        if (isDownload) {
+            // Logic for curriculum download
+        }
+        handleModalClose();
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY + 100;
@@ -387,7 +404,15 @@ export default function DataScienceProgramEIE() {
                         <p className="font-sans text-gray-600 dark:text-gray-300 mb-8">Everything is hands-on. Move from the Analyst mindset to becoming a Data Scientist.</p>
                         <div>{CURRICULUM.map((module, idx) => <AccordionItem key={idx} module={module} />)}</div>
                         <div className="mt-8 flex justify-center">
-                            <button className="font-sans px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg flex items-center gap-2">View Curriculum <ChevronDown size={18} /></button>
+                            <PremiumButton
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setIsDownload(true);
+                                }}
+                                icon={<ChevronDown size={18} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
+                            >
+                                View Curriculum
+                            </PremiumButton>
                         </div>
                         <img src="/redesign/data-science/astroid.webp" alt="slack" className="absolute bottom-40 -left-[400px] w-[200px]" />
 
@@ -594,6 +619,7 @@ export default function DataScienceProgramEIE() {
                     </AnimatePresence>
                 </main>
             </div>
+            <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} />
         </div>
     );
 }

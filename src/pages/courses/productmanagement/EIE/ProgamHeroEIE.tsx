@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useCourseContext } from "../../../../context/courseContext";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 import { Typewriter } from "../../../../components/common/Typewriter";
+import { PremiumButton } from "../../../../components/common/PremiumButton";
 
 interface CounterProps {
   end: number;
@@ -74,7 +75,7 @@ export default function ProgramHeroEIE() {
       <img src="/redesign/ai-pm/slack.png" alt="slack" className="h-16 w-16 absolute top-40 left-10 opacity-20 md:opacity-50 animate-pulse" />
       <img src="/redesign/ai-pm/Google-Analytics.png" alt="analytics" className="h-14 w-14 absolute bottom-40 right-10 opacity-20 md:opacity-50" />
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:pt-20 relative z-10">
         <Typewriter
           text="HUMAN CENTRED PRODUCT DETECTED . . ."
           onComplete={() => setIsTypingDone(true)}
@@ -89,7 +90,7 @@ export default function ProgramHeroEIE() {
           >
             {/* Title Section */}
             <div className="flex justify-between items-start mb-10">
-              <h1 className="font-heading text-5xl md:text-7xl font-bold text-white leading-tight">
+              <h1 className="font-heading text-[2.75rem] sm:text-6xl   leading-[1.1] font-light tracking-tight text-white dark:text-white ">
                 AI Product Management
               </h1>
               {/* Logo/Icon space if needed */}
@@ -137,13 +138,12 @@ export default function ProgramHeroEIE() {
                     Apply Now
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button
+                  <PremiumButton
                     onClick={() => { setIsModalOpen(true); setIsDownload(true); }}
-                    className="font-sans px-8 py-3.5 bg-[#FFC107] hover:bg-yellow-500 text-black rounded-full font-semibold transition-all shadow-lg hover:shadow-yellow-500/30 flex items-center gap-2 group"
+                    icon={<ChevronDown size={18} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
                   >
                     Get Full Curriculum
-                    <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
-                  </button>
+                  </PremiumButton>
                 </div>
               </motion.div>
             </div>

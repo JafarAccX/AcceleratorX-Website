@@ -1,14 +1,25 @@
-import { IconGraph } from "@tabler/icons-react";
 import { motion } from "framer-motion";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, ArrowRight } from "lucide-react";
+import { PremiumButton } from "./common/PremiumButton";
+
+interface Feature {
+  icon: React.ReactNode;
+  text: string;
+}
+
+interface PricingCardProps {
+  courseName: string;
+  originalPrice: number;
+  features: Feature[];
+  onEnroll: () => void;
+}
 
 export default function PricingCard({
   courseName,
   originalPrice,
-  // discountedPrice,
   features,
   onEnroll,
-}) {
+}: PricingCardProps) {
   // const savingsAmount = originalPrice - discountedPrice;
 
   return (
@@ -81,14 +92,13 @@ export default function PricingCard({
               </ul>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <PremiumButton
               onClick={onEnroll}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
+              className="w-full"
+              icon={<ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />}
             >
               Apply Now
-            </motion.button>
+            </PremiumButton>
 
             <p className="text-center text-gray-500 mt-4 text-sm">
               Limited seats available. Don't miss out!

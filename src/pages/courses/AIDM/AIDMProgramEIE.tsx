@@ -8,6 +8,8 @@ import toast from 'react-hot-toast';
 import { useUser } from '../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../utils/constants_price';
 import { api } from '../../../api';
+import { PremiumButton } from "../../../components/common/PremiumButton";
+import EnrollmentModal from "../../../components/EnrollmentModal";
 
 declare global {
     interface Window {
@@ -375,6 +377,21 @@ export default function AIDMProgramEIE() {
     const sidebarRef = useRef<HTMLElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDownload, setIsDownload] = useState(false);
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setIsDownload(false);
+    };
+
+    const handleModalSubmit = () => {
+        if (isDownload) {
+            // Logic for syllabus download
+        }
+        handleModalClose();
+    };
+
     // Payment states
     const [isProcessing, setIsProcessing] = useState(false);
     const [batches, setBatches] = useState<Batch[]>([]);
@@ -658,9 +675,17 @@ export default function AIDMProgramEIE() {
                             ))}
                         </div>
                         <div className="mt-8 flex justify-center">
-                            <button className="font-sans px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-colors flex items-center gap-2">
-                                Download Full Syllabus <ChevronDown size={18} />
-                            </button>
+                            <PremiumButton
+                                onClick={() => {
+                                    // Normally we would set a state here to open a modal
+                                    // For now, I'll add the necessary state and modal component
+                                    setIsModalOpen(true);
+                                    setIsDownload(true);
+                                }}
+                                icon={<ChevronDown size={18} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
+                            >
+                                Download Full Syllabus
+                            </PremiumButton>
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
@@ -945,6 +970,7 @@ export default function AIDMProgramEIE() {
                     </AnimatePresence>
                 </main>
             </div>
+            <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} />
         </div >
     );
 }

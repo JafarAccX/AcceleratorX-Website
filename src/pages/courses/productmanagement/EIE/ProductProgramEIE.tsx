@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import { COURSE_PRICES, COURSE_IDS } from "../../../../utils/constants_price";
 import { useUser } from "../../../../context/UserContext";
 import { api } from "../../../../api";
+import { PremiumButton } from "../../../../components/common/PremiumButton";
+import EnrollmentModal from "../../../../components/EnrollmentModal";
 
 // Razorpay type declaration
 declare global {
@@ -371,6 +373,21 @@ export default function ProductProgramEIE() {
     const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
     const [showCancellationModal, setShowCancellationModal] = useState(false);
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDownload, setIsDownload] = useState(false);
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setIsDownload(false);
+    };
+
+    const handleModalSubmit = () => {
+        if (isDownload) {
+            // Logic for curriculum download
+        }
+        handleModalClose();
+    };
+
     const coursePrice = COURSE_PRICES.PM_PROGRAM;
     const courseId = COURSE_IDS.PM_PROGRAM;
     const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -661,9 +678,15 @@ export default function ProductProgramEIE() {
                             ))}
                         </div>
                         <div className="mt-8 flex justify-center">
-                            <button className="font-sans px-8 py-3 bg-[#FFC107] hover:bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-colors flex items-center gap-2">
-                                Download Full Curriculum <ChevronDown size={18} />
-                            </button>
+                            <PremiumButton
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setIsDownload(true);
+                                }}
+                                icon={<ChevronDown size={18} className="transition-transform group-hover:translate-y-1 text-blue-400 group-hover:text-white" />}
+                            >
+                                Download Full Curriculum
+                            </PremiumButton>
                             <img src="/redesign/ai-pm/ast.png" alt="astronaut" className="absolute bottom-40 -left-[400px]" />
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
@@ -980,6 +1003,7 @@ export default function ProductProgramEIE() {
                     )}
                 </main>
             </div>
+            <EnrollmentModal isOpen={isModalOpen} onClose={handleModalClose} onSubmit={handleModalSubmit} />
         </div>
     );
 }

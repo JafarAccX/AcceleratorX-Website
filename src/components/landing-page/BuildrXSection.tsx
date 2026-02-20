@@ -39,18 +39,16 @@ const BuildrXSection = () => {
                         </motion.h2>
 
                         {/* Subheading Link */}
-                        <motion.a
-                            href="https://buildrx.in" // Assuming usage, can be # if unknown
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <motion.p
+
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="font-sans text-white/90 text-xl md:text-2xl underline decoration-blue-400/50 underline-offset-8 hover:text-white hover:decoration-blue-400 transition-all duration-300"
+                            className="font-sans text-white/90 text-xl md:text-2xl decoration-blue-400/50 cursor-default transition-all duration-300"
                         >
                             Let The World See What You Can Build
-                        </motion.a>
+                        </motion.p>
 
                         {/* CTA Button */}
                         <motion.a

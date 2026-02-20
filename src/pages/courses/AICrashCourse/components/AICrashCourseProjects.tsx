@@ -1,7 +1,8 @@
 
 import React from "react";
 import { SiLangchain, SiNvidia } from "react-icons/si";
-import { Bot, Terminal, Mic, AppWindow } from 'lucide-react';
+import { Bot, Terminal, Mic, AppWindow, ArrowRight, ChevronRight } from 'lucide-react';
+import { PremiumButton } from "../../../../components/common/PremiumButton";
 
 interface AICrashCourseProjectsProps {
     onEnroll: () => void;
@@ -41,31 +42,21 @@ const AICrashCourseProjects: React.FC<AICrashCourseProjectsProps> = ({ onEnroll 
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-6">
-                    {/* Enroll Button: Gradient border, 166x48, rounded-50px */}
-                    <button
+                    <PremiumButton
                         onClick={onEnroll}
-                        className="relative w-[166px] h-[48px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center group"
-                        style={{
-                            background: 'linear-gradient(#000, #000) padding-box, linear-gradient(86.48deg, #AC0AE7 32.08%, #48A2EB 74.28%) border-box',
-                            border: '2px solid transparent',
-                        }}
+                        className="w-[166px]"
+                        icon={<ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
                     >
-                        <span className="font-sans text-white font-bold text-base flex items-center">
-                            Enroll Now <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                        </span>
-                    </button>
+                        Enroll Now
+                    </PremiumButton>
 
-                    <button
+                    <PremiumButton
                         onClick={onEnroll}
-                        className="relative w-[240px] h-[48px] rounded-[50px] shadow-[0px_0px_16px_0px_#AC0AE7] flex items-center justify-center group"
-                        style={{
-                            border: '2px solid transparent',
-                        }}
+                        className="w-[240px]"
+                        icon={<ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />}
                     >
-                        <span className="font-sans text-white font-bold text-base flex items-center">
-                            Download Brochure <span className="ml-2 group-hover:translate-x-1 transition-transform">»</span>
-                        </span>
-                    </button>
+                        Download Brochure
+                    </PremiumButton>
                 </div>
 
                 <div className="mt-8 border border-purple-500/30 bg-black/50 backdrop-blur-md rounded-xl p-4 md:p-6 inline-block">
