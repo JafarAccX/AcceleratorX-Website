@@ -27,7 +27,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 
   return (
     <div
-      className="bg-white dark:bg-[#171717] border border-[#EBEBEB] dark:border-[#848484]/30 hover:shadow-lg transition-all duration-300 group"
+      className="bg-white dark:bg-[#171717] border border-[#EBEBEB] dark:border-[#848484]/30 hover:shadow-lg transition-all duration-300 group font-sans"
       style={{
         borderRadius: '25px',
         boxShadow: '0px 1px 6px 3px rgba(0, 0, 0, 0.05)'
@@ -59,7 +59,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
           </div>
 
           <div>
-            <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+            <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 font-heading">
               {job.JobName}
             </h3>
             {/* Location and Job Type */}

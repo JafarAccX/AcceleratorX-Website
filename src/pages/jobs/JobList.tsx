@@ -193,16 +193,14 @@ const JobList = () => {
       {/* Hero Section */}
       <section
         className="relative min-h-[300px] md:min-h-[400px] bg-cover bg-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden"
-        style={{ backgroundImage: "url('/redesign/background/course-gb.webp')" }}
+        style={{ backgroundImage: "url('/redesign/blog-n-job-bg.webp')" }}
       >
-        <div className="absolute inset-0 bg-white/90 dark:bg-black/90 backdrop-blur-[2px] transition-colors duration-300"></div>
 
         <div className="relative container mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl text-center md:text-left">
             <h1
-              className="text-gray-900 dark:text-white mb-6 text-4xl md:text-5xl lg:text-[68px] transition-colors duration-300"
+              className="text-gray-900 dark:text-white mb-6 text-4xl md:text-5xl lg:text-[68px] transition-colors duration-300 font-heading"
               style={{
-                fontFamily: 'Cormorant Infant, serif',
                 fontWeight: 600,
                 lineHeight: '1.1',
                 letterSpacing: '0%'
@@ -218,14 +216,14 @@ const JobList = () => {
         </div>
       </section>
 
-      <div className="bg-white dark:bg-[#000000] min-h-screen transition-colors duration-300">
+      <div className="bg-white dark:bg-[#000000] min-h-screen transition-colors duration-300 font-sans">
         <div className="container mx-auto px-4 py-8">
           {/* Main Layout with Sidebar */}
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Desktop Filters Sidebar */}
             <aside className="hidden lg:block w-64 flex-shrink-0">
               <div className="bg-white dark:bg-[#171717] rounded-2xl p-6  sticky top-24 transition-colors duration-300">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 transition-colors duration-300">Filters</h2>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 transition-colors duration-300 font-heading">Filters</h2>
 
                 {/* Category */}
                 <div className="mb-6">
@@ -327,7 +325,7 @@ const JobList = () => {
                         className="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white dark:bg-gray-900 z-[99999] shadow-2xl lg:hidden overflow-y-auto flex flex-col transition-colors duration-300"
                       >
                         <div className="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between sticky top-0 bg-white dark:bg-gray-900 z-10 transition-colors duration-300">
-                          <h2 className="text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300">Filters</h2>
+                          <h2 className="text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300 font-heading">Filters</h2>
                           <button
                             onClick={() => setShowFilters(false)}
                             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -500,7 +498,7 @@ const JobList = () => {
                   ) : filteredJobs.length === 0 ? (
                     <div className="col-span-full flex justify-center py-12">
                       <div className="text-center p-6">
-                        <h2 className="text-xl font-bold mb-2 text-black dark:text-white transition-colors duration-300">No Matching Jobs Found</h2>
+                        <h2 className="text-xl font-bold mb-2 text-black dark:text-white transition-colors duration-300 font-heading">No Matching Jobs Found</h2>
                         <p className="text-gray-400 dark:text-gray-500 mb-4 transition-colors duration-300">Try adjusting your filters to see more results</p>
                         <button onClick={clearFilters} className="text-blue-400 dark:text-blue-500 hover:text-blue-300 dark:hover:text-blue-400 underline transition-colors duration-300">
                           Clear all filters

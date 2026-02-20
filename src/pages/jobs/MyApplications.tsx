@@ -23,16 +23,16 @@ const MyApplications: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen bg-white dark:bg-[#000000]">
+      <div className="flex justify-center items-center h-screen bg-white dark:bg-[#000000] font-sans">
         <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#000000] pt-24 pb-12">
+    <div className="min-h-screen bg-white dark:bg-[#000000] pt-24 pb-12 font-sans">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-3xl font-bold mb-2 text-gray-900 dark:text-white">My Job Applications</h2>
+        <h2 className="text-3xl font-bold mb-2 text-gray-900 dark:text-white font-heading">My Job Applications</h2>
 
         {myJobs?.length === 0 ? (
           <div className="mt-12 text-center p-12 bg-gray-50 dark:bg-[#171717] rounded-2xl border border-gray-100 dark:border-[#848484]/30">
@@ -59,7 +59,7 @@ const MyApplications: React.FC = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <Link to={`/jobs/${application.JobId}`} className="block">
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white truncate hover:text-blue-600 dark:hover:text-blue-400">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white truncate hover:text-blue-600 dark:hover:text-blue-400 font-heading">
                           {application.JobName}
                         </h3>
                       </Link>

@@ -1,18 +1,18 @@
 const PartnerLogos = () => {
     const partnersRow1 = [
-        { src: '/redesign/main-page/main-hero/microsoft.png', alt: 'Microsoft' },
-        { src: '/redesign/main-page/main-hero/mastercard.png', alt: 'Mastercard' },
-        { src: '/redesign/main-page/main-hero/deloitte.png', alt: 'Deloitte' },
-        { src: '/redesign/main-page/main-hero/bajaj-finaserv.png', alt: 'Bajaj Finserv' },
-        { src: '/redesign/main-page/main-hero/Bank_of_America_logo.png', alt: 'Bank of America' },
+        { src: '/redesign/main-page/main-hero/Microsoft.png', alt: 'Microsoft' },
+        { src: '/redesign/main-page/main-hero/Mastercard.png', alt: 'Mastercard' },
+        { src: '/redesign/main-page/main-hero/Deloitte.png', alt: 'Deloitte' },
+        { src: '/redesign/main-page/main-hero/Bajaj-finserv.png', alt: 'Bajaj Finserv' },
+        { src: '/redesign/main-page/main-hero/Bank-of-america.png', alt: 'Bank of America' },
     ];
 
     const partnersRow2 = [
-        { src: '/redesign/main-page/main-hero/Philips_logo.png', alt: 'Philips' },
-        { src: '/redesign/main-page/main-hero/publicis-sapient.png', alt: 'Publicis Sapient' },
-        { src: '/redesign/main-page/main-hero/razorpay.png', alt: 'Razorpay' },
-        { src: '/redesign/main-page/main-hero/paisabazaar.png', alt: 'Paisabazaar' },
-        { src: '/redesign/main-page/main-hero/india.png', alt: 'India' },
+        { src: '/redesign/main-page/main-hero/Philips.png', alt: 'Philips' },
+        { src: '/redesign/main-page/main-hero/Publicis-sapient.png', alt: 'Publicis Sapient' },
+        { src: '/redesign/main-page/main-hero/Razorpay.png', alt: 'Razorpay' },
+        { src: '/redesign/main-page/main-hero/Paisa-bazaar.png', alt: 'Paisabazaar' },
+        { src: '/redesign/main-page/main-hero/Indain-gov.png', alt: 'Indian Government' },
     ];
 
     const LogoRow = ({ partners, reverse = false }: { partners: any[], reverse?: boolean }) => (

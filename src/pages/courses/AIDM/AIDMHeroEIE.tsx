@@ -5,6 +5,7 @@ import { useCourseContext } from "../../../context/courseContext";
 import EnrollmentModal from "../../../components/EnrollmentModal";
 import { Typewriter } from "../../../components/common/Typewriter";
 import { PremiumButton } from "../../../components/common/PremiumButton";
+import { ProgramBadge } from "../../../components/common/ProgramBadge";
 
 interface CounterProps {
     end: number;
@@ -123,10 +124,7 @@ export default function AIDMHeroEIE() {
                                 transition={{ duration: 0.6, delay: 0.4 }}
                                 className="lg:col-span-4"
                             >
-                                <div className="font-sans inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
-                                    <span className="w-2 h-2 rounded-full bg-white dark:bg-white"></span>
-                                    16-Week Live, Hands-On Program
-                                </div>
+                                <ProgramBadge text="6-Week Live, Hands-On Program" />
                                 <div className="font-sans mt-4 text-gray-300 text-sm font-medium">
                                     Beginner → Intermediate | AI-First | Portfolio-Driven
                                 </div>

@@ -332,7 +332,7 @@ const AccordionItem = ({ module }: { module: any }) => {
               )}
               {module.outcome && (
                 <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10">
-                  <p className="text-sm font-semibold text-green-600 dark:text-green-400">Outcome: {module.outcome}</p>
+                  <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">Outcome: {module.outcome}</p>
                 </div>
               )}
             </div>

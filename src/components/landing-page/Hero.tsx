@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Typewriter } from "../common/Typewriter";
 import { PremiumButton } from "../common/PremiumButton";
+import { ProgramBadge } from "../common/ProgramBadge";
 
 export default function Hero() {
   const [isTypingDone, setIsTypingDone] = useState(false);
@@ -86,7 +87,7 @@ export default function Hero() {
       <div className="relative z-10 flex max-w-7xl mx-auto  flex-col min-h-screen">
         <div className="pt-32">
           <Typewriter
-            text="lOADING AI Skillverse.. . . ."
+            text="lOADING AI Skillverse....."
             onComplete={() => setIsTypingDone(true)}
             className="mb-6"
           />
@@ -118,27 +119,7 @@ export default function Hero() {
               {/* Middle Info & CTA Row */}
               <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
 
-                <div className="relative inline-flex items-center">
-
-                  {/* Pulse Layer */}
-                  <div className="absolute inset-0 rounded-full bg-yellow-400/70 blur-md animate-pulse"></div>
-
-                  {/* Main Badge */}
-                  <div className="relative flex items-center gap-2 rounded-full px-5 py-2
-                  bg-black dark:bg-black/80
-                  border border-white/30
-                  ring-1 ring-white/5
-                  shadow-xl">
-
-                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_white]" />
-
-                    <span className="font-sans text-[10px] md:text-xs tracking-[0.25em]
-                     font-medium text-white uppercase opacity-90">
-                      AI-Powered Program
-                    </span>
-
-                  </div>
-                </div>
+                <ProgramBadge text="AI-Powered Program" />
                 {/* Right: Subtext and Main Button */}
                 <div className="flex flex-col items-end justify-end gap-6">
                   <p className="font-sans text-lg md:text-xl text-white/90 dark:text-white/90 max-w-md font-light leading-relaxed">
@@ -178,7 +159,7 @@ export default function Hero() {
                     <img
                       src="/redesign/main-page/main-hero/app-store.jpg"
                       alt="Download on the App Store"
-                      className="w-48"
+                      className="w-32"
                     />
                   </a>
                   <a
@@ -190,7 +171,7 @@ export default function Hero() {
                     <img
                       src="/redesign/main-page/main-hero/play-store.jpg"
                       alt="Get it on Google Play"
-                      className="w-56"
+                      className="w-36"
                     />
                   </a>
                 </div>

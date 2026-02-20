@@ -274,7 +274,7 @@ const AccordionItem = ({ item }: { item: any }) => {
                             <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
                                 {item.goal}
                             </p>
-                            <div className="grid md:grid-cols-2 gap-8">
+                            <div className="grid  gap-8">
                                 <div>
                                     <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">What you'll learn:</p>
                                     <ul className="space-y-2">
@@ -286,9 +286,9 @@ const AccordionItem = ({ item }: { item: any }) => {
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="bg-green-50/50 dark:bg-green-900/10 p-4 rounded-xl border border-green-100 dark:border-green-900/30 self-start">
-                                    <p className="text-sm font-bold text-green-700 dark:text-green-400 mb-1">Key Outcome:</p>
-                                    <p className="text-sm text-green-800 dark:text-green-300">{item.outcome}</p>
+                                <div className="bg-orange-50/50 dark:bg-orange-900/10 p-4 rounded-xl border border-orange-100 dark:border-orange-900/30 self-start">
+                                    <p className="text-sm font-bold text-orange-700 dark:text-orange-400 mb-1">Key Outcome:</p>
+                                    <p className="text-sm text-orange-800 dark:text-orange-300">{item.outcome}</p>
                                 </div>
                             </div>
                         </div>

@@ -193,7 +193,7 @@ export default function ProgramsOffered() {
                                 </div>
                                 <div className="w-full md:w-1/2 relative group">
                                     {/* Glassmorphic Shadow Background */}
-                                    <div className="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700" />
+                                    <div className="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-transparent opacity-0  blur-2xl transition-opacity duration-700" />
 
                                     <div className="relative rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] aspect-[1.4/1]">
                                         {/* Background Image */}

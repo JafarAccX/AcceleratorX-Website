@@ -5,7 +5,7 @@ import { blogService } from '../../services/blogService';
 import { BlogPost } from '../../utils/types';
 import { OutputData } from '@editorjs/editorjs';
 import EditorJSHTML from 'editorjs-html';
-import { Clock, Calendar, User, ChevronDown } from 'lucide-react';
+import { Calendar, User, ChevronDown } from 'lucide-react';
 
 interface TocItem {
   id: string;
@@ -49,10 +49,10 @@ const BlogDetail = () => {
         header: (block: any) => {
           const { text, level } = block.data;
           const slug = slugify(text);
-          return `<h${level} id="${slug}" class="scroll-mt-32 font-bold mb-4 mt-8 text-gray-900 dark:text-white transition-colors duration-300" style="font-family: 'Cormorant Infant', serif;">${text}</h${level}>`;
+          return `<h${level} id="${slug}" class="scroll-mt-32 font-bold mb-4 mt-8 text-gray-900 dark:text-white transition-colors duration-300 font-heading" >${text}</h${level}>`;
         },
         paragraph: (block: any) => {
-          return `<p class="mb-6 leading-relaxed text-gray-700 dark:text-gray-300 transition-colors duration-300">${block.data.text}</p>`;
+          return `<p class="mb-6 leading-relaxed text-gray-700 dark:text-gray-300 transition-colors duration-300 font-sans">${block.data.text}</p>`;
         },
         list: (block: any) => {
           const type = block.data.style === 'ordered' ? 'ol' : 'ul';
@@ -268,7 +268,7 @@ const BlogDetail = () => {
     return (
       <div className="min-h-screen bg-white dark:bg-[#000000] flex items-center justify-center transition-colors duration-300">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Blog post not found</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300 font-heading">Blog post not found</h2>
           <button
             onClick={() => navigate('/blogs')}
             className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
@@ -302,7 +302,7 @@ const BlogDetail = () => {
         
         .blog-content h1, .blog-content h2, .blog-content h3, 
         .blog-content h4, .blog-content h5, .blog-content h6 {
-          font-family: 'Cormorant Infant', serif;
+          font-family: 'Epilogue', system-ui, sans-serif;
           font-weight: 700;
         }
         .dark .blog-content h1, .dark .blog-content h2, .dark .blog-content h3,
@@ -366,9 +366,15 @@ const BlogDetail = () => {
         }
       `}</style>
 
-      <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-300 font-sans">
         {/* Hero Section - Split Layout */}
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 py-16 transition-colors duration-300">
+        {/* Hero Section */}
+        <div
+          className="relative w-full h-[600px] pt-20  flex items-center justify-center bg-cover bg-center bg-no-repeat mb-12"
+          style={{
+            backgroundImage: `url('/redesign/blog-n-job-bg.webp')`
+          }}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left: Text Content */}
@@ -385,8 +391,7 @@ const BlogDetail = () => {
                 </div>
 
                 <h1
-                  className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight transition-colors duration-300"
-                  style={{ fontFamily: 'Cormorant Infant, serif' }}
+                  className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight transition-colors duration-300 font-heading"
                 >
                   {blog.Title}
                 </h1>
@@ -396,10 +401,7 @@ const BlogDetail = () => {
                     <Calendar className="w-5 h-5" />
                     <span>{formatDate(blog.PublishedAt || blog.CreatedAt)}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-5 h-5" />
-                    <span>5 min read</span>
-                  </div>
+
                 </div>
 
                 {blog.SEO_MetaDescription && (
@@ -410,14 +412,12 @@ const BlogDetail = () => {
               </div>
 
               {/* Right: Cover Image */}
-              <div className="relative">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src={blog.CoverImage}
-                    alt={blog.Title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="relative rounded-md">
+                <img
+                  src={blog.CoverImage}
+                  alt={blog.Title}
+                  className="w-full object-contain rounded-md"
+                />
               </div>
             </div>
           </div>
@@ -441,7 +441,7 @@ const BlogDetail = () => {
               <div className="space-y-8">
                 {/* Author Card - Static (not sticky) */}
                 <div className="p-4 bg-white dark:bg-[#171717] rounded-2xl  transition-colors duration-300 shadow-sm">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300" style={{ fontFamily: 'Cormorant Infant, serif' }}>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300 font-heading">
                     Author
                   </h3>
                   <div className="flex items-center gap-4">
@@ -481,8 +481,7 @@ const BlogDetail = () => {
                   >
                     <div className="p-6 bg-white dark:bg-[#171717] rounded-2xl transition-colors duration-300 shadow-sm">
                       <h3
-                        className="text-xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300"
-                        style={{ fontFamily: 'Cormorant Infant, serif' }}
+                        className="text-xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300 font-heading"
                       >
                         Table of Contents
                       </h3>

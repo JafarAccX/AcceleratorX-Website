@@ -95,7 +95,7 @@ const ProductsSection: React.FC = () => {
 
       <div className="relative z-10 container mx-auto px-6">
         <Typewriter
-          text="SCANNING LEARNING MODULES . . ."
+          text="SCANNING LEARNING MODULES..."
           onComplete={() => setIsTypingDone(true)}
           className="mb-8"
         />

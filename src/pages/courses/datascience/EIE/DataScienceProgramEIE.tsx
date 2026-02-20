@@ -179,46 +179,54 @@ const TOOLS = [
 
 const AccordionItem = ({ module }: { module: any }) => {
     const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <div className="border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300">
+        <div className="border border-gray-200 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-6 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
+                className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <span className="text-[10px] font-bold text-[#3B82F6] bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full uppercase tracking-widest">
-                            {module.week}
+                        <span className="font-sans text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
+                            WEEK {module.week}
                         </span>
                     </div>
-                    <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">{module.topics.join(" & ")}</h4>
+                    <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{module.topics.join(" & ")}</h4>
                 </div>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[#3B82F6] text-white rotate-180' : 'bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#3B82F6] hover:text-white'}`}>
-                    <ChevronDown size={20} />
-                </div>
+                <ChevronDown
+                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
+                />
             </button>
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
-                        <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
-                            <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">{module.goal}</p>
-                            <div className="grid md:grid-cols-2 gap-8">
-                                <div>
-                                    <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">What you'll learn:</p>
-                                    <ul className="space-y-2">
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <div className="font-sans p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
+                            {module.goal && (
+                                <p className="text-sm text-gray-700 dark:text-gray-200 mb-4 font-medium transition-colors duration-300">
+                                    {module.goal}
+                                </p>
+                            )}
+                            {module.skills && (
+                                <div className="mb-4">
+                                    <p className="font-semibold mb-2 transition-colors duration-300 text-xs uppercase text-gray-500 dark:text-gray-400">What you'll learn:</p>
+                                    <ul className="list-disc list-inside space-y-1">
                                         {module.skills.map((skill: string, i: number) => (
-                                            <li key={i} className="font-sans flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                                <div className="mt-1 w-1.5 h-1.5 rounded-full bg-[#3B82F6] flex-shrink-0" />
-                                                {skill}
-                                            </li>
+                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">{skill}</li>
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="bg-green-50/50 dark:bg-green-900/10 p-4 rounded-xl border border-green-100 dark:border-green-900/30 self-start">
-                                    <p className="font-sans text-sm font-bold text-green-700 dark:text-green-400 mb-1">Outcome:</p>
-                                    <p className="font-sans text-sm text-green-800 dark:text-green-300">{module.outcome}</p>
+                            )}
+                            {module.outcome && (
+                                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10">
+                                    <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">Outcome: {module.outcome}</p>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </motion.div>
                 )}
@@ -510,7 +518,7 @@ export default function DataScienceProgramEIE() {
                                 <div key={role} className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="font-heading font-bold text-lg text-gray-900 dark:text-white w-2/3">{role}</h4>
-                                        <span className="font-sans bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded">₹8 LPA – ₹25 LPA+</span>
+                                        <span className="font-sans bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold px-2 py-1 rounded">₹8 LPA – ₹25 LPA+</span>
                                     </div>
                                 </div>
                             ))}

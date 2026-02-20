@@ -84,7 +84,7 @@ const BlogList: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white dark:bg-[#000000] flex items-center justify-center space-x-2 transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-[#000000] flex items-center justify-center space-x-2 transition-colors duration-300 font-sans">
         <motion.div
           className="w-3 h-3 bg-blue-500 dark:bg-blue-400 rounded-full"
           animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
@@ -105,25 +105,20 @@ const BlogList: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#000000] pb-20 transition-colors duration-300">
-      {/* Import Font */}
-      <style>
-        {`@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@600&display=swap');`}
-      </style>
+    <div className="min-h-screen bg-white dark:bg-[#000000] pb-20 transition-colors duration-300 font-sans">
 
       {/* Hero Section */}
       <div
         className="relative w-full h-[500px] flex items-center justify-center bg-cover bg-center bg-no-repeat mb-12"
         style={{
-          backgroundImage: `url('/redesign/blog-section/blog-hero.webp')`
+          backgroundImage: `url('/redesign/blog-n-job-bg.webp')`
         }}
       >
         <div className="max-w-[1300px] w-full px-6 flex flex-col md:flex-row items-center md:items-start justify-center gap-8 pt-20">
           <div className="max-w-xl text-center md:text-left">
             <h1
-              className="mb-4 text-[#1a1a1a] dark:text-white transition-colors duration-300"
+              className="mb-4 text-[#1a1a1a] dark:text-white transition-colors duration-300 font-heading"
               style={{
-                fontFamily: '"Cormorant Infant", serif',
                 fontWeight: 600,
                 fontSize: '68px',
                 lineHeight: '100%',
@@ -145,7 +140,7 @@ const BlogList: React.FC = () => {
 
         {/* Header - "All Blogs" */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-[#0F172A] dark:text-white mb-8 transition-colors duration-300">All Blogs</h2>
+          <h2 className="text-3xl font-bold text-[#0F172A] dark:text-white mb-8 transition-colors duration-300 font-heading">All Blogs</h2>
 
           {/* Categories */}
           <div className="flex flex-wrap gap-3">
@@ -224,7 +219,7 @@ const BlogList: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-[22px] leading-tight font-bold text-[#0F172A] dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-[22px] leading-tight font-bold text-[#0F172A] dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 font-heading">
                     {blog.Title}
                   </h3>
 

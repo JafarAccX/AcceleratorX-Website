@@ -114,7 +114,7 @@ export default function JobDetails() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-white dark:bg-[#000000] transition-colors duration-300">
+      <div className="flex min-h-screen items-center justify-center bg-white dark:bg-[#000000] transition-colors duration-300 font-sans">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 dark:border-blue-400"></div>
       </div>
     );
@@ -123,7 +123,7 @@ export default function JobDetails() {
   if (isError || !job) {
     const errorMessage = isError ? (error instanceof Error ? error.message : "An error occurred") : "Job not found";
     return (
-      <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
+      <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300 font-sans">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <button
@@ -155,7 +155,7 @@ export default function JobDetails() {
     : extractSkillsFromDescription(job.JobDescription);
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-6 sm:pb-12 bg-white dark:bg-[#000000] text-gray-900 dark:text-white transition-colors duration-300 font-sans">
       {/* Application Modal */}
       {showApplying && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -172,7 +172,7 @@ export default function JobDetails() {
               <X size={20} />
             </button>
 
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300 font-heading">
               {job.EasyApply ? "Apply with Profile" : "External Application"}
             </h3>
 
@@ -229,7 +229,7 @@ export default function JobDetails() {
                   </div>
                 )}
                 <div className="flex-1">
-                  <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{job.JobName}</h1>
+                  <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300 font-heading">{job.JobName}</h1>
                   <div className="flex items-center gap-2 text-xl text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">
                     <Building2 className="h-5 w-5" />
                     <span>{job.CompanyName}</span>
@@ -298,7 +298,7 @@ export default function JobDetails() {
           </div>
 
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Job Description</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300 font-heading">Job Description</h2>
             <div className="prose prose-slate dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 transition-colors duration-300">
               <ReactMarkdown>{cleanedDescription}</ReactMarkdown>
             </div>
@@ -306,7 +306,7 @@ export default function JobDetails() {
 
           {skills.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Required Skills</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300 font-heading">Required Skills</h2>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
                   <span
@@ -322,7 +322,7 @@ export default function JobDetails() {
 
           {job.Category && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Category</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300 font-heading">Category</h2>
               <span className="px-4 py-2 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg text-sm font-medium border border-purple-100 dark:border-purple-800 transition-colors duration-300">
                 {job.Category}
               </span>

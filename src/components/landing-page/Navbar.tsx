@@ -202,7 +202,7 @@ export default function Navbar() {
                   className={`absolute left-0 top-full pt-2 w-64 ${dropdownTransition} ${isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
                     }`}
                 >
-                  <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden">
+                  <div className=" dark:bg-black/95 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden">
                     {courses.map((course) => (
                       <Link
                         key={course.label}

@@ -5,6 +5,7 @@ import { useCourseContext } from "../../../../context/courseContext";
 import EnrollmentModal from "../../../../components/EnrollmentModal";
 import { Typewriter } from "../../../../components/common/Typewriter";
 import { PremiumButton } from "../../../../components/common/PremiumButton";
+import { ProgramBadge } from "../../../../components/common/ProgramBadge";
 
 interface CounterProps {
   end: number;
@@ -77,7 +78,7 @@ export default function ProgramHeroEIE() {
 
       <div className="max-w-7xl mx-auto px-4 md:pt-20 relative z-10">
         <Typewriter
-          text="HUMAN CENTRED PRODUCT DETECTED . . ."
+          text="HUMAN CENTRED PRODUCT DETECTED..."
           onComplete={() => setIsTypingDone(true)}
           className="mb-6"
         />
@@ -113,10 +114,7 @@ export default function ProgramHeroEIE() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="lg:col-span-4"
               >
-                <div className="font-sans inline-flex items-center gap-2 bg-black dark:bg-[#171717] border border-white/20 dark:border-[#848484]/30 rounded-full px-5 py-2 text-white dark:text-white text-sm font-medium tracking-wide shadow-lg backdrop-blur-sm transition-colors duration-300">
-                  <span className="w-2 h-2 rounded-full bg-white dark:bg-white animate-pulse"></span>
-                  18-Week Live Product Management Program
-                </div>
+                <ProgramBadge text="18-Week Live Program" />
               </motion.div>
 
               {/* Right Col - Description and Buttons */}
