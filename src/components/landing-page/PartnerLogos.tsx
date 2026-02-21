@@ -43,7 +43,7 @@ const PartnerLogos = () => {
 
                 {/* Right Side: Animated Logo Sliders */}
                 <div className="w-full lg:w-2/3 relative">
-                    <div className="mb-6">
+                    <div className="mb-6 w-full flex items-center justify-center">
                         <h3 className="font-heading text-sm md:text-base font-bold text-[#0D47A1] dark:text-blue-400 uppercase tracking-wider text-center lg:text-left opacity-80 transition-colors duration-300">
                             Our Learners Work At:
                         </h3>
