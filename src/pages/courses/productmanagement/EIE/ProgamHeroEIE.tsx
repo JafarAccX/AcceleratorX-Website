@@ -147,15 +147,7 @@ export default function ProgramHeroEIE() {
                 className="w-full rounded-lg shadow-2xl"
               />
             </div>
-            <div className="flex justify-center mt-4">
-              <div className="bg-black/80 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                <p className="text-sm font-medium text-amber-400">
-                  Join our hands-on AI Product Management Program worry-free. Satisfaction guaranteed or get your money back!
-                </p>
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
