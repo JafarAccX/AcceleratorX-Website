@@ -29,33 +29,106 @@ const SECTIONS = [
 
 const CURRICULUM = [
     {
-        module: "1",
-        topics: ["Foundations of Agentic AI"],
-        goal: "Understand how AI agents work—reasoning, planning, memory, tools, and feedback loops.",
-        skills: ["Reasoning Models", "Planning Loops", "Basic Tool Integration"],
-        outcome: "Core understanding of autonomous agent design."
+        week: "1",
+        topics: ["Foundations of Advanced GenAI Engineering"],
+        goal: "Master the underlying architecture and data pipelines required for model training.",
+        skills: [
+            "Session 1: The Architecture of Modern LLMs",
+            "Session 2: Data Pipelines for AI Training",
+            "Session 3: Training a Small Transformer from Scratch",
+        ],
     },
     {
-        module: "2",
-        topics: ["Data, Context & Memory for AI Agents"],
-        goal: "Design agents that use structured data, retrieval, and long-term memory effectively.",
-        skills: ["Vector Databases", "Knowledge Graphs", "Context Management"],
-        outcome: "Ability to build agents with persistent memory."
+        week: "2",
+        topics: ["Fine-Tuning and Evaluating LLMs"],
+        goal: "Scale up models using advanced fine-tuning techniques and optimization.",
+        skills: [
+            "Session 4: Scaling Up – Fine-Tuning Open-Source Models",
+            "Session 5: Evaluation and Optimization",
+            "Session 6: Efficient Model Serving",
+        ],
     },
     {
-        module: "3",
-        topics: ["Product Analytics & Decision-Making Agents"],
-        goal: "Build agents that analyze user behavior, generate insights, and support product decisions.",
-        skills: ["Agentic Analytics", "Data Reasoning", "Automated Insights"],
-        outcome: "Exclusive skills in building decision-making agents."
+        week: "3",
+        topics: ["Building a RAG System from Scratch"],
+        goal: "Implement local retrieval-augmented generation without external APIs.",
+        skills: [
+            "Session 7: Introduction to RAG Architecture",
+            "Session 8: Implementing Vector Search and Indexing",
+            "Session 9: Hybrid Retrieval and Context Enhancement",
+        ],
     },
     {
-        module: "4",
-        topics: ["AI Tools, Automation & Multi-Agent Systems"],
-        goal: "Create autonomous workflows and multi-agent architectures for real-world use cases.",
-        skills: ["CrewAI / LangChain / LangGraph", "Workflow Orchestration", "Agent Collaboration"],
-        outcome: "Production-ready multi-agent system builder."
-    }
+        week: "4",
+        topics: ["Scaling and Optimizing RAG Systems"],
+        goal: "Manage factual consistency and large-scale knowledge ingestion.",
+        skills: [
+            "Session 10: Knowledge Ingestion and Context Management",
+            "Session 11: Evaluation and Factual Consistency in RAG",
+            "Session 12: Multi-Domain Knowledge Bases",
+        ],
+    },
+    {
+        week: "5",
+        topics: ["Multimodal Generative AI"],
+        goal: "Integrate text, image, and speech into unified AI systems.",
+        skills: [
+            "Session 13: Image + Text Systems (CLIP & BLIP)",
+            "Session 14: Audio and Speech Systems (ASR + TTS)",
+            "Session 15: Multimodal Integration Projects",
+        ],
+    },
+    {
+        week: "6",
+        topics: ["Core Agent Engineering (From Scratch)"],
+        goal: "Build autonomous task-oriented systems with local memory.",
+        skills: [
+            "Session 16: Agent Fundamentals",
+            "Session 17: Memory, Tools, and State Management",
+            "Session 18: Building a Local Task Automation Agent",
+        ],
+    },
+    {
+        week: "7",
+        topics: ["Multi-Agent Collaboration"],
+        goal: "Design complex architectures where multiple agents interact.",
+        skills: [
+            "Session 19: Multi-Agent Architecture",
+            "Session 20: Using CrewAI / LangGraph for Agent Collaboration",
+            "Session 21: Domain-Specific Agents",
+        ],
+    },
+    {
+        week: "8",
+        topics: ["Infrastructure, Safety, and Deployment"],
+        goal: "Secure and deploy your local models for production environments.",
+        skills: [
+            "Session 22: Containerization and Model Deployment",
+            "Session 23: Monitoring and Logging AI Systems",
+            "Session 24: Safety, Bias, and Governance",
+        ],
+    },
+    {
+        week: "9",
+        topics: ["Capstone Development"],
+        goal: "Architect and implement an end-to-end local AI solution.",
+        skills: [
+            "Session 25: Capstone Ideation and Architecture Design",
+            "Session 26: Development & Implementation Support",
+            "Session 27: Testing, Validation, and Demo Rehearsal",
+        ],
+    },
+    {
+        week: "10",
+        topics: ["Bonus Module: Specialized AI Agent Systems"],
+        goal: "Deploy specialized autonomous suites for research and operations.",
+        skills: [
+            "Session 28: Research & Knowledge Agents",
+            "Session 29: Operational Agents",
+            "Session 30: Collaborative Ecosystem Agents",
+            "Capstone Demo: Showcase a domain-specific AI ecosystem.",
+        ],
+    },
 ];
 
 
@@ -253,7 +326,7 @@ const AccordionItem = ({ item }: { item: any }) => {
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                         <span className="font-sans text-[10px] font-bold text-[#FC6401] bg-[#FC6401]/10 px-3 py-1 rounded-full uppercase tracking-widest">
-                            MODULE {item.module}
+                            WEEK {item.week}
                         </span>
                     </div>
                     <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">{item.topics.join(" & ")}</h4>
@@ -286,10 +359,7 @@ const AccordionItem = ({ item }: { item: any }) => {
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="bg-orange-50/50 dark:bg-orange-900/10 p-4 rounded-xl border border-orange-100 dark:border-orange-900/30 self-start">
-                                    <p className="text-sm font-bold text-orange-700 dark:text-orange-400 mb-1">Key Outcome:</p>
-                                    <p className="text-sm text-orange-800 dark:text-orange-300">{item.outcome}</p>
-                                </div>
+
                             </div>
                         </div>
                     </motion.div>
