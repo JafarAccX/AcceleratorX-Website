@@ -80,54 +80,106 @@ const MENTORS = [
 
 const CURRICULUM = [
   {
-    week: "1-3",
+    module: "1",
     topics: ["Foundations of Data Analysis"],
-    goal: "Build strong fundamentals in data analytics. Learn data analysis lifecycle, Excel, Dataviz, and BI.",
-    skills: ["Data analysis lifecycle", "Excel for cleaning & dashboards", "Data visualization basics", "Introduction to BI tools"],
-    outcome: "You can analyze datasets and present insights clearly."
+    goal: "Build essential data skills in Excel and introductory BI tools to ensure a solid base in data manipulation and visualization.",
+    skills: [
+      "Data cleaning and aggregation",
+      "Pivot tables",
+      "Introductory dashboards",
+      "Tools: Excel, Tableau, Power BI",
+    ],
+    outcome: "Create an interactive dashboard summarizing a sample dataset.",
   },
   {
-    week: "4-6",
+    module: "2",
     topics: ["SQL for Data Analysis"],
-    goal: "Learn how analysts work with real databases. Master SQL queries, joins, window functions and data cleaning.",
-    skills: ["SQL queries, joins & aggregations", "Window functions & subqueries", "Data cleaning using SQL"],
-    outcome: "You can extract and analyze data from relational databases."
+    goal: "Learn SQL to query and manipulate relational databases, a critical skill for AI data stored in structured databases.",
+    skills: [
+      "Relational databases and conditional filtering",
+      "Table joins and data aggregation",
+      "Tools: MySQL or Google BigQuery",
+    ],
+    outcome: "SQL-based analysis of sales or customer data, uncovering key patterns.",
   },
   {
-    week: "7-9",
-    topics: ["Statistics & Analytics Thinking"],
-    goal: "Learn how to reason with data, not just visualize it. Cover stats, probability, hypothesis testing, and regression.",
-    skills: ["Descriptive statistics", "Probability & hypothesis testing", "Correlation & regression"],
-    outcome: "You can interpret data confidently and avoid false conclusions."
+    module: "3",
+    topics: ["Statistics and Probability for Data Analysis"],
+    goal: "Develop essential statistical skills supporting hypothesis testing and decision-making, vital for understanding user behavior.",
+    skills: [
+      "Descriptive statistics",
+      "Hypothesis testing",
+      "Relational database concepts for AI data",
+    ],
+    outcome: "Enhanced ability to analyze user trends through a statistical lens.",
   },
   {
-    week: "10-13",
+    module: "4",
     topics: ["Python for Data Analysis"],
-    goal: "Use Python for scalable analysis. Work with Pandas, Matplotlib, Seaborn, EDA, and Intro to ML.",
-    skills: ["Python fundamentals", "Pandas for data manipulation", "Matplotlib & Seaborn", "Exploratory Data Analysis (EDA)", "Intro to machine learning"],
-    outcome: "You can analyze complex datasets using Python."
+    goal: "Master Python for data manipulation, EDA, and visualization—an invaluable tool for AI analysts to gain deeper insights.",
+    skills: [
+      "DataFrames and data cleaning",
+      "Advanced visualization",
+      "Tool: Jupyter Notebook",
+    ],
+    outcome: "Exploratory Data Analysis (EDA) of user trends in an AI dataset.",
   },
   {
-    week: "14-20",
-    topics: ["BI, Dashboards & Product Analytics"],
-    goal: "Specialize in product and business analytics. Build interactive dashboards, Product KPIs, Funnels, and A/B tests.",
-    skills: ["Interactive dashboards (Tableau / Power BI)", "Product KPIs (DAU, MAU, retention)", "Funnels & cohort analysis", "A/B test reporting"],
-    outcome: "You can support product and growth decisions with data."
+    module: "5",
+    topics: ["Advanced Business Intelligence and Dashboarding"],
+    goal: "Create interactive dashboards that go beyond static views, designed specifically for tracking AI metrics and user behavior.",
+    skills: [
+      "AI KPI tracking",
+      "A/B test visualization",
+      "Tools: Tableau, Power BI",
+    ],
+    outcome: "Build a dashboard that captures user journeys, AI KPIs, and conversion funnels.",
   },
   {
-    week: "19-20",
-    topics: ["AI Tools & Automation for Analysts"],
-    goal: "Learn how AI accelerates analytics work. Use AI for query generation, code assistance, and insight summarization.",
-    skills: ["SQL query generation", "Python code assistance", "Automated data cleaning", "Insight summarization", "Predictive analytics with AutoML"],
-    outcome: "You become a faster, AI-enabled analyst."
+    module: "6",
+    topics: ["Product Analytics Specialization (Unique to Program)"],
+    goal: "Master the nuances of product-specific metrics and behavior analysis to understand user engagement over time.",
+    skills: [
+      "Key Metrics: DAU, MAU, LTV, retention, and churn analysis",
+      "Funnel analysis and user journey mapping",
+      "Predictive analytics and churn prediction models",
+      "Customer segmentation using RFM analysis and clustering",
+    ],
+    outcome: "Conduct cohort analysis to visualize retention curves and propose strategies to boost product satisfaction.",
   },
   {
-    week: "21-24",
-    topics: ["Capstone Project"],
-    goal: "Solve a real-world product analytics problem. Deliver end-to-end analysis and a final stakeholder presentation.",
-    skills: ["End-to-end analysis", "Cohort, funnel & churn insights", "Predictive modeling", "Interactive dashboards", "Final stakeholder presentation"],
-    outcome: "Complete portfolio-ready project."
-  }
+    module: "7",
+    topics: ["Modern Data Stack for Analysts"],
+    goal: "Learn modern data infrastructure, pipelines, and tools used in data-driven organizations.",
+    skills: [
+      "Data warehousing (BigQuery, Snowflake)",
+      "ETL/ELT workflows and dbt",
+      "Analytics platforms like Metabase and Looker Studio",
+    ],
+    outcome: "Deploy a pipeline using BigQuery + dbt + Tableau/Power BI to create a business performance dashboard.",
+  },
+  {
+    module: "8",
+    topics: ["AI Tools and Automation for Data Analysts"],
+    goal: "Develop skills to enhance data workflows using AI-powered tools, improving analysis speed and quality through automation.",
+    skills: [
+      "Generative AI (ChatGPT, Copilot, Bard) for SQL and Python scripting",
+      "AI-enabled data quality checks and report summarization",
+      "Predictive modeling using AutoML (BigQuery ML)",
+    ],
+    outcome: "Automate data analysis using AI tools for SQL generation, cleaning, and insight summarization.",
+  },
+  {
+    module: "Capstone",
+    topics: ["Product Analysis & Dashboard Presentation"],
+    goal: "Integrate all learned skills to solve a real business problem, culminating in a professional dashboard and data-driven recommendations.",
+    skills: [
+      "Defining AI goals (retention improvement, behavior analysis)",
+      "Multi-page interactive dashboard creation",
+      "Final presentation skills",
+    ],
+    outcome: "Graduate with a career-ready portfolio including a dashboard, written report, and final presentation.",
+  },
 ];
 
 const DATA_TOOLS = [
@@ -287,24 +339,32 @@ const DATA_TOOLS = [
 
 const AccordionItem = ({ module }: { module: any }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const isCapstone = module.module === "Capstone";
 
   return (
-    <div className="border border-gray-200 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+    <div className="border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300 hover:border-[#5BA4E5]/30">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
+        className="w-full flex items-center justify-between p-6 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
       >
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-2">
-            <span className="font-sans text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
-              WEEK {module.week}
+            <span className="font-sans text-[10px] font-bold text-[#5BA4E5] bg-[#5BA4E5]/10 px-3 py-1 rounded-full uppercase tracking-widest">
+              {isCapstone ? "Capstone Project" : `Module ${module.module}`}
             </span>
           </div>
-          <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{module.topics.join(" & ")}</h4>
+          <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">
+            {module.topics.join(" & ")}
+          </h4>
         </div>
-        <ChevronDown
-          className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
-        />
+        <div
+          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
+              ? "bg-[#5BA4E5] text-white rotate-180"
+              : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#5BA4E5] hover:text-white"
+            }`}
+        >
+          <ChevronDown size={20} />
+        </div>
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -314,27 +374,29 @@ const AccordionItem = ({ module }: { module: any }) => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="font-sans p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
-              {module.goal && (
-                <p className="text-sm text-gray-700 dark:text-gray-200 mb-4 font-medium transition-colors duration-300">
-                  {module.goal}
-                </p>
-              )}
-              {module.skills && (
-                <div className="mb-4">
-                  <p className="font-semibold mb-2 transition-colors duration-300 text-xs uppercase text-gray-500 dark:text-gray-400">What you'll learn:</p>
-                  <ul className="list-disc list-inside space-y-1">
+            <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
+              <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
+                {module.goal}
+              </p>
+              <div className="grid gap-8">
+                <div>
+                  <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">What You'll Learn:</p>
+                  <ul className="space-y-2">
                     {module.skills.map((skill: string, i: number) => (
-                      <li key={i} className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">{skill}</li>
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full bg-[#5BA4E5] flex-shrink-0" />
+                        {skill}
+                      </li>
                     ))}
                   </ul>
                 </div>
-              )}
-              {module.outcome && (
-                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10">
-                  <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">Outcome: {module.outcome}</p>
-                </div>
-              )}
+                {module.outcome && (
+                  <div className="bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 dark:border-blue-900/30 self-start">
+                    <p className="text-sm font-bold text-[#5BA4E5] mb-1">Key Outcome:</p>
+                    <p className="text-sm text-blue-800 dark:text-blue-300">{module.outcome}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </motion.div>
         )}
@@ -590,7 +652,7 @@ export default function DataProgramEIE() {
             <p className="font-sans text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
               A complete roadmap from Foundations to Advanced AI-Powered Analytics
             </p>
-            <div>
+            <div className="space-y-4">
               {CURRICULUM.map((module, idx) => (
                 <AccordionItem key={idx} module={module} />
               ))}

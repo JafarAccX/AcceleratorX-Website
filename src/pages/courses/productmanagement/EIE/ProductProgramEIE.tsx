@@ -66,81 +66,246 @@ const PM_MENTORS = [
     },
 ];
 
+// Module labels for grouping
+const MODULE_LABELS: Record<string, string> = {
+    "1": "Module 1: Core Product Management",
+    "2": "Module 2: AI Product Management",
+};
+
 const CURRICULUM = [
-    // Part A: Core Product Management (Weeks 1-12)
+    // Module 1: Core Product Management
     {
-        week: "1-2",
-        topics: ["Foundations of Product Management"],
-        goal: "Understand the PM role, responsibilities, and product lifecycle. Learn to handle ambiguity and own outcomes.",
-        skills: ["PM Mindset", "Stakeholder Management", "Ambiguity Handling"],
+        module: "1",
+        week: "1",
+        topics: ["Introduction to Product Management"],
+        goal: "Understand the fundamental roles and responsibilities of a PM and how they differ from other key stakeholders.",
+        skills: [
+            "PM vs. Product Owner vs. Project Manager",
+            "Digital and physical product lifecycles",
+            "Stakeholder identification and management",
+            "Product thinking and decision-making",
+        ],
+        outcome: "Clear understanding of the PM role and the responsibilities across the product lifecycle.",
     },
     {
-        week: "3-4",
+        module: "1",
+        week: "2",
         topics: ["Users, Problems & Market Understanding"],
-        goal: "Learn how great products start with real problems. Conduct user interviews, create personas, and size markets.",
-        skills: ["User Interviews", "Personas", "Jobs-To-Be-Done", "Market Sizing (TAM/SAM/SOM)"],
+        goal: "Master the art of research to identify genuine user problems rather than just feature requests.",
+        skills: [
+            "Qualitative and quantitative research (interviews, surveys, data)",
+            "Persona creation and Jobs-To-Be-Done (JTBD)",
+            "Market research fundamentals and Product Adoption Lifecycle",
+            "Guesstimation techniques",
+        ],
+        outcome: "Ability to create user personas and identify core problems to solve.",
     },
     {
-        week: "5-6",
-        topics: ["Product Strategy & Roadmapping"],
-        goal: "Move from insights to clear product direction. Build vision, strategy, and competitive analysis.",
-        skills: ["Product Vision", "Value Proposition", "Competitive Analysis", "Roadmapping"],
+        module: "1",
+        week: "3",
+        topics: ["Problem Discovery, Market & Product Strategy"],
+        goal: "Learn to frame an opportunity by understanding market sizing and defining a unique value proposition.",
+        skills: [
+            "Market sizing (TAM, SAM, SOM)",
+            "Competitive analysis and product vision",
+            "Value proposition and differentiation",
+            "Strategy vs. roadmap",
+        ],
+        outcome: "A defined product vision and differentiation strategy for a market opportunity.",
     },
     {
-        week: "7-8",
-        topics: ["Product Execution & Documentation"],
-        goal: "Translate strategy into execution. Write PRDs, understand UX fundamentals, and prioritize features.",
-        skills: ["PRD Writing", "UX Fundamentals", "Wireframing", "Prioritization (RICE/MoSCoW)"],
+        module: "1",
+        week: "4",
+        topics: ["Product Development Methodologies & Roadmapping"],
+        goal: "Explore execution frameworks like Agile and Scrum to manage scope, time, and quality effectively.",
+        skills: [
+            "Agile, Scrum, Kanban, and Waterfall",
+            "Writing product vision statements",
+            "Roadmapping techniques",
+            "Managing scope, time, cost, and quality",
+        ],
+        outcome: "A strategic product roadmap aligned with organizational vision.",
     },
     {
-        week: "9-10",
-        topics: ["MVPs, Metrics & Analytics"],
-        goal: "Learn to measure what matters. Design MVPs and define North Star metrics and funnels.",
-        skills: ["MVP Design", "North Star Metric", "Funnels & Cohorts", "Data-Informed Decisions"],
+        module: "1",
+        week: "5",
+        topics: ["Product Documentation & UX Foundations"],
+        goal: "Learn to translate ambiguous problems into concrete Product Requirement Documents (PRDs).",
+        skills: [
+            "Product Requirement Documents (PRDs)",
+            "Functional vs. non-functional requirements",
+            "UX fundamentals and user journey mapping",
+            "Collaboration with design teams",
+        ],
+        outcome: "Production of high-quality PRDs and user journey maps.",
     },
     {
-        week: "11-12",
-        topics: ["GTM, Launch & Growth"],
-        goal: "Take products to market confidently. Plan launches, pricing, and positioning.",
-        skills: ["GTM Strategy", "Pricing & Positioning", "Launch Planning", "Post-Launch Analysis"],
+        module: "1",
+        week: "6",
+        topics: ["UI/UX, Wireframing & Prioritization"],
+        goal: "Master the principles of design thinking and frameworks for deciding what to build next.",
+        skills: [
+            "Low-fidelity and high-fidelity wireframes",
+            "Prioritization frameworks: RICE, MoSCoW, Kano",
+            "Usability testing fundamentals",
+        ],
+        outcome: "Wireframed product concepts prioritized using data-driven frameworks.",
+    },
+    {
+        module: "1",
+        week: "7",
+        topics: ["MVP, Metrics & Product Analytics"],
+        goal: "Define success for your Minimum Viable Product (MVP) through North Star Metrics and feedback loops.",
+        skills: [
+            "MVP definition and misconceptions",
+            "Defining success metrics and North Star Metric",
+            "Funnels and event tracking",
+            "Feedback loops and iteration",
+        ],
+        outcome: "A clear MVP definition with identified success metrics and tracking plans.",
+    },
+    {
+        module: "1",
+        week: "8",
+        topics: ["Go-To-Market (GTM) & Product Launch"],
+        goal: "Prepare for launch by mastering pricing, positioning, and distribution channel strategy.",
+        skills: [
+            "GTM strategy components",
+            "Pricing and positioning",
+            "Launch readiness checklists and post-launch analysis",
+            "Collaboration with marketing and sales",
+        ],
+        outcome: "A comprehensive launch plan and GTM strategy.",
+    },
+    {
+        module: "1",
+        week: "9",
+        topics: ["Product Management Frameworks"],
+        goal: "Deep dive into advanced segmentation and growth frameworks like AARRR.",
+        skills: [
+            "Product strategy frameworks",
+            "User segmentation and cohort analysis",
+            "AARRR framework",
+            "Decision-making frameworks",
+        ],
+        outcome: "Application of growth frameworks to scale product impact.",
+    },
+    {
+        module: "1",
+        week: "10",
+        topics: ["Experimentation & Decision Making"],
+        goal: "Learn hypothesis-driven development and the fundamentals of A/B testing.",
+        skills: [
+            "Hypothesis-driven product development",
+            "Experiment design and A/B testing",
+            "Interpreting results and data-driven prioritization",
+        ],
+        outcome: "Ability to design and interpret product experiments.",
+    },
+    {
+        module: "1",
+        week: "11",
+        topics: ["Technical Foundations for Product Managers"],
+        goal: "Understand the \"under the hood\" tech basics including frontend, backend, and infrastructure.",
+        skills: [
+            "Frontend and backend fundamentals",
+            "Infrastructure basics and system communication",
+            "Analytics and instrumentation",
+            "Technical PM interview preparation",
+        ],
+        outcome: "Technical fluency to collaborate effectively with engineering teams.",
+    },
+    {
+        module: "1",
+        week: "12",
+        topics: ["APIs, Databases & SQL for PMs"],
+        goal: "Master data querying and understand how APIs enable modern product integrations.",
+        skills: [
+            "APIs, integrations, and testing concepts",
+            "Databases and schemas",
+            "SQL fundamentals",
+            "Using data for product decisions",
+        ],
+        outcome: "Proficiency in SQL and API concepts for data-driven decision-making.",
     },
 
-    // Part B: AI Product Management (Weeks 13-18)
+    // Module 2: AI Product Management
     {
+        module: "2",
         week: "13",
         topics: ["Introduction to AI Product Management"],
-        goal: "Understand how AI changes discovery, design, and delivery. AI-first vs AI-assisted products.",
-        skills: ["AI-First Thinking", "AI Value Assessment", "Data & Models as Product"],
+        goal: "Learn how AI PM differs from traditional product management and when not to use AI.",
+        skills: [
+            "What is AI Product Management",
+            "Components: Data, Infrastructure, Models, UX",
+            "AI-first vs. AI-powered vs. AI-assisted products",
+        ],
+        outcome: "Clear identification of AI components and appropriate product archetypes.",
     },
     {
+        module: "2",
         week: "14",
         topics: ["AI Product Discovery & Problem Framing"],
-        goal: "Learn to frame AI-appropriate problems. Evaluate data feasibility, risks, and trust.",
-        skills: ["Data Feasibility", "AI Risk Assessment", "Trust & UX for AI"],
+        goal: "Identify AI-appropriate use cases while managing risks, uncertainty, and user trust.",
+        skills: [
+            "Identifying AI use cases and framing problem statements",
+            "Data availability and quality",
+            "AI risks and uncertainty",
+            "AI user experience and trust",
+        ],
+        outcome: "AI-specific problem statements and data strategy.",
     },
     {
+        module: "2",
         week: "15",
         topics: ["AI Models, LLMs & Modern AI Stack"],
-        goal: "Understand trade-offs in ML, LLMs vs SLMs, and prompting frameworks without needing to code.",
-        skills: ["ML Basics", "LLMs vs SLMs", "Prompting for PMs", "Cost-Latency Trade-offs"],
+        goal: "Master machine learning basics and prompting frameworks to evaluate model performance.",
+        skills: [
+            "Machine learning basics (Supervised, Unsupervised, Reinforcement)",
+            "LLMs vs. SLMs and foundation models",
+            "Prompting frameworks for PMs",
+            "Model evaluation: Accuracy, Hallucinations, Latency, Cost",
+        ],
+        outcome: "Technical understanding of model types and evaluation metrics.",
     },
     {
+        module: "2",
         week: "16",
-        topics: ["AI PRDs, Metrics & Iteration"],
-        goal: "Write AI-specific requirements. Design for human-in-the-loop and define AI success metrics.",
-        skills: ["AI PRDs", "Human-in-the-loop", "AI Success Metrics", "Model Monitoring"],
+        topics: ["AI Product Design, PRDs & Metrics"],
+        goal: "Create AI-specific PRDs that account for model constraints and human-in-the-loop design.",
+        skills: [
+            "AI-specific PRDs and data requirements",
+            "Model constraints and dependencies",
+            "Human-in-the-loop design",
+            "AI product metrics and iteration",
+        ],
+        outcome: "An AI-optimized PRD with comprehensive performance metrics.",
     },
     {
+        module: "2",
         week: "17",
         topics: ["Building AI Products & Rapid MVPs"],
-        goal: "Build faster in the AI era. Practice rapid AI MVPs and vibe coding.",
-        skills: ["Rapid Prototyping", "Vibe Coding", "AI Workflows"],
+        goal: "Leverage \"Vibe Coding\" and AI tools to automate workflows and build rapid prototypes.",
+        skills: [
+            "Rapid AI MVP development",
+            "Vibe coding for PMs",
+            "AI for prototyping and internal tools",
+            "Automating PM workflows using AI tools",
+        ],
+        outcome: "A functional AI-driven prototype or automated PM workflow.",
     },
     {
+        module: "2",
         week: "18",
-        topics: ["Advanced AI Systems, Ethics & Career"],
-        goal: "Prepare for AI PM interviews. Understand RAG, Agents, and Responsible AI.",
-        skills: ["RAG Architecture", "AI Agents", "Responsible AI", "Interview Prep"],
+        topics: ["Advanced AI Systems, Ethics & Career Readiness"],
+        goal: "Master RAG, multi-agent systems, and AI ethics to prepare for final capstone presentations.",
+        skills: [
+            "Retrieval-Augmented Generation (RAG) and MCPs",
+            "AI agents and orchestration",
+            "AI Ethics: Bias, Privacy, Responsible AI",
+            "AI PM interview and capstone preparation",
+        ],
+        outcome: "Completion of a capstone project and readiness for AI PM roles.",
     },
 ];
 
@@ -295,24 +460,56 @@ const PM_TOOLS = [
 
 const AccordionItem = ({ week }: { week: any }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const isModule2 = week.module === "2";
+    const accentBg = isModule2 ? "bg-[#FC6401]/10" : "bg-blue-600/10";
+    const accentText = isModule2 ? "text-[#FC6401]" : "text-blue-600";
+    const accentOutcomeBg = isModule2
+        ? "bg-orange-50/50 dark:bg-orange-900/10 border-orange-100 dark:border-orange-900/30"
+        : "bg-blue-50/50 dark:bg-blue-900/10 border-blue-100 dark:border-blue-900/30";
+    const accentOutcomeTitle = isModule2
+        ? "text-orange-700 dark:text-orange-400"
+        : "text-blue-700 dark:text-blue-400";
+    const accentOutcomeText = isModule2
+        ? "text-orange-800 dark:text-orange-300"
+        : "text-blue-800 dark:text-blue-300";
+    const accentDot = isModule2 ? "bg-[#FC6401]" : "bg-blue-600";
+    const accentHoverBorder = isModule2 ? "hover:border-[#FC6401]/30" : "hover:border-blue-600/30";
+    const chevronActiveBg = isModule2 ? "bg-[#FC6401]" : "bg-blue-600";
+    const chevronHover = isModule2
+        ? "hover:bg-[#FC6401] hover:text-white"
+        : "hover:bg-blue-600 hover:text-white";
 
     return (
-        <div className="border border-gray-200 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+        <div className={`border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300 ${accentHoverBorder}`}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
+                className="w-full flex items-center justify-between p-6 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
-                <div>
-                    <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1 transition-colors duration-300">
-                        WEEK {week.week}
-                    </span>
-                    <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">
+                <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                        <span
+                            className={`font-sans text-[10px] font-bold ${accentText} ${accentBg} px-3 py-1 rounded-full uppercase tracking-widest`}
+                        >
+                            WEEK {week.week}
+                        </span>
+                        {week.module && (
+                            <span className="font-sans text-[10px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest">
+                                {MODULE_LABELS[week.module]}
+                            </span>
+                        )}
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">
                         {week.topics.join(" & ")}
                     </h4>
                 </div>
-                <ChevronDown
-                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
-                />
+                <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
+                        ? `${chevronActiveBg} text-white rotate-180`
+                        : `bg-gray-100 dark:bg-[#252525] text-gray-500 ${chevronHover}`
+                        }`}
+                >
+                    <ChevronDown size={20} />
+                </div>
             </button>
             <AnimatePresence>
                 {isOpen && (
@@ -322,32 +519,31 @@ const AccordionItem = ({ week }: { week: any }) => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717]  transition-colors duration-300">
-                            {week.goal && (
-                                <p className="font-sans text-sm  mb-3 font-medium transition-colors duration-300">
-                                    {week.goal}
-                                </p>
-                            )}
-                            <div className="mb-4">
-                                <p className="font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Key Skills:</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {week.skills.map((skill: string, sIdx: number) => (
-                                        <span key={sIdx} className="font-sans bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded text-xs transition-colors duration-300">
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                            {week.caseStudies && week.caseStudies.length > 0 && (
+                        <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
+                            <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
+                                {week.goal}
+                            </p>
+                            <div className="grid gap-8">
                                 <div>
-                                    <p className="font-sans font-semibold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">Case Studies:</p>
-                                    <div className="flex gap-4">
-                                        {week.caseStudies.map((logo: string, lIdx: number) => (
-                                            <img key={lIdx} src={logo} alt="case study" className="h-6 object-contain opacity-70" />
+                                    <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">What You'll Learn:</p>
+                                    <ul className="space-y-2">
+                                        {week.skills.map((skill: string, i: number) => (
+                                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                                <div
+                                                    className={`mt-1 w-1.5 h-1.5 rounded-full ${accentDot} flex-shrink-0`}
+                                                />
+                                                {skill}
+                                            </li>
                                         ))}
-                                    </div>
+                                    </ul>
                                 </div>
-                            )}
+                                {week.outcome && (
+                                    <div className={`${accentOutcomeBg} p-4 rounded-xl border self-start`}>
+                                        <p className={`text-sm font-bold ${accentOutcomeTitle} mb-1`}>Key Outcome:</p>
+                                        <p className={`text-sm ${accentOutcomeText}`}>{week.outcome}</p>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 )}
@@ -672,7 +868,7 @@ export default function ProductProgramEIE() {
                         <p className="font-sans text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">
                             A comprehensive journey covering everything from user research to AI scaling.
                         </p>
-                        <div className="relative">
+                        <div className="space-y-4">
                             {CURRICULUM.map((week, idx) => (
                                 <AccordionItem key={idx} week={week} />
                             ))}

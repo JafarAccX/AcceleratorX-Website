@@ -44,49 +44,214 @@ const AIDM_MENTORS = [
     { name: "Ankita Das", role: "B2B Product Marketer", company: "Ex-TargetG", image: "/assets/mentor/ankita.webp", linkedin: "https://www.linkedin.com/in/ankita-das/" },
 ];
 
+// Month labels for grouping
+const MONTH_LABELS: Record<string, string> = {
+    "1": "Month 1: Foundations of AI in Digital Marketing",
+    "2": "Month 2: Growth Channels & Paid Media with AI",
+    "3": "Month 3: Automation, Email, and E-commerce AI",
+    "4": "Month 4: AI Agents, Growth & Career Launch",
+};
+
 const CURRICULUM = [
+    // Month 1: Foundations of AI in Digital Marketing
     {
-        week: "1-2",
-        topics: ["Digital Marketing Foundations + AI"],
-        goal: "Understand marketing fundamentals, funnels, and AI-driven audience research.",
-        skills: ["Marketing fundamentals & funnels", "Consumer journey mapping", "Market & audience research using AI"],
-        outcome: "Clear understanding of how growth funnels work."
+        month: "1",
+        week: "1",
+        topics: ["Digital Marketing Foundations with AI"],
+        goal: "Understand the fundamentals of digital marketing and how AI enhances the consumer journey and funnel mapping.",
+        skills: [
+            "Introduction to Digital Marketing & AI's Role",
+            "Consumer Journey & Funnel Mapping",
+            "Market Research with AI (Marketing Lab)",
+        ],
+        outcome: "Clear understanding of how growth funnels work.",
     },
     {
-        week: "3-4",
-        topics: ["AI-Powered Content, SEO & Creative"],
-        goal: "Master content creation, SEO, and visual storytelling with Generative AI.",
-        skills: ["SEO & keyword research with AI", "Blog & content creation using AI", "Visual storytelling with generative AI", "Image, video & audio creation"],
-        outcome: "You can produce high-quality content at scale."
+        month: "1",
+        week: "2",
+        topics: ["AI-Powered Content Creation (Text + SEO)"],
+        goal: "Master the basics of SEO and utilize AI tools to automate high-quality blog writing and content optimization.",
+        skills: [
+            "SEO Basics & AI for Keyword Research",
+            "Blog Writing with AI Prompts",
+            "On-Page SEO & Content Optimization",
+        ],
+        outcome: "Ability to generate campaign copy and SEO content in minutes rather than hours.",
     },
     {
-        week: "5-6",
-        topics: ["Performance Marketing & Growth"],
-        goal: "Plan and execute high-ROI campaigns on Google & Meta using AI optimization.",
-        skills: ["Google Ads & Meta Ads campaigns", "AI-assisted ad copy & creatives", "A/B testing & optimization", "Influencer & social media growth"],
-        outcome: "You can plan and execute paid growth campaigns."
+        month: "1",
+        week: "3",
+        topics: ["Visual Storytelling with Generative AI"],
+        goal: "Leverage cutting-edge generative AI models to create professional visual assets for advertising and social media.",
+        skills: [
+            "AI Image Generation for Ads & Social Media",
+            "Creative Design Workflows",
+            "Mid-Level Creative Projects",
+        ],
+        outcome: "Production of high-fidelity visual campaign assets at scale.",
     },
     {
-        week: "7-8",
-        topics: ["Analytics, CRO & Optimization"],
-        goal: "Measure performance and optimize conversions using data and behavior analysis.",
-        skills: ["Google Analytics 4 (GA4)", "Marketing dashboards & KPIs", "Conversion rate optimization", "Heatmaps & user behavior analysis"],
-        outcome: "You can measure what works and improve conversions."
+        month: "1",
+        week: "4",
+        topics: ["Video & Audio Marketing with AI"],
+        goal: "Automate the production of short-form video content and professional audio/podcasts using AI editing tools.",
+        skills: [
+            "AI Video Creation & Editing",
+            "Short-Form Content for TikTok/Reels",
+            "AI Voice & Podcasting",
+        ],
+        outcome: "A complete portfolio of AI-generated video and audio marketing materials.",
+    },
+
+    // Month 2: Growth Channels & Paid Media with AI
+    {
+        month: "2",
+        week: "5",
+        topics: ["Paid Ads with AI"],
+        goal: "Plan and draft high-performance Google and Meta ad campaigns using AI for copywriting and testing.",
+        skills: [
+            "Google Ads Planning with AI",
+            "Meta Ads Campaign Drafting",
+            "AI for Ad Copywriting & A/B Testing",
+        ],
+        outcome: "Automated Google & Meta ad campaign workflows.",
     },
     {
-        week: "9-14",
-        topics: ["Marketing Automation & AI Agents"],
-        goal: "Build automated workflows and multi-agent systems for scalable marketing.",
-        skills: ["Automated workflows (lead → CRM → email → social)", "AI-powered email & drip campaigns", "Multi-agent marketing systems", "Fully automated campaign pipelines"],
-        outcome: "You become a scalable, automation-first marketer."
+        month: "2",
+        week: "6",
+        topics: ["Social Media Growth & Influencer Marketing"],
+        goal: "Develop AI-driven social media strategies and automate the discovery and outreach of influencers.",
+        skills: [
+            "Social Media Strategy with AI",
+            "Influencer Discovery & Outreach",
+            "Engagement Optimization with AI",
+        ],
+        outcome: "Scalable social media presence with optimized engagement loops.",
     },
     {
-        week: "15-16",
-        topics: ["Growth, Experimentation & Capstone"],
-        goal: "Design growth experiments and launch a multi-channel capstone campaign.",
-        skills: ["Design growth experiments", "Build a personal marketing portfolio", "Create an AI-powered, multi-channel capstone campaign"],
-        outcome: "You graduate with proof of real marketing skills."
-    }
+        month: "2",
+        week: "7",
+        topics: ["Data Analytics for Marketers"],
+        goal: "Master the basics of GA4 and use AI-powered insights to create real-time performance tracking dashboards.",
+        skills: [
+            "Google Analytics 4 (GA4) Basics",
+            "Performance Tracking & KPI Dashboards",
+            "AI-Powered Insights & Forecasting",
+        ],
+        outcome: "Funnel dashboards synced with GA4 for real-time tracking.",
+    },
+    {
+        month: "2",
+        week: "8",
+        topics: ["Conversion Rate Optimization (CRO)"],
+        goal: "Improve website performance using heatmaps, user behavior analysis, and AI-driven design recommendations.",
+        skills: [
+            "Landing Page Design Principles",
+            "Heatmaps & User Behavior",
+            "AI for CRO Recommendations",
+        ],
+        outcome: "Data-backed landing page optimizations that improve ROI and ROAS.",
+    },
+
+    // Month 3: Automation, Email, and E-commerce AI
+    {
+        month: "3",
+        week: "9",
+        topics: ["Marketing Automation & Rollout AI (Part 1)"],
+        goal: "Learn to build automated marketing workflows that connect lead capture systems with your CRM.",
+        skills: [
+            "Introduction to Workflow Automation",
+            "Automated Lead Capture & CRM Updates",
+            "Rollout AI for Marketing Automation (Hands-On)",
+        ],
+        outcome: "Working automation systems that reduce execution time by 40–60%.",
+    },
+    {
+        month: "3",
+        week: "10",
+        topics: ["Email & Drip Marketing"],
+        goal: "Create personalized, automated email sequences using AI to handle copywriting and A/B testing.",
+        skills: [
+            "Email Marketing Fundamentals",
+            "AI Copywriting for Email Sequences",
+            "A/B Testing & Personalization",
+        ],
+        outcome: "Fully automated AI-generated email drip sequences.",
+    },
+    {
+        month: "3",
+        week: "11",
+        topics: ["B2B Growth & LinkedIn Marketing"],
+        goal: "Automate B2B lead generation and cold outreach campaigns specifically for the LinkedIn ecosystem.",
+        skills: [
+            "LinkedIn Lead Generation with AI",
+            "Cold Outreach Copywriting",
+            "Automating LinkedIn Campaigns",
+        ],
+        outcome: "Scalable B2B lead scraping and enrichment flows.",
+    },
+    {
+        month: "3",
+        week: "12",
+        topics: ["E-commerce Marketing with AI"],
+        goal: "Optimize e-commerce stores with AI-powered product descriptions, dynamic pricing, and retargeting campaigns.",
+        skills: [
+            "AI-Powered Product Descriptions",
+            "Dynamic Pricing & Personalization",
+            "Retargeting Campaigns",
+        ],
+        outcome: "Improved e-commerce conversion through automated personalization and targeting.",
+    },
+
+    // Month 4: AI Agents, Growth & Career Launch
+    {
+        month: "4",
+        week: "13",
+        topics: ["Vibe Coding & AI Marketing Agents (Part 1)"],
+        goal: "Explore \"Vibe Coding\" to build autonomous AI agents that handle multi-step marketing research and design tasks.",
+        skills: [
+            "Vibe Coding — Building Agents with Prompts",
+            "Multi-Agent Marketing Workflows (No-Code)",
+            "AI Agent Lab (Research → Copy Design → Schedule)",
+        ],
+        outcome: "Custom AI agents capable of automating complex \"Research to Schedule\" workflows.",
+    },
+    {
+        month: "4",
+        week: "14",
+        topics: ["Rollout AI & AI Marketing Agents (Part 2)"],
+        goal: "Perform a deep dive into advanced agent collaboration to launch full-scale, multi-agent ad campaigns.",
+        skills: [
+            "Rollout AI Deep Dive — Campaign Builder",
+            "Advanced Agent Collaboration (Research, Creative & Analytics)",
+            "Case Simulation — Launching a Multi-Agent Ad Campaign",
+        ],
+        outcome: "A live simulation and launch of a multi-agent ad campaign.",
+    },
+    {
+        month: "4",
+        week: "15",
+        topics: ["Growth Hacking, Storytelling & Experimentation"],
+        goal: "Apply viral mechanics and rapid A/B testing to create growth loops through AI-driven storytelling.",
+        skills: [
+            "Growth Loops & Viral Mechanics",
+            "Creative Storytelling with AI",
+            "Rapid A/B Testing & Case Studies",
+        ],
+        outcome: "Advanced growth hacking systems that maximize company impact and ROI.",
+    },
+    {
+        month: "4",
+        week: "16",
+        topics: ["Career Prep, Capstone & Showcase"],
+        goal: "Finalize your professional portfolio and showcase your capstone project to mentors and recruiters.",
+        skills: [
+            "Building a Marketing Portfolio",
+            "Freelancing & Personal Branding",
+            "Final Capstone Showcase & Feedback",
+        ],
+        outcome: "A professional AI marketing portfolio and project showcase for career launch.",
+    },
 ];
 
 const AIDM_TOOLS = [
@@ -312,22 +477,34 @@ const AccordionItem = ({ item }: { item: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-gray-200 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+        <div className="border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300 hover:border-[#9EFF1F]/30">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
+                className="w-full flex items-center justify-between p-6 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-bold text-[#9EFF1F] dark:text-[#9EFF1F] bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
+                        <span className="font-sans text-[10px] font-bold text-[#9EFF1F] bg-[#9EFF1F]/10 px-3 py-1 rounded-full uppercase tracking-widest">
                             WEEK {item.week}
                         </span>
+                        {item.month && (
+                            <span className="font-sans text-[10px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest">
+                                {MONTH_LABELS[item.month]}
+                            </span>
+                        )}
                     </div>
-                    <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{item.topics.join(" & ")}</h4>
+                    <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">
+                        {item.topics.join(" & ")}
+                    </h4>
                 </div>
-                <ChevronDown
-                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
-                />
+                <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
+                            ? "bg-[#9EFF1F] text-black rotate-180"
+                            : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#9EFF1F] hover:text-black"
+                        }`}
+                >
+                    <ChevronDown size={20} />
+                </div>
             </button>
             <AnimatePresence>
                 {isOpen && (
@@ -337,27 +514,29 @@ const AccordionItem = ({ item }: { item: any }) => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="font-sans p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
-                            {item.goal && (
-                                <p className="text-sm text-gray-700 dark:text-gray-200 mb-4 font-medium transition-colors duration-300">
-                                    {item.goal}
-                                </p>
-                            )}
-                            {item.skills && (
-                                <div className="mb-4">
-                                    <p className="font-semibold mb-2 transition-colors duration-300 text-xs uppercase text-gray-500 dark:text-gray-400">What you'll learn:</p>
-                                    <ul className="list-disc list-inside space-y-1">
+                        <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
+                            <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
+                                {item.goal}
+                            </p>
+                            <div className="grid gap-8">
+                                <div>
+                                    <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">What You'll Learn:</p>
+                                    <ul className="space-y-2">
                                         {item.skills.map((skill: string, i: number) => (
-                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">{skill}</li>
+                                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                                <div className="mt-1 w-1.5 h-1.5 rounded-full bg-[#9EFF1F] flex-shrink-0" />
+                                                {skill}
+                                            </li>
                                         ))}
                                     </ul>
                                 </div>
-                            )}
-                            {item.outcome && (
-                                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10">
-                                    <p className="text-sm font-semibold text-green-600 dark:text-green-400">Outcome: {item.outcome}</p>
-                                </div>
-                            )}
+                                {item.outcome && (
+                                    <div className="bg-lime-50/50 dark:bg-lime-900/10 p-4 rounded-xl border border-lime-100 dark:border-lime-900/30 self-start">
+                                        <p className="text-sm font-bold text-lime-700 dark:text-[#9EFF1F] mb-1">Key Outcome:</p>
+                                        <p className="text-sm text-lime-800 dark:text-lime-300">{item.outcome}</p>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 )}
@@ -669,7 +848,7 @@ export default function AIDMProgramEIE() {
                         <p className="font-sans text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
                             A structured 16-week journey from digital foundations to autonomous AI marketing agents.
                         </p>
-                        <div>
+                        <div className="space-y-4">
                             {CURRICULUM.map((item, idx) => (
                                 <AccordionItem key={idx} item={item} />
                             ))}

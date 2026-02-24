@@ -46,42 +46,80 @@ const MENTORS = [
     { name: "Preeti Money", role: "Associate Director", company: "Walmart", image: "/redesign/data-science/mentors/Preeti Money.png", bio: "Enterprise ML & Scalable Analytics", linkedin: "https://www.linkedin.com/in/preeti-money/" },
 ];
 
+const PHASE_LABELS: Record<string, string> = {
+    "1": "Phase 1: Reframing from Analyst → Data Scientist",
+    "2": "Phase 2: Core Machine Learning",
+    "3": "Phase 3: Advanced & Specialized ML",
+    "4": "Phase 4: Generative AI & Agentic Data Science",
+    "5": "Phase 5: Deployment, MLOps & Decision Impact",
+};
+
 const CURRICULUM = [
     {
-        week: "Ph 1",
+        phase: "1",
         topics: ["Analyst → Data Scientist Mindset"],
-        goal: "Transition from basic analysis to structured data science problem framing.",
-        skills: ["DS Problem Framing", "Advanced EDA", "Statistical Inference"],
-        outcome: "Ability to map business goals to DS objectives."
+        goal: "Transition from reporting what happened to predicting what will happen through causal thinking.",
+        skills: [
+            "Session 1: Analyst vs Data Scientist Mindset — why dashboards ≠ data science, problem framing vs reporting, causal vs descriptive thinking",
+            "Session 2: Data Science Lifecycle — problem → signal → model → decision, offline vs online ML, failure modes of DS projects",
+            "Session 3: Mathematical Foundations Refresher — linear algebra intuition, probability for ML, optimization & loss functions, gradient descent",
+        ],
+        outcome: "Ability to map business goals to DS objectives and convert dashboard problems into modeling problems.",
     },
     {
-        week: "Ph 2",
-        topics: ["Core ML foundations"],
-        goal: "Master the essentials of machine learning modeling.",
-        skills: ["Regression", "Classification", "Decision Trees", "Ensemble Methods"],
-        outcome: "Build and evaluate robust ML models from scratch."
+        phase: "2",
+        topics: ["Core Machine Learning"],
+        goal: "Build models that survive real-world constraints by mastering evaluation and feature engineering.",
+        skills: [
+            "Session 4: Regression Deep Dive — linear vs non-linear regression, regularization (L1, L2, ElasticNet), feature leakage & multicollinearity",
+            "Session 5: Classification Algorithms — logistic regression, kNN, Naive Bayes, precision-recall tradeoffs, threshold tuning",
+            "Session 6: Tree-Based Models — Decision Trees, Random Forest, Gradient Boosting (XGBoost, LightGBM), feature importance",
+            "Session 7: Model Evaluation & Error Analysis — cross-validation, ROC-AUC vs PR-AUC, error slicing by cohorts, cost-based evaluation",
+            "Session 8: Feature Engineering — numeric, categorical, temporal features, aggregations & lag features, encoding strategies",
+            "Session 9: ML Pipelines & Reproducibility — train-test leakage, pipelines & versioning, experiment tracking",
+        ],
+        outcome: "Build and evaluate robust ML models; improve model performance by 20–30% via advanced feature engineering.",
     },
     {
-        week: "Ph 3",
-        topics: ["Advanced ML Techniques"],
-        goal: "Deeper dive into complex patterns and unstructured data.",
-        skills: ["Time Series Forecasting", "NLP Fundamentals", "Experiment Design"],
-        outcome: "Handle real-world messy data and time-dependent trends."
+        phase: "3",
+        topics: ["Advanced & Specialized ML"],
+        goal: "Master high-impact specialized fields including time series, causal inference, and deep learning.",
+        skills: [
+            "Session 10: Unsupervised Learning — K-Means, DBSCAN, PCA & UMAP, behavioral segmentation",
+            "Session 11: Time Series for Business — trend, seasonality, noise, ARIMA vs ML forecasting, demand/revenue forecasting",
+            "Session 12: Experimentation & Causal Thinking — A/B testing pitfalls, selection bias, observational vs experimental data",
+            "Session 13: Anomaly & Fraud Detection — statistical vs ML approaches, Isolation Forest, rare event challenges",
+            "Session 14: Introduction to Deep Learning — neural network intuition, when DL is overkill, tabular vs unstructured data",
+            "Session 15: NLP for Data Scientists — embeddings vs TF-IDF, text classification, topic modeling, review & feedback analysis",
+        ],
+        outcome: "Handle real-world messy data, time-dependent trends, and apply NLP to unstructured business data.",
     },
     {
-        week: "Ph 4",
+        phase: "4",
         topics: ["Generative AI & Agentic Data Science"],
-        goal: "Stay ahead with the latest in GenAI and agentic workflows.",
-        skills: ["LLM Embeddings", "Vector DBs", "Agentic Workflows for EDA"],
-        outcome: "Automate complex DS tasks using autonomous agents."
+        goal: "Integrate LLMs and autonomous agents into professional data science workflows.",
+        skills: [
+            "Session 16: LLMs for Data Scientists — how LLMs work, strengths vs weaknesses, DS use cases beyond chat, hallucinations & validation",
+            "Session 17: Prompt Engineering for Analytics — structured prompting, chain-of-thought reasoning, SQL & Python generation safely",
+            "Session 18: Embeddings & Vector Search — embeddings intuition, similarity search, recommendation use cases, semantic analytics",
+            "Session 19: Agentic AI for Data Science — tool-calling & multi-step reasoning, data analysis agents, auto-EDA & auto-modeling",
+            "Session 20: Human-in-the-Loop DS — where AI should stop, validation strategies, trust & explainability, DS + AI collaboration",
+        ],
+        outcome: "Build a semantic search system on user feedback and automate complex DS tasks using autonomous agents.",
     },
     {
-        week: "Ph 5",
-        topics: ["Deployment & MLOps"],
-        goal: "Turn your notebooks into real, working production systems.",
-        skills: ["Model Deployment", "Monitoring Drift", "Pipeline Orchestration"],
-        outcome: "You graduate as a production-ready Data Scientist."
-    }
+        phase: "5",
+        topics: ["Deployment, MLOps & Decision Impact"],
+        goal: "Launch production-grade pipelines and present data-driven decisions to stakeholders.",
+        skills: [
+            "Session 21: Model Deployment Basics — batch vs real-time models, APIs & pipelines, monitoring predictions, data & concept drift",
+            "Session 22: Explainability & Responsible AI — SHAP & feature attribution, model transparency, bias & fairness checks",
+            "Session 23: Business Decisioning with Models — turning predictions into actions, scorecards & decision rules, ROI estimation",
+            "Session 24: Capstone Project Build Phase — end-to-end project: business framing, feature engineering, model selection, GenAI-assisted analysis",
+            "Session 25: Capstone Presentation + DS Interviews — present to stakeholders, defend modeling decisions, ML intuition, SQL + stats, portfolio review",
+        ],
+        outcome: "Graduate as a production-ready Data Scientist with a deployed model, capstone portfolio, and interview readiness.",
+    },
 ];
 
 const TOOLS = [
@@ -181,22 +219,34 @@ const AccordionItem = ({ module }: { module: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-gray-200 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+        <div className="border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300 hover:border-[#3B82F6]/30">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
+                className="w-full flex items-center justify-between p-6 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <span className="font-sans text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded uppercase tracking-wider transition-colors duration-300">
-                            WEEK {module.week}
+                        <span className="font-sans text-[10px] font-bold text-[#3B82F6] bg-[#3B82F6]/10 px-3 py-1 rounded-full uppercase tracking-widest">
+                            Phase {module.phase}
                         </span>
+                        {module.phase && (
+                            <span className="font-sans text-[10px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest hidden sm:inline">
+                                {PHASE_LABELS[module.phase]?.split(":")[1]?.trim()}
+                            </span>
+                        )}
                     </div>
-                    <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{module.topics.join(" & ")}</h4>
+                    <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">
+                        {module.topics.join(" & ")}
+                    </h4>
                 </div>
-                <ChevronDown
-                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
-                />
+                <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
+                            ? "bg-[#3B82F6] text-white rotate-180"
+                            : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#3B82F6] hover:text-white"
+                        }`}
+                >
+                    <ChevronDown size={20} />
+                </div>
             </button>
             <AnimatePresence>
                 {isOpen && (
@@ -206,27 +256,29 @@ const AccordionItem = ({ module }: { module: any }) => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="font-sans p-5 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
-                            {module.goal && (
-                                <p className="text-sm text-gray-700 dark:text-gray-200 mb-4 font-medium transition-colors duration-300">
-                                    {module.goal}
-                                </p>
-                            )}
-                            {module.skills && (
-                                <div className="mb-4">
-                                    <p className="font-semibold mb-2 transition-colors duration-300 text-xs uppercase text-gray-500 dark:text-gray-400">What you'll learn:</p>
-                                    <ul className="list-disc list-inside space-y-1">
+                        <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
+                            <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
+                                {module.goal}
+                            </p>
+                            <div className="grid gap-8">
+                                <div>
+                                    <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">Sessions Covered:</p>
+                                    <ul className="space-y-2">
                                         {module.skills.map((skill: string, i: number) => (
-                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">{skill}</li>
+                                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                                <div className="mt-1 w-1.5 h-1.5 rounded-full bg-[#3B82F6] flex-shrink-0" />
+                                                {skill}
+                                            </li>
                                         ))}
                                     </ul>
                                 </div>
-                            )}
-                            {module.outcome && (
-                                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10">
-                                    <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">Outcome: {module.outcome}</p>
-                                </div>
-                            )}
+                                {module.outcome && (
+                                    <div className="bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 dark:border-blue-900/30 self-start">
+                                        <p className="text-sm font-bold text-[#3B82F6] mb-1">Key Outcome:</p>
+                                        <p className="text-sm text-blue-800 dark:text-blue-300">{module.outcome}</p>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 )}
@@ -410,7 +462,7 @@ export default function DataScienceProgramEIE() {
 
                         <h3 className="font-heading text-2xl font-bold mb-6">Program Structure - 25 Sessions • 5 Phases</h3>
                         <p className="font-sans text-gray-600 dark:text-gray-300 mb-8">Everything is hands-on. Move from the Analyst mindset to becoming a Data Scientist.</p>
-                        <div>{CURRICULUM.map((module, idx) => <AccordionItem key={idx} module={module} />)}</div>
+                        <div className="space-y-4">{CURRICULUM.map((module, idx) => <AccordionItem key={idx} module={module} />)}</div>
                         <div className="mt-8 flex justify-center">
                             <PremiumButton
                                 onClick={() => {

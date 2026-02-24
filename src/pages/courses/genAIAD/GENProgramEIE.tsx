@@ -67,28 +67,156 @@ const GEN_MENTORS = [
 
 const CURRICULUM = [
     {
-        week: "1-4",
-        topics: ["Generative AI Foundations"],
-        goal: "Learn how modern generative models work across text, image, video, and audio.",
-        skills: ["GPT-4o", "Claude 3.5", "Gemini", "DeepSeek", "Midjourney", "Stable Diffusion XL", "Runway Gen-2", "Pika Labs", "ElevenLabs", "Whisper", "Suno"],
+        week: "1",
+        topics: ["Foundations of Generative AI"],
+        goal: "Understand what GenAI is, how it works, and explore hands-on creative tools.",
+        skills: [
+            "Session 1: Introduction to Generative AI — understanding GenAI basics and industry-wide impact",
+            "Session 2: Exploring AI Ecosystem Tools (2025 Stack) — hands-on with the latest 2025 stack",
+            "Session 3: AI for Everyday Work — using AI for professional productivity and efficiency",
+        ],
+        outcome: "Mini Project: AI Productivity Toolkit — create 5 real-world prompts that automate your work.",
     },
     {
-        week: "5-8",
-        topics: ["LLMs, Fine-Tuning & Vibe Coding"],
-        goal: "Understand how LLMs think, how they’re trained, and how to build apps using AI as your coding partner.",
-        skills: ["Hugging Face", "LoRA / QLoRA", "Cursor", "Windsurf", "Bolt.new", "Replit", "Prompt chaining"],
+        week: "2",
+        topics: ["Deep Dive into LLMs & Prompt Mastery"],
+        goal: "Understand how large language models actually \"think\" and how to guide them precisely.",
+        skills: [
+            "Session 4: Inside the Mind of an LLM — technical foundations of how models process information",
+            "Session 5: Prompt Engineering to Context Engineering — mastering advanced steering techniques",
+            "Session 6: Practical Prompt Lab — direct experimentation with agent communication",
+        ],
+        outcome: "Ability to engineer precise prompts and guide LLMs for complex, multi-step tasks.",
     },
     {
-        week: "9-12",
-        topics: ["AI Agents & Multi-Agent Systems"],
-        goal: "Move from single-model apps to autonomous reasoning systems.",
-        skills: ["LangChain", "CrewAI", "LangGraph", "Flowise"],
+        week: "3",
+        topics: ["Image, Video, and Visual Generation"],
+        goal: "Use AI for creative production — image and video generation.",
+        skills: [
+            "Session 7: Image Generation: Diffusion Models — mastering high-fidelity visual generation",
+            "Session 8: AI Video Generation — professional video production workflows",
+            "Session 9: Hands-on Visual AI Lab — project-driven visual asset creation",
+        ],
+        outcome: "Production of high-quality visual campaign assets using Midjourney, Stable Diffusion, and Runway.",
     },
     {
-        week: "13-14",
-        topics: ["Automation, Deployment & Capstone"],
-        goal: "Combine AI + agents + automation into production-ready systems.",
-        skills: ["n8n", "Make", "Zapier AI", "FastAPI", "Docker", "Hugging Face Spaces", "LangFuse", "Helicone"],
+        week: "4",
+        topics: ["Audio, Voice & Music Generation"],
+        goal: "Understand and apply AI to voice and sound.",
+        skills: [
+            "Session 10: AI Voice Synthesis & TTS — mastering voice cloning and speech generation",
+            "Session 11: AI Music Creation — creating soundscapes and jingles",
+            "Session 12: Lab + Project — integrating audio into AI workflows",
+        ],
+        outcome: "A complete portfolio of AI-generated audio and voice assets using ElevenLabs and Suno.",
+    },
+    {
+        week: "5",
+        topics: ["Machine Learning & Model Fine-Tuning"],
+        goal: "Learn how LLMs are trained and fine-tune small models for your domain.",
+        skills: [
+            "Session 13: Basics of ML & DL Simplified — understanding the core mechanics of AI",
+            "Session 14: Fine-Tuning Open Models (LoRA, QLoRA) — domain-specific model optimization",
+            "Session 15: Lab: Training a Mini-Model — practical training and performance testing",
+        ],
+        outcome: "A fine-tuned mini-model trained on a custom domain dataset using LoRA/QLoRA.",
+    },
+    {
+        week: "6",
+        topics: ["AI Ethics, Bias & Responsible Design"],
+        goal: "Learn safe and ethical AI building for compliance and trustworthiness.",
+        skills: [
+            "Session 16: AI Ethics & Global Regulations — EU AI Act, India DPDP, and US Safety rules",
+            "Session 17: Detecting & Reducing Bias — strategies for fairness in AI models",
+            "Session 18: Practical Exercise — audit an existing AI system for fairness",
+        ],
+        outcome: "A completed fairness audit report on a real AI system.",
+    },
+    {
+        week: "7",
+        topics: ["Vibe Coding: Assisted AI Development (I)"],
+        goal: "Build applications visually with the help of AI pair coders.",
+        skills: [
+            "Session 19: Intro to Vibe Coding & Tools — setting up with modern coding assistants",
+            "Session 20: Hands-On: Building with Cursor AI & Windsurf — assisted app development",
+            "Session 21: Project Build Live — real-time application construction",
+        ],
+        outcome: "A functional AI-powered application built using Cursor AI and Windsurf.",
+    },
+    {
+        week: "8",
+        topics: ["Vibe Coding (II) & Model Deployment"],
+        goal: "Learn to deploy your projects and host them publicly.",
+        skills: [
+            "Session 22: Replit, Bolt.new, and Lovable for Quick Deployment — professional hosting tools",
+            "Session 23: Deploying to Cloud — making your AI app accessible online",
+            "Session 24: Monitoring & Optimization — performance tracking post-launch",
+        ],
+        outcome: "A live, publicly hosted AI application with monitoring set up.",
+    },
+    {
+        week: "9",
+        topics: ["Introduction to AI Agents"],
+        goal: "Move from models → autonomous reasoning systems.",
+        skills: [
+            "Session 25: What Are AI Agents? — real-world examples of autonomous logic",
+            "Session 26: Tools for Building Agents — frameworks for agentic development",
+            "Session 27: Lab: Build Your First AI Agent — hands-on project using LangChain",
+        ],
+        outcome: "Your first working AI agent built with LangChain.",
+    },
+    {
+        week: "10",
+        topics: ["Building AI Agents (CrewAI & LangGraph Live)"],
+        goal: "Build a multi-step reasoning agent.",
+        skills: [
+            "Session 28 (Live Build): CrewAI Team of Agents — designing collaborative agent squads",
+            "Session 29: LangGraph Visual Agent Building — visualizing reasoning flows",
+            "Session 30: Building MCP Server, Intro to ACP — advanced server integration",
+        ],
+        outcome: "A live multi-agent system built using CrewAI and LangGraph.",
+    },
+    {
+        week: "11",
+        topics: ["Multi-Agent Systems & Real-World Use Cases"],
+        goal: "Create complex automations involving multiple agents.",
+        skills: [
+            "Session 31: Multi-Agent Collaboration Patterns — structuring team-based workflows",
+            "Session 32: APIs and Databases with Agents — connecting agents to external data",
+            "Session 33: Mini Project: \"Customer Support Crew\" — 3-agent system (intake → research → response)",
+        ],
+        outcome: "Mini Project: A deployed 3-agent customer support system.",
+    },
+    {
+        week: "12",
+        topics: ["AI Automation Using n8n"],
+        goal: "Automate workflows visually and connect your AI models to tasks.",
+        skills: [
+            "Session 34: Intro to n8n & Node Logic — understanding trigger and function nodes",
+            "Session 35: n8n workflow - 1 — building your first visual automation",
+            "Session 36: n8n Lab — practical automation experimentation",
+        ],
+        outcome: "A working n8n automation pipeline connecting AI models to real workflows.",
+    },
+    {
+        week: "13",
+        topics: ["Full Automation + Integrations"],
+        goal: "Combine AI + Agents + Automation into deployable solutions.",
+        skills: [
+            "Session 37: n8n workflow - 2 — advanced workflow logic",
+            "Session 38: Flowwise - 1 — integration with conversational interfaces",
+            "Session 39: Mini Project Discussion: \"AI Copilot\" — strategic planning for personal assistants",
+        ],
+        outcome: "A complete AI-powered personal copilot with automated integrations via Flowwise.",
+    },
+    {
+        week: "14",
+        topics: ["Capstone & Future Skills"],
+        goal: "Build a deployable project, present, and get feedback.",
+        skills: [
+            "Session 40: Demo Day & Career Mapping — presenting final products and planning professional next steps",
+        ],
+        outcome: "A career-ready portfolio: deployed AI application, capstone demo, and professional roadmap.",
     },
 ];
 
@@ -287,22 +415,29 @@ const AccordionItem = ({ item }: { item: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-gray-200  dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+        <div className="border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300 hover:border-[#FC6401]/30">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-5 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
+                className="w-full flex items-center justify-between p-6 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
-                <div>
-                    <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1 transition-colors duration-300">
-                        WEEK {item.week}
-                    </span>
-                    <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">
+                <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                        <span className="font-sans text-[10px] font-bold text-[#FC6401] bg-[#FC6401]/10 px-3 py-1 rounded-full uppercase tracking-widest">
+                            WEEK {item.week}
+                        </span>
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white">
                         {item.topics.join(" & ")}
                     </h4>
                 </div>
-                <ChevronDown
-                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
-                />
+                <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
+                            ? "bg-[#FC6401] text-white rotate-180"
+                            : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#FC6401] hover:text-white"
+                        }`}
+                >
+                    <ChevronDown size={20} />
+                </div>
             </button>
             <AnimatePresence>
                 {isOpen && (
@@ -310,18 +445,30 @@ const AccordionItem = ({ item }: { item: any }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
                     >
-                        <div className="p-5  text-gray-600 dark:text-gray-300 pt-4 bg-white dark:bg-[#171717] border-t border-gray-100 dark:border-[#848484]/30 transition-colors duration-300">
-                            <p className="font-sans text-sm  mb-3 font-medium transition-colors duration-300">{item.goal}</p>
-                            <div className="mb-4">
-                                <p className="font-sans font-semibold text-gray-800 dark:text-gray-200 mb-2 text-xs uppercase tracking-wider transition-colors duration-300">Key Skills:</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {item.skills.map((skill: string, sIdx: number) => (
-                                        <span key={sIdx} className="font-sans bg-orange-50 dark:bg-orange-900/30 text-[#FC6401] dark:text-[#FC6401] px-2 py-0.5 rounded text-[10px] font-bold transition-colors duration-300">
-                                            {skill}
-                                        </span>
-                                    ))}
+                        <div className="p-6 pt-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-[#171717] border-t border-gray-50 dark:border-[#848484]/30">
+                            <p className="font-sans text-base text-gray-700 dark:text-gray-200 mb-6 font-medium leading-relaxed">
+                                {item.goal}
+                            </p>
+                            <div className="grid gap-8">
+                                <div>
+                                    <p className="font-bold mb-3 text-xs uppercase text-gray-500 dark:text-gray-400 tracking-wider">Sessions:</p>
+                                    <ul className="space-y-2">
+                                        {item.skills.map((skill: string, sIdx: number) => (
+                                            <li key={sIdx} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                                <div className="mt-1 w-1.5 h-1.5 rounded-full bg-[#FC6401] flex-shrink-0" />
+                                                {skill}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
+                                {item.outcome && (
+                                    <div className="bg-orange-50/50 dark:bg-orange-900/10 p-4 rounded-xl border border-orange-100 dark:border-orange-900/30 self-start">
+                                        <p className="text-sm font-bold text-[#FC6401] mb-1">Key Outcome:</p>
+                                        <p className="text-sm text-orange-800 dark:text-orange-300">{item.outcome}</p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </motion.div>
@@ -611,7 +758,7 @@ export default function GENProgramEIE() {
                         <p className="font-sans text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-300">
                             A comprehensive 14-week journey from prompt engineering to full multi-agent automation.
                         </p>
-                        <div>
+                        <div className="space-y-4">
                             {CURRICULUM.map((item, idx) => (
                                 <AccordionItem key={idx} item={item} />
                             ))}
