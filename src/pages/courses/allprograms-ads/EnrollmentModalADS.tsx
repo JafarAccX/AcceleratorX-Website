@@ -32,7 +32,7 @@ const BROCHURES: Record<string, { title: string; url: string }> = {
     },
     "Product Management": {
         title: "Product Management",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1768997735586_aipm-broucher-compressed.pdf?alt=media&token=a821e497-52e9-4238-ad3b-bf9cf5aa9635",
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1771409202209_AcceleratorX_Nano_Degree_AI_PM_Brochure_compressed.pdf?alt=media&token=8733344c-f2d2-4af3-8155-3a5222ef3425",
     },
     "Generative AI": {
         title: "Generative AI",
@@ -48,7 +48,7 @@ const BROCHURES: Record<string, { title: string; url: string }> = {
     },
     "Advanced AI Crash Course": {
         title: "AI Crash Course Build Pass",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1769087535130_Build_Session.pdf?alt=media&token=8e54fe45-68ec-4000-960b-3ed53623c1eb"
+        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1771407876987_Build_Session_2_(4)_compressed.pdf?alt=media&token=ef45e9a6-51e2-4f43-8883-a42ec28bbcdc"
     }
 };
 
