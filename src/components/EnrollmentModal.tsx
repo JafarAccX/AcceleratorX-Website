@@ -26,7 +26,7 @@ const BROCHURES: Record<string, { title: string; url: string }> = {
   },
   "Product Management": {
     title: "Product Management",
-    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1768997735586_aipm-broucher-compressed.pdf?alt=media&token=a821e497-52e9-4238-ad3b-bf9cf5aa9635",
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1771409202209_AcceleratorX_Nano_Degree_AI_PM_Brochure_compressed.pdf?alt=media&token=8733344c-f2d2-4af3-8155-3a5222ef3425",
   },
   "Generative AI": {
     title: "Generative AI",

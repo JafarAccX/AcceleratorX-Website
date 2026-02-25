@@ -19,7 +19,7 @@ interface AICrashCourseEnrollmentModalProps {
 // Default to "Generative AI" brochure as it fits "AI Crash Course".
 const AI_CRASH_COURSE_BROCHURE = {
     title: "AI Crash Course",
-    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1769087535130_Build_Session.pdf?alt=media&token=8e54fe45-68ec-4000-960b-3ed53623c1eb"
+    url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1771407876987_Build_Session_2_(4)_compressed.pdf?alt=media&token=ef45e9a6-51e2-4f43-8883-a42ec28bbcdc"
 };
 
 async function sendWhatsAppMessage({
