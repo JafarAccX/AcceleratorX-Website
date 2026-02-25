@@ -68,6 +68,7 @@ export default function Navbar() {
     { label: "Generative AI", path: "/courses/generative-ai" },
     { label: "Advance Gen AI", path: "/courses/advance-generative-ai" },
     { label: "Product Analytics", path: "/courses/product-analytics-program-eie" },
+    { label: "Advance AI Crash Course", path: "/courses/advance-ai-crash-course" },
   ];
 
   if (isXSATRoute) {
