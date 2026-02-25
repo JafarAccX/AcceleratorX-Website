@@ -67,24 +67,14 @@ const CURRICULUM = [
 
 // --- Tools ---
 const TOOLS = [
-    {
-        name: "LangGraph",
-        category: "Stateful Agent Graphs",
-        image: "/redesign/advance-gen-ai/tools/LangGraph.png",
-        description: "Build stateful, multi-actor agent applications with cyclic graph execution.",
-    },
+
     {
         name: "LangChain",
         category: "LLM Orchestration",
         image: "/redesign/advance-gen-ai/tools/Langchain.png",
         description: "The leading framework for building LLM-powered chains, tools, and agents.",
     },
-    {
-        name: "Flowise",
-        category: "Visual LLM Pipelines",
-        image: "/all-programs-amit-camp/Generative AI & AI Automation Program/flowise.png",
-        description: "Drag-and-drop UI to build customized LLM flows and agent pipelines.",
-    },
+
     {
         name: "Hugging Face",
         category: "Open ML Hub",
@@ -97,52 +87,63 @@ const TOOLS = [
         image: "/redesign/advance-gen-ai/tools/Crewai.png",
         description: "Orchestrate role-based AI agent teams that collaborate on complex tasks.",
     },
+    // nvdia, google sdk
     {
-        name: "Ollama",
-        category: "Local LLM Runtime",
-        image: "/redesign/advance-gen-ai/tools/Ollama.png",
-        description: "Run powerful open-source LLMs locally for privacy-first agent development.",
+        name: "NVIDIA",
+        category: "AI Stack",
+        image: "/redesign/ai-crash-course/free-nvidia-logo-icon-svg-download-png-2945060.webp",
+        description: "NVIDIA AI stack — inference acceleration and production deployment.",
     },
     {
-        name: "FastAPI",
-        category: "Agent Deployment",
-        image: "/redesign/advance-gen-ai/tools/Fastapi.png",
-        description: "Deploy agent backends as production-ready REST APIs at speed.",
+        name: "Google SDK",
+        category: "AI Stack",
+        image: "/redesign/ai-crash-course/agent-development-kit.png",
+        description: "Google SDK — inference acceleration and production deployment.",
     },
-    {
-        name: "Python",
-        category: "Agent Coding",
-        image: "/redesign/advance-gen-ai/tools/Python.png",
-        description: "The primary language for building, testing, and deploying AI agents.",
-    },
-    {
-        name: "Docker",
-        category: "Containerized Deployment",
-        image: "/redesign/advance-gen-ai/tools/Docker.png",
-        description: "Package and ship agent systems for consistent, scalable production deployments.",
-    },
+
 ];
 
 // --- Mentors ---
 const MENTORS = [
+    // ruchir
     {
-        name: "Kumar Savino",
-        role: "Associate Director at Walmart",
+        name: "Ruchir Rana",
+        role: "PM at AcceleratorX",
         image: "/redesign/ai-pm/ai-pm-mentors/Ruchir Rana.png",
-        linkedin: "https://www.linkedin.com/",
+        linkedin: "https://www.linkedin.com/in/ruchir-rana007",
+    },
+    //  nitya, pranali, ashu
+    {
+        name: "Nitya Sagar",
+        role: "Software Engineer (DS) at Apple",
+        image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
+        linkedin: "https://www.linkedin.com/in/nitya-sagar/",
     },
     {
-        name: "Ravi Ahlawat",
-        role: "Senior Data Scientist at Paytm",
-        image: "/redesign/ai-pm/ai-pm-mentors/Ravi Ahlawat.png",
-        linkedin: "https://www.linkedin.com/in/raviahlawat09/",
+        name: "Pranali Bose",
+        role: "Senior GenAI Solutions Architect",
+        image: "/redesign/gen-ai/gen-ai-mentors/Pranali Bose.png",
+        linkedin: "https://www.linkedin.com/in/pranali-bose/",
     },
+    // {
+    //     name: "Ashu Mishra",
+    //     role: "Senior PM at Zigram",
+    //     experience: "10+ years",
+    //     image: "/assets/mentor/ashumish.jpeg",
+    //     alt: "product management certification mentor Swati",
+    //     linkedin: "https://www.linkedin.com/in/ashumish/",
+    //     transitions: "Over 100+",
+    // },
     {
-        name: "Chloe Thomas",
-        role: "Senior AI Engineer - Google",
-        image: "/redesign/ai-da/mentors/Himangi Sharma.png",
-        linkedin: "https://www.linkedin.com/",
+        name: "Ashu Mishra",
+        role: "Senior PM at Zigram",
+        experience: "10+ years",
+        image: "/assets/mentor/ashumish.jpeg",
+        alt: "product management certification mentor Swati",
+        linkedin: "https://www.linkedin.com/in/ashumish/",
+        transitions: "Over 100+",
     },
+
 ];
 
 // --- Career Roles ---
