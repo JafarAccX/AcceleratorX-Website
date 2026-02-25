@@ -71,7 +71,7 @@ const AICrashCoursePage = () => {
                 <AICrashCourseTools />
                 <AICrashCourseSchedule />
                 <AICrashCoursePricing onEnroll={handleEnroll} />
-                <AICrashCourseFAQ />
+                {/* <AICrashCourseFAQ /> */}
 
             </div>
         </div>

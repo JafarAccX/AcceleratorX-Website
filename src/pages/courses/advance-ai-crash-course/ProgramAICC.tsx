@@ -386,7 +386,8 @@ export default function ProgramAICC() {
                     </section>
 
                     {/* Learning Journey */}
-                    <section id="curriculum" className="scroll-mt-24">
+                    <section id="curriculum" className="scroll-mt-24 relative">
+
                         <h3 className="font-heading text-2xl font-bold mb-2 dark:text-white transition-colors duration-300">
                             Learning Journey – Agentic AI Curriculum
                         </h3>
