@@ -296,7 +296,7 @@ export default function DataScienceProgramEIE() {
     const [sidebarWidth, setSidebarWidth] = useState(0);
     const sidebarRef = useRef<HTMLElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const [isProcessing, setIsProcessing] = useState(false);
+    // const [isProcessing, setIsProcessing] = useState(false);
     const [batches, setBatches] = useState<Batch[]>([]);
     const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
     const [selectedPlanPrice, setSelectedPlanPrice] = useState<number>(0);
@@ -340,14 +340,14 @@ export default function DataScienceProgramEIE() {
             const baseUrl = apiUrl?.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
             await fetch(`${baseUrl}/course-checkout/cancel-payment`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ enrollmentId }) });
         } catch (error) { console.error('Error handling payment cancellation:', error); }
-        finally { setIsProcessing(false); setShowCancellationModal(true); }
+        // finally { setIsProcessing(false); setShowCancellationModal(true); }
     };
 
     const handleBuyCourse = async (amount: number) => {
         setSelectedPlanPrice(amount);
         if (!isAuthenticated) { navigate('/sign-in', { state: { from: location } }); return; }
         if (!selectedBatchId) { toast.error('Please select a batch first'); return; }
-        setIsProcessing(true);
+        // setIsProcessing(true);
         try {
             const razorpayLoaded = await initializeRazorpay();
             if (!razorpayLoaded) throw new Error('Failed to load Razorpay SDK');
@@ -363,7 +363,7 @@ export default function DataScienceProgramEIE() {
                         if (verifyResponse.data.success) { toast.success('Payment successful! Welcome to the program.'); navigate(`/course-payment/success/${orderId}`); }
                         else throw new Error('Payment verification failed');
                     } catch (error: any) { toast.error('Payment verification failed. Please contact support.'); }
-                    finally { setIsProcessing(false); }
+                    // finally { setIsProcessing(false); }
                 },
                 prefill: { name: user?.FirstName ? `${user.FirstName} ${user.LastName || ''}` : '', email: user?.Email || '', contact: '' },
                 theme: { color: '#3B82F6' },
@@ -372,7 +372,9 @@ export default function DataScienceProgramEIE() {
             const razorpay = new window.Razorpay(options);
             razorpay.on('payment.failed', () => handlePaymentCancellation(enrollmentId));
             razorpay.open();
-        } catch (error: any) { toast.error(error.message || 'Failed to process payment. Please try again.'); setIsProcessing(false); }
+        } catch (error: any) {
+            toast.error(error.message || 'Failed to process payment. Please try again.'); // setIsProcessing(false); 
+        }
     };
 
     const [isModalOpen, setIsModalOpen] = useState(false);
