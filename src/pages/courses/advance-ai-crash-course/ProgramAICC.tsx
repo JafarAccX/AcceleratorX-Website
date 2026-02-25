@@ -485,7 +485,7 @@ export default function ProgramAICC() {
                         <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white">Industry-Recognized Certification</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 transition-colors duration-300">
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
-                                <img src="/redesign/ai-crash-course/ai-crash-course.webp" alt="AI Crash Course Certificate" className="w-full h-auto rounded-md shadow-xl" />
+                                <img src="/redesign/ai-crash-course/ai-crash-course.jpg" alt="AI Crash Course Certificate" className="w-full h-auto rounded-md shadow-xl" />
                             </div>
                             <div className="w-full md:w-1/2">
                                 <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4">Agentic AI Practitioner Certificate</h4>
