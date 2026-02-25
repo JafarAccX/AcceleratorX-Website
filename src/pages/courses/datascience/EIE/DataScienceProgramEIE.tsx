@@ -241,8 +241,8 @@ const AccordionItem = ({ module }: { module: any }) => {
                 </div>
                 <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
-                            ? "bg-[#3B82F6] text-white rotate-180"
-                            : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#3B82F6] hover:text-white"
+                        ? "bg-[#3B82F6] text-white rotate-180"
+                        : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#3B82F6] hover:text-white"
                         }`}
                 >
                     <ChevronDown size={20} />
@@ -549,7 +549,7 @@ export default function DataScienceProgramEIE() {
                     <section id="certificate" className="scroll-mt-24">
                         <h3 className="font-heading text-2xl font-bold mb-8">Industry-Recognized Certification</h3>
                         <div className="flex flex-col md:flex-row gap-8 items-center bg-gray-50 dark:bg-[#171717] rounded-2xl p-4 transition-colors duration-300">
-                            <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform"><img src="/redesign/advance-gen-ai/ADV-GEN-AI.webp" alt="Data Science Certificate" className="w-full h-auto rounded-md shadow-xl" /></div>
+                            <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform"><img src="/redesign/datascience-fb/datasciencecertificate.webp" alt="Data Science Certificate" className="w-full h-auto rounded-md shadow-xl" /></div>
                             <div className="w-full md:w-1/2">
                                 <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4">Nano-Degree in Production Data Science</h4>
                                 <p className="font-sans text-gray-600 dark:text-gray-400 text-sm mb-6">Validates your ability to build ML systems, handle drift, and deploy scalable pipelines.</p>
@@ -650,22 +650,12 @@ export default function DataScienceProgramEIE() {
                                     </ul>
 
                                     {/* Button Logic */}
-                                    {isAuthenticated ? (
-                                        <button
-                                            onClick={() => handleBuyCourse(32499)}
-                                            disabled={isProcessing || batches.length === 0}
-                                            className="font-sans w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10 disabled:bg-gray-600 disabled:text-gray-400"
-                                        >
-                                            {isProcessing ? <><div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" /> Processing...</> : batches.length === 0 ? 'No batches available' : <>Apply Now <ArrowRight size={18} /></>}
-                                        </button>
-                                    ) : (
-                                        <button
-                                            onClick={() => navigate('/sign-in', { state: { from: location } })}
-                                            className="font-sans w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
-                                        >
-                                            Sign in to Enroll <ArrowRight size={18} />
-                                        </button>
-                                    )}
+                                    <button
+                                        onClick={() => setIsModalOpen(true)}
+                                        className="font-sans w-full py-3 bg-[#5BA4E5] hover:bg-[#4a90d0] text-black font-semibold rounded-full transition-colors flex items-center justify-center gap-2 mt-auto relative z-10"
+                                    >
+                                        Apply Now <ArrowRight size={18} />
+                                    </button>
 
                                 </div>
                             </div>

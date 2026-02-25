@@ -24,6 +24,7 @@ const ProductManagementPageEIE = lazy(
 const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
 const AIDMFBPage = lazy(() => import("../pages/courses/ai-carsh-course-fb/ai-carsh-courseFBPage"));
 const AllProgramsPage = lazy(() => import("../pages/courses/allprograms-ads/AllProgramsPage"));
+const ProductAnalyticsPageEIE = lazy(() => import("../pages/courses/EntryPoint/ProductAnalyticsEIE"));
 
 export const courseRoutes = [
   // Main Course Routes
@@ -87,6 +88,11 @@ export const courseRoutes = [
     key="course-aidm-fb"
     path="/courses/ai-digital-marketing-fb"
     element={<AIDMFBPage />}
+  />,
+  <Route
+    key="course-product-analytics-eie"
+    path="/courses/product-analytics-program-eie"
+    element={<ProductAnalyticsPageEIE />}
   />,
 
 ];
