@@ -100,6 +100,18 @@ const TOOLS = [
         image: "/redesign/ai-crash-course/agent-development-kit.png",
         description: "Google SDK — inference acceleration and production deployment.",
     },
+    {
+        name: "Langfuse",
+        category: "LLM Observability",
+        image: "/redesign/ai-crash-course/langfuse-color.png",
+        description: "Open-source LLM observability — trace, debug and evaluate your AI agents in production.",
+    },
+    {
+        name: "Langsmith",
+        category: "LLM Debugging",
+        image: "/redesign/ai-crash-course/langsmith-color.png",
+        description: "Debug, test and monitor LangChain-based agents and pipelines end-to-end.",
+    },
 
 ];
 
@@ -125,20 +137,11 @@ const MENTORS = [
         image: "/redesign/gen-ai/gen-ai-mentors/Pranali Bose.png",
         linkedin: "https://www.linkedin.com/in/pranali-bose/",
     },
-    // {
-    //     name: "Ashu Mishra",
-    //     role: "Senior PM at Zigram",
-    //     experience: "10+ years",
-    //     image: "/assets/mentor/ashumish.jpeg",
-    //     alt: "product management certification mentor Swati",
-    //     linkedin: "https://www.linkedin.com/in/ashumish/",
-    //     transitions: "Over 100+",
-    // },
     {
         name: "Ashu Mishra",
         role: "Senior PM at Zigram",
         experience: "10+ years",
-        image: "/assets/mentor/ashumish.jpeg",
+        image: "/redesign/ai-crash-course/Ashu.webp",
         alt: "product management certification mentor Swati",
         linkedin: "https://www.linkedin.com/in/ashumish/",
         transitions: "Over 100+",
@@ -455,7 +458,7 @@ export default function ProgramAICC() {
                             {MENTORS.map((mentor, idx) => (
                                 <div key={idx} className="bg-gray-50 relative dark:bg-[#171717] rounded-xl overflow-hidden border border-gray-100 dark:border-[#848484]/30 group hover:shadow-md transition-all duration-300">
                                     <div className="aspect-square relative overflow-hidden">
-                                        <img src={mentor.image} alt={mentor.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                                        <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                                     </div>
                                     <div className="p-4 text-center">
                                         <h4 className="font-heading font-bold text-gray-900 dark:text-white">{mentor.name}</h4>

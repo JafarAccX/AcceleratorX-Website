@@ -359,8 +359,8 @@ const AccordionItem = ({ module }: { module: any }) => {
         </div>
         <div
           className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
-              ? "bg-[#5BA4E5] text-white rotate-180"
-              : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#5BA4E5] hover:text-white"
+            ? "bg-[#5BA4E5] text-white rotate-180"
+            : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-[#5BA4E5] hover:text-white"
             }`}
         >
           <ChevronDown size={20} />
@@ -720,7 +720,7 @@ export default function DataProgramEIE() {
                     <img
                       src={mentor.image || "/placeholder.svg"}
                       alt={mentor.name}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-4 text-center relative">
