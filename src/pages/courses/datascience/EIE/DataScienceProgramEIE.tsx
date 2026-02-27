@@ -611,7 +611,7 @@ export default function DataScienceProgramEIE() {
                                     <p className="font-sans text-gray-300 text-sm mb-6 relative z-10">Comprehensive AI training program</p>
 
                                     <div className="mb-4 relative z-10">
-                                        <span className="font-heading text-4xl font-bold text-[#5BA4E5]">₹ 32,499</span>
+                                        <span className="font-heading text-4xl font-bold text-[#5BA4E5]">₹ 19,999</span>
                                         <span className="font-sans text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 

@@ -460,36 +460,16 @@ const PM_TOOLS = [
 
 const AccordionItem = ({ week }: { week: any }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const isModule2 = week.module === "2";
-    const accentBg = isModule2 ? "bg-[#FC6401]/10" : "bg-blue-600/10";
-    const accentText = isModule2 ? "text-[#FC6401]" : "text-blue-600";
-    const accentOutcomeBg = isModule2
-        ? "bg-orange-50/50 dark:bg-orange-900/10 border-orange-100 dark:border-orange-900/30"
-        : "bg-blue-50/50 dark:bg-blue-900/10 border-blue-100 dark:border-blue-900/30";
-    const accentOutcomeTitle = isModule2
-        ? "text-orange-700 dark:text-orange-400"
-        : "text-blue-700 dark:text-blue-400";
-    const accentOutcomeText = isModule2
-        ? "text-orange-800 dark:text-orange-300"
-        : "text-blue-800 dark:text-blue-300";
-    const accentDot = isModule2 ? "bg-[#FC6401]" : "bg-blue-600";
-    const accentHoverBorder = isModule2 ? "hover:border-[#FC6401]/30" : "hover:border-blue-600/30";
-    const chevronActiveBg = isModule2 ? "bg-[#FC6401]" : "bg-blue-600";
-    const chevronHover = isModule2
-        ? "hover:bg-[#FC6401] hover:text-white"
-        : "hover:bg-blue-600 hover:text-white";
 
     return (
-        <div className={`border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300 ${accentHoverBorder}`}>
+        <div className="border border-gray-100 dark:border-[#848484]/30 rounded-lg mb-4 overflow-hidden transition-all duration-300 hover:border-blue-600/30">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between p-6 bg-white dark:bg-[#171717] hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors text-left"
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <span
-                            className={`font-sans text-[10px] font-bold ${accentText} ${accentBg} px-3 py-1 rounded-full uppercase tracking-widest`}
-                        >
+                        <span className="font-sans text-[10px] font-bold text-blue-600 bg-blue-600/10 px-3 py-1 rounded-full uppercase tracking-widest">
                             WEEK {week.week}
                         </span>
                         {week.module && (
@@ -504,8 +484,8 @@ const AccordionItem = ({ week }: { week: any }) => {
                 </div>
                 <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
-                        ? `${chevronActiveBg} text-white rotate-180`
-                        : `bg-gray-100 dark:bg-[#252525] text-gray-500 ${chevronHover}`
+                        ? "bg-blue-600 text-white rotate-180"
+                        : "bg-gray-100 dark:bg-[#252525] text-gray-500 hover:bg-blue-600 hover:text-white"
                         }`}
                 >
                     <ChevronDown size={20} />
@@ -529,18 +509,16 @@ const AccordionItem = ({ week }: { week: any }) => {
                                     <ul className="space-y-2">
                                         {week.skills.map((skill: string, i: number) => (
                                             <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                                <div
-                                                    className={`mt-1 w-1.5 h-1.5 rounded-full ${accentDot} flex-shrink-0`}
-                                                />
+                                                <div className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
                                                 {skill}
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                                 {week.outcome && (
-                                    <div className={`${accentOutcomeBg} p-4 rounded-xl border self-start`}>
-                                        <p className={`text-sm font-bold ${accentOutcomeTitle} mb-1`}>Key Outcome:</p>
-                                        <p className={`text-sm ${accentOutcomeText}`}>{week.outcome}</p>
+                                    <div className="bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 p-4 rounded-xl self-start">
+                                        <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Key Outcome:</p>
+                                        <p className="text-sm text-blue-800 dark:text-blue-300">{week.outcome}</p>
                                     </div>
                                 )}
                             </div>

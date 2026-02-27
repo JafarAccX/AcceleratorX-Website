@@ -486,7 +486,7 @@ export default function AdvanceGenAIProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-32">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="font-heading text-3xl font-bold mb-8  text-[#FC6401]">AI Programs that helps to
+                        <h3 className="font-heading text-5xl font-bold mb-8">AI Programs that helps to
                             become a Professional</h3>
                         <p className="font-sans text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-10 font-light">
                             This is not a generic AI course. AcceleratorX is designed to teach you how AI agents are actually built and deployed in production. You’ll go beyond prompts and learn how to create autonomous, tool-using agents and multi-agent systems.
