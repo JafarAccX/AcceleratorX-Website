@@ -1,43 +1,25 @@
 
-
 const OfflineExperience = () => {
-    // Images for the marquee
     const images = [
-        { src: '/redesign/main-page/mark/Rectangle.webp', alt: 'Offline Experience 1' },
-        { src: '/redesign/main-page/mark/Rectangle2.webp', alt: 'Offline Experience 2' },
-        { src: '/redesign/main-page/mark/Rectangle3.webp', alt: 'Offline Experience 3' },
-        { src: '/redesign/main-page/mark/Rectangle4.webp', alt: 'Offline Experience 4' },
-        { src: '/redesign/main-page/mark/Rectangle5.webp', alt: 'Offline Experience 5' },
-        { src: '/redesign/main-page/mark/Rectangle6.webp', alt: 'Offline Experience 6' },
-        { src: '/redesign/main-page/mark/Rectangle7.webp', alt: 'Offline Experience 7' },
+        { src: '/testimonials/test1.jpeg', alt: 'Offline Experience 1' },
+        { src: '/testimonials/test2.jpeg', alt: 'Offline Experience 2' },
+        { src: '/testimonials/test3.jpeg', alt: 'Offline Experience 3' },
+        { src: '/testimonials/test4.jpeg', alt: 'Offline Experience 4' },
+        { src: '/testimonials/test5.jpeg', alt: 'Offline Experience 5' },
+        { src: '/testimonials/test6.jpeg', alt: 'Offline Experience 6' },
+        { src: '/testimonials/test7.jpeg', alt: 'Offline Experience 7' },
+        { src: '/testimonials/test8.jpeg', alt: 'Offline Experience 8' },
+        { src: '/testimonials/test9.jpeg', alt: 'Offline Experience 9' },
+        { src: '/testimonials/test10.jpeg', alt: 'Offline Experience 10' },
+        { src: '/testimonials/test11.jpeg', alt: 'Offline Experience 11' },
+        { src: '/testimonials/test12.jpeg', alt: 'Offline Experience 12' },
+        { src: '/testimonials/test13.jpeg', alt: 'Offline Experience 13' },
     ];
 
-    const MarqueeRow = ({ items, reverse = false }: { items: typeof images, reverse?: boolean }) => {
-        return (
-            <div className="relative flex overflow-hidden w-full p-2">
-                <div
-                    className={`flex gap-6 whitespace-nowrap ${reverse ? 'animate-slide-right' : 'animate-slide-left'}`}
-                    style={{
-                        animationDuration: '40s', // Slower animation for larger images
-                    }}
-                >
-                    {/* Triple duplication for seamless loop */}
-                    {[...items, ...items, ...items].map((item, index) => (
-                        <div
-                            key={index}
-                            className="flex-shrink-0 w-[300px] h-[200px] md:w-[400px] md:h-[260px] rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300"
-                        >
-                            <img
-                                src={item.src}
-                                alt={item.alt}
-                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        );
-    };
+    // Split images across 4 columns (cycling through)
+    const numCols = 4;
+    const columns: typeof images[] = Array.from({ length: numCols }, () => []);
+    images.forEach((img, i) => columns[i % numCols].push(img));
 
     return (
         <section className="w-full py-20 bg-black text-white overflow-hidden relative">
@@ -52,39 +34,65 @@ const OfflineExperience = () => {
                 </h2>
             </div>
 
-            <div className="flex flex-col max-w-7xl mx-auto">
-                <MarqueeRow items={images} />
-                <MarqueeRow items={images} reverse={true} />
-            </div>
+            {/* Vertical marquee grid — 800px tall, overflow hidden, with top/bottom fade */}
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="relative" style={{ height: '600px' }}>
+                    {/* Top fade */}
+                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
+                    {/* Bottom fade */}
+                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
 
-            <style>{`
-                @keyframes slide-left {
-                    from { transform: translateX(0); }
-                    to { transform: translateX(calc(-1 * (300px + 24px) * 7)); }
-                }
-                @keyframes slide-right {
-                    from { transform: translateX(calc(-1 * (300px + 24px) * 7)); }
-                    to { transform: translateX(0); }
-                }
-                
-                @media (min-width: 768px) {
-                    @keyframes slide-left {
-                        from { transform: translateX(0); }
-                        to { transform: translateX(calc(-1 * (400px + 24px) * 7)); }
-                    }
-                    @keyframes slide-right {
-                        from { transform: translateX(calc(-1 * (400px + 24px) * 7)); }
-                        to { transform: translateX(0); }
-                    }
-                }
+                    <div
+                        className="flex gap-3 md:gap-4 overflow-hidden h-full"
+                    >
+                        {columns.map((col, colIdx) => {
+                            const reverse = colIdx % 2 !== 0;
+                            return (
+                                <div
+                                    key={colIdx}
+                                    className="flex-1 min-w-0 flex flex-col gap-3 md:gap-4"
+                                    style={{ overflow: 'hidden' }}
+                                >
+                                    <div
+                                        className={`flex flex-col gap-3 md:gap-4 ${reverse ? 'animate-scroll-up-reverse' : 'animate-scroll-up'}`}
+                                    >
+                                        {/* Triple for seamless loop */}
+                                        {[...col, ...col, ...col].map((item, idx) => (
+                                            <div
+                                                key={idx}
+                                                className="flex-shrink-0 w-full rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300"
+                                            >
+                                                <img
+                                                    src={item.src}
+                                                    alt={item.alt}
+                                                    className="w-full h-auto block object-cover hover:scale-105 transition-transform duration-500"
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
 
-                .animate-slide-left {
-                    animation: slide-left 40s linear infinite;
+                <style>{`
+                @keyframes scroll-up {
+                    0%   { transform: translateY(0); }
+                    100% { transform: translateY(-33.333%); }
                 }
-                .animate-slide-right {
-                    animation: slide-right 40s linear infinite;
+                @keyframes scroll-up-reverse {
+                    0%   { transform: translateY(-33.333%); }
+                    100% { transform: translateY(0); }
+                }
+                .animate-scroll-up {
+                    animation: scroll-up 20s linear infinite;
+                }
+                .animate-scroll-up-reverse {
+                    animation: scroll-up-reverse 20s linear infinite;
                 }
             `}</style>
+            </div>
         </section>
     );
 };
