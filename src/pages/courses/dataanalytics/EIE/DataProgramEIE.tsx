@@ -683,13 +683,13 @@ export default function DataProgramEIE() {
             </div>
             <img src="/redesign/ai-da/Google-Analytics.png" className="absolute -left-96 top-10 h-24 w-24" />
             <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white transition-colors duration-300">Tools Which You Master as a Professional</h3>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {DATA_TOOLS.map((tool, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
+                  className="bg-[#111111] border border-[#252525] rounded-2xl p-3 hover:border-[#333333] transition-all duration-300 group"
                 >
-                  <div className=" p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                  <div className="p-2 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
                     <img
                       src={tool.image}
                       alt={tool.name}
@@ -700,7 +700,7 @@ export default function DataProgramEIE() {
                     {tool.category}
                   </div>
                   <h4 className="font-heading text-xl font-bold text-white mb-2">{tool.name}</h4>
-                  <p className="font-sans text-sm text-gray-400 leading-relaxed">{tool.description}</p>
+                  <p className="font-sans text-xs text-gray-400 leading-relaxed">{tool.description}</p>
                 </div>
               ))}
             </div>

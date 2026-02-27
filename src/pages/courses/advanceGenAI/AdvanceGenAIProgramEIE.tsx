@@ -532,33 +532,35 @@ export default function AdvanceGenAIProgramEIE() {
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
-                    <section id="tools" className="scroll-mt-24">
+                    <section className="scroll-mt-24">
+
                         <div className="w-full mb-16">
+                            <h3 className="font-heading text-2xl font-bold ">Skillverse You Actually Master</h3>
                             <img
                                 src="/redesign/advance-gen-ai/skilverse.png"
                                 alt="Skillverse You Actually Master"
                                 className="w-full h-auto object-contain rounded-xl"
                             />
                         </div>
-                        <h3 className="font-heading text-2xl font-bold mb-8">AI Agent Tools You’ll Master</h3>
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                        <h3 id="tools" className="font-heading text-2xl font-bold mb-8 scroll-mt-24">AI Agent Tools You’ll Master</h3>
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                             {TOOLS.map((tool, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-4 hover:border-[#333333] transition-all duration-300 group"
+                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-3 hover:border-[#333333] transition-all duration-300 group"
                                 >
-                                    <div className="p-6 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                                    <div className="p-2 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
                                         <img
                                             src={tool.image}
                                             alt={tool.name}
                                             className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
-                                    <div className="inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                    <div className="font-sans inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
                                         {tool.category}
                                     </div>
                                     <h4 className="font-heading text-xl font-bold text-white mb-2">{tool.name}</h4>
-                                    <p className="font-sans text-sm text-gray-400 leading-relaxed">{tool.description}</p>
+                                    <p className="font-sans text-xs text-gray-400 leading-relaxed">{tool.description}</p>
                                 </div>
                             ))}
                         </div>

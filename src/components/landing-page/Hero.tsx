@@ -129,7 +129,7 @@ export default function Hero() {
                   <div className="w-full  flex items-end justify-end">
                     <PremiumButton
                       onClick={() => {
-                        const section = document.getElementById("features");
+                        const section = document.getElementById("programs-offered");
                         if (section) {
                           section.scrollIntoView({ behavior: "smooth" });
                         }

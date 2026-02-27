@@ -111,10 +111,11 @@ export default function ProductManagementFAQEIE() {
             <img src="/redesign/ai-pm/ast.png" alt="astronaut" className="absolute -bottom-10 -right-20 w-64 h-64 object-contain opacity-20 md:opacity-40 pointer-events-none" />
             <div className="max-w-4xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="font-heading text-3xl md:text-5xl font-bold text-[#0A0F1E] dark:text-white mb-4 transition-colors duration-300">
-                        Frequently Asked <br />
-                        <span className=" font-light">Questions</span>
+                    <h2 className="font-heading text-3xl flex flex-col gap-4 md:text-5xl font-bold text-[#0A0F1E] dark:text-white mb-4 transition-colors duration-300">
+                        <span className=" font-light">Frequently Asked</span>
+                        <br /> Questions
                     </h2>
+
                     <p className="text-gray-500 dark:text-gray-400 transition-colors duration-300">Everything you need to know about the Product Management Career Accelerator</p>
                 </div>
 
