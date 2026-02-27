@@ -105,9 +105,15 @@ export default function ProductManagementFAQEIE() {
     return (
         <section
             id="faq"
-            className="py-24 bg-cover bg-center z-20 transition-colors duration-300 relative overflow-hidden"
-            style={{ backgroundImage: "url('/redesign/ai-pm/astorFAQ.webp')" }}
+            className="py-24 z-20 transition-colors duration-300 relative overflow-hidden"
         >
+            {/* Background image - contained and anchored to bottom */}
+            <img
+                src="/redesign/ai-pm/astorFAQ.webp"
+                alt=""
+                className="absolute bottom-0 left-0 w-full h-full object-contain object-bottom pointer-events-none select-none"
+                aria-hidden="true"
+            />
             <img src="/redesign/ai-pm/ast.png" alt="astronaut" className="absolute -bottom-10 -right-20 w-64 h-64 object-contain opacity-20 md:opacity-40 pointer-events-none" />
             <div className="max-w-4xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">

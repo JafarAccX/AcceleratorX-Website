@@ -486,6 +486,9 @@ export default function AdvanceGenAIProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-32">
                     <section id="why-this-program" className="scroll-mt-24">
+                        <h3 className="font-sans inline-block text-[#FC6401] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                            Program Description
+                        </h3>
                         <h3 className="font-heading text-5xl font-bold mb-8">AI Programs that helps to
                             become a Professional</h3>
                         <p className="font-sans text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-10 font-light">
@@ -626,17 +629,17 @@ export default function AdvanceGenAIProgramEIE() {
                         <h3 className="font-heading text-2xl font-bold mb-8">Careers Powered by AI Agents</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
-                                { title: "AI Agent Engineer", desc: "Build autonomous agents and intelligent systems" },
-                                { title: "AI Automation Specialist", desc: "Replace manual workflows with agent-based systems" },
-                                { title: "AI Product Analyst", desc: "Design agents that drive insights and decisions" },
-                                { title: "AI Consultant & Strategist", desc: "Help companies adopt agentic AI at scale" }
+                                { title: "AI Agent Engineer", desc: "Build autonomous agents and intelligent systems", salary: "₹25L – 40L" },
+                                { title: "AI Automation Specialist", desc: "Replace manual workflows with agent-based systems", salary: "₹20L – 30L" },
+                                { title: "AI Product Analyst", desc: "Design agents that drive insights and decisions", salary: "₹50L – 80L" },
+                                { title: "AI Consultant & Strategist", desc: "Help companies adopt agentic AI at scale", salary: "₹20L – 60L" }
                             ].map((c, i) => (
                                 <div key={i} className="bg-white dark:bg-[#171717] border border-gray-100 dark:border-[#848484]/30 rounded-xl p-6 hover:shadow-md transition-all duration-300">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="font-heading font-bold text-lg text-gray-900 dark:text-white w-2/3 transition-colors duration-300">
                                             {c.title}
                                         </h4>
-                                        <span className="font-sans bg-[#FC6401]/10 text-[#FC6401] text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">₹12L – ₹25L+</span>
+                                        <span className="font-sans bg-[#FC6401]/10 text-[#FC6401] text-xs font-bold px-2 py-1 rounded whitespace-nowrap transition-colors duration-300">{c.salary}</span>
                                     </div>
                                     <p className="font-sans text-sm text-gray-500 leading-relaxed font-light">{c.desc}</p>
                                 </div>

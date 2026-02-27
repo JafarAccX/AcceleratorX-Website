@@ -109,13 +109,14 @@ const FAQS = [
 export default function DataFAQEIE() {
     return (
         <section className="relative py-20 mx-4 lg:mx-0 overflow-hidden rounded-3xl">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/redesign/ai-da/astronot-1.webp')" }}
-            >
-                <div className="absolute inset-0 bg-black/40"></div>
-            </div>
+            {/* Background Image - contained and anchored to bottom */}
+            <img
+                src="/redesign/ai-da/astronot-1.webp"
+                alt=""
+                className="absolute bottom-0 left-0 w-full h-full object-contain object-bottom pointer-events-none select-none"
+                aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
 
             {/* Decorative Half Moon - Right */}
             <img

@@ -624,8 +624,10 @@ export default function DataProgramEIE() {
           {/* Section 1: Why this Program */}
           <section id="why-this-program" className="scroll-mt-24 relative">
             <img src="/redesign/ai-da/numpy.png" alt="Numpy" className="absolute h-24 w-24 top-48 md:-top-20 md:right-40 right-0" />
-
-            <h3 className="font-heading text-2xl font-bold mb-6 dark:text-white transition-colors duration-300">Built for Real Analytics & Product Teams</h3>
+            <h3 className="font-sans inline-block text-blue-600 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+              Program Description
+            </h3>
+            <h3 className="font-heading text-5xl font-bold mb-6 dark:text-white transition-colors duration-300">Built for Real Analytics & Product Teams</h3>
             <p className="font-sans text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
               This is not just a theory course. At AcceleratorX, you’ll work with real datasets, build end-to-end dashboards, perform product & user analysis, apply AI tools to automate analysis, and graduate with a capstone-grade analytics portfolio.
             </p>

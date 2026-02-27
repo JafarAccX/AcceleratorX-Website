@@ -560,7 +560,7 @@ export default function ProgramAICC() {
                                         className="absolute inset-0 pointer-events-none"
                                         style={{ background: "linear-gradient(142.89deg, rgba(234, 88, 12, 0.15) 0%, rgba(234, 88, 12, 0) 100%)" }}
                                     />
-                                    <div className="absolute top-4 right-4 bg-orange-600 text-black text-[10px] font-bold px-2 py-0.5 rounded-full z-10 uppercase tracking-wider">
+                                    <div className="absolute top-0 right-0 bg-orange-600 text-black text-[10px] font-bold px-2 py-0.5 rounded-full z-10 uppercase tracking-wider">
                                         Best Value
                                     </div>
 

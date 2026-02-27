@@ -902,11 +902,11 @@ export default function GENProgramEIE() {
                         <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white transition-colors duration-300">High-Paying Career Paths This Program Prepares You For</h3>
                         <div className="grid md:grid-cols-2 gap-6">
                             {[
-                                { role: "Generative AI Engineer", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
-                                { role: "AI Agent Developer", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
-                                { role: "AI Automation Specialist", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
-                                { role: "AI Product Analyst", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
-                                { role: "AI Consultant / Strategist", pay: "₹8 LPA - 25 LPA+", desc: "Global & remote roles included" },
+                                { role: "Generative AI Engineer", pay: "₹8L – 25L+", desc: "Global & remote roles included" },
+                                { role: "AI Agent Developer", pay: "₹12L – 30L", desc: "Global & remote roles included" },
+                                { role: "AI Automation Specialist", pay: "₹20L – 30L", desc: "Global & remote roles included" },
+                                { role: "AI Product Analyst", pay: "₹50L – 80L", desc: "Global & remote roles included" },
+                                { role: "AI Consultant / Strategist", pay: "₹20L – 60L", desc: "Global & remote roles included" },
                             ].map((item, idx) => (
                                 <div
                                     key={idx}

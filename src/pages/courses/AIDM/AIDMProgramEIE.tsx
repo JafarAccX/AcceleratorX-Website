@@ -817,6 +817,9 @@ export default function AIDMProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-24">
                     <section id="why-this-program" className="scroll-mt-24">
+                        <h3 className="font-sans inline-block text-[#9EFF1F] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                            Program Description
+                        </h3>
 
                         <h3 className="text-5xl font-heading font-bold mb-6 dark:text-white transition-colors duration-300">Built for Real-World Marketing Roles</h3>
                         <p className="font-sans text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">

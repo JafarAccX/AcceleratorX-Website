@@ -817,7 +817,11 @@ export default function ProductProgramEIE() {
 
                 <main className="lg:w-3/4 space-y-24">
                     <section id="why-this-program" className="scroll-mt-24">
-                        <h3 className="font-heading text-2xl font-bold mb-6 dark:text-white transition-colors duration-300">A Product Management Program Built for Real-World PM Roles</h3>
+
+                        <h3 className="font-sans inline-block text-blue-600 font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                            Program Description
+                        </h3>
+                        <h3 className="font-heading text-5xl font-bold mb-6 dark:text-white transition-colors duration-300">A Product Management Program Built for Real-World PM Roles</h3>
                         <p className="font-sans text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
                             This is not a theory-heavy PM course.
                             AcceleratorX trains you to think and operate like a real Product Manager — handling ambiguity, making trade-offs, working with engineers & designers, and shipping products.

@@ -44,9 +44,9 @@ export default function AdvanceGenAIIndustryShiftEIE() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="font-sans inline-block text-[#FC6401] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
+                    <h3 className="font-sans inline-block text-[#FC6401] font-bold text-xs tracking-widest px-3 py-1 rounded mb-6 uppercase transition-colors duration-300">
                         Agentic AI • Industry Shift
-                    </div>
+                    </h3>
 
                     <h2 className="font-heading text-4xl md:text-6xl text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
                         From AI Models to Autonomous AI Agents

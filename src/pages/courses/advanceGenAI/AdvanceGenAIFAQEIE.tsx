@@ -76,9 +76,15 @@ export default function AdvanceGenAIFAQEIE() {
 
     return (
         <section
-            className="py-24 bg-cover bg-center transition-colors duration-300 relative"
-            style={{ backgroundImage: "url('/redesign/advance-gen-ai/faq-bg.webp')" }}
+            className="py-24 transition-colors duration-300 relative overflow-hidden"
         >
+            {/* Background image - contained and anchored to bottom */}
+            <img
+                src="/redesign/advance-gen-ai/faq-bg.webp"
+                alt=""
+                className="absolute bottom-0 left-0 w-full h-full object-contain object-bottom pointer-events-none select-none"
+                aria-hidden="true"
+            />
 
             <div className="max-w-4xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
