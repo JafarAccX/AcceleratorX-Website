@@ -64,6 +64,12 @@ const PM_MENTORS = [
         image: "/redesign/ai-pm/ai-pm-mentors/Subhasis Chandra.png",
         linkedin: "https://www.linkedin.com/in/subhasis-chandra",
     },
+    {
+        name: "Ashu Mishra",
+        role: "Senior PM at ZIGRAM",
+        image: "/redesign/ai-crash-course/Ashu.webp",
+        linkedin: "https://www.linkedin.com/in/ashumish/",
+    }
 ];
 
 // Module labels for grouping
