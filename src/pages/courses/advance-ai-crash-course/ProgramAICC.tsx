@@ -568,7 +568,7 @@ export default function ProgramAICC() {
                                     <p className="font-sans text-gray-300 text-sm mb-3 relative z-10">10-week agentic AI program</p>
 
                                     <div className="mb-6 relative z-10">
-                                        <span className="font-heading text-4xl font-bold text-orange-600">₹ 4,999</span>
+                                        <span className="font-heading text-4xl font-bold text-orange-600">₹ 14,999</span>
                                         <span className="font-sans text-gray-400 text-sm ml-1">+ GST</span>
                                     </div>
 
