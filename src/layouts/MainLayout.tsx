@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
-import AppDownloadPOP from "../components/AppDownloadPOP";
+// import AppDownloadPOP from "../components/AppDownloadPOP";
 import { getRouteLayout } from "../utils/layoutUtils";
 import Navbar from "../components/landing-page/Navbar";
 
@@ -58,7 +58,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         </>
       )}
       {/* App download popup (global) */}
-      <AppDownloadPOP />
+      {/* <AppDownloadPOP /> */}
     </div>
   );
 };
