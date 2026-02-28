@@ -5,11 +5,11 @@ const WSGENMentor = () => {
   const mentors = [
     {
       name: "Nitya Sagar",
-      role: "AI & LLM Fine-tuning Expert",
-      experience: "5+ years",
+      role: "Cofounder - Stealth Startup",
+      experience: "5 years",
       image: "/assets/mentor/ashumish.jpeg", // Keep existing image for now
       alt: "LLM fine-tuning workshop mentor Nitya Sagar",
-      linkedin: "https://www.linkedin.com/in/ashumish/", // Keep existing for now
+      linkedin: "https://in.linkedin.com/in/nitya-sagar", // Keep existing for now
       transitions: "200+",
     },
   ];

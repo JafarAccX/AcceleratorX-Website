@@ -39,9 +39,9 @@ const SECTIONS = [
 ];
 
 const AIDM_MENTORS = [
-    { name: "Kumar Savino", role: "Associate Director - Growth", company: "DrinkPrime", image: "/assets/mentor/kumar.webp", linkedin: "https://www.linkedin.com/in/kumar-savino/" },
-    { name: "Yash Manghnani", role: "AI Builder & PM Consultant", company: "Neuwriter.ai", image: "/assets/mentor/yash-manghnani.webp", linkedin: "https://www.linkedin.com/in/yash-manghnani/" },
-    { name: "Ankita Das", role: "B2B Product Marketer", company: "Ex-TargetG", image: "/assets/mentor/ankita.webp", linkedin: "https://www.linkedin.com/in/ankita-das/" },
+    { name: "Kumar Savino", role: "Associate Director - DrinkPrime", company: "DrinkPrime", image: "/assets/mentor/kumar.webp", linkedin: "https://www.linkedin.com/in/kumar-savino/" },
+    { name: "Yash Manghnani", role: "Senior AI Builder - Better software", company: "Better software", image: "/assets/mentor/yash-manghnani.webp", linkedin: "https://www.linkedin.com/in/yash-manghnani/" },
+    { name: "Ankita Das", role: "Product Marketer - IIT, Roorkiee", company: "IIT, Roorkiee", image: "/assets/mentor/ankita.webp", linkedin: "https://www.linkedin.com/in/ankita-das-marketingmania/" },
 ];
 
 // Month labels for grouping

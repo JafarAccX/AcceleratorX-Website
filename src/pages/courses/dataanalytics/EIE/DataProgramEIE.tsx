@@ -42,15 +42,15 @@ const SECTIONS = [
 const MENTORS = [
   {
     name: "Ravi Ahlawat",
-    role: "Senior PM at Paytm",
+    role: "Sr. Product Manager - PayU",
     image: "/redesign/ai-da/mentors/Ravi Ahlawat.png",
     linkedin: "https://www.linkedin.com/in/raviahlawat09/",
   },
   {
-    name: "Aakash Maurya",
-    role: "Sr. ML Engineer at Nagarro",
+    name: "Kumar Savino",
+    role: "Associate Director - DrinkPrime",
     image: "/redesign/ai-da/mentors/Aakash Maurya.png",
-    linkedin: "https://www.linkedin.com/in/aakash-maurya/",
+    linkedin: "https://www.linkedin.com/in/kumar-savino/",
   },
   {
     name: "Nitish Setty",
@@ -60,21 +60,21 @@ const MENTORS = [
   },
   {
     name: "Shubham Swaraj",
-    role: "BI Developer at InsightTech",
+    role: "Founder - BIP Consults",
     image: "/redesign/ai-da/mentors/Shubham Swaraj.png",
-    linkedin: "https://www.linkedin.com/in/shubham-swaraj/",
+    linkedin: "https://www.linkedin.com/in/shubham-swaraj-2b9457172",
   },
   {
     name: "Himangi Sharma",
-    role: "Senior AI Engineer - Google",
+    role: "Data Scientist 2 - Mastercard",
     image: "/redesign/ai-da/mentors/Himangi Sharma.png",
-    linkedin: "https://www.linkedin.com/in/himangi-sharma",
+    linkedin: "https://www.linkedin.com/in/himangi-sharma/",
   },
   {
-    name: "Preeti Money",
-    role: "Associate Director at Walmart",
+    name: "Preeti Kumari",
+    role: "Analytics Consultant - EXL",
     image: "/redesign/ai-da/mentors/Preeti Money.png",
-    linkedin: "https://www.linkedin.com/in/preeti-money/",
+    linkedin: "https://www.linkedin.com/in/preeti-kumari-877413113/",
   },
 ];
 

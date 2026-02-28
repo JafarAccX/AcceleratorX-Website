@@ -279,8 +279,8 @@ export const skills: Skill[] = [
 export const mentors = [
   {
     name: "Ashu Mishra",
-    role: "Senior PM at Zigram",
-    experience: "10+ years",
+    role: "Technical Product Manager - Zigram",
+    experience: "10 years",
     image: "/assets/mentor/ashumish.jpeg",
     alt: "product management certification mentor Swati",
     linkedin: "https://www.linkedin.com/in/ashumish/",
@@ -288,16 +288,16 @@ export const mentors = [
   },
   {
     name: "Subhasis Chandra",
-    role: "Senior PM at Publicis Sapient",
-    experience: "10+ Years",
+    role: "Sr. Product Manager - Publicis Sapient",
+    experience: "5 years",
     image: "/assets/mentor/subhasis.webp",
-    linkedin: "https://www.linkedin.com/in/subhasis-chandra",
+    linkedin: "https://www.linkedin.com/in/subhasis-chandra/",
     transitions: "Over 500+",
   },
   {
     name: "Ravi Ahlawat",
-    role: "Senior PM at Paytm",
-    experience: "5 years",
+    role: "Sr. Product Manager - PayU",
+    experience: "7 years",
     image: "/assets/mentor/ravi.webp",
     alt: "Ravi Ahlawat - Senior PM at Paytm",
     linkedin: "https://www.linkedin.com/in/raviahlawat09/",

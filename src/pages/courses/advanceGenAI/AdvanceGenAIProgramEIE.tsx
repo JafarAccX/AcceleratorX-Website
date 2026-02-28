@@ -290,15 +290,15 @@ const TOOLS = [
 const MENTORS = [
     {
         name: "Anjali Sharma",
-        role: "AI Product Manager @ Mesha",
+        role: "AI Product Manager - FPL Technologies",
         image: "/redesign/advance-gen-ai/gen-ai-mentors/Anjali Sharma.png",
         linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
     },
     {
-        name: "Dr. Prashant",
-        role: "AI Research Scientist & Professor",
-        image: "/redesign/advance-gen-ai/gen-ai-mentors/Dr. Prashant.png",
-        linkedin: "https://www.linkedin.com/in/dr-prashant/",
+        name: "Prashant Vijaybhai Sahatiya",
+        role: "Program Coordinator & Assistant Professor - Parul University",
+        image: "/redesign/advance-gen-ai/gen-ai-mentors/Prashant Vijaybhai Sahatiya.png",
+        linkedin: "https://www.linkedin.com/in/prashant-sahatiya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     },
     {
         name: "Nitish M L Setty",

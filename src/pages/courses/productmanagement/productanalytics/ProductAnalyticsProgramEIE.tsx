@@ -305,13 +305,13 @@ const PA_TOOLS = [
 const PA_MENTORS = [
     {
         name: "Nitya Sagar",
-        role: "Software Engineer (DS) at Apple",
+        role: "Cofounder - Stealth Startup",
         image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
-        linkedin: "https://www.linkedin.com/in/nitya-sagar/",
+        linkedin: "https://in.linkedin.com/in/nitya-sagar",
     },
     {
         name: "Ravi Ahlawat",
-        role: "Senior PM at Paytm",
+        role: "Sr. Product Manager - PayU",
         image: "/redesign/ai-pm/ai-pm-mentors/Ravi Ahlawat.png",
         linkedin: "https://www.linkedin.com/in/raviahlawat09/",
     },
@@ -323,9 +323,9 @@ const PA_MENTORS = [
     },
     {
         name: "Subhasis Chandra",
-        role: "Senior PM at Publicis Sapient",
+        role: "Sr. Product Manager - Publicis Sapient",
         image: "/redesign/ai-pm/ai-pm-mentors/Subhasis Chandra.png",
-        linkedin: "https://www.linkedin.com/in/subhasis-chandra",
+        linkedin: "https://www.linkedin.com/in/subhasis-chandra/",
     },
 ];
 

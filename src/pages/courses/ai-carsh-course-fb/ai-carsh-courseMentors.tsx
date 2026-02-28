@@ -14,28 +14,28 @@ const mentors: Mentor[] = [
     {
         name: "Ashu Mishra",
         image: "/advance-crashcourse/builders/ashu.png",
-        role: "Senior Product Manager",
+        role: "Technical Product Manager - Zigram",
         company: "Zigram"
     },
     {
         name: "Nitya Sagar",
         image: "/advance-crashcourse/builders/nitya.png",
-        role: "Software Engineer (Data Science)",
-        company: "Apple",
-        linkedin: "https://www.linkedin.com/in/nitya-sagar/"
+        role: "Cofounder - Stealth Startup",
+        company: "Stealth Startup",
+        linkedin: "https://in.linkedin.com/in/nitya-sagar"
     },
     {
         name: "Anjali Sharma",
         image: "/advance-crashcourse/builders/anjali.png",
-        role: "AI Product Manager",
-        company: "Mesha",
+        role: "AI Product Manager - FPL Technologies",
+        company: "FPL Technologies",
         linkedin: "https://www.linkedin.com/in/anjalisharmaaa/"
     },
     {
-        name: "Dr. Prashant",
+        name: "Prashant Vijaybhai Sahatiya",
         image: "/advance-crashcourse/builders/dr-prashant.png",
-        role: "Professor",
-        company: "Unknown University"
+        role: "Program Coordinator & Assistant Professor - Parul University",
+        company: "Parul University"
     },
 ];
 

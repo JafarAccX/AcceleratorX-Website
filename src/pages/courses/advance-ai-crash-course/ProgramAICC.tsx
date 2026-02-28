@@ -127,9 +127,9 @@ const MENTORS = [
     //  nitya, pranali, ashu
     {
         name: "Nitya Sagar",
-        role: "Software Engineer (DS) at Apple",
+        role: "Cofounder - Stealth Startup",
         image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
-        linkedin: "https://www.linkedin.com/in/nitya-sagar/",
+        linkedin: "https://in.linkedin.com/in/nitya-sagar",
     },
     {
         name: "Pranali Bose",
@@ -139,8 +139,8 @@ const MENTORS = [
     },
     {
         name: "Ashu Mishra",
-        role: "Senior PM at Zigram",
-        experience: "10+ years",
+        role: "Technical Product Manager - Zigram",
+        experience: "10 years",
         image: "/redesign/ai-crash-course/Ashu.webp",
         alt: "product management certification mentor Swati",
         linkedin: "https://www.linkedin.com/in/ashumish/",
