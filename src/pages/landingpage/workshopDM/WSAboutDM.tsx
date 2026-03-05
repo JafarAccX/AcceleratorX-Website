@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaCheck,
   FaUser,
@@ -23,8 +22,8 @@ const WSAboutDM = () => {
     "Marketing professionals looking to master advanced targeting and ad optimization",
     "Startups and small businesses seeking cost-effective strategies to scale fast",
     "Anyone ready to dominate ad platforms like Facebook, Instagram, and LinkedIn in just two hours",
-  ];  
-  
+  ];
+
 
   return (
     <div className="relative bg-gradient-to-b from-white via-gray-50 to-white py-16 lg:py-24">
@@ -34,91 +33,91 @@ const WSAboutDM = () => {
           {/* About and Features Section */}
           <div className="grid lg:grid-cols-2 gap-12">
             {/* About Workshop Section */}
-            
-            <div className="relative">
-  <div className="sticky top-24">
-    <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-left bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">
-      About This Workshop
-    </h2>
-    <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 transform hover:scale-[1.02] transition-all duration-300">
-      <p className="text-gray-700 text-left leading-relaxed mb-6 lg:text-lg">
-        Struggling to make your Meta Ads profitable? Running ads successfully requires the right 
-        strategies, laser-focused targeting, and optimization techniques. This workshop will teach you 
-        how to create high-converting campaigns that drive real business growth.
-      </p>
-      <p className="text-gray-700 text-left leading-relaxed mb-6 lg:text-lg">
-        Join <span className="font-bold text-blue-600">AcceleratorX's Exclusive Workshop</span>  
-        with expert <span className="font-bold text-green-600">Ankita Das</span> on  
-        <span className="font-bold text-blue-600">Friday, 21st February, 4:00 PM</span>, and learn:
-      </p>
-      <ul className="list-none pl-0 mb-8 space-y-4">
-        {[
-          "How to create scroll-stopping ad creatives that drive conversions",
-          "Advanced audience targeting techniques to reach the right customers",
-          "Budgeting, bidding, and optimization strategies to maximize ROI",
-          "Proven frameworks to scale ad campaigns profitably"
-        ].map((item, index) => (
-          <li key={index} className="flex items-start space-x-3 lg:text-lg group">
-            <div className="bg-blue-50 p-1.5 rounded-full group-hover:bg-blue-100 transition-colors">
-              <FaCheck className="text-blue-500 flex-shrink-0" />
-            </div>
-            <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{item}</span>
-          </li>
-        ))}
-      </ul>
 
-      <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 border-l-4 border-blue-500 transform hover:scale-[1.02] transition-all duration-300">
-        <p className="text-gray-700 font-medium lg:text-lg">
-          <span className="font-bold text-blue-700">Pro Tip:</span> Stop wasting money on ads that don’t convert!  
-          Unlock the secrets of high-ROI Meta Ads and start scaling your business today. Seats are limited—sign up now!
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+            <div className="relative">
+              <div className="sticky top-24">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-left bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">
+                  About This Workshop
+                </h2>
+                <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 transform hover:scale-[1.02] transition-all duration-300">
+                  <p className="text-gray-700 text-left leading-relaxed mb-6 lg:text-lg">
+                    Struggling to make your Meta Ads profitable? Running ads successfully requires the right
+                    strategies, laser-focused targeting, and optimization techniques. This workshop will teach you
+                    how to create high-converting campaigns that drive real business growth.
+                  </p>
+                  <p className="text-gray-700 text-left leading-relaxed mb-6 lg:text-lg">
+                    Join <span className="font-bold text-blue-600">AcceleratorX's Exclusive Workshop</span>
+                    with expert <span className="font-bold text-green-600">Ankita Das</span> on
+                    <span className="font-bold text-blue-600">Friday, 21st February, 4:00 PM</span>, and learn:
+                  </p>
+                  <ul className="list-none pl-0 mb-8 space-y-4">
+                    {[
+                      "How to create scroll-stopping ad creatives that drive conversions",
+                      "Advanced audience targeting techniques to reach the right customers",
+                      "Budgeting, bidding, and optimization strategies to maximize ROI",
+                      "Proven frameworks to scale ad campaigns profitably"
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start space-x-3 lg:text-lg group">
+                        <div className="bg-blue-50 p-1.5 rounded-full group-hover:bg-blue-100 transition-colors">
+                          <FaCheck className="text-blue-500 flex-shrink-0" />
+                        </div>
+                        <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 border-l-4 border-blue-500 transform hover:scale-[1.02] transition-all duration-300">
+                    <p className="text-gray-700 font-medium lg:text-lg">
+                      <span className="font-bold text-blue-700">Pro Tip:</span> Stop wasting money on ads that don’t convert!
+                      Unlock the secrets of high-ROI Meta Ads and start scaling your business today. Seats are limited—sign up now!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
             {/* Workshop Features Section */}
             <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-left bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">
-    Why Join This Workshop?
-  </h2>
-  <div className="grid md:grid-cols-2 gap-6">
-    {[
-      {
-        icon: <FaLaptopCode className="text-3xl text-blue-500" />, 
-        title: "Hands-on Learning", 
-        description: "Set up real Meta Ads campaigns with expert guidance."
-      },
-      {
-        icon: <FaCertificate className="text-3xl text-green-500" />, 
-        title: "Industry-Recognized Certificate", 
-        description: "Get certified and showcase your expertise in paid ads."
-      },
-      {
-        icon: <FaClock className="text-3xl text-blue-500" />, 
-        title: "Intensive 2-Hour Training", 
-        description: "Master high-ROI ad strategies in a focused, power-packed session."
-      },
-      {
-        icon: <FaRocket className="text-3xl text-green-500" />, 
-        title: "Scale Your Business", 
-        description: "Learn proven ad frameworks to increase conversions and revenue."
-      }
-    ].map((feature, index) => (
-      <div
-        key={index}
-        className="group bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
-      >
-        <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
-        <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors">
-          {feature.title}
-        </h3>
-        <p className="text-gray-600 group-hover:text-gray-700 transition-colors">{feature.description}</p>
-      </div>
-    ))}
-  </div>
-</div>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-left bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">
+                Why Join This Workshop?
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  {
+                    icon: <FaLaptopCode className="text-3xl text-blue-500" />,
+                    title: "Hands-on Learning",
+                    description: "Set up real Meta Ads campaigns with expert guidance."
+                  },
+                  {
+                    icon: <FaCertificate className="text-3xl text-green-500" />,
+                    title: "Industry-Recognized Certificate",
+                    description: "Get certified and showcase your expertise in paid ads."
+                  },
+                  {
+                    icon: <FaClock className="text-3xl text-blue-500" />,
+                    title: "Intensive 2-Hour Training",
+                    description: "Master high-ROI ad strategies in a focused, power-packed session."
+                  },
+                  {
+                    icon: <FaRocket className="text-3xl text-green-500" />,
+                    title: "Scale Your Business",
+                    description: "Learn proven ad frameworks to increase conversions and revenue."
+                  }
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="group bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+                  >
+                    <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 group-hover:text-gray-700 transition-colors">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
           </div>
 
@@ -126,7 +125,7 @@ const WSAboutDM = () => {
           <div className="flex justify-center">
             <div className="relative inline-flex group/btn">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-              <button 
+              <button
                 onClick={() => {
                   const form = document.getElementById('workshop-form');
                   if (form) {
@@ -158,50 +157,50 @@ const WSAboutDM = () => {
 
           {/* What You'll Gain Section */}
           <div>
-  <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">
-    What You Will Gain From This 2-Hour Meta Ads Masterclass
-  </h2>
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-    {[
-      {
-        icon: FaBullseye,
-        title: "Master Advanced Ad Targeting",
-        description: "Identify and reach high-intent audiences with precision to maximize conversions."
-      },
-      {
-        icon: FaChartLine,
-        title: "Optimize Ads for Higher ROI",
-        description: "Implement data-driven strategies to reduce costs and boost ad performance."
-      },
-      {
-        icon: FaLightbulb,
-        title: "Create Scroll-Stopping Ad Creatives",
-        description: "Design visually compelling and high-converting ad creatives that grab attention instantly."
-      },
-      {
-        icon: FaUsers,
-        title: "Scale Campaigns Like a Pro",
-        description: "Use analytics and A/B testing to refine, optimize, and scale winning ad campaigns."
-      }
-    ].map((item, index) => (
-      <div key={index} className="group bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
-        <div className="flex items-start space-x-4">
-          <div className="bg-blue-50 p-2 rounded-lg group-hover:bg-blue-100 transition-colors">
-            <item.icon className="text-blue-500 w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-left bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">
+              What You Will Gain From This 2-Hour Meta Ads Masterclass
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  icon: FaBullseye,
+                  title: "Master Advanced Ad Targeting",
+                  description: "Identify and reach high-intent audiences with precision to maximize conversions."
+                },
+                {
+                  icon: FaChartLine,
+                  title: "Optimize Ads for Higher ROI",
+                  description: "Implement data-driven strategies to reduce costs and boost ad performance."
+                },
+                {
+                  icon: FaLightbulb,
+                  title: "Create Scroll-Stopping Ad Creatives",
+                  description: "Design visually compelling and high-converting ad creatives that grab attention instantly."
+                },
+                {
+                  icon: FaUsers,
+                  title: "Scale Campaigns Like a Pro",
+                  description: "Use analytics and A/B testing to refine, optimize, and scale winning ad campaigns."
+                }
+              ].map((item, index) => (
+                <div key={index} className="group bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-blue-50 p-2 rounded-lg group-hover:bg-blue-100 transition-colors">
+                      <item.icon className="text-blue-500 w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div>
-            <h3 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors mb-2">
-              {item.title}
-            </h3>
-            <p className="text-gray-600 group-hover:text-gray-700 transition-colors text-sm">
-              {item.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
 
 
           {/* Instructor Section */}
@@ -229,9 +228,9 @@ const WSAboutDM = () => {
                   </p>
                   <div className="space-y-4">
                     <p className="text-gray-600 text-lg leading-relaxed">
-                      Ankita Das helps businesses cut through the noise with high-impact content 
-                      that drives engagement and conversions. With expertise in LinkedIn strategy, 
-                      website copy, and community growth, she transforms invisible content into 
+                      Ankita Das helps businesses cut through the noise with high-impact content
+                      that drives engagement and conversions. With expertise in LinkedIn strategy,
+                      website copy, and community growth, she transforms invisible content into
                       powerful brand assets.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -244,7 +243,7 @@ const WSAboutDM = () => {
                       <div className="bg-gray-50 p-4 rounded-xl hover:bg-green-50 transition-colors duration-300">
                         <p className="text-gray-600">
                           <span className="font-semibold text-green-600">What She Does:</span>{" "}
-                          Optimizes LinkedIn profiles, crafts website copy that converts, and builds 
+                          Optimizes LinkedIn profiles, crafts website copy that converts, and builds
                           loyal online communities.
                         </p>
                       </div>
@@ -278,7 +277,7 @@ const WSAboutDM = () => {
           <div className="flex justify-center">
             <div className="relative inline-flex group/btn">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg blur transition-all opacity-70 group-hover/btn:opacity-100 animate-tilt"></div>
-              <button 
+              <button
                 onClick={() => {
                   const form = document.getElementById('workshop-form');
                   if (form) {

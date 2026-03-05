@@ -289,29 +289,37 @@ const TOOLS = [
 
 const MENTORS = [
     {
+        name: "Pranali Bose",
+        role: "Senior GenAI Solutions Architect",
+        image: "/redesign/gen-ai/gen-ai-mentors/Pranali Bose.png",
+        linkedin: "https://www.linkedin.com/in/pranali-bose/",
+    },
+    { name: "Prashant Vijaybhai Sahatiya", role: "Program Coordinator & Assistant Professor - Parul University", company: "Parul University", image: "/redesign/ai-dm/mentors/prashant.png", },
+    {
+        name: "Nitish Setty",
+        role: "Analytics Lead at DataFlow",
+        image: "/redesign/ai-da/mentors/Nitish Setty.png",
+        linkedin: "https://www.linkedin.com/in/nitish-setty/",
+    },
+    {
         name: "Anjali Sharma",
         role: "AI Product Manager - FPL Technologies",
-        image: "/redesign/advance-gen-ai/gen-ai-mentors/Anjali Sharma.png",
+        image: "/redesign/gen-ai/gen-ai-mentors/Anjali Sharma.png",
         linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
     },
     {
-        name: "Prashant Vijaybhai Sahatiya",
-        role: "Program Coordinator & Assistant Professor - Parul University",
-        image: "/redesign/advance-gen-ai/gen-ai-mentors/Prashant Vijaybhai Sahatiya.png",
-        linkedin: "https://www.linkedin.com/in/prashant-sahatiya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        name: "Nitya Sagar",
+        role: "Cofounder - Stealth Startup",
+        image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
+        linkedin: "https://in.linkedin.com/in/nitya-sagar",
     },
     {
-        name: "Nitish M L Setty",
-        role: "GenAI & ML Lead",
-        image: "/redesign/advance-gen-ai/gen-ai-mentors/Nitish M L Setty.png",
-        linkedin: "https://www.linkedin.com/in/nitish-m-l-setty/",
+        name: "Ashu Mishra",
+        role: "Technical Product Manager - Zigram",
+        image: "/redesign/ai-crash-course/Ashu.webp",
+        linkedin: "https://www.linkedin.com/in/ashumish/",
     },
-    {
-        name: "Pranali Bose",
-        role: "Senior GenAI Solutions Architect",
-        image: "/redesign/advance-gen-ai/gen-ai-mentors/Pranali Bose.png",
-        linkedin: "https://www.linkedin.com/in/pranali-bose/",
-    },
+    { name: "Yash Manghnani", role: "Senior AI Builder - Better software", company: "Better software", image: "/redesign/ai-dm/mentors/yash.png", linkedin: "https://www.linkedin.com/in/yash-manghnani/" },
 ];
 
 const AccordionItem = ({ item }: { item: any }) => {

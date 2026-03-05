@@ -304,22 +304,10 @@ const PA_TOOLS = [
 
 const PA_MENTORS = [
     {
-        name: "Nitya Sagar",
-        role: "Cofounder - Stealth Startup",
-        image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
-        linkedin: "https://in.linkedin.com/in/nitya-sagar",
-    },
-    {
         name: "Ravi Ahlawat",
         role: "Sr. Product Manager - PayU",
         image: "/redesign/ai-pm/ai-pm-mentors/Ravi Ahlawat.png",
         linkedin: "https://www.linkedin.com/in/raviahlawat09/",
-    },
-    {
-        name: "Ruchir Rana",
-        role: "PM at AcceleratorX",
-        image: "/redesign/ai-pm/ai-pm-mentors/Ruchir Rana.png",
-        linkedin: "https://www.linkedin.com/in/ruchir-rana007",
     },
     {
         name: "Subhasis Chandra",

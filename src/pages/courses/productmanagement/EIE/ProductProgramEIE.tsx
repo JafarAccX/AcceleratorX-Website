@@ -40,23 +40,12 @@ const SECTIONS = [
 ];
 
 const PM_MENTORS = [
-    {
-        name: "Nitya Sagar",
-        role: "Cofounder - Stealth Startup",
-        image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
-        linkedin: "https://in.linkedin.com/in/nitya-sagar",
-    },
+
     {
         name: "Ravi Ahlawat",
         role: "Sr. Product Manager - PayU",
         image: "/redesign/ai-pm/ai-pm-mentors/Ravi Ahlawat.png",
         linkedin: "https://www.linkedin.com/in/raviahlawat09/",
-    },
-    {
-        name: "Ruchir Rana",
-        role: "PM at AcceleratorX",
-        image: "/redesign/ai-pm/ai-pm-mentors/Ruchir Rana.png",
-        linkedin: "https://www.linkedin.com/in/ruchir-rana007",
     },
     {
         name: "Subhasis Chandra",
@@ -65,11 +54,24 @@ const PM_MENTORS = [
         linkedin: "https://www.linkedin.com/in/subhasis-chandra/",
     },
     {
+        name: "Anjali Sharma",
+        role: "AI Product Manager - FPL Technologies",
+        image: "/redesign/advance-gen-ai/gen-ai-mentors/Anjali Sharma.png",
+        linkedin: "https://www.linkedin.com/in/anjalisharmaaa/",
+    },
+    {
+        name: "Nitya Sagar",
+        role: "Cofounder - Stealth Startup",
+        image: "/redesign/ai-pm/ai-pm-mentors/Nitya Sagar.png",
+        linkedin: "https://in.linkedin.com/in/nitya-sagar",
+    },
+    {
         name: "Ashu Mishra",
         role: "Technical Product Manager - Zigram",
         image: "/redesign/ai-crash-course/Ashu.webp",
         linkedin: "https://www.linkedin.com/in/ashumish/",
     }
+
 ];
 
 // Module labels for grouping

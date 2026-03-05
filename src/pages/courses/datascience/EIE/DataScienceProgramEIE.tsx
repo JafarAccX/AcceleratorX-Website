@@ -38,12 +38,8 @@ const SECTIONS = [
 ];
 
 const MENTORS = [
-    { name: "Ravi Ahlawat", role: "Sr. Product Manager - PayU", company: "PayU", image: "/redesign/data-science/mentors/Ravi Ahlawat.png", bio: "Production ML Systems", linkedin: "https://www.linkedin.com/in/raviahlawat09/" },
-    { name: "Kumar Savino", role: "Sr. ML Engineer", company: "Nagarro", image: "/redesign/data-science/mentors/Aakash Maurya.png", bio: "Deployment & MLOps Specialization", linkedin: "https://www.linkedin.com/in/aakash-maurya/" },
-    { name: "Nitish Setty", role: "Analytics Lead", company: "DataFlow", image: "/redesign/data-science/mentors/Nitish Setty.png", bio: "Advanced Data Modeling", linkedin: "https://www.linkedin.com/in/nitish-setty/" },
-    { name: "Shubham Swaraj", role: "Founder - BIP Consults", company: "BIP Consults", image: "/redesign/data-science/mentors/Shubham Swaraj.png", bio: "Business Intelligence Solutions", linkedin: "https://www.linkedin.com/in/shubham-swaraj-2b9457172" },
     { name: "Himangi Sharma", role: "Data Scientist 2 - Mastercard", company: "Mastercard", image: "/redesign/data-science/mentors/Himangi Sharma.png", bio: "AI Infrastructure & Scalability", linkedin: "https://www.linkedin.com/in/himangi-sharma/" },
-    { name: "Preeti Kumari", role: "Analytics Consultant - EXL", company: "EXL", image: "/redesign/data-science/mentors/Preeti Money.png", bio: "Enterprise ML & Scalable Analytics", linkedin: "https://www.linkedin.com/in/preeti-kumari-877413113/" },
+    // { name: "Preeti Kumari", role: "Analytics Consultant - EXL", company: "EXL", image: "/redesign/data-science/mentors/Preeti Money.png", bio: "Enterprise ML & Scalable Analytics", linkedin: "https://www.linkedin.com/in/preeti-kumari-877413113/" },
 ];
 
 const PHASE_LABELS: Record<string, string> = {

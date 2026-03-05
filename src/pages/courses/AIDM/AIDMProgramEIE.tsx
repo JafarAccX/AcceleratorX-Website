@@ -39,9 +39,10 @@ const SECTIONS = [
 ];
 
 const AIDM_MENTORS = [
-    { name: "Kumar Savino", role: "Associate Director - DrinkPrime", company: "DrinkPrime", image: "/assets/mentor/kumar.webp", linkedin: "https://www.linkedin.com/in/kumar-savino/" },
-    { name: "Yash Manghnani", role: "Senior AI Builder - Better software", company: "Better software", image: "/assets/mentor/yash-manghnani.webp", linkedin: "https://www.linkedin.com/in/yash-manghnani/" },
-    { name: "Ankita Das", role: "Product Marketer - IIT, Roorkiee", company: "IIT, Roorkiee", image: "/assets/mentor/ankita.webp", linkedin: "https://www.linkedin.com/in/ankita-das-marketingmania/" },
+    { name: "Kumar Savino", role: "Associate Director - DrinkPrime", company: "DrinkPrime", image: "/redesign/ai-dm/mentors/kumar.png", linkedin: "https://www.linkedin.com/in/kumar-savino/" },
+    { name: "Yash Manghnani", role: "Senior AI Builder - Better software", company: "Better software", image: "/redesign/ai-dm/mentors/yash.png", linkedin: "https://www.linkedin.com/in/yash-manghnani/" },
+    { name: "Anjali Sharma", role: "AI Product Manager - FPL Technologies", company: "FPL Technologies", image: "/redesign/ai-dm/mentors/anjali.png", linkedin: "https://www.linkedin.com/in/anjalisharmaaa/" },
+    { name: "Prashant Vijaybhai Sahatiya", role: "Program Coordinator & Assistant Professor - Parul University", company: "Parul University", image: "/redesign/ai-dm/mentors/prashant.png", },
 ];
 
 // Month labels for grouping

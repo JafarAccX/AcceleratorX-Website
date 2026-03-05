@@ -41,16 +41,22 @@ const SECTIONS = [
 
 const MENTORS = [
   {
+    name: "Akash Kumar Maurya",
+    role: "Data Scientist - Koantek",
+    image: "/redesign/ai-da/mentors/Aakash Maurya.png",
+    linkedin: "https://www.linkedin.com/in/akash-maurya-347911164/",
+  },
+  {
     name: "Ravi Ahlawat",
     role: "Sr. Product Manager - PayU",
     image: "/redesign/ai-da/mentors/Ravi Ahlawat.png",
     linkedin: "https://www.linkedin.com/in/raviahlawat09/",
   },
   {
-    name: "Kumar Savino",
-    role: "Associate Director - DrinkPrime",
-    image: "/redesign/ai-da/mentors/Aakash Maurya.png",
-    linkedin: "https://www.linkedin.com/in/kumar-savino/",
+    name: "Subhasis Chandra",
+    role: "Sr. Product Manager - Publicis Sapient",
+    image: "/redesign/ai-pm/ai-pm-mentors/Subhasis Chandra.png",
+    linkedin: "https://www.linkedin.com/in/subhasis-chandra/",
   },
   {
     name: "Nitish Setty",

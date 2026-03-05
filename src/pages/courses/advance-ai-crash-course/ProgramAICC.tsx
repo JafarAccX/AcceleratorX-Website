@@ -117,14 +117,6 @@ const TOOLS = [
 
 // --- Mentors ---
 const MENTORS = [
-    // ruchir
-    {
-        name: "Ruchir Rana",
-        role: "PM at AcceleratorX",
-        image: "/redesign/ai-pm/ai-pm-mentors/Ruchir Rana.png",
-        linkedin: "https://www.linkedin.com/in/ruchir-rana007",
-    },
-    //  nitya, pranali, ashu
     {
         name: "Nitya Sagar",
         role: "Cofounder - Stealth Startup",
@@ -132,21 +124,11 @@ const MENTORS = [
         linkedin: "https://in.linkedin.com/in/nitya-sagar",
     },
     {
-        name: "Pranali Bose",
-        role: "Senior GenAI Solutions Architect",
-        image: "/redesign/gen-ai/gen-ai-mentors/Pranali Bose.png",
-        linkedin: "https://www.linkedin.com/in/pranali-bose/",
-    },
-    {
         name: "Ashu Mishra",
         role: "Technical Product Manager - Zigram",
-        experience: "10 years",
         image: "/redesign/ai-crash-course/Ashu.webp",
-        alt: "product management certification mentor Swati",
         linkedin: "https://www.linkedin.com/in/ashumish/",
-        transitions: "Over 100+",
-    },
-
+    }
 ];
 
 // --- Career Roles ---
