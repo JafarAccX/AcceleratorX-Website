@@ -92,7 +92,7 @@ export default function ProgramHeroEIE() {
             {/* Title Section */}
             <div className="flex justify-between items-start mb-10">
               <h1 className="font-heading text-[2.75rem] sm:text-6xl   leading-[1.1] font-light tracking-tight text-white dark:text-white ">
-                AI Product Management
+                Become an AI Product Manager. <br /> Lead High-Impact Products.
               </h1>
               {/* Logo/Icon space if needed */}
 
@@ -125,7 +125,9 @@ export default function ProgramHeroEIE() {
                 className="lg:col-span-8 lg:items-end flex flex-col gap-4"
               >
                 <p className="font-sans text-gray-200 text-lg leading-relaxed mb-6 max-w-2xl text-left lg:text-right">
-                  Master end-to-end Product Management — from user discovery and strategy to execution, analytics, and AI-powered product development.
+                  A premium AI Product Management Program designed for working professionals who want to transition into high-growth Product Management roles across India’s startup, SaaS, fintech, and AI ecosystems.
+
+                  Master product strategy, AI integration, product analytics, and roadmap execution — and position yourself for competitive PM salaries in India.
                 </p>
 
                 <div className="flex flex-wrap gap-4 justify-start lg:justify-end">

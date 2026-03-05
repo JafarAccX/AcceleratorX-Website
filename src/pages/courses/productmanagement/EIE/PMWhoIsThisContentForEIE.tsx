@@ -45,11 +45,11 @@ export default function PMWhoIsThisContentForEIE() {
 
 
                     <h2 className="font-heading text-4xl md:text-5xl font-bold text-[#0A0F1E] dark:text-white mb-6 transition-colors duration-300">
-                        Product Management in the AI Era
+                        The AI Product Management Course Built for India’s Hiring Market
                     </h2>
 
                     <p className="font-sans max-w-5xl mx-auto text-gray-500 dark:text-gray-400 text-lg mb-16 leading-relaxed transition-colors duration-300">
-                        Modern PMs are expected to think strategically, execute cross-functionally, and leverage AI to build faster, smarter, and scalable products.
+                        The demand for AI Product Managers in India is accelerating.
                     </p>
                 </motion.div>
 

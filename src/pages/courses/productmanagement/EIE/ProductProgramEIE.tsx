@@ -992,20 +992,20 @@ export default function ProductProgramEIE() {
                                     className="w-full h-auto"
                                 />
                             </div>
-                            <div className="w-full md:w-1/2">
+                            <div className="w-full md:w-1/2 flex flex-col gap-4">
                                 <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
-                                    Nano Degree: Product Management & AI Product Management
+                                    AI Product Management Certification
                                 </h4>
                                 <p className="font-sans text-gray-600 dark:text-gray-300 text-sm mb-6 transition-colors duration-300">
-                                    This certification validates your ability to:
+                                    Earn an AI Product Management Certification that validates your ability to:
                                 </p>
                                 <ul className="space-y-3">
                                     {[
-                                        "Discover and validate problems",
-                                        "Build and launch products",
-                                        "Make data-driven decisions",
-                                        "Design and manage AI-enabled products",
-                                        "Backed by real PM deliverables and AI product thinking.",
+                                        "Design AI-powered product strategies",
+                                        "Build and manage product roadmaps",
+                                        "Apply product analytics to decision-making",
+                                        "Lead cross-functional execution",
+                                        "Develop AI-enabled product solutions",
                                     ].map((item, i) => (
                                         <li key={i} className="font-sans flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                                             <div className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
@@ -1015,6 +1015,9 @@ export default function ProductProgramEIE() {
                                         </li>
                                     ))}
                                 </ul>
+                                <p className="font-sans text-gray-600 dark:text-gray-300 text-sm mb-6 transition-colors duration-300">
+                                    For professionals looking to become AI Product Managers in India, this certification strengthens your market positioning.
+                                </p>
                             </div>
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
