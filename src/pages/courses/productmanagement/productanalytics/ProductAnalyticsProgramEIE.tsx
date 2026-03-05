@@ -33,7 +33,7 @@ const SECTIONS = [
     { id: "why-this-program", label: "WHY THIS PROGRAM" },
     { id: "curriculum", label: "LEARNING JOURNEY" },
     { id: "tools", label: "TOOLS USED" },
-    { id: "mentors", label: "TUTORS" },
+    { id: "mentors", label: "Mentors" },
     { id: "certificate", label: "CERTIFICATION" },
     { id: "career", label: "CAREER OUTCOMES" },
     { id: "pricing", label: "PRICING" },

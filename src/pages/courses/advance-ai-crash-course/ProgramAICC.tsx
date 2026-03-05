@@ -11,7 +11,7 @@ const SECTIONS = [
     { id: "why-this-program", label: "Why this Program" },
     { id: "curriculum", label: "Learning Journey" },
     { id: "tools", label: "Tools Used" },
-    { id: "mentors", label: "Tutors" },
+    { id: "mentors", label: "Mentors" },
     { id: "certificate", label: "Certification" },
     { id: "career", label: "Career Outcomes" },
     { id: "pricing", label: "Pricing" },
