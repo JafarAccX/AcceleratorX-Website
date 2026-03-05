@@ -615,11 +615,11 @@ export default function AdvanceGenAIProgramEIE() {
                             <div className="w-full md:w-1/2 shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.02] transition-transform">
                                 <img src="/redesign/advance-gen-ai/ADV-GEN-AI.webp" alt="Certification" className="w-full h-auto rounded-md shadow-xl transition-colors duration-300" />
                             </div>
-                            <div className="w-full md:w-1/2">
-                                <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Nano-Degree in Agentic AI & Intelligent Systems</h4>
-                                <p className="font-sans text-gray-600 dark:text-gray-400 text-sm mb-6 transition-colors duration-300">Prove your ability to design and deploy autonomous AI agents. Stand out with a credential that signals real agent-building expertise.</p>
+                            <div className="w-full md:w-1/2 flex flex-col gap-4">
+                                <h4 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Certification That Reflects High-Impact Capability</h4>
+                                <p className="font-sans text-gray-600 dark:text-gray-400 text-sm mb-6 transition-colors duration-300">This certification signals:</p>
                                 <ul className="space-y-3">
-                                    {["Industry-recognized Agentic AI Nano-Degree", "Verifiable digital credential", "Portfolio of deployed AI agents"].map((f, i) => (
+                                    {["AI systems thinking", "Automation architecture", "Business-driven AI application", "Strategic implementation depth"].map((f, i) => (
                                         <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                                             <div className="mt-0.5 w-4 h-4 rounded-full bg-[#FC6401]/10 text-[#FC6401] flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                                                 <Check size={10} />
@@ -628,6 +628,10 @@ export default function AdvanceGenAIProgramEIE() {
                                         </li>
                                     ))}
                                 </ul>
+                                <p>
+                                    At higher compensation levels, employers evaluate capability — not attendance.
+                                </p>
+                                <p>This reflects capability.</p>
                             </div>
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>

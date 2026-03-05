@@ -105,9 +105,11 @@ export default function Hero() {
               <div className="max-w-6xl">
                 <h1 className="font-heading text-[2.75rem] sm:text-6xl   leading-[1.1] font-light tracking-tight text-white dark:text-white ">
 
-                  <span className="not-italic font-normal">Built for Your Next</span>
+                  <span className="not-italic font-normal">Build AI, Product & Data </span>
                   <br />
-                  <span className="not-italic font-normal"> Career</span>
+                  <span className="not-italic font-normal">Skills That Move Your</span>
+                  <br />
+                  <span className="not-italic font-normal">Career Forward</span>
 
 
                 </h1>
@@ -122,8 +124,8 @@ export default function Hero() {
                 <ProgramBadge text="AI-Powered Program" />
                 {/* Right: Subtext and Main Button */}
                 <div className="flex flex-col items-end justify-end gap-6">
-                  <p className="font-sans text-lg md:text-xl text-white/90 dark:text-white/90 max-w-md font-light leading-relaxed">
-                    Accelerate your career with a job-ready AI program.
+                  <p className="font-sans text-lg md:text-xl text-end text-white/90 dark:text-white/90 max-w-3xl font-light leading-relaxed">
+                    AcceleratorX helps working professionals master AI Product Management, Data Analytics, Generative AI and AI-powered Marketing — so you can lead smarter, earn more, and stay ahead in a fast-changing job market.
                   </p>
 
                   <div className="w-full  flex items-end justify-end">

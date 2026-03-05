@@ -94,8 +94,11 @@ export default function AdvanceGenAIHeroEIE() {
                             className="mb-10"
                         >
                             <h1 className="font-heading text-[2.75rem] sm:text-6xl   leading-[1.1] font-light tracking-tight text-white dark:text-white ">
-                                Advanced Generative AI
+                                Advanced Generative AI Course
                             </h1>
+                            <br />
+                            <h1 className="font-heading text-[2.75rem] sm:text-6xl   leading-[1.1] font-light tracking-tight text-white dark:text-white ">in India</h1>
+
                         </motion.div>
 
                         {/* Divider */}
@@ -128,7 +131,9 @@ export default function AdvanceGenAIHeroEIE() {
                                 className="lg:col-span-8 lg:items-end flex flex-col gap-4"
                             >
                                 <p className="font-sans text-gray-200 dark:text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl text-left lg:text-right transition-colors duration-300">
-                                    Design, deploy, and scale AI agents that reason, plan, act, and collaborate—using LLMs, tools, and real-world workflows.
+                                    A highly selective Generative AI program designed for ambitious working professionals earning 15–30 LPA who want to move into higher-impact, AI-driven roles.
+
+                                    This is not skill accumulation. This is career leverage.
                                 </p>
 
                                 <div className="flex flex-wrap gap-4 justify-start lg:justify-end">
