@@ -143,7 +143,7 @@ const WSIntroSeason2 = () => (
 // Section 3: About
 const WSAboutSeason2 = () => {
     const tools = [
-        { name: "Browser-use", img: "https://raw.githubusercontent.com/browser-use/browser-use/main/docs/static/img/logo.png" },
+        // { name: "Browser-use", img: "https://raw.githubusercontent.com/browser-use/browser-use/main/docs/static/img/logo.png" },
         { name: "LangChain", img: "/assets/genAITools/langchain.webp" },
         { name: "OpenAI", img: "/assets/genAITools/gpt4.webp" },
         { name: "Claude", img: "/assets/genAITools/claude.webp" },
@@ -191,11 +191,9 @@ const WSAboutSeason2 = () => {
                                 <h3 className="text-xl font-bold">Interactive Learning</h3>
                             </div>
                             <p className="text-gray-200 mb-3 text-sm">Build real agents during the live session and get hands-on experience with Browser-use.</p>
-                            <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
-                                ⚠️ Recording will be shared with registrants.
-                            </div>
+
                         </div>
-                        <div className="bg-[#0A1020] rounded-lg p-5 border border-orange-900/20">
+                        <div className=" rounded-lg p-5 border border-orange-900/20">
                             <h3 className="text-lg font-bold text-white mb-3">Tools Highlight</h3>
                             <div className="flex flex-wrap gap-4">
                                 {tools.map((tool, i) => (

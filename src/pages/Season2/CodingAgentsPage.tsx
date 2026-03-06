@@ -152,11 +152,10 @@ const WSIntroCodingAgents = () => (
 // Section 3: About
 const WSAboutCodingAgents = () => {
     const tools = [
-        { name: "Hugging Face", img: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
-        { name: "Python", img: "https://www.python.org/static/community_logos/python-logo-only.png" },
-        { name: "PyTorch", img: "https://pytorch.org/assets/images/pytorch-logo.png" },
-        { name: "Transformers", img: "/assets/genAITools/hf-circle.png" },
-        { name: "Gradio", img: "https://gradio.app/static/img/logo.svg" },
+        { name: "Hugging Face", img: "/redesign/advance-gen-ai/tools/Datasets.png", },
+        { name: "Python", img: "/redesign/advance-gen-ai/tools/Python.png" },
+        { name: "PyTorch", img: "/redesign/advance-gen-ai/tools/pytorch.png" },
+        { name: "Transformers", img: "/redesign/advance-gen-ai/tools/Transformers.png" },
     ];
 
     return (
@@ -200,19 +199,16 @@ const WSAboutCodingAgents = () => {
                                 <h3 className="text-xl font-bold">Interactive Learning</h3>
                             </div>
                             <p className="text-gray-200 mb-3 text-sm">Build and test coding agents in real-time during the 2-hour live session.</p>
-                            <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
-                                ⚠️ Recording and code templates will be provided.
-                            </div>
+
                         </div>
-                        <div className="bg-[#0A1020] rounded-lg p-5 border border-blue-900/20">
+                        <div className=" rounded-lg p-5 border border-blue-900/20">
                             <h3 className="text-lg font-bold text-white mb-3">Tools Highlight</h3>
-                            <div className="flex flex-wrap gap-4">
+                            <div className="grid grid-cols-2 gap-1">
                                 {tools.map((tool, i) => (
                                     <div key={i} className="flex flex-col items-center gap-1">
-                                        <div className="w-12 h-12 bg-white rounded-lg p-2 flex items-center justify-center">
+                                        <div className=" w-24 h-24 rounded-lg flex items-center justify-center">
                                             <img src={tool.img} alt={tool.name} className="w-full h-auto object-contain" />
                                         </div>
-                                        <span className="text-[10px] text-gray-400">{tool.name}</span>
                                     </div>
                                 ))}
                             </div>
