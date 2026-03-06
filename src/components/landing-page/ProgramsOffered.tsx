@@ -5,28 +5,36 @@ const PROGRAMS = [
         id: "ai-product-management",
         label: "AI IN PRODUCT MANAGEMENT",
         title: "AI Product Management",
-        description: "Dive into AI Product Management, leverage product management tools, gain real-world experience, Build Your Own Product and take your product management career to the next level.",
+        description: "Design, build and scale AI-powered products using modern product frameworks, real case studies and hands-on roadmaps",
+        subHeading: "What This Means for You:",
+        paragraph2: "Step into strategic product roles, lead AI initiatives, and confidently drive product decisions backed by data.",
         image: "/assets/week1.webp"
     },
     {
         id: "ai-data-analytics",
         label: "AI IN DATA ANALYTICS",
         title: "AI in Data Analytics",
-        description: "Build an AI-powered dashboard, a data analyst portfolio that helps you get hired in data analyst, business analyst, financial analyst, market analyst, and HR analyst roles.",
+        description: "Go beyond dashboards. Learn AI-powered analytics, storytelling and business intelligence that influence real decisions.",
+        subHeading: "What This Means for You:",
+        paragraph2: "Become the person leadership turns to for insights — and unlock high-growth analytics opportunities.",
         image: "/assets/week2.webp"
     },
     {
         id: "generative-ai",
         label: "GENERATIVE AI",
         title: "Generative AI",
-        description: "Gen AI and Agentic AI specialisation is designed for beginners, providing a no-code pathway to mastering generative AI, AI Agents, and the powerful tools of automation. Secure your expertise with India's first solution-based AI automation program.",
+        description: "Master prompt engineering, LLM workflows and AI automation tools — without needing to code.",
+        subHeading: "What This Means for You:",
+        paragraph2: "Automate workflows, increase productivity, and position yourself as an AI-first professional.",
         image: "/assets/week3.webp"
     },
     {
         id: "ai-digital-marketing",
         label: "AI DIGITAL MARKETING",
         title: "AI in Digital Marketing",
-        description: "Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.",
+        description: "Use AI to optimize campaigns, scale growth and improve marketing ROI with smarter automation.",
+        subHeading: "What This Means for You:",
+        paragraph2: "Drive performance, improve acquisition metrics and lead modern marketing strategies.",
         image: "/assets/week7.webp"
     },
     {
@@ -191,6 +199,16 @@ export default function ProgramsOffered() {
                                     <p className="font-sans text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light lg:text-xl transition-colors duration-300">
                                         {program.description}
                                     </p>
+                                    {(program as any).subHeading && (
+                                        <h4 className="font-heading text-xl md:text-2xl font-bold text-[#1A2B44] dark:text-white mt-12 mb-4 transition-colors duration-300">
+                                            {(program as any).subHeading}
+                                        </h4>
+                                    )}
+                                    {(program as any).paragraph2 && (
+                                        <p className="font-sans text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light lg:text-xl transition-colors duration-300">
+                                            {(program as any).paragraph2}
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="w-full md:w-1/2 relative group">
                                     {/* Glassmorphic Shadow Background */}
