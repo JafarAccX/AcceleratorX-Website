@@ -136,7 +136,7 @@ const BUILDSESSIONAZoomDetails: ZoomMeetingDetails = {
   meetingId: "season2",
   time: "14th Mar, 2026 04:00 PM India",
   meetingCode: "season2",
-  whatsappLink: "https://chat.whatsapp.com/season2",
+  whatsappLink: "https://chat.whatsapp.com/KmX1SZu2XPo1UaNICtWeVq?mode=gi_",
 };
 
 const BUILDSESSIONBZoomDetails: ZoomMeetingDetails = {
@@ -145,7 +145,7 @@ const BUILDSESSIONBZoomDetails: ZoomMeetingDetails = {
   meetingId: "coding-agents",
   time: "15th Mar, 2026 04:00 PM India",
   meetingCode: "coding-agents",
-  whatsappLink: "https://chat.whatsapp.com/coding-agents",
+  whatsappLink: "https://chat.whatsapp.com/KmX1SZu2XPo1UaNICtWeVq?mode=gi_",
 };
 
 const WorkshopContext = createContext<WorkshopContextType | undefined>(undefined);

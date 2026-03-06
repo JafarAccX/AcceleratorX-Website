@@ -1,13 +1,12 @@
 
 import { Search, Globe, Cpu, Zap, Layout, Users, TrendingUp } from "lucide-react";
-import { WorkshopProvider, useWorkshop } from "../../context/WorkshopContext";
+import { WorkshopProvider } from "../../context/WorkshopContext";
 import { SEO } from "../../components/SEO";
 import WSFormFree from "../landingpage/workshopAIDM/WSFormFree";
 import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 
 // Section 1: Hero
 const WSHeroSeason2 = () => {
-    const { zoomMeetingDetails } = useWorkshop();
 
 
     return (
