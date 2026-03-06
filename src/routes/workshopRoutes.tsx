@@ -2,6 +2,8 @@
 import { lazy } from "react";
 import { Route } from "react-router-dom";
 import { SEO } from "../components/SEO";
+import Season2Page from "../pages/Season2/Season2Page";
+import CodingAgentsPage from "../pages/Season2/CodingAgentsPage";
 
 // Lazily loaded Workshop B (GENB) sections
 const GENCTAB = lazy(() => import("../pages/landingpage/workshopGENB/GENCTAB"));
@@ -234,4 +236,7 @@ export const workshopRoutes = [
   <Route key="workshop-aidm" path="/workshop/ai-dm-fitm" element={<WorkshopPageAIDMTest />} />,
   <Route key="workshop-success" path="/workshop-registration/success" element={<WSRegistrationSuccess />} />,
   <Route key="workshop-success-d" path="/workshop-registration/success-d" element={<WSRegistrationSuccessD />} />,
+  <Route key="season-2" path="/workshop/ai-crash-course" element={<Season2Page />} />,
+  <Route key="coding-agents" path="/workshop/ai-coding-agents" element={<CodingAgentsPage />} />,
+
 ];

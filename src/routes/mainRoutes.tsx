@@ -20,7 +20,6 @@ const MentorPage = lazy(() => import("../pages/MentorPage"));
 
 
 const Events = lazy(() => import("../pages/events/Events"));
-const Season2Page = lazy(() => import("../pages/Season2/Season2Page"));
 const AICrashCoursePage = lazy(() => import("../pages/courses/AICrashCourse/AICrashCoursePage"));
 
 export const mainRoutes = [
@@ -49,6 +48,5 @@ export const mainRoutes = [
   <Route key="mentor" path="/mentor/:id" element={<MentorPage />} />,
 
   // Season 2
-  <Route key="season-2" path="/ai-crash-course" element={<Season2Page />} />,
   <Route key="ai-crash-course" path="/advance-ai-crash-course" element={<AICrashCoursePage />} />,
 ];

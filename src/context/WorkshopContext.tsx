@@ -12,7 +12,9 @@ type WorkshopType =
   | "GENAIDWorkshop"
   | "GENAIEWorkshop"
   | "AIDMWorkshop"
-  | "DMWorkshop";
+  | "DMWorkshop"
+  | "BUILDSESSIONA"
+  | "BUILDSESSIONB";
 
 interface ZoomMeetingDetails {
   title: string;
@@ -111,7 +113,7 @@ const GENAIEZoomDetails: ZoomMeetingDetails = {
 };
 
 const AIDMZoomDetails: ZoomMeetingDetails = {
-  title: "Micro-Certification in AI Marketing",
+  title: "Workshop in AI Marketing",
   link: "https://us06web.zoom.us/meeting/register/wNL144GXSvaIVgHaevAwgg",
   meetingId: "wNL144GXSvaIVgHaevAwgg",
   time: "January 10, 2026, 8:00 PM",
@@ -126,6 +128,24 @@ const DMZoomDetails: ZoomMeetingDetails = {
   time: "July 24, 2025 08:30 PM India",
   meetingCode: "96633694839",
   whatsappLink: "https://chat.whatsapp.com/LNzQFat64Fe7HdfBeHFZ7L",
+};
+
+const BUILDSESSIONAZoomDetails: ZoomMeetingDetails = {
+  title: "Building AI Browsers Workshop",
+  link: "https://zoom.us/meeting/register/season2", // Placeholder
+  meetingId: "season2",
+  time: "14th Mar, 2026 04:00 PM India",
+  meetingCode: "season2",
+  whatsappLink: "https://chat.whatsapp.com/season2",
+};
+
+const BUILDSESSIONBZoomDetails: ZoomMeetingDetails = {
+  title: "Building AI Coding Agents with Hugging Face",
+  link: "https://zoom.us/meeting/register/coding-agents", // Placeholder
+  meetingId: "coding-agents",
+  time: "15th Mar, 2026 04:00 PM India",
+  meetingCode: "coding-agents",
+  whatsappLink: "https://chat.whatsapp.com/coding-agents",
 };
 
 const WorkshopContext = createContext<WorkshopContextType | undefined>(undefined);
@@ -157,6 +177,10 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
       setWorkshopType("GENAIWorkshop");
     } else if (location.pathname.includes("/dm-masterclass")) {
       setWorkshopType("DMWorkshop");
+    } else if (location.pathname.includes("/ai-crash-course")) {
+      setWorkshopType("BUILDSESSIONA");
+    } else if (location.pathname.includes("/ai-coding-agents")) {
+      setWorkshopType("BUILDSESSIONB");
     }
   }, [location.pathname]);
 
@@ -179,9 +203,13 @@ export const WorkshopProvider: React.FC<{ children: ReactNode }> = ({ children }
                     ? AIDMZoomDetails
                     : workshopType === "DMWorkshop"
                       ? DMZoomDetails
-                      : workshopType === "DASecondWorkshop"
-                        ? DASecondZoomDetails
-                        : DAZoomDetails;
+                      : workshopType === "BUILDSESSIONA"
+                        ? BUILDSESSIONAZoomDetails
+                        : workshopType === "BUILDSESSIONB"
+                          ? BUILDSESSIONBZoomDetails
+                          : workshopType === "DASecondWorkshop"
+                            ? DASecondZoomDetails
+                            : DAZoomDetails;
 
   return (
     <WorkshopContext.Provider value={{ workshopType, setWorkshopType, zoomMeetingDetails }}>

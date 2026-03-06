@@ -1,282 +1,323 @@
 
-import React, { useState } from "react";
-import { SiLangchain, SiNvidia, SiHuggingface } from "react-icons/si";
-import Season2EnrollmentModal from "./Season2EnrollmentModal";
+import { Search, Globe, Cpu, Zap, Layout, Users, TrendingUp } from "lucide-react";
+import { WorkshopProvider, useWorkshop } from "../../context/WorkshopContext";
+import { SEO } from "../../components/SEO";
+import WSFormFree from "../landingpage/workshopAIDM/WSFormFree";
+import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 
-const Season2Page = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+// Section 1: Hero
+const WSHeroSeason2 = () => {
+    const { zoomMeetingDetails } = useWorkshop();
+
+
     return (
-        <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-orange-500 selection:text-white">
-            <Season2EnrollmentModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-            />
+        <div className="relative overflow-hidden bg-gradient-to-b from-[#050A14] via-[#0A0F1F] to-[#050A14]">
+            <div className="absolute inset-0 opacity-20">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            </div>
+            <div className="absolute top-20 right-10 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-10 w-64 h-64 bg-amber-600/10 rounded-full blur-3xl"></div>
 
-            {/* Background Effects */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow"></div>
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-[100px] mix-blend-screen animate-pulse-slow animation-delay-2000"></div>
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150"></div>
+            <div className="relative z-20 w-full bg-black/30 backdrop-blur-sm">
+                <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+                    <div className="w-36 md:w-44">
+                        <img src="/redesign/logo-bg-black.webp" alt="AcceleratorX logo" className="w-full h-auto" />
+                    </div>
+                </div>
             </div>
 
-            <div className="relative z-10">
-                {/* Navbar Placeholder - if needed, otherwise content wrapper */}
-
-                {/* HERO SECTION */}
-                <section className="relative pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
-
-                    <div className="animate-fade-in-up">
-                        {/* Logo/Brand placeholder if not global */}
-                        <div className="mb-8 flex justify-center items-center text-2xl font-bold tracking-tight">
-                            <span>Accelerator</span><span className="text-blue-500">X</span>
+            <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+                    <div className="w-full lg:w-1/2 space-y-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20">
+                            <span className="text-orange-400 font-medium text-sm">Workshop on AI Browser Agents</span>
                         </div>
-
-                        <div className="inline-block mb-8">
-                            <span className="px-6 py-2 rounded-full border border-orange-500/50 bg-orange-500/10 text-orange-400 font-medium text-sm md:text-base backdrop-blur-sm animate-pulse">
-                                BUILD SESSION
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-amber-100">
+                                Building AI Browsers Workshop
                             </span>
-                        </div>
-                    </div>
-
-                    <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 animate-title">
-                        Gen AI <br className="hidden md:block" />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-200 via-orange-400 to-amber-500">
-                            CRASH COURSE
-                        </span>
-                    </h1>
-
-                    <div className="max-w-2xl mx-auto mb-12 space-y-4 animate-text">
-                        <p className="text-orange-500 text-xl md:text-2xl font-semibold">
-                            All Practical. All Live.
-                        </p>
-                        <p className="text-gray-400 text-lg">
-                            Not another theory-heavy course.<br />
-                            Not passive learning.
-                        </p>
-                    </div>
-
-
-
-                    <div className="animate-fade-in-up animation-delay-4000">
-                        <p className="text-orange-400 mb-6 font-medium">Your AI Crash Course designed for people who are done watching and ready to build.</p>
-                        <button
-                            onClick={() => setIsModalOpen(true)}
-                            className="px-8 py-4 rounded-full border border-orange-500 text-white font-bold text-lg hover:bg-orange-500 hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.2)] hover:shadow-[0_0_40px_rgba(249,115,22,0.6)]"
-                        >
-                            Just Pure Learning, Pure Building
-                        </button>
-                    </div>
-                </section>
-
-
-                {/* WHAT NEXT AI BOOM IS EXPECTING */}
-                <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative">
-                    {/* Top Header Line */}
-                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"></div>
-
-                    <h2 className="text-4xl md:text-6xl font-bold mb-32 text-center relative z-10">
-                        What <span className="text-orange-500">Next AI Boom</span> <br />
-                        is Expecting?
-                    </h2>
-
-                    <div className="relative max-w-5xl mx-auto pb-20">
-                        {/* Connecting Line SVG - Desktop */}
-                        <div className="absolute inset-0 pointer-events-none hidden md:block" style={{ top: '-40px' }}>
-                            <svg className="w-full h-full" viewBox="0 0 1000 800" fill="none" preserveAspectRatio="none">
-                                <path d="M 200 80 
-                                         L 200 180 
-                                         Q 200 230 250 230 
-                                         L 700 230
-                                         Q 750 230 750 280
-                                         L 750 380
-                                         Q 750 430 700 430
-                                         L 300 430
-                                         Q 250 430 250 480
-                                         L 250 580
-                                         Q 250 630 300 630
-                                         L 700 630
-                                         Q 750 630 750 680
-                                         L 750 750"
-                                    stroke="url(#gradient-line)" strokeWidth="2" fill="none" strokeDasharray="8 8" className="opacity-60" />
-                                <defs>
-                                    <linearGradient id="gradient-line" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor="#f97316" stopOpacity="0.2" />
-                                        <stop offset="50%" stopColor="#f97316" stopOpacity="0.8" />
-                                        <stop offset="100%" stopColor="#f97316" stopOpacity="0.2" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
-
-                        {/* Steps Container */}
-                        <div className="space-y-12 md:space-y-0 relative z-10">
-
-                            {/* Step 1 - Left */}
-                            <div className="flex md:justify-start md:pl-20 relative">
-                                <div className="hidden md:block absolute right-[60%] top-1/2 w-3 h-3 bg-orange-500 rounded-full shadow-[0_0_10px_#f97316]"></div>
-                                <div className="group relative">
-                                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-amber-600 rounded-lg blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                                    <div className="relative bg-neutral-900 border border-orange-500/30 p-8 rounded-lg w-full md:w-[350px] backdrop-blur-sm hover:border-orange-500/70 transition-all clip-path-polygon">
-                                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/50 rounded-tr-lg"></div>
-                                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/50 rounded-bl-lg"></div>
-                                        <h3 className="text-xl md:text-2xl font-bold text-white">Real World AI Understanding</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Step 2 - Right */}
-                            <div className="flex md:justify-end md:pr-20 md:-mt-10 relative">
-                                <div className="group relative">
-                                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-amber-600 rounded-lg blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                                    <div className="relative bg-neutral-900 border border-orange-500/30 p-8 rounded-lg w-full md:w-[350px] backdrop-blur-sm hover:border-orange-500/70 transition-all">
-                                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/50 rounded-tl-lg"></div>
-                                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/50 rounded-br-lg"></div>
-                                        <h3 className="text-xl md:text-2xl font-bold text-white text-right">Building AI Agents</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Step 3 - Left */}
-                            <div className="flex md:justify-start md:pl-32 md:-mt-10 relative">
-                                <div className="group relative">
-                                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-amber-600 rounded-lg blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                                    <div className="relative bg-neutral-900 border border-orange-500/30 p-8 rounded-lg w-full md:w-[350px] backdrop-blur-sm hover:border-orange-500/70 transition-all">
-                                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/50 rounded-tr-lg"></div>
-                                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/50 rounded-bl-lg"></div>
-                                        <h3 className="text-xl md:text-2xl font-bold text-white">Solving Different Problems with AI</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Step 4 - Right */}
-                            <div className="flex md:justify-end md:pr-10 md:-mt-10 relative">
-                                <div className="group relative">
-                                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-amber-600 rounded-lg blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                                    <div className="relative bg-neutral-900 border border-orange-500/30 p-8 rounded-lg w-full md:w-[400px] backdrop-blur-sm hover:border-orange-500/70 transition-all">
-                                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/50 rounded-tl-lg"></div>
-                                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/50 rounded-br-lg"></div>
-                                        <h3 className="text-xl md:text-2xl font-bold text-white text-right">Understanding of Tools, Frameworks to Build Agents</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-
-                {/* WHAT YOU'LL BUILD */}
-                <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        What <span className="text-orange-500">You'll Build</span>
-                    </h2>
-                    <p className="text-xl text-gray-400 mb-16">(ALL LIVE, ALL PRACTICAL)</p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                        <div className="space-y-8">
-                            <ListItem number="1" text="Understanding LLMs & LLM Fine-Tuning" />
-                            <ListItem number="2" text="Understanding LLMs & LLM Fine-Tuning — Part 2" />
-
-                            <div className="py-4"></div>
-
-                            <ListItem number="3" text="Build with CrewAI" />
-                            <ListItem number="4" text="Practical Multi-AI Agents & Advanced Use Cases (CrewAI)" />
-
-                            <div className="py-4"></div>
-
-                            <ListItem number="5" text="Building MCP Servers" />
-                            <ListItem number="6" text="Building MCP-Supported Apps (Exclusive)" />
-
-                            <div className="py-4"></div>
-
-                            <ListItem number="7" text="ACP: Building Agents That Communicate with Each Other" />
-                            <ListItem number="8" text="Building AI Browser Agents" />
-                            <ListItem number="9" text="Building AI Coding Agents (Hugging Face)" icon={<SiHuggingface className="inline ml-2 text-yellow-400" />} />
-                        </div>
-
-                        <div className="space-y-8">
-                            <ListItem number="10" text="Building AI Agents with LangGraph" />
-                            <ListItem number="11" text="Introduction to Agent-Building Platform — AutoGen" />
-
-                            <div className="py-4"></div>
-
-                            <ListItem number="12" text="LangChain — Part 1" icon={<SiLangchain className="inline ml-2 text-white" />} />
-                            <ListItem number="13" text="LangChain — Part 2" />
-                            <ListItem number="14" text="Building AI Applications with LangChain" />
-
-                            <div className="py-4"></div>
-
-                            <ListItem number="15" text="NAT Toolkit (NVIDIA) — With Real Examples" icon={<SiNvidia className="inline ml-2 text-green-500" />} />
-                            <ListItem number="16" text="Building Live Voice Agents using Google ADK" />
-
-                            <div className="py-4"></div>
-
-                            <ListItem number="17" text="Learner Bootcamp — 1" />
-                            <ListItem number="18" text="Learner Bootcamp — 2" />
-                            <ListItem number="19" text="Learner Bootcamp — 3" />
-                            <ListItem number="20" text="Learner Bootcamp — 4" />
-                        </div>
-                    </div>
-                </section>
-
-                {/* PRICING SECTION */}
-                <section className="py-20 px-4 md:px-8 max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 text-orange-500">PRICING</h2>
-                    <p className="text-xl text-gray-400 mb-12">(NO NONSENSE)</p>
-
-                    <div className="relative mb-12 inline-block">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl blur opacity-30"></div>
-                        <div className="relative bg-neutral-900 border border-orange-500/50 rounded-xl p-8 md:p-12 hover:border-orange-500 transition-all">
-                            <div className="absolute top-0 right-0 px-4 py-1 bg-orange-500 text-black text-sm font-bold rounded-bl-xl rounded-tr-xl">
-                                Limited Seats Only
-                            </div>
-                            <p className="text-2xl text-white mb-4">For just</p>
-                            <div className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-200 mb-6 font-mono">
-                                ₹4,499 + GST
-                            </div>
-                            <p className="text-orange-400 text-lg">
-                                ≈ ₹250 per session <span className="text-gray-500 text-sm">(less than your one Swiggy order)</span>
+                        </h1>
+                        <div className="space-y-4">
+                            <p className="text-lg text-gray-300 max-w-xl">
+                                Learn to build autonomous agents that can navigate the web, interact with complex apps, and automate workflows just like a human.
+                            </p>
+                            <p className="text-base text-gray-400 max-w-xl font-normal leading-relaxed">
+                                In this live session, we'll dive deep into Browser-use, MCP, and vision-based agents. You'll learn how to connect LLMs to real-time browser environments to automate research, testing, and multi-step web tasks.
                             </p>
                         </div>
-                    </div>
 
-                    <div className="space-y-8">
-                        <p className="text-gray-300 text-lg">
-                            That's it. <br />
-                            Existing learners get <span className="text-orange-500 font-bold">add-on scholarships.</span>
-                        </p>
+                        <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 bg-gradient-to-r from-orange-500/10 to-amber-500/10 rounded-lg border border-orange-500/20">
+                            <div className="text-yellow-400 text-sm font-medium">
+                                Master Agentic Web Automation — Build Skills for the Future of AI
+                            </div>
+                        </div>
 
-                        <button
-                            onClick={() => setIsModalOpen(true)}
-                            className="group relative px-10 py-5 bg-transparent overflow-hidden rounded-md transition-all"
-                        >
-                            <div className="absolute inset-0 w-0 bg-orange-500 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                            <span className="relative text-orange-500 text-xl font-bold group-hover:text-black uppercase tracking-widest border border-orange-500 px-10 py-4 rounded-md">
-                                Enroll Now
-                            </span>
-                        </button>
-
-                        <div className="pt-8 flex items-center justify-center gap-4 text-orange-500 animate-pulse">
-                            <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                            <p className="font-semibold tracking-widest">REGISTRATIONS OPEN</p>
-                            <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+                        <div className="grid grid-cols-4 gap-4 mt-6">
+                            {[
+                                { icon: <Zap className="text-orange-400 mb-1" size={20} />, label: "Duration", value: "2 Hours" },
+                                { icon: <FaCalendarAlt className="text-orange-400 mb-1" size={20} />, label: "Date", value: "14th Mar" },
+                                { icon: <FaClock className="text-orange-400 mb-1" size={20} />, label: "Time", value: "4:00 PM IST" },
+                                { icon: <FaUserGraduate className="text-orange-400 mb-1" size={20} />, label: "Level", value: "Intermediate" },
+                            ].map((item, index) => (
+                                <div key={index} className="group bg-gradient-to-br from-[#1a100a]/80 to-[#150a06]/60 backdrop-blur-xl rounded-lg p-3 border border-orange-500/10 hover:border-orange-400/30 transition-all duration-300 flex flex-col items-center">
+                                    {item.icon}
+                                    <p className="text-gray-400 text-[10px] uppercase tracking-wider">{item.label}</p>
+                                    <p className="text-white font-semibold text-xs sm:text-sm group-hover:text-orange-300 transition-colors text-center">{item.value}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </section>
 
-
+                    <div className="w-full lg:w-5/12">
+                        <div className="relative mx-auto max-w-md">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/30 to-amber-500/30 rounded-xl blur-md"></div>
+                            <div className="relative bg-[#111827] p-5 rounded-xl shadow-xl border border-white/5">
+                                <div id="workshop-registration-form">
+                                    <WSFormFree />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
 };
 
-const ListItem = ({ number, text, icon }: { number: string; text: string; icon?: React.ReactNode }) => (
-    <div className="flex items-start gap-4 group">
-        <span className="text-orange-500 font-bold text-xl min-w-[2rem]">{number}.</span>
-        <span className="text-gray-300 text-lg group-hover:text-white transition-colors cursor-default">
-            {text} {icon}
-        </span>
+// Section 2: Intro
+const WSIntroSeason2 = () => (
+    <section className="bg-[#050A14] py-12">
+        <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        Build <span className="text-orange-500">Autonomous</span> Web Agents
+                    </h2>
+                    <p className="text-gray-400 text-base mb-8 max-w-2xl mx-auto">
+                        Stop writing rigid scripts. Start building agents that understand the web, see elements, and make decisions in real-time.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    {[
+                        { value: "100%", label: "Hands-on Workshop" },
+                        { value: "Free", label: "Live Session" },
+                        { value: "Modern", label: "Agentic Frameworks" },
+                    ].map((stat, index) => (
+                        <div key={index} className="bg-[#0A1020] p-4 rounded-lg border border-orange-900/20 text-center">
+                            <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                            <div className="text-sm text-gray-400">{stat.label}</div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    {[
+                        {
+                            icon: <Globe className="w-5 h-5 text-orange-500" />,
+                            title: "Browser-use Mastery",
+                            description: "Master the leading open-source framework for AI-controlled browsers."
+                        },
+                        {
+                            icon: <Cpu className="w-5 h-5 text-orange-500" />,
+                            title: "MCP Integration",
+                            description: "Connect your agents to external tools via Model Context Protocol."
+                        },
+                        {
+                            icon: <Search className="w-5 h-5 text-orange-500" />,
+                            title: "Vision-Based Navigation",
+                            description: "Teach agents to interact with web elements just like a human eye would."
+                        },
+                    ].map((feature, index) => (
+                        <div key={index} className="bg-[#0A1020] rounded-lg p-4 flex flex-col items-start gap-3 border border-orange-900/20">
+                            <div className="rounded-md bg-orange-500/10 p-2">{feature.icon}</div>
+                            <h3 className="text-lg font-semibold text-white mb-1">{feature.title}</h3>
+                            <p className="text-sm text-gray-400">{feature.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
+// Section 3: About
+const WSAboutSeason2 = () => {
+    const tools = [
+        { name: "Browser-use", img: "https://raw.githubusercontent.com/browser-use/browser-use/main/docs/static/img/logo.png" },
+        { name: "LangChain", img: "/assets/genAITools/langchain.webp" },
+        { name: "OpenAI", img: "/assets/genAITools/gpt4.webp" },
+        { name: "Claude", img: "/assets/genAITools/claude.webp" },
+        { name: "Playwright", img: "https://playwright.dev/img/playwright-logo.svg" },
+    ];
+
+    return (
+        <div className="bg-[#050A14] py-12 overflow-hidden">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-col lg:flex-row gap-8">
+                    <div className="w-full lg:w-3/5 space-y-6">
+                        <div className="bg-[#0A1020] rounded-lg border border-orange-900/20 overflow-hidden p-6">
+                            <div className="inline-flex items-center gap-2 bg-orange-500/10 rounded-md px-3 py-1 mb-4">
+                                <span className="text-orange-400 text-sm font-medium">Workshop Highlights</span>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="bg-[#111827] p-4 rounded-md border border-orange-500/10">
+                                    <h3 className="font-semibold text-white text-lg mb-3">Core Modules</h3>
+                                    <ul className="space-y-2">
+                                        {["Architecture of Web Agents", "Setting up Browser-use", "Connecting LLMs to Browsers", "Handling Dynamic Content", "Multi-Agent Coordination"].map((item, i) => (
+                                            <li key={i} className="flex items-center gap-2 text-gray-300 text-sm">
+                                                <span className="text-xs bg-orange-500/20 p-1 rounded-sm">{i + 1}</span> {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="bg-[#111827] p-4 rounded-md border border-amber-500/10">
+                                    <h3 className="font-semibold text-white text-lg mb-3">Learning Outcomes</h3>
+                                    <ul className="space-y-2">
+                                        {["Build a Web Explorer Agent", "Automate Data Extraction", "Perform Visual Web Audits", "Integrate MCP Servers", "Deploy to Cloud Environments"].map((item, i) => (
+                                            <li key={i} className="flex items-center gap-2 text-gray-300 text-sm">
+                                                <span className="text-xs bg-amber-500/20 p-1 rounded-sm text-amber-400">{i + 1}</span> {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="w-full lg:w-2/5 space-y-6">
+                        <div className="bg-gradient-to-r from-orange-900/60 to-amber-900/60 rounded-lg p-5 text-white shadow-md">
+                            <div className="flex items-center gap-3 mb-3">
+                                <Search className="w-6 h-6" />
+                                <h3 className="text-xl font-bold">Interactive Learning</h3>
+                            </div>
+                            <p className="text-gray-200 mb-3 text-sm">Build real agents during the live session and get hands-on experience with Browser-use.</p>
+                            <div className="bg-black/20 p-3 rounded-md text-xs text-gray-300 border border-white/10">
+                                ⚠️ Recording will be shared with registrants.
+                            </div>
+                        </div>
+                        <div className="bg-[#0A1020] rounded-lg p-5 border border-orange-900/20">
+                            <h3 className="text-lg font-bold text-white mb-3">Tools Highlight</h3>
+                            <div className="flex flex-wrap gap-4">
+                                {tools.map((tool, i) => (
+                                    <div key={i} className="flex flex-col items-center gap-1">
+                                        <div className="w-12 h-12 bg-white rounded-lg p-2 flex items-center justify-center">
+                                            <img src={tool.img} alt={tool.name} className="w-full h-auto object-contain" />
+                                        </div>
+                                        <span className="text-[10px] text-gray-400">{tool.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Section 4: Who Should Enroll
+const WSWhoSeason2 = () => (
+    <section className="bg-[#050A14] py-12">
+        <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-10">
+                    <div className="inline-flex items-center gap-2 bg-orange-500/10 rounded-md px-3 py-1.5 mb-3">
+                        <Users className="w-4 h-4 text-orange-400" />
+                        <span className="text-orange-400 text-sm font-medium">Built for Builders</span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">Who is this <span className="text-orange-500">Workshop</span> for?</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {[
+                        { icon: <Cpu />, title: "Developers", desc: "Build agentic browser workflows." },
+                        { icon: <Layout />, title: "Product Managers", desc: "Understand next-gen automation." },
+                        { icon: <Search />, title: "Data Engineers", desc: "Scale web data extraction." },
+                        { icon: <TrendingUp />, title: "Growth Hackers", desc: "Automate cross-platform tasks." }
+                    ].map((item, i) => (
+                        <div key={i} className="p-5 rounded-lg bg-white/5 border border-white/10 hover:border-orange-500/20 transition-all">
+                            <div className="p-2 rounded-md bg-orange-500/10 w-fit mb-3 text-orange-400">{item.icon}</div>
+                            <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                            <p className="text-sm text-gray-400">{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
+// Section 5: Mentor
+// const WSMentorSeason2 = () => (
+//     <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
+//         <div className="relative container mx-auto px-4">
+//             <div className="text-center mb-12">
+//                 <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 bg-clip-text text-transparent mb-4">
+//                     Learn From the Builders
+//                 </h2>
+//                 <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mt-4" />
+//             </div>
+//             <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800 max-w-screen-sm mx-auto">
+//                 <div className="flex flex-col sm:flex-row items-center gap-6">
+//                     <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-orange-500/30">
+//                         <img src="/assets/mentor/dummyuser.webp" alt="Aditya Kachave" className="w-full h-full object-cover" />
+//                     </div>
+//                     <div className="flex-1 text-center sm:text-left">
+//                         <h3 className="text-xl font-bold text-white mb-2">Aditya Kachave</h3>
+//                         <div className="flex flex-wrap gap-2 justify-center sm:justify-start mb-4">
+//                             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-orange-500/10 text-orange-400 border border-orange-500/20">
+//                                 <Briefcase className="w-3 h-3" /> 5+ Years Experience
+//                             </span>
+//                         </div>
+//                         <div className="space-y-2 text-gray-300 text-sm">
+//                             <div className="flex items-start gap-2">
+//                                 <Sparkles className="w-4 h-4 text-orange-400 mt-1 flex-shrink-0" />
+//                                 <p>AI Infrastructure & Automation Lead</p>
+//                             </div>
+//                             <div className="flex items-start gap-2">
+//                                 <Award className="w-4 h-4 text-amber-400 mt-1 flex-shrink-0" />
+//                                 <p>Helping 2000+ builders master agentic systems.</p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// );
+
+// Section 6: CTA
+const WSCTASeason2 = () => (
+    <div className="bg-[#050A14] py-12">
+        <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto bg-[#0A1020] rounded-lg p-8 border border-orange-900/20 shadow-md text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Build AI Browsers?</h2>
+                <p className="text-orange-400 font-medium mb-8">Register Now — Start Your Agentic Transformation</p>
+                <button
+                    onClick={() => document.getElementById("workshop-registration-form")?.scrollIntoView({ behavior: "smooth" })}
+                    className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md transition-all"
+                >
+                    Register Now
+                </button>
+            </div>
+        </div>
     </div>
 );
+
+const Season2Page = () => {
+    return (
+        <WorkshopProvider>
+            <div className="min-h-screen bg-[#050A14] text-white font-sans overflow-x-hidden selection:bg-orange-500 selection:text-white">
+                <SEO title="AI Browsers Workshop | AcceleratorX" description="Join the Workshop on Building AI Browsers and Autonomous Web Agents." />
+                <WSHeroSeason2 />
+                <WSIntroSeason2 />
+                <WSAboutSeason2 />
+                <WSWhoSeason2 />
+                {/* <WSMentorSeason2 /> */}
+                <WSCTASeason2 />
+            </div>
+        </WorkshopProvider>
+    );
+};
 
 export default Season2Page;
