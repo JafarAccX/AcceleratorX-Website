@@ -299,7 +299,7 @@ export default function JobDetails() {
 
           <div className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300 font-heading">Job Description</h2>
-            <div className="prose prose-slate dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 transition-colors duration-300">
+            <div className="prose dark:prose-invert max-w-none transition-colors duration-300">
               <ReactMarkdown>{cleanedDescription}</ReactMarkdown>
             </div>
           </div>

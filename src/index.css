@@ -605,7 +605,7 @@ html {
   }
 
   .prose p {
-    @apply mb-4 text-gray-700 leading-relaxed;
+    @apply mb-4 text-gray-700 dark:text-gray-300 leading-relaxed;
   }
 
   .prose ul {
@@ -617,7 +617,7 @@ html {
   }
 
   .prose li {
-    @apply mb-2;
+    @apply mb-2 text-gray-700 dark:text-gray-300;
   }
 
   .prose img {
@@ -625,7 +625,7 @@ html {
   }
 
   .prose blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic my-4;
+    @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic my-4;
   }
 
   [data-align="center"] {
