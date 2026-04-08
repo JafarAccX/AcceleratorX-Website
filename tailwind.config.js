@@ -44,6 +44,8 @@ export default {
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce-slow': 'bounce 3s infinite',
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "infinite-scroll-left": "infinite-scroll-left 60s linear infinite",
+        "infinite-scroll-right": "infinite-scroll-right 60s linear infinite",
       },
       keyframes: {
         float: {
@@ -79,6 +81,14 @@ export default {
             opacity: 1,
             transform: "translate(-50%,-40%) scale(1)",
           },
+        },
+        "infinite-scroll-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "infinite-scroll-right": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
       boxShadow: {

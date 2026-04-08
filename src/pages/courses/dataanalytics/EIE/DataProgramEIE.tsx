@@ -72,7 +72,7 @@ const MENTORS = [
   },
   {
     name: "Himangi Sharma",
-    role: "Data Scientist 2 - Mastercard",
+    role: "Data Scientist 2",
     image: "/redesign/ai-da/mentors/Himangi Sharma.png",
     linkedin: "https://www.linkedin.com/in/himangi-sharma/",
   },

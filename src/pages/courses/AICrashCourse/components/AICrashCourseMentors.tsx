@@ -15,8 +15,8 @@ const mentors: Mentor[] = [
     // {
     //     name: "Himangi Sharma",
     //     image: "/advance-crashcourse/builders/nitya.png", // Placeholder
-    //     role: "Data Scientist 2 - Mastercard",
-    //     company: "Mastercard",
+    //     role: "Data Scientist 2",
+    //     company: "",
     //     linkedin: "https://www.linkedin.com/in/himangi-sharma/"
     // },
     {

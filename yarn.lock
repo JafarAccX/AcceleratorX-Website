@@ -2882,6 +2882,11 @@ dom-helpers@^5.0.1:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
 
+dotenv@^17.4.0:
+  version "17.4.0"
+  resolved "https://registry.npmjs.org/dotenv/-/dotenv-17.4.0.tgz"
+  integrity sha512-kCKF62fwtzwYm0IGBNjRUjtJgMfGapII+FslMHIjMR5KTnwEmBmWLDRSnc3XSNP8bNy34tekgQyDT0hr7pERRQ==
+
 dotted-map@^2.2.3:
   version "2.2.3"
   resolved "https://registry.npmjs.org/dotted-map/-/dotted-map-2.2.3.tgz"

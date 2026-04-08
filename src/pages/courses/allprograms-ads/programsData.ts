@@ -50,7 +50,7 @@ export const programContent: Record<string, any> = {
                 topics: [
                     "Product Documentation & UX Foundations",
                     "UI/UX, Wireframing & Prioritization",
-                    "MVP, Metrics & Product Analytics",
+                    "MVP, Metrics & Experimentation",
                     "Go-To-Market (GTM) & Product Launch"
                 ],
                 color: "text-orange-400",
@@ -58,7 +58,7 @@ export const programContent: Record<string, any> = {
             },
             {
                 month: "Month 3",
-                title: "Product Analytics, Frameworks & Technical Basics",
+                title: "Product Metrics, Frameworks & Technical Basics",
                 topics: [
                     "Product Management Frameworks",
                     "Experimentation & Decision Making",
@@ -270,10 +270,10 @@ export const programContent: Record<string, any> = {
             },
             {
                 month: "Month 3",
-                title: "Business Intelligence & Product Analytics",
+                title: "Business Intelligence & Advanced Metrics",
                 topics: [
                     "Business Intelligence & Dashboarding",
-                    "Product Analytics & Cohort Analysis",
+                    "User Behavior & Cohort Analysis",
                     "Funnel Analysis & User Journey Mapping"
                 ],
                 color: "text-blue-400",
@@ -307,7 +307,7 @@ export const programContent: Record<string, any> = {
                 topics: [
                     "AI Tools & Automation for Data Analysts",
                     "AI-Enabled Predictive Analytics & Storytelling",
-                    "Capstone Project: Product Analytics & Dashboard Presentation"
+                    "Capstone Project: User metrics & Dashboard Presentation"
                 ],
                 color: "text-pink-400",
                 glow: "border-pink-500/10"

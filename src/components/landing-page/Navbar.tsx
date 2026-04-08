@@ -67,7 +67,6 @@ export default function Navbar() {
     { label: "AI Data Science", path: "/courses/data-science" },
     { label: "Generative AI", path: "/courses/generative-ai" },
     { label: "Advance Gen AI", path: "/courses/advance-generative-ai" },
-    { label: "Product Analytics", path: "/courses/product-analytics-program-eie" },
     { label: "Advance AI Crash Course", path: "/courses/advance-ai-crash-course" },
   ];
 
@@ -175,12 +174,12 @@ export default function Navbar() {
       <nav
         className={`fixed top-[10px] w-full left-1/2 -translate-x-1/2 z-[9999] max-w-7xl ${menuTransition}`}
       >
-        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-[#000000]/70 shadow-lg px-6 sm:px-8 w-full border border-gray-200/50 dark:border-gray-700/50">
+        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-[#000000]/70 shadow-lg px-6 sm:px-8 w-full">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <div className={`relative group ${hoverTransition}`}>
               <Link to="/" className="flex items-center space-x-2 hover:opacity-90">
-                <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-12 object-contain" />
+                <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-12 object-contain" draggable={false} />
               </Link>
             </div>
 
@@ -193,11 +192,11 @@ export default function Navbar() {
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
                 <button
-                  className={`font-sans flex items-center gap-1 text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white text-sm leading-[1.2em] font-medium py-2 ${hoverTransition}`}
+                  className={`font-sans flex items-center gap-1 text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white text-[14px] font-medium py-2 ${hoverTransition}`}
                 >
-                  Courses
+                  Programs
                   <ChevronDown
-                    size={16}
+                    size={14}
                     className={`${dropdownTransition}`}
                     style={{
                       transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0)",
@@ -229,7 +228,7 @@ export default function Navbar() {
                 const isHighlighted = item.label === "XSAT";
                 const baseClasses = `font-sans relative group ${hoverTransition} ${isHighlighted
                   ? "bg-gray-100/50 dark:bg-gray-800/50 text-[#FFBB00] hover:text-[#FFBB00] font-semibold px-4 py-1.5 rounded-lg flex items-center border border-[#FFBB00]/20 hover:border-[#FFBB00]/40"
-                  : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2"
+                  : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white py-2 text-[14px] font-medium"
                   }`;
 
                 return isExternal ? (
@@ -258,18 +257,18 @@ export default function Navbar() {
                 );
               })}
 
-              {/* Our Platforms Dropdown */}
+              {/* Our Platforms Dropdown - More subtle to match figma nav */}
               <div
                 className="relative group"
                 onMouseEnter={() => setIsPlatformsDropdownOpen(true)}
                 onMouseLeave={() => setIsPlatformsDropdownOpen(false)}
               >
                 <button
-                  className={`font-sans flex items-center gap-1 text-[#FFBB00] font-semibold bg-gray-100/50 dark:bg-gray-800/50 px-4 py-1.5 rounded-lg border border-[#FFBB00]/20 hover:border-[#FFBB00]/40 ${hoverTransition}`}
+                  className={`font-sans flex items-center gap-1 text-gray-700 dark:text-gray-200 hover:text-white text-[14px] font-medium py-2 ${hoverTransition}`}
                 >
                   Our Platforms
                   <ChevronDown
-                    size={16}
+                    size={14}
                     className={`${dropdownTransition}`}
                     style={{
                       transform: isPlatformsDropdownOpen ? "rotate(180deg)" : "rotate(0)",
@@ -297,24 +296,26 @@ export default function Navbar() {
                 </div>
               </div>
 
-
-
               {isAuthenticated ? (
                 <ProfileMenu />
               ) : (
-                <div className="flex items-center p-1  ml-4 group">
+                <div className="flex items-center gap-4 ml-4">
                   <Link
                     to="/sign-in"
-                    className={`font-sans text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white ${hoverTransition} px-4 py-1.5 text-sm font-medium rounded-full hover:bg-gray-200/50 dark:hover:bg-gray-700/50`}
+                    className={`font-sans text-gray-700 dark:text-gray-200 hover:text-white px-2 py-1.5 text-[14px] font-medium ${hoverTransition}`}
                   >
-                    Login
+                    Log In
                   </Link>
-                  {/* <Link
+                  <Link
                     to="/sign-up"
-                    className={`font-sans bg-[#1a71f6] hover:bg-[#1a71f6]/90 text-white px-5 py-1.5 rounded-full text-sm font-medium ${hoverTransition} shadow-md`}
+                    className={`font-sans h-[36px] px-5 rounded-full border border-white/20 flex items-center gap-2 text-[14px] font-semibold hover:bg-white hover:text-black transition-all group`}
                   >
                     Sign Up
-                  </Link> */}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </Link>
                 </div>
               )}
             </div>

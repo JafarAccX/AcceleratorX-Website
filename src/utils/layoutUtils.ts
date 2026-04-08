@@ -25,12 +25,16 @@ const routeLayouts: Record<string, RouteLayout> = {
   "/workshop/ai-dm-fitm": { showNavbar: false, showFooter: false },
 
   // Course routes
-  "/courses/generative-ai-fb": { showNavbar: false, showFooter: false },
+  "/courses/generative-ai": { showNavbar: true, showFooter: true },
+  "/courses/gen-ai": { showNavbar: true, showFooter: true },
+  "/courses/generative-ai-fb": { showNavbar: true, showFooter: true },
   "/courses/product-management-program-fb": { showNavbar: false, showFooter: false },
   "/courses/data-analytics-program-fb": { showNavbar: false, showFooter: false },
   "/courses/product-management-program-eie": { showNavbar: false, showFooter: false },
   "/courses/data-analytics-program-eie": { showNavbar: false, showFooter: false },
   "/courses/no-code-tool-program-fb": { showNavbar: false, showFooter: false },
+  "/courses/ai-digital-marketing": { showNavbar: true, showFooter: true },
+  "/courses/product-analytics-program-eie": { showNavbar: true, showFooter: true },
 
   // Other routes
   "/thank-you": { showNavbar: false, showFooter: false },

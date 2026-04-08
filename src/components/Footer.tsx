@@ -85,8 +85,6 @@
 //   );
 // }
 
-
-
 import React from "react";
 import companyLogo from "/redesign/logo-no-bg.webp";
 import { Link } from "react-router-dom";
@@ -94,11 +92,6 @@ import {
   Linkedin,
   Instagram,
   Facebook,
-  Mail,
-  Phone,
-  MapPin,
-  Twitter,
-  Youtube,
 } from "lucide-react";
 
 type FooterLink = {
@@ -113,31 +106,29 @@ const footerLinks: {
     links: FooterLink[];
   };
 } = {
-  services: {
-    title: "Courses",
+  company: {
+    title: "COMPANY",
     links: [
-      {
-        label: "AI Product Management",
-        url: "/courses/product-management",
-      },
-      { label: "AI Data Analytics", url: "/courses/data-analytics" },
-      // { label: "No-Code Development", url: "/courses/no-code-tool-program" },
-      { label: "Generative AI", url: "/courses/generative-ai" },
-      // {
-      //   label: "AI Performance Marketing",
-      //   url: "/courses/advance-performance-marketing-with-ai",
-      // },
-      { label: "AI Digital Marketing", url: "/courses/ai-digital-marketing" },
+      { label: "Home", url: "/" },
+      { label: "Product", url: "/#products" },
+      { label: "Blogs", url: "/blogs" },
+      { label: "Services", url: "/#services" },
     ],
   },
-  company: {
-    title: "Company",
+  help: {
+    title: "HELP",
     links: [
-      { label: "About", url: "/about-us" },
-      { label: "Blog", url: "/blogs" },
-      { label: "Privacy Policy", url: "/privacy-policy" },
+      { label: "Customer Support", url: "/support" },
       { label: "Terms & Conditions", url: "/terms-and-conditions" },
-      { label: "Refund Policy", url: "/refund-policy" }
+      { label: "Privacy Policy", url: "/privacy-policy" },
+    ],
+  },
+  resources: {
+    title: "RESOURCES",
+    links: [
+      { label: "Free eBooks", url: "/#ebooks" },
+      { label: "Development Tutorial", url: "/#tutorials" },
+      { label: "Free course Playlist", url: "/#playlist" },
     ],
   },
   social: {
@@ -149,19 +140,9 @@ const footerLinks: {
         icon: <Linkedin className="w-5 h-5" />,
       },
       {
-        label: "Youtube",
-        url: "https://youtube.com/@acceleratorxorg?si=zmpSEhxhGquISbuO",
-        icon: <Youtube className="w-5 h-5" />,
-      },
-      {
         label: "Instagram",
         url: "https://www.instagram.com/acceleratorxorg",
         icon: <Instagram className="w-5 h-5" />,
-      },
-      {
-        label: "Twitter",
-        url: "https://x.com/acceleratorxorg?t=zCxLI2yiMQA2voLB8ntuMw&s=08",
-        icon: <Twitter className="w-5 h-5" />,
       },
       {
         label: "Facebook",
@@ -170,111 +151,61 @@ const footerLinks: {
       },
     ],
   },
-  contact: {
-    title: "Contact Us",
-    links: [
-      {
-        label: "support@acceleratorx.co",
-        url: "mailto:support@acceleratorx.co",
-        icon: <Mail className="w-5 h-5" />,
-      },
-      {
-        label: "+91 9916859555",
-        url: "tel:+919916859555",
-        icon: <Phone className="w-5 h-5" />,
-      },
-      {
-        label: "L367, 5th Main Road, 6th Sector, HSR Layout, Bangalore, KA 560102, India",
-        url: "https://maps.app.goo.gl/PPSRGZyAgWkqUJ6E8",
-        icon: <MapPin className="w-5 h-5" />,
-      },
-    ],
-  },
 };
 
 export default function Footer() {
-  // const location = useLocation();
-
-  // useEffect(() => {
-  //   const sitesealContainer = document.getElementById("siteseal");
-  //   if (location.pathname === "/") {
-  //     if (sitesealContainer && !document.getElementById("siteseal-script")) {
-  //       const script = document.createElement("script");
-  //       script.id = "siteseal-script";
-  //       script.async = true;
-  //       script.type = "text/javascript";
-  //       script.src =
-  //         "https://seal.starfieldtech.com/getSeal?sealID=I0Pkklr2oFJr6LRUc174f6BxE8hDE1T0lghkh2Wng6oca8kd7FoaY1IUHwLT";
-  //       sitesealContainer.appendChild(script);
-  //     }
-  //   } else {
-  //     const script = document.getElementById("siteseal-script");
-  //     if (script) {
-  //       script.remove();
-  //     }
-  //   }
-  // }, [location]);
-
   return (
-    <footer className="bg-gradient-to-b from-[#0B1120]/70 to-[#070914]/70 text-gray-400 py-16 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-30">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full filter blur-3xl"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-12">
-          {/* Company Info Section */}
-          <div className="md:col-span-4 space-y-8">
-            <Link to="/" className="inline-block">
+    <footer className="bg-[#0A0A0A] text-[#999] pt-20 pb-10 relative border-t border-white/[0.03]">
+      {/* Background Accent Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[1px] bg-gradient-to-r from-transparent via-[#3E38E0]/50 to-transparent shadow-[0_0_50px_rgba(62,56,222,0.3)]" />
+      
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-[100px]">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 mb-20">
+          
+          {/* Brand Identity Column */}
+          <div className="lg:max-w-[340px] flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+            <Link to="/" className="group inline-block transition-transform duration-300 hover:scale-105">
               <img
                 src={companyLogo}
-                alt="AcceleratorX company new logo - best product management courses"
-                className="w-auto h-14 object-contain text-left"
+                alt="AcceleratorX"
+                className="w-auto h-12 lg:h-14 object-contain brightness-0 invert"
+                draggable={false}
               />
             </Link>
-            <p className="text-gray-400 max-w-md">
-              Advance your career with industry-driven programs in Data Analytics, Product                             Management, and Generative AI, designed by experts for real-world success.
+            <p className="text-[15px] sm:text-[16px] leading-[1.6] text-[#A0A8B8] font-medium tracking-tight">
+              Empowering the next generation of AI leaders through industry-validated, mentor-led programs in Product, Data, and Generative Intelligence.
             </p>
-            {/* Social Media Icons */}
-            <div className="pt-4">
-              <p className="font-semibold text-white mb-4 text-lg">
-                Connect With Us
-              </p>
-              <div className="flex items-center gap-4">
-                {footerLinks.social.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="bg-white/5 p-2.5 rounded-lg hover:bg-blue-500/20 transition-all duration-300 group"
-                    aria-label={link.label}
-                    title={link.label}
-                  >
-                    <span className="text-gray-400 group-hover:text-white transition-colors duration-300" aria-hidden="true">
-                      {link.icon}
-                    </span>
-                    <span className="sr-only" role="text">{link.label}</span>
-                  </a>
-                ))}
-              </div>
+            <div className="flex items-center gap-5">
+              {footerLinks.social.links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 transform"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="md:col-span-4 grid grid-cols-2 gap-8">
-            {["services", "company"].map((key) => (
-              <div key={key}>
-                <p className="font-semibold text-white mb-4 text-lg">
+          {/* Navigation Links Grid */}
+          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8">
+            {["company", "help", "resources"].map((key, idx) => (
+              <div key={key} className={`${idx === 2 ? 'col-span-2 md:col-span-1' : 'col-span-1'}`}>
+                <h3 className="text-white font-bold text-[12px] sm:text-[13px] tracking-[0.25em] uppercase mb-8 flex items-center gap-2">
+                  <span className="w-4 h-[1.5px] bg-[#3E38E0]" />
                   {footerLinks[key].title}
-                </p>
-                <ul className="space-y-3">
+                </h3>
+                <ul className="space-y-4">
                   {footerLinks[key].links.map((link) => (
                     <li key={link.label}>
-                      <Link to={link.url} className="text-gray-400 hover:text-white transition-colors duration-300">
+                      <Link 
+                        to={link.url} 
+                        className="text-[#94A3B8] hover:text-[#3E38E0] transition-colors text-[14px] font-medium block relative w-fit after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-[#3E38E0] after:transition-all hover:after:w-full"
+                      >
                         {link.label}
                       </Link>
                     </li>
@@ -283,37 +214,19 @@ export default function Footer() {
               </div>
             ))}
           </div>
-
-          {/* Contact Section */}
-          <div className="md:col-span-4">
-            <p className="font-semibold text-white mb-4 text-lg">
-              {footerLinks.contact.title}
-            </p>
-            <ul className="space-y-4">
-              {footerLinks.contact.links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group"
-                  >
-                    <span className="mt-1 text-blue-400 flex-shrink-0">{link.icon}</span>
-                    <span className="group-hover:text-white">{link.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
-        {/* Bottom Section with Copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-800/50">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved.
-            </p>
-            {/* <div id="siteseal" className="flex items-center space-x-4"></div> */}
+        {/* Bottom Bar */}
+        <div className="pt-10 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[12px] font-medium text-[#64748B] text-center md:text-left">
+            &copy; {new Date().getFullYear()} AcceleratorX. All rights reserved. Registered trademark of A2M Technologies Pvt. Ltd.
+          </p>
+          <div className="flex items-center gap-6 text-[11px] font-bold uppercase tracking-widest text-[#64748B]">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
+            <span className="opacity-30">/</span>
+            <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms</Link>
+            <span className="opacity-30">/</span>
+            <span className="text-white/40 italic">Built for the future of AI</span>
           </div>
         </div>
       </div>

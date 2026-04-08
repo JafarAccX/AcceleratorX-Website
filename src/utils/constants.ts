@@ -269,7 +269,7 @@ export const skills: Skill[] = [
     description: "Successfully launch and scale new products",
   },
   {
-    name: "Product Analytics",
+    name: "Product metrics",
     icon: "📊",
     level: "Expert",
     description: "Track and analyze product metrics for data-driven decisions",
@@ -430,8 +430,8 @@ export const weeklyData = [
   },
   {
     week: 10,
-    topics: ["GTM Strategy Presentation", "A/B Testing", "Product Analytics"],
-    skills: ["GTM Strategy", "A/B Testing", "Product Analytics"],
+    topics: ["GTM Strategy Presentation", "A/B Testing", "Product metrics"],
+    skills: ["GTM Strategy", "A/B Testing", "Product metrics"],
     image: "/assets/week10.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/flipkart-logo.webp",
@@ -447,7 +447,7 @@ export const weeklyData = [
       "Interview Session",
       "Mock Interview",
     ],
-    skills: ["Product Analytics", "Technical Foundations", "Google Analytics"],
+    skills: ["Product metrics", "Technical Foundations", "Google Analytics"],
     image: "/assets/week11.webp",
     caseStudies: [
       "/assets/caseStudiesLogo/paytm.webp",
@@ -658,7 +658,7 @@ export const dataAnalyticsSkills = [
   "Data Cleaning & Preparation",
   "Data Visualization",
   "Statistical Analysis",
-  "Product Analytics",
+  "Product metrics",
   "Data Aggregation and Summarization",
   "Data Querying with SQL",
   "Aggregations and Joins in SQL",

@@ -35,7 +35,7 @@ export default function CTASection() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-8 max-w-4xl mx-auto leading-tight"
                 >
-                    Take First Step Towards Your AI Career Before It's Too Late
+                    Take First Step Towards Your AI Career Before <br /> It's Too Late
                 </motion.h2>
 
                 {/* Description */}

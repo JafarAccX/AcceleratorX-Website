@@ -2,10 +2,7 @@ import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
 
-const HeroAICC = lazy(() => import("../advance-ai-crash-course/HeroAICC"));
-const WhoIsThisForAICC = lazy(() => import("../advance-ai-crash-course/WhoIsThisForAICC"));
-const ProgramAICC = lazy(() => import("../advance-ai-crash-course/ProgramAICC"));
-const FAQAICC = lazy(() => import("../advance-ai-crash-course/FAQAICC"));
+const AICrashCoursePageV2 = lazy(() => import("../advance-ai-crash-course/v2/AICrashCoursePageV2"));
 
 const AdvanceAICrashCourseEntry = () => {
     const {
@@ -18,15 +15,15 @@ const AdvanceAICrashCourseEntry = () => {
     }, [setSelectedCourse]);
 
     return (
-        <>
-            <SEO />
-            <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-                <HeroAICC />
-                <WhoIsThisForAICC />
-                <ProgramAICC />
-                <FAQAICC />
+        <div className="bg-[#0A0A0A] min-h-screen">
+            <SEO 
+                title="Agentic AI Crash Course | AcceleratorX"
+                description="Intensive 4-week sprint to master LangChain, CrewAI, and real-world agentic AI development."
+            />
+            <Suspense fallback={<div className="py-8 text-center text-white">Loading…</div>}>
+                <AICrashCoursePageV2 />
             </Suspense>
-        </>
+        </div>
     );
 };
 

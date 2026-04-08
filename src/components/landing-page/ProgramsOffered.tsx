@@ -50,13 +50,6 @@ const PROGRAMS = [
         title: "Data Science",
         description: "Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.",
         image: "/redesign/main-page/data-science.webp"
-    },
-    {
-        id: "product-analytics",
-        label: "PRODUCT ANALYTICS",
-        title: "Product Analytics",
-        description: "Nano-Degree in AI Digital Marketing teaches you how to utilise AI growth, AI marketing automation, and AI performance marketing through live classes, hands-on projects, and a real capstone challenge.",
-        image: "/redesign/main-page/product-analytics.webp"
     }
 ];
 

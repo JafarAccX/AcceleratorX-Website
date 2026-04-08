@@ -2,10 +2,7 @@ import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
 
-const ProgramHeroEIE = lazy(() => import("../productmanagement/EIE/ProgamHeroEIE"));
-const PMWhoIsThisContentForEIE = lazy(() => import("../productmanagement/EIE/PMWhoIsThisContentForEIE"));
-const ProductProgramEIE = lazy(() => import("../productmanagement/EIE/ProductProgramEIE"));
-const ProductManagementFAQEIE = lazy(() => import("../productmanagement/EIE/ProductManagementFAQEIE"));
+const ProductManagementPageV2 = lazy(() => import("../productmanagement/v2/ProductManagementPageV2"));
 
 const ProductManagementEntry = () => {
   const {
@@ -21,10 +18,7 @@ const ProductManagementEntry = () => {
     <>
       <SEO />
       <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-        <ProgramHeroEIE />
-        <PMWhoIsThisContentForEIE />
-        <ProductProgramEIE />
-        <ProductManagementFAQEIE />
+        <ProductManagementPageV2 />
       </Suspense>
     </>
   );

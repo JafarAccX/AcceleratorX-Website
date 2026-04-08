@@ -1,11 +1,8 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
-import DataFAQEIE from "../dataanalytics/EIE/DataFAQEIE";
 
-const DataHeroEIE = lazy(() => import("../dataanalytics/EIE/DataHeroEIE"));
-const WhoIsThisContentForEIE = lazy(() => import("../dataanalytics/EIE/WhoIsThisContentForEIE"));
-const DataProgramEIE = lazy(() => import("../dataanalytics/EIE/DataProgramEIE"));
+const DataAnalyticsPageV2 = lazy(() => import("../dataanalytics/v2/DataAnalyticsPageV2"));
 
 const DataAnalyticsEntry = () => {
   const {
@@ -18,16 +15,10 @@ const DataAnalyticsEntry = () => {
   }, [setSelectedCourse]);
 
   return (
-    <>
+    <Suspense fallback={<div className="py-8 text-center bg-[#0A0A0A] text-white min-h-screen">Loading…</div>}>
       <SEO />
-      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-        <DataHeroEIE />
-        {/* // <HeroWithAbouv courseName="Data Analytics" /> */}
-        <WhoIsThisContentForEIE />
-        <DataProgramEIE />
-        <DataFAQEIE />
-      </Suspense>
-    </>
+      <DataAnalyticsPageV2 />
+    </Suspense>
   );
 };
 

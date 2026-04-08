@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
-import DataScienceEntry from "../pages/courses/EntryPoint/DataScienceEntry";
+const DataSciencePageV2 = lazy(() => import("../pages/courses/datascience/v2/DataSciencePageV2"));
 import AdvanceGenAIEntry from "../pages/courses/EntryPoint/AdvanceGenAIEntry";
 import DataScienceFBPage from "../pages/courses/datascience-fb/DataScienceFBPage";
 
@@ -23,8 +23,8 @@ const ProductManagementPageEIE = lazy(
 
 const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
 const AIDMFBPage = lazy(() => import("../pages/courses/ai-carsh-course-fb/ai-carsh-courseFBPage"));
+const GenAIPage = lazy(() => import("../pages/courses/GenAI/GenAIPage"));
 const AllProgramsPage = lazy(() => import("../pages/courses/allprograms-ads/AllProgramsPage"));
-const ProductAnalyticsPageEIE = lazy(() => import("../pages/courses/EntryPoint/ProductAnalyticsEIE"));
 const AdvanceAICrashCoursePageEIE = lazy(() => import("../pages/courses/EntryPoint/AdvanceAICrashCourseEntry"));
 
 export const courseRoutes = [
@@ -32,7 +32,7 @@ export const courseRoutes = [
   <Route
     key="course-data-science"
     path="/courses/data-science"
-    element={<DataScienceEntry />}
+    element={<DataSciencePageV2 />}
   />,
   <Route
     key="course-advance-genai"
@@ -51,6 +51,7 @@ export const courseRoutes = [
   />,
   <Route key="course-da-entry" path="/courses/data-analytics" element={<DataAnalyticsEntry />} />,
   <Route key="course-genai-entry" path="/courses/generative-ai" element={<GenAICourse />} />,
+  <Route key="course-genai-new" path="/courses/gen-ai" element={<GenAIPage />} />,
   <Route key="course-aidm" path="/courses/ai-digital-marketing" element={<AIDMEntry />} />,
 
   <Route
@@ -89,11 +90,6 @@ export const courseRoutes = [
     key="course-aidm-fb"
     path="/courses/ai-digital-marketing-fb"
     element={<AIDMFBPage />}
-  />,
-  <Route
-    key="course-product-analytics-eie"
-    path="/courses/product-analytics-program-eie"
-    element={<ProductAnalyticsPageEIE />}
   />,
   <Route
     key="course-advance-ai-crash-course"

@@ -33,6 +33,7 @@ const SECTIONS = [
     { id: "why-this-program", label: "Why this Program" },
     { id: "curriculum", label: "Learning Journey (Core PM + AI PM)" },
     { id: "tools", label: "Tools & Frameworks" },
+    { id: "checklist", label: "Skill Checklist" },
     { id: "mentors", label: "Mentors" },
     { id: "certificate", label: "Industry-Recognized Certification" },
     { id: "career", label: "Career Outcomes" },
@@ -464,7 +465,48 @@ const PM_TOOLS = [
     }
 ];
 
+const TOOLS_LIST = [
+    { name: "Figma", logo: "/assets/tools/Figma.png" },
+    { name: "Jira", logo: "/assets/tools/Jira.png" },
+    { name: "Notion", logo: "/assets/tools/Notion.png" },
+    { name: "Miro", logo: "/assets/tools/Group 102.png" },
+    { name: "asana", logo: "/assets/tools/asana.png" },
+    { name: "GitHub", logo: "/assets/tools/GitHub.png" },
+    { name: "Postman", logo: "/assets/tools/Postman.png" },
+    { name: "Mixpanel", logo: "/assets/tools/image 71.png" },
+];
+
+const PM_PHASES = [
+    { icon: "/assets/productmanagement/skills/Container (2).png", title: "Discovery", description: "Understand user problems, identify opportunities, and explore AI product challenges.", phase: "PHASE 01" },
+    { icon: "/assets/productmanagement/skills/Icon.png", title: "Strategy", description: "Design product strategies using AI insights and data-driven thinking.", phase: "PHASE 02" },
+    { icon: "/assets/productmanagement/skills/Icon (1).png", title: "Design", description: "Structure product flows and AI interactions.", phase: "PHASE 03" },
+    { icon: "/assets/productmanagement/skills/Container (3).png", title: "Build", description: "Create AI-powered product workflows and features.", phase: "PHASE 04" },
+    { icon: "/assets/productmanagement/skills/Container (4).png", title: "Analyze", description: "Measure product performance and optimize using data.", phase: "PHASE 05" },
+    { icon: "/assets/productmanagement/skills/Container (5).png", title: "Grow", description: "Scale products using AI-driven growth and retention strategies.", phase: "PHASE 06" }
+];
+
+
 // --- Components ---
+
+const GradientLabel = ({ text, highlight }: { text: string; highlight?: string }) => (
+    <div className="flex justify-center mb-4">
+        <div
+            className={`font-['Open_Sans',sans-serif] font-bold text-[12px] leading-[16px] tracking-[1.2px] uppercase bg-clip-text text-transparent flex ${highlight ? 'gap-1' : 'gap-0'}`}
+            style={{ backgroundImage: "linear-gradient(90deg, #5BA4E5 0%, #2DD4BF 33%, #22D3EE 66%, #06B6D4 100%)" }}
+        >
+            {highlight ? (
+                <>
+                    <span>{text.split(highlight)[0].trim()}</span>
+                    <span className="text-[#5BA4E5]">{highlight}</span>
+                    <span>{text.split(highlight)[1].trim()}</span>
+                </>
+            ) : (
+                text
+            )}
+        </div>
+    </div>
+);
+
 
 const AccordionItem = ({ week }: { week: any }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -799,7 +841,7 @@ export default function ProductProgramEIE() {
                         maxHeight: 'calc(100vh - 4rem)'
                     } : {}}
                 >
-                    <img src="/redesign/ai-pm/Google-Analytics.png" alt="Google Analytics" className="h-16 w-16 absolute -top-16 -left-20" />
+
 
                     <div className={isFixed ? 'lg:overflow-y-auto lg:max-h-[calc(100vh-4rem)] lg:pr-4' : ''}>
                         <h2 className="font-heading text-3xl font-bold text-[#0A0F1E] dark:text-white mb-8 leading-tight transition-colors duration-300">
@@ -916,33 +958,85 @@ export default function ProductProgramEIE() {
                     </section>
 
                     <section id="tools" className="scroll-mt-24">
-                        <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white transition-colors duration-300">TOOLS & FRAMEWORKS (EMBEDDED ACROSS PROGRAM)</h3>
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                            {PM_TOOLS.map((tool, idx) => (
-                                <div
-                                    key={idx}
-                                    className="bg-[#111111] border border-[#252525] rounded-2xl p-3 hover:border-[#333333] transition-all duration-300 group"
-                                >
-                                    <div className="p-2 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
-                                        <img
-                                            src={tool.image}
-                                            alt={tool.name}
-                                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                                        />
-                                    </div>
-                                    <div className="font-sans inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
-                                        {tool.category}
-                                    </div>
-                                    <h4 className="font-heading text-xl font-bold text-white mb-2">{tool.name}</h4>
-                                    <p className="font-sans text-xs text-gray-400 leading-relaxed">{tool.description}</p>
+                        <div className="text-center">
+                            <h3 className="font-heading text-3xl font-bold mb-12 dark:text-white transition-colors duration-300 uppercase">Tools You Will Work With</h3>
+                            
+                            <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
+                                <style>{`
+                                    @keyframes infinite-scroll-left {
+                                        from { transform: translateX(0); }
+                                        to { transform: translateX(-50%); }
+                                    }
+                                    .animate-infinite-scroll-left {
+                                        animation: infinite-scroll-left 30s linear infinite;
+                                    }
+                                `}</style>
+                                <div className="flex w-max gap-16 animate-infinite-scroll-left items-center py-8">
+                                    {[...TOOLS_LIST, ...TOOLS_LIST].map((t, i) => (
+                                        <div key={i} className="flex flex-col items-center gap-2 group transition-all duration-300">
+                                            <img 
+                                                src={t.logo} 
+                                                alt={t.name} 
+                                                className="h-10 sm:h-12 w-auto object-contain grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" 
+                                            />
+                                            <span className="text-[10px] font-bold text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest">{t.name}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
+
+                        </div>
+
+                        <div className="mt-24">
+                            <h3 className="font-heading text-2xl font-bold mb-8 dark:text-white transition-colors duration-300">DETAILED TOOLS & FRAMEWORKS</h3>
+                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                {PM_TOOLS.map((tool, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="bg-[#111111] border border-[#252525] rounded-2xl p-3 hover:border-[#333333] transition-all duration-300 group"
+                                    >
+                                        <div className="p-2 mb-4 aspect-[16/10] flex items-center justify-center overflow-hidden">
+                                            <img
+                                                src={tool.image}
+                                                alt={tool.name}
+                                                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                                            />
+                                        </div>
+                                        <div className="font-sans inline-block px-3 py-1 bg-gray-300 rounded text-[10px] font-bold text-black uppercase tracking-wider mb-4">
+                                            {tool.category}
+                                        </div>
+                                        <h4 className="font-heading text-xl font-bold text-white mb-2">{tool.name}</h4>
+                                        <p className="font-sans text-xs text-gray-400 leading-relaxed">{tool.description}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                         <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
                     </section>
 
+                    <section id="checklist" className="scroll-mt-24">
+                        <div className="max-w-[1267px] mx-auto text-center px-4">
+                            <GradientLabel text="CURRICULUM" highlight="CURRICULUM" />
+                            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-16 tracking-tight">AI Product Management Skill Checklist</h2>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                                {PM_PHASES.map((phase, i) => (
+                                    <div key={i} className="flex flex-col items-center group">
+                                        <div className="w-20 h-20 rounded-full bg-[#111] border border-white/10 flex items-center justify-center mb-6 group-hover:border-blue-500 transition-all duration-300 shadow-xl group-hover:shadow-blue-500/10">
+                                            <img src={phase.icon} alt={phase.title} className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300" />
+                                        </div>
+                                        <h4 className="text-white text-base font-bold mb-1">{phase.title}</h4>
+                                        <p className="text-[#A0A8B8] text-[11px] mb-2 px-2 leading-tight h-10 overflow-hidden">{phase.description}</p>
+                                        <span className="text-blue-500 text-[10px] font-bold tracking-widest uppercase">{phase.phase}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="h-px w-full bg-gray-200 dark:bg-[#848484]/30 mt-16 transition-colors duration-300"></div>
+                    </section>
+
+
                     <section id="mentors" className="scroll-mt-24 relative">
-                        <img src="/redesign/ai-pm/mentor-section-bg.png" alt="mentor-section-bg" className="absolute bottom-40 -left-[320px] rotate-12" />
+
 
                         <h3 className="font-heading text-2xl font-bold mb-8">Mentors from Top Tech Leaders</h3>
 

@@ -38,7 +38,7 @@ const SECTIONS = [
 ];
 
 const MENTORS = [
-    { name: "Himangi Sharma", role: "Data Scientist 2 - Mastercard", company: "Mastercard", image: "/redesign/data-science/mentors/Himangi Sharma.png", bio: "AI Infrastructure & Scalability", linkedin: "https://www.linkedin.com/in/himangi-sharma/" },
+    { name: "Himangi Sharma", role: "Data Scientist 2", company: "", image: "/redesign/data-science/mentors/Himangi Sharma.png", bio: "AI Infrastructure & Scalability", linkedin: "https://www.linkedin.com/in/himangi-sharma/" },
     // { name: "Preeti Kumari", role: "Analytics Consultant - EXL", company: "EXL", image: "/redesign/data-science/mentors/Preeti Money.png", bio: "Enterprise ML & Scalable Analytics", linkedin: "https://www.linkedin.com/in/preeti-kumari-877413113/" },
 ];
 

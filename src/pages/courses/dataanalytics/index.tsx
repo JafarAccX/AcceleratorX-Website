@@ -2,11 +2,7 @@ import { Suspense, useEffect, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
 import { SEO } from "../../../components/SEO";
 
-// Import EIE components lazily
-const DataHeroEIE = lazy(() => import("./EIE/DataHeroEIE"));
-const DataProgramEIE = lazy(() => import("./EIE/DataProgramEIE"));
-const DataFAQEIE = lazy(() => import("./EIE/DataFAQEIE"));
-
+const DataAnalyticsPageV2 = lazy(() => import("./v2/DataAnalyticsPageV2"));
 
 const DataAnalyticsPage = () => {
   const { setSelectedCourse } = useCourseContext();
@@ -16,21 +12,10 @@ const DataAnalyticsPage = () => {
   }, [setSelectedCourse]);
 
   return (
-    <div className="relative pt-28 font-sans">
-
-
-
-      <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-        <SEO />
-        <DataHeroEIE />
-        {/* // <HeroWithAbouv /> */}
-        {/* <WhoIsThisContentForEIE /> */}
-        <DataProgramEIE />
-        <DataFAQEIE />
-      </Suspense>
-    </div>
-
-
+    <Suspense fallback={<div className="py-8 text-center bg-[#0A0A0A] text-white min-h-screen">Loading…</div>}>
+      <SEO />
+      <DataAnalyticsPageV2 />
+    </Suspense>
   );
 };
 

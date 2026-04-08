@@ -47,6 +47,7 @@
     "cross-env": "^7.0.3",
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.4.0",
     "dotted-map": "^2.2.3",
     "editorjs-html": "^4.0.5",
     "express": "^4.21.2",
