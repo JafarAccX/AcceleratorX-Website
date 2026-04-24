@@ -140,7 +140,7 @@ export const ProgramDesign = () => {
     return (
         <section className="py-20 lg:py-32 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center px-4">
-                <GradientLabel text="PROGRAM DESIGN" />
+                <GradientLabel text="PROGRAM BENEFITS" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4">Designed for Real-World AI Execution</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed font-medium">
                     You learn by building Advanced AI systems, automation workflows, and real business applications used in companies.
@@ -153,7 +153,7 @@ export const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                 <span className="text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Sprint</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Crash Course Design" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
                         </div>
                     </div>
 

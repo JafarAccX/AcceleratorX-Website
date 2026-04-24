@@ -283,7 +283,7 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS DESIGN" />
+                <GradientLabel text="PROGRAM BENEFITS" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 font-['Inter',sans-serif]">Designed for Real-World Data & AI Execution</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">This is not a theory-heavy course. You learn by building AI-powered dashboards, automation systems, and real business analytics projects.</p>
 
@@ -295,7 +295,7 @@ const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Program Design" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
                             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-sm shadow-2xl text-left font-['Inter',sans-serif]">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% Industry Experts</p>
                             </div>
@@ -509,10 +509,6 @@ const MentorCard = ({ mentor }: { mentor: any }) => (
 
 const Mentors = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center relative overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute left-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#3B82F6]/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute right-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#3B82F6]/5 blur-[120px] rounded-full pointer-events-none" />
-
         <div className="w-full max-w-full relative flex flex-col items-center z-10 px-4">
             <GradientLabel text="MENTORS" />
             <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-6 text-center tracking-tight px-4">Learn from Industry Data Science Experts</h2>

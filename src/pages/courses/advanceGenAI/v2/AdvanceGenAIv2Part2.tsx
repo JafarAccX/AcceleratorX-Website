@@ -170,7 +170,7 @@ export const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS DESIGN" />
+                <GradientLabel text="PROGRAM BENEFITS" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World AI Execution</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[950px] mx-auto mb-12 sm:mb-20 leading-relaxed">
                     This is not a theory-heavy course. You learn by building AI agents, automation systems, and real-world AI applications.
@@ -183,7 +183,7 @@ export const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Program Design" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
                             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-xl shadow-2xl text-left">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% AI Engineers</p>
                             </div>

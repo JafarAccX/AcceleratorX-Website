@@ -200,7 +200,7 @@ const AlumniLogos = () => (
         <GradientLabel text="SOCIAL PROOF" />
         <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium mb-3 px-4">Our Alumni Are Working Across 1700+ Top MNCs</p>
         <p className="text-center text-[#C2C2C2] text-sm sm:text-base md:text-[16px] font-medium mb-10 sm:mb-12 lg:mb-16 max-w-[1047px] mx-auto leading-relaxed px-4">
-            Our learners are building AI-powered dashboards, automated systems, and real world products solutions across top companies in India.
+            Our learners are building AI-powered product workflows, automation systems, and real-world product solutions across top companies in India.
         </p>
         <div className="relative w-full overflow-hidden" style={{
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
@@ -350,7 +350,7 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAM DESIGN" />
+                <GradientLabel text="PROGRAM BENEFITS" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World Product Execution with AI</h2>
                 <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto mb-12 sm:mb-20 leading-relaxed font-medium">
                     This is not a theory-heavy course. You learn by building AI-powered product workflows, case studies, and real business applications.
@@ -363,7 +363,7 @@ const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Program Design" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
                             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-sm shadow-2xl text-left">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% Industry Experts</p>
                             </div>

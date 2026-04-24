@@ -359,10 +359,6 @@ const MentorCard = ({ mentor }: { mentor: any }) => (
 
 const Mentors = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center relative overflow-hidden">
-        {/* Glow Effects */}
-        <div className="absolute left-[-100px] top-1/2 -translate-y-1/2 w-[300px] h-full bg-[#16A44A]/10 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[300px] h-full bg-[#16A44A]/10 blur-[120px] rounded-full pointer-events-none" />
-
         <div className="w-full max-w-[1285px] relative flex flex-col items-center px-4 z-10">
             <GradientLabel text="MENTORS" highlight="ORS" />
             <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-12 text-center">Learn from Global Product Analytics Experts</h2>

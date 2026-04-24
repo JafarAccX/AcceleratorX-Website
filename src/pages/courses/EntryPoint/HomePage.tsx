@@ -368,7 +368,7 @@ const FAQSection = memo(function FAQSection() {
 
     return (
         <section className="max-w-[900px] mx-auto px-4 pt-16 lg:pt-24 pb-0">
-            <h2 className="text-[32px] font-medium text-center mb-10 lg:mb-16">Frequently Asked Questions</h2>
+            <h2 className="text-[32px] font-medium text-center mb-10 lg:mb-16">FAQs</h2>
             <div className="space-y-4">
                 {visibleFAQs.map((item, idx) => (
                     <div key={idx} className="bg-[#0f0f0f] border border-white/5 rounded-2xl overflow-hidden hover:border-[#3e38e0]/40 transition-all">
