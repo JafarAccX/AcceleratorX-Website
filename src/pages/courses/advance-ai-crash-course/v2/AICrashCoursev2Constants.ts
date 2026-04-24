@@ -124,12 +124,20 @@ export const regularModules = [
 ];
 
 export const TOOLS_LIST = [
-  { name: "LangChain", logo: "/redesign/advance-gen-ai/tools/Langchain.png" },
-  { name: "Hugging Face", logo: "/redesign/gen-ai/huggingface.png" },
-  { name: "CrewAI", logo: "/redesign/advance-gen-ai/tools/Crewai.png" },
-  { name: "NVIDIA", logo: "/redesign/ai-crash-course/free-nvidia-logo-icon-svg-download-png-2945060.webp" },
-  { name: "Google SDK", logo: "/redesign/ai-crash-course/agent-development-kit.png" },
-  { name: "Langfuse", logo: "/redesign/ai-crash-course/langfuse-color.png" },
+  { name: "ChatGPT", logo: "/redesign/gen-ai/tools/gpt.png", color: "#10A37F" },
+  { name: "Claude", logo: "/redesign/gen-ai/tools/claude.png", color: "#D97757" },
+  { name: "Gemini", logo: "/redesign/gen-ai/tools/gemini.png", color: "#8E75FF" },
+  { name: "LangChain", logo: "/redesign/advance-gen-ai/tools/Langchain.png", color: "#1C3C3C" },
+  { name: "Hugging Face", logo: "/redesign/gen-ai/huggingface.png", color: "#FFD21E" },
+  { name: "CrewAI", logo: "/redesign/advance-gen-ai/tools/Crewai.png", color: "#FF3E00" },
+  { name: "Cursor", logo: "/redesign/gen-ai/tools/cursor.png", color: "#5468FF" },
+  { name: "Zapier", logo: "/redesign/gen-ai/tools/zapier.png", color: "#FF4A00" },
+  { name: "NVIDIA", logo: "/redesign/ai-crash-course/free-nvidia-logo-icon-svg-download-png-2945060.webp", color: "#76B900" },
+  { name: "Google SDK", logo: "/redesign/ai-crash-course/agent-development-kit.png", color: "#4285F4" },
+  { name: "Langfuse", logo: "/redesign/ai-crash-course/langfuse-color.png", color: "#000000" },
+  { name: "LangGraph", logo: "/redesign/gen-ai/tools/lnaggraph.png", color: "#1C3C3C" },
+  { name: "Deepseek", logo: "/redesign/gen-ai/tools/deepseek.png", color: "#007AFF" },
+  { name: "n8n", logo: "/redesign/advance-gen-ai/tools/Llm.png", color: "#FF6D5A" }, // Using LLM icon as placeholder if n8n not found, or check if it exists
 ];
 
 export const MENTORS = [

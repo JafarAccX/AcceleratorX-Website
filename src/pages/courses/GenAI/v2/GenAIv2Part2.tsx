@@ -76,7 +76,7 @@ export const Roadmap = () => {
                             <div className={`relative flex flex-col gap-1 h-full justify-center ${idx % 2 === 0 ? 'pl-6 sm:pl-10 pr-12 sm:pr-20' : 'pl-[50px] sm:pl-[88px] pr-6 sm:pr-10'}`}>
                                 <div className="flex items-center gap-3 sm:gap-5">
                                     <div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
-                                        <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
+                                        <img src={item.icon} alt={item.title} loading="lazy" className="w-full h-full object-contain" />
                                     </div>
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] font-['Inter',sans-serif] tracking-tight">{item.title}</h3>
                                 </div>
@@ -112,7 +112,7 @@ export const Roadmap = () => {
                             <div className="relative pl-6 sm:pl-10 pr-12 sm:pr-20 flex flex-col gap-1 h-full justify-center">
                                 <div className="flex items-center gap-3 sm:gap-5">
                                     <div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
-                                        <img src={currentPath[4].icon} alt={currentPath[4].title} className="w-full h-full object-contain" />
+                                        <img src={currentPath[4].icon} alt={currentPath[4].title} loading="lazy" className="w-full h-full object-contain" />
                                     </div>
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] font-['Inter',sans-serif] tracking-tight">{currentPath[4].title}</h3>
                                 </div>
@@ -133,22 +133,22 @@ export const Roadmap = () => {
 // ── Component: ProgramDesign.tsx ───────────────────────────────────────────────────
 export const programBenefits = [
     {
-        icon: <img src="/assets/productmanagement/leftrbag.png" alt="1:1 Mentorship" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/productmanagement/leftrbag.png" alt="1:1 Mentorship" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Personalized 1:1 Mentorship",
         desc: <>2,000+ learners across India — from Bengaluru to Bhilai — are already building real AI skills and getting into top companies. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</>
     },
     {
-        icon: <img src="/assets/COMPUTER.png" alt="Live Project-Based Learning" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/COMPUTER.png" alt="Live Project-Based Learning" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Live Project-Based Learning",
         desc: <>Build <span className="text-white font-bold">AI workflows, ChatGPT use cases, and automation systems</span> in real-time.</>
     },
     {
-        icon: <img src="/assets/COMPUTER.png" alt="Industry-Relevant AI Curriculum" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/COMPUTER.png" alt="Industry-Relevant AI Curriculum" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Industry-Relevant AI Curriculum",
         desc: <>Stay updated with the latest <span className="text-white font-bold">Generative AI tools, automation trends, and real-world use cases.</span></>
     },
     {
-        icon: <img src="/assets/COMPUTER.png" alt="Career-Focused Learning Path" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/COMPUTER.png" alt="Career-Focused Learning Path" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Career-Focused Learning Path",
         desc: <>Move from learning to earning with <span className="text-white font-bold">job-ready AI skills and project portfolios.</span></>
     }
@@ -189,7 +189,7 @@ export const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" loading="lazy" className="w-full h-full object-contain" />
                             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-xl shadow-2xl text-left">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% Industry Experts</p>
                             </div>

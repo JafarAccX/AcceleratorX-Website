@@ -285,7 +285,7 @@ export const AlumniLogos = () => (
             <div className="flex w-max gap-6 sm:gap-8 animate-scroll">
                 {[...ALUMNI_LOGOS, ...ALUMNI_LOGOS].map((brand, idx) => (
                     <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8">
-                        <img src={brand.url} alt={brand.name} style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain sm:[height:unset]" />
+                        <img src={brand.url} alt={brand.name} loading="lazy" style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain sm:[height:unset]" />
                     </div>
                 ))}
             </div>

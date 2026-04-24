@@ -25,6 +25,7 @@ const TeamMemberCard = ({
         <img
           src={image}
           alt={name}
+          loading="lazy"
           className="w-full h-full object-cover object-center"
         />
         {/* Overlay with details - visible on hover or always visible at bottom depending on preference. 

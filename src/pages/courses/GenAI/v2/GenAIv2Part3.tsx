@@ -4,6 +4,7 @@ import {
     MENTORS
 } from "./GenAIv2Constants";
 import { GradientLabel } from "./GenAIv2Part1";
+import MentorCard from "../../../../components/ui/MentorCard";
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
@@ -95,54 +96,6 @@ export const Curriculum = () => {
 };
 
 // ── Component: Mentors.tsx ───────────────────────────────────────────────────
-export const MentorCard = ({ mentor }: { mentor: typeof MENTORS[0] }) => (
-    <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group">
-        {/* Main Card with Left-Fade */}
-        <div
-            className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
-            style={{ background: "linear-gradient(90deg, transparent 0%, #1a1a1e 40%, #1a1a1e 100%)" }}
-        >
-            <img
-                src={mentor.image}
-                alt={mentor.name}
-                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
-            />
-        </div>
-
-        {/* Floating Logo Top-Right */}
-        <div className="absolute top-[-15px] -right-7 z-[100] transform translate-z-0">
-            <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
-                <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
-            </div>
-        </div>
-
-        {/* Info Pill — bottom */}
-        <div
-            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] z-50 
-            rounded-full px-5 py-3 text-center 
-            border-l border-r border-b border-[#FC6401]/100 border-t-0
-            bg-black/5 backdrop-blur-md
-            transition-all duration-300 flex flex-col justify-center min-h-[65px]"
-        >
-            {/* Name */}
-            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-0.5 line-clamp-1
-            drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
-                {mentor.name}
-            </div>
-
-            {/* designation */}
-            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight line-clamp-2">
-                {mentor.designation} - {mentor.company}
-            </div>
-
-            {/* Accent line */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
-            w-[85%] h-[2px] 
-            bg-gradient-to-r from-transparent via-[#FC6401] to-transparent 
-            rounded-full" />
-        </div>
-    </div>
-);
 
 export const Mentors = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center overflow-hidden relative">
@@ -174,9 +127,9 @@ export const Mentors = () => (
                 maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
             }}>
                 <div className="flex w-max gap-8 sm:gap-12 animate-mentor-scroll py-8 px-4">
-                    {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((mentor, i) => (
+                    {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => (
                         <div key={i} className="flex-shrink-0">
-                            <MentorCard mentor={mentor} />
+                            <MentorCard mentor={m} accentColor="#FC6401" />
                         </div>
                     ))}
                 </div>

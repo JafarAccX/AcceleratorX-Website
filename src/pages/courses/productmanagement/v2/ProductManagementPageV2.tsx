@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import * as Constants from "./ProductManagementv2Constants";
+import MentorCard from "../../../../components/ui/MentorCard";
 import EnrollmentModalADS from "../../allprograms-ads/EnrollmentModalADS";
 
 const {
@@ -209,7 +210,7 @@ const AlumniLogos = () => (
             <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left">
                 {[...ALUMNI_LOGOS, ...ALUMNI_LOGOS, ...ALUMNI_LOGOS, ...ALUMNI_LOGOS].map((brand, idx) => (
                     <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8">
-                        <img src={brand.url} alt={brand.name} style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain" />
+                        <img src={brand.url} alt={brand.name} loading="lazy" style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain" />
                     </div>
                 ))}
             </div>
@@ -263,7 +264,7 @@ const Roadmap = () => {
                             <div className={`relative flex flex-col gap-1 h-full justify-center ${idx % 2 === 0 ? 'pl-6 sm:pl-10 pr-12 sm:pr-20' : 'pl-[50px] sm:pl-[88px] pr-6 sm:pr-10'}`}>
                                 <div className="flex items-center gap-3 sm:gap-5">
                                     <div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
-                                        <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
+                                        <img src={item.icon} alt={item.title} loading="lazy" className="w-full h-full object-contain" />
                                     </div>
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px]">{item.title}</h3>
                                 </div>
@@ -288,7 +289,7 @@ const Roadmap = () => {
                             <div className="relative pl-6 sm:pl-10 pr-12 sm:pr-20 flex flex-col gap-1 h-full justify-center">
                                 <div className="flex items-center gap-3 sm:gap-5">
                                     <div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
-                                        <img src={currentPath[4].icon} alt={currentPath[4].title} className="w-full h-full object-contain" />
+                                        <img src={currentPath[4].icon} alt={currentPath[4].title} loading="lazy" className="w-full h-full object-contain" />
                                     </div>
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px]">{currentPath[4].title}</h3>
                                 </div>
@@ -310,22 +311,22 @@ const Roadmap = () => {
 // ── Component: ProgramDesign ───────────────────────────────────────────────────
 const programBenefits = [
     {
-        icon: <img src="/assets/productmanagement/leftrbag.png" alt="Mentorship" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/productmanagement/leftrbag.png" alt="Mentorship" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Personalized 1:1 Mentorship",
         desc: <>2,000+ learners across India — from Bengaluru to Bhilai — are already building real AI skills and getting into top companies. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</>
     },
     {
-        icon: <img src="/assets/COMPUTER.png" alt="Live Project-Based Learning" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/COMPUTER.png" alt="Live Project-Based Learning" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Live Product Case-Based Learning",
         desc: <>Build <span className="text-white font-bold">product workflows, AI use cases, and real product decisions in real-time.</span></>
     },
     {
-        icon: <img src="/assets/COMPUTER.png" alt="Industry-Relevant AI PM Curriculum" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/COMPUTER.png" alt="Industry-Relevant AI PM Curriculum" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Industry-Relevant AI Product Curriculum",
         desc: <>Stay updated with <span className="text-white font-bold">AI in product, automation trends, and real-world applications.</span></>
     },
     {
-        icon: <img src="/assets/COMPUTER.png" alt="Career-Focused Learning Path" className="w-8 h-8 object-contain" />,
+        icon: <img src="/assets/COMPUTER.png" alt="Career-Focused Learning Path" loading="lazy" className="w-8 h-8 object-contain" />,
         title: "Career-Focused Learning Path",
         desc: <>Move from learning to <span className="text-white font-bold">job-ready PM skills and real product execution.</span></>
     }
@@ -363,7 +364,7 @@ const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" loading="lazy" className="w-full h-full object-contain" />
                             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-sm shadow-2xl text-left">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% Industry Experts</p>
                             </div>
@@ -488,55 +489,7 @@ const Curriculum = () => {
     );
 };
 
-// ── Component: Mentors ────────────────────────────────────────────────────────
-const MentorCard = ({ mentor }: { mentor: any }) => (
-    <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group">
-        {/* Main Card with Left-Fade */}
-        <div
-            className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
-            style={{ background: "linear-gradient(90deg, transparent 0%, #1a1a1e 40%, #1a1a1e 100%)" }}
-        >
-            <img
-                src={mentor.image}
-                alt={mentor.name}
-                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
-            />
-        </div>
 
-        {/* Floating Logo Top-Right */}
-        <div className="absolute top-[-15px] -right-7 z-[100] transform translate-z-0">
-            <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
-                <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
-            </div>
-        </div>
-
-        {/* Info Pill — bottom */}
-        <div
-            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] z-50 
-            rounded-full px-5 py-3 text-center 
-            border-l border-r border-b border-[#4BD3D8]/100 border-t-0
-            bg-black/5 backdrop-blur-md
-            transition-all duration-300 flex flex-col justify-center min-h-[65px]"
-        >
-            {/* Name */}
-            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-0.5 line-clamp-1
-            drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
-                {mentor.name}
-            </div>
-
-            {/* designation */}
-            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight line-clamp-2">
-                {mentor.designation} - {mentor.company}
-            </div>
-
-            {/* Accent line */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
-            w-[85%] h-[2px] 
-            bg-gradient-to-r from-transparent via-[#4BD3D8] to-transparent 
-            rounded-full" />
-        </div>
-    </div>
-);
 
 const Mentors = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center relative overflow-hidden">
@@ -549,7 +502,7 @@ const Mentors = () => (
 
             <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
                 <div className="flex flex-nowrap w-fit gap-12 sm:gap-24 animate-infinite-scroll-left py-8 px-12">
-                    {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => <MentorCard key={i} mentor={m} />)}
+                    {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => <MentorCard key={i} mentor={m} accentColor="#4BD3D8" />)}
                 </div>
             </div>
         </div>
@@ -563,17 +516,18 @@ const Tools = () => (
             <GradientLabel text="TOOLS" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-14 text-center">Tools You Will Work With and Master</h2>
 
-            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ height: "120px" }}>
+            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ minHeight: "140px" }}>
                 <div className="absolute inset-y-0 left-0 w-20 sm:w-60 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
                 <div className="absolute inset-y-0 right-0 w-20 sm:w-60 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
-                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 px-10 z-20 relative">
-                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
+                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 z-20 relative">
+                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
                         <div key={i} className="flex flex-col items-center gap-3 group cursor-pointer flex-shrink-0">
                             <div className="relative">
                                 <img
                                     src={tool.logo}
                                     alt={tool.name}
+                                    loading="lazy"
                                     className="h-8 sm:h-12 w-auto object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
                                 />
                             </div>

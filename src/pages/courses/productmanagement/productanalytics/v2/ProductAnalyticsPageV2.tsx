@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import MentorCard from "../../../../components/ui/MentorCard";
 import { ChevronDown } from "lucide-react";
 import * as Constants from "./ProductAnalyticsv2Constants";
 import EnrollmentModalADS from "../../../allprograms-ads/EnrollmentModalADS";
@@ -225,7 +227,7 @@ const AlumniLogos = () => (
             <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left">
                 {[...ALUMNI_LOGOS, ...ALUMNI_LOGOS].map((brand, idx) => (
                     <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8">
-                        <img src={brand.url} alt={brand.name} style={{ height: `${brand.height * 0.75}px` }} className="object-contain" />
+                        <img src={brand.url} alt={brand.name} loading="lazy" style={{ height: `${brand.height * 0.75}px` }} className="object-contain" />
                     </div>
                 ))}
             </div>
@@ -262,7 +264,7 @@ const Roadmap = () => {
                             </svg>
                             <div className={`relative flex flex-col gap-1 h-full justify-center ${idx % 2 === 0 ? 'pl-6 sm:pl-10 text-left' : 'pl-[50px] sm:pl-[88px] text-left'}`}>
                                 <div className="flex items-center gap-3">
-                                    <img src={item.icon} alt={item.title} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+                                    <img src={item.icon} alt={item.title} loading="lazy" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
                                     <h3 className="text-white text-[14px] font-bold">{item.title}</h3>
                                 </div>
                                 <p className="text-[#CFCFCF] text-[12px] sm:text-[13px] ml-8 sm:ml-9 max-w-[80%]">{item.desc}</p>
@@ -307,55 +309,7 @@ const Curriculum = () => {
     );
 };
 
-// ── Component: Mentors ───────────────────────────────────────────────────
-const MentorCard = ({ mentor }: { mentor: any }) => (
-    <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group">
-        {/* Main Card with Left-Fade */}
-        <div
-            className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
-            style={{ background: "linear-gradient(90deg, transparent 0%, #1a1a1e 40%, #1a1a1e 100%)" }}
-        >
-            <img
-                src={mentor.image}
-                alt={mentor.name}
-                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
-            />
-        </div>
 
-        {/* Floating Logo Top-Right */}
-        <div className="absolute top-[-15px] -right-7 z-[100] transform translate-z-0">
-            <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
-                <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
-            </div>
-        </div>
-
-        {/* Info Pill — bottom */}
-        <div
-            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] z-50 
-            rounded-full px-5 py-3 text-center 
-            border-l border-r border-b border-[#16A44A]/100 border-t-0
-            bg-black/5 backdrop-blur-md
-            transition-all duration-300 flex flex-col justify-center min-h-[65px]"
-        >
-            {/* Name */}
-            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-0.5 line-clamp-1
-            drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
-                {mentor.name}
-            </div>
-
-            {/* designation */}
-            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight line-clamp-2">
-                {mentor.designation} - {mentor.company}
-            </div>
-
-            {/* Accent line */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
-            w-[85%] h-[2px] 
-            bg-gradient-to-r from-transparent via-[#16A44A] to-transparent 
-            rounded-full" />
-        </div>
-    </div>
-);
 
 const Mentors = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center relative overflow-hidden">
@@ -363,7 +317,7 @@ const Mentors = () => (
             <GradientLabel text="MENTORS" highlight="ORS" />
             <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-12 text-center">Learn from Global Product Analytics Experts</h2>
             <div className="w-full flex flex-wrap justify-center items-center gap-12 sm:gap-24 mt-12 px-4">
-                {MENTORS.map((m, i) => <MentorCard key={i} mentor={m} />)}
+                {MENTORS.map((m, i) => <MentorCard key={i} mentor={m} accentColor="#16A44A" />)}
             </div>
         </div>
     </section>
@@ -377,7 +331,7 @@ const Tools = () => (
             <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
                 <div className="flex w-max gap-16 animate-infinite-scroll-right items-center py-4">
                     {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((t, i) => (
-                        <img key={i} src={t.logo} alt={t.name} className="h-8 sm:h-10 w-auto object-contain grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-300 cursor-pointer" />
+                        <img key={i} src={t.logo} alt={t.name} loading="lazy" className="h-8 sm:h-10 w-auto object-contain grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-300 cursor-pointer" />
                     ))}
                 </div>
             </div>

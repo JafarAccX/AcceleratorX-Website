@@ -783,7 +783,7 @@ function HomePage() {
                         >
                             {/* Image */}
                             <div className="relative w-full h-[200px] overflow-hidden">
-                                <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover" draggable={false} loading="eager" />
+                                <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover" draggable={false} loading="lazy" />
                                 <div className="absolute inset-x-0 bottom-0 h-[40px]" style={{ background: 'linear-gradient(to top, #0a0a0f, transparent)' }} />
                             </div>
                             {/* Always-visible content */}
@@ -815,7 +815,7 @@ function HomePage() {
                         style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}
                     >
                         {/* Image */}
-                        <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-15" draggable={false} loading="eager" />
+                        <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-15" draggable={false} loading="lazy" />
 
                         {/* Overlays */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:opacity-0 transition-opacity duration-500" />
@@ -947,7 +947,7 @@ function HomePage() {
 
                 <div className="relative z-10 w-full h-full flex flex-col pt-10 lg:pt-0">
                     <div className="relative lg:absolute top-0 lg:top-[40px] left-0 lg:left-[458px] w-full lg:w-[384px] h-[64px] lg:h-[84px] flex items-center justify-center">
-                        <img src={ASSETS.buildrLogo} alt="BuildrX" className="h-[48px] lg:h-[64px] object-contain" draggable={false} loading="eager" />
+                        <img src={ASSETS.buildrLogo} alt="BuildrX" className="h-[48px] lg:h-[64px] object-contain" draggable={false} loading="lazy" />
                     </div>
                     <div
                         className="relative lg:absolute mt-4 lg:mt-0 top-0 lg:top-[124px] left-0 lg:left-[531px] w-full lg:w-[239px] h-[27px] flex items-center justify-center font-['Poppins',sans-serif] font-medium text-[16px] lg:text-[18px] leading-none mb-10 lg:mb-0"

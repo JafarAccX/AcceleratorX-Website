@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import MentorCard from "../../../../components/ui/MentorCard";
 import { ChevronDown } from "lucide-react";
 import {
     ASSETS,
@@ -205,7 +206,7 @@ const AlumniLogos = () => (
         <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
             <div className="flex w-max gap-6 sm:gap-8 animate-scroll-left">
                 {[...ALUMNI_LOGOS, ...ALUMNI_LOGOS].map((brand, idx) => (
-                    <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8"><img src={brand.url} alt={brand.name} style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain sm:[height:unset]" /></div>
+                    <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8"><img src={brand.url} alt={brand.name} loading="lazy" style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain sm:[height:unset]" /></div>
                 ))}
             </div>
         </div>
@@ -242,13 +243,13 @@ const Roadmap = () => {
                     {currentPath.slice(0, 4).map((item, idx) => (
                         <div key={idx} className={`relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 mx-auto cursor-pointer ${idx % 2 !== 0 ? 'md:ml-[-1px]' : ''}`}>
                             <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"><defs><linearGradient id={`cardGradient-${idx}`} x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#0A0A0A" /><stop offset="100%" stopColor="#141414" /></linearGradient></defs><path d={idx % 2 === 0 ? "M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z" : "M76 0H640C653.255 0 664 10.7452 664 24V87C664 100.255 653.255 111 640 111H20C8 111 0 105 4 95L52 16C56 6 64 0 76 0Z"} className="transition-all duration-300 group-hover:stroke-white/60 group-hover:stroke-[1.2px] group-hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.2))] hover-glow-path" fill={`url(#cardGradient-${idx})`} stroke="white" strokeOpacity="0.1" strokeWidth="1.5" /></svg>
-                            <div className={`relative flex flex-col gap-1 h-full justify-center ${idx % 2 === 0 ? 'pl-6 sm:pl-10 pr-12 sm:pr-20' : 'pl-[50px] sm:pl-[88px] pr-6 sm:pr-10'}`}><div className="flex items-center gap-3 sm:gap-5"><div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"><img src={item.icon} alt={item.title} className="w-full h-full object-contain" /></div><h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px] font-['Inter',sans-serif] tracking-tight">{item.title}</h3></div><div className="pl-8 sm:pl-11"><p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] tracking-[-0.36px] font-['Inter',sans-serif] text-left">{item.desc}</p></div></div>
+                            <div className={`relative flex flex-col gap-1 h-full justify-center ${idx % 2 === 0 ? 'pl-6 sm:pl-10 pr-12 sm:pr-20' : 'pl-[50px] sm:pl-[88px] pr-6 sm:pr-10'}`}><div className="flex items-center gap-3 sm:gap-5"><div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"><img src={item.icon} alt={item.title} loading="lazy" className="w-full h-full object-contain" /></div><h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px] font-['Inter',sans-serif] tracking-tight">{item.title}</h3></div><div className="pl-8 sm:pl-11"><p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] tracking-[-0.36px] font-['Inter',sans-serif] text-left">{item.desc}</p></div></div>
                         </div>
                     ))}
                 </div>
                 {currentPath[4] && (
                     <div className="w-full flex justify-center mt-2 sm:mt-4">
-                        <div className="relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 cursor-pointer"><svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"><defs><linearGradient id="cardGradientCentered" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#0A0A0A" /><stop offset="100%" stopColor="#141414" /></linearGradient></defs><path d="M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z" className="transition-all duration-300 group-hover:stroke-white/60 group-hover:stroke-[1.2px] group-hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.2))] hover-glow-path" fill="url(#cardGradientCentered)" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" /></svg><div className="relative pl-6 sm:pl-10 pr-12 sm:pr-20 flex flex-col gap-1 h-full justify-center"><div className="flex items-center gap-3 sm:gap-5"><div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"><img src={currentPath[4].icon} alt={currentPath[4].title} className="w-full h-full object-contain" /></div><h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px] font-['Inter',sans-serif] tracking-tight">{currentPath[4].title}</h3></div><div className="pl-8 sm:pl-11"><p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] tracking-[-0.36px] font-['Inter',sans-serif] text-left">{currentPath[4].desc}</p></div></div></div>
+                        <div className="relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 cursor-pointer"><svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"><defs><linearGradient id="cardGradientCentered" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#0A0A0A" /><stop offset="100%" stopColor="#141414" /></linearGradient></defs><path d="M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z" className="transition-all duration-300 group-hover:stroke-white/60 group-hover:stroke-[1.2px] group-hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.2))] hover-glow-path" fill="url(#cardGradientCentered)" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" /></svg><div className="relative pl-6 sm:pl-10 pr-12 sm:pr-20 flex flex-col gap-1 h-full justify-center"><div className="flex items-center gap-3 sm:gap-5"><div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"><img src={currentPath[4].icon} alt={currentPath[4].title} loading="lazy" className="w-full h-full object-contain" /></div><h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px] font-['Inter',sans-serif] tracking-tight">{currentPath[4].title}</h3></div><div className="pl-8 sm:pl-11"><p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] tracking-[-0.36px] font-['Inter',sans-serif] text-left">{currentPath[4].desc}</p></div></div></div>
                     </div>
                 )}
             </div>
@@ -259,10 +260,10 @@ const Roadmap = () => {
 // ── Component: ProgramDesign.tsx ───────────────────────────────────────────────────
 
 const programBenefits = [
-    { icon: <img src="/assets/COMPUTER.png" alt="1:1" className="w-8 h-8" />, title: "1:1 Mentorship from Data Experts", desc: <>Learn directly from professionals working in <span className="text-white font-bold">data science, analytics, and AI roles.</span></> },
-    { icon: <img src="/assets/COMPUTER.png" alt="Live" className="w-8 h-8" />, title: "Live Project-Based Learning", desc: <>Build <span className="text-white font-bold">dashboards, analytics systems, and automation workflows in real-time.</span></> },
-    { icon: <img src="/assets/COMPUTER.png" alt="Industry" className="w-8 h-8" />, title: "Industry-Relevant Curriculum", desc: <>Stay updated with <span className="text-white font-bold">AI in data analytics, automation trends, and real-world business use cases.</span></> },
-    { icon: <img src="/assets/COMPUTER.png" alt="Career" className="w-8 h-8" />, title: "Career-Focused Learning Path", desc: <>Move from learning to earning with <span className="text-white font-bold">job-ready data science skills and project portfolios.</span></> }
+    { icon: <img src="/assets/COMPUTER.png" alt="1:1" loading="lazy" className="w-8 h-8" />, title: "1:1 Mentorship from Data Experts", desc: <>Learn directly from professionals working in <span className="text-white font-bold">data science, analytics, and AI roles.</span></> },
+    { icon: <img src="/assets/COMPUTER.png" alt="Live" loading="lazy" className="w-8 h-8" />, title: "Live Project-Based Learning", desc: <>Build <span className="text-white font-bold">dashboards, analytics systems, and automation workflows in real-time.</span></> },
+    { icon: <img src="/assets/COMPUTER.png" alt="Industry" loading="lazy" className="w-8 h-8" />, title: "Industry-Relevant Curriculum", desc: <>Stay updated with <span className="text-white font-bold">AI in data analytics, automation trends, and real-world business use cases.</span></> },
+    { icon: <img src="/assets/COMPUTER.png" alt="Career" loading="lazy" className="w-8 h-8" />, title: "Career-Focused Learning Path", desc: <>Move from learning to earning with <span className="text-white font-bold">job-ready data science skills and project portfolios.</span></> }
 ];
 
 const ProgramDesign = () => {
@@ -295,7 +296,7 @@ const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" loading="lazy" className="w-full h-full object-contain" />
                             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-sm shadow-2xl text-left font-['Inter',sans-serif]">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% Industry Experts</p>
                             </div>
@@ -399,7 +400,6 @@ const Curriculum = () => {
                                         </p>
                                     </div>
 
-                                    {/* Sessions List */}
                                     <div className="grid grid-cols-1 gap-6">
                                         {m.sessions.map((session: any, sIdx: number) => (
                                             <div key={sIdx} className="bg-white/[0.02] rounded-xl p-5 border border-white/5">
@@ -416,7 +416,6 @@ const Curriculum = () => {
                                                     ))}
                                                 </ul>
 
-                                                {/* Practical Highlight */}
                                                 {(session.exercise || session.miniCase || session.handsOn || session.case) && (
                                                     <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-2">
                                                         {session.exercise && (
@@ -456,67 +455,16 @@ const Curriculum = () => {
 
 // ── Component: Mentors.tsx ───────────────────────────────────────────────────
 
-const MentorCard = ({ mentor }: { mentor: any }) => (
-    <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group">
-        {/* Main Card with Left-Fade */}
-        <div
-            className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
-            style={{ background: "linear-gradient(90deg, transparent 0%, #1a1a1e 40%, #1a1a1e 100%)" }}
-        >
-            <img
-                src={mentor.image}
-                alt={mentor.name}
-                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
-            />
-        </div>
-
-        {/* Floating Logo Top-Right */}
-        {mentor.companyLogo && (
-            <div className="absolute top-[-15px] -right-7 z-[100] transform translate-z-0">
-                <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
-                    <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
-                </div>
-            </div>
-        )}
-
-        {/* Info Pill — bottom */}
-        <div
-            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] z-50 
-            rounded-full px-5 py-3 text-center 
-            border-l border-r border-b border-[#3b82f6]/100 border-t-0
-            bg-black/5 backdrop-blur-md
-            transition-all duration-300 flex flex-col justify-center min-h-[65px]"
-        >
-            {/* Name */}
-            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-0.5 line-clamp-1
-            drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
-                {mentor.name}
-            </div>
-
-            {/* designation */}
-            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight line-clamp-2">
-                {mentor.designation} - {mentor.company}
-            </div>
-
-            {/* Accent line */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
-            w-[85%] h-[2px] 
-            bg-gradient-to-r from-transparent via-[#3b82f6] to-transparent 
-            rounded-full" />
-        </div>
-    </div>
-);
-
 const Mentors = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center relative overflow-hidden">
         <div className="w-full max-w-full relative flex flex-col items-center z-10 px-4">
             <GradientLabel text="MENTORS" />
             <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-6 text-center tracking-tight px-4">Learn from Industry Data Science Experts</h2>
 
-            <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[1188px] mx-auto mb-10 leading-relaxed">Get mentored by professionals with 10+ years of experience working in data analytics and AI roles across top companies.</p>
+            <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[1188px] mx-auto mb-10 leading-relaxed text-center">Get mentored by professionals with 10+ years of experience working in data analytics and AI roles across top companies.</p>
 
             <div className="flex flex-wrap justify-center gap-12 sm:gap-24 py-8 px-12">
-                {MENTORS.map((m, i) => <MentorCard key={i} mentor={m} />)}
+                {MENTORS.map((m, i) => <MentorCard key={i} mentor={m} accentColor="#3b82f6" />)}
             </div>
         </div>
     </section>
@@ -530,17 +478,18 @@ const Tools = () => (
             <GradientLabel text="TOOLS" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-14 text-center">Tools You Will Work With</h2>
 
-            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ height: "120px" }}>
+            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ minHeight: "140px" }}>
                 <div className="absolute inset-y-0 left-0 w-20 sm:w-60 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
                 <div className="absolute inset-y-0 right-0 w-20 sm:w-60 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
-                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 px-10 z-20 relative">
-                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
+                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 z-20 relative">
+                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
                         <div key={i} className="flex flex-col items-center gap-3 group cursor-pointer flex-shrink-0">
                             <div className="relative">
                                 <img
                                     src={tool.logo}
                                     alt={tool.name}
+                                    loading="lazy"
                                     className="h-8 sm:h-12 w-auto object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
                                 />
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 z-0"

@@ -13,12 +13,12 @@ export const Tools = () => (
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 text-center">Tools You Will Work With</h2>
 
 
-            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ height: "120px" }}>
+            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ minHeight: "140px" }}>
                 <div className="absolute inset-y-0 left-0 w-20 sm:w-60 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
                 <div className="absolute inset-y-0 right-0 w-20 sm:w-60 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
-                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 px-10 z-20 relative">
-                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
+                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 z-20 relative">
+                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
                         <div key={i} className="flex flex-col items-center gap-3 group cursor-pointer flex-shrink-0">
                             <div className="relative">
                                 <img

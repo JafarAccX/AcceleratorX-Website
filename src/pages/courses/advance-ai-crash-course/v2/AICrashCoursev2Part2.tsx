@@ -76,7 +76,7 @@ export const Roadmap = () => {
                             <div className={`relative flex flex-col gap-1 h-full justify-center ${idx % 2 === 0 ? 'pl-6 sm:pl-10 pr-12 sm:pr-20' : 'pl-[50px] sm:pl-[88px] pr-6 sm:pr-10'}`}>
                                 <div className="flex items-center gap-3 sm:gap-5 text-left">
                                     <div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
-                                        <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
+                                        <img src={item.icon} alt={item.title} loading="lazy" className="w-full h-full object-contain" />
                                     </div>
                                     <h3 className="text-[14px] sm:text-[16px] font-bold text-[#ECECEC] font-['Inter',sans-serif] tracking-tight">{item.title}</h3>
                                 </div>
@@ -153,7 +153,7 @@ export const ProgramDesign = () => {
                                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                 <span className="text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Sprint</span>
                             </div>
-                            <img src="/assets/programdesign.png" alt="Program Benefits" className="w-full h-full object-contain" />
+                            <img src="/assets/programdesign.png" alt="Program Benefits" loading="lazy" className="w-full h-full object-contain" />
                         </div>
                     </div>
 
