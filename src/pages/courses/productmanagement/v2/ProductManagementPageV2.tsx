@@ -512,20 +512,20 @@ const MentorCard = ({ mentor }: { mentor: any }) => (
 
         {/* Info Pill — bottom */}
         <div
-            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[85%] z-50 
-            rounded-full px-5 py-4 text-center 
+            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] z-50 
+            rounded-full px-5 py-3 text-center 
             border-l border-r border-b border-[#4BD3D8]/100 border-t-0
             bg-black/5 backdrop-blur-md
-            transition-all duration-300"
+            transition-all duration-300 flex flex-col justify-center min-h-[65px]"
         >
             {/* Name */}
-            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-1 mt-[-10px]
+            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-0.5 line-clamp-1
             drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
                 {mentor.name}
             </div>
 
             {/* designation */}
-            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight">
+            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight line-clamp-2">
                 {mentor.designation} - {mentor.company}
             </div>
 
