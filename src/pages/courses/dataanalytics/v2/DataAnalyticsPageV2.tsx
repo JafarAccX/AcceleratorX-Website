@@ -681,10 +681,10 @@ const SkillGapChart = () => {
                 </div>
 
                 {/* Chart Grid Lines */}
-                <div className="absolute top-[80px] bottom-10 left-[50px] lg:left-[60px] right-0 flex flex-col justify-between">
+                <div className="absolute top-[80px] bottom-10 left-[40px] sm:left-[50px] lg:left-[60px] right-0 flex flex-col justify-between">
                     {["₹75L", "₹60L", "₹45L", "₹30L", "₹15L", "₹0L"].map((val) => (
                         <div key={val} className="relative w-full border-t border-white/[0.03] h-0">
-                            <span className="absolute -top-3 -left-[45px] lg:-left-[55px] w-10 text-right text-[10px] lg:text-[11px] font-medium text-[#64748B]">
+                            <span className="absolute -top-3 -left-[35px] sm:-left-[45px] lg:-left-[55px] w-10 text-right text-[10px] lg:text-[11px] font-medium text-[#64748B]">
                                 {val}
                             </span>
                         </div>
@@ -692,7 +692,7 @@ const SkillGapChart = () => {
                 </div>
 
                 {/* Chart X-axis Labels */}
-                <div className="absolute bottom-0 left-[50px] lg:left-[60px] right-0 flex justify-between px-0 text-[10px] lg:text-[11px] font-medium text-[#64748B] pt-4">
+                <div className="absolute bottom-0 left-[40px] sm:left-[50px] lg:left-[60px] right-0 flex justify-between px-0 text-[10px] lg:text-[11px] font-medium text-[#64748B] pt-4">
                     <span className="-ml-2">2026</span>
                     <span>2028</span>
                     <span>2030</span>
@@ -701,7 +701,7 @@ const SkillGapChart = () => {
                 </div>
 
                 {/* Chart Vectors */}
-                <svg className="absolute top-[80px] bottom-10 left-[50px] lg:left-[60px] right-0 w-full h-[calc(100%-80px-40px)] overflow-visible" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                <svg className="absolute top-[80px] bottom-10 left-[40px] sm:left-[50px] lg:left-[60px] w-[calc(100%-50px)] sm:w-[calc(100%-65px)] h-[calc(100%-80px-40px)] overflow-visible" viewBox="0 0 1000 500" preserveAspectRatio="none">
                     {/* Blue Line Ambient Glow */}
                     <path
                         d="M 0,400 C 125,400 125,300 250,300 C 375,300 375,230 500,230 C 625,230 625,120 750,120 C 875,120 875,40 1000,40"
