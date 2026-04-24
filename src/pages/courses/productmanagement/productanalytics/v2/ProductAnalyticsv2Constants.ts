@@ -4,7 +4,7 @@ export const ASSETS = {
     heroImage: "/assets/digitalmarketing/hero.png", // Using Digital Marketing hero as requested
     ibmLogo: "/assets/ibm.png",
     bagIcon: "/assets/digitalmarketing/leftbag.png", // Generic enough
-    rupeeIcon: "/assets/digitalmarketing/leftrupee.png", // Generic enough
+    rupeeIcon: "/leftdmstar.png", // Generic enough
     studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/digitalmarketing/ctaperson.png", // Generic enough
     aipmgraph: "/assets/digitalmarketing/ai-dm-graph.png", // We replace this with animation anyway

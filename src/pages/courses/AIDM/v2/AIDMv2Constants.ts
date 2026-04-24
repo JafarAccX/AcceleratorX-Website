@@ -4,7 +4,7 @@ export const ASSETS = {
     heroImage: "/assets/digitalmarketing/hero.png",
     ibmLogo: "/assets/ibm.png",
     bagIcon: "/assets/digitalmarketing/leftbag.png",
-    rupeeIcon: "/assets/digitalmarketing/leftrupee.png",
+    rupeeIcon: "/leftdmstar.png",
     studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/digitalmarketing/ctaperson.png",
     aipmgraph: "/assets/digitalmarketing/ai-dm-graph.png",

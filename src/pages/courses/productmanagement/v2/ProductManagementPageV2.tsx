@@ -704,7 +704,7 @@ const SkillGapChart = () => {
                 </div>
 
                 {/* Chart Vectors */}
-                <svg className="absolute top-[60px] bottom-8 left-[40px] lg:left-[50px] right-0 w-full h-[calc(100%-60px-32px)] overflow-visible" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                <svg className="absolute top-[60px] bottom-8 left-[35px] sm:left-[40px] lg:left-[50px] right-2 sm:right-4 w-[calc(100%-45px)] sm:w-[calc(100%-55px)] h-[calc(100%-60px-32px)] overflow-visible" viewBox="0 0 1000 500" preserveAspectRatio="none">
                     {/* Teal Line Ambient Glow */}
                     <path
                         d="M 0,350 C 125,350 125,250 250,250 C 375,250 375,180 500,180 C 625,180 625,80 750,80 C 875,80 875,20 1000,20"

@@ -323,10 +323,10 @@ const ProjectCardComponent = memo(function ProjectCardComponent({ project, offse
                     {project.description}
                 </p>
 
-                <div className="flex items-center justify-between mt-auto pt-2">
-                    <div className="flex gap-2">
+                <div className="flex items-center justify-between mt-auto pt-2 gap-4">
+                    <div className="flex flex-wrap gap-2 min-w-0">
                         {project.tags.map((tag: string) => (
-                            <span key={tag} className="bg-[#1c1c1c] text-[#cfcfcf] text-[11px] font-medium px-3 py-1 rounded-full border border-white/5 uppercase tracking-wide">
+                            <span key={tag} className="bg-[#1c1c1c] text-[#cfcfcf] text-[11px] font-medium px-3 py-1 rounded-full border border-white/5 uppercase tracking-wide truncate">
                                 {tag}
                             </span>
                         ))}
@@ -335,7 +335,7 @@ const ProjectCardComponent = memo(function ProjectCardComponent({ project, offse
                         href="https://buildrx.org/projects"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border border-white/10 rounded-lg px-4 md:px-5 py-2 md:py-2.5 text-white text-[12px] font-semibold flex items-center gap-2 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                        className="border border-white/10 rounded-lg px-4 md:px-5 py-2 md:py-2.5 text-white text-[12px] font-semibold flex items-center gap-2 hover:bg-white/10 hover:border-white/20 transition-all duration-300 whitespace-nowrap flex-shrink-0"
                     >
                         View Project <span>→</span>
                     </a>
@@ -514,16 +514,16 @@ const SkillGapSection = memo(function SkillGapSection() {
                     </div>
 
                     {/* Chart X-axis Labels */}
-                    <div className="absolute bottom-0 left-[40px] lg:left-[50px] right-0 flex justify-between px-0 text-[10px] lg:text-[11px] font-medium text-[#7A7A7A] transform translate-y-1/2">
-                        <span className="-ml-3">2026</span>
+                    <div className="absolute bottom-0 left-[35px] sm:left-[40px] lg:left-[50px] right-0 flex justify-between px-0 text-[10px] lg:text-[11px] font-medium text-[#7A7A7A] transform translate-y-1/2">
+                        <span className="-ml-2">2026</span>
                         <span>2028</span>
                         <span>2030</span>
                         <span>2032</span>
-                        <span className="-mr-3">2035</span>
+                        <span className="-mr-2">2035</span>
                     </div>
 
                     {/* Chart Vectors */}
-                    <svg key={activeBadge} className="absolute top-[60px] bottom-8 left-[40px] lg:left-[50px] right-0 w-full h-[calc(100%-60px-32px)] overflow-visible" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                    <svg key={activeBadge} className="absolute top-[60px] bottom-8 left-[35px] sm:left-[40px] lg:left-[50px] right-2 sm:right-4 w-[calc(100%-45px)] sm:w-[calc(100%-55px)] h-[calc(100%-60px-32px)] overflow-visible" viewBox="0 0 1000 500" preserveAspectRatio="none">
 
                         {/* Blue Line Ambient Glow */}
                         <path

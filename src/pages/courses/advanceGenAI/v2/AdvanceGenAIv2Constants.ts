@@ -375,6 +375,7 @@ export const PRICING_PLANS = [
     title: "AcceleratorX + IBM",
     badge: "MOST POPULAR",
     subtitle: " An advanced AI program in India designed for learners seeking expertise in AI agents, automation systems, and real-world AI applications.",
+    price: "₹ 59,999 + GST",
     track: "ADVANCED AI CAREER TRACK",
     features: [
       "Everything included in the Regular Program",

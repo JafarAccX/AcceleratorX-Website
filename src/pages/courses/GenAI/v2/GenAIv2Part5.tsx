@@ -82,7 +82,7 @@ export const CareerRoles = () => (
             </p>
 
             <div className="mt-16 sm:mt-24 lg:mt-32">
-                <div className="relative w-full max-w-[1232px] bg-[#0A0A0A] p-4 sm:p-8 lg:p-[48px] mx-auto mb-16 border border-white/5 rounded-[16px] sm:rounded-[24px]">
+                <div className="relative w-full max-w-[1232px] bg-[#0A0A0A] p-4 sm:p-8 lg:p-[48px] mx-auto mb-16 border border-white/5 rounded-[16px] sm:rounded-[24px] overflow-hidden">
                     <div className="relative w-full h-auto flex flex-col">
                         <div className="relative w-full h-auto flex items-center justify-center min-h-[300px] lg:min-h-[450px]">
                             <style>
@@ -115,22 +115,22 @@ export const CareerRoles = () => (
                                 `}
                             </style>
 
-                            <div className="absolute top-0 left-0 lg:left-10 flex gap-8 items-center text-[10px] lg:text-[12px] font-bold tracking-widest uppercase z-20">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-[18px] sm:w-[24px] h-[4px] bg-[#FC6401] rounded-full"></div>
+                            <div className="absolute top-0 left-0 lg:left-10 flex flex-wrap gap-4 sm:gap-8 items-center text-[9px] sm:text-[10px] lg:text-[12px] font-bold tracking-widest uppercase z-20">
+                                <div className="flex items-center gap-2 sm:gap-3">
+                                    <div className="w-[14px] sm:w-[24px] h-[3px] sm:h-[4px] bg-[#FC6401] rounded-full"></div>
                                     <span className="text-white">AI-POWERED LEARNING</span>
                                 </div>
-                                <div className="flex items-center gap-3">
-                                    <div className="w-[18px] sm:w-[24px] border-b-[2px] border-dashed border-white/20"></div>
+                                <div className="flex items-center gap-2 sm:gap-3">
+                                    <div className="w-[14px] sm:w-[24px] border-b-[2px] border-dashed border-white/20"></div>
                                     <span className="text-[#C2C2C2]">TRADITIONAL LEARNING (WITHOUT AI)</span>
                                 </div>
                             </div>
 
                             {/* Chart Grid Lines */}
-                            <div className="absolute top-[80px] bottom-10 left-[40px] lg:left-[50px] right-0 flex flex-col justify-between z-10 opacity-30">
+                            <div className="absolute top-[80px] bottom-10 left-[35px] sm:left-[40px] lg:left-[50px] right-0 flex flex-col justify-between z-10 opacity-30">
                                 {[30, 25, 20, 15, 10, 5, 0].map((val) => (
                                     <div key={val} className="relative w-full border-t border-[#494847]/40 h-0">
-                                        <span className="absolute -top-3 -left-[35px] lg:-left-[45px] w-8 text-right text-[10px] lg:text-[11px] font-medium text-[#7A7A7A]">
+                                        <span className="absolute -top-3 -left-[32px] sm:-left-[35px] lg:-left-[45px] w-8 text-right text-[9px] sm:text-[10px] lg:text-[11px] font-medium text-[#7A7A7A]">
                                             ₹{val}L
                                         </span>
                                     </div>
@@ -138,36 +138,36 @@ export const CareerRoles = () => (
                             </div>
 
                             {/* Chart X-axis Labels */}
-                            <div className="absolute bottom-2 lg:bottom-4 left-[40px] lg:left-[50px] right-0 flex justify-between px-0 text-[10px] lg:text-[11px] font-medium text-[#7A7A7A] z-10">
-                                <span className="-ml-3">2026</span>
+                            <div className="absolute bottom-2 lg:bottom-4 left-[35px] sm:left-[40px] lg:left-[50px] right-0 flex justify-between px-0 text-[9px] sm:text-[10px] lg:text-[11px] font-medium text-[#7A7A7A] z-10">
+                                <span className="-ml-2">2026</span>
                                 <span>2028</span>
                                 <span>2030</span>
                                 <span>2032</span>
-                                <span className="-mr-3">2035</span>
+                                <span className="-mr-2">2035</span>
                             </div>
 
-                            <svg className="absolute top-[80px] bottom-10 left-[40px] lg:left-[50px] right-0 w-full h-[calc(100%-80px-40px)] overflow-visible z-20" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                            <svg className="absolute top-[80px] bottom-10 left-[35px] sm:left-[40px] lg:left-[50px] right-2 sm:right-4 w-[calc(100%-45px)] sm:w-[calc(100%-55px)] h-[calc(100%-80px-40px)] overflow-visible z-20" viewBox="0 0 1000 500" preserveAspectRatio="none">
                                 {/* Orange Line Ambient Glow */}
                                 <path
-                                    d="M 20,383 C 140,383 140,266 260,266 C 380,266 380,150 500,150 C 620,150 620,66 740,66 C 860,66 860,33 980,33"
+                                    d="M 20,383 C 140,383 140,266 260,266 C 380,266 380,150 500,150 C 620,150 620,66 740,66 C 860,66 860,33 960,33"
                                     fill="none" stroke="#FC6401" strokeWidth="15" className="g-chart-glow blur-2xl" strokeLinecap="round"
                                 />
 
                                 {/* Traditional Gray Dashed Path */}
                                 <path
-                                    d="M 20,416 L 980,350"
+                                    d="M 20,416 L 960,350"
                                     fill="none" stroke="#494847" strokeWidth="2.5" strokeDasharray="10 10" opacity="0.6"
                                 />
 
                                 {/* AI Orange Path */}
                                 <path
-                                    d="M 20,383 C 140,383 140,266 260,266 C 380,266 380,150 500,150 C 620,150 620,66 740,66 C 860,66 860,33 980,33"
+                                    d="M 20,383 C 140,383 140,266 260,266 C 380,266 380,150 500,150 C 620,150 620,66 740,66 C 860,66 860,33 960,33"
                                     fill="none" stroke="#FC6401" strokeWidth="5.5" className="g-draw-path-orange" strokeLinecap="round"
                                 />
 
                                 {/* AI Orange Dots */}
                                 {[
-                                    { cx: 20, cy: 383 }, { cx: 260, cy: 266 }, { cx: 500, cy: 150 }, { cx: 740, cy: 66 }, { cx: 980, cy: 33 }
+                                    { cx: 20, cy: 383 }, { cx: 260, cy: 266 }, { cx: 500, cy: 150 }, { cx: 740, cy: 66 }, { cx: 960, cy: 33 }
                                 ].map((point, i) => (
                                     <circle
                                         key={`org-${i}`}
@@ -182,8 +182,8 @@ export const CareerRoles = () => (
                                     />
                                 ))}
 
-                                {/* Growth Badge at end of path */}
-                                <foreignObject x="920" y="-15" width="100" height="40" className="g-chart-dot" style={{ animationDelay: '1.6s' }}>
+                                {/* Growth Badge at end of path - Adjusted X to 880 to prevent overflow */}
+                                <foreignObject x="880" y="-15" width="100" height="40" className="g-chart-dot" style={{ animationDelay: '1.6s' }}>
                                     <div className="flex flex-col items-center justify-center bg-[#1A1A1A]/80 border border-[#FC6401]/40 rounded-lg p-1 backdrop-blur-sm">
                                         <span className="text-[#FC6401] text-[10px] font-bold leading-none">₹28L</span>
                                         <span className="text-[#C2C2C2] text-[7px] font-bold uppercase leading-none mt-0.5 tracking-tighter">GROWTH</span>

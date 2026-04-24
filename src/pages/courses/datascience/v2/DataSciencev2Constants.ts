@@ -3,7 +3,7 @@ export const ASSETS = {
     heroImage: "/assets/datascience/hero.png",
     ibmLogo: "/assets/ibm.png",
     bagIcon: "/assets/datascience/leftbag.png",
-    rupeeIcon: "/assets/datascience/leftrupee.png",
+    rupeeIcon: "/leftdsstar.png",
     studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/datascience/ctaperson.png",
 };
