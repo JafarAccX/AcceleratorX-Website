@@ -106,10 +106,10 @@ export const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure?: () => v
 
             <div className="relative lg:absolute top-0 left-0 bottom-0 z-30 flex flex-col justify-center px-4 sm:px-6 py-8 sm:py-12 lg:py-0 lg:px-[72px] gap-3 sm:gap-4 max-w-[750px]">
                 <h2 className="text-[#FFFFFF] font-semibold text-[22px] sm:text-[28px] lg:text-[40px] leading-[1.2] sm:leading-[1.1] tracking-tight max-w-[697px]">
-                    Start Your AI Career Before You Fall Behind
+                    Start Your AI Career Before You’re Forced To Catch Up
                 </h2>
                 <p className="text-[#C2C2C2] font-medium text-[14px] sm:text-[16px] leading-relaxed max-w-[650px]">
-                    Join professionals building AI-powered careers using advanced AI systems, agents, and automation.
+                    Join professionals building high-income careers using Advanced AI, Generative AI, and automation systems.
                 </p>
                 <div className="mt-4 sm:mt-6">
                     <div onClick={onDownloadBrochure} className="cursor-pointer">

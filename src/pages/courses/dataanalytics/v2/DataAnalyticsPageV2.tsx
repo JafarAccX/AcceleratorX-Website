@@ -772,7 +772,7 @@ const CareerRoles = () => (
         <div className="max-w-[1300px] mx-auto px-4">
             <div className="text-center mb-16 sm:mb-24">
                 <GradientLabel text="CAREER" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 leading-tight">Career Opportunities After This DataAnalytics Course</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 leading-tight">Career Opportunities After This Data Analytics Course</h2>
             </div>
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-8">

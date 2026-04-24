@@ -273,7 +273,7 @@ export const AlumniLogos = () => (
         <GradientLabel text="SOCIAL PROOF" />
         <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium mb-3 px-4">Our Alumni Are Working Across 1700+ Top MNCs</p>
         <p className="text-center text-[#94A3B8] text-sm sm:text-base md:text-[16px] font-medium mb-10 sm:mb-12 lg:mb-16 max-w-[1047px] mx-auto leading-relaxed px-4">
-            Our learners are building AI-powered workflows, automation systems, and real-world applications across top companies in India.
+            Our learners are building AI agents, automation systems, and real-world AI applications across top companies in India.
         </p>
 
         <div className="relative w-full overflow-hidden" style={{
