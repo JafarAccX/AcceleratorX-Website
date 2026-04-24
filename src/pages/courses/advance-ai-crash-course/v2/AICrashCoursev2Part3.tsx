@@ -92,7 +92,7 @@ export const MentorCard = ({ mentor }: { mentor: any }) => (
         </div>
 
         {/* Floating Logo Top-Right */}
-        <div className="absolute top-[-15px] -right-7 z-10">
+        <div className="absolute top-[-15px] -right-7 z-30">
             <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
                 <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
             </div>
