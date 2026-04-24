@@ -634,7 +634,7 @@ function HomePage() {
                     </div>
                 </div>
 
-                <div className="w-full lg:w-[649px] h-auto relative flex justify-center lg:justify-end">
+                <div className="w-full lg:flex-1 h-auto relative flex justify-center lg:justify-end">
                     <div
                         className="relative w-full max-w-[350px] sm:max-w-[500px] lg:max-w-[649px] lg:w-[649px] aspect-[649/683] lg:h-[683px] bg-gradient-to-b from-[#141414] via-[#1a1c4e] to-[#25287e] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 lg:mt-0 shadow-2xl"
                     >

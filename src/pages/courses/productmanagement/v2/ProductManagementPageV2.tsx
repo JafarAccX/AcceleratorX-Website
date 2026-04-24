@@ -81,7 +81,7 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
             }} />
 
             <div className="w-full max-w-[1440px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-[70px] z-10 gap-10 lg:gap-0">
-                <div className="w-full lg:w-[612px] flex flex-col gap-6 sm:gap-8 lg:mt-[60px] text-center lg:text-left">
+                <div className="w-full lg:max-w-[45%] flex flex-col gap-6 sm:gap-8 lg:mt-[60px] text-center lg:text-left">
                     <div className="flex flex-col gap-4 sm:gap-6">
                         <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-medium leading-[1.1] tracking-tight max-w-[612px] text-white mx-auto lg:mx-0">
                             4 Month Nano-Degree in <br className="hidden lg:block" />
@@ -164,7 +164,7 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                     </div>
                 </div>
 
-                <div className="w-full lg:w-[649px] h-auto relative flex justify-center lg:justify-end">
+                <div className="w-full lg:flex-1 h-auto relative flex justify-center lg:justify-end">
                     <div className="relative w-full max-w-[350px] sm:max-w-[500px] lg:max-w-[649px] lg:w-[649px] aspect-[649/683] lg:h-[683px] bg-gradient-to-b from-[#000000] to-[#4BD3D8] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 lg:mt-0">
                         <img src={ASSETS.heroImage} alt="Accelerator Student" className="absolute bottom-[-28px] left-[55%] -translate-x-1/2 h-full w-auto object-contain scale-[1.05] z-10" />
                         <div className="absolute top-[4%] sm:top-[6%] right-[2%] sm:right-[4%] z-30">
@@ -490,7 +490,7 @@ const Curriculum = () => {
 
 // ── Component: Mentors ────────────────────────────────────────────────────────
 const MentorCard = ({ mentor }: { mentor: any }) => (
-    <div className="relative w-[210px] sm:w-[260px] h-[230px] sm:h-[310px] flex-shrink-0 group">
+    <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group">
         {/* Main Card with Left-Fade */}
         <div
             className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"

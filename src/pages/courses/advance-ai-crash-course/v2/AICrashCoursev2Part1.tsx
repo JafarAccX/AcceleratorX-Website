@@ -136,7 +136,7 @@ export const Hero = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }
             }} />
 
             <div className="w-full max-w-[1440px] mx-auto relative flex flex-col xl:flex-row items-center xl:items-start px-4 sm:px-6 lg:px-[70px] z-10 gap-10 xl:gap-0">
-                <div className="w-full xl:w-[612px] flex flex-col gap-6 sm:gap-8 xl:mt-[60px] text-center xl:text-left">
+                <div className="w-full xl:max-w-[45%] flex flex-col gap-6 sm:gap-8 xl:mt-[60px] text-center xl:text-left">
                     <div className="flex flex-col gap-4 sm:gap-6">
                         <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-medium leading-[1.1] tracking-tight max-w-[700px] text-white mx-auto xl:mx-0">
                             10 Weeks{" "}
@@ -182,7 +182,7 @@ export const Hero = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }
                         </div>
                     </div>
 
-                    <div className="w-full xl:w-[679px] flex flex-col gap-5 items-center xl:items-start overflow-hidden">
+                    <div className="w-full flex flex-col gap-5 items-center xl:items-start overflow-hidden">
                         <div className="text-[10px] sm:text-[11px] font-bold text-white tracking-[0.1em] uppercase opacity-60">
                             Learners working across 1700+ companies
                         </div>
@@ -191,15 +191,7 @@ export const Hero = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }
                             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                             maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                         }}>
-                            <style>{`
-                                @keyframes slide-logos {
-                                    0% { transform: translateX(0); }
-                                    100% { transform: translateX(-50%); }
-                                }
-                                .animate-logos {
-                                    animation: slide-logos 80s linear infinite;
-                                }
-                            `}</style>
+                            {/* animation defined in index.css as .animate-logos */}
                             <div className="flex w-max gap-8 sm:gap-12 animate-logos py-2">
                                 {[1, 2, 3, 4].map((group) => (
                                     <div key={group} className="flex items-center gap-8 sm:gap-12 opacity-60">
@@ -235,7 +227,7 @@ export const Hero = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }
                     </div>
                 </div>
 
-                <div className="w-full xl:w-[649px] h-auto relative flex justify-center xl:justify-end">
+                <div className="w-full xl:flex-1 h-auto relative flex justify-center xl:justify-end">
                     <div className="relative w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[649px] xl:w-[649px] aspect-[649/683] xl:h-[683px] bg-gradient-to-b from-[#000000] to-[#FC6401] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 xl:mt-0">
                         <img src={ASSETS.heroImage} alt="Accelerator Student" className="absolute bottom-[-28px] left-[50%] -translate-x-1/2 h-full w-auto object-contain scale-[1.05] z-1" />
 
@@ -247,17 +239,17 @@ export const Hero = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }
                             <img src={ASSETS.studentsGrp} alt="Happy Students" className="w-[100px] sm:w-[140px] md:w-[170px] lg:w-[208px] h-auto object-contain" />
                         </div>
 
-                        <div className="absolute top-[42%] sm:top-[200px] lg:top-[300px] left-[2%] sm:left-[-20px] lg:left-[45px] flex items-center gap-1.5 sm:gap-3 px-2 sm:px-5 py-1.5 sm:py-2.5 bg-white rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-black/5 z-20 hover:scale-105 transition-transform duration-300">
+                        <div className="absolute top-[42%] left-[2%] sm:left-[5%] lg:left-[7%] flex items-center gap-1.5 sm:gap-3 px-2 sm:px-5 py-1.5 sm:py-2.5 bg-white rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-black/5 z-20 hover:scale-105 transition-transform duration-300">
                             <img src="/assets/liveclasses.png" alt="Live Classes" className="w-3.5 sm:w-5 h-3.5 sm:h-5 object-contain" />
                             <span className="text-[10px] sm:text-[15px] font-semibold text-[#1CA425] whitespace-nowrap">Live Classes</span>
                         </div>
 
-                        <div className="absolute top-[52%] sm:top-[310px] lg:top-[385px] right-[2%] sm:right-[-20px] lg:right-[2px] flex items-center gap-1.5 sm:gap-3 px-2 sm:px-5 py-1.5 sm:py-2.5 bg-white rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-black/5 z-20 hover:scale-105 transition-transform duration-300">
+                        <div className="absolute top-[55%] right-[2%] sm:right-[1%] flex items-center gap-1.5 sm:gap-3 px-2 sm:px-5 py-1.5 sm:py-2.5 bg-white rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-black/5 z-20 hover:scale-105 transition-transform duration-300">
                             <img src="/assets/mentorconnect.png" alt="Mentor Connect" className="w-3.5 sm:w-5 h-3.5 sm:h-5 object-contain" />
                             <span className="text-[10px] sm:text-[15px] font-semibold text-[#F96736] whitespace-nowrap">Mentor Connect</span>
                         </div>
 
-                        <div className="absolute bottom-[10%] sm:bottom-[40px] lg:bottom-[85px] left-[2%] sm:left-[-10px] lg:left-[45px] flex items-center gap-1.5 sm:gap-3 px-2 sm:px-5 py-1.5 sm:py-2.5 bg-white rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-black/5 z-20 hover:scale-105 transition-transform duration-300">
+                        <div className="absolute bottom-[10%] left-[2%] sm:left-[5%] lg:left-[7%] flex items-center gap-1.5 sm:gap-3 px-2 sm:px-5 py-1.5 sm:py-2.5 bg-white rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-black/5 z-20 hover:scale-105 transition-transform duration-300">
                             <img src="/assets/careersupport.png" alt="Career Support" className="w-3.5 sm:w-5 h-3.5 sm:h-5 object-contain" />
                             <span className="text-[10px] sm:text-[15px] font-semibold text-[#4C5BFA] whitespace-nowrap">Career Support</span>
                         </div>

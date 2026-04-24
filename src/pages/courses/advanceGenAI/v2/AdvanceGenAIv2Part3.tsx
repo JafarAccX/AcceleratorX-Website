@@ -111,7 +111,7 @@ export const Curriculum = () => {
 
 // ── Component: Mentors.tsx ───────────────────────────────────────────────────
 export const MentorCard = ({ mentor }: { mentor: any }) => (
-    <div className="relative w-[210px] sm:w-[260px] h-[230px] sm:h-[310px] flex-shrink-0 group">
+    <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group">
         {/* Main Card with Left-Fade */}
         <div
             className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"

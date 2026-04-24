@@ -6,6 +6,26 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px',
+        '3xl': '1600px',
+      },
+      fontSize: {
+        'fluid-sm': ['clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)', { lineHeight: '1.5' }],
+        'fluid-base': ['clamp(0.875rem, 0.8rem + 0.35vw, 1rem)', { lineHeight: '1.6' }],
+        'fluid-lg': ['clamp(1rem, 0.9rem + 0.5vw, 1.25rem)', { lineHeight: '1.5' }],
+        'fluid-xl': ['clamp(1.25rem, 1rem + 1vw, 1.5rem)', { lineHeight: '1.4' }],
+        'fluid-2xl': ['clamp(1.5rem, 1.2rem + 1.5vw, 2rem)', { lineHeight: '1.3' }],
+        'fluid-3xl': ['clamp(1.75rem, 1.3rem + 2vw, 2.5rem)', { lineHeight: '1.2' }],
+        'fluid-hero': ['clamp(1.75rem, 1rem + 3vw, 3rem)', { lineHeight: '1.1' }],
+      },
+      spacing: {
+        'fluid-4': 'clamp(0.75rem, 0.5rem + 1vw, 1rem)',
+        'fluid-6': 'clamp(1rem, 0.75rem + 1.25vw, 1.5rem)',
+        'fluid-8': 'clamp(1.5rem, 1rem + 2vw, 2rem)',
+        'fluid-16': 'clamp(2.5rem, 2rem + 3vw, 4rem)',
+        'fluid-24': 'clamp(3rem, 2rem + 5vw, 6rem)',
+      },
       colors: {
         navy: {
           800: "#1a1f36",

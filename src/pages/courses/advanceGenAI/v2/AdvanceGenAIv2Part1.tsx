@@ -136,7 +136,7 @@ export const Hero = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }
             }} />
 
             <div className="w-full max-w-[1440px] mx-auto relative flex flex-col xl:flex-row items-center xl:items-start px-4 sm:px-6 lg:px-[70px] z-10 gap-10 xl:gap-0">
-                <div className="w-full xl:w-[612px] flex flex-col gap-6 sm:gap-8 xl:mt-[60px] text-center xl:text-left">
+                <div className="w-full xl:max-w-[45%] flex flex-col gap-6 sm:gap-8 xl:mt-[60px] text-center xl:text-left">
                     <div className="flex flex-col gap-4 sm:gap-6">
                         <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-medium leading-[1.1] tracking-tight max-w-[618px] text-white mx-auto xl:mx-0">
                             10 Weeks{" "}
@@ -230,7 +230,7 @@ export const Hero = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }
                     </div>
                 </div>
 
-                <div className="w-full xl:w-[649px] h-auto relative flex justify-center xl:justify-end">
+                <div className="w-full xl:flex-1 h-auto relative flex justify-center xl:justify-end">
                     <div className="relative w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[649px] xl:w-[649px] aspect-[649/683] xl:h-[683px] bg-gradient-to-b from-[#000000] to-[#FC6401] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 xl:mt-0">
                         <img src={ASSETS.heroImage} alt="Accelerator Student" className="absolute bottom-[-28px] left-[50%] -translate-x-1/2 h-full w-auto object-contain scale-[1.05] z-1" />
 

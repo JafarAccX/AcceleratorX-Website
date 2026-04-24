@@ -175,9 +175,9 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-[10px] w-full left-1/2 -translate-x-1/2 z-[9999] max-w-7xl ${menuTransition}`}
+        className={`fixed top-[10px] w-[calc(100%-1rem)] sm:w-full left-1/2 -translate-x-1/2 z-[9999] max-w-7xl ${menuTransition}`}
       >
-        <div className="h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-[#000000]/70 shadow-lg px-6 sm:px-8 w-full">
+        <div className="h-[56px] sm:h-[60px] rounded-[100px] backdrop-blur-[10px] bg-white/70 dark:bg-[#000000]/70 shadow-lg px-4 sm:px-6 md:px-8 w-full">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <div className={`relative group ${hoverTransition}`}>
@@ -187,7 +187,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-6">
+            <div className="hidden min-[960px]:flex items-center space-x-4 xl:space-x-6">
               {/* Courses Dropdown */}
               <div
                 className="relative group"
@@ -326,7 +326,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
-              className={`lg:hidden text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition}`}
+              className={`min-[960px]:hidden text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition}`}
             >
               <Menu size={24} />
             </button>
@@ -344,7 +344,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "linear" }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/60 z-[99999] lg:hidden transform-gpu"
+            className="fixed inset-0 bg-black/60 z-[99999] min-[960px]:hidden transform-gpu"
           />
         )}
         {isOpen && (
@@ -354,7 +354,7 @@ export default function Navbar() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="fixed inset-y-0 right-0 w-full max-w-[320px] bg-white/95 dark:bg-[#000000]/95 backdrop-blur-xl z-[100000] shadow-2xl lg:hidden p-4 overflow-y-auto flex flex-col transform-gpu"
+            className="fixed inset-y-0 right-0 w-[85vw] max-w-[320px] bg-white/95 dark:bg-[#000000]/95 backdrop-blur-xl z-[100000] shadow-2xl min-[960px]:hidden p-4 overflow-y-auto flex flex-col transform-gpu"
           >
             <div className="flex items-center justify-between mb-8">
               <img src={companyLogo} alt="Logo" className="h-5 w-auto object-contain" />
