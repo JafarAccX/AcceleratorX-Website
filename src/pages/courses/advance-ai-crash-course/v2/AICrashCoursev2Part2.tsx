@@ -38,7 +38,7 @@ export const Roadmap = () => {
                 <div className="flex flex-col items-center">
                     <p className="text-white font-medium text-[16px] sm:text-[20px] mb-4 tracking-tight">
                         {roadmapPath === "freshers"
-                            ? "Start Your Career in Ai Advanced AI Crash From zero"
+                            ? "Start Your Career in Advanced AI From zero"
                             : "Transition into High-Paying AI Roles."}
                     </p>
                     <div className="inline-flex items-center justify-center px-4 py-[6px] rounded-[30px] border border-[#EA580C] bg-white/5 text-[#EA580C] text-[11px] sm:text-[12px] font-bold leading-[20px] uppercase mb-[40px] sm:mb-[90px] tracking-wide">
@@ -140,7 +140,7 @@ export const ProgramDesign = () => {
     return (
         <section className="py-20 lg:py-32 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center px-4">
-                <GradientLabel text="PROGRAM BENEFITS" />
+                <GradientLabel text="PROGRAM DESIGN" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4">Designed for Real-World AI Execution</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed font-medium">
                     You learn by building Advanced AI systems, automation workflows, and real business applications used in companies.

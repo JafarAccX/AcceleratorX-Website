@@ -156,9 +156,6 @@ export const Mentors = () => (
             }
         `}</style>
 
-        {/* Side Gradients for Atmosphere */}
-        <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-[#FC6401]/10 blur-[130px] rounded-full pointer-events-none z-0" />
-        <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-[#FC6401]/10 blur-[130px] rounded-full pointer-events-none z-0" />
 
         <div className="w-full max-w-[1440px] flex flex-col items-center z-10">
             <div className="px-4 sm:px-6 text-center">

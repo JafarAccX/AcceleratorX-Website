@@ -248,7 +248,7 @@ export const Pricing = ({ onEnroll }: { onEnroll: (amount: number) => void }) =>
     <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
         <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-14">
-                <GradientLabel text="PROGRAMS DESCRIPTION" />
+                <GradientLabel text="PRICING" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Choose Your Gen AI Learning Path</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[800px] mx-auto leading-relaxed">
                     Flexible pricing options designed for professionals who want to learn AI tools, automation, and real-world applications.

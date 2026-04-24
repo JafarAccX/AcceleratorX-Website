@@ -9,7 +9,7 @@ export const Certificate = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
             <div className="text-center mb-16 sm:mb-20">
-                <GradientLabel text="CERTIFICATION" highlight="TION" />
+                <GradientLabel text="CERTIFICATION" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">The Certificate Recognized By The Industry</h2>
             </div>
 

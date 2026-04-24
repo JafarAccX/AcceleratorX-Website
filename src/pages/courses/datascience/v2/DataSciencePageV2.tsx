@@ -283,7 +283,7 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS BENEFITS" />
+                <GradientLabel text="PROGRAMS DESIGN" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 font-['Inter',sans-serif]">Designed for Real-World Data & AI Execution</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">This is not a theory-heavy course. You learn by building AI-powered dashboards, automation systems, and real business analytics projects.</p>
 
@@ -573,7 +573,7 @@ const Tools = () => (
 const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-b border-white/5">
         <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
-            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <GradientLabel text="SKILLSET" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-12 sm:mb-20">AI Data Science Skill Checklist</h2>
 
             <div className="relative min-h-[300px]">
@@ -785,7 +785,7 @@ const Pricing = () => (
     <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
         <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-14">
-                <GradientLabel text="PROGRAMS DESCRIPTION" />
+                <GradientLabel text="PRICING" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Choose Your AI Data Science Learning Path</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[950px] mx-auto leading-relaxed">
                     Flexible pricing options designed for professionals who want to learn data analytics, AI tools, and automation.

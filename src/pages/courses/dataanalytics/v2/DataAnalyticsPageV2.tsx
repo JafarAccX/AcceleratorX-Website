@@ -326,7 +326,7 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS BENEFITS" />
+                <GradientLabel text="PROGRAMS DESIGN" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World Data Analytics Execution</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-relaxed max-w-[700px] mx-auto mb-12 sm:mb-12">
                     You learn by building AI-powered dashboards, analytics systems, and real business reports.
@@ -594,7 +594,7 @@ const Tools = () => (
 const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
-            <GradientLabel text="PROGRAMS DESCRIPTION" highlight="DESCRIPTION" />
+            <GradientLabel text="SKILLSET" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-14">AI Data Analytics Skill Checklist</h2>
             <div className="relative min-h-[300px]">
                 <div className="absolute top-10 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/15 to-transparent hidden md:block pointer-events-none" />
@@ -771,7 +771,7 @@ const CareerRoles = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
         <div className="max-w-[1300px] mx-auto px-4">
             <div className="text-center mb-16 sm:mb-24">
-                <GradientLabel text="PROGRAMS DESCRIPTION" />
+                <GradientLabel text="CAREER" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 leading-tight">Career Opportunities After This DataAnalytics Course</h2>
             </div>
 
@@ -806,7 +806,7 @@ const Pricing = () => (
     <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
         <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-14">
-                <GradientLabel text="PROGRAMS DESCRIPTION" />
+                <GradientLabel text="PRICING" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Choose Your AI Data Analytics Learning Path</h2>
                 <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed">
                     Flexible pricing options designed for professionals who want to build AI-powered data solutions and real-world applications.

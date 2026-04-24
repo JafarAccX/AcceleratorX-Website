@@ -26,8 +26,6 @@ export const Tools = () => (
                                     alt={tool.name}
                                     className="h-8 sm:h-12 w-auto object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
                                 />
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 z-0"
-                                    style={{ backgroundColor: `${tool.color}30` }} />
                             </div>
                             <div className="flex flex-col items-center gap-1">
                                 <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest duration-500">
@@ -51,7 +49,7 @@ export const Tools = () => (
 export const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-b border-white/5">
         <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
-            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <GradientLabel text="SKILLSET" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Generative AI Skill Checklist</h2>
 
             <div className="relative min-h-[300px]">
@@ -106,4 +104,5 @@ export const RoleCard = ({ role, idx }: { role: typeof CAREER_ROLES[0], idx: num
             <p className="text-[#94A3B8] text-[11px] sm:text-[13px] font-medium leading-snug w-[95%]">{role.description}</p>
         </div>
     </div>
+
 );

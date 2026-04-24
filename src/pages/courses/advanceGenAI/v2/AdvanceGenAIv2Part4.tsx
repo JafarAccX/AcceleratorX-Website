@@ -53,7 +53,7 @@ export const Tools = () => (
 export const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-b border-white/5">
         <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
-            <GradientLabel text="SKILL DESCRIPTION" />
+            <GradientLabel text="SKILLSET" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Advanced AI Skill Checklist</h2>
 
             <div className="relative min-h-[300px]">

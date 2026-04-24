@@ -350,7 +350,7 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS BENEFITS" />
+                <GradientLabel text="PROGRAM DESIGN" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World Product Execution with AI</h2>
                 <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto mb-12 sm:mb-20 leading-relaxed font-medium">
                     This is not a theory-heavy course. You learn by building AI-powered product workflows, case studies, and real business applications.
@@ -415,14 +415,14 @@ const Curriculum = () => {
 
                 <div className="flex justify-center mb-16">
                     <div className="inline-flex bg-[#111] p-1.5 rounded-full border border-white/[0.05] shadow-2xl">
-                        <button 
-                            onClick={() => { setCurrMode("ibm"); setOpenModule(null); }} 
+                        <button
+                            onClick={() => { setCurrMode("ibm"); setOpenModule(null); }}
                             className={`px-8 sm:px-12 py-3 sm:py-4 rounded-full text-[13px] sm:text-sm font-bold transition-all duration-500 ${currMode === "ibm" ? "bg-[#4BD3D8] text-black shadow-[0_0_20px_rgba(75,211,216,0.3)]" : "text-[#94A3B8] hover:text-white"}`}
                         >
                             IBM + AcceX
                         </button>
-                        <button 
-                            onClick={() => { setCurrMode("regular"); setOpenModule(null); }} 
+                        <button
+                            onClick={() => { setCurrMode("regular"); setOpenModule(null); }}
                             className={`px-8 sm:px-12 py-3 sm:py-4 rounded-full text-[13px] sm:text-sm font-bold transition-all duration-500 ${currMode === "regular" ? "bg-[#4BD3D8] text-black shadow-[0_0_20px_rgba(75,211,216,0.3)]" : "text-[#94A3B8] hover:text-white"}`}
                         >
                             Regular
@@ -436,7 +436,7 @@ const Curriculum = () => {
                             key={i}
                             className={`group relative border transition-all duration-300 rounded-[24px] overflow-hidden ${openModule === i ? 'bg-[#111] border-[#4BD3D8]/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : 'bg-[#0D0D0D] border-white/5 hover:border-white/10'}`}
                         >
-                            <div 
+                            <div
                                 onClick={() => setOpenModule(openModule === i ? null : i)}
                                 className="p-6 sm:p-8 flex items-center justify-between cursor-pointer select-none"
                             >
@@ -467,7 +467,7 @@ const Curriculum = () => {
                                             {m.goal}
                                         </p>
                                     </div>
-                                    
+
                                     {/* Sessions List */}
                                     <div className="grid grid-cols-1 gap-4">
                                         <span className="text-white/30 text-[11px] font-black tracking-widest uppercase block mb-2 pl-2">Key Sessions</span>
@@ -560,7 +560,7 @@ const Mentors = () => (
 const Tools = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center overflow-hidden border-t border-white/5">
         <div className="max-w-[1285px] flex flex-col items-center relative px-4 sm:px-6 md:px-0">
-            <GradientLabel text="PROGRAMS TOOLS" />
+            <GradientLabel text="TOOLS" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-14 text-center">Tools You Will Work With and Master</h2>
 
             <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ height: "120px" }}>
@@ -599,7 +599,7 @@ const Tools = () => (
 const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
-            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <GradientLabel text="SKILLSET" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-12 sm:mb-20">AI Product Management Skill Checklist</h2>
 
             <div className="relative min-h-[300px]">
@@ -852,7 +852,7 @@ const Pricing = () => (
     <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
         <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-14">
-                <GradientLabel text="PROGRAMS DESCRIPTION" />
+                <GradientLabel text="PRICING" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Choose Your AI Product Management Learning Path</h2>
                 <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[800px] mx-auto leading-relaxed">
                     Flexible pricing options designed for professionals who want to build AI-powered products and real-world applications.

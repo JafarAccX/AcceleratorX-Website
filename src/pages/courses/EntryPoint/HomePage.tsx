@@ -583,9 +583,9 @@ function HomePage() {
 
     // ── HERO SECTION ─────────────────────────────────────────────
     const heroSection = (
-        <section className="relative min-h-[700px] xl:min-h-[850px] pb-10 xl:pb-0 bg-[#0A0A0A] overflow-x-hidden">
+        <section className="relative min-h-[600px] lg:min-h-[850px] bg-[#0A0A0A] overflow-hidden flex items-center justify-center pt-[80px]">
             {/* Badge styles are now consolidated in index.css */}
-            <div className="max-w-[1440px] mx-auto relative flex flex-col xl:flex-row gap-12 xl:gap-[60px] items-center xl:items-start pt-20 xl:pt-0 px-4 sm:px-6 lg:px-8 z-10">
+            <div className="w-full max-w-[1440px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-[70px] z-10 gap-10 lg:gap-0">
                 <div
                     className="absolute left-[10%] lg:left-[70px] z-0 pointer-events-none"
                     style={{
@@ -604,46 +604,44 @@ function HomePage() {
                     />
                 </div>
 
-                <div className="relative z-10 w-full px-4 xl:pl-[70px] pt-[80px] xl:pt-[232px] flex flex-col gap-10 items-center xl:items-start text-center xl:text-left">
-                    <div className="flex flex-col gap-6 xl:gap-8">
-                        <h1 className="font-['Inter',sans-serif] font-medium text-[38px] md:text-[48px] xl:text-[62px] leading-[1.2] xl:leading-[1.1] tracking-tight max-w-[900px] text-white">
+                <div className="relative z-10 w-full lg:w-[612px] flex flex-col gap-6 sm:gap-8 mt-12 md:mt-[100px] lg:mt-[180px] text-center lg:text-left">
+                    <div className="flex flex-col gap-4 sm:gap-6">
+                        <h1 className="font-['Inter',sans-serif] font-medium text-[32px] md:text-[42px] lg:text-[48px] leading-[1.1] tracking-tight max-w-[612px] text-white mx-auto lg:mx-0">
                             Stop Using AI. <br />
                             <span className="text-transparent bg-clip-text bg-[linear-gradient(90deg,#DFDFDF_0%,#384EE0_54.33%)]">
                                 Start Building
                             </span> With It.
                         </h1>
-                        <p className="text-[15px] md:text-[18px] xl:text-[20px] text-[#94a3b8] max-w-[720px] font-medium leading-[1.6] text-center xl:text-left">
+                        <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[24px] sm:leading-[26px] text-[#94a3b8] font-normal max-w-[569px] opacity-80 mx-auto lg:mx-0">
                             AI Courses in India For Working Professionals, Freshers and Business Owners. Focusing on project and real career outcomes.
                         </p>
                     </div>
-                    <div className="flex flex-col sm:flex-row items-center justify-center xl:justify-start gap-8 xl:gap-14 mt-18 xl:mt-36">
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 lg:gap-14 pt-32 lg:pt-48">
                         <div
                             className="flex items-center group cursor-pointer transition-all duration-300 transform hover:scale-[1.02]"
                             onClick={() => document.getElementById('programs-section')?.scrollIntoView({ behavior: 'smooth' })}
                         >
-                            <button className="h-[52px] xl:h-[58px] px-8 xl:px-10 bg-[#3E38DE] text-white text-[16px] xl:text-[18px] font-bold rounded-full shadow-[0_8px_32px_rgba(62,56,222,0.35)] z-20 group-hover:brightness-110 whitespace-nowrap">
+                            <button className="h-[48px] sm:h-[54px] px-5 sm:px-8 bg-[#3E38DE] text-white text-[14px] sm:text-[16px] font-bold rounded-full shadow-[0_8px_32px_rgba(62,56,222,0.35)] z-20 group-hover:brightness-110 whitespace-nowrap">
                                 Explore Our Programs
                             </button>
-                            <div className="w-[52px] xl:w-[58px] h-[52px] xl:h-[58px] bg-[#3E38DE] text-white rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(62,56,222,0.35)] -ml-[1px] z-10 group-hover:brightness-110">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">
+                            <div className="w-[48px] sm:w-[54px] h-[48px] sm:h-[54px] bg-[#3E38DE] text-white rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(62,56,222,0.35)] -ml-[1px] z-10 group-hover:brightness-110">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">
                                     <path d="M7 17L17 7" />
                                     <path d="M7 7h10v10" />
                                 </svg>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
 
-                <div className="w-full xl:w-[600px] h-auto relative flex justify-center xl:justify-end mt-12 md:mt-16 xl:mt-[150px] z-30">
+                <div className="w-full lg:w-[649px] h-auto relative flex justify-center lg:justify-end">
                     <div
-                        className="relative w-full max-w-[360px] sm:max-w-[460px] md:max-w-[540px] lg:max-w-[580px] lg:w-[580px] aspect-[580/680] lg:h-[680px] bg-gradient-to-b from-[#141414] via-[#1a1c4e] to-[#25287e] rounded-[32px] sm:rounded-[40px] border border-white/10 overflow-hidden shadow-2xl"
+                        className="relative w-full max-w-[350px] sm:max-w-[500px] lg:max-w-[649px] lg:w-[649px] aspect-[649/683] lg:h-[683px] bg-gradient-to-b from-[#141414] via-[#1a1c4e] to-[#25287e] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 lg:mt-0 shadow-2xl"
                     >
                         <img
                             src={ASSETS.heroImage}
                             alt="AI Student"
-                            className="absolute bottom-[-1.5%] left-1/2 -translate-x-1/2 h-[105%] w-auto object-contain z-10"
+                            className="absolute bottom-[-28px] left-[55%] -translate-x-1/2 h-full w-auto object-contain scale-[1.05] z-10"
                             draggable={false}
                             loading="eager"
                             fetchpriority="high"
@@ -651,14 +649,13 @@ function HomePage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 to-transparent z-20 pointer-events-none" />
 
                         {/* Top Left Asset: Happy Students Card */}
-                        <div className="absolute top-[5%] left-[5%] z-30 shadow-2xl">
-                            <img src="/assets/happystudents.png" alt="Happy Students" className="w-[110px] sm:w-[160px] lg:w-[170px] h-auto object-contain rounded-[16px]" draggable={false} />
+                        <div className="absolute top-[4%] sm:top-[6%] left-[4%] sm:left-[6%] z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+                            <img src="/assets/happystudents.png" alt="Happy Students" className="w-[110px] sm:w-[140px] md:w-[165px] lg:w-[190px] h-auto object-contain rounded-[16px]" draggable={false} />
                         </div>
 
                         {/* Top Right Asset: IBM Collaboration */}
-                        <div className="absolute top-[5%] right-[6%] z-30 flex flex-col items-end gap-1">
-
-                            <img src="/assets/ibm.png" alt="IBM" className="h-[35px] sm:h-[40px] lg:h-[65px] xl:h-[75px] brightness-0 invert opacity-90" draggable={false} />
+                        <div className="absolute top-[4%] sm:top-[6%] right-[2%] sm:right-[4%] z-30 flex flex-col items-end gap-1">
+                            <img src="/assets/ibm.png" alt="IBM" className="h-[35px] sm:h-[48px] lg:h-[64px] brightness-0 invert opacity-90" draggable={false} />
                         </div>
 
                         {floatingBadges.map((badge, idx) => (
@@ -697,7 +694,7 @@ function HomePage() {
             <p className="text-center text-[#F5F7FF] text-[32px] md:text-[32px] font-medium font-inter mb-4 leading-none tracking-normal">
                 Our Alumni Are Working Across 1700+ Top MNCs
             </p>
-            <p className="text-center text-[#C2C2C2] text-[16px] font-medium font-inter mb-12 max-w-[892px] mx-auto leading-none tracking-normal">
+            <p className="text-center text-[#C2C2C2] text-[16px] font-medium font-inter mb-12 max-w-[950px] mx-auto leading-none tracking-normal">
                 Get hired in AI, product, marketing, and data roles. AcceleratorX AI courses are trusted by 1700+ companies globally.
             </p>
 
@@ -844,7 +841,7 @@ function HomePage() {
                         2700+ Success Stories
                     </h2>
                     <div className="w-full flex justify-center">
-                        <p className="text-[#C2C2C2] text-[16px] md:text-[18px] font-medium leading-relaxed mx-auto max-w-[1000px]">
+                        <p className="text-[#C2C2C2] text-[16px] md:text-[18px] font-medium leading-relaxed mx-auto max-w-[1100px]">
                             Professionals like you are already making the shift. Hear directly from our learner who transitioned into an AI-led career
                         </p>
                     </div>

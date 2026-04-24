@@ -381,7 +381,7 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS BENEFITS" />
+                <GradientLabel text="PROGRAMS DESIGN" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World Marketing Execution</h2>
                 <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto mb-12 sm:mb-20 leading-relaxed font-medium">
                     You learn by building AI-powered campaigns,funnels,automation systems.
@@ -606,7 +606,7 @@ const Mentors = () => (
 const Tools = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center overflow-hidden border-t border-white/5">
         <div className="max-w-[1285px] flex flex-col items-center relative px-4 sm:px-6 md:px-0">
-            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <GradientLabel text="TOOLS" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 text-center">Tools You Will Work With</h2>
 
             <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ height: "120px" }}>
@@ -649,7 +649,7 @@ const Tools = () => (
 const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
-            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <GradientLabel text="SKILLSET" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">AI Digital Marketing Skill Checklist</h2>
 
             <div className="relative min-h-[300px]">
