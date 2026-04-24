@@ -15,7 +15,7 @@ export const pageMetadata: Record<string, PageMetadata> = {
     description: "AcceleratorX offers expert-led programs in Product Management, Data Analytics, Generative AI, and Marketing to accelerate your career growth.",
     ogTitle: "AcceleratorX - Future Skills for Career Growth",
     ogDescription: "Learn Product Management, AI, and Data Analytics at AcceleratorX with hands-on training and real-world projects.",
-    ogImage: "/redesign/logo-bg-black.webp",
+    ogImage: "/assets/accelerator.png",
     canonicalUrl: "https://acceleratorx.org/"
   },
 
@@ -429,7 +429,7 @@ export function getPageMetadata(path: string): PageMetadata {
     description: "AcceleratorX offers expert-led programs in Product Management, Data Analytics, Generative AI, and Marketing to accelerate your career growth.",
     ogTitle: "AcceleratorX - Future Skills for Career Growth",
     ogDescription: "Learn Product Management, AI, and Data Analytics at AcceleratorX with hands-on training and real-world projects.",
-    ogImage: "/redesign/logo-bg-black.webp",
+    ogImage: "/assets/accelerator.png",
     canonicalUrl: "https://acceleratorx.org/"
   };
 }

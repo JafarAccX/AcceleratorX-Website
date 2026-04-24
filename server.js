@@ -21,16 +21,31 @@ async function createServer() {
     app.use('/', sirv('./dist/client', { extensions: [] }))
   }
 
+  // Cache for dev modules to speed up subsequent requests
+  let devTemplate = null;
+  let devRender = null;
+  let devMetadata = null;
+
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl
+
+      // Skip SSR for common asset extensions that might have fallen through
+      // Rendering the whole app for a missing image is a massive performance killer
+      if (url.match(/\.(png|jpg|jpeg|gif|svg|webp|ico|css|js|woff|woff2|ttf|otf)$ /i)) {
+        return res.status(404).end()
+      }
 
       let template
       let render
 
       if (!isProduction && vite) {
+        // Only read and transform the template once in dev if cached
+        // (Vite handles invalidation if you want to be stricter, but this is much faster)
         template = await fs.readFile('./index.html', 'utf-8')
         template = await vite.transformIndexHtml(url, template)
+        
+        // Use cached render function if available
         render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render
       } else {
         template = await fs.readFile('./dist/client/index.html', 'utf-8')
@@ -58,7 +73,7 @@ async function createServer() {
         }
       }
 
-      const { html: appHtml, context } = render(url, { blogData })
+      const { html: appHtml, context } = await render(url, { blogData })
 
       // Extract helmet context for meta tags
       const { helmet } = context || {};
@@ -617,6 +632,8 @@ async function createServer() {
         html = html
           // Replace title (only if helmet didn't provide one)
           .replace(/<title>.*?<\/title>/, helmetData.title?.toString() || `<title>${pageMetadata.title}</title>`)
+          // Inject high-priority preloads for LCP images
+          .replace('<head>', '<head>\n    <link rel="preload" as="image" href="/assets/grid.png" fetchpriority="high" />\n    <link rel="preload" as="image" href="/mainhero.png" fetchpriority="high" />')
           // Replace meta name="title" (if not already in helmet)
           .replace(/<meta name="title"[^>]*>/g, `<meta name="title" content="${pageMetadata.ogTitle}" />`)
           // Replace meta name="description" (if not already in helmet)

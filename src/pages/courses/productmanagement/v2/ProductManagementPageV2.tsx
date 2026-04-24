@@ -17,6 +17,7 @@ const {
     CAREER_ROLES,
     PRICING_PLANS,
     FAQS,
+    MAIN_LOGOS,
 } = Constants;
 
 // ── Global Styles (Matching GenAI & AIDM) ───────────────────────────
@@ -54,12 +55,12 @@ const GradientLabel = ({ text, highlight }: GradientLabelProps) => (
     <div className="flex justify-center mb-4">
         <div
             className={`font-['Open_Sans',sans-serif] font-bold text-[12px] leading-[16px] tracking-[1.2px] uppercase bg-clip-text text-transparent flex ${highlight ? 'gap-1' : 'gap-0'}`}
-            style={{ backgroundImage: "linear-gradient(90deg, #45E4C9 0%, #2DD4BF 33%, #22D3EE 66%, #06B6D4 100%)" }}
+            style={{ backgroundImage: "linear-gradient(90deg, #4C5BFA 0%, #4BD3D8 100%)" }}
         >
             {highlight ? (
                 <>
                     <span>{text.split(highlight)[0].trim()}</span>
-                    <span className="text-[#45E4C9]">{highlight}</span>
+                    <span className="text-[#4BD3D8]">{highlight}</span>
                     <span>{text.split(highlight)[1].trim()}</span>
                 </>
             ) : (
@@ -79,12 +80,12 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                 backgroundSize: "32px 32px",
             }} />
 
-            <div className="w-full max-w-[1295px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-0 z-10 gap-10 lg:gap-0">
+            <div className="w-full max-w-[1440px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-[70px] z-10 gap-10 lg:gap-0">
                 <div className="w-full lg:w-[612px] flex flex-col gap-6 sm:gap-8 lg:mt-[60px] text-center lg:text-left">
                     <div className="flex flex-col gap-4 sm:gap-6">
                         <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-medium leading-[1.1] tracking-tight max-w-[612px] text-white mx-auto lg:mx-0">
                             4 Month Nano-Degree in <br className="hidden lg:block" />
-                            <span className="bg-gradient-to-r from-[#FFFFFF] via-[#45E4C9] to-[#2DD4BF] bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-[#FFFFFF] via-[#4C5BFA] to-[#4BD3D8] bg-clip-text text-transparent">
                                 AI Product Management
                             </span>
                         </h1>
@@ -95,39 +96,45 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
 
                     <div className="w-full max-w-[500px] h-auto rounded-[24px] backdrop-blur-[20px] flex flex-col sm:flex-row items-center p-4 sm:p-6 gap-4 sm:gap-6 self-center lg:self-start relative overflow-hidden border-t border-t-white/10 border-b border-b-white/5 border-x-0">
                         <div className="absolute inset-0 z-0 opacity-40" style={{ background: "linear-gradient(90deg, rgba(10, 10, 10, 0.4) 0%, rgba(20, 20, 20, 0.6) 100%)" }} />
-                        <div className="flex-1 flex items-center gap-4 z-10">
-                            <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
-                                <img src={ASSETS.bagIcon} alt="Jobs" className="w-6 h-6 object-contain" />
-                            </div>
-                            <div className="text-left">
-                                <div className="text-[20px] sm:text-[22px] font-bold leading-tight">2000+</div>
-                                <div className="text-[13px] text-[#EAEAEA]">Learners</div>
-                            </div>
-                        </div>
-                        <div className="w-full sm:w-[1px] h-[1px] sm:h-10 bg-white/[0.1] z-10" />
-                        <div className="flex-1 flex items-center gap-4 z-10">
-                            <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
-                                <img src={ASSETS.rupeeIcon} alt="CTC" className="w-6 h-6 object-contain" />
-                            </div>
-                            <div className="text-left">
-                                <div className="text-[20px] sm:text-[22px] font-bold leading-tight">4.8/5</div>
-                                <div className="text-[13px] text-[#EAEAEA]">Average Rating</div>
+                        <div className="flex-1 flex flex-col sm:flex-row items-center sm:justify-start gap-4 sm:gap-6 z-10 w-full">
+                            <div className="flex flex-col items-start sm:items-center sm:flex-row gap-4 sm:gap-6 mx-auto sm:mx-0">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
+                                        <img src={ASSETS.bagIcon} alt="Jobs" className="w-6 h-6 object-contain" />
+                                    </div>
+                                    <div className="text-left">
+                                        <div className="text-[20px] sm:text-[22px] font-bold leading-tight">2000+</div>
+                                        <div className="text-[13px] text-[#EAEAEA]">Learners</div>
+                                    </div>
+                                </div>
+                                <div className="hidden sm:block w-[1px] h-10 bg-white/[0.1]" />
+                                <div className="sm:hidden w-full h-[1px] bg-white/[0.1] my-1" />
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
+                                        <img src={ASSETS.rupeeIcon} alt="CTC" className="w-6 h-6 object-contain" />
+                                    </div>
+                                    <div className="text-left">
+                                        <div className="text-[20px] sm:text-[22px] font-bold leading-tight">4.8/5</div>
+                                        <div className="text-[13px] text-[#EAEAEA]">Average Rating</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="w-full lg:w-[679px] flex flex-col gap-5 items-center lg:items-start overflow-hidden">
                         <div className="text-[10px] sm:text-[11px] font-bold text-white tracking-[0.1em] uppercase opacity-60">
-                            TOP COMPANIES HIRING RIGHT NOW (INDIA & ABROAD)
+                            Learners working across 1700+ companies
                         </div>
                         <div className="relative w-full overflow-hidden" style={{
                             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                             maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                         }}>
-                            <div className="flex w-max gap-8 sm:gap-12 animate-infinite-scroll-left py-2">
+                            <style>{`@keyframes slide-logos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } .animate-logos { animation: slide-logos 80s linear infinite; }`}</style>
+                            <div className="flex w-max gap-8 sm:gap-12 animate-logos py-2">
                                 {[1, 2, 3, 4].map((group) => (
-                                    <div key={group} className="flex items-center gap-8 sm:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                                        {ALUMNI_LOGOS.map((logo) => (
+                                    <div key={group} className="flex items-center gap-8 sm:gap-12 opacity-60">
+                                        {MAIN_LOGOS.map((logo) => (
                                             <img key={logo.name} src={logo.url} alt={logo.name} className="h-[24px] sm:h-[32px] object-contain" />
                                         ))}
                                     </div>
@@ -136,35 +143,35 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-2">
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 lg:gap-14 pt-2">
                         <a href="#programs" className="group flex items-center cursor-pointer">
-                            <button className="h-[48px] sm:h-[54px] px-5 sm:px-8 bg-[#45E4C9] border-2 border-transparent rounded-full font-bold text-black text-[14px] sm:text-[16px] transition-all duration-300 group-hover:bg-transparent group-hover:border-[#45E4C9] group-hover:text-white">
+                            <button className="h-[48px] sm:h-[54px] px-5 sm:px-8 bg-[#4BD3D8] border-2 border-transparent rounded-full font-bold text-black text-[14px] sm:text-[16px] transition-all duration-300 group-hover:bg-transparent group-hover:border-[#4BD3D8] group-hover:text-white">
                                 Explore Our Programs
                             </button>
-                            <div className="-ml-[1px] w-[48px] sm:w-[54px] h-[48px] sm:h-[54px] rounded-full bg-[#45E4C9] border-2 border-transparent flex items-center justify-center transition-all duration-300 group-hover:bg-transparent group-hover:border-[#45E4C9]">
+                            <div className="-ml-[1px] w-[48px] sm:w-[54px] h-[48px] sm:h-[54px] rounded-full bg-[#4BD3D8] border-2 border-transparent flex items-center justify-center transition-all duration-300 group-hover:bg-transparent group-hover:border-[#4BD3D8]">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:stroke-white">
                                     <path d="M7 17L17 7" /><path d="M7 7h10v10" />
                                 </svg>
                             </div>
                         </a>
-                        <div 
+                        <div
                             onClick={onDownloadBrochure}
                             className="flex items-center text-[14px] sm:text-[16px] font-bold text-white group whitespace-nowrap cursor-pointer"
                         >
-                            <span className="border-b-2 border-white/40 group-hover:border-white transition-all">Download Brochure</span>
-                            <span className="ml-2 text-lg">→</span>
+                            <span className="pb-[10px] border-b-2 border-[#4BD3D8]/100 group-hover:border-[#4BD3D8] transition-all">Download Brochure</span>
+                            <span className="ml-2 text-lg pb-[10px]">→</span>
                         </div>
                     </div>
                 </div>
 
                 <div className="w-full lg:w-[649px] h-auto relative flex justify-center lg:justify-end">
-                    <div className="relative w-full max-w-[350px] sm:max-w-[500px] lg:max-w-[649px] lg:w-[649px] aspect-[649/683] lg:h-[683px] bg-gradient-to-b from-[#000000] to-[#45E4C9] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 lg:mt-0">
+                    <div className="relative w-full max-w-[350px] sm:max-w-[500px] lg:max-w-[649px] lg:w-[649px] aspect-[649/683] lg:h-[683px] bg-gradient-to-b from-[#000000] to-[#4BD3D8] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 lg:mt-0">
                         <img src={ASSETS.heroImage} alt="Accelerator Student" className="absolute bottom-[-28px] left-[55%] -translate-x-1/2 h-full w-auto object-contain scale-[1.05] z-10" />
                         <div className="absolute top-[4%] sm:top-[6%] right-[2%] sm:right-[4%] z-30">
-                            <img src={ASSETS.ibmLogo} alt="IBM" className="h-[40px] sm:h-[54px] lg:h-[74px] brightness-200" />
+                            <img src={ASSETS.ibmLogo} alt="IBM" className="h-[35px] sm:h-[48px] lg:h-[64px] brightness-200" />
                         </div>
                         <div className="absolute top-[4%] sm:top-[6%] left-[4%] sm:left-[6%] z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
-                            <img src={ASSETS.studentsGrp} alt="Happy Students" className="w-[120px] sm:w-[150px] lg:w-[190px] h-auto object-contain" />
+                            <img src={ASSETS.studentsGrp} alt="Happy Students" className="w-[110px] sm:w-[140px] md:w-[165px] lg:w-[190px] h-auto object-contain" />
                         </div>
 
                         {/* Floating Pills */}
@@ -190,16 +197,16 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
 // ── Component: AlumniLogos ───────────────────────────────────────────────
 const AlumniLogos = () => (
     <section className="w-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[70px] py-12 sm:py-16 lg:py-24 pb-16 sm:pb-20 lg:pb-32 overflow-hidden">
-        <GradientLabel text="SOCIAL PROOF" highlight="PROOF" />
-        <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium mb-3 px-4">Our Alumni Are Working across 1700+ Top MNCs</p>
-        <p className="text-center text-[#94A3B8] text-sm sm:text-base md:text-[16px] font-medium mb-10 sm:mb-12 lg:mb-16 max-w-[1047px] mx-auto leading-relaxed px-4">
-            Our learners are building AI-powered dashboards, automated systems, and data-driven decision models across top companies in India.
+        <GradientLabel text="SOCIAL PROOF" />
+        <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium mb-3 px-4">Our Alumni Are Working Across 1700+ Top MNCs</p>
+        <p className="text-center text-[#C2C2C2] text-sm sm:text-base md:text-[16px] font-medium mb-10 sm:mb-12 lg:mb-16 max-w-[1047px] mx-auto leading-relaxed px-4">
+            Our learners are building AI-powered dashboards, automated systems, and real world products solutions across top companies in India.
         </p>
         <div className="relative w-full overflow-hidden" style={{
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
             maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
         }}>
-            <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left hover:[animation-play-state:paused]">
+            <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left">
                 {[...ALUMNI_LOGOS, ...ALUMNI_LOGOS, ...ALUMNI_LOGOS, ...ALUMNI_LOGOS].map((brand, idx) => (
                     <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8">
                         <img src={brand.url} alt={brand.name} style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain" />
@@ -218,28 +225,32 @@ const Roadmap = () => {
     return (
         <section className="min-h-[500px] lg:min-h-[815px] py-12 sm:py-16 lg:py-24 px-4 md:px-8 lg:px-[70px] bg-[#0A0A0A]">
             <div className="max-w-[1440px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS ROADMAP" highlight="ROADMAP" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2">AI Product Management Roadmap for Working Professionals & Freshers</h2>
-                <p className="text-[#94A3B8] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
+                <GradientLabel text="PROGRAMS ROADMAP" />
+                <p className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2"> AI Product Management Roadmap for Working Professionals & Freshers</p>
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
                     2,000+ learners across India are transitioning into AI Product roles by building real products and applying AI in product decision-making.
                 </p>
 
                 <div className="inline-flex items-center p-[6px] rounded-full mb-10 sm:mb-16 bg-[#0D0D0D] border border-white/10">
-                    <button onClick={() => setRoadmapPath("switch")} className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "switch" ? "bg-[#45E4C9] text-black" : "text-[#9CA3AF] hover:text-white"}`}>Career Switch</button>
-                    <button onClick={() => setRoadmapPath("freshers")} className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "freshers" ? "bg-[#45E4C9] text-black" : "text-[#9CA3AF] hover:text-white"}`}>Freshers</button>
+                    <button onClick={() => setRoadmapPath("switch")} className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "switch" ? "bg-[#4BD3D8] text-black" : "text-[#9CA3AF] hover:text-white"}`}>Career Switch</button>
+                    <button onClick={() => setRoadmapPath("freshers")} className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "freshers" ? "bg-[#4BD3D8] text-black" : "text-[#9CA3AF] hover:text-white"}`}>Freshers</button>
                 </div>
 
                 <div className="flex flex-col items-center">
-                    <h2 className="text-white font-medium text-[16px] sm:text-[18px] mb-4 tracking-tight">Transition into AI Product Roles with a Structured Learning Path</h2>
-                    <div className="inline-flex items-center justify-center px-3 py-[4px] rounded-[30px] border border-[#45E4C9] bg-white/5 text-[#45E4C9] text-[11px] sm:text-[12px] font-bold leading-[20px] uppercase mb-[40px] sm:mb-[90px]">
+                    <p className="text-white font-medium text-[16px] sm:text-[18px] mb-4 tracking-tight">
+                        {roadmapPath === "freshers"
+                            ? "Start Your Career in Ai Product Management From zero"
+                            : "Transition into AI Product Roles with a Structured Learning Path"}
+                    </p>
+                    <div className="inline-flex items-center justify-center px-3 py-[4px] rounded-[30px] border border-[#4BD3D8] bg-white/5 text-[#4BD3D8] text-[11px] sm:text-[12px] font-bold leading-[20px] uppercase mb-[40px] sm:mb-[90px]">
                         {roadmapPath === "freshers" ? "FRESHERS PATH" : "CAREER SWITCHERS PATH"}
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-1 gap-y-4 sm:gap-y-6 w-full max-w-[1288px] mb-4 sm:mb-6 mx-auto">
                     {currentPath.slice(0, 4).map((item, idx) => (
-                        <div key={idx} className={`relative group w-full max-w-[664px] h-[100px] sm:h-[111px] mx-auto cursor-pointer ${idx % 2 !== 0 ? 'md:ml-[-1px]' : ''}`}>
-                            <svg width="100%" height="100%" viewBox="0 0 664 111" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                        <div key={idx} className={`relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 mx-auto cursor-pointer ${idx % 2 !== 0 ? 'md:ml-[-1px]' : ''}`}>
+                            <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
                                 <path
                                     d={idx % 2 === 0
                                         ? "M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z"
@@ -257,7 +268,7 @@ const Roadmap = () => {
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px]">{item.title}</h3>
                                 </div>
                                 <div className="pl-8 sm:pl-11">
-                                    <p className="text-[12px] sm:text-[14px] text-[#CFCFCF] font-normal leading-[20px] sm:leading-[24px] text-left">{item.desc}</p>
+                                    <p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] text-left">{item.desc}</p>
                                 </div>
                             </div>
                         </div>
@@ -266,8 +277,8 @@ const Roadmap = () => {
 
                 <div className="w-full flex justify-center mt-2 sm:mt-4">
                     {currentPath[4] && (
-                        <div className="relative group w-full max-w-[664px] h-[100px] sm:h-[111px] cursor-pointer">
-                            <svg width="100%" height="100%" viewBox="0 0 664 111" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                        <div className="relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 cursor-pointer">
+                            <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
                                 <path
                                     d="M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z"
                                     className="fill-[#0A0A0A] stroke-white/10 transition-all duration-300 group-hover:stroke-white/30"
@@ -282,13 +293,16 @@ const Roadmap = () => {
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px]">{currentPath[4].title}</h3>
                                 </div>
                                 <div className="pl-8 sm:pl-11">
-                                    <p className="text-[12px] sm:text-[14px] text-[#CFCFCF] font-normal leading-[20px] sm:leading-[24px] text-left">{currentPath[4].desc}</p>
+                                    <p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] text-left">{currentPath[4].desc}</p>
                                 </div>
                             </div>
                         </div>
                     )}
                 </div>
             </div>
+            <p className="text-center text-[#C2C2C2] text-[14px] sm:text-[16px] font-medium mt-6 px-4 leading-relaxed">
+                You’re not starting from scratch, you’re upgrading into an AI-first Product Manager.
+            </p>
         </section>
     );
 };
@@ -296,9 +310,9 @@ const Roadmap = () => {
 // ── Component: ProgramDesign ───────────────────────────────────────────────────
 const programBenefits = [
     {
-        icon: <img src="/assets/COMPUTER.png" alt="Mentorship" className="w-8 h-8 object-contain" />,
-        title: "1:1 Mentorship from Product Leaders",
-        desc: <>Learn directly from professionals working in <span className="text-white font-bold">product, AI, and growth roles.</span></>
+        icon: <img src="/assets/productmanagement/leftrbag.png" alt="Mentorship" className="w-8 h-8 object-contain" />,
+        title: "Personalized 1:1 Mentorship",
+        desc: <>2,000+ learners across India — from Bengaluru to Bhilai — are already building real AI skills and getting into top companies. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</>
     },
     {
         icon: <img src="/assets/COMPUTER.png" alt="Live Project-Based Learning" className="w-8 h-8 object-contain" />,
@@ -336,10 +350,10 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAM BENEFITS" highlight="BENEFITS" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World AI Execution</h2>
+                <GradientLabel text="PROGRAMS BENEFITS" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World Product Execution with AI</h2>
                 <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto mb-12 sm:mb-20 leading-relaxed font-medium">
-                    You learn by building AI-powered product strategies, solving user problems, and executing real-world business applications.
+                    This is not a theory-heavy course. You learn by building AI-powered product workflows, case studies, and real business applications.
                 </p>
 
                 <div className="flex flex-col lg:flex-row gap-6 sm:gap-[40px] items-center justify-center max-w-[1188px] mx-auto">
@@ -350,15 +364,15 @@ const ProgramDesign = () => {
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
                             <img src="/assets/programdesign.png" alt="Program Design" className="w-full h-full object-contain" />
-                            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-xl shadow-2xl text-left">
+                            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-sm shadow-2xl text-left">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% Industry Experts</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="flex flex-col items-center gap-6 flex-shrink-0 w-full max-w-[543px]">
-                        <div className="relative w-full aspect-[543/334] rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/10 bg-[#0A0A0A]/60 backdrop-blur-xl shadow-2xl">
-                             <div className={`flex w-full h-full transition-transform ${isReturning ? "duration-1000 ease-in-out" : "duration-[450ms] ease-out"}`} style={{ transform: `translateX(-${activeBenefitIndex * 100}%)` }}>
+                        <div className="relative w-full aspect-[543/334] rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/10 bg-[#0A0A0A]/60 backdrop-blur-sm shadow-2xl">
+                            <div className={`flex w-full h-full transition-transform ${isReturning ? "duration-1000 ease-in-out" : "duration-[450ms] ease-out"}`} style={{ transform: `translateX(-${activeBenefitIndex * 100}%)` }}>
                                 {programBenefits.map((benefit, idx) => (
                                     <div key={idx} className="min-w-full h-full p-8 sm:p-10 text-left flex flex-col justify-center">
                                         <div className="flex items-center gap-3 mb-6">
@@ -372,7 +386,7 @@ const ProgramDesign = () => {
                         </div>
                         <div className="flex gap-3">
                             {[0, 1, 2, 3].map((i) => (
-                                <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeBenefitIndex ? "bg-[#45E4C9] w-6" : "bg-white/20"}`} />
+                                <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeBenefitIndex ? "bg-[#4BD3D8] w-6" : "bg-white/20"}`} />
                             ))}
                         </div>
                     </div>
@@ -385,30 +399,87 @@ const ProgramDesign = () => {
 // ── Component: Curriculum ─────────────────────────────────────────────────────
 const Curriculum = () => {
     const [currMode, setCurrMode] = useState<"ibm" | "regular">("ibm");
-    const [openModule, setOpenModule] = useState<number | null>(null);
+    const [openModule, setOpenModule] = useState<number | null>(0);
     const currModules = currMode === "ibm" ? ibmModules : regularModules;
 
     return (
-        <section id="programs" className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
-            <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="CURRICULUM" highlight="CURRICULUM" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-6">Program Curriculum</h2>
-                <div className="inline-flex bg-[#111] p-1.5 rounded-full border border-white/[0.08] mb-12">
-                    <button onClick={() => setCurrMode("ibm")} className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${currMode === "ibm" ? "bg-[#45E4C9] text-black" : "text-white"}`}>IBM + AcceX</button>
-                    <button onClick={() => setCurrMode("regular")} className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${currMode === "regular" ? "bg-[#45E4C9] text-black" : "text-white"}`}>Regular</button>
+        <section id="programs" className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] relative overflow-hidden">
+            <div className="max-w-[1100px] mx-auto relative z-10">
+                <div className="text-center mb-10 sm:mb-16">
+                    <GradientLabel text="PROGRAM CURRICULUM" />
+                    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium mt-4 text-white mb-4 sm:mb-6 leading-tight">What You Will Learn in This AI Product Management Course</h2>
+                    <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[900px] mx-auto mb-10 leading-relaxed">
+                        This program covers everything from product fundamentals to AI-powered product workflows and decision systems.
+                    </p>
                 </div>
 
-                <div className="flex flex-col gap-4 max-w-[1000px] mx-auto">
-                    {currModules.map((m, i) => (
-                        <div key={i} onClick={() => setOpenModule(openModule === i ? null : i)} className="p-6 bg-[#0D0D0D] border border-white/5 rounded-xl text-left cursor-pointer transition-all hover:bg-[#111]">
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center gap-4">
-                                    <span className="text-[#45E4C9] font-bold">0{i + 1}</span>
-                                    <h3 className="text-white font-bold">{m.title}</h3>
+                <div className="flex justify-center mb-16">
+                    <div className="inline-flex bg-[#111] p-1.5 rounded-full border border-white/[0.05] shadow-2xl">
+                        <button 
+                            onClick={() => { setCurrMode("ibm"); setOpenModule(null); }} 
+                            className={`px-8 sm:px-12 py-3 sm:py-4 rounded-full text-[13px] sm:text-sm font-bold transition-all duration-500 ${currMode === "ibm" ? "bg-[#4BD3D8] text-black shadow-[0_0_20px_rgba(75,211,216,0.3)]" : "text-[#94A3B8] hover:text-white"}`}
+                        >
+                            IBM + AcceX
+                        </button>
+                        <button 
+                            onClick={() => { setCurrMode("regular"); setOpenModule(null); }} 
+                            className={`px-8 sm:px-12 py-3 sm:py-4 rounded-full text-[13px] sm:text-sm font-bold transition-all duration-500 ${currMode === "regular" ? "bg-[#4BD3D8] text-black shadow-[0_0_20px_rgba(75,211,216,0.3)]" : "text-[#94A3B8] hover:text-white"}`}
+                        >
+                            Regular
+                        </button>
+                    </div>
+                </div>
+
+                <div className="flex flex-col gap-4 max-w-[1100px] mx-auto">
+                    {currModules.map((m: any, i: number) => (
+                        <div
+                            key={i}
+                            className={`group relative border transition-all duration-300 rounded-[24px] overflow-hidden ${openModule === i ? 'bg-[#111] border-[#4BD3D8]/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : 'bg-[#0D0D0D] border-white/5 hover:border-white/10'}`}
+                        >
+                            <div 
+                                onClick={() => setOpenModule(openModule === i ? null : i)}
+                                className="p-6 sm:p-8 flex items-center justify-between cursor-pointer select-none"
+                            >
+                                <div className="flex items-center gap-6 text-left">
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-[18px] transition-all duration-300 ${openModule === i ? 'bg-[#4BD3D8] text-black' : 'bg-white/5 text-[#4BD3D8]'}`}>
+                                        0{i + 1}
+                                    </div>
+                                    <div>
+                                        <span className={`text-[12px] font-bold tracking-widest uppercase mb-1 block transition-colors duration-300 ${openModule === i ? 'text-[#4BD3D8]' : 'text-[#4BD3D8]/60'}`}>
+                                            {m.week}
+                                        </span>
+                                        <h3 className={`text-[18px] sm:text-[22px] font-bold tracking-tight leading-tight transition-colors duration-300 ${openModule === i ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>
+                                            {m.title}
+                                        </h3>
+                                    </div>
                                 </div>
-                                <ChevronDown className={`transition-transform duration-300 ${openModule === i ? 'rotate-180' : ''}`} />
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${openModule === i ? 'border-[#4BD3D8] bg-[#4BD3D8]/10 text-[#4BD3D8] rotate-180' : 'border-white/10 text-white/40'}`}>
+                                    <ChevronDown className="w-5 h-5" />
+                                </div>
                             </div>
-                            {openModule === i && <p className="mt-4 text-[#A0A8B8] pl-10 text-sm leading-relaxed">{m.desc}</p>}
+
+                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[1500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left">
+                                    {/* Goal Section */}
+                                    <div className="mb-8 p-4 rounded-xl bg-[#4BD3D8]/5 border-l-4 border-[#4BD3D8]">
+                                        <span className="text-[#4BD3D8] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
+                                        <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
+                                            {m.goal}
+                                        </p>
+                                    </div>
+                                    
+                                    {/* Sessions List */}
+                                    <div className="grid grid-cols-1 gap-4">
+                                        <span className="text-white/30 text-[11px] font-black tracking-widest uppercase block mb-2 pl-2">Key Sessions</span>
+                                        {m.sessions.map((session: string, sIdx: number) => (
+                                            <div key={sIdx} className="flex items-start gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors group/session">
+                                                <div className="w-2 h-2 rounded-full bg-[#4BD3D8] mt-2 shadow-[0_0_8px_rgba(75,211,216,0.6)] group-hover/session:scale-125 transition-transform" />
+                                                <span className="text-[#94A3B8] text-[15px] sm:text-[16px] leading-relaxed group-hover/session:text-white transition-colors font-medium">{session}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -419,37 +490,63 @@ const Curriculum = () => {
 
 // ── Component: Mentors ────────────────────────────────────────────────────────
 const MentorCard = ({ mentor }: { mentor: any }) => (
-    <div className="relative w-[210px] sm:w-[260px] h-[220px] sm:h-[300px] flex-shrink-0">
-        {/* Inner Card with Mentor Image */}
-        <div className="absolute inset-x-0 top-0 bottom-10 rounded-[28px] border border-white/[0.08] bg-gradient-to-br from-[#1E3A3A] to-[#0D0D0D] overflow-hidden">
-            <img src={mentor.image} alt={mentor.name} className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain" />
+    <div className="relative w-[210px] sm:w-[260px] h-[230px] sm:h-[310px] flex-shrink-0 group">
+        {/* Main Card with Left-Fade */}
+        <div
+            className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
+            style={{ background: "linear-gradient(90deg, transparent 0%, #1a1a1e 40%, #1a1a1e 100%)" }}
+        >
+            <img
+                src={mentor.image}
+                alt={mentor.name}
+                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
+            />
         </div>
-        
+
         {/* Floating Logo Top-Right */}
-        <div className="absolute top-[-10px] -right-3 z-40 drop-shadow-[0_4px_10px_rgba(45,212,191,0.3)]">
-            <div className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center bg-white border border-white/20">
-                <img src={mentor.companyLogo} alt="" className="w-full h-full object-contain" />
+        <div className="absolute top-[-15px] -right-7 z-10">
+            <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
+                <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
             </div>
         </div>
 
-        {/* Floating Info Box at Bottom (Data Science Style) */}
-        <div className="absolute bottom-[1px] left-1/2 -translate-x-1/2 w-[85%] sm:w-[95%] h-[65px] sm:h-[80px] rounded-[24px] flex flex-col items-center justify-center text-center z-50 p-3 sm:p-4 border border-white/10 shadow-[0_0_20px_rgba(69,228,201,0.25)] bg-[#0A0A0A]/95 backdrop-blur-md">
-            <div className="text-white text-[12px] sm:text-[14px] font-bold tracking-tight">{mentor.name}</div>
-            <div className="text-white text-[10px] sm:text-[11px] opacity-70 mt-0.5 leading-tight">{mentor.designation}</div>
+        {/* Info Pill — bottom */}
+        <div
+            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[85%] z-50 
+            rounded-full px-5 py-4 text-center 
+            border-l border-r border-b border-[#4BD3D8]/100 border-t-0
+            bg-black/5 backdrop-blur-md
+            transition-all duration-300"
+        >
+            {/* Name */}
+            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-1 mt-[-10px]
+            drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
+                {mentor.name}
+            </div>
+
+            {/* designation */}
+            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight">
+                {mentor.designation} - {mentor.company}
+            </div>
+
+            {/* Accent line */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
+            w-[85%] h-[2px] 
+            bg-gradient-to-r from-transparent via-[#4BD3D8] to-transparent 
+            rounded-full" />
         </div>
     </div>
 );
 
 const Mentors = () => (
-    <section className="py-16 sm:py-24 bg-[#050505] flex flex-col items-center relative overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute left-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#45E4C9]/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute right-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#45E4C9]/5 blur-[120px] rounded-full pointer-events-none" />
-
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center relative overflow-hidden">
         <div className="w-full max-w-full relative flex flex-col items-center z-10 px-4">
-            <GradientLabel text="MENTORS" highlight="MENTORS" />
-            <h2 className="text-3xl sm:text-5xl font-bold text-white mb-16 text-center tracking-tight px-4">Learn from Industry Product & AI Experts</h2>
-            
+            <GradientLabel text="MENTORS" />
+            <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-4 text-center tracking-tight px-4">Learn from Industry Product & AI Experts</h2>
+            <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[900px] mx-auto mb-10 sm:mb-16 leading-relaxed">
+                Get mentored by professionals with 10+ years of experience in product, AI, and growth roles across top companies.
+            </p>
+
             <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
                 <div className="flex flex-nowrap w-fit gap-12 sm:gap-24 animate-infinite-scroll-left py-8 px-12">
                     {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => <MentorCard key={i} mentor={m} />)}
@@ -461,23 +558,76 @@ const Mentors = () => (
 
 // ── Component: Tools ──────────────────────────────────────────────────────────
 const Tools = () => (
-    <section className="py-20 sm:py-32 bg-[#050505] border-t border-white/5 relative overflow-hidden">
-        {/* Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[300px] bg-[#45E4C9]/5 blur-[120px] rounded-full pointer-events-none" />
-        
-        <div className="max-w-[1267px] mx-auto text-center px-4 relative z-10">
-            <GradientLabel text="PROGRAMS TOOLS" highlight="PROGRAMS TOOLS" />
-            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6">Tools</h2>
-            <p className="text-[#94A3B8] text-[14px] sm:text-[16px] max-w-[950px] mx-auto mb-16 leading-relaxed">
-                2,000+ learners across India — from Bengaluru to Bhilai — are already building real AI skills
-                and getting hired at top tech companies. Master the industry-standard tools and AI frameworks used by top product teams to design, build, and scale intelligent products.
-            </p>
-            
-            <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-                <div className="flex flex-nowrap w-fit gap-20 sm:gap-32 animate-infinite-scroll-left items-center py-8">
-                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((t, i) => (
-                        <div key={i} className="flex flex-col items-center flex-shrink-0">
-                            <img src={t.logo} alt={t.name} className="h-10 sm:h-14 w-auto object-contain opacity-100" />
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center overflow-hidden border-t border-white/5">
+        <div className="max-w-[1285px] flex flex-col items-center relative px-4 sm:px-6 md:px-0">
+            <GradientLabel text="PROGRAMS TOOLS" />
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-14 text-center">Tools You Will Work With and Master</h2>
+
+            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ height: "120px" }}>
+                <div className="absolute inset-y-0 left-0 w-20 sm:w-60 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-20 sm:w-60 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+
+                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 px-10 z-20 relative">
+                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
+                        <div key={i} className="flex flex-col items-center gap-3 group cursor-pointer flex-shrink-0">
+                            <div className="relative">
+                                <img
+                                    src={tool.logo}
+                                    alt={tool.name}
+                                    className="h-8 sm:h-12 w-auto object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
+                                />
+                            </div>
+                            <div className="flex flex-col items-center gap-1">
+                                <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest duration-500">
+                                    {tool.name}
+                                </span>
+                                <div className="h-[2px] w-0 bg-white transition-all duration-500 group-hover:w-full"
+                                    style={{ backgroundColor: tool.color || '#4BD3D8' }} />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        </div>
+
+        <div className="w-full h-[1px] bg-white/10 mt-8 sm:mt-12" />
+    </section>
+);
+
+// ── Component: Checklist ──────────────────────────────────────────────────────
+const Checklist = () => (
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
+        <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
+            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-12 sm:mb-20">AI Product Management Skill Checklist</h2>
+
+            <div className="relative min-h-[300px]">
+                <div className="absolute top-10 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/15 to-transparent hidden md:block pointer-events-none" />
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-y-10 sm:gap-y-12 gap-x-3 sm:gap-x-4">
+                    {PM_PHASES.map((phase, i) => (
+                        <div key={i} className="flex flex-col items-center text-center group cursor-default h-full">
+                            <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#111] border-2 border-[#4BD3D8]/20 flex items-center justify-center mb-4 sm:mb-6 relative z-10 group-hover:border-[#4BD3D8]/60 group-hover:bg-[#4BD3D8]/5 transition-all duration-500">
+                                <div
+                                    className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-500 group-hover:scale-110"
+                                    style={{
+                                        backgroundColor: '#4BD3D8',
+                                        maskImage: `url("${phase.icon}")`,
+                                        WebkitMaskImage: `url("${phase.icon}")`,
+                                        maskSize: 'contain',
+                                        WebkitMaskSize: 'contain',
+                                        maskRepeat: 'no-repeat',
+                                        WebkitMaskRepeat: 'no-repeat',
+                                        maskPosition: 'center',
+                                        WebkitMaskPosition: 'center'
+                                    }}
+                                />
+                            </div>
+
+                            <h3 className="text-white text-[14px] sm:text-[18px] font-bold mb-1 sm:mb-2 tracking-tight">{phase.title}</h3>
+                            <p className="text-[#C2C2C2] text-[12px] sm:text-[14px] leading-snug mb-3 sm:mb-4 max-w-[200px] font-medium">{phase.description}</p>
+                            <span className="mt-auto text-[#4BD3D8] text-[10px] font-bold tracking-[0.1em] uppercase">{phase.phase}</span>
                         </div>
                     ))}
                 </div>
@@ -486,32 +636,10 @@ const Tools = () => (
     </section>
 );
 
-// ── Component: Checklist ──────────────────────────────────────────────────────
-const Checklist = () => (
-    <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
-        <div className="max-w-[1267px] mx-auto text-center px-4">
-            <GradientLabel text="CURRICULUM" highlight="CURRICULUM" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-16">AI Product Management Skill Checklist</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-                {PM_PHASES.map((phase, i) => (
-                    <div key={i} className="flex flex-col items-center group">
-                        <div className="w-20 h-20 rounded-full bg-[#0D0D0D] border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#45E4C9] transition-all duration-300">
-                            <img src={phase.icon} alt={phase.title} className="w-10 h-10 object-contain" />
-                        </div>
-                        <h4 className="text-white text-base font-bold mb-1">{phase.title}</h4>
-                        <p className="text-[#A0A8B8] text-[11px] mb-2 px-2 leading-tight">{phase.description}</p>
-                        <span className="text-[#45E4C9] text-[10px] font-bold tracking-widest uppercase">{phase.phase}</span>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-);
-
 // ── Component: SkillGapChart (Added for Animation) ────────────────────
 const SkillGapChart = () => {
     return (
-        <div className="relative bg-[#0D0D0D] rounded-[32px] border border-[#1f1f1f] shadow-[0_0_100px_rgba(69,228,201,0.1)] overflow-hidden w-full max-w-[1100px] mx-auto p-8 lg:p-16 mt-20">
+        <div className="relative bg-[#0D0D0D] rounded-[32px] border border-[#1f1f1f] overflow-hidden w-full max-w-[1100px] mx-auto p-8 lg:p-16 mt-20">
             <style>
                 {`
                     @keyframes draw-chart-line {
@@ -550,7 +678,7 @@ const SkillGapChart = () => {
                         <span className="text-[#7A7A7A]">Traditional PM</span>
                     </div>
                     <div className="flex items-center gap-3">
-                        <div className="w-6 h-[3px] bg-[#45E4C9]"></div>
+                        <div className="w-6 h-[3px] bg-[#4BD3D8]"></div>
                         <span className="text-white">AI-Powered PM</span>
                     </div>
                 </div>
@@ -580,7 +708,7 @@ const SkillGapChart = () => {
                     {/* Teal Line Ambient Glow */}
                     <path
                         d="M 0,350 C 125,350 125,250 250,250 C 375,250 375,180 500,180 C 625,180 625,80 750,80 C 875,80 875,20 1000,20"
-                        fill="none" stroke="#45E4C9" strokeWidth="12" className="chart-glow blur-xl" strokeLinecap="round"
+                        fill="none" stroke="#4BD3D8" strokeWidth="12" className="chart-glow blur-xl" strokeLinecap="round"
                     />
 
                     {/* Average Grey Dashed Path */}
@@ -592,7 +720,7 @@ const SkillGapChart = () => {
                     {/* Performance Teal Path */}
                     <path
                         d="M 0,350 C 125,350 125,250 250,250 C 375,250 375,180 500,180 C 625,180 625,80 750,80 C 875,80 875,20 1000,20"
-                        fill="none" stroke="#45E4C9" strokeWidth="4" className="draw-path-teal" strokeLinecap="round"
+                        fill="none" stroke="#4BD3D8" strokeWidth="4" className="draw-path-teal" strokeLinecap="round"
                     />
 
                     {/* Grey Background Dots */}
@@ -612,7 +740,7 @@ const SkillGapChart = () => {
                             cy={point.cy}
                             r="6"
                             fill="#fff"
-                            stroke="#45E4C9"
+                            stroke="#4BD3D8"
                             strokeWidth="3"
                             className="chart-dot"
                             style={{ animationDelay: `${i * 0.4}s` }}
@@ -634,7 +762,7 @@ const RoleCard = ({ role, idx }: { role: any, idx: number }) => (
                     : "M76 0H608C621.255 0 632 10.7452 632 24V116C632 129.255 621.255 140 608 140H76C64 140 56 134 52 124L4 16C0 6 8 0 20 0H76Z"
                 }
                 className="fill-[#0A0A0A] transition-all duration-300 group-hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.1))] hover-glow-path"
-                stroke="#45E4C9"
+                stroke="#4BD3D8"
                 strokeWidth="0.5"
                 opacity="0.3"
             />
@@ -646,14 +774,14 @@ const RoleCard = ({ role, idx }: { role: any, idx: number }) => (
                 <div
                     className="px-[6px] sm:px-[10px] h-[22px] sm:h-[26px] flex items-center justify-center rounded-[4px] text-center flex-shrink-0"
                     style={{
-                        background: "linear-gradient(#0A0A0A,#0A0A0A) padding-box, linear-gradient(90deg, #45E4C9, #2DD4BF, #22D3EE) border-box",
+                        background: "linear-gradient(#0A0A0A,#0A0A0A) padding-box, linear-gradient(90deg, #4C5BFA, #4BD3D8) border-box",
                         border: "1px solid transparent"
                     }}
                 >
-                    <span className="text-[#45E4C9] text-[10px] sm:text-[12px] font-semibold tracking-[0.5px] whitespace-nowrap">{role.salary}</span>
+                    <span className="text-[#4BD3D8] text-[10px] sm:text-[12px] font-semibold tracking-[0.5px] whitespace-nowrap">{role.salary}</span>
                 </div>
             </div>
-            <p className="text-[#94A3B8] text-[11px] sm:text-[13px] font-medium leading-snug w-[95%]">{role.description}</p>
+            <p className="text-[#C2C2C2] text-[11px] sm:text-[13px] font-medium leading-snug w-[95%]">{role.description}</p>
         </div>
     </div>
 );
@@ -663,11 +791,8 @@ const CareerRoles = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 relative z-10">
             <div className="text-center mb-16 sm:mb-24">
-                <GradientLabel text="CAREER" highlight="ER" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Career Opportunities After This AI Course</h2>
-                <p className="text-[#94A3B8] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed font-medium">
-                    Our learners are building AI-powered products and leading product teams at top companies globally.
-                </p>
+                <GradientLabel text="CAREER" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Career Opportunities After This AI Product Management Course</h2>
             </div>
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
@@ -683,7 +808,10 @@ const CareerRoles = () => (
                     </div>
                 </div>
             </div>
-            
+            <p className="text-center text-[#C2C2C2] text-[14px] sm:text-[16px] font-medium mt-16 px-4 leading-relaxed">
+                Companies are actively hiring product managers who understand AI and automation.
+            </p>
+
             <div className="mt-20">
                 <SkillGapChart />
             </div>
@@ -695,16 +823,24 @@ const CareerRoles = () => (
 const BYDP = () => (
     <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
         <div className="max-w-[1047px] mx-auto text-center">
-            <GradientLabel text="PROGRAMS DESCRIPTION" />
-            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-16">Build Your Digital Product (BYDP)</h2>
+            <GradientLabel text="PROJECTS" />
+
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mt-8 mb-4">Build Real AI Products That Get You Hired</h2>
+            <p className="text-[#C2C2C2] text-[16px] sm:text-[18px] mb-2">Instead of just completing assignments, you build:</p>
+            <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] font-semibold mb-12 sm:mb-16">
+                AI-powered product features | Product workflows | Automation systems | Real-world product use cases
+            </p>
+
+            <h3 className="text-[18px] sm:text-[20px] font-medium text-white uppercase tracking-widest mb-10">BUILD YOUR DREAM PRODUCT</h3>
+
             <div className="flex flex-col gap-12 items-center">
                 <div className="max-w-[950px]">
                     <h3 className="text-white font-bold text-[18px] mb-4">What is BYDP?</h3>
-                    <p className="text-[#94A3B8] text-[14px] sm:text-[16px] leading-[1.6] font-medium">Build Your Growth Engine (BYGE) is a structured design and development process that turns raw ideas into usable, market-ready digital products-fast, focused, and without guesswork.</p>
+                    <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-[1.6] font-medium">Build Your Dream Product (BYDP) is a structured design and development process that turns raw ideas into usable, market-ready digital products-fast, focused, and without guesswork.</p>
                 </div>
                 <div className="max-w-[950px]">
                     <h3 className="text-white font-bold text-[18px] mb-4">Why BYDP?</h3>
-                    <p className="text-[#94A3B8] text-[14px] sm:text-[16px] leading-[1.6] font-medium">Because building the wrong product is more expensive than building it right. BYDP aligns strategy, design, and execution so you ship something users actually want, not just something that looks good.</p>
+                    <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-[1.6] font-medium">Because building the wrong product is more expensive than building it right. BYDP aligns strategy, design, and execution so you ship something users actually want, not just something that looks good.</p>
                 </div>
             </div>
         </div>
@@ -718,8 +854,8 @@ const Pricing = () => (
             <div className="text-center mb-10 sm:mb-14">
                 <GradientLabel text="PROGRAMS DESCRIPTION" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Choose Your AI Product Management Learning Path</h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto leading-relaxed">
-                    Flexible pricing options designed for professionals who want to lead AI-driven products and teams.
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[800px] mx-auto leading-relaxed">
+                    Flexible pricing options designed for professionals who want to build AI-powered products and real-world applications.
                 </p>
             </div>
 
@@ -732,11 +868,11 @@ const Pricing = () => (
                             : "bg-[#111] border-white/[0.08]"
                             }`}
                         style={plan.highlighted ? {
-                            background: "radial-gradient(circle at 100% 0%, rgba(69, 228, 201, 0.35) 0%, rgba(69, 228, 201, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
+                            background: "radial-gradient(circle at 100% 0%, rgba(75, 211, 216, 0.35) 0%, rgba(75, 211, 216, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
                         } : {}}
                     >
                         {plan.badge && (
-                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#45E4C9] text-black text-[9px] sm:text-[10px] font-bold tracking-[1.5px] uppercase px-4 sm:px-5 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
+                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#4BD3D8] text-black text-[9px] sm:text-[10px] font-bold tracking-[1.5px] uppercase px-4 sm:px-5 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
                                 {plan.badge}
                             </div>
                         )}
@@ -751,17 +887,17 @@ const Pricing = () => (
                                 </div>
                             )}
                         </h3>
-                        <p className="text-[#A0A8B8] text-[13px] sm:text-[14px] leading-[22px] sm:leading-[26px] font-normal mb-6 sm:mb-8">{plan.subtitle}</p>
+                        <p className="text-[#A0A8B8] text-[13px] sm:text-[14px] leading-[22px] sm:leading-[26px] font-normal mb-6 sm:mb-8 min-h-[88px] sm:min-h-[104px]">{plan.subtitle}</p>
 
                         <div className="text-[30px] sm:text-[40px] font-black text-white mb-2 leading-none tracking-tight">{plan.price}</div>
-                        <div className={`text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-[0.7px] uppercase mb-6 sm:mb-10 ${plan.highlighted ? "text-[#45E4C9]" : "text-[#7B7B7B]"}`}>
+                        <div className={`text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-[0.7px] uppercase mb-6 sm:mb-10 ${plan.highlighted ? "text-[#4BD3D8]" : "text-[#7B7B7B]"}`}>
                             {plan.track}
                         </div>
 
                         <ul className="flex flex-col gap-3 sm:gap-4 mb-8 sm:mb-12 flex-1">
                             {plan.features.map((f, j) => (
-                                <li key={j} className="flex items-start gap-3 sm:gap-4 text-[13px] sm:text-[14px] font-medium leading-[20px] sm:leading-[22.5px] text-[#CFCFCF]">
-                                    <div className={`w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlighted ? "bg-[#45E4C9]" : "border border-white/20"}`}>
+                                <li key={j} className="flex items-start gap-3 sm:gap-4 text-[13px] sm:text-[14px] font-medium leading-[20px] sm:leading-[22.5px] text-[#C2C2C2]">
+                                    <div className={`w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlighted ? "bg-[#4BD3D8]" : "border border-white/20"}`}>
                                         <svg width="10" height="8" viewBox="0 0 12 10" fill="none" stroke={plan.highlighted ? "black" : "white"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                             <polyline points="1.5 5 4.5 8 10.5 2" />
                                         </svg>
@@ -774,8 +910,8 @@ const Pricing = () => (
                         <Link to="/sign-up" className="w-full mt-auto">
                             <button
                                 className={`w-full py-3 sm:py-4 rounded-[10px] sm:rounded-[12px] font-bold text-[14px] sm:text-[15px] transition-all duration-300 tracking-[0.5px] ${plan.highlighted
-                                    ? "bg-[#45E4C9] text-black hover:brightness-110 shadow-xl shadow-[#45E4C9]/25"
-                                    : "border-2 border-[#45E4C9] text-[#45E4C9] hover:bg-[#45E4C9]/5"
+                                    ? "bg-[#4BD3D8] text-black hover:brightness-110 shadow-xl shadow-[#4BD3D8]/25 border-2 border-transparent"
+                                    : "border-2 border-[#4BD3D8] text-[#4BD3D8] hover:bg-[#4BD3D8]/5"
                                     }`}
                             >
                                 {plan.cta}
@@ -791,19 +927,21 @@ const Pricing = () => (
 // ── Component: FAQ ────────────────────────────────────────────────────────────
 const FAQ = () => {
     const [open, setOpen] = useState<number | null>(0);
-    const [showAll, setShowAll] = useState(false);
+    const [limit, setLimit] = useState(5);
 
-    const visibleFaqs = showAll ? FAQS : FAQS.slice(0, 5);
+    const visibleFaqs = FAQS.slice(0, limit);
 
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
             <div className="max-w-[800px] mx-auto text-center">
                 <div className="mb-10 sm:mb-14">
-                    <GradientLabel text="SUPPORT" />
-                    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-3 sm:mb-4">Frequently Asked Questions</h2>
-                    <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] leading-relaxed">
+
+                    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium font-inter text-white leading-tight text-center mb-4">
+                        FAQs
+                    </h2>
+                    {/* <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-relaxed">
                         Everything you need to know about the program.
-                    </p>
+                    </p> */}
                 </div>
 
                 <div className="flex flex-col gap-2 sm:gap-3 text-left">
@@ -826,16 +964,16 @@ const FAQ = () => {
                             }}
                         >
                             <button
-                                className={`w-full text-left px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between font-semibold text-[14px] sm:text-[17px] transition-all duration-500 ${open === i ? "text-white bg-white/[0.02]" : "text-[#F5F7FF] hover:text-white"}`}
+                                className={`w-full text-left px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between font-medium text-[14px] sm:text-[17px] transition-all duration-500 ${open === i ? "text-white bg-white/[0.02]" : "text-white hover:text-white"}`}
                                 onClick={() => setOpen(open === i ? null : i)}
                             >
                                 <span className="pr-4">{faq.q}</span>
-                                <span className={`text-xl sm:text-2xl font-extralight transition-transform duration-500 flex-shrink-0 ml-2 sm:ml-4 text-white ${open === i ? "rotate-45 text-[#45E4C9]" : ""}`}>
+                                <span className={`text-xl sm:text-2xl font-extralight transition-transform duration-500 flex-shrink-0 ml-2 sm:ml-4 text-white ${open === i ? "rotate-45 text-[#4BD3D8]" : ""}`}>
                                     +
                                 </span>
                             </button>
                             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${open === i ? "max-h-[500px] opacity-100 pb-4 sm:pb-6" : "max-h-0 opacity-0"}`}>
-                                <div className="px-4 sm:px-6 text-[#CFCFCF] text-[14px] sm:text-[16px] leading-relaxed border-t border-white/[0.05] pt-4 sm:pt-5 mx-2">
+                                <div className="px-4 sm:px-6 text-[#C2C2C2] font-regular text-[14px] sm:text-[16px] leading-relaxed border-t border-white/[0.05] pt-4 sm:pt-5 mx-2">
                                     {faq.a}
                                 </div>
                             </div>
@@ -843,15 +981,26 @@ const FAQ = () => {
                     ))}
                 </div>
 
-                {FAQS.length > 5 && (
-                    <button
-                        onClick={() => setShowAll(!showAll)}
-                        className="mt-12 px-8 py-3 rounded-full border border-[#45E4C9]/30 text-[#45E4C9] text-[14px] font-bold hover:bg-[#45E4C9]/10 transition-all duration-300 tracking-wide flex items-center gap-2 mx-auto group"
-                    >
-                        {showAll ? "See Less" : "See More Questions"}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAll ? "rotate-180" : ""}`} />
-                    </button>
-                )}
+                <div className="flex flex-col sm:flex-row justify-center mt-12 gap-4 sm:gap-6">
+                    {limit > 5 && (
+                        <button
+                            onClick={() => setLimit(5)}
+                            className="px-8 py-3 rounded-full border border-[#4BD3D8]/30 text-[#4BD3D8] text-[14px] font-bold hover:bg-[#4BD3D8]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
+                        >
+                            See Less Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180" />
+                        </button>
+                    )}
+                    {limit < FAQS.length && (
+                        <button
+                            onClick={() => setLimit(prev => Math.min(prev + 5, FAQS.length))}
+                            className="px-8 py-3 rounded-full border border-[#4BD3D8]/30 text-[#4BD3D8] text-[14px] font-bold hover:bg-[#4BD3D8]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
+                        >
+                            See More Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300" />
+                        </button>
+                    )}
+                </div>
             </div>
         </section>
     );
@@ -862,21 +1011,21 @@ const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) =
     <section className="w-full max-w-[1440px] mx-auto mt-10 sm:mt-16 lg:mt-24 py-6 sm:py-10 px-4 md:px-8 lg:px-[70px]" style={{ overflow: "visible" }}>
         <div className="relative mx-auto flex flex-col lg:block w-full max-w-[1296px] h-auto lg:h-[318px]" style={{ overflow: "visible" }}>
             <div className="absolute inset-0 rounded-[24px] sm:rounded-[32px] overflow-hidden bg-black border border-white/5">
-                <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 1% 1%, #45E4C9 -10%, #064e40 25%, #000000 35%)" }} />
+                <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 1% 1%, #4BD3D8 -10%, #064e40 25%, #000000 35%)" }} />
                 <div className="absolute top-[-370px] left-[-290px] w-[450px] h-[450px] border-[6px] border-white/40 rounded-full z-10 hidden sm:block" />
             </div>
 
             <div className="relative lg:absolute top-0 left-0 bottom-0 z-30 flex flex-col justify-center px-4 sm:px-6 py-8 sm:py-12 lg:py-0 lg:px-[72px] gap-3 sm:gap-4 max-w-[750px]">
                 <h2 className="text-[#FFFFFF] font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.3] sm:leading-[48px] tracking-tight max-w-[697px]">
-                    Start Your AI Career Before You're Forced To Catch Up
+                    Start Your AI Product Career Before You’re Left Behind
                 </h2>
                 <p className="text-[#C2C2C2] font-medium text-[14px] sm:text-[16px] leading-normal max-w-[650px]">
-                    Join professionals who are building AI-powered careers using AI Product Management, automation, and real-world projects.
+                    Join professionals building AI-powered products, workflows, and real-world solutions that companies are actively hiring for.
                 </p>
                 <div className="mt-4 sm:mt-6">
                     <div onClick={onDownloadBrochure} className="cursor-pointer">
-                        <button className="w-[140px] sm:w-[174px] h-[42px] sm:h-[50px] text-white font-semibold bg-[#45E4C9]/5 border border-[#45E4C9] rounded-[9px] text-[14px] sm:text-[16px] cursor-pointer backdrop-blur-[100px] hover:bg-[#45E4C9]/10 transition-all duration-300">
-                            Apply Now
+                        <button className="w-[180px] sm:w-[214px] h-[42px] sm:h-[50px] text-white font-semibold bg-[#4BD3D8]/5 border border-[#4BD3D8] rounded-[9px] text-[14px] sm:text-[16px] cursor-pointer backdrop-blur-[100px] hover:bg-[#4BD3D8]/10 transition-all duration-300">
+                            Claim Your Scholarship
                         </button>
                     </div>
                 </div>
@@ -892,13 +1041,61 @@ const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) =
         </div>
     </section>
 );
+const Certificate = () => (
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+            <div className="text-center mb-16 sm:mb-20">
+                <GradientLabel text="CERTIFICATION" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">The Certificate Recognized By The Industry</h2>
+            </div>
+
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+                <div className="flex-1 flex justify-center lg:justify-end w-full">
+                    <div className="relative w-full max-w-[517px]">
+                        <img
+                            src="/assets/certificate/AI PRODUCTMANAGMENT.png"
+                            alt="AI Product Management Certificate"
+                            className="w-full h-auto object-contain relative z-20 mix-blend-lighten"
+                            width={517}
+                            height={731}
+                        />
+                    </div>
+                </div>
+
+                <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <h3 className="text-white font-medium text-[24px] sm:text-[32px] leading-tight mb-4">
+                        Get Your Nano-Degree in AI Product Management
+                    </h3>
+                    <p className="text-[#A0A8B8] text-[14px] sm:text-[16px] leading-relaxed mb-8 max-w-[500px]">
+                        Show the world your expertise in <b>AI Product Management</b>, stand out in a competitive AI Product Management job market and get hired easily.
+                    </p>
+
+                    <ul className="flex flex-col gap-4 sm:gap-5 text-left w-full max-w-[500px]">
+                        {[
+                            "Industry-recognized Nano Degree in AI Product Management.",
+                            "Verified badge + unique verification ID",
+                            "Trusted by 2500+ companies and agencies",
+                            "AI Product Management Projects portfolio",
+                            "Lifetime exclusive alumni community access"
+                        ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-3 sm:gap-4">
+                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4BD3D8] flex-shrink-0" />
+                                <span className="text-[#C2C2C2] text-[14px] sm:text-[15px] font-medium leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+);
 
 
 export default function ProductManagementPageV2() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-[#0A0A0A] text-white font-['Inter',sans-serif] overflow-x-hidden">
+        <div className="min-h-screen bg-[#0A0A0A] text-white font-['Inter',sans-serif]">
             <GlobalStyles />
             <Hero onDownloadBrochure={() => setIsModalOpen(true)} />
             <AlumniLogos />
@@ -908,20 +1105,21 @@ export default function ProductManagementPageV2() {
             <Mentors />
             <Tools />
             <Checklist />
+            <Certificate />
             <CareerRoles />
-                <BYDP />
-                <Pricing />
-                <FAQ />
+            <BYDP />
+            <Pricing />
+            <FAQ />
             <CTABanner onDownloadBrochure={() => setIsModalOpen(true)} />
 
-            <EnrollmentModalADS 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
+            <EnrollmentModalADS
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
                 program={{
                     title: "Product Management",
                     label: "AI PM",
                     description: "Learn AI Product Management, automation systems, and AI-driven product thinking",
-                    color: "#45E4C9",
+                    color: "#4BD3D8",
                     link: "",
                     hoverBorder: ""
                 }}

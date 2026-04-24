@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Star, ShieldCheck, Zap, Award } from "lucide-react";
 import { useCourseContext } from "../../../../context/courseContext";
-import EnrollmentModal from "../../../../components/EnrollmentModal";
+import EnrollmentModal from "../../../../components/modals/EnrollmentModal";
 
 const PRICING_PLANS = [
     {

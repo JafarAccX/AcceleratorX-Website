@@ -24,24 +24,15 @@ import EnrollmentModalADS from "../../allprograms-ads/EnrollmentModalADS";
 // ── Shared UI ─────────────────────────────────────────────────────────────
 type GradientLabelProps = {
     text: string;
-    highlight?: string;
 };
 
-const GradientLabel = ({ text, highlight }: GradientLabelProps) => (
+const GradientLabel = ({ text }: GradientLabelProps) => (
     <div className="flex justify-center mb-4">
         <div
-            className={`font-['Open_Sans',sans-serif] font-bold text-[12px] leading-[16px] tracking-[1.2px] uppercase bg-clip-text text-transparent flex ${highlight ? 'gap-1' : 'gap-0'}`}
-            style={{ backgroundImage: "linear-gradient(90deg, #A1FF00 0%, #C0FF00 33%, #84CC16 66%, #A1FF00 100%)" }}
+            className="font-['Open_Sans',sans-serif] font-bold text-[12px] leading-[16px] tracking-[1.2px] uppercase bg-clip-text text-transparent flex"
+            style={{ backgroundImage: "linear-gradient(90deg, #4150F3 0%, #9EFF1F 100%)" }}
         >
-            {highlight ? (
-                <>
-                    <span>{text.split(highlight)[0] || ""}</span>
-                    <span className="text-[#A1FF00]">{highlight}</span>
-                    <span>{text.split(highlight)[1] || ""}</span>
-                </>
-            ) : (
-                text
-            )}
+            {text}
         </div>
     </div>
 );
@@ -61,7 +52,7 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                 backgroundSize: "32px 32px",
             }} />
 
-            <div className="w-full max-w-[1295px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-0 z-10 gap-10 lg:gap-0">
+            <div className="w-full max-w-[1440px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-[70px] z-10 gap-10 lg:gap-0">
 
                 {/* Left content */}
                 <div className="w-full lg:w-[612px] flex flex-col gap-6 sm:gap-8 lg:mt-[60px] text-center lg:text-left">
@@ -80,23 +71,28 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                     {/* Stats Card Container */}
                     <div className="w-full max-w-[500px] h-auto rounded-[24px] backdrop-blur-[20px] flex flex-col sm:flex-row items-center p-4 sm:p-6 gap-4 sm:gap-6 self-center lg:self-start relative overflow-hidden border-t border-t-white/10 border-b border-b-white/5 border-x-0">
                         <div className="absolute inset-0 z-0 opacity-40" style={{ background: "linear-gradient(90deg, rgba(10, 10, 10, 0.4) 0%, rgba(20, 20, 20, 0.6) 100%)" }} />
-                        <div className="flex-1 flex items-center gap-4 z-10">
-                            <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
-                                <img src={ASSETS.bagIcon} alt="Jobs" className="w-6 h-6 object-contain" />
-                            </div>
-                            <div className="text-left font-['Inter',sans-serif]">
-                                <div className="text-[20px] sm:text-[22px] font-bold leading-tight">2000+</div>
-                                <div className="text-[13px] text-[#EAEAEA]">Learners</div>
-                            </div>
-                        </div>
-                        <div className="w-full sm:w-[1px] h-[1px] sm:h-10 bg-white/[0.1] z-10" />
-                        <div className="flex-1 flex items-center gap-4 z-10">
-                            <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
-                                <img src={ASSETS.rupeeIcon} alt="CTC" className="w-6 h-6 object-contain" />
-                            </div>
-                            <div className="text-left font-['Inter',sans-serif]">
-                                <div className="text-[20px] sm:text-[22px] font-bold leading-tight">4.8/5</div>
-                                <div className="text-[13px] text-[#EAEAEA]">Average Rating</div>
+                        <div className="flex-1 flex flex-col sm:flex-row items-center sm:justify-start gap-4 sm:gap-6 z-10 w-full">
+                            <div className="flex flex-col items-start sm:items-center sm:flex-row gap-4 sm:gap-6 mx-auto sm:mx-0">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
+                                        <img src={ASSETS.bagIcon} alt="Jobs" className="w-6 h-6 object-contain" />
+                                    </div>
+                                    <div className="text-left font-['Inter',sans-serif]">
+                                        <div className="text-[20px] sm:text-[22px] font-bold leading-tight">2000+</div>
+                                        <div className="text-[13px] text-[#EAEAEA]">Learners</div>
+                                    </div>
+                                </div>
+                                <div className="hidden sm:block w-[1px] h-10 bg-white/[0.1]" />
+                                <div className="sm:hidden w-full h-[1px] bg-white/[0.1] my-1" />
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
+                                        <img src={ASSETS.rupeeIcon} alt="CTC" className="w-6 h-6 object-contain" />
+                                    </div>
+                                    <div className="text-left font-['Inter',sans-serif]">
+                                        <div className="text-[20px] sm:text-[22px] font-bold leading-tight">4.8/5</div>
+                                        <div className="text-[13px] text-[#EAEAEA]">Average Rating</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,16 +100,17 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                     {/* Top Companies Sub-section */}
                     <div className="w-full lg:w-[679px] flex flex-col gap-5 items-center lg:items-start overflow-hidden">
                         <div className="text-[10px] sm:text-[11px] font-bold text-white tracking-[0.1em] uppercase opacity-60">
-                            TOP COMPANIES HIRING RIGHT NOW (INDIA & ABROAD)
+                            Learners working across 1700+ companies
                         </div>
 
                         <div className="relative w-full overflow-hidden" style={{
                             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                             maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                         }}>
-                             <div className="flex w-max gap-8 sm:gap-12 animate-infinite-scroll-left py-2">
-                                {[1, 2].map((group) => (
-                                    <div key={group} className="flex items-center gap-8 sm:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                            <style>{`@keyframes slide-logos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } .animate-logos { animation: slide-logos 80s linear infinite; }`}</style>
+                            <div className="flex w-max gap-8 sm:gap-12 animate-logos py-2">
+                                {[1, 2, 3, 4].map((group) => (
+                                    <div key={group} className="flex items-center gap-8 sm:gap-12 opacity-60">
                                         <img src="/assets/microsoft.png" alt="Microsoft" className="h-[16px] sm:h-[20px] object-contain" />
                                         <img src="/assets/bajajfinserv.png" alt="Bajaj" className="h-[20px] sm:h-[26px] object-contain" />
                                         <img src="/assets/deloitte.png" alt="Deloitte" className="h-[16px] sm:h-[20px] object-contain" />
@@ -127,23 +124,25 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-2">
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 lg:gap-14 pt-2">
                         <a href="#programs" className="group flex items-center cursor-pointer">
-                            <button className="h-[48px] sm:h-[54px] px-5 sm:px-8 bg-[#A1FF00] border-2 border-transparent rounded-full font-bold text-black text-[14px] sm:text-[16px] transition-all duration-300 group-hover:bg-transparent group-hover:border-[#A1FF00] group-hover:text-white">
+                            <button className="h-[48px] sm:h-[54px] px-5 sm:px-8 bg-[#9EFF1F] border-2 border-transparent rounded-full font-bold text-black text-[14px] sm:text-[16px] transition-all duration-300 group-hover:bg-transparent group-hover:border-[#9EFF1F] group-hover:text-white">
                                 Explore Our Programs
                             </button>
-                            <div className="-ml-[1px] w-[48px] sm:w-[54px] h-[48px] sm:h-[54px] rounded-full bg-[#A1FF00] border-2 border-transparent flex items-center justify-center transition-all duration-300 group-hover:bg-transparent group-hover:border-[#A1FF00]">
+                            <div className="-ml-[1px] w-[48px] sm:w-[54px] h-[48px] sm:h-[54px] rounded-full bg-[#9EFF1F] border-2 border-transparent flex items-center justify-center transition-all duration-300 group-hover:bg-transparent group-hover:border-[#9EFF1F]">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:stroke-white">
                                     <path d="M7 17L17 7" /><path d="M7 7h10v10" />
                                 </svg>
                             </div>
                         </a>
-                        <div 
+                        <div
                             onClick={onDownloadBrochure}
                             className="flex items-center text-[14px] sm:text-[16px] font-bold text-white group whitespace-nowrap cursor-pointer"
                         >
-                            <span className="border-b-2 border-white/40 group-hover:border-white transition-all">Download Brochure</span>
-                            <span className="ml-2 text-lg">→</span>
+                            <span className="flex items-center pb-[10px] border-b-2 border-[#9EFF1F] transition-all">
+                                Download Brochure
+                                <span className="ml-2 text-lg relative top-[1px]">→</span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -155,12 +154,12 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
 
                         {/* IBM Branding Logo */}
                         <div className="absolute top-[4%] sm:top-[6%] right-[2%] sm:right-[4%] z-30">
-                            <img src={ASSETS.ibmLogo} alt="IBM" className="h-[40px] sm:h-[54px] lg:h-[74px] brightness-200" />
+                            <img src={ASSETS.ibmLogo} alt="IBM" className="h-[35px] sm:h-[48px] lg:h-[64px] brightness-200" />
                         </div>
 
                         {/* Happy Students Badge */}
                         <div className="absolute top-[4%] sm:top-[6%] left-[4%] sm:left-[6%] z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
-                            <img src={ASSETS.studentsGrp} alt="Happy Students" className="w-[120px] sm:w-[150px] lg:w-[190px] h-auto object-contain" />
+                            <img src={ASSETS.studentsGrp} alt="Happy Students" className="w-[110px] sm:w-[140px] md:w-[165px] lg:w-[190px] h-auto object-contain" />
                         </div>
 
                         {/* Floating Pills */}
@@ -193,17 +192,17 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
 
 const AlumniLogos = () => (
     <section className="w-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[70px] py-12 sm:py-16 lg:py-24 pb-16 sm:pb-20 lg:pb-32 overflow-hidden">
-        <GradientLabel text="SOCIAL PROOF" highlight="PROOF" />
-        <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium mb-3 px-4">Our Alumni Are Working across 1700+ Top MNCs</p>
-        <p className="text-center text-[#94A3B8] text-sm sm:text-base md:text-[16px] font-medium mb-10 sm:mb-12 lg:mb-16 max-w-[1047px] mx-auto leading-relaxed px-4">
-            Our learners are building AI-powered dashboards, automated systems, and data-driven decision models across top companies in India.
+        <GradientLabel text="SOCIAL PROOF" />
+        <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium imb-3 px-4">Our Alumni Are Working Across 1700+ Top MNCs</p>
+        <p className="text-center text-[#C2C2C2] text-sm sm:text-base md:text-[16px] font-medium mb-10 sm:mb-12 lg:mb-16 max-w-[1047px] mx-auto leading-relaxed px-4">
+            Our learners are building AI-powered marketing campaigns, automation funnels, and growth systems across top companies.
         </p>
 
         <div className="relative w-full overflow-hidden" style={{
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
             maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
         }}>
-           <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left hover:[animation-play-state:paused]">
+            <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left">
                 {[...ALUMNI_LOGOS, ...ALUMNI_LOGOS].map((brand, idx) => (
                     <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8">
                         <img src={brand.url} alt={brand.name} style={{ height: `${Math.round(brand.height * 0.75)}px` }} className="object-contain" />
@@ -224,9 +223,9 @@ const Roadmap = () => {
     return (
         <section className="min-h-[500px] lg:min-h-[815px] py-12 sm:py-16 lg:py-24 px-4 md:px-8 lg:px-[70px] bg-[#0A0A0A]">
             <div className="max-w-[1440px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS ROADMAP" highlight="ROADMAP" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2">AI Digital Marketing Roadmap for Working Professionals & Freshers</h2>
-                <p className="text-[#94A3B8] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
+                <GradientLabel text="PROGRAMS ROADMAP" />
+                <p className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2">AI Digital Marketing Roadmap for Working Professionals & Freshers</p>
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
                     2,000+ learners across India are transitioning into AI-powered marketing roles by building real campaigns and applying AI in their work.
                 </p>
 
@@ -234,21 +233,25 @@ const Roadmap = () => {
                 <div className="inline-flex items-center p-[6px] rounded-full mb-10 sm:mb-16 bg-[#0D0D0D] border border-white/10">
                     <button
                         onClick={() => setRoadmapPath("switch")}
-                        className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "switch" ? "bg-[#A1FF00] text-black" : "text-[#9CA3AF] hover:text-white"}`}
+                        className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "switch" ? "bg-[#9EFF1F] text-black" : "text-[#9CA3AF] hover:text-white"}`}
                     >
                         Career Switch
                     </button>
                     <button
                         onClick={() => setRoadmapPath("freshers")}
-                        className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "freshers" ? "bg-[#A1FF00] text-black" : "text-[#9CA3AF] hover:text-white"}`}
+                        className={`px-4 sm:px-6 py-[8px] sm:py-[10px] rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 ${roadmapPath === "freshers" ? "bg-[#9EFF1F] text-black" : "text-[#9CA3AF] hover:text-white"}`}
                     >
                         Freshers
                     </button>
                 </div>
 
                 <div className="flex flex-col items-center">
-                    <h2 className="text-white font-medium text-[16px] sm:text-[18px] mb-4 tracking-tight">Transition Into AI Marketing Roles</h2>
-                    <div className="inline-flex items-center justify-center px-3 py-[4px] rounded-[30px] border border-[#A1FF00] bg-white/5 text-[#A1FF00] text-[11px] sm:text-[12px] font-bold leading-[20px] uppercase mb-[40px] sm:mb-[90px]">
+                    <p className="text-white font-medium text-[18px] sm:text-[18px] mb-4 tracking-tight">
+                        {roadmapPath === "freshers"
+                            ? "Start Your Career in Ai Digital Marketing From zero"
+                            : "Transition into High-Growth AI Marketing Roles with a Structured Learning Path"}
+                    </p>
+                    <div className="inline-flex items-center justify-center px-3 py-[4px] rounded-[30px] border border-[#9EFF1F] bg-white/5 text-[#9EFF1F] text-[11px] sm:text-[12px] font-bold leading-[20px] uppercase mb-[40px] sm:mb-[90px]">
                         {roadmapPath === "freshers" ? "FRESHERS PATH" : "CAREER SWITCHERS PATH"}
                     </div>
                 </div>
@@ -256,8 +259,8 @@ const Roadmap = () => {
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-1 gap-y-4 sm:gap-y-6 w-full max-w-[1288px] mx-auto">
                     {currentPath.slice(0, 4).map((item, idx) => (
-                        <div key={idx} className={`relative group w-full max-w-[664px] h-[100px] sm:h-[111px] mx-auto cursor-pointer ${idx % 2 !== 0 ? 'md:ml-[-1px]' : ''}`}>
-                            <svg width="100%" height="100%" viewBox="0 0 664 111" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                        <div key={idx} className={`relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 mx-auto cursor-pointer ${idx % 2 !== 0 ? 'md:ml-[-1px]' : ''}`}>
+                            <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
                                 <defs>
                                     <linearGradient id={`cardGradient-${idx}`} x1="0%" y1="0%" x2="0%" y2="100%">
                                         <stop offset="0%" stopColor="#0A0A0A" />
@@ -283,7 +286,7 @@ const Roadmap = () => {
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px] font-['Inter',sans-serif] tracking-tight">{item.title}</h3>
                                 </div>
                                 <div className="pl-8 sm:pl-11">
-                                    <p className="text-[12px] sm:text-[14px] text-[#CFCFCF] font-normal leading-[20px] sm:leading-[24px] tracking-[-0.36px] font-['Inter',sans-serif] text-left">
+                                    <p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] tracking-[-0.36px] font-['Inter',sans-serif] text-left">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -295,8 +298,8 @@ const Roadmap = () => {
                 {/* Centered 5th Card */}
                 <div className="w-full flex justify-center mt-2 sm:mt-4">
                     {currentPath[4] && (
-                        <div className="relative group w-full max-w-[664px] h-[100px] sm:h-[111px] cursor-pointer">
-                            <svg width="100%" height="100%" viewBox="0 0 664 111" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                        <div className="relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 cursor-pointer">
+                            <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
                                 <path
                                     d="M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z"
                                     className="transition-all duration-300 group-hover:stroke-white/60 group-hover:stroke-[1.2px] group-hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.2))] fill-[#0d0d0d]"
@@ -322,6 +325,10 @@ const Roadmap = () => {
                     )}
                 </div>
             </div>
+
+            <p className="text-center text-[#C2C2C2] text-[14px] sm:text-[16px] font-medium mt-6 px-4 leading-relaxed">
+                Our learners are building AI-powered marketing campaigns, automation funnels, and growth systems across top companies.
+            </p>
         </section>
     );
 };
@@ -374,10 +381,10 @@ const ProgramDesign = () => {
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="PROGRAMS BENEFITS" highlight="BENEFITS" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World AI Execution</h2>
+                <GradientLabel text="PROGRAMS BENEFITS" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World Marketing Execution</h2>
                 <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto mb-12 sm:mb-20 leading-relaxed font-medium">
-                    You learn by building AI-powered campaigns, marketing systems, and real-world business applications.
+                    You learn by building AI-powered campaigns,funnels,automation systems.
                 </p>
 
                 <div className="flex flex-col lg:flex-row gap-6 sm:gap-[40px] items-center justify-center max-w-[1188px] mx-auto min-h-[300px] lg:min-h-[400px]">
@@ -389,7 +396,7 @@ const ProgramDesign = () => {
                                 <span className="text-[10px] sm:text-[11px] font-bold text-white/90 tracking-wide uppercase">Live Class</span>
                             </div>
                             <img src="/assets/programdesign.png" alt="Program Design" className="w-full h-full object-contain" />
-                            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-xl shadow-2xl text-left font-['Inter',sans-serif]">
+                            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 w-[140px] sm:w-[180px] p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-sm shadow-2xl text-left font-['Inter',sans-serif]">
                                 <p className="text-[11px] sm:text-[13px] font-bold text-white leading-tight">Mentored by<br />Top 1% Industry Experts</p>
                             </div>
                         </div>
@@ -398,7 +405,7 @@ const ProgramDesign = () => {
 
                     {/* Text Card Slider */}
                     <div className="flex flex-col items-center gap-4 sm:gap-6 flex-shrink-0 w-full max-w-[543px]">
-                        <div className="relative w-full aspect-[543/334] rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/10 bg-[#0A0A0A]/60 backdrop-blur-xl shadow-2xl">
+                        <div className="relative w-full aspect-[543/334] rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/10 bg-[#0A0A0A]/60 backdrop-blur-sm shadow-2xl">
                             <div
                                 className={`flex w-full h-full transition-transform ${isReturning ? "duration-[1000ms] ease-in-out" : "duration-[450ms] ease-out"}`}
                                 style={{ transform: `translateX(-${activeBenefitIndex * 100}%)` }}
@@ -416,7 +423,7 @@ const ProgramDesign = () => {
                         </div>
                         <div className="flex gap-3">
                             {[0, 1, 2, 3].map((i) => (
-                                <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeBenefitIndex ? "bg-[#A1FF00] w-6" : "bg-white/10"}`} />
+                                <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeBenefitIndex ? "bg-[#9EFF1F] w-6" : "bg-white/10"}`} />
                             ))}
                         </div>
                     </div>
@@ -431,43 +438,84 @@ const ProgramDesign = () => {
 
 const Curriculum = () => {
     const [currMode, setCurrMode] = useState<"ibm" | "regular">("ibm");
-    const [openModule, setOpenModule] = useState<number | null>(null);
+    const [openModule, setOpenModule] = useState<number | null>(0);
     const currModules = currMode === "ibm" ? ibmModules : regularModules;
 
     return (
         <section id="programs" className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
-                <GradientLabel text="WHAT YOU WILL LEARN IN THIS AI DIGITAL MARKETING COURSE" highlight="AI DIGITAL MARKETING COURSE" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Program Curriculum</h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto mb-10 sm:mb-16 leading-relaxed">
-                    This program covers everything from marketing fundamentals to advanced AI-powered campaigns and automation systems.
+                <GradientLabel text="PROGRAMS CURRICULUM" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 mt-4">What You Will Learn in This AI Digital Marketing Course</h2>
+                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[900px] mx-auto mb-10 sm:mb-16 leading-relaxed">
+                    From fundamentals to advanced AI marketing, this program covers everything you need to become job-ready.
                 </p>
 
                 <div className="inline-flex bg-[#111] p-1.5 rounded-full border border-white/[0.08] mb-10 sm:mb-16">
-                    <button onClick={() => setCurrMode("ibm")} className={`px-5 sm:px-8 py-2.5 sm:py-3 border-none rounded-full text-[13px] sm:text-sm font-bold cursor-pointer transition-all duration-300 ${currMode === "ibm" ? "bg-[#A1FF00] text-black" : "bg-transparent text-white"}`}>IBM + AcceX</button>
-                    <button onClick={() => setCurrMode("regular")} className={`px-5 sm:px-8 py-2.5 sm:py-3 border-none rounded-full text-[13px] sm:text-sm font-bold cursor-pointer transition-all duration-300 ${currMode === "regular" ? "bg-[#A1FF00] text-black" : "bg-transparent text-white"}`}>Regular</button>
+                    <button onClick={() => setCurrMode("ibm")} className={`px-6 sm:px-10 py-2.5 sm:py-3.5 border-none rounded-full text-[13px] sm:text-sm font-bold cursor-pointer transition-all duration-300 ${currMode === "ibm" ? "bg-[#9EFF1F] text-black" : "bg-transparent text-[#9CA3AF] hover:text-white"}`}>IBM + AcceX</button>
+                    <button onClick={() => setCurrMode("regular")} className={`px-6 sm:px-10 py-2.5 sm:py-3.5 border-none rounded-full text-[13px] sm:text-sm font-bold cursor-pointer transition-all duration-300 ${currMode === "regular" ? "bg-[#9EFF1F] text-black" : "bg-transparent text-[#9CA3AF] hover:text-white"}`}>Regular</button>
                 </div>
 
-                <div className="flex flex-col gap-3 sm:gap-4 max-w-[1100px] mx-auto">
-                    {currModules.map((m, i) => (
+                <div className="flex flex-col gap-4 max-w-[1100px] mx-auto">
+                    {currModules.map((m: any, i) => (
                         <div
                             key={i}
-                            onClick={() => setOpenModule(openModule === i ? null : i)}
-                            className="group relative p-4 sm:p-[24px] bg-[#0d0d0d] border border-white/5 backdrop-blur-[50px] transition-all duration-300 rounded-[12px] sm:rounded-[16px] flex flex-col gap-[12px] sm:gap-[16px] text-left cursor-pointer overflow-hidden"
+                            className={`group relative border transition-all duration-300 rounded-[24px] overflow-hidden ${openModule === i ? 'bg-[#111] border-[#9EFF1F]/30' : 'bg-[#0D0D0D] border-white/5 hover:border-white/10'}`}
                         >
-                            <div className="flex items-start justify-between w-full">
-                                <div className="flex gap-[8px] sm:gap-[10px] items-center">
-                                    <span className="text-[16px] sm:text-[20px] font-bold text-[#A1FF00] opacity-70 w-[20px] sm:w-[23px]">0{i + 1}</span>
-                                    <h3 className="text-[15px] sm:text-[20px] font-bold text-white font-['Inter',sans-serif]">{m.title}</h3>
+                            <div
+                                onClick={() => setOpenModule(openModule === i ? null : i)}
+                                className="p-6 sm:p-8 flex items-center justify-between cursor-pointer"
+                            >
+                                <div className="flex items-center gap-6 text-left">
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-[18px] transition-all duration-300 ${openModule === i ? 'bg-[#9EFF1F] text-black' : 'bg-white/5 text-[#9EFF1F]'}`}>
+                                        0{i + 1}
+                                    </div>
+                                    <h3 className="text-white text-[18px] sm:text-[22px] font-bold tracking-tight leading-tight group-hover:text-[#9EFF1F] transition-colors">
+                                        {m.title}
+                                    </h3>
                                 </div>
-                                <ChevronDown className={`w-5 h-5 sm:w-6 sm:h-6 text-white/40 group-hover:text-white transition-transform duration-300 ${openModule === i ? 'rotate-180' : ''}`} />
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${openModule === i ? 'border-[#9EFF1F] bg-[#9EFF1F]/10 text-[#9EFF1F] rotate-180' : 'border-white/10 text-white/40'}`}>
+                                    <ChevronDown className="w-5 h-5" />
+                                </div>
                             </div>
 
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-                                <div className="pl-[28px] sm:pl-[40px]">
-                                    <p className="text-[#A0A8B8] text-[14px] sm:text-[16px] font-['Inter',sans-serif] max-w-[789px]">
-                                        {m.desc}
-                                    </p>
+                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[3500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left">
+                                    {/* Goal Section */}
+                                    <div className="mb-8 p-4 rounded-xl bg-[#9EFF1F]/5 border-l-4 border-[#9EFF1F]">
+                                        <span className="text-[#9EFF1F] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
+                                        <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
+                                            {m.goal}
+                                        </p>
+                                    </div>
+
+                                    {/* Sessions List */}
+                                    <div className="grid grid-cols-1 gap-6">
+                                        {m.sessions.map((session: any, sIdx: number) => (
+                                            <div key={sIdx} className="bg-white/[0.02] rounded-xl p-5 border border-white/5">
+                                                <h4 className="text-white text-[16px] sm:text-[18px] font-bold mb-4 flex items-center gap-3">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-[#9EFF1F]" />
+                                                    {session.title}
+                                                </h4>
+                                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 pl-4">
+                                                    {session.topics.map((topic: string, tIdx: number) => (
+                                                        <li key={tIdx} className="text-[#94A3B8] text-[14px] leading-relaxed flex items-start gap-2">
+                                                            <span className="mt-2 w-1 h-1 rounded-full bg-white/20 flex-shrink-0" />
+                                                            {topic}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+
+                                                {/* Tool Highlight */}
+                                                {session.tools && (
+                                                    <div className="mt-4 pt-4 border-t border-white/5">
+                                                        <div className="px-3 py-1.5 rounded-lg bg-[#9EFF1F]/10 border border-[#9EFF1F]/20 text-[#9EFF1F] text-[12px] font-medium italic inline-block">
+                                                            <span className="font-bold not-italic mr-2">Tools:</span> {session.tools}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -483,41 +531,65 @@ const Curriculum = () => {
 
 const MentorCard = ({ mentor }: { mentor: typeof Constants.MENTORS[0] }) => (
     <div className="relative w-[210px] sm:w-[260px] h-[230px] sm:h-[310px] flex-shrink-0 group">
-        {/* Inner Card with Mentor Image */}
-        <div className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] border border-white/[0.08] bg-gradient-to-br from-[#2D3F0E] to-[#0D0D0D] overflow-hidden">
-            <img 
-                src={mentor.image} 
-                alt={mentor.name} 
-                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+        {/* Main Card with Left-Fade */}
+        <div
+            className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
+            style={{ background: "linear-gradient(90deg, transparent 0%, #1a1a1e 40%, #1a1a1e 100%)" }}
+        >
+            <img
+                src={mentor.image}
+                alt={mentor.name}
+                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
             />
         </div>
-        
+
         {/* Floating Logo Top-Right */}
-        <div className="absolute top-[-10px] -right-3 z-40 drop-shadow-[0_4px_10px_rgba(161,255,0,0.3)]">
-            <div className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center bg-white border border-white/20">
-                <img src={mentor.companyLogo} alt="" className="w-full h-full object-contain p-1 rounded-full" />
+        <div className="absolute top-[-15px] -right-7 z-10">
+            <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
+                <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
             </div>
         </div>
 
-        {/* Floating Info Box at Bottom */}
-        <div className="absolute bottom-[1px] left-1/2 -translate-x-1/2 w-[90%] sm:w-[95%] h-[70px] sm:h-[85px] rounded-[24px] flex flex-col items-center justify-center text-center z-50 p-3 sm:p-4 border border-white/10 shadow-[0_0_20px_rgba(161,255,0,0.25)] bg-[#0A0A0A]/95 backdrop-blur-md transition-transform duration-500 group-hover:scale-105">
-            <div className="text-white text-[12px] sm:text-[14px] font-bold tracking-tight">{mentor.name}</div>
-            <div className="text-white text-[10px] sm:text-[11px] opacity-70 mt-0.5 leading-tight">{mentor.designation}</div>
-            <div className="text-[#A1FF00] text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mt-1">@ {mentor.company}</div>
+        {/* Info Pill — bottom */}
+        <div
+            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[85%] z-50 
+            rounded-full px-5 py-4 text-center 
+            border-l border-r border-b border-[#9EFF1F]/100 border-t-0
+            bg-black/5 backdrop-blur-md
+            transition-all duration-300"
+        >
+            {/* Name */}
+            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-1 mt-[-10px]
+            drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
+                {mentor.name}
+            </div>
+
+            {/* designation */}
+            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight">
+                {mentor.designation} - {mentor.company}
+            </div>
+
+            {/* Accent line */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
+            w-[85%] h-[2px] 
+            bg-gradient-to-r from-transparent via-[#9EFF1F] to-transparent 
+            rounded-full" />
         </div>
     </div>
 );
 
 const Mentors = () => (
-    <section className="py-16 sm:py-24 bg-[#050505] flex flex-col items-center relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center relative overflow-hidden">
         {/* Ambient Glows */}
-        <div className="absolute left-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#A1FF00]/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute right-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#A1FF00]/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute left-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#9EFF1F]/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute right-[-150px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#9EFF1F]/5 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="w-full max-w-full relative flex flex-col items-center z-10 px-4">
-            <GradientLabel text="MENTORS" highlight="MENTORS" />
-            <h2 className="text-3xl sm:text-5xl font-bold text-white mb-16 text-center tracking-tight px-4">Learn from Industry Marketing Experts</h2>
-            
+            <GradientLabel text="MENTORS" />
+            <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-4 text-center tracking-tight px-4">Learn from Industry Marketing Experts</h2>
+            <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[1000px] mx-auto mb-10 sm:mb-16 leading-relaxed">
+                Get mentored by professionals with 10+ years of experience in performance marketing, growth, and AI marketing.
+            </p>
             <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
                 <div className="flex flex-nowrap w-fit gap-12 sm:gap-24 animate-infinite-scroll-left py-8 px-12">
                     {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => <MentorCard key={i} mentor={m} />)}
@@ -532,23 +604,42 @@ const Mentors = () => (
 
 // ── Component: Tools ───────────────────────────────────────────────────
 const Tools = () => (
-    <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5 overflow-hidden">
-        <div className="max-w-[1200px] mx-auto text-center px-4">
-            <GradientLabel text="PROGRAMS DESCRIPTION" highlight="DESCRIPTION" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-12">Tools You Will Work With</h2>
-            
-            {/* Carousel */}
-            <div className="w-full relative overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
-                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4">
-                    {[...TOOLS_LIST, ...TOOLS_LIST].map((t, i) => (
-                        <div key={i} className="flex flex-col items-center gap-3 group">
-                            <img src={t.logo} alt={t.name} className="h-10 sm:h-14 w-auto object-contain transition-all duration-300 opacity-100 group-hover:scale-110" />
-                            <span className="text-[10px] font-bold text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest">{t.name}</span>
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] flex flex-col items-center overflow-hidden border-t border-white/5">
+        <div className="max-w-[1285px] flex flex-col items-center relative px-4 sm:px-6 md:px-0">
+            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 text-center">Tools You Will Work With</h2>
+
+            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ height: "120px" }}>
+                <div className="absolute inset-y-0 left-0 w-20 sm:w-60 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-20 sm:w-60 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+
+                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 px-10 z-20 relative">
+                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
+                        <div key={i} className="flex flex-col items-center gap-3 group cursor-pointer flex-shrink-0">
+                            <div className="relative">
+                                <img
+                                    src={tool.logo}
+                                    alt={tool.name}
+                                    className="h-8 sm:h-12 w-auto object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
+                                />
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 z-0"
+                                    style={{ backgroundColor: `${tool.color || '#9EFF1F'}30` }} />
+                            </div>
+                            <div className="flex flex-col items-center gap-1">
+                                <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest duration-500">
+                                    {tool.name}
+                                </span>
+                                <div className="h-[2px] w-0 bg-white transition-all duration-500 group-hover:w-full"
+                                    style={{ backgroundColor: tool.color || '#9EFF1F' }} />
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
+
         </div>
+
+        <div className="w-full h-[1px] bg-white/10 mt-8 sm:mt-12" />
     </section>
 );
 
@@ -558,22 +649,22 @@ const Tools = () => (
 const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
-            <GradientLabel text="PROGRAMS DESCRIPTION" highlight="DESCRIPTION" />
-            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-16">AI Digital Marketing Skill Checklist</h2>
-            
+            <GradientLabel text="PROGRAMS DESCRIPTION" />
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">AI Digital Marketing Skill Checklist</h2>
+
             <div className="relative min-h-[300px]">
                 <div className="absolute top-10 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/15 to-transparent hidden md:block pointer-events-none" />
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-y-10 sm:gap-y-12 gap-x-3 sm:gap-x-4">
                     {PM_PHASES.map((phase, i) => (
                         <div key={i} className="flex flex-col items-center text-center group cursor-default h-full">
-                            <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#111] border-2 border-[#A1FF00]/20 flex items-center justify-center mb-4 sm:mb-6 relative z-10 group-hover:border-[#A1FF00]/60 group-hover:bg-[#A1FF00]/5 transition-all duration-500 shadow-[0_0_15px_rgba(161,255,0,0.05)]">
+                            <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#111] border-2 border-[#9EFF1F]/20 flex items-center justify-center mb-4 sm:mb-6 relative z-10 group-hover:border-[#9EFF1F]/60 group-hover:bg-[#9EFF1F]/5 transition-all duration-500 shadow-[0_0_15px_rgba(161,255,0,0.05)]">
                                 <img src={phase.icon} alt={phase.title} className="w-4 h-4 sm:w-5 sm:h-5 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-500" />
                             </div>
 
                             <h3 className="text-white text-[14px] sm:text-[18px] font-bold mb-1 sm:mb-2 tracking-tight">{phase.title}</h3>
-                            <p className="text-[#A0A8B8] text-[12px] sm:text-[14px] leading-snug mb-3 sm:mb-4 max-w-[160px] font-medium">{phase.description}</p>
-                            <span className="mt-auto text-[#A1FF00] text-[10px] font-bold tracking-[0.1em] uppercase">{phase.phase}</span>
+                            <p className="text-[#A0A8B8] text-[12px] sm:text-[14px] leading-snug mb-3 sm:mb-4 max-w-[200px] font-medium">{phase.description}</p>
+                            <span className="mt-auto text-[#9EFF1F] text-[10px] font-bold tracking-[0.1em] uppercase">{phase.phase}</span>
                         </div>
                     ))}
                 </div>
@@ -603,11 +694,11 @@ const RoleCard = ({ role, idx }: { role: typeof CAREER_ROLES[0], idx: number }) 
                 <div
                     className="px-[8px] sm:px-[12px] h-[24px] sm:h-[28px] flex items-center justify-center rounded-[4px] text-center flex-shrink-0"
                     style={{
-                        background: "linear-gradient(#0D0D0D,#0D0D0D) padding-box, linear-gradient(90deg, #A1FF00, #C0FF00, #A1FF00) border-box",
+                        background: "linear-gradient(#0D0D0D,#0D0D0D) padding-box, linear-gradient(90deg, #9EFF1F, #C0FF00, #9EFF1F) border-box",
                         border: "1px solid transparent"
                     }}
                 >
-                    <span className="text-[#A1FF00] text-[11px] sm:text-[13px] font-bold tracking-[0.5px] whitespace-nowrap">{role.salary}</span>
+                    <span className="text-[#9EFF1F] text-[11px] sm:text-[13px] font-bold tracking-[0.5px] whitespace-nowrap">{role.salary}</span>
                 </div>
             </div>
             <p className="text-[#94A3B8] text-[11px] sm:text-[13px] font-medium leading-snug w-[95%]">{role.description}</p>
@@ -619,10 +710,10 @@ const CareerRoles = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden border-t border-white/5">
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 relative z-10">
             <div className="text-center mb-16 px-4">
-                <GradientLabel text="CAREER" highlight="ER" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4">Career Opportunities After This AI Course</h2>
+                <GradientLabel text="CAREER" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4">Career Opportunities After This AI Digital Marketing Course</h2>
             </div>
-            
+
             <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
                 <div className="flex-1 flex flex-col items-center lg:items-start w-full gap-4 sm:gap-6">
                     {CAREER_ROLES.map((role, idx) => (
@@ -634,10 +725,16 @@ const CareerRoles = () => (
                         <img src={ASSETS.roles} alt="Career" className="w-full h-full object-contain relative z-20" />
                     </div>
                 </div>
+
             </div>
-            
+
+            <p className="text-center text-[#C2C2C2] text-[14px] sm:text-[16px] font-medium mt-16 px-4 leading-relaxed">
+                Companies are actively hiring professionals with AI-driven marketing and automation skills.
+            </p>
+
             <SkillGapChart />
         </div>
+
     </section>
 );
 // ── Component: SkillGapChart (Added for Animation) ────────────────────
@@ -682,7 +779,7 @@ const SkillGapChart = () => {
                         <span className="text-[#7A7A7A]">Average Marketer</span>
                     </div>
                     <div className="flex items-center gap-3">
-                        <div className="w-6 h-[3px] bg-[#A1FF00]"></div>
+                        <div className="w-6 h-[3px] bg-[#9EFF1F]"></div>
                         <span className="text-white">AI-Powered Marketer</span>
                     </div>
                 </div>
@@ -712,7 +809,7 @@ const SkillGapChart = () => {
                     {/* Green Line Ambient Glow */}
                     <path
                         d="M 0,350 C 125,350 125,250 250,250 C 375,250 375,180 500,180 C 625,180 625,80 750,80 C 875,80 875,20 1000,20"
-                        fill="none" stroke="#A1FF00" strokeWidth="12" className="g-chart-glow blur-xl" strokeLinecap="round"
+                        fill="none" stroke="#9EFF1F" strokeWidth="12" className="g-chart-glow blur-xl" strokeLinecap="round"
                     />
 
                     {/* Average Grey Dashed Path */}
@@ -724,7 +821,7 @@ const SkillGapChart = () => {
                     {/* Performance Green Path */}
                     <path
                         d="M 0,350 C 125,350 125,250 250,250 C 375,250 375,180 500,180 C 625,180 625,80 750,80 C 875,80 875,20 1000,20"
-                        fill="none" stroke="#A1FF00" strokeWidth="4" className="g-draw-path-green" strokeLinecap="round"
+                        fill="none" stroke="#9EFF1F" strokeWidth="4" className="g-draw-path-green" strokeLinecap="round"
                     />
 
                     {/* Grey Background Dots */}
@@ -744,7 +841,7 @@ const SkillGapChart = () => {
                             cy={point.cy}
                             r="6"
                             fill="#fff"
-                            stroke="#A1FF00"
+                            stroke="#9EFF1F"
                             strokeWidth="3"
                             className="g-chart-dot"
                             style={{ animationDelay: `${i * 0.4}s` }}
@@ -758,31 +855,18 @@ const SkillGapChart = () => {
 
 
 
-// ── Component: BYDP ───────────────────────────────────────────────────────
-
 const BYDP = () => (
-    <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
         <div className="max-w-[1047px] mx-auto text-center">
-            <GradientLabel text="PROGRAMS DESCRIPTION" />
-            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-16">Build your marketing growth engine</h2>
+            <GradientLabel text="PROJECTS" />
 
-            <div className="flex flex-col gap-8 sm:gap-12 items-center">
-                <div className="max-w-[950px]">
-                    <h3 className="text-white font-bold text-[16px] sm:text-[18px] mb-3 sm:mb-4">What is BYDP?</h3>
-                    <p className="text-[#94A3B8] text-[14px] sm:text-[16px] leading-[1.6] font-medium">
-                        Build Your Growth Engine (BYGE) is a structured design and development process that turns
-                        raw ideas into usable, market-ready digital products-fast, focused, and without guesswork.
-                    </p>
-                </div>
-                <div className="max-w-[950px]">
-                    <h3 className="text-white font-bold text-[16px] sm:text-[18px] mb-3 sm:mb-4">Why BYDP?</h3>
-                    <p className="text-[#94A3B8] text-[14px] sm:text-[16px] leading-[1.6] font-medium">
-                        Because building the wrong product is more expensive than building it right. BYDP aligns
-                        strategy, design, and execution so you ship something users actually want, not just
-                        something that looks good.
-                    </p>
-                </div>
-            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mt-8 mb-4">Build Real AI Marketing Campaigns That Get You Hired</h2>
+            <p className="text-[#C2C2C2] text-[16px] sm:text-[18px] mb-2 font-medium">Instead of just completing assignments, you build:</p>
+            <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] font-semibold mb-6 sm:mb-8">
+                AI-powered marketing campaigns | Automation funnels | Growth systems | Real-world marketing use cases
+            </p>
+
+            <p className="text-[16px] sm:text-[18px] font-medium text-[#C2C2C2]">This becomes your proof of work. What hiring managers actually look for.</p>
         </div>
     </section>
 );
@@ -792,12 +876,12 @@ const BYDP = () => (
 
 // ── Component: Pricing ───────────────────────────────────────────────────
 const Pricing = () => (
-    <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-[#0A0A0A]">
         <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10 sm:mb-14 px-4">
-                <GradientLabel text="PRICING" highlight="ING" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Choose Your AI Marketing Learning Path</h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto leading-relaxed font-medium">
+                <GradientLabel text="PRICING" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Choose Your AI Digital Marketing Learning Path</h2>
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[800px] mx-auto leading-relaxed font-medium">
                     Flexible pricing options designed for professionals who want to learn AI tools, automation, and real-world applications.
                 </p>
             </div>
@@ -811,11 +895,11 @@ const Pricing = () => (
                             : "bg-[#111] border-white/[0.08]"
                             }`}
                         style={plan.highlighted ? {
-                            background: "radial-gradient(circle at 100% 0%, rgba(161, 255, 0, 0.35) 0%, rgba(161, 255, 0, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
+                            background: "radial-gradient(circle at 100% 0%, rgba(158, 255, 31, 0.35) 0%, rgba(158, 255, 31, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
                         } : {}}
                     >
                         {plan.badge && (
-                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#A1FF00] text-black text-[10px] font-bold tracking-[1.5px] uppercase px-5 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
+                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#9EFF1F] text-black text-[10px] font-bold tracking-[1.5px] uppercase px-5 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
                                 {plan.badge}
                             </div>
                         )}
@@ -830,17 +914,17 @@ const Pricing = () => (
                                 </div>
                             )}
                         </h3>
-                        <p className="text-[#A0A8B8] text-[13px] sm:text-[14px] leading-relaxed mb-6 sm:mb-8">{plan.subtitle}</p>
+                        <p className="text-[#A0A8B8] text-[13px] sm:text-[14px] leading-relaxed mb-6 sm:mb-8 min-h-[84px] sm:min-h-[100px]">{plan.subtitle}</p>
 
                         <div className="text-[32px] sm:text-[40px] font-black text-white mb-2 leading-none tracking-tight">{plan.price}</div>
-                        <div className={`text-[12px] sm:text-[14px] font-bold leading-[20px] tracking-widest uppercase mb-6 sm:mb-10 ${plan.highlighted ? "text-[#A1FF00]" : "text-[#7B7B7B]"}`}>
+                        <div className={`text-[12px] sm:text-[14px] font-bold leading-[20px] tracking-widest uppercase mb-6 sm:mb-10 ${plan.highlighted ? "text-[#9EFF1F]" : "text-[#7B7B7B]"}`}>
                             {plan.track}
                         </div>
 
                         <ul className="flex flex-col gap-3 sm:gap-4 mb-8 sm:mb-12 flex-1">
                             {plan.features.map((f, j) => (
-                                <li key={j} className="flex items-start gap-3 sm:gap-4 text-[13px] sm:text-[14px] font-medium text-[#CFCFCF]">
-                                    <div className={`w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlighted ? "bg-[#A1FF00]" : "border border-white/20"}`}>
+                                <li key={j} className="flex items-start gap-3 sm:gap-4 text-[13px] sm:text-[14px] font-medium text-[#C2C2C2]">
+                                    <div className={`w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlighted ? "bg-[#9EFF1F]" : "border border-white/20"}`}>
                                         <svg width="10" height="8" viewBox="0 0 12 10" fill="none" stroke={plan.highlighted ? "black" : "white"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                             <polyline points="1.5 5 4.5 8 10.5 2" />
                                         </svg>
@@ -853,8 +937,8 @@ const Pricing = () => (
                         <Link to="/sign-up" className="w-full mt-auto">
                             <button
                                 className={`w-full py-3 sm:py-4 rounded-[10px] sm:rounded-[12px] font-bold text-[14px] sm:text-[15px] transition-all duration-300 tracking-[0.5px] ${plan.highlighted
-                                    ? "bg-[#A1FF00] text-black hover:brightness-110 shadow-xl shadow-[#A1FF00]/15"
-                                    : "border-2 border-[#A1FF00] text-[#A1FF00] hover:bg-[#A1FF00]/5"
+                                    ? "bg-[#9EFF1F] text-black hover:brightness-110 shadow-xl shadow-[#9EFF1F]/15 border-2 border-transparent"
+                                    : "border-2 border-[#9EFF1F] text-[#9EFF1F] hover:bg-[#9EFF1F]/5"
                                     }`}
                             >
                                 {plan.cta}
@@ -872,22 +956,27 @@ const Pricing = () => (
 
 const FAQ = () => {
     const [open, setOpen] = useState<number | null>(0);
-    const [visibleCount, setVisibleCount] = useState(5);
+    const [limit, setLimit] = useState(5);
 
     return (
         <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
             <div className="max-w-[850px] mx-auto px-4">
-                <GradientLabel text="SUPPORT" />
-                <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-16">Frequently Asked Questions</h2>
-                <div className="space-y-4">
-                    {FAQS.slice(0, visibleCount).map((f, i) => (
+
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium font-inter text-white leading-tight text-center mb-4">
+                    FAQs
+                </h2>
+                {/* <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-relaxed text-center mb-10">
+                    Everything you need to know about the program.
+                </p> */}
+                <div className="space-y-4 mt-10">
+                    {FAQS.slice(0, limit).map((f, i) => (
                         <div key={i} className="border border-white/5 bg-[#0D0D0D] rounded-2xl overflow-hidden">
-                            <button onClick={() => setOpen(open === i ? null : i)} className="w-full text-left p-6 text-white font-bold flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <button onClick={() => setOpen(open === i ? null : i)} className="w-full text-left p-6 text-white font-medium flex justify-between items-center hover:bg-white/5 transition-colors">
                                 <span className="pr-8">{f.q}</span>
                                 <ChevronDown className={`flex-shrink-0 transition-transform ${open === i ? 'rotate-180' : ''}`} />
                             </button>
                             <div className={`transition-all duration-300 overflow-hidden ${open === i ? 'max-h-[500px]' : 'max-h-0'}`}>
-                                <div className="p-6 pt-0 text-[#A0A8B8] text-sm sm:text-base leading-relaxed border-t border-white/5 mt-4">
+                                <div className="p-6 pt-0 text-[#C2C2C2] font-regular text-sm sm:text-base leading-relaxed border-t border-white/5 mt-4">
                                     <p className="mt-4">{f.a}</p>
                                 </div>
                             </div>
@@ -895,17 +984,26 @@ const FAQ = () => {
                     ))}
                 </div>
 
-                {FAQS.length > visibleCount && (
-                    <div className="flex justify-center mt-12">
+                <div className="flex flex-col sm:flex-row justify-center mt-12 gap-4 sm:gap-6">
+                    {limit > 5 && (
                         <button
-                            onClick={() => setVisibleCount(prev => prev + 5)}
-                            className="px-8 py-3 rounded-full border border-[#A1FF00]/30 text-[#A1FF00] text-[14px] font-bold hover:bg-[#A1FF00]/10 transition-all duration-300 flex items-center gap-2 group"
+                            onClick={() => setLimit(5)}
+                            className="px-8 py-3 rounded-full border border-[#9EFF1F]/30 text-[#9EFF1F] text-[14px] font-bold hover:bg-[#9EFF1F]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
+                        >
+                            See Less Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180" />
+                        </button>
+                    )}
+                    {limit < FAQS.length && (
+                        <button
+                            onClick={() => setLimit(prev => Math.min(prev + 5, FAQS.length))}
+                            className="px-8 py-3 rounded-full border border-[#9EFF1F]/30 text-[#9EFF1F] text-[14px] font-bold hover:bg-[#9EFF1F]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
                         >
                             See More Questions
-                            <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300" />
                         </button>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </section>
     );
@@ -919,7 +1017,7 @@ const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) =
     <section className="w-full max-w-[1440px] mx-auto mt-10 sm:mt-16 lg:mt-24 py-12 sm:py-20 px-4 md:px-8 lg:px-[70px]" style={{ overflow: "visible" }}>
         <div className="relative mx-auto flex flex-col lg:block w-full max-w-[1296px] h-auto lg:h-[318px]" style={{ overflow: "visible" }}>
             <div className="absolute inset-0 rounded-[24px] sm:rounded-[32px] overflow-hidden bg-black border border-white/5">
-                <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 1% 1%, #A1FF00 -10%, #0B1A00 25%, #000000 35%)" }} />
+                <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 1% 1%, #9EFF1F -10%, #0B1A00 25%, #000000 35%)" }} />
                 <div className="absolute top-[-370px] left-[-290px] w-[450px] h-[450px] border-[6px] border-white/40 rounded-full z-10 hidden sm:block" />
             </div>
 
@@ -928,12 +1026,12 @@ const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) =
                     Start Your AI Career Before You're Forced To Catch Up
                 </h2>
                 <p className="text-[#C2C2C2] font-medium text-[14px] sm:text-[16px] leading-normal max-w-[650px]">
-                    Join professionals who are building AI-powered careers using AI Digital Marketing, automation, and real-world projects.
+                    Join professionals building AI-powered marketing careers using automation, performance marketing, and real campaigns.
                 </p>
                 <div className="mt-4 sm:mt-6">
                     <div onClick={onDownloadBrochure} className="cursor-pointer">
-                        <button className="w-[140px] sm:w-[174px] h-[42px] sm:h-[50px] text-black font-semibold bg-[#A1FF00] rounded-[9px] text-[14px] sm:text-[16px] hover:brightness-110 transition-all duration-300">
-                            Apply Now
+                        <button className="w-[180px] sm:w-[214px] h-[42px] sm:h-[50px] text-black font-semibold bg-[#A1FF00] rounded-[9px] text-[14px] sm:text-[16px] hover:brightness-110 transition-all duration-300">
+                            Claim Your Scholarship
                         </button>
                     </div>
                 </div>
@@ -978,6 +1076,55 @@ const GlobalStyles = () => (
     `}</style>
 );
 
+const Certificate = () => (
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+            <div className="text-center mb-16 sm:mb-20">
+                <GradientLabel text="CERTIFICATION" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">The Certificate Recognized By The Industry</h2>
+            </div>
+
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+                <div className="flex-1 flex justify-center lg:justify-end w-full">
+                    <div className="relative w-full max-w-[517px]">
+                        <img
+                            src="/assets/certificate/AI DIGITAL MARKETING.png"
+                            alt="AI Digital Marketing Certificate"
+                            className="w-full h-auto object-contain relative z-20 mix-blend-lighten"
+                            width={517}
+                            height={731}
+                        />
+                    </div>
+                </div>
+
+                <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <h3 className="text-white font-bold text-[24px] sm:text-[32px] leading-tight mb-4">
+                        Get Your Nano-Degree in AI Digital Marketing
+                    </h3>
+                    <p className="text-[#A0A8B8] text-[14px] sm:text-[16px] leading-relaxed mb-8 max-w-[500px]">
+                        Show the world your expertise in AI Marketing, stand out in a competitive AI Digital Marketing job market and get hired easily.
+                    </p>
+
+                    <ul className="flex flex-col gap-4 sm:gap-5 text-left w-full max-w-[500px]">
+                        {[
+                            "Industry-recognized Nano Degree in AI Digital Marketing.",
+                            "Verified badge + unique verification ID",
+                            "Trusted by 2500+ companies and agencies",
+                            "AI Digital Marketing Projects portfolio",
+                            "Lifetime exclusive alumni community access"
+                        ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-3 sm:gap-4">
+                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#9EFF1F] flex-shrink-0" />
+                                <span className="text-[#CFCFCF] text-[14px] sm:text-[15px] font-medium leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
 // ── Main Component ─────────────────────────────────────────────────────
 
 export default function AIDMPageV2() {
@@ -988,7 +1135,7 @@ export default function AIDMPageV2() {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-[#0A0A0A] text-white font-['Inter',sans-serif] overflow-x-hidden">
+        <div className="min-h-screen bg-[#0A0A0A] text-white font-['Inter',sans-serif]">
             <GlobalStyles />
             <div className="pt-0">
                 <Hero onDownloadBrochure={() => setIsModalOpen(true)} />
@@ -999,6 +1146,7 @@ export default function AIDMPageV2() {
                 <Mentors />
                 <Tools />
                 <Checklist />
+                <Certificate />
                 <CareerRoles />
                 <BYDP />
                 <Pricing />
@@ -1006,14 +1154,14 @@ export default function AIDMPageV2() {
                 <CTABanner onDownloadBrochure={() => setIsModalOpen(true)} />
             </div>
 
-            <EnrollmentModalADS 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
+            <EnrollmentModalADS
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
                 program={{
                     title: "AI Digital Marketing",
                     label: "AI DM",
                     description: "Learn AI-powered digital marketing, performance marketing, and automation systems",
-                    color: "#A1FF00",
+                    color: "#9EFF1F",
                     link: "",
                     hoverBorder: ""
                 }}

@@ -4,7 +4,7 @@ export const ASSETS = {
     ibmLogo: "/assets/ibm.png",
     bagIcon: "/assets/datascience/leftbag.png",
     rupeeIcon: "/assets/datascience/leftrupee.png",
-    studentsGrp: "/assets/studentgrp.png",
+    studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/datascience/ctaperson.png",
 };
 
@@ -19,6 +19,22 @@ export const ALUMNI_LOGOS = [
     { name: "Bajaj Finserv", url: "/assets/bajajfinserv.png", height: 44 },
     { name: "Indian Government", url: "/assets/indiangovernment.png", height: 50 },
     { name: "Razorpay", url: "/assets/Razorpay.png", height: 32 },
+];
+
+export const MAIN_LOGOS = [
+    { name: "Logo 246", url: "/assets/DA and DS  main company logos/image 246.png" },
+    { name: "Logo 247", url: "/assets/DA and DS  main company logos/image 247.png" },
+    { name: "Logo 248", url: "/assets/DA and DS  main company logos/image 248.png" },
+    { name: "Logo 249", url: "/assets/DA and DS  main company logos/image 249.png" },
+    { name: "Logo 250", url: "/assets/DA and DS  main company logos/image 250.png" },
+    { name: "Logo 251", url: "/assets/DA and DS  main company logos/image 251.png" },
+    { name: "Logo 252", url: "/assets/DA and DS  main company logos/image 252.png" },
+    { name: "Logo 253", url: "/assets/DA and DS  main company logos/image 253.png" },
+    { name: "Logo 254", url: "/assets/DA and DS  main company logos/image 254.png" },
+    { name: "Logo 255", url: "/assets/DA and DS  main company logos/image 255.png" },
+    { name: "Logo 257", url: "/assets/DA and DS  main company logos/image 257.png" },
+    { name: "Logo 258", url: "/assets/DA and DS  main company logos/image 258.png" },
+    { name: "Logo 259", url: "/assets/DA and DS  main company logos/image 259.png" }
 ];
 
 // ── Hero Floating Badges ───────────────────────────────────────────────
@@ -40,36 +56,300 @@ export const courseCategories = [
 
 // ── Roadmap Paths ──────────────────────────────────────────────────────
 export const switchPath = [
-    { title: "Leverage Your Existing Skills", icon: "/assets/roadmap/mingcute_target-line.png", color: "#3B82F6", desc: "Learn how to apply AI in data science, dashboards, and reporting systems." },
-    { title: "Learn Data + AI Tools for Real Work", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#3B82F6", desc: "Master tools like Excel, SQL, Python, and AI-powered analytics platforms." },
-    { title: "Build AI Dashboards & Data Systems", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#3B82F6", desc: "Create automated dashboards, reporting systems, and data pipelines." },
-    { title: "Work on Real Industry Projects", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#3B82F6", desc: "Build data analytics projects using real datasets and business use cases." },
-    { title: "Transition into Data Roles", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#3B82F6", desc: "Use your portfolio to move into AI-enabled analytics roles." }
+    { title: "Leverage Your Existing Skills", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Learn how to apply AI in data science, dashboards, and reporting systems." },
+    { title: "Learn Data + AI Tools for Real Work", icon: "/DSroadmap/Vector (6).png", color: "#3B82F6", desc: "Master tools like Excel, SQL, Python, and AI-powered analytics platforms." },
+    { title: "Build AI Dashboards & Data Systems", icon: "/DSroadmap/Group.png", color: "#3B82F6", desc: "Create automated dashboards, reporting systems, and data pipelines." },
+    { title: "Work on Real Industry Projects", icon: "/DSroadmap/Vector (5).png", color: "#3B82F6", desc: "Build data analytics projects using real datasets and business use cases." },
+    { title: "Transition into Data Roles", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Use your portfolio to move into AI-enabled analytics roles." }
 ];
 
 export const freshersPath = [
-    { title: "Learn Data Science Fundamentals", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#3B82F6", desc: "Start with the basics of data analytics, AI in data science, Excel, SQL, and Python." },
-    { title: "Explore AI in Data Analysis", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#3B82F6", desc: "Understand how AI tools used for data cleaning, analysis, visualization, and automation." },
-    { title: "Develop Analytical Thinking", icon: "/assets/roadmap/mingcute_target-line.png", color: "#3B82F6", desc: "Master thinking in terms of data-driven decisions, business insights, and problem-solving." },
-    { title: "Build Real Data Projects", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#3B82F6", desc: "Become Job-Ready in Data Science." },
-    { title: "Become Job-Ready as a Data Analyst", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#3B82F6", desc: "Create a strong portfolio and prepare for entry-level roles in AI-driven data analytics." }
+    { title: "Learn Data Science Fundamentals", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Start with the basics of data analytics, AI in data science, Excel, SQL, and Python." },
+    { title: "Explore AI in Data Analysis", icon: "/DSroadmap/Vector (6).png", color: "#3B82F6", desc: "Understand how AI tools used for data cleaning, analysis, visualization, and automation." },
+    { title: "Develop Analytical Thinking", icon: "/DSroadmap/Group.png", color: "#3B82F6", desc: "Master thinking in terms of data-driven decisions, business insights, and problem-solving." },
+    { title: "Build Real Data Projects", icon: "/DSroadmap/Vector (5).png", color: "#3B82F6", desc: "Become Job-Ready in Data Science." },
+    { title: "Become Job-Ready as a Data Analyst", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Create a strong portfolio and prepare for entry-level roles in AI-driven data analytics." }
 ];
 
 // ── IBM & Regular Curriculum Modules ───────────────────────────────────
 export const ibmModules = [
-    { title: "Data Science Foundations & Business Context", desc: "Understand data analytics, AI in data science, and how data is used for decision-making across industries." },
-    { title: "Excel, SQL & Data Analysis with AI", desc: "Master data manipulation, querying, and AI-assisted analysis to extract insights efficiently." },
-    { title: "Python for Data Science & Automation", desc: "Learn Python for data analysis, automation, and building scalable data workflows." },
-    { title: "Dashboards, Visualization & Real Projects", desc: "Build interactive dashboards and analytics systems used in real business environments." },
-    { title: "Advanced AI in Data Science + Certification", desc: "Apply AI for predictive analytics, automation, and earn industry-recognized certification." }
+    {
+        phase: "Phase 1",
+        title: "Reframing from Analyst → Data Scientist",
+        goal: "Understand the mindset shift and mathematical foundations required for data science modeling.",
+        sessions: [
+            {
+                title: "Session 1: Analyst vs Data Scientist Mindset",
+                topics: [
+                    "Why dashboards ≠ data science",
+                    "Problem framing vs reporting",
+                    "Causal vs descriptive thinking",
+                    "What hiring managers expect from DS",
+                    "Case: \"Why metrics didn't move after dashboard launch\""
+                ],
+                exercise: "Convert a dashboard problem into a DS modeling problem"
+            },
+            {
+                title: "Session 2: Data Science Lifecycle (Industry Reality)",
+                topics: [
+                    "Problem → signal → model → decision",
+                    "Offline vs online ML",
+                    "Failure modes of DS projects",
+                    "Role of experimentation, iteration, and uncertainty"
+                ],
+                miniCase: "Churn reduction beyond reporting"
+            },
+            {
+                title: "Session 3: Mathematical Foundations Refresher (Applied)",
+                topics: [
+                    "Linear algebra intuition (vectors, dot products)",
+                    "Probability intuition for ML",
+                    "Optimization & loss functions",
+                    "Why gradient descent works"
+                ]
+            }
+        ]
+    },
+    {
+        phase: "Phase 2",
+        title: "Core Machine Learning",
+        goal: "Master essential algorithms and rigorous workflows used to build and validate predictive models.",
+        sessions: [
+            {
+                title: "Session 4: Regression Deep Dive",
+                topics: [
+                    "Linear vs non-linear regression",
+                    "Regularization (L1, L2, ElasticNet)",
+                    "Feature leakage & multicollinearity",
+                    "Business interpretation of coefficients"
+                ],
+                handsOn: "Convert a dashboard problem into a DS modeling problem"
+            },
+            {
+                title: "Session 5: Classification Algorithms (Beyond Accuracy)",
+                topics: [
+                    "Logistic regression (decision boundaries)",
+                    "KNN, Naive Bayes",
+                    "Precision-recall tradeoffs",
+                    "Threshold tuning for business impact"
+                ],
+                handsOn: "Conversion prediction"
+            },
+            {
+                title: "Session 6: Tree-Based Models",
+                topics: [
+                    "Decision Trees (bias control)",
+                    "Random Forest intuition",
+                    "Gradient Boosting (XGBoost, LightGBM)",
+                    "Feature importance pitfalls"
+                ],
+                handsOn: "Credit / risk / churn modeling"
+            },
+            {
+                title: "Session 7: Model Evaluation & Error Analysis",
+                topics: [
+                    "Cross-validation strategies",
+                    "ROC-AUC vs PR-AUC",
+                    "Error slicing by cohorts",
+                    "Cost-based evaluation"
+                ],
+                exercise: "Model failure diagnosis"
+            },
+            {
+                title: "Session 8: Feature Engineering (Most Important Skill)",
+                topics: [
+                    "Numeric, categorical, temporal features",
+                    "Aggregations & lag features",
+                    "Encoding strategies",
+                    "Feature stores (conceptual)"
+                ],
+                handsOn: "Improve model by 20-30% via features"
+            },
+            {
+                title: "Session 9: ML Pipelines & Reproducibility",
+                topics: [
+                    "Train-test leakage",
+                    "Pipelines & versioning",
+                    "Experiment tracking (conceptual tools)",
+                    "Reproducible DS workflows"
+                ]
+            }
+        ]
+    },
+    {
+        phase: "Phase 3",
+        title: "Advanced & Specialized ML",
+        goal: "Expand into specialized domains and complex data types encountered in business environments.",
+        sessions: [
+            {
+                title: "Session 10: Unsupervised Learning",
+                topics: [
+                    "K-Means, Hierarchical clustering",
+                    "DBSCAN for behavior discovery",
+                    "PCA & UMAP intuition",
+                    "When clustering fails"
+                ],
+                handsOn: "Behavioral segmentation"
+            },
+            {
+                title: "Session 11: Time Series for Business",
+                topics: [
+                    "Trend, seasonality, noise",
+                    "ARIMA vs ML-based forecasting",
+                    "Rolling validation",
+                    "Forecast confidence intervals"
+                ],
+                handsOn: "Demand / revenue forecasting"
+            },
+            {
+                title: "Session 12: Experimentation & Causal Thinking",
+                topics: [
+                    "A/B testing pitfalls",
+                    "Selection bias",
+                    "Observational vs experimental data",
+                    "Introduction to causal inference"
+                ],
+                case: "Why A/B test lied"
+            },
+            {
+                title: "Session 13: Anomaly & Fraud Detection",
+                topics: [
+                    "Statistical vs ML approaches",
+                    "Isolation Forest",
+                    "Rare event challenges",
+                    "Evaluation without labels"
+                ]
+            },
+            {
+                title: "Session 14: Introduction to Deep Learning",
+                topics: [
+                    "Neural Network foundations",
+                    "Activation functions & backpropagation",
+                    "Common architectures (CNN, RNN introduction)",
+                    "Practical DL tools"
+                ]
+            },
+            {
+                title: "Session 15: NLP for Data Scientists",
+                topics: [
+                    "Embeddings vs TF-IDF",
+                    "Text classification",
+                    "Topic modeling",
+                    "Review & feedback analysis"
+                ]
+            }
+        ]
+    },
+    {
+        phase: "Phase 4",
+        title: "Generative AI & Agentic Data Science",
+        goal: "Integrate modern LLM capabilities and autonomous agents into the data science workflow.",
+        sessions: [
+            {
+                title: "Session 16: LLMs for Data Scientists",
+                topics: [
+                    "How LLMs actually work (high level)",
+                    "Strengths vs weaknesses",
+                    "DS use cases beyond chat",
+                    "Hallucinations & validation"
+                ]
+            },
+            {
+                title: "Session 17: Prompt Engineering for Analytics",
+                topics: [
+                    "Structured prompting",
+                    "Chain-of-thought for reasoning",
+                    "SQL & Python generation safely",
+                    "Prompt templates for DS tasks"
+                ]
+            },
+            {
+                title: "Session 18: Embeddings & Vector Search",
+                topics: [
+                    "A/B testing pitfalls",
+                    "Selection bias",
+                    "Observational vs experimental data",
+                    "Introduction to causal inference"
+                ],
+                handsOn: "Build semantic search on user feedback"
+            },
+            {
+                title: "Session 19: Agentic AI for Data Science",
+                topics: [
+                    "What are agents?",
+                    "Tool-calling & multi-step reasoning",
+                    "Data analysis agents",
+                    "Auto-EDA & Auto-modeling agents"
+                ],
+                handsOn: "Build a data analysis agent"
+            },
+            {
+                title: "Session 20: Human-in-the-Loop DS",
+                topics: [
+                    "Where AI should stop",
+                    "Validation strategies",
+                    "Trust & explainability",
+                    "DS + AI collaboration patterns"
+                ]
+            }
+        ]
+    },
+    {
+        phase: "Phase 5",
+        title: "Deployment, MLOps & Decision Impact",
+        goal: "Put models into production and communicate their value effectively to stakeholders.",
+        sessions: [
+            {
+                title: "Session 21: Model Deployment Basics",
+                topics: [
+                    "Batch vs real-time models",
+                    "APIs & pipelines",
+                    "Monitoring predictions",
+                    "Data drift & concept drift"
+                ]
+            },
+            {
+                title: "Session 22: Explainability & Responsible AI",
+                topics: [
+                    "SHAP & feature attribution",
+                    "Model transparency",
+                    "Bias & fairness checks",
+                    "Regulatory awareness"
+                ]
+            },
+            {
+                title: "Session 23: Business Decisioning with Models",
+                topics: [
+                    "Turning predictions into actions",
+                    "Scorecards & decision rules",
+                    "ROI estimation",
+                    "Stakeholder communication"
+                ]
+            },
+            {
+                title: "Session 24: Capstone Project (Build Phase)",
+                topics: [
+                    "Business problem framing",
+                    "Feature engineering",
+                    "Model selection & evaluation",
+                    "GenAI-assisted analysis",
+                    "Deployment plan"
+                ]
+            },
+            {
+                title: "Session 25: Capstone Presentation",
+                topics: [
+                    "Present to \"stakeholders\"",
+                    "Defend modeling decisions",
+                    "Common DS interview questions",
+                    "Portfolio & resume positioning"
+                ]
+            }
+        ]
+    }
 ];
 
-export const regularModules = [
-    { title: "Introduction to Data Analytics & AI", desc: "Learn the basics of data science, analytics, and AI-powered tools." },
-    { title: "Excel, SQL & Practical Analysis", desc: "Work with datasets and perform real-world analysis tasks." },
-    { title: "Dashboarding & Visualization Basics", desc: "Build dashboards and reports to communicate insights effectively." },
-    { title: "Hands-On Projects", desc: "Apply your knowledge through real-world analytics projects." }
-];
+export const regularModules = [...ibmModules];
 
 // ── Mentors ────────────────────────────────────────────────────────────
 export const MENTORS = [
@@ -99,10 +379,10 @@ export const DS_PHASES = [
 
 // ── Career Roles ──────────────────────────────────────────────────────
 export const CAREER_ROLES = [
-    { title: "AI Data Scientist", salary: "₹18L – ₹45L", description: "Build and deploy scalable AI models for business growth." },
-    { title: "Machine Learning Engineer", salary: "₹15L – ₹40L", description: "Design production-level machine learning systems." },
-    { title: "Data Analyst / BI Expert", salary: "₹10L – ₹28L", description: "Generate insights and build interactive dashboards." },
-    { title: "AI Research Scientist", salary: "₹20L – ₹55L", description: "Push the boundaries of AI with cutting-edge research." }
+    { title: "Data Analyst", salary: "₹6L – ₹15L", description: "Drive business decisions using data + insights" },
+    { title: "Business Analyst", salary: "₹8L – ₹18L", description: "Build data pipelines & transformation systems" },
+    { title: "AI Data Analyst", salary: "₹10L – ₹22L", description: "Create dashboards that drive strategy" },
+    { title: "Analytics & Automation Specialist", salary: "₹12L – ₹25L", description: "Help companies become data-driven" }
 ];
 
 // ── Pricing Plans ─────────────────────────────────────────────────────
@@ -110,9 +390,9 @@ export const PRICING_PLANS = [
     {
         title: "AcceleratorX + IBM",
         badge: "MOST POPULAR",
-        subtitle: "An advanced AI Data Science program designed for professionals seeking deep technical mastery and IBM certification.",
+        subtitle: "An advanced AI Data Science program designed for learners seeking deeper expertise in analytics, automation, and real-world data systems.",
         price: "₹ 35,999 + GST",
-        track: "ADVANCED CAREER TRACK",
+        track: "ADVANCED DATA CAREER TRACK",
         features: [
             "Everything included in the Regular Program",
             "IBM Data Science Certification",
@@ -127,17 +407,17 @@ export const PRICING_PLANS = [
     {
         title: "Regular Program",
         badge: null,
-        subtitle: "A complete data science learning experience designed to help you build strong analytical fundamentals and transition into DS roles.",
+        subtitle: "A complete data analytics course designed to help you build strong foundations in Excel, SQL, Python, and dashboards.",
         price: "₹ 23,499 + GST",
         track: "FULL PROGRAM ACCESS",
         features: [
-            "Complete Data Science Curriculum",
-            "Hands-on Python & SQL Projects",
-            "Data Visualization with Power BI",
-            "Tools & Server Access",
-            "Weekly Mentorship Sessions",
+            "Complete Curriculum",
+            "Hands-on Projects",
+            "Dashboard & SQL Practice",
+            "Tools",
+            "Mentorship",
         ],
-        cta: "Enroll in Regular Program",
+        cta: "Enroll in Data Science Program",
         highlighted: false,
     },
 ];

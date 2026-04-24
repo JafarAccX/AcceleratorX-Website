@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import companyLogo from "/redesign/logo-no-bg.webp";
+import companyLogo from "/assets/accelerator.png";
 import { useUser } from "../../context/UserContext";
 import ProfileMenu from "../navbar/ProfileMenu";
 
@@ -115,54 +115,57 @@ export default function Navbar() {
         {/* Mobile Sheet */}
         <AnimatePresence>
           {isOpen && (
-            <>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsOpen(false)}
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99999] md:hidden"
-              />
-              <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="fixed inset-y-0 right-0 w-[280px] bg-black z-[100000] shadow-2xl md:hidden p-6 overflow-y-auto flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-8">
-                  <img src="/xsat-bg.webp" alt="xsat" className="h-8 w-auto" />
+            <motion.div
+              key="xsat-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "linear" }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/80 z-[99999] md:hidden transform-gpu"
+            />
+          )}
+          {isOpen && (
+            <motion.div
+              key="xsat-sidepanel"
+              initial={{ x: "100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+              className="fixed inset-y-0 right-0 w-full max-w-[320px] bg-black/95 backdrop-blur-xl border-l border-white/10 z-[100000] shadow-2xl md:hidden p-6 overflow-y-auto flex flex-col transform-gpu"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <img src="/xsat-bg.webp" alt="xsat" className="h-8 w-auto" />
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-white/70 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="flex flex-col space-y-4">
+                {xsatNavItems.map((item) => (
                   <button
-                    onClick={() => setIsOpen(false)}
-                    className="text-white/70 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`font-sans text-left text-lg text-white/90 hover:text-white ${hoverTransition} py-3 px-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10`}
                   >
-                    <X size={24} />
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-auto pt-8">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-[#FFBB00]/20 to-transparent border border-[#FFBB00]/10">
+                  <p className="font-sans text-sm text-white/70 mb-4">Ready to accelerate?</p>
+                  <button className="font-sans w-full bg-[#FFBB00] text-black py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                    Register Now
+                    <ArrowRight size={18} />
                   </button>
                 </div>
-
-                <div className="flex flex-col space-y-4">
-                  {xsatNavItems.map((item) => (
-                    <button
-                      key={item.label}
-                      onClick={() => scrollToSection(item.href)}
-                      className={`font-sans text-left text-lg text-white/90 hover:text-white ${hoverTransition} py-3 px-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10`}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="mt-auto pt-8">
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-[#FFBB00]/20 to-transparent border border-[#FFBB00]/10">
-                    <p className="font-sans text-sm text-white/70 mb-4">Ready to accelerate?</p>
-                    <button className="font-sans w-full bg-[#FFBB00] text-black py-3 rounded-xl font-bold flex items-center justify-center gap-2">
-                      Register Now
-                      <ArrowRight size={18} />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            </>
+              </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </>
@@ -179,12 +182,12 @@ export default function Navbar() {
             {/* Logo */}
             <div className={`relative group ${hoverTransition}`}>
               <Link to="/" className="flex items-center space-x-2 hover:opacity-90">
-                <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-12 object-contain" draggable={false} />
+                <img src={companyLogo} alt="AcceleratorX company new logo - best product management courses" className="w-auto h-5 md:h-8 object-contain" draggable={false} />
               </Link>
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden lg:flex items-center space-x-6">
               {/* Courses Dropdown */}
               <div
                 className="relative group"
@@ -323,7 +326,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
-              className={`md:hidden text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition}`}
+              className={`lg:hidden text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 ${hoverTransition}`}
             >
               <Menu size={24} />
             </button>
@@ -334,182 +337,184 @@ export default function Navbar() {
       {/* Mobile Sheet */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[99999] md:hidden"
-            />
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "linear" }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/60 z-[99999] lg:hidden transform-gpu"
+          />
+        )}
+        {isOpen && (
+          <motion.div
+            key="sidepanel"
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+            className="fixed inset-y-0 right-0 w-full max-w-[320px] bg-white/95 dark:bg-[#000000]/95 backdrop-blur-xl z-[100000] shadow-2xl lg:hidden p-4 overflow-y-auto flex flex-col transform-gpu"
+          >
+            <div className="flex items-center justify-between mb-8">
+              <img src={companyLogo} alt="Logo" className="h-5 w-auto object-contain" />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded-full transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
 
-            {/* Side Panel */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-[300px] bg-white dark:bg-[#000000] z-[100000] shadow-2xl md:hidden p-2 overflow-y-auto flex flex-col"
-            >
-              <div className="flex items-center justify-between mb-8">
-                <img src={companyLogo} alt="Logo" className="h-10 w-auto" />
+            <div className="flex flex-col space-y-2 h-full">
+              {/* Courses Dropdown */}
+              <div className="mb-2">
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded-full transition-colors"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="font-sans flex items-center justify-between w-full text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white text-lg font-semibold py-3 px-4 rounded-xl  transition-colors"
                 >
-                  <X size={24} />
+                  Courses
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
-              </div>
 
-              <div className="flex flex-col space-y-2 h-full">
-                {/* Courses Dropdown */}
-                <div className="mb-2">
-                  <button
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="font-sans flex items-center justify-between w-full text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white text-lg font-semibold py-3 px-4 rounded-xl  transition-colors"
-                  >
-                    Courses
-                    <ChevronDown
-                      size={20}
-                      className={`transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`}
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {isDropdownOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden rounded-xl mt-1 mx-2"
-                      >
-                        <div className="flex flex-col p-2">
-                          {courses.map((course) => (
-                            <Link
-                              key={course.label}
-                              to={course.path}
-                              className="font-sans py-3 px-4 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white  rounded-lg text-sm font-medium transition-colors"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {course.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                {/* Menu Items */}
-                {menuItems.map((item) => {
-                  const isExternal = item.path.startsWith("http");
-                  const isHighlighted = item.label === "XSAT";
-                  const baseClasses = `font-sans flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${isHighlighted
-                    ? "text-[#FFBB00]"
-                    : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white "
-                    }`;
-
-                  return isExternal ? (
-                    <a
-                      key={item.label}
-                      href={item.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={baseClasses}
-                      onClick={() => setIsOpen(false)}
+                <AnimatePresence>
+                  {isDropdownOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                      className="overflow-hidden rounded-xl mt-1 mx-2"
                     >
-                      <span>{item.label}</span>
-                      {isHighlighted && (
-                        <span className="flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                      )}
-                    </a>
-                  ) : (
-                    <Link
-                      key={item.label}
-                      to={item.path}
-                      className={baseClasses}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <span>{item.label}</span>
-                      {isHighlighted && (
-                        <span className="flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                      )}
-                    </Link>
-                  );
-                })}
-
-                {/* Mobile Our Platforms Dropdown */}
-                <div className="mb-2">
-                  <button
-                    onClick={() => setIsPlatformsDropdownOpen(!isPlatformsDropdownOpen)}
-                    className="font-sans flex items-center justify-between w-full text-[#FFBB00] hover:text-[#FFBB00]/80 text-lg font-semibold py-3 px-4 rounded-xl transition-colors"
-                  >
-                    Our Platforms
-                    <ChevronDown
-                      size={20}
-                      className={`transition-transform duration-300 ${isPlatformsDropdownOpen ? "rotate-180" : ""}`}
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {isPlatformsDropdownOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden rounded-xl mt-1 mx-2"
-                      >
-                        <div className="flex flex-col p-2">
-                          {platforms.map((platform) => (
-                            <a
-                              key={platform.label}
-                              href={platform.path}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="font-sans py-3 px-4 text-[#FFBB00] hover:bg-[#FFBB00]/10 rounded-lg text-sm font-medium transition-colors"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {platform.label}
-                            </a>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                <div className="mt-auto pt-8 border-t border-gray-100">
-                  {isAuthenticated ? (
-                    <ProfileMenu />
-                  ) : (
-                    <div className="flex flex-col space-y-3">
-                      <Link
-                        to="/sign-in"
-                        onClick={() => setIsOpen(false)}
-                        className="font-sans w-full text-center py-3 px-6 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                      >
-                        Login
-                      </Link>
-                      <Link
-                        to="/sign-up"
-                        onClick={() => setIsOpen(false)}
-                        className="font-sans w-full text-center py-3 px-6 rounded-xl bg-[#1a71f6] text-white font-semibold shadow-lg shadow-blue-500/20 hover:bg-blue-600 transition-all active:scale-[0.98]"
-                      >
-                        Sign Up
-                      </Link>
-                    </div>
+                      <div className="flex flex-col p-2">
+                        {courses.map((course) => (
+                          <Link
+                            key={course.label}
+                            to={course.path}
+                            className="font-sans py-3 px-4 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white  rounded-lg text-sm font-medium transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {course.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
                   )}
-                </div>
+                </AnimatePresence>
               </div>
-            </motion.div>
-          </>
+
+              {/* Menu Items */}
+              {menuItems.map((item) => {
+                const isExternal = item.path.startsWith("http");
+                const isHighlighted = item.label === "XSAT";
+                const baseClasses = `font-sans flex items-center justify-between py-3 px-4 rounded-xl text-lg font-semibold transition-colors ${isHighlighted
+                  ? "text-[#FFBB00]"
+                  : "text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white "
+                  }`;
+
+                return isExternal ? (
+                  <a
+                    key={item.label}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={baseClasses}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span>{item.label}</span>
+                    {isHighlighted && (
+                      <span className="flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                    )}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    className={baseClasses}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span>{item.label}</span>
+                    {isHighlighted && (
+                      <span className="flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
+
+              {/* Mobile Our Platforms Dropdown */}
+              <div className="mb-2">
+                <button
+                  onClick={() => setIsPlatformsDropdownOpen(!isPlatformsDropdownOpen)}
+                  className="font-sans flex items-center justify-between w-full text-[#FFBB00] hover:text-[#FFBB00]/80 text-lg font-semibold py-3 px-4 rounded-xl transition-colors"
+                >
+                  Our Platforms
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform duration-300 ${isPlatformsDropdownOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {isPlatformsDropdownOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                      className="overflow-hidden rounded-xl mt-1 mx-2"
+                    >
+                      <div className="flex flex-col p-2">
+                        {platforms.map((platform) => (
+                          <a
+                            key={platform.label}
+                            href={platform.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-sans py-3 px-4 text-[#FFBB00] hover:bg-[#FFBB00]/10 rounded-lg text-sm font-medium transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {platform.label}
+                          </a>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <div className="mt-auto pt-8 border-t border-gray-100">
+                {isAuthenticated ? (
+                  <ProfileMenu />
+                ) : (
+                  <div className="flex flex-col space-y-3">
+                    <Link
+                      to="/sign-in"
+                      onClick={() => setIsOpen(false)}
+                      className="font-sans w-full text-center py-3 px-6 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      to="/sign-up"
+                      onClick={() => setIsOpen(false)}
+                      className="font-sans w-full text-center py-3 px-6 rounded-xl bg-[#1a71f6] text-white font-semibold shadow-lg shadow-blue-500/20 hover:bg-blue-600 transition-all active:scale-[0.98]"
+                    >
+                      Sign Up
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

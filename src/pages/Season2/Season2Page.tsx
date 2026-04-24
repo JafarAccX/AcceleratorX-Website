@@ -1,7 +1,7 @@
 
 import { Search, Globe, Cpu, Zap, Layout, Users, TrendingUp } from "lucide-react";
 import { WorkshopProvider } from "../../context/WorkshopContext";
-import { SEO } from "../../components/SEO";
+import { SEO } from "../../components/seo/SEO";
 import WSFormFree from "../landingpage/workshopAIDM/WSFormFree";
 import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 
@@ -19,8 +19,8 @@ const WSHeroSeason2 = () => {
 
             <div className="relative z-20 w-full bg-black/30 backdrop-blur-sm">
                 <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                    <div className="w-36 md:w-44">
-                        <img src="/redesign/logo-bg-black.webp" alt="AcceleratorX logo" className="w-full h-auto" />
+                    <div className="w-48 md:w-64">
+                        <img src="/assets/accelerator.png" alt="AcceleratorX logo" className="w-full h-auto" />
                     </div>
                 </div>
             </div>
@@ -304,7 +304,7 @@ const WSCTASeason2 = () => (
 const Season2Page = () => {
     return (
         <WorkshopProvider>
-            <div className="min-h-screen bg-[#050A14] text-white font-sans overflow-x-hidden selection:bg-orange-500 selection:text-white">
+            <div className="min-h-screen bg-[#050A14] text-white font-sans selection:bg-orange-500 selection:text-white">
                 <SEO title="AI Browsers Workshop | AcceleratorX" description="Join the Workshop on Building AI Browsers and Autonomous Web Agents." />
                 <WSHeroSeason2 />
                 <WSIntroSeason2 />

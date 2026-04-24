@@ -5,18 +5,10 @@ import type React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Users, AlertCircle, Calendar } from "lucide-react";
-import { createClient } from "@supabase/supabase-js";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { supabase } from "../../lib/supabase";
+import { Link, useNavigate } from "react-router-dom";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const whatsappSerriApi = import.meta.env.VITE_WHATSAPP_SERRI_API_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey, {
-  auth: {
-    persistSession: false,
-  },
-});
 
 type FormData = {
   eventName: string;

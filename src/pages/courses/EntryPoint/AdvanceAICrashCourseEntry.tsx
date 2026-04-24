@@ -1,6 +1,6 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
-import { SEO } from "../../../components/SEO";
+import { SEO } from "../../../components/seo/SEO";
 
 const AICrashCoursePageV2 = lazy(() => import("../advance-ai-crash-course/v2/AICrashCoursePageV2"));
 

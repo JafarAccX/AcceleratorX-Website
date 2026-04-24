@@ -3,7 +3,7 @@ import WSAboutGEN from "../../../landingpage/workshopGEN/WSAboutGEN";
 import WSGENIntroduction from "../../../landingpage/workshopGEN/WSGENIntroduction";
 import WSGENWhoShouldEnroll from "../../../landingpage/workshopGEN/WSGENWhoShouldEnroll";
 import WSHeroGEN from "../../../landingpage/workshopGEN/WSHeroGEN";
-import { SEO } from "../../../../components/SEO";
+import { SEO } from "../../../../components/seo/SEO";
 
 const GENAIWorkshop = () => {
   return (

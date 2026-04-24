@@ -7,7 +7,7 @@ import { ChevronDown, Check, ArrowRight, Linkedin } from "lucide-react";
 import toast from 'react-hot-toast';
 import { useUser } from '../../../context/UserContext';
 import { PremiumButton } from "../../../components/common/PremiumButton";
-import EnrollmentModal from "../../../components/EnrollmentModal";
+import EnrollmentModal from "../../../components/modals/EnrollmentModal";
 
 declare global {
     interface Window {

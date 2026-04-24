@@ -1,15 +1,11 @@
 import  { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { createClient } from "@supabase/supabase-js";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { CheckCircle, Calendar,  Copy } from "lucide-react";
 import toast from "react-hot-toast";
 import { WORKSHOP_PRICE } from "../../utils/constants_price";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from "../../lib/supabase";
 
 interface PaymentDetails {
   id: string;

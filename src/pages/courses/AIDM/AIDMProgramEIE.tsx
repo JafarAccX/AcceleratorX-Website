@@ -9,7 +9,7 @@ import { useUser } from '../../../context/UserContext';
 import { COURSE_IDS, COURSE_PRICES } from '../../../utils/constants_price';
 import { api } from '../../../api';
 import { PremiumButton } from "../../../components/common/PremiumButton";
-import EnrollmentModal from "../../../components/EnrollmentModal";
+import EnrollmentModal from "../../../components/modals/EnrollmentModal";
 
 declare global {
     interface Window {

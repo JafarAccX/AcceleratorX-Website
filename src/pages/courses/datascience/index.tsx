@@ -1,6 +1,6 @@
 import { Suspense, useEffect, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
-import { SEO } from "../../../components/SEO";
+import { SEO } from "../../../components/seo/SEO";
 
 // Import EIE components lazily
 const DataScienceHeroEIE = lazy(() => import("./EIE/DataScienceHeroEIE"));

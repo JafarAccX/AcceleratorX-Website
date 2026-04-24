@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaDownload, FaSpinner, FaExclamationCircle } from 'react-icons/fa';
 import certificateApi, { CertificateData } from '../api/certificateApi';
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/seo/SEO';
 
 const CertificateDisplayPage: React.FC = () => {
   const { certificateId } = useParams<{ certificateId: string }>();

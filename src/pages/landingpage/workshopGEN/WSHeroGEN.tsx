@@ -76,7 +76,7 @@ const WSHeroGENC = () => {
       >
         <div className="container mx-auto   py-4 flex justify-between items-center">
           <div className="w-44 md:w-52 hover:scale-105 transition-transform duration-300">
-            <img src="/redesign/logo-bg-black.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
+            <img src="/assets/accelerator.png" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
           </div>
         </div>
       </motion.div>
@@ -229,3 +229,4 @@ const WSHeroGENC = () => {
 };
 
 export default WSHeroGENC;
+

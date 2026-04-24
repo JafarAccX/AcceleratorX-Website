@@ -9,7 +9,7 @@ import { COURSE_PRICES, COURSE_IDS } from "../../../../utils/constants_price";
 import { useUser } from "../../../../context/UserContext";
 import { api } from "../../../../api";
 import { PremiumButton } from "../../../../components/common/PremiumButton";
-import EnrollmentModal from "../../../../components/EnrollmentModal";
+import EnrollmentModal from "../../../../components/modals/EnrollmentModal";
 
 // Razorpay type declaration
 declare global {

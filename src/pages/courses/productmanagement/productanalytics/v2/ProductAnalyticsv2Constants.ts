@@ -5,7 +5,7 @@ export const ASSETS = {
     ibmLogo: "/assets/ibm.png",
     bagIcon: "/assets/digitalmarketing/leftbag.png", // Generic enough
     rupeeIcon: "/assets/digitalmarketing/leftrupee.png", // Generic enough
-    studentsGrp: "/assets/studentgrp.png",
+    studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/digitalmarketing/ctaperson.png", // Generic enough
     aipmgraph: "/assets/digitalmarketing/ai-dm-graph.png", // We replace this with animation anyway
 };
@@ -20,20 +20,20 @@ export const ALUMNI_LOGOS = [
     { name: "Paisabazaar", url: "/assets/paisabazaar.png", height: 32 },
     { name: "Bajaj Finserv", url: "/assets/bajajfinserv.png", height: 44 },
     { name: "Indian Government", url: "/assets/indiangovernment.png", height: 50 },
-    { name: "Razorpay", url: "/assets/pm_alumni_logos/RAZORPAY.png", height: 32 },
-    { name: "Airtel", url: "/assets/pm_alumni_logos/AIRTEL.png", height: 32 },
-    { name: "Infosys", url: "/assets/pm_alumni_logos/Infosys_logo.svg.png", height: 32 },
-    { name: "JP Morgan", url: "/assets/pm_alumni_logos/JP.png", height: 32 },
-    { name: "OLX", url: "/assets/pm_alumni_logos/OLX_New_Logo.png", height: 32 },
-    { name: "ShareChat", url: "/assets/pm_alumni_logos/SHARECHAT.png", height: 32 },
-    { name: "PineLabs", url: "/assets/pm_alumni_logos/pinelabs_BIG.D-6311ba42.png", height: 32 },
-    { name: "Aditya Birla", url: "/assets/pm_alumni_logos/ADITYA BIRAL GROUP.png", height: 32 },
-    { name: "Blue Machine", url: "/assets/pm_alumni_logos/BLUE MACHINE.png", height: 32 },
-    { name: "DMart", url: "/assets/pm_alumni_logos/DMART.NS_BIG.D-7c5f359e.png", height: 32 },
-    { name: "HealthKart", url: "/assets/pm_alumni_logos/HELATHART.png", height: 32 },
-    { name: "Ketto", url: "/assets/pm_alumni_logos/KETTO.png", height: 32 },
-    { name: "Zen", url: "/assets/pm_alumni_logos/ZEN_BIG.D-d60ab9fe.png", height: 32 },
-    { name: "AppsForBharat", url: "/assets/pm_alumni_logos/appsforbharat.webp", height: 32 },
+    { name: "Razorpay", url: "/assets/pm_companies/RAZORPAY_1.png", height: 32 },
+    { name: "Airtel", url: "/assets/pm_companies/AIRTEL_1.png", height: 32 },
+    { name: "Infosys", url: "/assets/pm_companies/Infosys_logo.svg_1.png", height: 32 },
+    { name: "JP Morgan", url: "/assets/pm_companies/JP_1.png", height: 32 },
+    { name: "OLX", url: "/assets/pm_companies/OLX_New_Logo_1.png", height: 32 },
+    { name: "ShareChat", url: "/assets/pm_companies/SHARECHAT_1.png", height: 32 },
+    { name: "PineLabs", url: "/assets/pm_companies/pinelabs_BIG.D-6311ba42_1.png", height: 32 },
+    { name: "Aditya Birla", url: "/assets/pm_companies/ADITYA_BIRAL_GROUP_1.png", height: 32 },
+    { name: "Blue Machine", url: "/assets/pm_companies/BLUE_MACHINE_1.png", height: 32 },
+    { name: "DMart", url: "/assets/pm_companies/DMART.NS_BIG.D-7c5f359e_1.png", height: 32 },
+    { name: "HealthKart", url: "/assets/pm_companies/HELATHART_1.png", height: 32 },
+    { name: "Ketto", url: "/assets/pm_companies/KETTO_1.png", height: 32 },
+    { name: "Zen", url: "/assets/pm_companies/ZEN_BIG.D-d60ab9fe_1.png", height: 32 },
+    { name: "AppsForBharat", url: "/assets/pm_companies/appsforbharat_1.png", height: 32 },
 ];
 
 // ── Course Categories ──────────────────────────────────────────────────

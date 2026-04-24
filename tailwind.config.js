@@ -44,8 +44,8 @@ export default {
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce-slow': 'bounce 3s infinite',
         spotlight: "spotlight 2s ease .75s 1 forwards",
-        "infinite-scroll-left": "infinite-scroll-left 60s linear infinite",
-        "infinite-scroll-right": "infinite-scroll-right 60s linear infinite",
+        "infinite-scroll-left": "infinite-scroll-left 120s linear infinite",
+        "infinite-scroll-right": "infinite-scroll-right 120s linear infinite",
       },
       keyframes: {
         float: {

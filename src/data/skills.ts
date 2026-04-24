@@ -1,0 +1,126 @@
+import { Skill } from "../types/common";
+
+export const skills: Skill[] = [
+  {
+    name: "Product Strategy",
+    icon: "🎯",
+    level: "Advanced",
+    description: "Define and execute product vision and roadmap",
+  },
+  {
+    name: "User Research",
+    icon: "🔍",
+    level: "Expert",
+    description: "Conduct user interviews and analyze feedback",
+  },
+  {
+    name: "Data Analysis",
+    icon: "📊",
+    level: "Intermediate",
+    description: "Make data-driven decisions using metrics",
+  },
+  {
+    name: "Agile Management",
+    icon: "🔄",
+    level: "Advanced",
+    description: "Lead sprints and manage backlogs",
+  },
+  {
+    name: "Stakeholder Communication",
+    icon: "🤝",
+    level: "Expert",
+    description: "Effectively communicate with all parties",
+  },
+  {
+    name: "Market Research",
+    icon: "📈",
+    level: "Advanced",
+    description: "Analyze market trends and competition",
+  },
+  {
+    name: "UX Design",
+    icon: "🎨",
+    level: "Intermediate",
+    description: "Create user-centered design solutions",
+  },
+  {
+    name: "Technical Knowledge",
+    icon: "💻",
+    level: "Intermediate",
+    description: "Understand development processes",
+  },
+  {
+    name: "Growth",
+    icon: "📈",
+    level: "Advanced",
+    description: "Drive user acquisition and product growth",
+  },
+  {
+    name: "AI Product Management",
+    icon: "🤖",
+    level: "Expert",
+    description: "Develop and manage AI-powered products",
+  },
+  {
+    name: "Product Sense",
+    icon: "🧠",
+    level: "Expert",
+    description: "Make intuitive decisions about product direction",
+  },
+  {
+    name: "UI/UX",
+    icon: "✨",
+    level: "Advanced",
+    description: "Design intuitive and engaging user experiences",
+  },
+  {
+    name: "Market Research",
+    icon: "🔎",
+    level: "Advanced",
+    description: "Analyze market trends and competitive landscape",
+  },
+  {
+    name: "Go To Market",
+    icon: "🚀",
+    level: "Expert",
+    description: "Plan and execute successful market entry strategies",
+  },
+  {
+    name: "Product Launch",
+    icon: "🎯",
+    level: "Expert",
+    description: "Successfully launch and scale new products",
+  },
+  {
+    name: "Product metrics",
+    icon: "📊",
+    level: "Expert",
+    description: "Track and analyze product metrics for data-driven decisions",
+  },
+];
+
+export const dataAnalyticsSkills = [
+
+  "Data Cleaning & Preparation",
+  "Data Visualization",
+  "Statistical Analysis",
+  "Product metrics",
+  "Data Aggregation and Summarization",
+  "Data Querying with SQL",
+  "Aggregations and Joins in SQL",
+  "Advanced SQL Techniques",
+  "Descriptive Statistics",
+  "Hypothesis Testing",
+  "Feature Engineering",
+  "Exploratory Data Analysis (EDA)",
+  "Supervised Machine Learning Basics",
+  "Decision Trees and Model Tuning",
+  "AI-Powered Dashboards",
+  "Funnel and User Journey Analysis",
+  "Time Series Forecasting",
+  "Customer Segmentation",
+  "Sentiment Analysis and NLP",
+  "Data analytics with AI automation",
+  "Automate data workflows",
+  "Data engineering",
+];

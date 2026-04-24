@@ -2,9 +2,9 @@
 export const ASSETS = {
     heroImage: "/assets/hero.png",
     ibmLogo: "/assets/ibm.png",
-    bagIcon: "/assets/leftbag.png",
-    rupeeIcon: "/assets/leftrupee.png",
-    studentsGrp: "/assets/studentgrp.png",
+    bagIcon: "/assets/stars/DAbag.png",
+    rupeeIcon: "/assets/stars/DAstar.png",
+    studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/ctaperson.png",
     aipmgraph: "/assets/ai-pm-chart.png",
 };
@@ -18,6 +18,22 @@ export const ALUMNI_LOGOS = [
     { name: "Bajaj Finserv", url: "/assets/bajajfinserv.png", height: 44 },
     { name: "Indian Government", url: "/assets/indiangovernment.png", height: 50 },
     { name: "Razorpay", url: "/assets/Razorpay.png", height: 32 },
+];
+
+export const MAIN_LOGOS = [
+    { name: "Logo 246", url: "/assets/DA and DS  main company logos/image 246.png" },
+    { name: "Logo 247", url: "/assets/DA and DS  main company logos/image 247.png" },
+    { name: "Logo 248", url: "/assets/DA and DS  main company logos/image 248.png" },
+    { name: "Logo 249", url: "/assets/DA and DS  main company logos/image 249.png" },
+    { name: "Logo 250", url: "/assets/DA and DS  main company logos/image 250.png" },
+    { name: "Logo 251", url: "/assets/DA and DS  main company logos/image 251.png" },
+    { name: "Logo 252", url: "/assets/DA and DS  main company logos/image 252.png" },
+    { name: "Logo 253", url: "/assets/DA and DS  main company logos/image 253.png" },
+    { name: "Logo 254", url: "/assets/DA and DS  main company logos/image 254.png" },
+    { name: "Logo 255", url: "/assets/DA and DS  main company logos/image 255.png" },
+    { name: "Logo 257", url: "/assets/DA and DS  main company logos/image 257.png" },
+    { name: "Logo 258", url: "/assets/DA and DS  main company logos/image 258.png" },
+    { name: "Logo 259", url: "/assets/DA and DS  main company logos/image 259.png" }
 ];
 
 export const floatingBadges = [
@@ -39,35 +55,209 @@ export const courseCategories = [
 ];
 
 export const switchPath = [
-    { title: "Leverage Your Existing Skills", icon: "/assets/roadmap/mingcute_target-line.png", color: "#3B82F6", desc: "Learn how to apply AI in data analytics, dashboards, and reporting systems" },
-    { title: "Learn Data + AI Tools for Real Work", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#3B82F6", desc: "Master Excel, SQL, Python, Power BI, and AI tools used by MNCs" },
-    { title: "Build AI-Powered Dashboards & Systems", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#3B82F6", desc: "Dashboards that generate automated insights and decision support with AI." },
-    { title: "Work on Real Business Data Projects", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#3B82F6", desc: "Solve real-world problems using datasets, automation, and analytics." },
-    { title: "Transition into Data Analytics Roles", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#3B82F6", desc: "Use your portfolio, and projects to move into AI-driven analytics roles." },
+    { title: "Leverage Your Existing Skills", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Learn how to apply AI in data analytics, dashboards, and reporting systems" },
+    { title: "Learn Data + AI Tools for Real Work", icon: "/DSroadmap/Vector (6).png", color: "#3B82F6", desc: "Master Excel, SQL, Python, Power BI, and AI tools used by MNCs" },
+    { title: "Build AI-Powered Dashboards & Systems", icon: "/DSroadmap/Group.png", color: "#3B82F6", desc: "Dashboards that generate automated insights and decision support with AI." },
+    { title: "Work on Real Business Data Projects", icon: "/DSroadmap/Vector (5).png", color: "#3B82F6", desc: "Solve real-world problems using datasets, automation, and analytics." },
+    { title: "Transition into Data Analytics Roles", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Use your portfolio, and projects to move into AI-driven analytics roles." },
 ];
 
 export const freshersPath = [
-    { title: "Learn Data Analytics Fundamentals", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#3B82F6", desc: "Start with basics of data analytics, Excel, SQL, and AI tools." },
-    { title: "Explore AI in Data Analytics", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#3B82F6", desc: "Understand how AI is transforming dashboards, reporting, and business decisions." },
-    { title: "Develop Analytical & Problem-Solving Skills", icon: "/assets/roadmap/mingcute_target-line.png", color: "#3B82F6", desc: "Learn how to interpret data, identify trends, and use AI tools for insights." },
-    { title: "Build Real Data Projects", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#3B82F6", desc: "Work on dashboards, analytics systems, and automation workflows." },
-    { title: "Become Job-Ready as a Data Analyst", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#3B82F6", desc: "Create a strong portfolio and apply for AI data analyst roles." },
+    { title: "Learn Data Analytics Fundamentals", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Start with basics of data analytics, Excel, SQL, and AI tools." },
+    { title: "Explore AI in Data Analytics", icon: "/DSroadmap/Vector (6).png", color: "#3B82F6", desc: "Understand how AI is transforming dashboards, reporting, and business decisions." },
+    { title: "Develop Analytical & Problem-Solving Skills", icon: "/DSroadmap/Group.png", color: "#3B82F6", desc: "Learn how to interpret data, identify trends, and use AI tools for insights." },
+    { title: "Build Real Data Projects", icon: "/DSroadmap/Vector (5).png", color: "#3B82F6", desc: "Work on dashboards, analytics systems, and automation workflows." },
+    { title: "Become Job-Ready as a Data Analyst", icon: "/DSroadmap/Vector (4).png", color: "#3B82F6", desc: "Create a strong portfolio and apply for AI data analyst roles." },
 ];
 
 export const ibmModules = [
-    { title: "Data Analytics Foundations & Business Context", desc: "Understand data analytics fundamentals and how businesses use data for decision-making." },
-    { title: "SQL, Excel & Data Handling with AI", desc: "Master data querying, cleaning, and manipulation with AI-assisted tools." },
-    { title: "Dashboards, BI Tools & Automation", desc: "Build interactive dashboards and automate reporting workflows." },
-    { title: "Advanced Analytics & Real-World Projects", desc: "Work on real datasets, business problems, and AI-driven analytics use cases." },
-    { title: "AI in Data Analytics Certification from IBM", desc: "Earn an industry-recognized certification by applying AI in analytics workflows." },
+    {
+        title: "Module 1: Foundations of Data Analysis",
+        goal: "Build essential data skills in Excel and introductory BI tools to ensure a solid base in data manipulation and visualization.",
+        sessions: [
+            {
+                title: "Core Data Skills",
+                topics: [
+                    "Data cleaning & preparation",
+                    "Aggregations & Pivot Tables",
+                    "Introductory dashboards",
+                    "Data manipulation best practices"
+                ],
+                skills: "Data cleaning, aggregation, pivot tables, introductory dashboards",
+                tools: "Excel, Tableau, Power BI",
+                project: "Create an interactive dashboard summarizing a sample dataset"
+            }
+        ]
+    },
+    {
+        title: "Module 2: SQL for Data Analysis",
+        goal: "Learn SQL to query and manipulate relational databases, a critical skill for AI data stored in structured databases.",
+        sessions: [
+            {
+                title: "Relational Databases & SQL",
+                topics: [
+                    "Conditional filtering & sorting",
+                    "Table joins (Inner, Left, Right, Full)",
+                    "Data aggregation using GROUP BY",
+                    "Subqueries & CTEs basics"
+                ],
+                skills: "Relational databases, conditional filtering, table joins, data aggregation",
+                tools: "MySQL or Google BigQuery",
+                project: "SQL-based analysis of sales or customer data, uncovering key patterns"
+            }
+        ]
+    },
+    {
+        title: "Module 3: Statistics and Probability for Data Analysis",
+        goal: "Develop essential statistical skills, supporting hypothesis testing and decision-making, vital for understanding user behavior.",
+        sessions: [
+            {
+                title: "Statistical Foundations",
+                topics: [
+                    "Descriptive statistics (Mean, Median, Mode, Variance)",
+                    "Probability distributions",
+                    "Hypothesis testing & P-values",
+                    "Correlation vs Causation"
+                ],
+                skills: "Hypothesis testing, statistical significance, probability modeling",
+                tools: "Excel, Python Stats",
+                project: "Statistical analysis of user behavior data to validate business hypotheses"
+            }
+        ]
+    },
+    {
+        title: "Module 4: Python for Data Analysis",
+        goal: "Master Python for data manipulation, EDA, and visualization—an invaluable tool for AI analysts to gain deeper insights.",
+        sessions: [
+            {
+                title: "Python Data Science Stack",
+                topics: [
+                    "Pandas DataFrames & Series",
+                    "Data cleaning & handling missing values",
+                    "Exploratory Data Analysis (EDA)",
+                    "Data visualization (Matplotlib, Seaborn)"
+                ],
+                skills: "DataFrames, data cleaning, advanced visualization",
+                tools: "Jupyter Notebook, Pandas, Numpy",
+                project: "Exploratory Data Analysis (EDA) of user trends in an AI dataset"
+            }
+        ]
+    },
+    {
+        title: "Module 5: Advanced Business Intelligence and Dashboarding",
+        goal: "Create interactive dashboards that go beyond static views, designed specifically for tracking AI metrics and user behavior.",
+        sessions: [
+            {
+                title: "Interactive BI Systems",
+                topics: [
+                    "Dynamic dashboard design",
+                    "Tracking AI performance metrics",
+                    "User behavior visualization",
+                    "A/B test result monitoring"
+                ],
+                skills: "Interactive dashboards, AI KPI tracking, A/B test visualization",
+                tools: "Tableau, Power BI",
+                project: "Build a dashboard that captures user journeys, AI KPIs, and conversion funnels"
+            }
+        ]
+    },
+    {
+        title: "Module 6: Product Analytics Specialization",
+        goal: "Develop specialized analytical skills for product data, enabling cohort analysis and churn prediction.",
+        sessions: [
+            {
+                title: "Product Metrics & Cohort Analysis",
+                topics: [
+                    "Mastering DAU, MAU, LTV, and retention",
+                    "Retention curves & churn analysis",
+                    "Cohort visualizations"
+                ],
+                project: "Conduct a cohort analysis to visualize retention curves over time"
+            },
+            {
+                title: "Funnel Analysis & Journey Mapping",
+                topics: [
+                    "Analyzing & optimizing user journeys",
+                    "Funnel metrics & conversion bottlenecks",
+                    "Drop-off point identification"
+                ],
+                project: "Perform a detailed funnel analysis to pinpoint conversion bottlenecks"
+            },
+            {
+                title: "Predictive Analytics & Churn Prediction",
+                topics: [
+                    "Building churn prediction models in Python",
+                    "Identifying at-risk user behaviors",
+                    "Retention strategy design"
+                ],
+                project: "Develop a churn prediction model to identify at-risk users"
+            },
+            {
+                title: "Customer Segmentation",
+                topics: [
+                    "RFM analysis techniques",
+                    "Customer clustering for personalization",
+                    "Tailoring product offerings"
+                ],
+                project: "Use segmentation to tailor experiences and boost engagement"
+            }
+        ]
+    },
+    {
+        title: "Module 7: Modern Data Stack for Analysts",
+        goal: "Learn modern data infrastructure, pipelines, and tools used in data-driven organizations.",
+        sessions: [
+            {
+                title: "Modern Data Stack Foundations",
+                topics: [
+                    "Data warehousing (BigQuery, Snowflake)",
+                    "ETL/ELT vs. traditional ETL",
+                    "dbt workflows & data modeling",
+                    "Analytics platforms (Metabase, Looker)"
+                ],
+                project: "Design an event-tracking pipeline and build a dbt model"
+            },
+            {
+                title: "Data Pipelines & BI Integration",
+                topics: [
+                    "End-to-end data pipeline design",
+                    "Connecting dbt to BI tools",
+                    "Automating metric reporting",
+                    "Troubleshooting pipeline challenges"
+                ],
+                project: "Deploy a pipeline using BigQuery + dbt + Tableau/Power BI"
+            }
+        ]
+    },
+    {
+        title: "Module 8: AI Tools and Automation for Data Analysts",
+        goal: "Develop skills to enhance data workflows using AI-powered tools, improving speed and scalability.",
+        sessions: [
+            {
+                title: "AI in Data Analytics Workflows",
+                topics: [
+                    "Generative AI (ChatGPT, Copilot) for SQL",
+                    "AI-assisted Python scripting",
+                    "Automated data quality checks",
+                    "Report summarization using LLMs"
+                ],
+                project: "Automate data analysis workflows using AI tools"
+            },
+            {
+                title: "AI-Enabled Predictive Analytics",
+                topics: [
+                    "Automating SQL/Python generation",
+                    "AutoML with BigQuery ML",
+                    "AI-driven reports & dashboards",
+                    "Validation of AI outputs"
+                ],
+                project: "Build predictive models using AutoML and generate AI-driven insights"
+            }
+        ]
+    }
 ];
 
-export const regularModules = [
-    { title: "Introduction to Data Analytics", desc: "Learn basics of data analysis, Excel, and reporting concepts." },
-    { title: "SQL & Data Handling", desc: "Work with databases and structured data." },
-    { title: "Dashboarding & Visualization", desc: "Create dashboards and reports using BI tools." },
-    { title: "Hands-On Data Projects", desc: "Apply learning through real-world datasets." },
-];
+export const regularModules = [...ibmModules];
 
 export const MENTORS = [
     { name: "Akash Maurya", designation: "Data scientist @Koantek", company: "Koantek", image: "/redesign/ai-da/mentors/Aakash Maurya.png", companyLogo: "/assets/mentors/Koantek.png" },
@@ -97,19 +287,19 @@ export const PM_PHASES = [
 ];
 
 export const CAREER_ROLES = [
-    { title: "Decision Intelligence Analyst", salary: "₹10L – ₹25L", description: "Drive business decisions using data + insights" },
-    { title: "Analytics Engineer", salary: "₹12L – ₹30L", description: "Build data pipelines & transformation systems" },
-    { title: "Business Intelligence Specialist", salary: "₹10L – ₹22L", description: "Create dashboards that drive strategy" },
-    { title: "Data Strategy Consultant", salary: "₹15L – ₹35L", description: "Help companies become data-driven" },
+    { title: "Data Analyst", salary: "₹6L – ₹15L", description: "Drive business decisions using data + insights" },
+    { title: " Business Analyst", salary: "₹8L – ₹20L", description: "Build data pipelines & transformation systems" },
+    { title: "AI Data Analyst", salary: "₹10L – ₹25L", description: "Create dashboards that drive strategy" },
+    { title: "Analytics and BI Specialist", salary: "₹12L – ₹28L", description: "Help companies become data-driven" },
 ];
 
 export const PRICING_PLANS = [
     {
         title: "AcceleratorX + IBM",
         badge: "MOST POPULAR",
-        subtitle: "An advanced product management program designed for learners seeking deeper industry exposure, certification, and accelerated career outcomes.",
+        subtitle: "An advanced AI Data Analytics program in India designed for learners seeking deeper expertise in analytics, dashboards, automation, and AI-driven decision-making.",
         price: "₹ 42,999 + GST",
-        track: "ADVANCED CAREER TRACK",
+        track: "ADVANCED DATA ANALYTICS TRACK",
         features: [
             "Everything included in the Regular Program",
             "IBM Industry Certification",
@@ -124,7 +314,7 @@ export const PRICING_PLANS = [
     {
         title: "Regular Program",
         badge: null,
-        subtitle: "A complete product management learning experience designed to help you build strong product fundamentals and transition into product roles.",
+        subtitle: "A complete data analytics course for beginners and working professionals.",
         price: "₹ 29,999 + GST",
         track: "FULL PROGRAM ACCESS",
         features: [
@@ -134,7 +324,7 @@ export const PRICING_PLANS = [
             "Tools Access",
             "Mentorship",
         ],
-        cta: "Enroll in Regular Program",
+        cta: "Enroll in Data Analytics Program",
         highlighted: false,
     },
 ];

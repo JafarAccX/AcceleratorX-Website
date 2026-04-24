@@ -1,10 +1,58 @@
-import { 
-  CAREER_ROLES, 
-  PRICING_PLANS,
+import {
+    CAREER_ROLES,
+    PRICING_PLANS,
 } from "./AICrashCoursev2Constants";
 import { GradientLabel } from "./AICrashCoursev2Part1";
 
 // ── Component: CareerRoles.tsx ───────────────────────────────────────────────────
+export const Certificate = () => (
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+            <div className="text-center mb-16 sm:mb-20">
+                <GradientLabel text="CERTIFICATION" highlight="TION" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">The Certificate Recognized By The Industry</h2>
+            </div>
+
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+                <div className="flex-1 flex justify-center lg:justify-end w-full">
+                    <div className="relative w-full max-w-[517px]">
+                        <img
+                            src="/assets/certificate/AI CRASH COURCE.png"
+                            alt="Advanced AI Certificate"
+                            className="w-full h-auto object-contain relative z-20 mix-blend-lighten"
+                            width={517}
+                            height={731}
+                        />
+                    </div>
+                </div>
+
+                <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <h3 className="text-white font-bold text-[24px] sm:text-[32px] leading-tight mb-4">
+                        Get Your Nano-Degree in Advanced AI Crash Course
+                    </h3>
+                    <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-relaxed mb-8 max-w-[500px]">
+                        Show the world your expertise in AI Crash Course, stand out in a competitive Ai job market and get hired easily.
+                    </p>
+
+                    <ul className="flex flex-col gap-4 sm:gap-5 text-left w-full max-w-[500px]">
+                        {[
+                            "Industry-recognized Nano Degree in AI Crash Course.",
+                            "Verified badge + unique verification ID",
+                            "Trusted by 2500+ companies and agencies",
+                            "Advanced AI Projects portfolio",
+                            "Lifetime exclusive alumni community access"
+                        ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-3 sm:gap-4">
+                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#EA580C] flex-shrink-0" />
+                                <span className="text-[#C2C2C2] text-[14px] sm:text-[15px] font-medium leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+);
 export const RoleCard = ({ role, idx }: { role: any, idx: number }) => (
     <div className="relative group w-full max-w-[550px] h-[90px] sm:h-[105px] cursor-pointer">
         <svg width="100%" height="100%" viewBox="0 0 632 140" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
@@ -32,7 +80,7 @@ export const RoleCard = ({ role, idx }: { role: any, idx: number }) => (
                     <span className="text-[#EA580C] text-[10px] sm:text-[12px] font-semibold tracking-[0.5px] whitespace-nowrap">{role.salary}</span>
                 </div>
             </div>
-            <p className="text-[#94A3B8] text-[11px] sm:text-[13px] font-medium leading-snug w-[95%]">{role.description}</p>
+            <p className="text-[#C2C2C2] text-[11px] sm:text-[13px] font-medium leading-snug w-[95%]">{role.description}</p>
         </div>
     </div>
 );
@@ -41,11 +89,8 @@ export const CareerRoles = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 relative z-10">
             <div className="text-center mb-16 sm:mb-24">
-                <GradientLabel text="CAREER" highlight="ER" />
+                <GradientLabel text="CAREER" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Career Opportunities After This AI Course</h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed font-medium">
-                    2,000+ learners across India — from Bengaluru to Bhilai — are already building real AI skills and getting hired at top companies.
-                </p>
             </div>
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
@@ -61,7 +106,10 @@ export const CareerRoles = () => (
                     </div>
                 </div>
             </div>
-            
+            <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[1188px] mx-auto mt-10 leading-relaxed text-center">
+                Companies are actively hiring professionals with AI, automation, and LLM expertise.
+            </p>
+
             <div className="mt-16 sm:mt-24 lg:mt-32">
                 <div className="relative w-full max-w-[1232px] bg-[#0A0A0A] p-4 sm:p-8 lg:p-[48px] mx-auto mb-16 border border-white/5 rounded-[16px] sm:rounded-[24px]">
                     <div className="relative w-full h-auto flex flex-col">
@@ -170,7 +218,7 @@ export const CareerRoles = () => (
                         <div className="mt-8 sm:mt-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 sm:gap-10">
                             <div className="flex flex-col gap-2 sm:gap-3 text-left">
                                 <h3 className="text-white text-[18px] sm:text-[24px] font-bold tracking-tight">Growth Projection</h3>
-                                <p className="text-[#ADAAAA] text-[12px] sm:text-[14px] font-medium max-w-[358px] leading-relaxed">
+                                <p className="text-[#C2C2C2] text-[12px] sm:text-[14px] font-medium max-w-[358px] leading-relaxed">
                                     Based on internal data synthesis of AI-adapted career paths vs traditional industry norms.
                                 </p>
                             </div>
@@ -195,25 +243,21 @@ export const CareerRoles = () => (
 
 // ── Component: BYDP.tsx ───────────────────────────────────────────────────
 export const BYDP = () => (
-    <section className="pt-6 sm:pt-10 lg:pt-14 pb-12 sm:pb-20 lg:pb-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
+    <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
         <div className="max-w-[1047px] mx-auto text-center">
-            <GradientLabel text="PROGRAMS DESCRIPTION" highlight="DESCRIPTION" />
-            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-16">Build your dream product</h2>
+            <GradientLabel text="PROJECTS" />
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-16">Build Real AI Systems That Get You Hired</h2>
 
             <div className="flex flex-col gap-8 sm:gap-12 items-center">
                 <div className="max-w-[950px]">
-                    <h3 className="text-white font-bold text-[16px] sm:text-[18px] mb-3 sm:mb-4">What is BYDP?</h3>
-                    <p className="text-[#94A3B8] text-[14px] sm:text-[16px] leading-[1.6] font-medium">
-                        Build Your Dream Product (BYDP) is a structured design and development process that turns 
-                        raw ideas into usable, market-ready digital products-fast, focused, and without guesswork.
+                    <p className="text-[#C2C2C2] text-[16px] sm:text-[18px] leading-[1.6] font-medium mb-2">
+                        Instead of just completing assignments, you build:
                     </p>
-                </div>
-                <div className="max-w-[950px]">
-                    <h3 className="text-white font-bold text-[16px] sm:text-[18px] mb-3 sm:mb-4">Why BYDP?</h3>
-                    <p className="text-[#94A3B8] text-[14px] sm:text-[16px] leading-[1.6] font-medium">
-                        Because building the wrong product is more expensive than building it right. BYDP aligns 
-                        strategy, design, and execution so you ship something users actually want, not just 
-                        something that looks good.
+                    <p className="text-white text-[18px] sm:text-[22px] font-medium mb-6">
+                        AI agents | Automation systems | Real-world AI applications | Business AI workflows
+                    </p>
+                    <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-[1.6] font-medium italic opacity-70">
+                        This becomes your proof of work. What recruiters actually care about.
                     </p>
                 </div>
             </div>
@@ -228,7 +272,7 @@ export const Pricing = ({ onEnroll }: { onEnroll?: (amount: number, batchId?: st
             <div className="text-center mb-10 sm:mb-14">
                 <GradientLabel text="PRICING" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 leading-tight">Choose Your Advanced AI Learning Path</h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed">
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed">
                     Flexible pricing options designed for professionals who want to master AI systems, automation workflows, and real-world AI applications.
                 </p>
             </div>
@@ -242,7 +286,7 @@ export const Pricing = ({ onEnroll }: { onEnroll?: (amount: number, batchId?: st
                             : "bg-[#111] border-white/[0.08]"
                             }`}
                         style={plan.highlighted ? {
-                             background: "radial-gradient(circle at 100% 0%, rgba(234, 88, 12, 0.35) 0%, rgba(234, 88, 12, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
+                            background: "radial-gradient(circle at 100% 0%, rgba(234, 88, 12, 0.35) 0%, rgba(234, 88, 12, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
                         } : {}}
                     >
                         {plan.badge && (
@@ -261,7 +305,7 @@ export const Pricing = ({ onEnroll }: { onEnroll?: (amount: number, batchId?: st
                                 </div>
                             )}
                         </h3>
-                        <p className="text-[#A0A8B8] text-[13px] sm:text-[14px] leading-[22px] sm:leading-[26px] font-normal mb-6 sm:mb-8">{plan.subtitle}</p>
+                        <p className="text-[#C2C2C2] text-[13px] sm:text-[14px] leading-[22px] sm:leading-[26px] font-normal mb-6 sm:mb-8 min-h-[88px] sm:min-h-[104px]">{plan.subtitle}</p>
 
                         <div className="text-[30px] sm:text-[40px] font-black text-white mb-2 leading-none tracking-tight">{plan.price}</div>
                         <div className={`text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-[0.7px] uppercase mb-6 sm:mb-10 ${plan.highlighted ? "text-[#EA580C]" : "text-[#7B7B7B]"}`}>
@@ -270,7 +314,7 @@ export const Pricing = ({ onEnroll }: { onEnroll?: (amount: number, batchId?: st
 
                         <ul className="flex flex-col gap-3 sm:gap-4 mb-8 sm:mb-12 flex-1">
                             {plan.features.map((f, j) => (
-                                <li key={j} className="flex items-start gap-3 sm:gap-4 text-[13px] sm:text-[14px] font-medium leading-[20px] sm:leading-[22.5px] text-[#CFCFCF]">
+                                <li key={j} className="flex items-start gap-3 sm:gap-4 text-[13px] sm:text-[14px] font-medium leading-[20px] sm:leading-[22.5px] text-[#C2C2C2]">
                                     <div className={`w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlighted ? "bg-[#EA580C]" : "border border-white/20"}`}>
                                         <svg width="10" height="8" viewBox="0 0 12 10" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                             <polyline points="1.5 5 4.5 8 10.5 2" />
@@ -284,7 +328,7 @@ export const Pricing = ({ onEnroll }: { onEnroll?: (amount: number, batchId?: st
                         <div onClick={() => plan.price !== "TBA" && onEnroll?.(parseInt(plan.price.replace(/[^\d]/g, "")), plan.track)} className="w-full mt-auto cursor-pointer">
                             <button
                                 className={`w-full py-3 sm:py-4 rounded-[10px] sm:rounded-[12px] font-bold text-[14px] sm:text-[15px] transition-all duration-300 tracking-[0.5px] ${plan.highlighted
-                                    ? "bg-[#EA580C] text-white hover:brightness-110 shadow-xl shadow-[#EA580C]/25"
+                                    ? "bg-[#EA580C] text-white hover:brightness-110 shadow-xl shadow-[#EA580C]/25 border-2 border-transparent"
                                     : "border-2 border-[#EA580C] text-[#EA580C] hover:bg-[#EA580C]/5"
                                     }`}
                             >

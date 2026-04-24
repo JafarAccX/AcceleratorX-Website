@@ -32,14 +32,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     // Disabled toggle - does nothing
     const toggleTheme = () => {
-        // Theme toggle is disabled - always dark mode
-        console.log('Theme toggle is disabled. Website is locked to dark mode.');
+        // Theme toggle is disabled — always dark mode
     };
 
     // Disabled setter - does nothing
     const setTheme = (_newTheme: Theme) => {
-        // Theme setting is disabled - always dark mode
-        console.log('Theme setting is disabled. Website is locked to dark mode.');
+        // Theme setting is disabled — always dark mode
     };
 
     return (

@@ -2,8 +2,8 @@ export const ASSETS = {
   heroImage: "/assets/hero.png",
   ibmLogo: "/assets/ibm.png",
   bagIcon: "/assets/leftbag.png",
-  rupeeIcon: "/assets/leftrupee.png",
-  studentsGrp: "/assets/studentgrp.png",
+  rupeeIcon: "/assets/stars/star.png",
+  studentsGrp: "/assets/happystudents.png",
   ctaperson: "/assets/ctabanner/ctaperson.png",
   ctaBob: "/assets/ctabanner/bockgroundbob.png",
   ctaBadge: "/assets/ctabanner/1998+.png",
@@ -31,62 +31,122 @@ export const ALUMNI_LOGOS = [
   { name: "Bajaj", url: "/assets/genai_alumni_logos/BAJAJ.png", height: 32 },
 ];
 
+export const MAIN_LOGOS = [
+  { name: "Accenture", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ACN_BIG.D-871a76ce 1.png" },
+  { name: "Bajaj", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/BAJAJ 1.png" },
+  { name: "Cognizant", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/COGNIZANT 1.png" },
+  { name: "Capgemini", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/COIN 1.png" },
+  { name: "Dentsu", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/DENTSU 1.png" },
+  { name: "Digital", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/DIGITAL 1.png" },
+  { name: "Ericsson", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ERIC_BIG.D-a6e54d97 1.png" },
+  { name: "EY", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/EY-Logo-Transparent 1.png" },
+  { name: "Google", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Google_2015_logo.svg 1.png" },
+  { name: "Infosys", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/INFY.D-7896b1a8 1.png" },
+  { name: "ISRO", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Indian_Space_Research_Organisation_Logo.svg 1.png" },
+  { name: "Infosys_logo", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Infosys_logo.svg 2.png" },
+  { name: "JP Morgan", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/JP 2.png" },
+  { name: "PWC", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/PWC-Logo-PNG 1.png" },
+  { name: "Qualcomm", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/QCOM_BIG.D-61975dc8 1.png" },
+  { name: "SE", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/SE_Logo_White_RGB 1.png" },
+  { name: "TCS", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Tata_Consultancy_Services_Logo_2020 1.png" },
+  { name: "Tata Tech", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Tata_TT_stacked_logo-white 1.png" },
+  { name: "Title", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Title 2.png" },
+  { name: "Wipro", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/WIPRO WHITE 1.png" },
+  { name: "Zensar", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ZEN_BIG.D-d60ab9fe 2.png" },
+  { name: "Zobar", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ZOBAR AI 1.png" },
+  { name: "Deutsche Bank", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/deutsche-bank-logo-black-and-white-1 1.png" },
+  { name: "DRDO", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/drdo-logo-hd 1.png" },
+  { name: "Meta", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/pngimg.com - meta_PNG7 1.png" },
+  { name: "Microsoft", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/pngimg.com - microsoft_PNG19 1.png" },
+  { name: "SXP", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/sxp-logo-1-01 1.png" }
+];
+
 export const switchPath = [
-    { title: "Leverage Your Existing Skills", desc: "Learn how to apply Advanced AI, Generative AI, and automation workflows.", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#F97316" },
-    { title: "Master AI Tools & Systems Used in Companies", desc: "Work with real AI tools, LLMs, and automation systems that businesses use.", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#4F46E5" },
-    { title: "Build AI Workflows, Agents & Systems", desc: "Design and build AI-powered workflows, AI agents, and automation systems.", icon: "/assets/roadmap/mingcute_target-line.png", color: "#EC4899" },
-    { title: "Work on Real Industry Projects", desc: "Build production-level AI projects, automation pipelines, and real-world use cases.", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#8B5CF6" },
-    { title: "Transition into Advanced AI Roles", desc: "Use your portfolio, AI projects, and hands-on experience to move into AI roles.", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#F59E0B" }
+  { title: "Leverage Your Existing Skills", desc: "Learn how to apply Advanced AI, Generative AI, and automation workflows.", icon: "/assets/roadmap/mingcute_target-line.png", color: "#F97316" },
+  { title: "Master AI Tools & Systems Used in Companies", desc: "Work with real AI tools, LLMs, and automation systems that businesses use.", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#4F46E5" },
+  { title: "Build AI Workflows, Agents & Systems", desc: "Design and build AI-powered workflows, AI agents, and automation systems.", icon: "/assets/roadmap/mingcute_target-line.png", color: "#EC4899" },
+  { title: "Work on Real Industry Projects", desc: "Build production-level AI projects, automation pipelines, and real-world use cases.", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#8B5CF6" },
+  { title: "Transition into Advanced AI Roles", desc: "Use your portfolio, AI projects, and hands-on experience to move into AI roles.", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#F59E0B" }
 ];
 
 export const freshersPath = [
-    { title: "Learn AI Fundamentals & Generative AI", desc: "Start with the basics of Artificial Intelligence, Gen AI, ChatGPT, and AI tools.", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#F97316" },
-    { title: "Explore AI Tools & Real-World Applications", desc: "Understand how AI tools, automation systems, and AI workflows.", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#4F46E5" },
-    { title: "Develop AI Thinking & Problem Solving", desc: "Think in terms of AI-first solutions, prompt engineering, workflows, and automation logic.", icon: "/assets/roadmap/mingcute_target-line.png", color: "#EC4899" },
-    { title: "Build Real AI Projects & Systems", desc: "Work on AI agents, automation systems, and real-world AI applications.", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#8B5CF6" },
-    { title: "Become Job-Ready with Advanced AI Skills", desc: "Become Job-Ready with Advanced AI Skills", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#F59E0B" }
+  { title: "Learn AI Fundamentals & Generative AI", desc: "Start with the basics of Artificial Intelligence, Gen AI, ChatGPT, and AI tools.", icon: "/assets/roadmap/mingcute_target-line.png", color: "#F97316" },
+  { title: "Explore AI Tools & Real-World Applications", desc: "Understand how AI tools, automation systems, and AI workflows.", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#4F46E5" },
+  { title: "Develop AI Thinking & Problem Solving", desc: "Think in terms of AI-first solutions, prompt engineering, workflows, and automation logic.", icon: "/assets/roadmap/mingcute_target-line.png", color: "#EC4899" },
+  { title: "Build Real AI Projects & Systems", desc: "Work on AI agents, automation systems, and real-world AI applications.", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#8B5CF6" },
+  { title: "Become Job-Ready with Advanced AI Skills", desc: "Become Job-Ready with Advanced AI Skills", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#F59E0B" }
 ];
 
 export const ibmModules = [
-    { title: "Advanced AI Foundations & Business Applications", desc: "Understand AI systems, ML workflows, Gen AI, and how AI is applied across industries." },
-    { title: "Generative AI, LLMs & Prompt Engineering", desc: "Master ChatGPT, LLMs, prompt engineering, and structured AI outputs." },
-    { title: "AI Tools, Automation & Workflow Systems", desc: "Build automation workflows, integrate AI tools, and design scalable systems." },
-    { title: "AI Agents & Real-World System Building", desc: "Design and build AI agents, autonomous workflows, and AI-powered applications." },
-    { title: "Capstone Projects & Career Acceleration", desc: "Work on industry-grade AI projects, automation systems, and real-world use cases to build a strong portfolio." },
-    { title: "AI Agent Building Specialisation Certificate from IBM", desc: "Earn an industry-recognised IBM certification by building real-world AI systems." },
+  { id: "01", title: "Understanding LLMs & LLM Fine-Tuning & its Part - 2" },
+  { id: "02", title: "Build with CrewAI & Practical Multi-AI Agents & Advanced Use Cases (CrewAI)" },
+  { id: "03", title: "Building MCP Servers & Building MCP-Supported Apps (Exclusive)" },
+  { id: "04", title: "ACP: Building Agents That Communicate with Each Other" },
+  { id: "05", title: "Building AI Browser Agents" },
+  { id: "06", title: "Building AI Coding Agents (Hugging Face)" },
+  { id: "07", title: "Introduction to Agent-Building Platform - AutoGen" },
+  { id: "08", title: "LangChain Part 1 & Part 2", desc: "Building AI Applications with LangChain" },
+  { id: "09", title: "NAT Toolkit (NVIDIA) - With Real Examples" },
+  { id: "10", title: "Building Live Voice Agents using Google ADK" },
+  {
+    id: "11",
+    title: "Learner Bootcamps",
+    desc: [
+      "Learner Bootcamp-1",
+      "Learner Bootcamp-2",
+      "Learner Bootcamp-3",
+      "Learner Bootcamp-4"
+    ]
+  }
 ];
 
 export const regularModules = [
-    { title: "Introduction to AI & Generative AI", desc: "Learn the fundamentals of AI, ChatGPT, and Generative AI systems." },
-    { title: "AI Tools & Practical Use Cases", desc: "Explore AI tools and apply them to real workflows and everyday business tasks." },
-    { title: "AI Workflows & Automation Basics", desc: "Build foundational automation systems and AI workflows to improve productivity." },
-    { title: "Hands-On Projects & Applications", desc: "Work on real-world AI projects to build practical experience and a strong foundation." },
+  { id: "01", title: "Understanding LLMs & LLM Fine-Tuning & its Part - 2" },
+  { id: "02", title: "Build with CrewAI & Practical Multi-AI Agents & Advanced Use Cases (CrewAI)" },
+  { id: "03", title: "Building MCP Servers & Building MCP-Supported Apps (Exclusive)" },
+  { id: "04", title: "ACP: Building Agents That Communicate with Each Other" },
+  { id: "05", title: "Building AI Browser Agents" },
+  { id: "06", title: "Building AI Coding Agents (Hugging Face)" },
+  { id: "07", title: "Introduction to Agent-Building Platform - AutoGen" },
+  { id: "08", title: "LangChain Part 1 & Part 2", desc: "Building AI Applications with LangChain" },
+  { id: "09", title: "NAT Toolkit (NVIDIA) - With Real Examples" },
+  { id: "10", title: "Building Live Voice Agents using Google ADK" },
+  {
+    id: "11",
+    title: "Learner Bootcamps",
+    desc: [
+      "Learner Bootcamp-1",
+      "Learner Bootcamp-2",
+      "Learner Bootcamp-3",
+      "Learner Bootcamp-4"
+    ]
+  }
 ];
 
 export const TOOLS_LIST = [
-    { name: "LangChain", logo: "/redesign/advance-gen-ai/tools/Langchain.png" },
-    { name: "Hugging Face", logo: "/redesign/gen-ai/huggingface.png" },
-    { name: "CrewAI", logo: "/redesign/advance-gen-ai/tools/Crewai.png" },
-    { name: "NVIDIA", logo: "/redesign/ai-crash-course/free-nvidia-logo-icon-svg-download-png-2945060.webp" },
-    { name: "Google SDK", logo: "/redesign/ai-crash-course/agent-development-kit.png" },
-    { name: "Langfuse", logo: "/redesign/ai-crash-course/langfuse-color.png" },
+  { name: "LangChain", logo: "/redesign/advance-gen-ai/tools/Langchain.png" },
+  { name: "Hugging Face", logo: "/redesign/gen-ai/huggingface.png" },
+  { name: "CrewAI", logo: "/redesign/advance-gen-ai/tools/Crewai.png" },
+  { name: "NVIDIA", logo: "/redesign/ai-crash-course/free-nvidia-logo-icon-svg-download-png-2945060.webp" },
+  { name: "Google SDK", logo: "/redesign/ai-crash-course/agent-development-kit.png" },
+  { name: "Langfuse", logo: "/redesign/ai-crash-course/langfuse-color.png" },
 ];
 
 export const MENTORS = [
-    { 
-        name: "Nitya Sagar", 
-        designation: "Cofounder", 
-        company: "Stealth Startup", 
-        image: "/assets/mentors/crash/nityasagar.png",
-        companyLogo: "/assets/mentors/crash/sealth.png"
-    },
-    { 
-        name: "Ashu Mishra", 
-        designation: "Technical Product Manager", 
-        company: "Zigram", 
-        image: "/assets/mentors/crash/anshu.png",
-        companyLogo: "/assets/mentors/zigram.png"
-    },
+  {
+    name: "Nitya Sagar",
+    designation: "Cofounder",
+    company: "Stealth Startup",
+    image: "/assets/mentors/crash/nityasagar.png",
+    companyLogo: "/assets/mentors/crash/sealth.png"
+  },
+  {
+    name: "Ashu Mishra",
+    designation: "Technical Product Manager",
+    company: "Zigram",
+    image: "/assets/mentors/crash/anshu.png",
+    companyLogo: "/assets/mentors/zigram.png"
+  },
 ];
 
 export const CRASH_PHASES = [
@@ -99,19 +159,19 @@ export const CRASH_PHASES = [
 ];
 
 export const CAREER_ROLES = [
-    { title: "AI Engineer", salary: "₹10L – ₹30L", description: "Deploy and optimize large language models" },
-    { title: "Generative AI Specialist", salary: "₹12L – ₹35L", description: "Design scalable AI infrastructures & pipelines" },
-    { title: "AI Workflow Automation Specialist", salary: "₹12L – ₹28L", description: "Build autonomous AI agents for real-world tasks" },
-    { title: "AI Product Associate", salary: "₹12L – ₹25L", description: "Solve business problems using advanced AI systems" }
+  { title: "AI Engineer", salary: "₹10L – ₹30L", description: "Deploy and optimize large language models" },
+  { title: "Generative AI Specialist", salary: "₹12L – ₹35L", description: "Design scalable AI infrastructures & pipelines" },
+  { title: "AI Workflow Automation Specialist", salary: "₹12L – ₹28L", description: "Build autonomous AI agents for real-world tasks" },
+  { title: "AI Product Associate", salary: "₹12L – ₹25L", description: "Solve business problems using advanced AI systems" }
 ];
 
 export const PRICING_PLANS = [
   {
     title: "AcceleratorX + IBM",
     badge: "MOST POPULAR",
-    subtitle: "Accelerated 20-week program designed for builders seeking mastery in autonomous agents, thinking loops, and production orchestration, with certification.",
+    subtitle: "Advanced AI program designed for learners who want deep expertise in AI agents, automation systems, and real-world AI applications with certification.",
     price: "₹ 17,999 + GST",
-    track: "ADVANCED CAREER TRACK",
+    track: "ADVANCED AI CAREER TRACK",
     features: [
       "Everything included in the Regular Program",
       "IBM Industry Certification",
@@ -126,17 +186,17 @@ export const PRICING_PLANS = [
   {
     title: "Regular Program",
     badge: null,
-    subtitle: "Intensive Advanced AI program for rapid skill acquisition — from logic loops to multi-agent deployment in record time.",
+    subtitle: ".Complete AI course designed to build strong foundations in AI tools, Generative AI, and automation workflows",
     price: "₹ 11,999 + GST",
     track: "BOOTCAMP ACCESS",
     features: [
-      "Complete agentic AI curriculum",
-      "Hands-on AI agent projects",
+      "Complete AI curriculum",
+      "Hands-on projects",
+      "AI Workflow building",
       "Tools & Framework Access",
-      "Mentorship and Community",
-      "Sprint Certification",
+      "Mentorship",
     ],
-    cta: "Enroll in Regular Program",
+    cta: "Enroll in Advanced AI Program",
     highlighted: false,
   },
 ];

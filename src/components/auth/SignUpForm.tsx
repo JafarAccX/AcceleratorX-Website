@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 // import { useGetUserByMobile } from "../../hooks/customer";
 import { useUser } from "../../context/UserContext";
 import { CreateCustomerPayload } from "../../types/customer";
-import { OtpTimer } from "../OtpTimer";
+import { OtpTimer } from "../widgets/OtpTimer";
 import { api } from "../../api";
 
 const LoadingSpinner = () => (
@@ -141,7 +141,7 @@ export const SignUpForm = () => {
         response = await api.post("/auth/email/register", payload);
       }
 
-      console.log(response);
+
 
       if (response.status === 201 && response.data.success) {
         const { user, accessToken } = response.data;

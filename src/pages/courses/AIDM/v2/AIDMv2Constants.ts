@@ -5,7 +5,7 @@ export const ASSETS = {
     ibmLogo: "/assets/ibm.png",
     bagIcon: "/assets/digitalmarketing/leftbag.png",
     rupeeIcon: "/assets/digitalmarketing/leftrupee.png",
-    studentsGrp: "/assets/studentgrp.png",
+    studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/digitalmarketing/ctaperson.png",
     aipmgraph: "/assets/digitalmarketing/ai-dm-graph.png",
     roles: "/assets/digitalmarketing/roles.png",
@@ -53,49 +53,143 @@ export const freshersPath = [
 
 // ── IBM & Regular Curriculum Modules ───────────────────────────────────
 export const ibmModules = [
-    { title: "AI Digital Marketing Foundations & Strategy", desc: "Learn core marketing concepts, AI fundamentals, and how AI is transforming digital marketing." },
-    { title: "AI Tools, Content & Performance Marketing", desc: "Master AI tools for content creation, ad creatives, and campaign optimization." },
-    { title: "Marketing Automation & Funnel Building", desc: "Build automated funnels, email workflows, and AI-driven marketing systems." },
-    { title: "Live Campaigns & Growth Projects", desc: "Execute real campaigns, track performance, and optimize for conversions." },
-    { title: "AI Marketing Specialization Certificate from IBM", desc: "Earn an industry-recognized certification by building AI-powered marketing systems." }
+    {
+        title: "Module 1: Foundations of AI in Digital Marketing (Month 1)",
+        goal: "Build a solid foundation by integrating AI into core marketing strategies and master AI-powered content creation.",
+        sessions: [
+            {
+                title: "Week 1: Digital Marketing Foundations with AI",
+                topics: ["Introduction to Digital Marketing & AI's Role", "Consumer Journey & Funnel Mapping", "Market Research with AI (Marketing Lab)"],
+                tools: "ChatGPT, Perplexity AI, Funnelytics, Notion AI, Google Trends, Exploding Topics"
+            },
+            {
+                title: "Week 2: AI-Powered Content Creation (Text + SEO)",
+                topics: ["SEO Basics & AI for Keyword Research", "Blog Writing with AI Prompts", "On-Page SEO & Content Optimization"],
+                tools: "Ubersuggest, SEMrush, ChatGPT, Jasper AI, SurferSEO, Yoast SEO"
+            },
+            {
+                title: "Week 3: Visual Storytelling with Generative AI",
+                topics: ["AI Image Generation for Ads & Social Media", "Creative Design Workflows", "Mid-Level Creative Projects"],
+                tools: "Leonardo AI, Ideogram, Stable Diffusion XL, Nano Banana, Canva AI, Adobe Firefly, Runway Gen-3, Kaiber"
+            },
+            {
+                title: "Week 4: Video & Audio Marketing with AI",
+                topics: ["AI Video Creation & Editing", "Short-Form Content for TikTok/Reels", "AI Voice & Podcasting"],
+                tools: "Runway Gen-3, Pika Labs, Veo 3, CapCut AI, OpusClip, ElevenLabs, Descript"
+            }
+        ]
+    },
+    {
+        title: "Module 2: Growth Channels and Paid Media with AI (Month 2)",
+        goal: "Leverage AI for paid media planning, social media optimization, and advanced marketing analytics.",
+        sessions: [
+            {
+                title: "Week 5: Paid Ads with AI",
+                topics: ["Google Ads Planning with AI", "Meta Ads Campaign Drafting", "AI for Ad Copywriting & A/B Testing"],
+                tools: "Google Ads, Meta Ads Manager, Canva AI, Jasper, Copy.ai, GrowthBook"
+            },
+            {
+                title: "Week 6: Social Media Growth & Influencer Marketing",
+                topics: ["Social Media Strategy with AI", "Influencer Discovery & Outreach", "Engagement Optimization with AI"],
+                tools: "Buffer, Metricool, Modash, Nano Banana, Predis.ai, Lately.ai"
+            },
+            {
+                title: "Week 7: Data Analytics for Marketers",
+                topics: ["Google Analytics 4 (GA4) Basics", "Performance Tracking & KPI Dashboards", "AI-Powered Insights & Forecasting"],
+                tools: "GA4 Demo, Looker Studio, Tableau Public, Obviously.ai, ChatGPT Code Interpreter"
+            },
+            {
+                title: "Week 8: Conversion Rate Optimization (CRO)",
+                topics: ["Landing Page Design Principles", "Heatmaps & User Behavior", "AI for CRO Recommendations"],
+                tools: "Figma, Canva AI, Hotjar, Microsoft Clarity, ChatGPT, Jasper, GrowthBook"
+            }
+        ]
+    },
+    {
+        title: "Module 3: Automation, Email and E-commerce AI (Month 3)",
+        goal: "Build automated workflows and CRM integrations to scale marketing operations and e-commerce conversions.",
+        sessions: [
+            {
+                title: "Week 9: Marketing Automation & Rollout AI",
+                topics: ["Introduction to Workflow Automation", "Automated Lead Capture & CRM Updates", "Rollout AI for Marketing Automation"],
+                tools: "n8n, Make, HubSpot CRM, Rollout AI"
+            },
+            {
+                title: "Week 10: Email & Drip Marketing",
+                topics: ["Email Marketing Fundamentals", "AI Copywriting for Email Sequences", "A/B Testing & Personalization"],
+                tools: "Mailchimp, HubSpot, Jasper, Copy.ai, Mailchimp AI, Mutiny"
+            },
+            {
+                title: "Week 11: B2B Growth & LinkedIn Marketing",
+                topics: ["LinkedIn Lead Generation with AI", "Cold Outreach Copywriting", "Automating LinkedIn Campaigns"],
+                tools: "Apollo.io, Sales Navigator, ChatGPT, Lavender AI, Phantombuster, Clay"
+            },
+            {
+                title: "Week 12: E-commerce Marketing with AI",
+                topics: ["AI-Powered Product Descriptions", "Dynamic Pricing & Personalization", "Retargeting Campaigns"],
+                tools: "Jasper, ChatGPT, Obviously.ai, Mutiny, Google Ads Remarketing, Meta Pixel"
+            }
+        ]
+    },
+    {
+        title: "Module 4: AI Agents, Growth & Career Launch (Month 4)",
+        goal: "Develop autonomous AI agents for marketing tasks and conclude with growth experiments and career preparation.",
+        sessions: [
+            {
+                title: "Week 13: Vibe Coding & AI Marketing Agents (Part 1)",
+                topics: ["Vibe Coding - Building Agents with Prompts", "Multi-Agent Marketing Workflows (No-Code)", "AI Agent Lab - Automating Marketing Flows"],
+                tools: "Vibe Coding, CrewAI, AutoGen (GUI mode), n8n Integration"
+            },
+            {
+                title: "Week 14: Rollout AI & AI Marketing Agents (Part 2)",
+                topics: ["Rollout AI Deep Dive - Campaign Builder", "Advanced Agent Collaboration", "Case Simulation - Multi-Agent Ad Campaign"],
+                tools: "Rollout AI, n8n, Nano Banana"
+            },
+            {
+                title: "Week 15: Growth Hacking, Storytelling & Experimentation",
+                topics: ["Growth Loops & Viral Mechanics", "Creative Storytelling with AI", "Rapid A/B Testing & Case Studies"],
+                tools: "ChatGPT, Notion AI, Sora, Pika Labs, Runway, GrowthBook, Google Optimize"
+            },
+            {
+                title: "Week 16: Career Prep, Capstone & Showcase",
+                topics: ["Building a Marketing Portfolio", "Freelancing & Personal Branding", "Final Capstone Showcase & Feedback"],
+                tools: "Notion, Canva, Taplio, AuthoredUp, Fiverr, Upwork, Zoom"
+            }
+        ]
+    }
 ];
 
-export const regularModules = [
-    { title: "Introduction to Digital Marketing & AI Tools", desc: "Understand marketing fundamentals and how AI enhances them." },
-    { title: "Content, Ads & AI Use Cases", desc: "Apply AI tools for content creation and campaign execution." },
-    { title: "Marketing Funnels & Automation Basics", desc: "Learn how to build simple automation systems and funnels." },
-    { title: "Hands-On Campaign Projects", desc: "Execute real marketing projects and build practical experience." }
-];
+export const regularModules = [...ibmModules];
 
 // ── Mentors ────────────────────────────────────────────────────────────
 export const MENTORS = [
-    { 
-        name: "Kumar Savino", 
-        designation: "Ass. Director @ DrinkPrime", 
-        company: "DrinkPrime", 
-        image: "/assets/digitalmarketing/mentors/Kumar Savino.png", 
-        companyLogo: "/assets/digitalmarketing/mentors/drinkprime.png" 
+    {
+        name: "Kumar Savino",
+        designation: "Ass. Director @ DrinkPrime",
+        company: "DrinkPrime",
+        image: "/assets/digitalmarketing/mentors/Kumar Savino.png",
+        companyLogo: "/assets/digitalmarketing/mentors/drinkprime.png"
     },
-    { 
-        name: "Ankita Das", 
-        designation: "Digital Head @ Target G", 
-        company: "TargetG", 
-        image: "/assets/digitalmarketing/mentors/Anjali Sharma 3.png", 
-        companyLogo: "/assets/digitalmarketing/mentors/targetg.png" 
+    {
+        name: "Ankita Das",
+        designation: "Digital Head @ Target G",
+        company: "TargetG",
+        image: "/assets/digitalmarketing/mentors/Anjali Sharma 3.png",
+        companyLogo: "/assets/digitalmarketing/mentors/targetg.png"
     },
-    { 
-        name: "Nitya Sagar", 
-        designation: "Cofounder - Stealth Startup", 
-        company: "Stealth", 
-        image: "/assets/digitalmarketing/mentors/Nitya Sagar 1.png", 
-        companyLogo: "/assets/digitalmarketing/mentors/stealth.png" 
+    {
+        name: "Nitya Sagar",
+        designation: "Cofounder - Stealth Startup",
+        company: "Stealth",
+        image: "/assets/digitalmarketing/mentors/Nitya Sagar 1.png",
+        companyLogo: "/assets/digitalmarketing/mentors/stealth.png"
     },
-    { 
-        name: "Yash Manghnani", 
-        designation: "Senior AI Builder @ Better Software", 
-        company: "Better Software", 
-        image: "/assets/digitalmarketing/mentors/Yash Manghnani.png", 
-        companyLogo: "/assets/digitalmarketing/mentors/bettersoftware.png" 
+    {
+        name: "Yash Manghnani",
+        designation: "Senior AI Builder @ Better Software",
+        company: "Better Software",
+        image: "/assets/digitalmarketing/mentors/Yash Manghnani.png",
+        companyLogo: "/assets/digitalmarketing/mentors/bettersoftware.png"
     },
 ];
 
@@ -104,16 +198,16 @@ export const MENTORS = [
 
 // ── Tools ──────────────────────────────────────────────────────────────
 export const TOOLS_LIST = [
-    { name: "ChatGPT", logo: "/redesign/ai-dm/tools/Chatgpt.png" },
-    { name: "Claude", logo: "/redesign/ai-dm/tools/Claude.png" },
-    { name: "Perplexity", logo: "/redesign/ai-dm/tools/Perplexity.png" },
-    { name: "Google Ads", logo: "/redesign/ai-dm/tools/Googleads.png" },
-    { name: "Meta Ads", logo: "/redesign/ai-dm/tools/Meta ads manager.png" },
-    { name: "Google Trends", logo: "/redesign/ai-dm/tools/Googletrends.png" },
-    { name: "Semrush", logo: "/redesign/ai-dm/tools/Semrush.png" },
-    { name: "Buffer", logo: "/redesign/ai-dm/tools/Buffer.png" },
-    { name: "Metricool", logo: "/redesign/ai-dm/tools/Metricool.png" },
-    { name: "n8n", logo: "/redesign/ai-dm/tools/n8n.png" },
+    { name: "ChatGPT", logo: "/redesign/ai-dm/tools/Chatgpt.png", color: "#10A37F" },
+    { name: "Claude", logo: "/redesign/ai-dm/tools/Claude.png", color: "#D97757" },
+    { name: "Perplexity", logo: "/redesign/ai-dm/tools/Perplexity.png", color: "#20B8CD" },
+    { name: "Google Ads", logo: "/redesign/ai-dm/tools/Googleads.png", color: "#4285F4" },
+    { name: "Meta Ads", logo: "/redesign/ai-dm/tools/Meta ads manager.png", color: "#0081FB" },
+    { name: "Google Trends", logo: "/redesign/ai-dm/tools/Googletrends.png", color: "#4285F4" },
+    { name: "Semrush", logo: "/redesign/ai-dm/tools/Semrush.png", color: "#FF642D" },
+    { name: "Buffer", logo: "/redesign/ai-dm/tools/Buffer.png", color: "#2C4BFF" },
+    { name: "Metricool", logo: "/redesign/ai-dm/tools/Metricool.png", color: "#00C853" },
+    { name: "n8n", logo: "/redesign/ai-dm/tools/n8n.png", color: "#EA4B71" },
 ];
 
 
@@ -181,10 +275,10 @@ export const PM_PHASES = [
 
 // ── Career Roles ──────────────────────────────────────────────────────
 export const CAREER_ROLES = [
-    { title: "Performance Growth Specialist", salary: "₹10L – ₹30L", description: "Scale revenue through paid marketing" },
-    { title: "Customer Acquisition Strategist", salary: "₹12L – ₹35L", description: "Build systems to acquire & convert users" },
-    { title: "Revenue Marketing Manager", salary: "₹15L – ₹40L", description: "Own full-funnel revenue growth" },
-    { title: "Marketing Automation Specialist", salary: "₹10L – ₹28L", description: "Build funnels, email & AI-driven campaigns" }
+    { title: "AI Performance Marketer", salary: "₹6L – ₹20L", description: "Scale revenue through paid marketing" },
+    { title: "Growth Marketing Specialist", salary: "₹8L – ₹25L", description: "Build systems to acquire & convert users" },
+    { title: "Marketing Automation Specialist", salary: "₹10L – ₹28L", description: "Own full-funnel revenue growth" },
+    { title: "AI Digital Marketing Manager", salary: "₹12L – ₹30L", description: "Build funnels, email & AI-driven campaigns" }
 ];
 
 // ── Pricing Plans ─────────────────────────────────────────────────────
@@ -219,7 +313,7 @@ export const PRICING_PLANS = [
             "Tools Access",
             "Mentorship",
         ],
-        cta: "Enroll in Regular Program",
+        cta: "Enroll in Digital Marketing Program",
         highlighted: false,
     },
 ];

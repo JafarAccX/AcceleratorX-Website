@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { 
-  FAQS,
-  FOOTER_COLUMNS,
-  ASSETS
+import {
+    FAQS,
+    FOOTER_COLUMNS,
+    ASSETS
 } from "./GenAIv2Constants";
 import { GradientLabel, Hero, AlumniLogos } from "./GenAIv2Part1";
 import { Roadmap, ProgramDesign } from "./GenAIv2Part2";
 import { Curriculum, Mentors } from "./GenAIv2Part3";
 import { Tools, Checklist } from "./GenAIv2Part4";
-import { CareerRoles, BYDP, Pricing } from "./GenAIv2Part5";
+import { CareerRoles, BYDP, Pricing, Certificate } from "./GenAIv2Part5";
 import { useCoursePurchase } from "../../../../hooks/useCoursePurchase";
 import { COURSE_IDS } from "../../../../utils/constants_price";
 import { Link } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 import EnrollmentModalADS from "../../allprograms-ads/EnrollmentModalADS";
 
 // ── Component: FAQ.tsx ───────────────────────────────────────────────────
@@ -24,11 +25,13 @@ export const FAQ = () => {
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
             <div className="max-w-[800px] mx-auto">
                 <div className="text-center mb-10 sm:mb-14">
-                    <GradientLabel text="SUPPORT" />
-                    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-3 sm:mb-4">Frequently Asked Questions</h2>
-                    <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] leading-relaxed">
+
+                    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium font-inter text-white leading-tight text-center mb-4">
+                        FAQs
+                    </h2>
+                    {/* <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] leading-relaxed">
                         Everything you need to know about the program.
-                    </p>
+                    </p> */}
                 </div>
 
                 <div className="flex flex-col gap-2 sm:gap-3">
@@ -51,7 +54,7 @@ export const FAQ = () => {
                             }}
                         >
                             <button
-                                className={`w-full text-left px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between font-semibold text-[14px] sm:text-[17px] transition-all duration-500 ${open === i ? "text-white bg-white/[0.02]" : "text-[#F5F7FF] hover:text-white"}`}
+                                className={`w-full text-left px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between font-medium text-[14px] sm:text-[17px] transition-all duration-500 ${open === i ? "text-white bg-white/[0.02]" : "text-white hover:text-white"}`}
                                 onClick={() => setOpen(open === i ? null : i)}
                             >
                                 <span className="pr-4">{faq.q}</span>
@@ -60,7 +63,7 @@ export const FAQ = () => {
                                 </span>
                             </button>
                             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${open === i ? "max-h-[500px] opacity-100 pb-4 sm:pb-6" : "max-h-0 opacity-0"}`}>
-                                <div className="px-4 sm:px-6 text-[#CFCFCF] text-[14px] sm:text-[16px] leading-relaxed border-t border-white/[0.05] pt-4 sm:pt-5 mx-2">
+                                <div className="px-4 sm:px-6 text-[#C2C2C2] text-[14px] sm:text-[16px] font-regular leading-relaxed border-t border-white/[0.05] pt-4 sm:pt-5 mx-2">
                                     {faq.a}
                                 </div>
                             </div>
@@ -68,21 +71,23 @@ export const FAQ = () => {
                     ))}
                 </div>
 
-                <div className="flex justify-end mt-6 sm:mt-8 gap-4 sm:gap-6">
+                <div className="flex flex-col sm:flex-row justify-center mt-12 gap-4 sm:gap-6">
                     {limit > 5 && (
                         <button
                             onClick={() => setLimit(5)}
-                            className="text-white/60 text-[13px] sm:text-[14px] font-medium flex items-center gap-2 hover:text-white transition-all pb-1 border-b border-white/10"
+                            className="px-8 py-3 rounded-full border border-[#FC6401]/30 text-[#FC6401] text-[14px] font-bold hover:bg-[#FC6401]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
                         >
-                            View less <span className="text-[16px]">↑</span>
+                            See Less Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180" />
                         </button>
                     )}
                     {limit < FAQS.length && (
                         <button
                             onClick={() => setLimit(prev => Math.min(prev + 5, FAQS.length))}
-                            className="text-white text-[13px] sm:text-[14px] font-medium flex items-center gap-2 hover:opacity-80 transition-all pb-1 border-b border-white/20"
+                            className="px-8 py-3 rounded-full border border-[#FC6401]/30 text-[#FC6401] text-[14px] font-bold hover:bg-[#FC6401]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
                         >
-                            View more <span className="text-[16px]">↓</span>
+                            See More Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300" />
                         </button>
                     )}
                 </div>
@@ -109,8 +114,8 @@ export const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure?: () => v
                 </p>
                 <div className="mt-4 sm:mt-6">
                     <div onClick={onDownloadBrochure} className="cursor-pointer">
-                        <button className="w-[140px] sm:w-[174px] h-[42px] sm:h-[50px] text-white font-semibold bg-[#FC6401]/5 border border-[#FC6401] rounded-[9px] text-[14px] sm:text-[16px] cursor-pointer backdrop-blur-[100px] hover:bg-[#FC6401]/10 transition-all duration-300">
-                            Apply
+                        <button className="h-[42px] sm:h-[50px] px-6 sm:px-10 text-white font-semibold bg-[#FC6401]/5 border border-[#FC6401] rounded-[9px] text-[14px] sm:text-[16px] cursor-pointer backdrop-blur-[100px] hover:bg-[#FC6401]/10 transition-all duration-300">
+                            Claim Your Scholarship
                         </button>
                     </div>
                 </div>
@@ -153,7 +158,7 @@ export const GlobalStyles = () => (
 );
 
 // ── Main Page Component ─────────────────────────────────────────────────────
-import { SEO } from "../../../../components/SEO";
+import { SEO } from "../../../../components/seo/SEO";
 
 export default function GenAIPageV2() {
     const { handleBuyCourse } = useCoursePurchase(COURSE_IDS.GENERATIVE_AI, "Generative AI Portfolio Program");
@@ -170,8 +175,8 @@ export default function GenAIPageV2() {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-[#0A0A0A] text-white font-['Inter',sans-serif] overflow-x-hidden">
-            <SEO 
+        <div className="min-h-screen w-full bg-[#0A0A0A] text-white font-['Inter',sans-serif]">
+            <SEO
                 title="Generative AI & AI Agent Course | AcceleratorX"
                 description="Learn Generative AI, ChatGPT, and automation systems through real-world projects. For working professionals and beginners with no coding background."
             />
@@ -184,15 +189,16 @@ export default function GenAIPageV2() {
             <Mentors />
             <Tools />
             <Checklist />
+            <Certificate />
             <CareerRoles />
             <BYDP />
             <Pricing onEnroll={handleBuyCourse} />
             <FAQ />
             <CTABanner onDownloadBrochure={() => setIsModalOpen(true)} />
 
-            <EnrollmentModalADS 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
+            <EnrollmentModalADS
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
                 program={{
                     title: "Generative AI",
                     label: "Gen AI",

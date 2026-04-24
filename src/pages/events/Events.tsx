@@ -1,7 +1,7 @@
 import { ArrowRight, Check, Clock, MapPin } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { SEO } from "../../components/SEO";
+import { SEO } from "../../components/seo/SEO";
 
 const Events = () => {
   const [activeTab, setActiveTab] = useState<"events" | "workshops">("events");

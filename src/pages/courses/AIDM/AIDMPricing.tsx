@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Star } from "lucide-react";
 import { useCourseContext } from '../../../context/courseContext';
-import EnrollmentModal from '../../../components/EnrollmentModal';
+import EnrollmentModal from '../../../components/modals/EnrollmentModal';
 
 const pricingOptions = [
   {

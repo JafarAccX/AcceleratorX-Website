@@ -2,7 +2,7 @@ import DataScienceHeroEIE from "../datascience/EIE/DataScienceHeroEIE";
 import WhoIsThisContentForEIE from "../datascience/EIE/WhoIsThisContentForEIE";
 import DataScienceProgramEIE from "../datascience/EIE/DataScienceProgramEIE";
 import DataScienceFAQEIE from "../datascience/EIE/DataScienceFAQEIE";
-import { SEO } from "../../../components/SEO";
+import { SEO } from "../../../components/seo/SEO";
 
 export default function DataScienceEntry() {
     return (

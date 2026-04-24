@@ -1,7 +1,7 @@
 import { WorkshopProvider } from "../../../context/WorkshopContext";
 // import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 import WSFormFree from "../workshopGENB/WSFormFree";
-import { SEO } from "../../../components/SEO";
+import { SEO } from "../../../components/seo/SEO";
 import type React from "react"
 import StatsSection from "./StatsSection";
 
@@ -22,7 +22,7 @@ const CryptoHeroSection: React.FC = () => {
             <div className="w-44 md:w-48 relative">
               <div className="absolute inset-0 blur-3xl bg-gradient-to-r from-indigo-500/30 to-violet-500/30 rounded-full"></div>
               <div className="relative bg-[#0A0F1D]/80 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-indigo-500/20">
-                <img src="/redesign/logo-bg-black.webp" alt="AcceleratorX Logo" className="w-full h-auto" />
+                <img src="/assets/accelerator.png" alt="AcceleratorX Logo" className="w-full h-auto" />
               </div>
             </div>
           </div>
@@ -126,3 +126,4 @@ const CryptoHeroSection: React.FC = () => {
 }
 
 export default CryptoHeroSection
+

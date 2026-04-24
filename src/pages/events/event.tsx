@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, MapPin, Users, Award, Clock, Zap, Star } from "lucide-react";
 import CreateEventPage from "./eventForm";
-import { SEO } from "../../components/SEO";
+import { SEO } from "../../components/seo/SEO";
 
 export default function EventManagementPage() {
   // const [activeTab, setActiveTab] = useState<string>("Overview");

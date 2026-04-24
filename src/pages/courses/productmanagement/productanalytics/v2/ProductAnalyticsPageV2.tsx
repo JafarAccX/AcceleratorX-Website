@@ -106,12 +106,12 @@ const GradientLabel = ({ text, highlight }: GradientLabelProps) => (
 const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
     return (
         <section className="relative min-h-[600px] lg:min-h-[850px] bg-[#0A0A0A] overflow-hidden flex items-center justify-center pt-[80px]">
-             <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-            <div className="w-full max-w-[1295px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-0 z-10 gap-10 lg:gap-0">
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+            <div className="w-full max-w-[1440px] mx-auto relative flex flex-col lg:flex-row items-center lg:items-start px-4 sm:px-6 lg:px-[70px] z-10 gap-10 lg:gap-0">
                 <div className="w-full lg:w-[612px] flex flex-col gap-6 sm:gap-8 lg:mt-[60px] text-center lg:text-left">
                     <div className="flex flex-col gap-4 sm:gap-6">
                         <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-medium leading-[1.1] tracking-tight max-w-[612px] text-white mx-auto lg:mx-0">
-                             AI-Powered <span className="bg-gradient-to-r from-[#FFFFFF] via-[#16A44A] to-[#16A44A] bg-clip-text text-transparent">Product Analytics Program</span> for Career Edge
+                            AI-Powered <span className="bg-gradient-to-r from-[#FFFFFF] via-[#16A44A] to-[#16A44A] bg-clip-text text-transparent">Product Analytics Program</span> for Career Edge
                         </h1>
                         <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[24px] sm:leading-[26px] text-[#C2C2C2] font-normal max-w-[569px] opacity-80 mx-auto lg:mx-0">
                             Master product metrics, user behaviour, and data-driven strategy using AI tools, SQL, and automation. Build a career in scaleable product roles.
@@ -120,23 +120,28 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
 
                     <div className="w-full max-w-[500px] h-auto rounded-[24px] backdrop-blur-[20px] flex flex-col sm:flex-row items-center p-4 sm:p-6 gap-4 sm:gap-6 self-center lg:self-start relative overflow-hidden border-t border-t-white/10 border-b border-b-white/5 border-x-0">
                         <div className="absolute inset-0 z-0 opacity-40" style={{ background: "linear-gradient(90deg, rgba(22, 164, 74, 0.1) 0%, rgba(22, 164, 74, 0.05) 100%)" }} />
-                        <div className="flex-1 flex items-center gap-4 z-10">
-                            <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
-                                <img src={ASSETS.bagIcon} alt="Jobs" className="w-6 h-6 object-contain" />
-                            </div>
-                            <div className="text-left font-['Inter',sans-serif]">
-                                <div className="text-[20px] sm:text-[22px] font-bold leading-tight">1800+</div>
-                                <div className="text-[13px] text-[#EAEAEA]">Learners</div>
-                            </div>
-                        </div>
-                        <div className="w-full sm:w-[1px] h-[1px] sm:h-10 bg-white/[0.1] z-10" />
-                        <div className="flex-1 flex items-center gap-4 z-10">
-                            <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
-                                <img src={ASSETS.rupeeIcon} alt="CTC" className="w-6 h-6 object-contain" />
-                            </div>
-                            <div className="text-left font-['Inter',sans-serif]">
-                                <div className="text-[20px] sm:text-[22px] font-bold leading-tight">15 LPA+</div>
-                                <div className="text-[13px] text-[#EAEAEA]">Average CTC</div>
+                        <div className="flex-1 flex flex-col sm:flex-row items-center sm:justify-start gap-4 sm:gap-6 z-10 w-full">
+                            <div className="flex flex-col items-start sm:items-center sm:flex-row gap-4 sm:gap-6 mx-auto sm:mx-0">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
+                                        <img src={ASSETS.bagIcon} alt="Jobs" className="w-6 h-6 object-contain" />
+                                    </div>
+                                    <div className="text-left font-['Inter',sans-serif]">
+                                        <div className="text-[20px] sm:text-[22px] font-bold leading-tight">1800+</div>
+                                        <div className="text-[13px] text-[#EAEAEA]">Learners</div>
+                                    </div>
+                                </div>
+                                <div className="hidden sm:block w-[1px] h-10 bg-white/[0.1]" />
+                                <div className="sm:hidden w-full h-[1px] bg-white/[0.1] my-1" />
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-transparent flex items-center justify-center flex-shrink-0">
+                                        <img src={ASSETS.rupeeIcon} alt="CTC" className="w-6 h-6 object-contain" />
+                                    </div>
+                                    <div className="text-left font-['Inter',sans-serif]">
+                                        <div className="text-[20px] sm:text-[22px] font-bold leading-tight">15 LPA+</div>
+                                        <div className="text-[13px] text-[#EAEAEA]">Average CTC</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,7 +154,7 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                         <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
                             <div className="flex w-max gap-8 sm:gap-12 animate-infinite-scroll-left py-2">
                                 {[1, 2, 3, 4].map((group) => (
-                                    <div key={group} className="flex items-center gap-8 sm:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                                    <div key={group} className="flex items-center gap-8 sm:gap-12 opacity-60">
                                         {ALUMNI_LOGOS.map((logo) => (
                                             <img key={logo.name} src={logo.url} alt={logo.name} className="h-[16px] sm:h-[20px] object-contain" />
                                         ))}
@@ -159,7 +164,7 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-2">
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 lg:gap-14 pt-2">
                         <div className="group flex items-center cursor-pointer">
                             <button className="h-[48px] sm:h-[54px] px-5 sm:px-8 bg-[#16A44A] border-2 border-transparent rounded-full font-bold text-white text-[14px] sm:text-[16px] transition-all duration-300 group-hover:bg-transparent group-hover:border-[#16A44A]">
                                 Explore Our Programs
@@ -168,7 +173,7 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></svg>
                             </div>
                         </div>
-                        <div 
+                        <div
                             onClick={onDownloadBrochure}
                             className="flex items-center text-[14px] sm:text-[16px] font-bold text-white group whitespace-nowrap cursor-pointer"
                         >
@@ -182,10 +187,10 @@ const Hero = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) => {
                     <div className="relative w-full max-w-[350px] sm:max-w-[500px] lg:max-w-[649px] lg:w-[649px] aspect-[649/683] lg:h-[683px] bg-gradient-to-b from-[#000000] to-[#16A44A] rounded-[32px] sm:rounded-[48px] border-t border-t-black border-b border-b-white/5 border-x-0 overflow-hidden mt-6 lg:mt-0">
                         <img src={ASSETS.heroImage} alt="Accelerator Student" className="absolute bottom-[-28px] left-[55%] -translate-x-1/2 h-full w-auto object-contain scale-[1.05] z-10" />
                         <div className="absolute top-[4%] sm:top-[6%] right-[2%] sm:right-[4%] z-30">
-                            <img src={ASSETS.ibmLogo} alt="IBM" className="h-[40px] sm:h-[54px] lg:h-[74px] brightness-200" />
+                            <img src={ASSETS.ibmLogo} alt="IBM" className="h-[35px] sm:h-[48px] lg:h-[64px] brightness-200" />
                         </div>
                         <div className="absolute top-[4%] sm:top-[6%] left-[4%] sm:left-[6%] z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
-                            <img src={ASSETS.studentsGrp} alt="Happy Students" className="w-[120px] sm:w-[150px] lg:w-[190px] h-auto object-contain" />
+                            <img src={ASSETS.studentsGrp} alt="Happy Students" className="w-[110px] sm:w-[140px] md:w-[165px] lg:w-[190px] h-auto object-contain" />
                         </div>
 
                         {/* Floating Pills */}
@@ -217,7 +222,7 @@ const AlumniLogos = () => (
         <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium mb-3 px-4">Our Alumni Are Leaders in Product Across 1700+ Top MNCs</p>
         <p className="text-center text-[#94A3B8] text-sm sm:text-base md:text-[16px] font-medium mb-10 sm:mb-12 lg:mb-16 max-w-[1047px] mx-auto leading-relaxed px-4">Our learners are building AI-powered product dashboards, automated systems, and data-driven decision models across top tech companies.</p>
         <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
-            <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left hover:[animation-play-state:paused]">
+            <div className="flex w-max gap-6 sm:gap-8 animate-infinite-scroll-left">
                 {[...ALUMNI_LOGOS, ...ALUMNI_LOGOS].map((brand, idx) => (
                     <div key={`${brand.name}-${idx}`} className="flex items-center justify-center brightness-110 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-pointer px-4 sm:px-8">
                         <img src={brand.url} alt={brand.name} style={{ height: `${brand.height * 0.75}px` }} className="object-contain" />
@@ -245,8 +250,8 @@ const Roadmap = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-1 gap-y-4 sm:gap-y-6 w-full max-w-[1288px] mx-auto">
                     {currentPath.slice(0, 5).map((item, idx) => (
-                        <div key={idx} className="relative group w-full max-w-[664px] h-[100px] sm:h-[111px] mx-auto cursor-pointer">
-                            <svg width="100%" height="100%" viewBox="0 0 664 111" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                        <div key={idx} className="relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 mx-auto cursor-pointer">
+                            <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
                                 <path
                                     d={idx % 2 === 0
                                         ? "M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z"
@@ -304,20 +309,50 @@ const Curriculum = () => {
 
 // ── Component: Mentors ───────────────────────────────────────────────────
 const MentorCard = ({ mentor }: { mentor: any }) => (
-    <div className="relative w-[210px] sm:w-[260px] h-[220px] sm:h-[300px] flex-shrink-0">
-        <div className="absolute inset-x-0 top-0 bottom-10 rounded-[24px] border border-white/[0.08] bg-[#111]">
-            <div className="absolute inset-0 overflow-hidden rounded-[24px]">
-                <img src={mentor.image} alt={mentor.name} className="absolute left-1/2 bottom-0 -translate-x-1/2 h-[95%] w-auto object-contain" />
+    <div className="relative w-[210px] sm:w-[260px] h-[230px] sm:h-[310px] flex-shrink-0 group">
+        {/* Main Card with Left-Fade */}
+        <div
+            className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
+            style={{ background: "linear-gradient(90deg, transparent 0%, #1a1a1e 40%, #1a1a1e 100%)" }}
+        >
+            <img
+                src={mentor.image}
+                alt={mentor.name}
+                className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
+            />
+        </div>
+
+        {/* Floating Logo Top-Right */}
+        <div className="absolute top-[-15px] -right-7 z-10">
+            <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
+                <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
             </div>
         </div>
-        <div className="absolute top-[-15px] -right-4 z-40">
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border border-white/10 overflow-hidden">
-                <img src={mentor.companyLogo} alt="" className="w-[70%] h-[70%] object-contain" />
+
+        {/* Info Pill — bottom */}
+        <div
+            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[85%] z-50 
+            rounded-full px-5 py-4 text-center 
+            border-l border-r border-b border-[#16A44A]/100 border-t-0
+            bg-black/5 backdrop-blur-md
+            transition-all duration-300"
+        >
+            {/* Name */}
+            <div className="text-white text-[13px] sm:text-[14px] font-semibold tracking-tight mb-1 mt-[-10px]
+            drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]">
+                {mentor.name}
             </div>
-        </div>
-        <div className="absolute bottom-[1px] left-1/2 -translate-x-1/2 w-[70%] sm:w-[90%] h-[60px] sm:h-[75px] rounded-[24px] flex flex-col items-center justify-center text-center z-50 p-3 sm:p-4 border-2 border-transparent shadow-[0_0_25px_rgba(22,164,74,0.3)] bg-[#0A0A0A]">
-            <div className="text-white text-[12px] sm:text-[14px] font-bold">{mentor.name}</div>
-            <div className="text-white text-[10px] sm:text-[12px] opacity-80">{mentor.designation}<br />{mentor.company}</div>
+
+            {/* designation */}
+            <div className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight">
+                {mentor.designation} - {mentor.company}
+            </div>
+
+            {/* Accent line */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
+            w-[85%] h-[2px] 
+            bg-gradient-to-r from-transparent via-[#16A44A] to-transparent 
+            rounded-full" />
         </div>
     </div>
 );
@@ -330,8 +365,7 @@ const Mentors = () => (
 
         <div className="w-full max-w-[1285px] relative flex flex-col items-center px-4 z-10">
             <GradientLabel text="MENTORS" highlight="ORS" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Learn from Global Product Analytics Experts</h2>
-            <p className="text-[#94A3B8] text-[14px] max-w-[850px] text-center mb-12">Learn directly from professionals building real AI analytics products at top tech companies.</p>
+            <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-12 text-center">Learn from Global Product Analytics Experts</h2>
             <div className="w-full flex flex-wrap justify-center items-center gap-12 sm:gap-24 mt-12 px-4">
                 {MENTORS.map((m, i) => <MentorCard key={i} mentor={m} />)}
             </div>
@@ -343,7 +377,7 @@ const Mentors = () => (
 const Tools = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1200px] mx-auto text-center">
-            <h2 className="text-2xl font-bold text-white mb-12">Product Analytics Tech Stack</h2>
+            <h2 className="text-2xl font-bold text-white mb-12">Tools</h2>
             <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
                 <div className="flex w-max gap-16 animate-infinite-scroll-right items-center py-4">
                     {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((t, i) => (
@@ -358,19 +392,36 @@ const Tools = () => (
 // ── Component: Checklist ───────────────────────────────────────────────────
 const Checklist = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
-        <div className="max-w-[1200px] mx-auto text-center px-4">
-            <h2 className="text-2xl font-bold text-white mb-16">Product Analytics Skill Checklist</h2>
+        <div className="max-w-[1267px] mx-auto text-center px-4 sm:px-6">
+            <GradientLabel text="PROGRAMS DESCRIPTION" highlight="DESCRIPTION" />
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Product Analytics Skill Checklist</h2>
+
             <div className="relative min-h-[300px]">
                 <div className="absolute top-10 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/15 to-transparent hidden md:block pointer-events-none" />
-                <div className="grid grid-cols-2 lg:grid-cols-6 gap-8">
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-y-10 sm:gap-y-12 gap-x-3 sm:gap-x-4">
                     {PA_PHASES.map((p, i) => (
-                        <div key={i} className="flex flex-col items-center group cursor-default">
-                            <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#111] border-2 border-[#16A44A]/20 flex items-center justify-center mb-6 group-hover:border-[#16A44A]/60 group-hover:bg-[#16A44A]/5 transition-all duration-500 shadow-[0_0_15px_rgba(22, 164, 74, 0.05)] relative z-10">
-                                <img src={p.icon} alt={p.title} className="w-5 h-5 sm:w-6 sm:h-6 object-contain group-hover:scale-110 transition-transform duration-500" />
+                        <div key={i} className="flex flex-col items-center text-center group cursor-default h-full">
+                            <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#111] border-2 border-[#16A44A]/20 flex items-center justify-center mb-4 sm:mb-6 relative z-10 group-hover:border-[#16A44A]/60 group-hover:bg-[#16A44A]/5 transition-all duration-500 shadow-[0_0_15px_rgba(22,164,74,0.05)]">
+                                <div
+                                    className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-500 group-hover:scale-110"
+                                    style={{
+                                        backgroundColor: '#16A44A',
+                                        maskImage: `url("${p.icon}")`,
+                                        WebkitMaskImage: `url("${p.icon}")`,
+                                        maskSize: 'contain',
+                                        WebkitMaskSize: 'contain',
+                                        maskRepeat: 'no-repeat',
+                                        WebkitMaskRepeat: 'no-repeat',
+                                        maskPosition: 'center',
+                                        WebkitMaskPosition: 'center'
+                                    }}
+                                />
                             </div>
-                            <h4 className="text-white text-base font-bold mb-1">{p.title}</h4>
-                            <p className="text-[#A0A8B8] text-[12px] mb-2 px-2 leading-tight font-medium">{p.description}</p>
-                            <span className="mt-auto text-[#16A44A] text-[10px] font-bold tracking-widest uppercase">{p.phase}</span>
+
+                            <h3 className="text-white text-[14px] sm:text-[18px] font-bold mb-1 sm:mb-2 tracking-tight">{p.title}</h3>
+                            <p className="text-[#A0A8B8] text-[12px] sm:text-[14px] leading-snug mb-3 sm:mb-4 max-w-[200px] font-regular">{p.description}</p>
+                            <span className="mt-auto text-[#16A44A] text-[9px] sm:text-[10px] font-bold tracking-[0.1em] uppercase">{p.phase}</span>
                         </div>
                     ))}
                 </div>
@@ -488,7 +539,7 @@ const CareerRoles = () => (
                     <RoleCard key={idx} role={role} idx={idx} />
                 ))}
             </div>
-            
+
             <SkillGapChart />
         </div>
     </section>
@@ -501,11 +552,11 @@ const Pricing = ({ onEnroll }: { onEnroll: (amount: number, batchId?: string) =>
             <h2 className="text-2xl font-bold text-white mb-12">Enroll in Product Analytics Learning Track</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
                 {PRICING_PLANS.map((p, i) => (
-                    <div 
-                        key={i} 
+                    <div
+                        key={i}
                         className={`relative p-8 sm:p-10 rounded-[28px] border flex flex-col transition-all duration-300 ${p.highlighted ? "border-white/10 shadow-[0_0_80px_rgba(22,164,74,0.25)]" : "border-white/5 bg-[#111]"} text-left`}
                         style={p.highlighted ? {
-                             background: "radial-gradient(circle at 100% 0%, rgba(22, 164, 74, 0.35) 0%, rgba(22, 164, 74, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
+                            background: "radial-gradient(circle at 100% 0%, rgba(22, 164, 74, 0.35) 0%, rgba(22, 164, 74, 0.08) 40%, rgba(5, 5, 5, 1) 75%), #050505"
                         } : {}}
                     >
                         {p.badge && (
@@ -520,7 +571,7 @@ const Pricing = ({ onEnroll }: { onEnroll: (amount: number, batchId?: string) =>
                         <ul className="space-y-4 mb-12 flex-1">
                             {p.features.map((f, j) => (
                                 <li key={j} className="text-[#CFCFCF] text-sm flex items-start gap-4 font-medium">
-                                     <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${p.highlighted ? "bg-[#16A44A]" : "border border-white/20"}`}>
+                                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${p.highlighted ? "bg-[#16A44A]" : "border border-white/20"}`}>
                                         <svg width="10" height="8" viewBox="0 0 12 10" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                             <polyline points="1.5 5 4.5 8 10.5 2" />
                                         </svg>
@@ -529,12 +580,12 @@ const Pricing = ({ onEnroll }: { onEnroll: (amount: number, batchId?: string) =>
                                 </li>
                             ))}
                         </ul>
-                        <button 
+                        <button
                             onClick={() => {
                                 const amount = p.highlighted ? 49999 : 34999;
                                 onEnroll(amount);
                             }}
-                            className={`w-full py-4 rounded-[12px] font-bold transition-all ${p.highlighted ? "bg-[#16A44A] text-white hover:brightness-110 shadow-xl shadow-[#16A44A]/25" : "border-2 border-[#16A44A] text-[#16A44A] hover:bg-[#16A44A]/5"}`}
+                            className={`w-full py-4 rounded-[12px] font-bold transition-all ${p.highlighted ? "bg-[#16A44A] text-white hover:brightness-110 shadow-xl shadow-[#16A44A]/25 border-2 border-transparent" : "border-2 border-[#16A44A] text-[#16A44A] hover:bg-[#16A44A]/5"}`}
                         >
                             {p.cta}
                         </button>
@@ -548,13 +599,15 @@ const Pricing = ({ onEnroll }: { onEnroll: (amount: number, batchId?: string) =>
 // ── Component: FAQ ───────────────────────────────────────────────────
 const FAQ = () => {
     const [open, setOpen] = useState<number | null>(0);
+    const [limit, setLimit] = useState(5);
+    const displayedFAQs = FAQS.slice(0, limit);
     return (
         <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
             <div className="max-w-[850px] mx-auto px-4">
                 <GradientLabel text="SUPPORT" />
                 <h2 className="text-3xl font-bold text-white text-center mb-16">Frequently Asked Questions</h2>
                 <div className="space-y-4">
-                    {FAQS.map((f, i) => (
+                    {displayedFAQs.map((f, i) => (
                         <div key={i} className="border border-white/5 bg-[#0D0D0D] rounded-2xl overflow-hidden">
                             <button onClick={() => setOpen(open === i ? null : i)} className="w-full text-left p-6 text-white font-bold flex justify-between items-center hover:bg-white/5 transition-colors">
                                 <span className="pr-8">{f.q}</span>
@@ -565,6 +618,26 @@ const FAQ = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className="flex flex-col sm:flex-row justify-center mt-12 gap-4 sm:gap-6">
+                    {limit > 5 && (
+                        <button
+                            onClick={() => setLimit(5)}
+                            className="px-8 py-3 rounded-full border border-[#16A44A]/30 text-[#16A44A] text-[14px] font-bold hover:bg-[#16A44A]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
+                        >
+                            See Less Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180" />
+                        </button>
+                    )}
+                    {limit < FAQS.length && (
+                        <button
+                            onClick={() => setLimit(prev => Math.min(prev + 5, FAQS.length))}
+                            className="px-8 py-3 rounded-full border border-[#16A44A]/30 text-[#16A44A] text-[14px] font-bold hover:bg-[#16A44A]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
+                        >
+                            See More Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300" />
+                        </button>
+                    )}
                 </div>
             </div>
         </section>
@@ -588,13 +661,13 @@ const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) =
                     Join professionals who are building data-driven product careers with AcceleratorX.
                 </p>
                 <div className="mt-4 sm:mt-6 flex gap-4">
-                    <button 
-                         onClick={onDownloadBrochure}
+                    <button
+                        onClick={onDownloadBrochure}
                         className="w-[140px] sm:w-[174px] h-[42px] sm:h-[50px] text-white font-semibold bg-[#16A44A]/5 border border-[#16A44A] rounded-[9px] text-[14px] sm:text-[16px] cursor-pointer backdrop-blur-[100px] hover:bg-[#16A44A]/10 transition-all duration-300"
                     >
                         Apply Now
                     </button>
-                    <button 
+                    <button
                         onClick={onDownloadBrochure}
                         className="w-full sm:w-auto border border-white/10 text-white px-8 h-[42px] sm:h-[50px] rounded-[9px] font-semibold text-[14px] sm:text-[16px] hover:bg-white/5 transition-all"
                     >
@@ -614,6 +687,54 @@ const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure: () => void }) =
     </section>
 );
 
+const Certificate = () => (
+    <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+            <div className="text-center mb-16 sm:mb-20">
+                <GradientLabel text="CERTIFICATION" />
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">The Certificate Recognized By The Industry</h2>
+            </div>
+
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+                <div className="flex-1 flex justify-center lg:justify-end w-full">
+                    <div className="relative w-full max-w-[517px]">
+                        <img
+                            src="/assets/certificate/AI PRODUCTMANAGMENT.png"
+                            alt="AI Product Analytics Certificate"
+                            className="w-full h-auto object-contain relative z-20 mix-blend-lighten"
+                            width={517}
+                            height={731}
+                        />
+                    </div>
+                </div>
+
+                <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <h3 className="text-white font-bold text-[24px] sm:text-[32px] leading-tight mb-4">
+                        Get Your Nano-Degree in AI Product Analytics
+                    </h3>
+                    <p className="text-[#A0A8B8] text-[14px] sm:text-[16px] leading-relaxed mb-8 max-w-[500px]">
+                        Show the world your expertise in AI Product Analytics, stand out in a competitive job market and get hired easily.
+                    </p>
+
+                    <ul className="flex flex-col gap-4 sm:gap-5 text-left w-full max-w-[500px]">
+                        {[
+                            "Industry-recognized Nano Degree in AI Product Analytics.",
+                            "Verified badge + unique verification ID",
+                            "Trusted by 2500+ companies and agencies",
+                            "AI Product Analytics Projects portfolio",
+                            "Lifetime exclusive alumni community access"
+                        ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-3 sm:gap-4">
+                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#16A44A] flex-shrink-0" />
+                                <span className="text-[#CFCFCF] text-[14px] sm:text-[15px] font-medium leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+);
 
 
 export default function ProductAnalyticsPageV2() {
@@ -630,14 +751,15 @@ export default function ProductAnalyticsPageV2() {
             <Mentors />
             <Tools />
             <Checklist />
+            <Certificate />
             <CareerRoles />
             <Pricing onEnroll={handleBuyCourse} />
             <FAQ />
             <CTABanner onDownloadBrochure={() => setIsModalOpen(true)} />
 
-            <EnrollmentModalADS 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
+            <EnrollmentModalADS
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
                 program={{
                     title: "Product Analytics",
                     label: "AI PA", // Note: The label in EnrollmentModalADS might need to be AI DA or similar if AI PA isn't defined there

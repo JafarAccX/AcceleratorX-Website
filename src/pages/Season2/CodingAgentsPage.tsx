@@ -13,7 +13,7 @@ import {
     FaUserGraduate
 } from "react-icons/fa";
 import { WorkshopProvider } from "../../context/WorkshopContext";
-import { SEO } from "../../components/SEO";
+import { SEO } from "../../components/seo/SEO";
 import WSFormFree from "../landingpage/workshopAIDM/WSFormFree";
 
 // Section 1: Hero
@@ -28,8 +28,8 @@ const WSHeroCodingAgents = () => {
 
             <div className="relative z-20 w-full bg-black/30 backdrop-blur-sm">
                 <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                    <div className="w-36 md:w-44">
-                        <img src="/redesign/logo-bg-black.webp" alt="AcceleratorX logo" className="w-full h-auto" />
+                    <div className="w-48 md:w-64">
+                        <img src="/assets/accelerator.png" alt="AcceleratorX logo" className="w-full h-auto" />
                     </div>
                 </div>
             </div>
@@ -283,7 +283,7 @@ const WSCTACodingAgents = () => {
 const CodingAgentsPage = () => {
     return (
         <WorkshopProvider>
-            <div className="min-h-screen bg-[#050A14] text-white font-sans overflow-x-hidden selection:bg-blue-500 selection:text-white">
+            <div className="min-h-screen bg-[#050A14] text-white font-sans selection:bg-blue-500 selection:text-white">
                 <SEO title="AI Coding Agents Workshop | AcceleratorX" description="Join the Workshop on Building AI Coding Agents with Hugging Face and Open Source models." />
                 <WSHeroCodingAgents />
                 <WSIntroCodingAgents />

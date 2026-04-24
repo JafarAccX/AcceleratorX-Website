@@ -2,14 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { visualizer } from "rollup-plugin-visualizer";
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     react(),
     visualizer({ filename: "dist/bundle-analysis.html", open: false }),
   ],
 
   optimizeDeps: {
-    exclude: ["lucide-react"],
+    include: ["lucide-react"],
   },
 
   server: {
@@ -19,10 +19,16 @@ export default defineConfig({
   },
 
   build: {
-    minify: false,
     rollupOptions: {
-      input: {
+      input: isSsrBuild ? undefined : {
         main: "./index.html",
+      },
+      output: isSsrBuild ? {} : {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+          'vendor-ui': ['framer-motion', 'lucide-react', 'react-icons'],
+          'vendor-data': ['@supabase/supabase-js', '@tanstack/react-query', 'axios'],
+        },
       },
     },
   },
@@ -30,4 +36,4 @@ export default defineConfig({
   ssr: {
     noExternal: ["react-router-dom", "react-helmet-async"],
   },
-});
+}));

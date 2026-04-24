@@ -30,7 +30,7 @@ const WSHeroGEND = () => {
       <div className="relative z-20 w-full bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="w-36 md:w-44">
-            <img src="/redesign/logo-bg-black.webp" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
+            <img src="/assets/accelerator.png" alt="company logo - professional certificate in product management online" className="w-full h-auto" />
           </div>
         </div>
       </div>
@@ -131,3 +131,4 @@ const WSHeroGEND = () => {
 };
 
 export default WSHeroGEND;
+

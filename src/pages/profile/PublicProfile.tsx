@@ -5,7 +5,7 @@ import {
     User, Mail, Globe, Linkedin,
     Github, BookOpen, Clock, DollarSign, Calendar, Briefcase, GraduationCap
 } from "lucide-react";
-import Loader from "../../components/Loader";
+import Loader from "../../components/ui/Loader";
 import { projectService } from "../../services/projectService";
 import { Project } from "../../types/project.types";
 import ProjectCard from "../project-listing/components/ProjectCard";

@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import { Route } from "react-router-dom";
-import { SEO } from "../components/SEO";
+import { SEO } from "../components/seo/SEO";
 import Season2Page from "../pages/Season2/Season2Page";
 import CodingAgentsPage from "../pages/Season2/CodingAgentsPage";
 

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogService } from '../../services/blogService';
-import { BlogPost } from '../../utils/types';
+import { BlogPost } from '../../types/common';
 import { OutputData } from '@editorjs/editorjs';
 import EditorJSHTML from 'editorjs-html';
 import { Calendar, User, ChevronDown } from 'lucide-react';

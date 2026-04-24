@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { blogService } from '../../services/blogService';
-import { BlogPost, BlogCategory } from '../../utils/types';
+import { BlogPost, BlogCategory } from '../../types/common';
 
 // Motion variants
 const containerVariants = {

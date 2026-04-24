@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { 
-  freshersPath, 
-  switchPath, 
+import {
+    freshersPath,
+    switchPath,
 } from "./AdvanceGenAIv2Constants";
 import { GradientLabel } from "./AdvanceGenAIv2Part1";
 
@@ -14,8 +14,8 @@ export const Roadmap = () => {
         <section className="min-h-[500px] lg:min-h-[815px] py-12 sm:py-16 lg:py-24 px-4 md:px-8 lg:px-[70px] bg-[#0A0A0A]">
             <div className="max-w-[1440px] mx-auto text-center">
                 <GradientLabel text="PROGRAMS ROADMAP" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2 tracking-tight">Advanced AI Roadmap for Working Professionals & Freshers</h2>
-                <p className="text-[#94A3B8] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
+                <p className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2 tracking-tight">Advanced AI Roadmap for Working Professionals & Freshers</p>
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
                     2,000+ learners across India are transitioning into AI careers by building AI agents, automation workflows, and real-world AI systems.
                 </p>
 
@@ -35,9 +35,11 @@ export const Roadmap = () => {
                 </div>
 
                 <div className="flex flex-col items-center">
-                    <h2 className="text-white font-medium text-[16px] sm:text-[20px] mb-4 tracking-tight">
-                        {roadmapPath === "freshers" ? "Start Your Career in Generative AI from Zero" : "Transition into AI Roles"}
-                    </h2>
+                    <p className="text-white font-medium text-[16px] sm:text-[20px] mb-4 tracking-tight">
+                        {roadmapPath === "freshers"
+                            ? "Start Your Career in Advanced AI From Zero"
+                            : "Transition into AI Roles with a Structured Learning Path"}
+                    </p>
                     <div className="inline-flex items-center justify-center px-4 py-[6px] rounded-[30px] border border-[#FC6401] bg-white/5 text-[#FC6401] text-[11px] sm:text-[12px] font-bold leading-[20px] uppercase mb-[40px] sm:mb-[90px] tracking-wide">
                         {roadmapPath === "freshers" ? "FRESHERS PATH" : "CAREER SWITCHERS PATH"}
                     </div>
@@ -45,8 +47,8 @@ export const Roadmap = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-1 gap-y-4 sm:gap-y-6 w-full max-w-[1288px] mb-4 sm:mb-6">
                     {currentPath.slice(0, 4).map((item, idx) => (
-                        <div key={idx} className={`relative group w-full max-w-[664px] h-[100px] sm:h-[111px] mx-auto cursor-pointer ${idx % 2 !== 0 ? 'md:ml-[-1px]' : ''}`}>
-                            <svg width="100%" height="100%" viewBox="0 0 664 111" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                        <div key={idx} className={`relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 mx-auto cursor-pointer ${idx % 2 !== 0 ? 'md:ml-[-1px]' : ''}`}>
+                            <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
                                 <defs>
                                     <linearGradient id={`cardGradient-${idx}`} x1="0%" y1="0%" x2="0%" y2="100%">
                                         <stop offset="0%" stopColor="#0A0A0A" />
@@ -73,7 +75,7 @@ export const Roadmap = () => {
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] font-['Inter',sans-serif] tracking-tight">{item.title}</h3>
                                 </div>
                                 <div className="pl-8 sm:pl-11 text-left">
-                                    <p className="text-[12px] sm:text-[14px] text-[#CFCFCF] font-normal leading-tight font-['Inter',sans-serif]">
+                                    <p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-tight font-['Inter',sans-serif]">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -84,8 +86,8 @@ export const Roadmap = () => {
 
                 <div className="w-full flex justify-center mt-2 sm:mt-4">
                     {currentPath[4] && (
-                        <div className="relative group w-full max-w-[664px] h-[100px] sm:h-[111px] cursor-pointer">
-                            <svg width="100%" height="100%" viewBox="0 0 664 111" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                        <div className="relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 cursor-pointer">
+                            <svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
                                 <defs>
                                     <linearGradient id="cardGradientCentered" x1="0%" y1="0%" x2="0%" y2="100%">
                                         <stop offset="0%" stopColor="#0A0A0A" />
@@ -109,7 +111,7 @@ export const Roadmap = () => {
                                     <h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] font-['Inter',sans-serif] tracking-tight">{currentPath[4].title}</h3>
                                 </div>
                                 <div className="pl-8 sm:pl-11 text-left">
-                                    <p className="text-[12px] sm:text-[14px] text-[#CFCFCF] font-normal leading-tight font-['Inter',sans-serif]">
+                                    <p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-tight font-['Inter',sans-serif]">
                                         {currentPath[4].desc}
                                     </p>
                                 </div>
@@ -169,9 +171,9 @@ export const ProgramDesign = () => {
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto text-center">
                 <GradientLabel text="PROGRAMS BENEFITS" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Built for Advanced AI Systems</h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[800px] mx-auto mb-12 sm:mb-20 leading-relaxed">
-                    Moving beyond basic prompting to architecting the next generation of autonomous AI ecosystems.
+                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6">Designed for Real-World AI Execution</h2>
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[950px] mx-auto mb-12 sm:mb-20 leading-relaxed">
+                    This is not a theory-heavy course. You learn by building AI agents, automation systems, and real-world AI applications.
                 </p>
 
                 <div className="flex flex-col lg:flex-row gap-6 sm:gap-[40px] items-center justify-center max-w-[1188px] mx-auto min-h-[300px] lg:min-h-[400px]">

@@ -140,11 +140,11 @@ export const trackFormSubmission = async (
     const eventId = trackingService.getStoredEventId();
 
     if (!eventId) {
-      console.warn('No event ID found for server-side tracking');
+      if (import.meta.env.DEV) console.warn('No event ID found for server-side tracking');
       return;
     }
 
-    console.log("Server-side tracking - Event ID:", eventId);
+    if (import.meta.env.DEV) console.log("Server-side tracking - Event ID:", eventId);
     const payload = {
       data: [
         {

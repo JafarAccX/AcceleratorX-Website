@@ -22,12 +22,12 @@ const OfflineExperience = () => {
     images.forEach((img, i) => columns[i % numCols].push(img));
 
     return (
-        <section className="w-full py-20 bg-black text-white overflow-hidden relative">
+        <section className="w-full py-16 lg:py-32 bg-[#0A0A0A] text-white overflow-hidden relative">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
             <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
 
-                <h2 className="font-heading text-3xl md:text-5xl font-bold text-white">
+                <h2 className="font-heading text-[32px] font-medium text-white tracking-normal leading-[100%]">
                     Hear from the learners
                 </h2>
             </div>
@@ -36,9 +36,9 @@ const OfflineExperience = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="relative" style={{ height: '600px' }}>
                     {/* Top fade */}
-                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
+                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
                     {/* Bottom fade */}
-                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
                     <div
                         className="flex gap-3 md:gap-4 overflow-hidden h-full"

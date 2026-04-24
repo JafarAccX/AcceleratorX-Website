@@ -1,4 +1,4 @@
-import { BlogPost, BlogCategory, BlogTag, BlogComment } from "../utils/types";
+import { BlogPost, BlogCategory, BlogTag, BlogComment } from "../types/common";
 
 // API base URL - adjust this to match your backend URL
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3020';

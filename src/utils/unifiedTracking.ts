@@ -67,14 +67,22 @@ class UnifiedTrackingService {
     }
 
     if (!window.fbq) {
-      console.warn('Facebook Pixel not loaded');
+      if (import.meta.env.DEV) console.warn('Facebook Pixel not loaded');
+      return;
+    }
+
+    // Check if this pixel is already initialized in fbq's internal state
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const fbqInstance = window.fbq as any;
+    if (fbqInstance?.getState?.()?.pixels?.some?.((p: { id: string }) => p.id === pixelId)) {
+      this.pixelsInitialized.add(pixelId);
       return;
     }
 
     try {
       window.fbq('init', pixelId);
       this.pixelsInitialized.add(pixelId);
-      console.log(`✅ Meta Pixel initialized: ${pixelId}`);
+      if (import.meta.env.DEV) console.log(`✅ Meta Pixel initialized: ${pixelId}`);
     } catch (error) {
       console.error(`❌ Failed to initialize pixel ${pixelId}:`, error);
     }
@@ -88,7 +96,7 @@ class UnifiedTrackingService {
     parameters?: EventParameters
   ): void {
     if (!pixelId || !window.fbq) {
-      console.warn('Cannot track event: Missing pixel ID or fbq');
+      if (import.meta.env.DEV) console.warn('Cannot track event: Missing pixel ID or fbq');
       return;
     }
 
@@ -98,7 +106,7 @@ class UnifiedTrackingService {
 
     // Check for duplicate
     if (this.hasEventFired(eventType, finalEventId, pixelId)) {
-      console.warn(`🚫 Duplicate event prevented: ${eventType} for pixel ${pixelId}`);
+      if (import.meta.env.DEV) console.warn(`🚫 Duplicate event prevented: ${eventType} for pixel ${pixelId}`);
       return;
     }
 
@@ -116,7 +124,7 @@ class UnifiedTrackingService {
       // Mark as fired
       this.markEventFired(eventType, finalEventId, pixelId, route);
       
-      console.log(`✅ Event tracked: ${eventType} | Pixel: ${pixelId} | Route: ${route} | EventID: ${finalEventId}`);
+      if (import.meta.env.DEV) console.log(`✅ Event tracked: ${eventType} | Pixel: ${pixelId} | Route: ${route} | EventID: ${finalEventId}`);
     } catch (error) {
       console.error(`❌ Failed to track ${eventType}:`, error);
     }
@@ -135,7 +143,7 @@ class UnifiedTrackingService {
   // Clear cache (for testing/debugging)
   clearCache() {
     this.eventCache.clear();
-    console.log('🗑️ Tracking cache cleared');
+    if (import.meta.env.DEV) console.log('🗑️ Tracking cache cleared');
   }
 
   // Store event ID globally for server-side tracking

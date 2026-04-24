@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { SEO } from "../../../components/SEO";
+import { SEO } from "../../../components/seo/SEO";
 
 const HeroAbout = lazy(() => import("../../aboutus/HeroAbout"));
 const Team = lazy(() => import("../../aboutus/Team"));

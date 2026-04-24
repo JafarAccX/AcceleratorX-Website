@@ -1,11 +1,11 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
-// import AppDownloadPOP from "../components/AppDownloadPOP";
+// import AppDownloadPOP from "../components/modals/AppDownloadPOP";
 import { getRouteLayout } from "../utils/layoutUtils";
 import Navbar from "../components/landing-page/Navbar";
 
-const Footer = lazy(() => import("../components/Footer"));
-const EnrollmentModal = lazy(() => import("../components/EnrollmentModal"));
+import Footer from "../components/layout/Footer";
+import EnrollmentModal from "../components/modals/EnrollmentModal";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -38,23 +38,19 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   const { showNavbar, showFooter } = getRouteLayout(location.pathname);
 
   return (
-    <div className="relative">
+    <div className="relative min-h-screen flex flex-col">
       {showNavbar && <Navbar />}
 
       {/* Google Translate Widget */}
       {/* <GoogleTranslate /> */}
 
-      <Suspense fallback={null}>
-        <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
-      </Suspense>
+      <EnrollmentModal isOpen={isEnrollmentModalOpen} onClose={handleCloseModal} />
 
-      <main className="min-h-screen">{children}</main>
+      <main className="flex-grow">{children}</main>
 
       {showFooter && (
         <>
-          <Suspense fallback={<div className="py-8 text-center">Loading…</div>}>
-            <Footer />
-          </Suspense>
+          <Footer />
         </>
       )}
       {/* App download popup (global) */}

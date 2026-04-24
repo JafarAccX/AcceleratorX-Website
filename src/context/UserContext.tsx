@@ -30,6 +30,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const login = useCallback((authData: AuthData) => {
     setUser(authData.user);
     setIsAuthenticated(true);
+    localStorage.setItem("isAuthenticated", "true");
     // Set the access token for all subsequent api requests
     api.defaults.headers.common["Authorization"] = `Bearer ${authData.accessToken}`;
   }, []);
@@ -44,6 +45,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
       // Clear user state and authorization header regardless of backend call success
       setUser(null);
       setIsAuthenticated(false);
+      localStorage.removeItem("isAuthenticated");
       delete api.defaults.headers.common["Authorization"];
     }
   }, []);
@@ -56,6 +58,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
 
     const initAuth = async () => {
+      // Only hit the refresh-token endpoint if we suspect they actually have an active session
+      if (localStorage.getItem("isAuthenticated") !== "true") {
+        setIsLoading(false);
+        return;
+      }
+
       setIsLoading(true);
       try {
         // The backend will use the HttpOnly cookie to identify the user
@@ -64,9 +72,9 @@ export function UserProvider({ children }: { children: ReactNode }) {
           login(response.data);
         }
       } catch {
-        // This error is expected if the user is not logged in
-        // No need to handle the error object itself
-        console.log("No active session or session expired.");
+        // This error is expected if the session expired
+        localStorage.removeItem("isAuthenticated");
+        if (import.meta.env.DEV) console.log("No active session or session expired.");
       } finally {
         setIsLoading(false);
       }

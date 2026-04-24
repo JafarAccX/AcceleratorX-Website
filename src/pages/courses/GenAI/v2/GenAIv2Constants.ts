@@ -3,8 +3,8 @@ export const ASSETS = {
   heroImage: "/assets/hero.png",
   ibmLogo: "/assets/ibm.png",
   bagIcon: "/assets/leftbag.png",
-  rupeeIcon: "/assets/leftrupee.png",
-  studentsGrp: "/assets/studentgrp.png",
+  rupeeIcon: "/assets/stars/star.png",
+  studentsGrp: "/assets/happystudents.png",
   ctaperson: "/assets/ctabanner/ctaperson.png",
   ctaBob: "/assets/ctabanner/bockgroundbob.png",
   ctaBadge: "/assets/ctabanner/1998+.png",
@@ -30,6 +30,36 @@ export const ALUMNI_LOGOS = [
   { name: "JP Morgan", url: "/assets/genai_alumni_logos/JP.png", height: 32 },
   { name: "Qualcomm", url: "/assets/genai_alumni_logos/QCOM_BIG.D-61975dc8.png", height: 32 },
   { name: "Bajaj", url: "/assets/genai_alumni_logos/BAJAJ.png", height: 32 },
+];
+
+export const MAIN_LOGOS = [
+  { name: "Accenture", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ACN_BIG.D-871a76ce 1.png" },
+  { name: "Bajaj", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/BAJAJ 1.png" },
+  { name: "Cognizant", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/COGNIZANT 1.png" },
+  { name: "Capgemini", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/COIN 1.png" },
+  { name: "Dentsu", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/DENTSU 1.png" },
+  { name: "Digital", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/DIGITAL 1.png" },
+  { name: "Ericsson", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ERIC_BIG.D-a6e54d97 1.png" },
+  { name: "EY", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/EY-Logo-Transparent 1.png" },
+  { name: "Google", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Google_2015_logo.svg 1.png" },
+  { name: "Infosys", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/INFY.D-7896b1a8 1.png" },
+  { name: "ISRO", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Indian_Space_Research_Organisation_Logo.svg 1.png" },
+  { name: "Infosys_logo", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Infosys_logo.svg 2.png" },
+  { name: "JP Morgan", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/JP 2.png" },
+  { name: "PWC", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/PWC-Logo-PNG 1.png" },
+  { name: "Qualcomm", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/QCOM_BIG.D-61975dc8 1.png" },
+  { name: "SE", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/SE_Logo_White_RGB 1.png" },
+  { name: "TCS", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Tata_Consultancy_Services_Logo_2020 1.png" },
+  { name: "Tata Tech", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Tata_TT_stacked_logo-white 1.png" },
+  { name: "Title", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/Title 2.png" },
+  { name: "Wipro", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/WIPRO WHITE 1.png" },
+  { name: "Zensar", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ZEN_BIG.D-d60ab9fe 2.png" },
+  { name: "Zobar", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/ZOBAR AI 1.png" },
+  { name: "Deutsche Bank", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/deutsche-bank-logo-black-and-white-1 1.png" },
+  { name: "DRDO", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/drdo-logo-hd 1.png" },
+  { name: "Meta", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/pngimg.com - meta_PNG7 1.png" },
+  { name: "Microsoft", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/pngimg.com - microsoft_PNG19 1.png" },
+  { name: "SXP", url: "/assets/Gen ai, Adv Gen AI and AI Crash course main home page company logos/sxp-logo-1-01 1.png" }
 ];
 
 export const floatingBadges = [
@@ -67,19 +97,148 @@ export const freshersPath = [
 ];
 
 export const ibmModules = [
-  { title: "Generative AI Foundations & Business Applications", desc: "Understand the core concepts of Gen AI, and AI systems." },
-  { title: "AI Tools, Prompt Engineering & Automation", desc: "Master prompt engineering, AI tools, and automation workflows." },
-  { title: "Building AI Workflows & Real-World Systems", desc: "Design and implement AI-powered workflows, automation systems, and scalable use cases used in modern companies." },
-  { title: "Capstone Projects & Career Acceleration", desc: "Work on industry-grade AI projects, automation systems, and real-world use cases to build a strong portfolio" },
-  { title: "AI Agent Building Specialisation Certificate from IBM", desc: "Earn an industry-recognised IBM certification in AI agent building by creating real-world AI agents and automation workflows." },
+  {
+    week: "Week 1",
+    title: "Foundations of Generative AI",
+    goal: "Understand what GenAI is, how it works, and explore hands-on creative tools.",
+    sessions: [
+      "Session 1: Introduction to Generative AI",
+      "Session 2: Exploring AI Ecosystem Tools (2025 Stack)",
+      "Session 3: AI for Everyday Work"
+    ],
+    miniProject: "AI Productivity Toolkit — Create 5 real-world prompts that automate your work."
+  },
+  {
+    week: "Week 2",
+    title: "Deep Dive into LLMs & Prompt Mastery",
+    goal: "Understand how large language models actually \"think\" and how to guide them precisely.",
+    sessions: [
+      "Session 4: Inside the Mind of an LLM",
+      "Session 5: Prompt Engineering to Context Engineering",
+      "Session 6: Practical Prompt Lab (Agent Communication)"
+    ]
+  },
+  {
+    week: "Week 3",
+    title: "Image, Video, and Visual Generation",
+    goal: "Use AI for creative production — image and video generation.",
+    sessions: [
+      "Session 7: Image Generation: Diffusion Models",
+      "Session 8: AI Video Generation",
+      "Session 9: Hands-on Visual AI Lab"
+    ]
+  },
+  {
+    week: "Week 4",
+    title: "Audio, Voice & Music Generation",
+    goal: "Understand and apply AI to voice and sound.",
+    sessions: [
+      "Session 10: AI Voice Synthesis & TTS",
+      "Session 11: AI Music Creation",
+      "Session 12: Lab + Project"
+    ]
+  },
+  {
+    week: "Week 5",
+    title: "Machine Learning & Model Fine-Tuning",
+    goal: "Learn how LLMs are trained and fine-tune small models for your domain.",
+    sessions: [
+      "Session 13: Basics of ML & DL Simplified",
+      "Session 14: Fine-Tuning Open Models (LoRA, QLoRA)",
+      "Session 15: Lab: Training a Mini-Model"
+    ]
+  },
+  {
+    week: "Week 6",
+    title: "AI Ethics, Bias & Responsible Design",
+    goal: "Learn safe and ethical AI building for compliance and trustworthiness.",
+    sessions: [
+      "Session 16: AI Ethics & Global Regulations (EU AI Act, India DPDP, US AI Safety Rules)",
+      "Session 17: Detecting & Reducing Bias",
+      "Session 18: Practical Exercise: Audit an existing AI system for fairness"
+    ]
+  },
+  {
+    week: "Week 7",
+    title: "Vibe Coding: Assisted AI Development (I)",
+    goal: "Build applications visually with the help of AI pair coders.",
+    sessions: [
+      "Session 19: Intro to Vibe Coding & Tools",
+      "Session 20: Hands-On: Building with Cursor AI & Windsurf",
+      "Session 21: Project Build Live"
+    ]
+  },
+  {
+    week: "Week 8",
+    title: "Vibe Coding (II) & Model Deployment",
+    goal: "Learn to deploy your projects and host them publicly.",
+    sessions: [
+      "Session 22: Replit, Bolt.new, and Lovable for Quick Deployment",
+      "Session 23: Deploying to Cloud",
+      "Session 24: Monitoring & Optimization"
+    ]
+  },
+  {
+    week: "Week 9",
+    title: "Introduction to AI Agents",
+    goal: "Move from models → autonomous reasoning systems.",
+    sessions: [
+      "Session 25: What Are AI Agents? Real world examples",
+      "Session 26: Tools for Building Agents",
+      "Session 27: Lab: Build Your First AI Agent (LangChain)"
+    ]
+  },
+  {
+    week: "Week 10",
+    title: "Building AI Agents (CrewAI & LangGraph Live)",
+    goal: "Build a multi-step reasoning agent.",
+    sessions: [
+      "Session 28 (Live Build): CrewAI Team of Agent",
+      "Session 29: LangGraph Visual Agent Building",
+      "Session 30: Building MCP Server, Intro To ACP"
+    ]
+  },
+  {
+    week: "Week 11",
+    title: "Multi-Agent Systems & Real-World Use Cases",
+    goal: "Create complex automations involving multiple agents.",
+    sessions: [
+      "Session 31: Multi-Agent Collaboration Patterns",
+      "Session 32: APIs and Databases with Agents",
+      "Session 33: Mini Project: \"Customer Support Crew\" – 3-agent system (intake → research → response)"
+    ]
+  },
+  {
+    week: "Week 12",
+    title: "AI Automation Using n8n",
+    goal: "Automate workflows visually and connect your AI models to tasks.",
+    sessions: [
+      "Session 34: Intro to n8n & Node Logic",
+      "Session 35: n8n workflow - 1",
+      "Session 36: n8n Lab"
+    ]
+  },
+  {
+    week: "Week 13",
+    title: "Full Automation + Integrations",
+    goal: "Combine AI + Agents + Automation into deployable solutions.",
+    sessions: [
+      "Session 37: n8n workflow - 2",
+      "Session 38: Flowwise - 1",
+      "Session 39: Mini Project Discussion: \"AI Copilot\""
+    ]
+  },
+  {
+    week: "Week 14",
+    title: "Capstone & Future Skills",
+    goal: "Build a deployable project, present, and get feedback.",
+    sessions: [
+      "Session 40: Demo Day & Career Mapping"
+    ]
+  }
 ];
 
-export const regularModules = [
-  { title: "Introduction to Generative AI & ChatGPT", desc: "Learn the fundamentals of Gen AI and AI tools and understand how they work in practical scenarios." },
-  { title: "AI Tools & Practical Use Cases", desc: "Explore commonly used AI tools and platforms, and apply them to everyday workflows and business tasks." },
-  { title: "AI Workflows & Automation Basics", desc: "Understand how to build basic AI workflows and automation systems to improve efficiency and productivity." },
-  { title: "Hands-On Projects & Applications", desc: "Work on practical AI projects and use cases to apply your learning and build foundational experience." },
-];
+export const regularModules = [...ibmModules];
 
 export const MENTORS = [
   { name: "Yash Manghnani", designation: "Senior AI Builder", company: "Better Software", image: "/assets/mentors/gen-ai/yash.png", companyLogo: "/assets/mentors/beetersoftware.png" },
@@ -145,14 +304,14 @@ export const PRICING_PLANS = [
     badge: "MOST POPULAR",
     subtitle: "Generative AI program designed for learners seeking expertise in AI agents, automation systems, and real-world AI applications, along with industry-recognized certification.",
     price: "₹ 59,999 + GST",
-    track: "ADVANCED CAREER TRACK",
+    track: "ADVANCED AI CAREER TRACK",
     features: [
       "Everything included in the Regular Program",
       "IBM Industry Certification",
-      "AcceleratorX Advanced Learning Track",
-      "Exclusive Product Strategy Workshops",
-      "Advanced Product Case Simulations",
-      "Dedicated Career Support and Mentorship",
+      "Advanced Generative AI & Automation Learning Track",
+      "Exclusive AI Workflow & Automation Workshops",
+      "Advanced AI Project Simulations & Real Use Cases",
+      "Dedicated Career Support for AI Roles",
     ],
     cta: "Join IBM Program",
     highlighted: true,
@@ -164,13 +323,13 @@ export const PRICING_PLANS = [
     price: "₹ 39,999 + GST",
     track: "FULL PROGRAM ACCESS",
     features: [
-      "Complete Product Management Curriculum (Modules 1-6)",
-      "Hands-on Product Case Studies",
+      "Complete Generative AI Curriculum (Modules 1–6)",
+      "Hands-on AI Projects & Real-World Use Cases",
       "Build AI Workflows & Automation Systems",
-      "Access to Product Tools and Frameworks",
+      "Access to AI Tools, Frameworks & Platforms",
       "Mentorship and Career Guidance",
     ],
-    cta: "Enroll in Regular Program",
+    cta: "Enroll in Generative AI Program",
     highlighted: false,
   },
 ];

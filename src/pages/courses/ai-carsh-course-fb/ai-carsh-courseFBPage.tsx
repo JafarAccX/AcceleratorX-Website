@@ -1,6 +1,6 @@
 import { useState, useEffect, Suspense } from "react";
 import { useCourseContext } from "../../../context/courseContext";
-import { SEO } from "../../../components/SEO";
+import { SEO } from "../../../components/seo/SEO";
 import AICrashCourseEnrollmentModal from "../AICrashCourse/AICrashCourseEnrollmentModal";
 
 // Use newly created components

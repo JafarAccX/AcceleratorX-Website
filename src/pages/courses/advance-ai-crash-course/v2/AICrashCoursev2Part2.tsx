@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { 
-  freshersPath, 
-  switchPath, 
+import {
+    freshersPath,
+    switchPath,
 } from "./AICrashCoursev2Constants";
 import { GradientLabel } from "./AICrashCoursev2Part1";
 
@@ -13,10 +13,11 @@ export const Roadmap = () => {
     return (
         <section className="min-h-[500px] lg:min-h-[815px] py-12 sm:py-16 lg:py-[100px] px-4 md:px-8 lg:px-[70px] bg-[#0A0A0A]">
             <div className="max-w-[1440px] mx-auto text-center">
-                <GradientLabel text="RAPID ROADMAP" />
-                <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2">Advanced AI Roadmap for Working Professionals & Freshers</h2>
-                <p className="text-[#94A3B8] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
+                <GradientLabel text="PROGRAMS ROADMAP" />
+                <p className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 px-2">Advanced AI Roadmap for Working Professionals & Freshers</p>
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[1047px] mx-auto mb-8 sm:mb-10 leading-relaxed font-medium px-2">
                     2,000+ learners across India are transitioning into AI careers by building AI agents, automation workflows, and real-world AI systems.
+
                 </p>
 
                 <div className="inline-flex items-center p-[6px] rounded-full mb-10 sm:mb-16 bg-[#0D0D0D] border border-white/10">
@@ -34,22 +35,22 @@ export const Roadmap = () => {
                     </button>
                 </div>
 
-                <div className="mb-12">
-                    <p className="text-white text-lg font-medium mb-3">
-                        {roadmapPath === "switch" ? "Transition into AI Roles" : "Start Your Career in Advanced AI Crash from Zero"}
+                <div className="flex flex-col items-center">
+                    <p className="text-white font-medium text-[16px] sm:text-[20px] mb-4 tracking-tight">
+                        {roadmapPath === "freshers"
+                            ? "Start Your Career in Ai Advanced AI Crash From zero"
+                            : "Transition into High-Paying AI Roles."}
                     </p>
-                    <div className="inline-block px-4 py-1 rounded-full border border-[#EA580C] bg-[#EA580C]/5">
-                        <span className="text-[#EA580C] text-[11px] font-bold tracking-widest uppercase">
-                            {roadmapPath === "switch" ? "CAREER SWITCHERS PATH" : "FRESHERS PATH"}
-                        </span>
+                    <div className="inline-flex items-center justify-center px-4 py-[6px] rounded-[30px] border border-[#EA580C] bg-white/5 text-[#EA580C] text-[11px] sm:text-[12px] font-bold leading-[20px] uppercase mb-[40px] sm:mb-[90px] tracking-wide">
+                        {roadmapPath === "freshers" ? "FRESHERS PATH" : "CAREER SWITCHERS PATH"}
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-1 gap-y-4 sm:gap-y-6 w-full max-w-[1288px] mx-auto">
                     {currentPath.map((item: any, idx) => (
-                        <div 
-                            key={idx} 
-                            className={`relative group w-full max-w-[664px] h-[100px] sm:h-[111px] mx-auto cursor-pointer 
+                        <div
+                            key={idx}
+                            className={`relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 mx-auto cursor-pointer 
                                 ${idx === 4 ? 'md:col-span-2' : ''} 
                                 ${idx % 2 !== 0 && idx !== 4 ? 'md:ml-[-1px]' : ''}`}
                         >
@@ -74,16 +75,13 @@ export const Roadmap = () => {
                             </svg>
                             <div className={`relative flex flex-col gap-1 h-full justify-center ${idx % 2 === 0 ? 'pl-6 sm:pl-10 pr-12 sm:pr-20' : 'pl-[50px] sm:pl-[88px] pr-6 sm:pr-10'}`}>
                                 <div className="flex items-center gap-3 sm:gap-5 text-left">
-                                    <div 
-                                        className="w-8 h-8 flex items-center justify-center flex-shrink-0 rounded-lg border" 
-                                        style={{ backgroundColor: `${item.color}15`, borderColor: `${item.color}30` }}
-                                    >
-                                        <img src={item.icon} alt={item.title} className="w-5 h-5 object-contain brightness-200" />
+                                    <div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0">
+                                        <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
                                     </div>
                                     <h3 className="text-[14px] sm:text-[16px] font-bold text-[#ECECEC] font-['Inter',sans-serif] tracking-tight">{item.title}</h3>
                                 </div>
-                                <div className="pl-12 sm:pl-13 text-left">
-                                    <p className="text-[12px] sm:text-[14px] text-[#ADAAAA] font-normal leading-tight font-['Inter',sans-serif]">
+                                <div className="pl-8 sm:pl-11 text-left">
+                                    <p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-tight font-['Inter',sans-serif]">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -144,10 +142,10 @@ export const ProgramDesign = () => {
             <div className="max-w-[1200px] mx-auto text-center px-4">
                 <GradientLabel text="PROGRAM BENEFITS" />
                 <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4">Designed for Real-World AI Execution</h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed font-medium">
+                <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] max-w-[900px] mx-auto leading-relaxed font-medium">
                     You learn by building Advanced AI systems, automation workflows, and real business applications used in companies.
                 </p>
-                
+
                 <div className="flex flex-col lg:flex-row gap-6 sm:gap-[40px] items-center justify-center max-w-[1188px] mx-auto min-h-[300px] lg:min-h-[400px] mt-12 sm:mt-20">
                     <div className="relative flex-shrink-0 w-full max-w-[605px] lg:w-[605px] aspect-[605/351] rounded-[24px] overflow-hidden shadow-2xl border border-white/[0.08] bg-[#0D0D0D]">
                         <div className="w-full h-full relative">
@@ -171,7 +169,7 @@ export const ProgramDesign = () => {
                                             <div className="flex-shrink-0">{benefit.icon}</div>
                                             <h3 className="text-[18px] font-bold text-white tracking-tight">{benefit.title}</h3>
                                         </div>
-                                        <p className="text-[#ADAAAA] text-[16px] leading-[1.6] font-medium">{benefit.desc}</p>
+                                        <p className="text-[#C2C2C2] text-[16px] leading-[1.6] font-medium">{benefit.desc}</p>
                                     </div>
                                 ))}
                             </div>

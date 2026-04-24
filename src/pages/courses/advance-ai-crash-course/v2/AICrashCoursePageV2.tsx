@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { 
-  FAQS,
-  ASSETS
+import {
+    FAQS,
+    ASSETS
 } from "./AICrashCoursev2Constants";
 import { GradientLabel, Hero, AlumniLogos } from "./AICrashCoursev2Part1";
 import { Roadmap, ProgramDesign } from "./AICrashCoursev2Part2";
 import { Curriculum, Mentors } from "./AICrashCoursev2Part3";
 import { Tools, Checklist } from "./AICrashCoursev2Part4";
-import { CareerRoles, BYDP, Pricing } from "./AICrashCoursev2Part5";
-import { SEO } from "../../../../components/SEO";
+import { CareerRoles, BYDP, Pricing, Certificate } from "./AICrashCoursev2Part5";
+import { SEO } from "../../../../components/seo/SEO";
 import { useCoursePurchase } from "../../../../hooks/useCoursePurchase";
 import { COURSE_IDS } from "../../../../utils/constants_price";
 import EnrollmentModalADS from "../../allprograms-ads/EnrollmentModalADS";
@@ -17,18 +17,20 @@ import EnrollmentModalADS from "../../allprograms-ads/EnrollmentModalADS";
 // ── Component: FAQ.tsx ───────────────────────────────────────────────────
 export const FAQ = () => {
     const [open, setOpen] = useState<number | null>(0);
-    const [showAll, setShowAll] = useState(false);
-    const displayedFAQs = showAll ? FAQS : FAQS.slice(0, 5);
+    const [limit, setLimit] = useState(5);
+    const displayedFAQs = FAQS.slice(0, limit);
 
     return (
         <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
             <div className="max-w-[800px] mx-auto">
                 <div className="text-center mb-10 sm:mb-14">
-                    <GradientLabel text="SUPPORT" />
-                    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-3 sm:mb-4">Frequently Asked Questions</h2>
-                    <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] leading-relaxed">
+
+                    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium font-inter text-white leading-tight text-center mb-4">
+                        FAQs
+                    </h2>
+                    {/* <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-relaxed">
                         Answers to your common queries about the crash course.
-                    </p>
+                    </p> */}
                 </div>
 
                 <div className="flex flex-col gap-2 sm:gap-3">
@@ -51,7 +53,7 @@ export const FAQ = () => {
                             }}
                         >
                             <button
-                                className={`w-full text-left px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between font-semibold text-[14px] sm:text-[17px] transition-all duration-500 ${open === i ? "text-white bg-white/[0.02]" : "text-[#F5F7FF] hover:text-white"}`}
+                                className={`w-full text-left px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between font-medium text-[14px] sm:text-[17px] transition-all duration-500 ${open === i ? "text-white bg-white/[0.02]" : "text-white hover:text-white"}`}
                                 onClick={() => setOpen(open === i ? null : i)}
                             >
                                 <span className="pr-4">{faq.q}</span>
@@ -60,7 +62,7 @@ export const FAQ = () => {
                                 </span>
                             </button>
                             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${open === i ? "max-h-[500px] opacity-100 pb-4 sm:pb-6" : "max-h-0 opacity-0"}`}>
-                                <div className="px-4 sm:px-6 text-[#CFCFCF] text-[14px] sm:text-[16px] leading-relaxed border-t border-white/[0.05] pt-4 sm:pt-5 mx-2">
+                                <div className="px-4 sm:px-6 text-[#C2C2C2] font-regular text-[14px] sm:text-[16px] leading-relaxed border-t border-white/[0.05] pt-4 sm:pt-5 mx-2">
                                     {faq.a}
                                 </div>
                             </div>
@@ -68,15 +70,26 @@ export const FAQ = () => {
                     ))}
                 </div>
 
-                {FAQS.length > 5 && (
-                    <button
-                        onClick={() => setShowAll(!showAll)}
-                        className="mt-12 px-8 py-3 rounded-full border border-[#EA580C]/30 text-[#EA580C] text-[14px] font-bold hover:bg-[#EA580C]/10 transition-all duration-300 tracking-wide flex items-center gap-2 mx-auto group"
-                    >
-                        {showAll ? "See Less" : "See More Questions"}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAll ? "rotate-180" : ""}`} />
-                    </button>
-                )}
+                <div className="flex flex-col sm:flex-row justify-center mt-12 gap-4 sm:gap-6">
+                    {limit > 5 && (
+                        <button
+                            onClick={() => setLimit(5)}
+                            className="px-8 py-3 rounded-full border border-[#EA580C]/30 text-[#EA580C] text-[14px] font-bold hover:bg-[#EA580C]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
+                        >
+                            See Less Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180" />
+                        </button>
+                    )}
+                    {limit < FAQS.length && (
+                        <button
+                            onClick={() => setLimit(prev => Math.min(prev + 5, FAQS.length))}
+                            className="px-8 py-3 rounded-full border border-[#EA580C]/30 text-[#EA580C] text-[14px] font-bold hover:bg-[#EA580C]/10 transition-all duration-300 tracking-wide flex items-center justify-center gap-2 group"
+                        >
+                            See More Questions
+                            <ChevronDown className="w-4 h-4 transition-transform duration-300" />
+                        </button>
+                    )}
+                </div>
             </div>
         </section>
     );
@@ -96,12 +109,12 @@ export const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure?: () => v
                     Start Your AI Career Before You Fall Behind
                 </h2>
                 <p className="text-[#C2C2C2] font-medium text-[14px] sm:text-[16px] leading-relaxed max-w-[650px]">
-                    Join professionals building high-income careers using Advanced AI, Generative AI, and automation systems.
+                    Join professionals building AI-powered careers using advanced AI systems, agents, and automation.
                 </p>
                 <div className="mt-4 sm:mt-6">
                     <div onClick={onDownloadBrochure} className="cursor-pointer">
-                        <button className="w-[140px] sm:w-[174px] h-[42px] sm:h-[50px] text-white font-semibold bg-[#EA580C]/5 border border-[#EA580C] rounded-[9px] text-[14px] sm:text-[16px] backdrop-blur-[100px] hover:bg-[#EA580C]/10 transition-all duration-300">
-                            Apply
+                        <button className="w-[180px] sm:w-[214px] h-[42px] sm:h-[50px] text-white font-semibold bg-[#EA580C]/5 border border-[#EA580C] rounded-[9px] text-[14px] sm:text-[16px] backdrop-blur-[100px] hover:bg-[#EA580C]/10 transition-all duration-300">
+                            Claim Your Scholarship
                         </button>
                     </div>
                 </div>
@@ -143,8 +156,8 @@ export default function AICrashCoursePageV2() {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-[#0A0A0A] text-white font-['Inter',sans-serif] overflow-x-hidden">
-            <SEO 
+        <div className="min-h-screen w-full bg-[#0A0A0A] text-white font-['Inter',sans-serif]">
+            <SEO
                 title="Advanced AI Crash Course | 20 Weeks | AcceleratorX"
                 description="Intensive 20-week program on Advanced AI. Build multi-agent systems, autonomous bots, and production-ready products."
             />
@@ -157,15 +170,16 @@ export default function AICrashCoursePageV2() {
             <Mentors />
             <Tools />
             <Checklist />
+            <Certificate />
             <CareerRoles />
             <BYDP />
             <Pricing onEnroll={handleBuyCourse} />
             <FAQ />
             <CTABanner onDownloadBrochure={() => setIsModalOpen(true)} />
 
-            <EnrollmentModalADS 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
+            <EnrollmentModalADS
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
                 program={{
                     title: "Advanced AI Crash Course",
                     label: "AI Crash Course",

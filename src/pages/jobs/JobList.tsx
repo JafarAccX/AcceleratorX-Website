@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import JobCard from "./JobCard";
 
 import { useGetAllJobs } from "../../hooks/jobs";
-import { SEO } from "../../components/SEO";
+import { SEO } from "../../components/seo/SEO";
 
 export interface Job {
   Id: string;

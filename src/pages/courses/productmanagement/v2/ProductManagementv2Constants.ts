@@ -3,8 +3,8 @@ export const ASSETS = {
     heroImage: "/assets/productmanagement/hero.png",
     ibmLogo: "/assets/ibm.png",
     bagIcon: "/assets/productmanagement/leftrbag.png",
-    rupeeIcon: "/assets/productmanagement/leftrupee.png",
-    studentsGrp: "/assets/studentgrp.png",
+    rupeeIcon: "/assets/stars/pmstar.png",
+    studentsGrp: "/assets/happystudents.png",
     ctaperson: "/assets/productmanagement/ctaperson.png",
     aipmgraph: "/assets/productmanagement/ai-pm-graph.png",
     roles: "/assets/productmanagement/roles.png",
@@ -14,32 +14,54 @@ export const ASSETS = {
 export const NAV_LINKS = ["Home", "Programs", "About", "Blog", "Job Portal"];
 
 // ── Alumni Logos ───────────────────────────────────────────────────────
+export const MAIN_LOGOS = [
+    { name: "ADITYA BIRLA GROUP", url: "/assets/pm_companies/ADITYA_BIRAL_GROUP_1.png", height: 45 },
+    { name: "AIRTEL", url: "/assets/pm_companies/AIRTEL_1.png", height: 45 },
+    { name: "BLUE MACHINE", url: "/assets/pm_companies/BLUE_MACHINE_1.png", height: 45 },
+    { name: "DMART", url: "/assets/pm_companies/DMART.NS_BIG.D-7c5f359e_1.png", height: 45 },
+    { name: "HELATHART", url: "/assets/pm_companies/HELATHART_1.png", height: 45 },
+    { name: "Infosys", url: "/assets/pm_companies/Infosys_logo.svg_1.png", height: 45 },
+    { name: "JP", url: "/assets/pm_companies/JP_1.png", height: 45 },
+    { name: "KETTO", url: "/assets/pm_companies/KETTO_1.png", height: 45 },
+    { name: "OLX", url: "/assets/pm_companies/OLX_New_Logo_1.png", height: 45 },
+    { name: "RAZORPAY", url: "/assets/pm_companies/RAZORPAY_1.png", height: 45 },
+    { name: "SHARECHAT", url: "/assets/pm_companies/SHARECHAT_1.png", height: 45 },
+    { name: "Title", url: "/assets/pm_companies/Title_1.png", height: 45 },
+    { name: "Title 1", url: "/assets/pm_companies/Title_(1)_1.png", height: 45 },
+    { name: "ZEN", url: "/assets/pm_companies/ZEN_BIG.D-d60ab9fe_1.png", height: 45 },
+    { name: "appsforbharat", url: "/assets/pm_companies/appsforbharat_1.png", height: 45 },
+    { name: "logo 11", url: "/assets/pm_companies/image-removebg-preview_(11)_1.png", height: 45 },
+    { name: "logo 12", url: "/assets/pm_companies/image-removebg-preview_(12)_1.png", height: 45 },
+    { name: "logo 14", url: "/assets/pm_companies/image-removebg-preview_(14)_1.png", height: 45 },
+    { name: "logo 15", url: "/assets/pm_companies/image-removebg-preview_(15)_1.png", height: 45 },
+    { name: "logo 16", url: "/assets/pm_companies/image-removebg-preview_(16)_1.png", height: 45 },
+    { name: "logo 17", url: "/assets/pm_companies/image-removebg-preview_(17)_1.png", height: 45 },
+    { name: "logo 18", url: "/assets/pm_companies/image-removebg-preview_(18)_1.png", height: 45 },
+    { name: "logo 19", url: "/assets/pm_companies/image-removebg-preview_(19)_1.png", height: 45 },
+    { name: "logo 20", url: "/assets/pm_companies/image-removebg-preview_(20)_1.png", height: 45 },
+    { name: "logo 21", url: "/assets/pm_companies/image-removebg-preview_(21)_1.png", height: 45 },
+    { name: "logo 22", url: "/assets/pm_companies/image-removebg-preview_(22)_1.png", height: 45 },
+    { name: "logo 23", url: "/assets/pm_companies/image-removebg-preview_(23)_1.png", height: 45 },
+    { name: "logo 24", url: "/assets/pm_companies/image-removebg-preview_(24)_1.png", height: 45 },
+    { name: "logo 25", url: "/assets/pm_companies/image-removebg-preview_(25)_1.png", height: 45 },
+    { name: "logo 26", url: "/assets/pm_companies/image-removebg-preview_(26)_1.png", height: 45 },
+    { name: "logo 27", url: "/assets/pm_companies/image-removebg-preview_(27)_1.png", height: 45 },
+    { name: "pinelabs", url: "/assets/pm_companies/pinelabs_BIG.D-6311ba42_1.png", height: 45 },
+];
+
 export const ALUMNI_LOGOS = [
     { name: "Microsoft", url: "/assets/microsoft.png", height: 32 },
     { name: "Deloitte", url: "/assets/deloitte.png", height: 32 },
     { name: "Paisabazaar", url: "/assets/paisabazaar.png", height: 32 },
     { name: "Bajaj Finserv", url: "/assets/bajajfinserv.png", height: 44 },
     { name: "Indian Government", url: "/assets/indiangovernment.png", height: 50 },
-    { name: "Razorpay", url: "/assets/pm_alumni_logos/RAZORPAY.png", height: 32 },
-    { name: "Airtel", url: "/assets/pm_alumni_logos/AIRTEL.png", height: 32 },
-    { name: "Infosys", url: "/assets/pm_alumni_logos/Infosys_logo.svg.png", height: 32 },
-    { name: "JP Morgan", url: "/assets/pm_alumni_logos/JP.png", height: 32 },
-    { name: "OLX", url: "/assets/pm_alumni_logos/OLX_New_Logo.png", height: 32 },
-    { name: "ShareChat", url: "/assets/pm_alumni_logos/SHARECHAT.png", height: 32 },
-    { name: "PineLabs", url: "/assets/pm_alumni_logos/pinelabs_BIG.D-6311ba42.png", height: 32 },
-    { name: "Aditya Birla", url: "/assets/pm_alumni_logos/ADITYA BIRAL GROUP.png", height: 32 },
-    { name: "Blue Machine", url: "/assets/pm_alumni_logos/BLUE MACHINE.png", height: 32 },
-    { name: "DMart", url: "/assets/pm_alumni_logos/DMART.NS_BIG.D-7c5f359e.png", height: 32 },
-    { name: "HealthKart", url: "/assets/pm_alumni_logos/HELATHART.png", height: 32 },
-    { name: "Ketto", url: "/assets/pm_alumni_logos/KETTO.png", height: 32 },
-    { name: "Zen", url: "/assets/pm_alumni_logos/ZEN_BIG.D-d60ab9fe.png", height: 32 },
-    { name: "AppsForBharat", url: "/assets/pm_alumni_logos/appsforbharat.webp", height: 32 },
+    { name: "Razorpay", url: "/assets/Razorpay.png", height: 32 },
 ];
 
 // ── Hero Floating Badges ───────────────────────────────────────────────
 export const floatingBadges = [
     { label: "AI Digital Marketing", top: "259px", left: "121px", icon: "/assets/aidigitalmarketing.png", width: 221 },
-    { label: "Generative AI", top: "324px", left: "514px", icon: "/assets/generativeai.png", width: 180 },
+    { label: "Generative AI", top: "454px", left: "514px", icon: "/assets/generativeai.png", width: 180 },
     { label: "AI Data Analytics", top: "426px", left: "46px", icon: "/assets/aidataanalystics.png", width: 204 },
     { label: "AI Data Science", top: "505px", left: "511px", icon: "/assets/aidatascience.png", width: 195 },
     { label: "AI Product Management", top: "625px", left: "24px", icon: "/assets/aiproductmanagemnt.png", width: 252 },
@@ -58,36 +80,134 @@ export const courseCategories = [
 
 // ── Roadmap Paths ──────────────────────────────────────────────────────
 export const switchPath = [
-    { title: "Transition into AI Product Roles with a Structured Learning Path", icon: "/assets/roadmap/mingcute_target-line.png", color: "#45E4C9", desc: "Learn how to apply AI in product thinking, workflows, and decision-making." },
-    { title: "Learn AI for Product Decisions", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#45E4C9", desc: "Master AI tools, product analytics, and automation systems." },
-    { title: "Build AI-Driven Product Workflows", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#45E4C9", desc: "Create AI-powered product flows, automation systems, and intelligent features." },
-    { title: "Work on Real Product Use Cases", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#45E4C9", desc: "Build product case studies and AI-powered solutions, demonstrate real PM execution." },
-    { title: "Transition into AI Product Roles", icon: "/assets/roadmap/mingcute_target-line.png", color: "#45E4C9", desc: "Use your portfolio, product projects, and AI experience to move into AI product roles." }
+    { title: "Leverage Your Existing Skills", icon: "/assets/pmroadmap/Vector (4).png", color: "#45E4C9", desc: "Learn how to apply AI in product thinking, workflows, and decision-making." },
+    { title: "Learn AI for Product Decisions", icon: "/assets/pmroadmap/ant-design_build-outlined (1).png", color: "#45E4C9", desc: "Master AI tools, product analytics, and automation systems." },
+    { title: "Build AI-Driven Product Workflows", icon: "/assets/pmroadmap/Vector (6).png", color: "#45E4C9", desc: "Create AI-powered product flows, automation systems, and intelligent features." },
+    { title: "Work on Real Product Use Cases", icon: "/assets/pmroadmap/Vector (5).png", color: "#45E4C9", desc: "Build product case studies and AI-powered solutions, demonstrate real PM execution." },
+    { title: "Transition into AI Product Roles", icon: "/assets/pmroadmap/Vector (4).png", color: "#45E4C9", desc: "Use your portfolio, product projects, and AI experience to move into AI product roles." }
 ];
 
 export const freshersPath = [
-    { title: "Learn Product Management Fundamentals with AI", icon: "/assets/roadmap/mingcute_target-line.png", color: "#45E4C9", desc: "Understand core product concepts combined with AI tools and execution." },
-    { title: "Explore AI Tools & Product Discovery", icon: "/assets/roadmap/ant-design_build-outlined.png", color: "#45E4C9", desc: "Learn how AI is used in PRDs, features, and product strategy." },
-    { title: "Develop AI Product Thinking", icon: "/assets/roadmap/solar_pen-bold-duotone (1).png", color: "#45E4C9", desc: "Understand roadmaps, prioritization, user behavior, and AI-driven growth." },
-    { title: "Build Real AI Products", icon: "/assets/roadmap/mdi_learn-outline.png", color: "#45E4C9", desc: "Work on AI-powered specs, feature releases, and real PM projects." },
-    { title: "Become Job-Ready in Product Management", icon: "/assets/roadmap/mingcute_target-line.png", color: "#45E4C9", desc: "Build a strong portfolio with PRDs, case studies, and scalable features." }
+    { title: "Learn Product Management Fundamentals with AI", icon: "/assets/pmroadmap/Vector (4).png", color: "#45E4C9", desc: "Understand core product concepts combined with AI tools and execution." },
+    { title: "Explore AI Tools & Product Discovery", icon: "/assets/pmroadmap/ant-design_build-outlined (1).png", color: "#45E4C9", desc: "Learn how AI is used in PRDs, features, and product strategy." },
+    { title: "Develop AI Product Thinking", icon: "/assets/pmroadmap/Vector (6).png", color: "#45E4C9", desc: "Understand roadmaps, prioritization, user behavior, and AI-driven growth." },
+    { title: "Build Real AI Products", icon: "/assets/pmroadmap/Vector (5).png", color: "#45E4C9", desc: "Work on AI-powered specs, feature releases, and real PM projects." },
+    { title: "Become Job-Ready in Product Management", icon: "/assets/pmroadmap/Vector (4).png", color: "#45E4C9", desc: "Build a strong portfolio with PRDs, case studies, and scalable features." }
 ];
 
 // ── IBM & Regular Curriculum Modules ───────────────────────────────────
 export const ibmModules = [
-    { title: "AI Product Foundations & Strategy", desc: "Learn product thinking, AI use cases, and how AI integrates into modern product strategies." },
-    { title: "AI Tools, Product Analytics & Decision Making", desc: "Use AI tools and analytics to drive product decisions, user insights, and roadmap planning." },
-    { title: "Building AI-Driven Product Workflows", desc: "Design AI-powered features, automation systems, and scalable product solutions." },
-    { title: "BYDP – Build Your Dream Product", desc: "Create your own AI-powered product from scratch — from idea to execution." },
-    { title: "AI Product Specialization Certificate from IBM", desc: "Earn industry-recognized certification by building real AI product systems and workflows." }
+    {
+        week: "Week 1",
+        title: "Introduction to Product Management",
+        goal: "Understand the core role, responsibilities, and the lifecycle of product management.",
+        sessions: ["Product Management overview", "Role and responsibilities of a Product Manager", "PM vs Product Owner vs Project Manager", "Product lifecycle (digital & physical products)", "Stakeholder identification and management", "Product thinking and decision-making"]
+    },
+    {
+        week: "Week 2",
+        title: "Users, Problems & Market Understanding",
+        goal: "Learn to identify user problems and perform market research through qualitative and quantitative methods.",
+        sessions: ["Identifying user problems vs feature requests", "Qualitative research (interviews, observation)", "Quantitative research (surveys, data)", "Persona creation", "Jobs-To-Be-Done (JTBD)", "Market research fundamentals", "Product Adoption Lifecycle", "Guesstimation techniques"]
+    },
+    {
+        week: "Week 3",
+        title: "Problem Discovery, Market & Product Strategy",
+        goal: "Master opportunity identification, market sizing, and defining product vision and strategy.",
+        sessions: ["Opportunity identification", "Market sizing (TAM, SAM, SOM)", "Competitive analysis", "Product vision", "Value proposition and differentiation", "Strategy vs roadmap"]
+    },
+    {
+        week: "Week 4",
+        title: "Problems Development Methodologies & Road mapping",
+        goal: "Learn Agile/Scrum methodologies and how to build effective product roadmaps.",
+        sessions: ["Agile, Scrum, Kanban, Waterfall", "Product development lifecycles", "Writing product vision statements", "Roadmapping techniques", "Managing scope, time, cost, and quality", "Hardware vs software development cycles"]
+    },
+    {
+        week: "Week 5",
+        title: "Product Documentation & UX Foundations",
+        goal: "Master PRD writing and the fundamentals of UX design and user journey mapping.",
+        sessions: ["Product Requirement Documents (PRDs)", "Functional vs non-functional requirements", "Translating problems into requirements", "UX fundamentals for PMs", "User journey mapping", "Collaboration with design teams"]
+    },
+    {
+        week: "Week 6",
+        title: "UI/UX, Wireframing & Prioritization",
+        goal: "Learn wireframing and feature prioritization frameworks like RICE, MOSCOW, and Kano.",
+        sessions: ["Low-fidelity and high-fidelity wireframes", "Design thinking principles", "Feature prioritization frameworks: RICE, MOSCOW, Kano", "Usability testing fundamentals"]
+    },
+    {
+        week: "Week 7",
+        title: "MVP, Metrics & Product Analytics",
+        goal: "Understand MVP definitions and how to track success using product metrics and analytics.",
+        sessions: ["MVP definition and misconceptions", "MVPs for digital and physical products", "Defining success metrics", "North Star Metric", "Funnels and event tracking", "Feedback loops and iteration"]
+    },
+    {
+        week: "Week 8",
+        title: "Go-to-Market & Product Launch",
+        goal: "Develop a GTM strategy, including pricing, positioning, and post-launch analysis.",
+        sessions: ["GTM strategy components", "Pricing and positioning", "Distribution channels", "Launch readiness checklists", "Collaboration with marketing and sales", "Post-launch analysis"]
+    },
+    {
+        week: "Week 9",
+        title: "Product Management Frameworks",
+        goal: "Learn essential PM frameworks for strategy, segmentation, and decision-making.",
+        sessions: ["Product strategy frameworks", "User segmentation", "Cohort analysis", "AARRR framework", "Decision-making frameworks"]
+    },
+    {
+        week: "Week 10",
+        title: "Experimentation & Decision Making",
+        goal: "Apply hypothesis-driven development and A/B testing to product decisions.",
+        sessions: ["Hypothesis-driven product development", "Experiment design", "A/B testing fundamentals", "Interpreting experiment results", "Data-driven prioritization"]
+    },
+    {
+        week: "Week 11",
+        title: "Technical Foundation for Product Managers",
+        goal: "Build a technical foundation in frontend, backend, and infrastructure basics.",
+        sessions: ["Tech basics for PMs", "Frontend fundamentals", "Backend fundamentals", "Infrastructure basics", "How systems communicate", "Analytics and instrumentation", "Technical PM interview preparation"]
+    },
+    {
+        week: "Week 12",
+        title: "APIs, Databases & SQL for PMs",
+        goal: "Learn how to use APIs, databases, and SQL to make data-driven product decisions.",
+        sessions: ["APIs and integrations", "API testing concepts", "Databases and schemas", "SQL fundamentals", "Using data for product decisions"]
+    },
+    {
+        week: "Week 13",
+        title: "Introduction to AI Product Management",
+        goal: "Understand the unique role of an AI PM and the components of AI products.",
+        sessions: ["What is AI Product Management", "How AI PM differs from traditional PM", "Components of AI products: Data, Infrastructure, Models, UX", "AI-first vs AI-powered vs AI-assisted products", "When NOT to use AI"]
+    },
+    {
+        week: "Week 14",
+        title: "AI Product Discovery & Problem Framing",
+        goal: "Identify AI-appropriate use cases and frame problems effectively for AI solutions.",
+        sessions: ["Identifying AI-appropriate use cases", "AI problem statements", "Data availability and data quality", "AI risks and uncertainty", "AI user experience and trust"]
+    },
+    {
+        week: "Week 15",
+        title: "AI Models, LLMs & Modern AI Stack",
+        goal: "Explore ML basics, foundation models, and prompt engineering frameworks for PMs.",
+        sessions: ["Basics of machine learning", "Supervised, unsupervised, reinforcement learning", "LLMS vs SLMS", "Foundation models and GPTs", "Prompting frameworks for PMs", "Model evaluation: Accuracy, Latency, Hallucinations, Cost"]
+    },
+    {
+        week: "Week 16",
+        title: "AI Product Design, PRDs & Metrics",
+        goal: "Design AI products with specific requirements, constraints, and success metrics.",
+        sessions: ["AI-specific PRDS", "Data requirements and assumptions", "Model constraints and dependencies", "Human-in-the-loop design", "AI product metrics", "Monitoring and iteration"]
+    },
+    {
+        week: "Week 17",
+        title: "Building AI Products & Rapid MVPs",
+        goal: "Learn rapid AI MVP development and how to automate PM workflows using AI.",
+        sessions: ["Building AI products vs building products with AI", "Rapid AI MVP development", "Vibe coding for PMs", "Using AI for Prototyping, Internal tools, Customer-facing features", "Automating PM workflows using AI tools"]
+    },
+    {
+        week: "Week 18",
+        title: "Advanced AI Systems, Ethics & Career Readiness",
+        goal: "Master advanced AI systems like RAG and Agents while preparing for AI PM interviews.",
+        sessions: ["Retrieval-Augmented Generation (RAG)", "Model Context Protocols (MCPs)", "AI agents and multi-agent systems", "Agent orchestration concepts", "AI ethics: Bias, Privacy, Responsible AI", "AI PM interview preparation", "Capstone preparation"]
+    }
 ];
 
-export const regularModules = [
-    { title: "Introduction to Product Management & AI", desc: "Understand product basics and how AI enhances product development." },
-    { title: "AI Tools & Product Use Cases", desc: "Explore AI tools and how they apply to product workflows." },
-    { title: "Product Workflows & Decision Frameworks", desc: "Learn structured thinking, prioritization, and product execution." },
-    { title: "Hands-On Product Projects", desc: "Build product case studies and apply real-world concepts." }
-];
+export const regularModules = [...ibmModules];
 
 // ── Mentors ────────────────────────────────────────────────────────────
 export const MENTORS = [
@@ -118,7 +238,7 @@ export const TOOLS_LIST = [
 
 // ── PM Skill Phases ───────────────────────────────────────────────────
 export const PM_PHASES = [
-    { icon: "/assets/productmanagement/skills/Container (2).png", title: "Discovery", description: "Understand user problems, identify opportunities, and explore AI product challenges.", phase: "PHASE 01" },
+    { icon: "/assets/productmanagement/skills/Container (2).png", title: "Discovery", description: "Understand user problems, identify opportunities, and explore AI challenges.", phase: "PHASE 01" },
     { icon: "/assets/productmanagement/skills/Icon.png", title: "Strategy", description: "Design product strategies using AI insights and data-driven thinking.", phase: "PHASE 02" },
     { icon: "/assets/productmanagement/skills/Icon (1).png", title: "Design", description: "Structure product flows and AI interactions.", phase: "PHASE 03" },
     { icon: "/assets/productmanagement/skills/Container (3).png", title: "Build", description: "Create AI-powered product workflows and features.", phase: "PHASE 04" },
@@ -128,10 +248,10 @@ export const PM_PHASES = [
 
 // ── Career Roles ──────────────────────────────────────────────────────
 export const CAREER_ROLES = [
-    { title: "AI Product Lead", salary: "₹25L – ₹60L", description: "Own AI product vision, roadmap & execution" },
-    { title: "AI Product Strategist", salary: "₹20L – ₹45L", description: "Define AI-driven business strategies" },
-    { title: "0→1 AI Product Builder", salary: "₹22L – ₹70L", description: "Launch AI products from scratch" },
-    { title: "AI Growth Product Manager", salary: "₹18L – ₹40L", description: "Scale AI products using data & experimentation" }
+    { title: " AI Product Manager", salary: "₹12L – ₹35L", description: "Own AI product vision, roadmap & execution" },
+    { title: "Product Analyst", salary: "₹8L – ₹20L", description: "Define AI-driven business strategies" },
+    { title: "Growth Product Manager", salary: "₹10L – ₹28L", description: "Launch AI products from scratch" },
+    { title: "AI Product Associate", salary: "₹6L – ₹15L", description: "Scale AI products using data & experimentation" }
 ];
 
 // ── Pricing Plans ─────────────────────────────────────────────────────
@@ -139,7 +259,7 @@ export const PRICING_PLANS = [
     {
         title: "AcceleratorX + IBM",
         badge: "MOST POPULAR",
-        subtitle: "An advanced product management program designed for learners seeking deeper industry exposure, certification, and accelerated career outcomes.",
+        subtitle: "An advanced AI Product Management program designed for learners seeking deeper expertise in AI-driven product building, automation systems, and real-world product applications.",
         price: "₹ 59,999 + GST",
         track: "ADVANCED CAREER TRACK",
         features: [
@@ -156,17 +276,17 @@ export const PRICING_PLANS = [
     {
         title: "Regular Program",
         badge: null,
-        subtitle: "A complete product management learning experience designed to help you build strong product fundamentals and transition into PM roles.",
+        subtitle: "A complete AI Product Management course designed to help you build strong product fundamentals and AI-driven thinking.",
         price: "₹ 39,999 + GST",
         track: "FULL PROGRAM ACCESS",
         features: [
-            "Complete PM Curriculum",
-            "Hands-on AI Products",
-            "PRD & User Research Practice",
-            "Tools Access",
-            "Mentorship",
+            "Complete Product Curriculum (Modules 1–6)",
+            "Hands-on Product Case Studies",
+            "BYDP – Build Your Dream Product Portfolio Project",
+            "Access to Product Tools and Frameworks",
+            "Mentorship and Career Guidance",
         ],
-        cta: "Enroll in Regular Program",
+        cta: "Enroll in Product Management Program",
         highlighted: false,
     },
 ];

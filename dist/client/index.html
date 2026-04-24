@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -84,11 +84,20 @@
     })(window, document, "clarity", "script", "t7ekral2ir");
   </script>
 
-  <script type="module" crossorigin src="/assets/main-CEwd9GnN.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-DCjUK29f.css">
+  <!-- Critical CSS: prevent white flash (FOUC) before stylesheet loads -->
+  <style>
+    html, body { background-color: #0A0A0A; color: #fff; margin: 0; padding: 0; }
+    #root { background-color: #0A0A0A; }
+  </style>
+
+  <script type="module" crossorigin src="/assets/main-7oOEEpf7.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-react-DV3lXp4n.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-ui-CRCymqW1.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-data-BjZ3QZvu.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-B_TXVgj5.css">
 </head>
 
-<body>
+<body style="background-color:#0A0A0A;color:#fff;margin:0">
 
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTPG74TR" height="0" width="0"

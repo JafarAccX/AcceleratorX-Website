@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useCourseContext } from '../../context/courseContext';
-import ThankYouPage from '../../components/ThankYouPage';
+import ThankYouPage from '../../components/sections/ThankYouPage';
 
 interface LocationState {
   courseName?: string;

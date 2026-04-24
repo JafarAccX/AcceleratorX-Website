@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useUser } from "../context/UserContext";
-import ElevenLabsWidget from "../components/ElevenLabsWidget";
+import ElevenLabsWidget from "../components/widgets/ElevenLabsWidget";
 import { api } from "../api";
 
 interface TalkSession {

@@ -2,7 +2,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useCourseContext } from "../../../../context/courseContext";
-import EnrollmentModal from "../../../../components/EnrollmentModal";
+import EnrollmentModal from "../../../../components/modals/EnrollmentModal";
 import { Typewriter } from "../../../../components/common/Typewriter";
 import { PremiumButton } from "../../../../components/common/PremiumButton";
 import { ProgramBadge } from "../../../../components/common/ProgramBadge";

@@ -2,7 +2,7 @@ import { ArrowRight, Briefcase, IndianRupee, Megaphone, Users, GraduationCap, Ch
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useCourseContext } from "../../../../context/courseContext";
-import EnrollmentModal from "../../../../components/EnrollmentModal";
+import EnrollmentModal from "../../../../components/modals/EnrollmentModal";
 
 const COUNTER_STATS = [
     {

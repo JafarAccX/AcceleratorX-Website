@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Check, Linkedin, ArrowRight } from "lucide-react";
 import { PremiumButton } from "../../../components/common/PremiumButton";
-import EnrollmentModal from "../../../components/EnrollmentModal";
+import EnrollmentModal from "../../../components/modals/EnrollmentModal";
 
 // --- Sections ---
 const SECTIONS = [

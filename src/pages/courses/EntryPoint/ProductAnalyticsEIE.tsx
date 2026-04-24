@@ -1,6 +1,6 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useCourseContext } from "../../../context/courseContext";
-import { SEO } from "../../../components/SEO";
+import { SEO } from "../../../components/seo/SEO";
 
 const ProductAnalyticsPageV2 = lazy(() => import("../productmanagement/productanalytics/v2/ProductAnalyticsPageV2"));
 
