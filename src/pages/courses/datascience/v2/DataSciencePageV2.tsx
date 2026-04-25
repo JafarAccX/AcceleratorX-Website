@@ -216,7 +216,7 @@ const AlumniLogos = () => (
 
 // ── Component: Roadmap.tsx ───────────────────────────────────────────────────
 
-const Roadmap = () => {
+const Roadmap = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => {
     const [roadmapPath, setRoadmapPath] = useState<"switch" | "freshers">("switch");
     const currentPath = roadmapPath === "freshers" ? freshersPath : switchPath;
 
@@ -253,6 +253,15 @@ const Roadmap = () => {
                         <div className="relative group w-full max-w-[664px] min-h-[100px] sm:min-h-[111px] h-auto py-[10px] sm:py-4 cursor-pointer"><svg width="100%" height="100%" viewBox="0 0 664 111" preserveAspectRatio="none" className="absolute inset-0 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"><defs><linearGradient id="cardGradientCentered" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#0A0A0A" /><stop offset="100%" stopColor="#141414" /></linearGradient></defs><path d="M588 0H24C10.7452 0 0 10.7452 0 24V87C0 100.255 10.7452 111 24 111H588C600 111 608 105 612 95L660 16C664 6 656 0 644 0H588Z" className="transition-all duration-300 group-hover:stroke-white/60 group-hover:stroke-[1.2px] group-hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.2))] hover-glow-path" fill="url(#cardGradientCentered)" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" /></svg><div className="relative pl-6 sm:pl-10 pr-12 sm:pr-20 flex flex-col gap-1 h-full justify-center"><div className="flex items-center gap-3 sm:gap-5"><div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"><img src={currentPath[4].icon} alt={currentPath[4].title} loading="lazy" className="w-full h-full object-contain" /></div><h3 className="text-[13px] sm:text-[14px] font-bold text-[#ECECEC] leading-[24px] sm:leading-[28px] font-['Inter',sans-serif] tracking-tight">{currentPath[4].title}</h3></div><div className="pl-8 sm:pl-11"><p className="text-[12px] sm:text-[14px] text-[#C2C2C2] font-normal leading-[20px] sm:leading-[24px] tracking-[-0.36px] font-['Inter',sans-serif] text-left">{currentPath[4].desc}</p></div></div></div>
                     </div>
                 )}
+                <div className="mt-12 sm:mt-16 flex justify-center">
+                    <button
+                        onClick={onDownloadBrochure}
+                        className="group flex items-center gap-2 text-white font-bold text-[18px] sm:text-[22px] transition-all duration-300 hover:gap-4"
+                    >
+                        <span className="border-b-2 border-[#3B82F6] pb-1">Download Brochure</span>
+                        <span className="text-[#3B82F6] text-2xl">→</span>
+                    </button>
+                </div>
             </div>
         </section>
     );
@@ -336,7 +345,7 @@ const ProgramDesign = () => {
 
 // ── Component: Curriculum.tsx ───────────────────────────────────────────────────
 
-const Curriculum = () => {
+const Curriculum = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => {
     const [currMode, setCurrMode] = useState<"ibm" | "regular">("ibm");
     const [openModule, setOpenModule] = useState<number | null>(0);
     const currModules = currMode === "ibm" ? ibmModules : regularModules;
@@ -474,6 +483,14 @@ const Curriculum = () => {
                         </div>
                     </div>
                 ))}
+                <div className="mt-12 sm:mt-16 flex justify-center">
+                    <button
+                        onClick={onDownloadBrochure}
+                        className="group flex items-center gap-2 text-white font-bold text-[18px] sm:text-[22px] transition-all duration-300 hover:gap-4"
+                    >
+                        <span className="border-b-2 border-[#3B82F6] pb-1">Download Brochure</span>
+                        <span className="text-[#3B82F6] text-2xl">→</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -701,7 +718,7 @@ const CareerRoles = () => (
 
 // ── Component: BYDP.tsx ───────────────────────────────────────────────────
 
-const BYDP = () => (
+const BYDP = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => (
     <section className="py-12 sm:py-20 lg:py-[120px] px-4 sm:px-6 bg-[#0A0A0A] border-t border-white/[0.05]">
         <div className="max-w-[1047px] mx-auto text-center">
             <GradientLabel text="PROJECTS" />
@@ -725,9 +742,15 @@ const BYDP = () => (
                             </div>
                         ))}
                     </div>
-                    <p className="text-[#C2C2C2] text-[16px] sm:text-[20px] leading-[1.6] font-medium">
+                    <p className="text-[#C2C2C2] text-[16px] sm:text-[20px] leading-[1.6] font-medium mb-12">
                         This becomes your proof of work. What recruiters actually care about.
                     </p>
+                    <button
+                        onClick={onDownloadBrochure}
+                        className="px-10 py-4 rounded-full bg-[#3B82F6] text-white font-bold text-[16px] sm:text-[18px] hover:brightness-110 transition-all duration-300 shadow-[0_10px_30px_rgba(59,130,246,0.3)]"
+                    >
+                        Apply now
+                    </button>
                 </div>
             </div>
         </div>
@@ -878,7 +901,7 @@ const FAQ = () => {
 
 // Footer is now handled by MainLayout
 
-const Certificate = () => (
+const Certificate = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
             <div className="text-center mb-16 sm:mb-20">
@@ -921,6 +944,21 @@ const Certificate = () => (
                             </li>
                         ))}
                     </ul>
+                    <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 mt-10">
+                        <button
+                            onClick={onDownloadBrochure}
+                            className="px-8 py-3.5 rounded-full bg-[#3B82F6] text-white font-bold text-[15px] sm:text-[16px] hover:brightness-110 transition-all duration-300 shadow-[0_10px_20px_rgba(59,130,246,0.2)]"
+                        >
+                            Apply now
+                        </button>
+                        <button
+                            onClick={onDownloadBrochure}
+                            className="group flex items-center gap-2 text-white font-bold text-[16px] sm:text-[18px] transition-all duration-300 hover:gap-3"
+                        >
+                            <span className="border-b-2 border-[#3B82F6] pb-0.5">Download Brochure</span>
+                            <span className="text-[#3B82F6] text-xl">→</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -971,15 +1009,15 @@ export default function DataSciencePageV2() {
         <div className="min-h-screen bg-[#0A0A0A] text-white font-['Inter',sans-serif]">
             <Hero onDownloadBrochure={() => setIsModalOpen(true)} />
             <AlumniLogos />
-            <Roadmap />
+            <Roadmap onDownloadBrochure={() => setIsModalOpen(true)} />
             <ProgramDesign />
-            <Curriculum />
+            <Curriculum onDownloadBrochure={() => setIsModalOpen(true)} />
             <Mentors />
             <Tools />
             <Checklist />
-            <Certificate />
+            <Certificate onDownloadBrochure={() => setIsModalOpen(true)} />
             <CareerRoles />
-            <BYDP />
+            <BYDP onDownloadBrochure={() => setIsModalOpen(true)} />
             <Pricing />
             <FAQ />
             <CTABanner onDownloadBrochure={() => setIsModalOpen(true)} />

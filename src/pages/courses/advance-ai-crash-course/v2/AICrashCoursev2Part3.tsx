@@ -9,7 +9,7 @@ import { GradientLabel } from "./AICrashCoursev2Part1";
 import MentorCard from "../../../../components/ui/MentorCard";
 
 // ── Component: Curriculum.tsx ───────────────────────────────────────────────────
-export const Curriculum = () => {
+export const Curriculum = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => {
     const [path, setPath] = useState<"ibm" | "regular">("ibm");
     const [openModule, setOpenModule] = useState<number | null>(null);
     const modules = path === "ibm" ? ibmModules : regularModules;
@@ -127,6 +127,14 @@ export const Curriculum = () => {
                             </div>
                         </div>
                     ))}
+                <div className="mt-12 sm:mt-16 flex justify-center">
+                    <button
+                        onClick={onDownloadBrochure}
+                        className="group flex items-center gap-2 text-white font-bold text-[18px] sm:text-[22px] transition-all duration-300 hover:gap-4"
+                    >
+                        <span className="border-b-2 border-[#EA580C] pb-1">Download Brochure</span>
+                        <span className="text-[#EA580C] text-2xl">→</span>
+                    </button>
                 </div>
             </div>
         </section>

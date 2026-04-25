@@ -162,15 +162,15 @@ export default function AICrashCoursePageV2() {
             <GlobalStyles />
             <Hero onDownloadBrochure={() => setIsModalOpen(true)} />
             <AlumniLogos />
-            <Roadmap />
+            <Roadmap onDownloadBrochure={() => setIsModalOpen(true)} />
             <ProgramDesign />
-            <Curriculum />
+            <Curriculum onDownloadBrochure={() => setIsModalOpen(true)} />
             <Mentors />
             <Tools />
             <Checklist />
-            <Certificate />
+            <Certificate onDownloadBrochure={() => setIsModalOpen(true)} />
             <CareerRoles />
-            <BYDP />
+            <BYDP onDownloadBrochure={() => setIsModalOpen(true)} />
             <Pricing onEnroll={handleBuyCourse} />
             <FAQ />
             <CTABanner onDownloadBrochure={() => setIsModalOpen(true)} />

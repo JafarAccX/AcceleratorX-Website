@@ -9,7 +9,7 @@ import { GradientLabel } from "./AdvanceGenAIv2Part1";
 import MentorCard from "../../../../components/ui/MentorCard";
 
 // ── Component: Curriculum.tsx ───────────────────────────────────────────────────
-export const Curriculum = () => {
+export const Curriculum = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => {
     const [activeTab, setActiveTab] = useState<"ibm" | "regular">("ibm");
     const [openModule, setOpenModule] = useState<number | null>(0);
     const modules = activeTab === "ibm" ? ibmModules : regularModules;
@@ -134,6 +134,15 @@ export const Curriculum = () => {
                         </div>
                     </div>
                 ))}
+                </div>
+                <div className="mt-12 sm:mt-16 flex justify-center">
+                    <button
+                        onClick={onDownloadBrochure}
+                        className="group flex items-center gap-2 text-white font-bold text-[18px] sm:text-[22px] transition-all duration-300 hover:gap-4"
+                    >
+                        <span className="border-b-2 border-[#FC6401] pb-1">Download Brochure</span>
+                        <span className="text-[#FC6401] text-2xl">→</span>
+                    </button>
                 </div>
             </div>
         </section>

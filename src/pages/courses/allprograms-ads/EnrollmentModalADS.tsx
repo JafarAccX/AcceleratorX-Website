@@ -28,27 +28,31 @@ interface EnrollmentModalADSProps {
 const BROCHURES: Record<string, { title: string; url: string }> = {
     "AI Digital Marketing": {
         title: "AI Digital Marketing Syllabus",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758802254913_notes_new_nano_19th_Sept%2C_2025-compressed.pdf?alt=media&token=42c3ad1b-7519-461b-aad6-ea9f4f5c7be7",
+        url: "/brochure/AIDIGITALMARKETING.pdf",
     },
     "Product Management": {
-        title: "Product Management",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1771409202209_AcceleratorX_Nano_Degree_AI_PM_Brochure_compressed.pdf?alt=media&token=8733344c-f2d2-4af3-8155-3a5222ef3425",
+        title: "Product Management Syllabus",
+        url: "/brochure/AIPRODUCTMANAGMENT.pdf",
     },
     "Generative AI": {
-        title: "Generative AI",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1761905010664_notes_new_AcceleratorX_Gen_AI_Brochure-compressed.pdf?alt=media&token=53d0ad2d-4d03-435c-8d31-4c03fc476c78",
+        title: "Generative AI Syllabus",
+        url: "/brochure/GENERATIVEAI.pdf",
     },
-    "Gen AI for PMs": {
-        title: "Gen AI for PMs",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758294289672_notes_Gen_ai_pm.pdf?alt=media&token=c84b8402-1bc1-40be-8baa-e00c0a4fff36",
+    "Advanced Generative AI": {
+        title: "Advanced Generative AI Syllabus",
+        url: "/brochure/ADVANCEDGENERATIVEAI.pdf",
     },
     "Data Analytics": {
-        title: "AI Powered Data Analytics",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/class-notes%2F1758293290835_notes_AI_Powered_DA_Brochure.pdf?alt=media&token=1bbeb25b-e1aa-49e2-8752-3e7a6b7b4e52",
+        title: "AI Powered Data Analytics Syllabus",
+        url: "/brochure/AIDATAANALYTICS.pdf",
+    },
+    "Data Science": {
+        title: "AI Data Science Syllabus",
+        url: "/brochure/DATASCIENCE.pdf",
     },
     "Advanced AI Crash Course": {
         title: "AI Crash Course Build Pass",
-        url: "https://firebasestorage.googleapis.com/v0/b/acceleratorx-lms.firebasestorage.app/o/documents%2F1771407876987_Build_Session_2_(4)_compressed.pdf?alt=media&token=ef45e9a6-51e2-4f43-8883-a42ec28bbcdc"
+        url: "/brochure/GENERATIVEAI.pdf"
     }
 };
 
@@ -58,9 +62,11 @@ function resolveBrochure(course?: string | null) {
 
     const lower = course.toLowerCase();
 
+    if (lower.includes("advanced generative ai")) return BROCHURES["Advanced Generative AI"];
     if (lower.includes("product management")) return BROCHURES["Product Management"];
     if (lower.includes("generative ai") || lower.includes("automation")) return BROCHURES["Generative AI"];
     if (lower.includes("data analytics") || lower.includes("data analyst")) return BROCHURES["Data Analytics"];
+    if (lower.includes("data science")) return BROCHURES["Data Science"];
     if (lower.includes("digital marketing") || lower.includes("marketing")) return BROCHURES["AI Digital Marketing"];
     if (lower.includes("crash course")) return BROCHURES["Advanced AI Crash Course"];
 
@@ -217,16 +223,17 @@ export default function EnrollmentModalADS({ isOpen, onClose, onSubmit, program,
 
     const openBrochure = (courseName?: string | null) => {
         try {
-            const { url } = resolveBrochure(courseName);
+            const { url, title } = resolveBrochure(courseName);
             const a = document.createElement("a");
             a.href = url;
+            a.download = `${title}.pdf`;
             a.target = "_blank";
             a.rel = "noopener noreferrer";
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
         } catch (err) {
-            console.error("Failed to open brochure:", err);
+            console.error("Failed to download brochure:", err);
         }
     };
 

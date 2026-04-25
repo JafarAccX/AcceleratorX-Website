@@ -12,7 +12,7 @@ import {
 import { GradientLabel } from "./GenAIv2Part1";
 
 // ── Component: Roadmap.tsx ───────────────────────────────────────────────────
-export const Roadmap = () => {
+export const Roadmap = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => {
     const [roadmapPath, setRoadmapPath] = useState<"switch" | "freshers">("switch");
     const currentPath = roadmapPath === "freshers" ? freshersPath : switchPath;
 
@@ -124,6 +124,15 @@ export const Roadmap = () => {
                             </div>
                         </div>
                     )}
+                </div>
+                <div className="mt-12 sm:mt-16 flex justify-center">
+                    <button
+                        onClick={onDownloadBrochure}
+                        className="group flex items-center gap-2 text-white font-bold text-[18px] sm:text-[22px] transition-all duration-300 hover:gap-4"
+                    >
+                        <span className="border-b-2 border-[#FC6401] pb-1">Download Brochure</span>
+                        <span className="text-[#FC6401] text-2xl">→</span>
+                    </button>
                 </div>
             </div>
         </section>

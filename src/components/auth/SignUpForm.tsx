@@ -89,7 +89,7 @@ export const SignUpForm = () => {
         response = await api.post("/auth/email/send-otp", { email: formState.email?.toLowerCase() });
       }
 
-      if (response.status === 200 && response.data.success) {
+      if (response.data.success) {
         setShowOTP(true);
         toast.success(response.data.message);
       } else {
@@ -143,7 +143,7 @@ export const SignUpForm = () => {
 
 
 
-      if (response.status === 201 && response.data.success) {
+      if (response.data.success) {
         const { user, accessToken } = response.data;
         login({ user, accessToken });
         toast.success("Registration successful! Welcome.");

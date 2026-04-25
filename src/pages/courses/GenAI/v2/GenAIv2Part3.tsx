@@ -10,7 +10,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 // ── Component: Curriculum.tsx ───────────────────────────────────────────────────
-export const Curriculum = () => {
+export const Curriculum = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void }) => {
     const [currMode, setCurrMode] = useState<"ibm" | "regular">("ibm");
     const [openModule, setOpenModule] = useState<number | null>(null);
     const currModules = currMode === "ibm" ? ibmModules : regularModules;
@@ -79,6 +79,7 @@ export const Curriculum = () => {
                                         0{i + 1}
                                     </div>
                                     <h3 className="text-white text-[18px] sm:text-[22px] font-bold tracking-tight leading-tight group-hover:text-white transition-colors">
+                                        {m.week && <span className="text-[#FF6701] mr-2">{m.week}:</span>}
                                         {m.title}
                                     </h3>
                                 </div>
@@ -87,7 +88,7 @@ export const Curriculum = () => {
                                 </div>
                             </div>
 
-                            <div className={`grid-rows-collapse ${openModule === i ? 'grid-rows-expand' : ''}`}>
+                            <div className={`grid transition-all duration-300 ease-in-out ${openModule === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                                 <div className="overflow-hidden">
                                     <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left opacity-0 transition-opacity duration-500 delay-100 data-[active=true]:opacity-100" data-active={openModule === i}>
                                         {m.goal && (
@@ -124,6 +125,16 @@ export const Curriculum = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="mt-12 sm:mt-16 flex justify-center">
+                    <button
+                        onClick={onDownloadBrochure}
+                        className="group flex items-center gap-2 text-white font-bold text-[18px] sm:text-[22px] transition-all duration-300 hover:gap-4"
+                    >
+                        <span className="border-b-2 border-[#FF6701] pb-1">Download Brochure</span>
+                        <span className="text-[#FF6701] text-2xl">→</span>
+                    </button>
                 </div>
             </div>
         </section>
