@@ -38,59 +38,92 @@ export const Curriculum = () => {
                     </button>
                 </div>
 
-                <div className="flex flex-col gap-3 sm:gap-4 max-w-[1276px] mx-auto">
+                <div className="flex flex-col gap-3 sm:gap-4 max-w-[1276px] mx-auto" style={{ overflowAnchor: 'none' }}>
                     {modules.map((m, i) => (
                         <div
                             key={i}
                             id={`module-${i}`}
-                            onClick={() => {
-                                if (openModule === i) {
-                                    setOpenModule(null);
-                                    return;
-                                }
-                                
-                                const wasOtherOpen = openModule !== null;
-                                
-                                if (wasOtherOpen) {
-                                    setOpenModule(null);
-                                    setTimeout(() => {
+                            className={`group relative border transition-all duration-300 rounded-[20px] overflow-hidden scroll-mt-navbar ${openModule === i ? 'bg-[#111] border-[#EA580C]/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : 'bg-[#0D0D0D] border-white/5 hover:border-white/10'}`}
+                        >
+                            <div
+                                onClick={() => {
+                                    if (openModule === i) {
+                                        setOpenModule(null);
+                                        return;
+                                    }
+                                    
+                                    const prevIdx = openModule;
+                                    const isBelow = prevIdx !== null && i > prevIdx;
+
+                                    if (isBelow) {
                                         setOpenModule(i);
                                         setTimeout(() => {
-                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            const target = document.getElementById(`module-${i}`);
+                                            if (target) {
+                                                const top = target.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
+                                        }, 320);
+                                    } else {
+                                        setOpenModule(i);
+                                        setTimeout(() => {
+                                            const el = document.getElementById(`module-${i}`);
+                                            if (el) {
+                                                const top = el.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
                                         }, 50);
-                                    }, 300);
-                                } else {
-                                    setOpenModule(i);
-                                    setTimeout(() => {
-                                        document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                    }, 50);
-                                }
-                            }}
-                            className="group relative p-6 sm:p-8 bg-[#111] transition-all duration-300 rounded-[20px] sm:rounded-[24px] flex flex-col gap-2 text-left cursor-pointer overflow-hidden border border-white/5 hover:border-[#EA580C]/20 scroll-mt-navbar"
-                        >
-                            <div className="flex items-center justify-between w-full">
-                                <div className="flex gap-4 sm:gap-8 items-center">
-                                    <span className="text-[18px] sm:text-[20px] font-bold text-[#EA580C] opacity-80 min-w-[30px]">{m.id}</span>
-                                    <div className="flex flex-col gap-1 overflow-hidden">
-                                        <p className="text-[18px] sm:text-[20px] font-regular text-white tracking-tight leading-tight font-['Inter',sans-serif]">
-                                            {m.title} <span className="text-[#EA580C] text-[14px] font-regular ml-2">{(m as any).weeks}</span>
-                                        </p>
-                                        <div className={`transition-all duration-500 ease-in-out ${openModule === i ? 'max-h-[300px] mt-2 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                            <div className="text-[#CFCFCF] text-[13px] sm:text-[15px] leading-relaxed opacity-80">
-                                                {Array.isArray(m.desc) ? (
-                                                    <div className="flex flex-col gap-1">
-                                                        {m.desc.map((item, idx) => (
-                                                            <p key={idx}>{item}</p>
-                                                        ))}
-                                                    </div>
-                                                ) : (
-                                                    <p>{m.desc}</p>
-                                                )}
+                                    }
+                                }}
+                                className="p-6 sm:p-8 flex items-center justify-between cursor-pointer"
+                            >
+                                <div className="flex items-center gap-6 text-left">
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-[18px] transition-all duration-300 ${openModule === i ? 'bg-[#EA580C] text-white shadow-[0_0_20px_rgba(234,88,12,0.3)]' : 'bg-white/5 text-[#EA580C]'}`}>
+                                        0{i + 1}
+                                    </div>
+                                    <h3 className="text-white text-[18px] sm:text-[22px] font-bold tracking-tight leading-tight group-hover:text-white transition-colors">
+                                        {m.title}
+                                    </h3>
+                                </div>
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${openModule === i ? 'border-[#EA580C] bg-[#EA580C]/10 text-[#EA580C] rotate-180' : 'border-white/10 text-white/40'}`}>
+                                    <ChevronDown className="w-5 h-5" />
+                                </div>
+                            </div>
+
+                            <div className={`grid transition-all duration-300 ease-in-out ${openModule === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                                <div className="overflow-hidden">
+                                    <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left opacity-0 transition-opacity duration-500 delay-100 data-[active=true]:opacity-100" data-active={openModule === i}>
+                                        {m.goal && (
+                                            <div className="mb-8 p-4 rounded-xl bg-[#EA580C]/5 border-l-4 border-[#EA580C]">
+                                                <span className="text-[#EA580C] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
+                                                <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
+                                                    {m.goal}
+                                                </p>
                                             </div>
+                                        )}
+
+                                        <div className="space-y-6">
+                                            {m.sessions && m.sessions.map((session: any, sIdx: number) => (
+                                                <div key={sIdx} className="space-y-3">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="w-1.5 h-1.5 rounded-full bg-[#EA580C]" />
+                                                        <h4 className="text-white font-semibold text-[15px] sm:text-[16px]">{session.title || session}</h4>
+                                                    </div>
+                                                    {session.topics && (
+                                                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 pl-4">
+                                                            {session.topics.map((topic: string, tIdx: number) => (
+                                                                <li key={tIdx} className="text-[#9CA3AF] text-[13px] sm:text-[14px] flex items-center gap-2">
+                                                                    <div className="w-1 h-1 rounded-full bg-white/20" />
+                                                                    {topic}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
-                                {m.desc && <ChevronDown className={`w-5 h-5 sm:w-6 sm:h-6 text-white/40 group-hover:text-white transition-transform duration-300 flex-shrink-0 ${openModule === i ? 'rotate-180' : ''}`} />}
                             </div>
                         </div>
                     ))}
