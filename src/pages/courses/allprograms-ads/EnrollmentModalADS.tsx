@@ -279,32 +279,45 @@ export default function EnrollmentModalADS({ isOpen, onClose, onSubmit, program,
                 ...customData,
             };
 
+            // 1. Create Enrollment (Primary Task)
             await createEnrollment(submissionData);
 
-            const broucherData = resolveBrochure(formData.course);
-
-            await sendWhatsAppMessage({
-                phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
-                name: formData.name,
-                broucher: broucherData,
-            });
-
-            const trackingFormData = new FormData();
-            trackingFormData.append("name", formData.name);
-            trackingFormData.append("email", formData.email);
-            trackingFormData.append("phone", formData.phone);
-            trackingFormData.append("education", formData.education);
-            trackingFormData.append("designation", formData.designation);
-            trackingFormData.append("course", formData.course);
-            trackingFormData.append("workExperience", formData.workExperience);
-            await trackFormSubmission(trackingFormData);
-
-            // Google Ads Tracking
-            if (window.gtag) {
-                window.gtag('event', 'generate_lead', {
-                    'send_to': 'AW-10956877740',
-                    'event_callback': () => console.log('Google Ads lead event sent')
+            // 2. Secondary Tasks (Wrapped to prevent crashing the main flow)
+            try {
+                const broucherData = resolveBrochure(formData.course);
+                await sendWhatsAppMessage({
+                    phone: formData.phone.startsWith("+") ? formData.phone : `+91${formData.phone}`,
+                    name: formData.name,
+                    broucher: broucherData,
                 });
+            } catch (waError) {
+                console.error("WhatsApp Message Error (Non-blocking):", waError);
+            }
+
+            try {
+                const trackingFormData = new FormData();
+                trackingFormData.append("name", formData.name);
+                trackingFormData.append("email", formData.email);
+                trackingFormData.append("phone", formData.phone);
+                trackingFormData.append("education", formData.education);
+                trackingFormData.append("designation", formData.designation);
+                trackingFormData.append("course", formData.course);
+                trackingFormData.append("workExperience", formData.workExperience);
+                await trackFormSubmission(trackingFormData);
+            } catch (trackError) {
+                console.error("Tracking Error (Non-blocking):", trackError);
+            }
+
+            // Google Ads Tracking (Non-blocking)
+            try {
+                if (window.gtag) {
+                    window.gtag('event', 'generate_lead', {
+                        'send_to': 'AW-10956877740',
+                        'event_callback': () => console.log('Google Ads lead event sent')
+                    });
+                }
+            } catch (gtagError) {
+                console.error("GTag Error (Non-blocking):", gtagError);
             }
 
             toast.success("Enrollment submitted successfully! Opening brochure...");
