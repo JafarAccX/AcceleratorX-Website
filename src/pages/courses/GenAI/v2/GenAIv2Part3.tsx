@@ -34,8 +34,31 @@ export const Curriculum = () => {
                     {currModules.map((m: any, i) => (
                         <div
                             key={i}
-                            onClick={() => setOpenModule(openModule === i ? null : i)}
-                            className="group relative p-4 sm:p-[24px] bg-[#111] transition-all duration-300 rounded-[12px] sm:rounded-[16px] flex flex-col gap-[12px] sm:gap-[16px] text-left cursor-pointer overflow-hidden border border-white/5 hover:border-white/10"
+                            id={`module-${i}`}
+                            onClick={() => {
+                                if (openModule === i) {
+                                    setOpenModule(null);
+                                    return;
+                                }
+                                
+                                const wasOtherOpen = openModule !== null;
+                                
+                                if (wasOtherOpen) {
+                                    setOpenModule(null);
+                                    setTimeout(() => {
+                                        setOpenModule(i);
+                                        setTimeout(() => {
+                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }, 50);
+                                    }, 300);
+                                } else {
+                                    setOpenModule(i);
+                                    setTimeout(() => {
+                                        document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }, 50);
+                                }
+                            }}
+                            className="group relative p-4 sm:p-[24px] bg-[#111] transition-all duration-300 rounded-[12px] sm:rounded-[16px] flex flex-col gap-[12px] sm:gap-[16px] text-left cursor-pointer overflow-hidden border border-white/5 hover:border-white/10 scroll-mt-navbar"
                             style={{ minHeight: openModule === i ? 'auto' : '80px' }}
                         >
                             <div className="flex items-start justify-between w-full">

@@ -42,8 +42,31 @@ export const Curriculum = () => {
                     {modules.map((m, i) => (
                         <div
                             key={i}
-                            onClick={() => setOpenModule(openModule === i ? null : i)}
-                            className="group relative p-6 sm:p-8 bg-[#111] transition-all duration-300 rounded-[20px] sm:rounded-[24px] flex flex-col gap-2 text-left cursor-pointer overflow-hidden border border-white/5 hover:border-[#EA580C]/20"
+                            id={`module-${i}`}
+                            onClick={() => {
+                                if (openModule === i) {
+                                    setOpenModule(null);
+                                    return;
+                                }
+                                
+                                const wasOtherOpen = openModule !== null;
+                                
+                                if (wasOtherOpen) {
+                                    setOpenModule(null);
+                                    setTimeout(() => {
+                                        setOpenModule(i);
+                                        setTimeout(() => {
+                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }, 50);
+                                    }, 300);
+                                } else {
+                                    setOpenModule(i);
+                                    setTimeout(() => {
+                                        document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }, 50);
+                                }
+                            }}
+                            className="group relative p-6 sm:p-8 bg-[#111] transition-all duration-300 rounded-[20px] sm:rounded-[24px] flex flex-col gap-2 text-left cursor-pointer overflow-hidden border border-white/5 hover:border-[#EA580C]/20 scroll-mt-navbar"
                         >
                             <div className="flex items-center justify-between w-full">
                                 <div className="flex gap-4 sm:gap-8 items-center">

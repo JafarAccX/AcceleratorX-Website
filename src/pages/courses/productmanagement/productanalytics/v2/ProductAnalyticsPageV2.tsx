@@ -273,7 +273,34 @@ const Curriculum = () => {
                 </div>
                 <div className="flex flex-col gap-4 max-w-[1000px] mx-auto">
                     {currModules.map((m, i) => (
-                        <div key={i} onClick={() => setOpenModule(openModule === i ? null : i)} className="p-6 bg-[#0D0D0D] border border-white/5 rounded-xl text-left cursor-pointer transition-all hover:bg-[#111]">
+                        <div
+                            key={i}
+                            id={`module-${i}`}
+                            onClick={() => {
+                                if (openModule === i) {
+                                    setOpenModule(null);
+                                    return;
+                                }
+                                
+                                const wasOtherOpen = openModule !== null;
+                                
+                                if (wasOtherOpen) {
+                                    setOpenModule(null);
+                                    setTimeout(() => {
+                                        setOpenModule(i);
+                                        setTimeout(() => {
+                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }, 50);
+                                    }, 300);
+                                } else {
+                                    setOpenModule(i);
+                                    setTimeout(() => {
+                                        document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }, 50);
+                                }
+                            }}
+                            className="p-6 bg-[#0D0D0D] border border-white/5 rounded-xl text-left cursor-pointer transition-all hover:bg-[#111] scroll-mt-navbar"
+                        >
                             <div className="flex justify-between items-center">
                                 <span className="text-[#16A44A] font-bold mr-4">0{i + 1}</span>
                                 <h3 className="text-white font-bold flex-1">{m.title}</h3>

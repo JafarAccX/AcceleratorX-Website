@@ -397,6 +397,9 @@ body {
 }
 
 @layer utilities {
+  .scroll-mt-navbar {
+    scroll-margin-top: 100px;
+  }
   .hover-glow-path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;

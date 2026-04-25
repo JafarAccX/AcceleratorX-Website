@@ -43,10 +43,33 @@ export const Curriculum = () => {
                     {modules.map((m: any, i) => (
                         <div
                             key={i}
-                            className={`group relative border transition-all duration-300 rounded-[24px] overflow-hidden ${openModule === i ? 'bg-[#111] border-[#FC6401]/30' : 'bg-[#0D0D0D] border-white/5 hover:border-white/10'}`}
+                            id={`module-${i}`}
+                            className={`group relative border transition-all duration-300 rounded-[24px] overflow-hidden scroll-mt-navbar ${openModule === i ? 'bg-[#111] border-[#FC6401]/30' : 'bg-[#0D0D0D] border-white/5 hover:border-white/10'}`}
                         >
                             <div
-                                onClick={() => setOpenModule(openModule === i ? null : i)}
+                                onClick={() => {
+                                    if (openModule === i) {
+                                        setOpenModule(null);
+                                        return;
+                                    }
+                                    
+                                    const wasOtherOpen = openModule !== null;
+                                    
+                                    if (wasOtherOpen) {
+                                        setOpenModule(null);
+                                        setTimeout(() => {
+                                            setOpenModule(i);
+                                            setTimeout(() => {
+                                                document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            }, 50);
+                                        }, 300);
+                                    } else {
+                                        setOpenModule(i);
+                                        setTimeout(() => {
+                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }, 50);
+                                    }
+                                }}
                                 className="p-6 sm:p-8 flex items-center justify-between cursor-pointer"
                             >
                                 <div className="flex items-center gap-6 text-left">
@@ -62,7 +85,7 @@ export const Curriculum = () => {
                                 </div>
                             </div>
 
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[2500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
                                 <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left">
                                     {/* Goal Section */}
                                     <div className="mb-8 p-4 rounded-xl bg-[#FC6401]/5 border-l-4 border-[#FC6401]">
