@@ -126,7 +126,7 @@ export const Mentors = () => (
                 WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                 maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
             }}>
-                <div className="flex w-max gap-8 sm:gap-12 animate-mentor-scroll py-8 px-4">
+                <div className="flex w-max gap-8 sm:gap-12 animate-mentor-scroll pause-on-hover py-8 px-4">
                     {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => (
                         <div key={i} className="flex-shrink-0">
                             <MentorCard mentor={m} accentColor="#FC6401" />

@@ -366,6 +366,10 @@ body {
   will-change: transform;
 }
 
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+
 .animate-logos {
   animation: scroll-left 80s linear infinite;
   will-change: transform;
@@ -667,6 +671,11 @@ body {
   animation: scroll 40s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+}
+
+.animate-logos {
+  animation: scroll-left 80s linear infinite;
+  will-change: transform;
 }
 
 @keyframes scroll-test {

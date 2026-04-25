@@ -490,7 +490,7 @@ const Mentors = () => (
         <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[990px] mx-auto mb-10 sm:mb-14 leading-relaxed">
             Get mentored by professionals with 10+ years of experience in data analytics, business intelligence, and AI-driven roles.</p>
         <div className="relative w-full overflow-hidden z-10" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-            <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left py-4 px-8">
+            <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left pause-on-hover py-4 px-8">
                 {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((mentor, i) => (
                     <MentorCard key={i} mentor={mentor} accentColor="#3b82f6" />
                 ))}

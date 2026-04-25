@@ -495,7 +495,7 @@ const Mentors = () => (
             </p>
 
             <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-                <div className="flex flex-nowrap w-fit gap-12 sm:gap-24 animate-infinite-scroll-left py-8 px-12">
+                <div className="flex flex-nowrap w-fit gap-12 sm:gap-24 animate-infinite-scroll-left pause-on-hover py-8 px-12">
                     {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => <MentorCard key={i} mentor={m} accentColor="#4BD3D8" />)}
                 </div>
             </div>
