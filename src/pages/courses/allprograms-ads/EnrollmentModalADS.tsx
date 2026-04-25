@@ -330,9 +330,10 @@ export default function EnrollmentModalADS({ isOpen, onClose, onSubmit, program,
                 navigate("/thank-you", { state: { courseName: formData.course, fromAllPrograms: true } });
             }, 800);
 
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error submitting form:", error);
-            toast.error("Failed to submit enrollment. Please try again.");
+            const errorMessage = error.response?.data?.message || error.message || "Failed to submit enrollment. Please try again.";
+            toast.error(errorMessage);
         } finally {
             setIsSubmitting(false);
         }
