@@ -271,7 +271,7 @@ const Curriculum = () => {
                     <button onClick={() => setCurrMode("ibm")} className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${currMode === "ibm" ? "bg-[#16A44A] text-white" : "text-white"}`}>IBM + AcceX</button>
                     <button onClick={() => setCurrMode("regular")} className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${currMode === "regular" ? "bg-[#16A44A] text-white" : "text-white"}`}>Regular</button>
                 </div>
-                <div className="flex flex-col gap-4 max-w-[1000px] mx-auto">
+                <div className="flex flex-col gap-4 max-w-[1000px] mx-auto" style={{ overflowAnchor: 'none' }}>
                     {currModules.map((m, i) => (
                         <div
                             key={i}
@@ -282,26 +282,24 @@ const Curriculum = () => {
                                     return;
                                 }
                                 
-                                const wasOtherOpen = openModule !== null;
+                                const prevIdx = openModule;
+                                const isBelow = prevIdx !== null && i > prevIdx;
                                 
-                                if (wasOtherOpen) {
-                                    setOpenModule(null);
+                                if (isBelow) {
+                                    setOpenModule(i);
                                     setTimeout(() => {
-                                        setOpenModule(i);
-                                        setTimeout(() => {
-                                            const element = document.getElementById(`module-${i}`);
-                                            if (element) {
-                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
-                                                window.scrollTo({ top, behavior: 'smooth' });
-                                            }
-                                        }, 50);
-                                    }, 300);
+                                        const target = document.getElementById(`module-${i}`);
+                                        if (target) {
+                                            const top = target.getBoundingClientRect().top + window.pageYOffset - 110;
+                                            window.scrollTo({ top, behavior: 'smooth' });
+                                        }
+                                    }, 320);
                                 } else {
                                     setOpenModule(i);
                                     setTimeout(() => {
-                                        const element = document.getElementById(`module-${i}`);
-                                        if (element) {
-                                            const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
+                                        const el = document.getElementById(`module-${i}`);
+                                        if (el) {
+                                            const top = el.getBoundingClientRect().top + window.pageYOffset - 110;
                                             window.scrollTo({ top, behavior: 'smooth' });
                                         }
                                     }, 50);

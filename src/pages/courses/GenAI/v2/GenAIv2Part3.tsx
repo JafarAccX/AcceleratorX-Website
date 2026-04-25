@@ -30,98 +30,100 @@ export const Curriculum = () => {
                     <button onClick={() => setCurrMode("regular")} className={`px-5 sm:px-8 py-2.5 sm:py-3 border-none rounded-full text-[13px] sm:text-sm font-bold cursor-pointer transition-all duration-300 ${currMode === "regular" ? "bg-[#FF6701] text-white" : "bg-transparent text-white"}`}>Regular</button>
                 </div>
 
-                <div className="flex flex-col gap-3 sm:gap-4 max-w-[1276px] mx-auto">
+                <div className="flex flex-col gap-3 sm:gap-4 max-w-[1276px] mx-auto" style={{ overflowAnchor: 'none' }}>
                     {currModules.map((m: any, i) => (
                         <div
                             key={i}
                             id={`module-${i}`}
-                            onClick={() => {
-                                if (openModule === i) {
-                                    setOpenModule(null);
-                                    return;
-                                }
-                                
-                                const wasOtherOpen = openModule !== null;
-                                
-                                if (wasOtherOpen) {
-                                    setOpenModule(null);
-                                    setTimeout(() => {
+                            className={`group relative border transition-all duration-300 rounded-[20px] overflow-hidden scroll-mt-navbar ${openModule === i ? 'bg-[#111] border-[#FF6701]/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : 'bg-[#0D0D0D] border-white/5 hover:border-white/10'}`}
+                        >
+                            <div
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (openModule === i) {
+                                        setOpenModule(null);
+                                        return;
+                                    }
+                                    
+                                    const prevIdx = openModule;
+                                    const isBelow = prevIdx !== null && i > prevIdx;
+
+                                    if (isBelow) {
+                                        // Collapse + expand happen simultaneously — no double-scroll
                                         setOpenModule(i);
+
+                                        // After CSS transition completes, scroll once to the correct position
                                         setTimeout(() => {
-                                            const element = document.getElementById(`module-${i}`);
-                                            if (element) {
-                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                            const target = document.getElementById(`module-${i}`);
+                                            if (target) {
+                                                const top = target.getBoundingClientRect().top + window.pageYOffset - 110;
                                                 window.scrollTo({ top, behavior: 'smooth' });
                                             }
-                                        }, 150);
-                                    }, 400);
-                                } else {
-                                    setOpenModule(i);
-                                    setTimeout(() => {
-                                        const element = document.getElementById(`module-${i}`);
-                                        if (element) {
-                                            const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
-                                            window.scrollTo({ top, behavior: 'smooth' });
-                                        }
-                                    }, 150);
-                                }
-                            }}
-                            className="group relative p-4 sm:p-[24px] bg-[#111] transition-all duration-300 rounded-[12px] sm:rounded-[16px] flex flex-col gap-[12px] sm:gap-[16px] text-left cursor-pointer overflow-hidden border border-white/5 hover:border-white/10 scroll-mt-navbar"
-                            style={{ minHeight: openModule === i ? 'auto' : '80px' }}
-                        >
-                            <div className="flex items-center justify-between gap-4">
-                                <div className="flex items-center gap-3 sm:gap-4 flex-1">
-                                    <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[14px] sm:text-[16px] transition-all duration-300 ${openModule === i ? 'bg-white text-black' : 'bg-white/5 text-white/40'}`}>
+                                        }, 320);
+                                    } else {
+                                        // Opening above or first open — scroll immediately after mount
+                                        setOpenModule(i);
+                                        setTimeout(() => {
+                                            const el = document.getElementById(`module-${i}`);
+                                            if (el) {
+                                                const top = el.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
+                                        }, 50);
+                                    }
+                                }}
+                                className="p-6 sm:p-8 flex items-center justify-between cursor-pointer"
+                            >
+                                <div className="flex items-center gap-6 text-left">
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-[18px] transition-all duration-300 ${openModule === i ? 'bg-[#FF6701] text-black shadow-[0_0_20px_rgba(255,103,1,0.3)]' : 'bg-white/5 text-[#FF6701]'}`}>
                                         0{i + 1}
                                     </div>
-                                    <h3 className="text-white text-[16px] sm:text-[20px] font-bold leading-tight group-hover:text-white transition-colors">
+                                    <h3 className="text-white text-[18px] sm:text-[22px] font-bold tracking-tight leading-tight group-hover:text-white transition-colors">
                                         {m.title}
                                     </h3>
                                 </div>
-                                <ChevronDown className={`w-5 h-5 sm:w-6 sm:h-6 text-white/40 group-hover:text-white transition-transform duration-300 flex-shrink-0 ${openModule === i ? 'rotate-180' : ''}`} />
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${openModule === i ? 'border-[#FF6701] bg-[#FF6701]/10 text-[#FF6701] rotate-180' : 'border-white/10 text-white/40'}`}>
+                                    <ChevronDown className="w-5 h-5" />
+                                </div>
                             </div>
 
-                            <div className={`grid transition-all duration-300 ease-in-out ${openModule === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                            <div className={`grid-rows-collapse ${openModule === i ? 'grid-rows-expand' : ''}`}>
                                 <div className="overflow-hidden">
-                                    <div className="pl-[28px] sm:pl-[40px] flex flex-col gap-6 pb-4">
-                                    {m.goal && (
-                                        <div>
-                                            <h4 className="text-[#FC6401] text-[12px] font-bold uppercase tracking-wider mb-2">Goal</h4>
-                                            <p className="text-[#E0E0E0] text-[14px] sm:text-[16px] leading-relaxed max-w-[800px]">
-                                                {m.goal}
-                                            </p>
-                                        </div>
-                                    )}
+                                    <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left opacity-0 transition-opacity duration-500 delay-100 data-[active=true]:opacity-100" data-active={openModule === i}>
+                                        {m.goal && (
+                                            <div className="mb-8 p-4 rounded-xl bg-[#FF6701]/5 border-l-4 border-[#FF6701]">
+                                                <span className="text-[#FF6701] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
+                                                <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
+                                                    {m.goal}
+                                                </p>
+                                            </div>
+                                        )}
 
-                                    {m.sessions && (
-                                        <div>
-                                            <h4 className="text-[#FC6401] text-[12px] font-bold uppercase tracking-wider mb-3">Sessions</h4>
-                                            <ul className="flex flex-col gap-3">
-                                                {m.sessions.map((session: string, sIdx: number) => (
-                                                    <li key={sIdx} className="flex items-start gap-3 text-[#C2C2C2] text-[14px] sm:text-[15px]">
-                                                        <div className="w-1.5 h-1.5 rounded-full bg-[#FC6401] mt-2 flex-shrink-0" />
-                                                        <span>{session}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                        <div className="grid grid-cols-1 gap-4">
+                                            <span className="text-white/30 text-[11px] font-black tracking-widest uppercase block mb-2 pl-2">Key Sessions</span>
+                                            {m.sessions && m.sessions.map((session: string, sIdx: number) => (
+                                                <div key={sIdx} className="flex items-start gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors group/session">
+                                                    <div className="w-2 h-2 rounded-full bg-[#FF6701] mt-2 shadow-[0_0_8px_rgba(255,103,1,0.6)] group-hover/session:scale-125 transition-transform" />
+                                                    <span className="text-[#94A3B8] text-[15px] sm:text-[16px] leading-relaxed group-hover/session:text-white transition-colors font-medium">{session}</span>
+                                                </div>
+                                            ))}
                                         </div>
-                                    )}
 
-                                    {m.miniProject && (
-                                        <div className="mt-2 p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                                            <h4 className="text-white text-[13px] font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
-                                                <span className="text-[#FC6401]">🚀</span> Mini Project
-                                            </h4>
-                                            <p className="text-[#C2C2C2] text-[14px] leading-relaxed italic">
-                                                {m.miniProject}
-                                            </p>
-                                        </div>
-                                    )}
+                                        {m.miniProject && (
+                                            <div className="mt-8 p-5 rounded-2xl bg-gradient-to-br from-[#FF6701]/10 to-transparent border border-[#FF6701]/20">
+                                                <h4 className="text-white text-[14px] font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+                                                    <span className="text-[#FF6701]">🚀</span> Mini Project
+                                                </h4>
+                                                <p className="text-[#CFCFCF] text-[15px] leading-relaxed italic">
+                                                    {m.miniProject}
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
                 </div>
             </div>
         </section>

@@ -425,7 +425,7 @@ const Curriculum = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-4 max-w-[1100px] mx-auto">
+                <div className="flex flex-col gap-4 max-w-[1100px] mx-auto" style={{ overflowAnchor: 'none' }}>
                     {currModules.map((m: any, i: number) => (
                         <div
                             key={i}
@@ -439,26 +439,24 @@ const Curriculum = () => {
                                         return;
                                     }
                                     
-                                    const wasOtherOpen = openModule !== null;
-                                    
-                                    if (wasOtherOpen) {
-                                        setOpenModule(null);
+                                    const prevIdx = openModule;
+                                    const isBelow = prevIdx !== null && i > prevIdx;
+
+                                    if (isBelow) {
+                                        setOpenModule(i);
                                         setTimeout(() => {
-                                            setOpenModule(i);
-                                            setTimeout(() => {
-                                                const element = document.getElementById(`module-${i}`);
-                                                if (element) {
-                                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
-                                                    window.scrollTo({ top, behavior: 'smooth' });
-                                                }
-                                            }, 50);
-                                        }, 300);
+                                            const target = document.getElementById(`module-${i}`);
+                                            if (target) {
+                                                const top = target.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
+                                        }, 320);
                                     } else {
                                         setOpenModule(i);
                                         setTimeout(() => {
-                                            const element = document.getElementById(`module-${i}`);
-                                            if (element) {
-                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
+                                            const el = document.getElementById(`module-${i}`);
+                                            if (el) {
+                                                const top = el.getBoundingClientRect().top + window.pageYOffset - 110;
                                                 window.scrollTo({ top, behavior: 'smooth' });
                                             }
                                         }, 50);
