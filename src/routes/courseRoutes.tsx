@@ -16,7 +16,7 @@ const AIDMEntry = lazy(() => import("../pages/courses/EntryPoint/AIDMEntry"));
 const AIDMFBPage = lazy(() => import("../pages/courses/ai-carsh-course-fb/ai-carsh-courseFBPage"));
 const GenAIPage = lazy(() => import("../pages/courses/GenAI/GenAIPage"));
 const AllProgramsPage = lazy(() => import("../pages/courses/allprograms-ads/AllProgramsPage"));
-const AdvanceAICrashCoursePageEIE = lazy(() => import("../pages/courses/EntryPoint/AdvanceAICrashCourseEntry"));
+
 
 export const courseRoutes = [
   // Main Course Routes
@@ -82,10 +82,6 @@ export const courseRoutes = [
     path="/courses/ai-digital-marketing-fb"
     element={<AIDMFBPage />}
   />,
-  <Route
-    key="course-advance-ai-crash-course"
-    path="/courses/advance-ai-crash-course"
-    element={<AdvanceAICrashCoursePageEIE />}
-  />,
+
 
 ];

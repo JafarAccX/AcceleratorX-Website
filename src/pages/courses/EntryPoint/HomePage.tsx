@@ -265,7 +265,7 @@ const floatingBadges = [
     { label: "AI Data Analytics", top: "54%", left: "4%", mobileTop: "54%", mobileLeft: "2%", icon: "/assets/aidataanalystics.png", width: 204, path: "/courses/data-analytics" },
     { label: "AI Data Science", top: "68%", left: "67%", mobileTop: "68%", mobileLeft: "52%", icon: "/assets/aidatascience.png", width: 195, path: "/courses/data-science" },
     { label: "AI Product Management", top: "80%", left: "2%", mobileTop: "80%", mobileLeft: "0%", icon: "/assets/aiproductmanagemnt.png", width: 252, path: "/courses/product-management" },
-    { label: "Advanced Generative AI", top: "86%", left: "57%", mobileTop: "86%", mobileLeft: "45%", icon: "/assets/advancedgenerativeai.png", width: 252, path: "/courses/advance-ai-crash-course" },
+    { label: "Advanced Generative AI", top: "86%", left: "57%", mobileTop: "86%", mobileLeft: "45%", icon: "/assets/advancedgenerativeai.png", width: 252, path: "/courses/advance-generative-ai" },
 ];
 
 const companyLogos = [
@@ -725,7 +725,7 @@ function HomePage() {
         {
             title: "Advanced AI & AI Agents",
             img: "/assets/advancegenai_v2.png",
-            path: "/courses/advance-ai-crash-course",
+            path: "/courses/advance-generative-ai",
             description: "For Developers, Tech Enthusiasts, And Builders With Basic AI Knowledge Looking To Go Deeper. Focuses On Building AI Systems, Agents, And Automation Workflows (Coding Preferred).",
         },
         {
