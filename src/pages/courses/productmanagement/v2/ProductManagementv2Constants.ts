@@ -211,11 +211,11 @@ export const regularModules = [...ibmModules];
 
 // ── Mentors ────────────────────────────────────────────────────────────
 export const MENTORS = [
-    { name: "Ravi Ahlawat", designation: "Sr. Product Manager - PayU", company: "PayU", image: "/assets/mentors/Ravi Ahlawat 3.png", companyLogo: "/assets/mentors/payu.png" },
-    { name: "Subhasis Chandra", designation: "Sr. Product Manager - Publicis Sapient", company: "Publicis Sapient", image: "/assets/mentors/Subhasis Chandra 2.png", companyLogo: "/assets/mentors/publicissapient.png" },
-    { name: "Anjali Sharma", designation: "Sr. AI Product Manager @Search Atlas", company: "Search Atlas", image: "/assets/mentors/Anjali Sharma 3.png", companyLogo: "/assets/mentors/searchatlas.png" },
-    { name: "Nitya Sagar", designation: "Cofounder - Stealth Startup", company: "Stealth Startup", image: "/assets/mentors/Nitya Sagar 1.png", companyLogo: "/assets/mentors/stealth.png" },
-    { name: "Ashu Mishra", designation: "Technical Product Manager - Zigram", company: "Zigram", image: "/assets/mentors/Ashu 1.png", companyLogo: "/assets/mentors/zigram.png" },
+    { name: "Ravi Ahlawat", designation: "Sr. Product Manager - PayU", company: "PayU", image: "/assets/mentors/Ravi Ahlawat 3.png", companyLogo: "/assets/mentors/payu.png", linkedinUrl: "https://www.linkedin.com/in/raviahlawat09/" },
+    { name: "Subhasis Chandra", designation: "Sr. Product Manager - Publicis Sapient", company: "Publicis Sapient", image: "/assets/mentors/Subhasis Chandra 2.png", companyLogo: "/assets/mentors/publicissapient.png", linkedinUrl: "https://www.linkedin.com/in/subhasis-chandra/" },
+    { name: "Anjali Sharma", designation: "Sr. AI Product Manager @Search Atlas", company: "Search Atlas", image: "/assets/mentors/Anjali Sharma 3.png", companyLogo: "/assets/mentors/searchatlas.png", linkedinUrl: "https://www.linkedin.com/in/anjalisharmaaa/" },
+    { name: "Nitya Sagar", designation: "Cofounder - Stealth Startup", company: "Stealth Startup", image: "/assets/mentors/Nitya Sagar 1.png", companyLogo: "/assets/mentors/stealth.png", linkedinUrl: "https://in.linkedin.com/in/nitya-sagar" },
+    { name: "Ashu Mishra", designation: "Technical Product Manager - Zigram", company: "Zigram", image: "/assets/mentors/Ashu 1.png", companyLogo: "/assets/mentors/zigram.png", linkedinUrl: "https://www.linkedin.com/in/ashumish/" },
 ];
 
 // ── Tools ──────────────────────────────────────────────────────────────

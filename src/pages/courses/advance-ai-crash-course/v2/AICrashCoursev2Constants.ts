@@ -146,14 +146,16 @@ export const MENTORS = [
     designation: "Cofounder",
     company: "Stealth Startup",
     image: "/assets/mentors/crash/nityasagar.png",
-    companyLogo: "/assets/mentors/crash/sealth.png"
+    companyLogo: "/assets/mentors/crash/sealth.png",
+    linkedinUrl: "https://in.linkedin.com/in/nitya-sagar",
   },
   {
     name: "Ashu Mishra",
     designation: "Technical Product Manager",
     company: "Zigram",
     image: "/assets/mentors/crash/anshu.png",
-    companyLogo: "/assets/mentors/zigram.png"
+    companyLogo: "/assets/mentors/zigram.png",
+    linkedinUrl: "https://www.linkedin.com/in/ashumish/",
   },
 ];
 

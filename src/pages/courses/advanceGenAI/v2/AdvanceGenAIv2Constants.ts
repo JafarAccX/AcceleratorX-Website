@@ -343,14 +343,17 @@ export const MENTORS = [
     designation: "Principal ML Tech Lead",
     company: "Appodeal Inc",
     image: "/assets/mentors/advance-gen-ai/siddharth.png",
-    companyLogo: "/assets/mentors/advance-gen-ai/appodeal_logo.png"
+    companyLogo: "/assets/mentors/advance-gen-ai/appodeal_logo.png",
+    linkedinUrl: "https://www.linkedin.com/in/siddharthsahani/"
+
   },
   {
     name: "Ashu Mishra",
     designation: "Technical Product Manager",
     company: "Zigram",
     image: "/assets/mentors/crash/anshu.png",
-    companyLogo: "/assets/mentors/zigram.png"
+    companyLogo: "/assets/mentors/zigram.png",
+    linkedinUrl: "https://www.linkedin.com/in/ashumish/",
   },
 ];
 

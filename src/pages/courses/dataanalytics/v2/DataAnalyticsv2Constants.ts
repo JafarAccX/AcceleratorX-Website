@@ -260,11 +260,11 @@ export const ibmModules = [
 export const regularModules = [...ibmModules];
 
 export const MENTORS = [
-    { name: "Akash Maurya", designation: "Data scientist @Koantek", company: "Koantek", image: "/redesign/ai-da/mentors/Aakash Maurya.png", companyLogo: "/assets/mentors/Koantek.png" },
-    { name: "Ravi Ahlawat", designation: "Sr. Product Manager - PayU", company: "PayU", image: "/redesign/ai-da/mentors/Ravi Ahlawat.png", companyLogo: "/assets/mentors/payu.png" },
-    { name: "Subhasis Chandra", designation: "Sr. Product Manager - Publicis Sapient", company: "Publicis Sapient", image: "/assets/mentors/Subhasis Chandra 2.png", companyLogo: "/assets/mentors/publicissapient.png" },
-    { name: "Nitish Setty", designation: "Managing director at GrowSharp", company: "GrowSharp", image: "/redesign/ai-da/mentors/Nitish Setty.png", companyLogo: "/assets/mentors/grownswap.png" },
-    { name: "Shubham Swaraj", designation: "Founder @BIP Consultant", company: "BIP Consultant", image: "/redesign/ai-da/mentors/Shubham Swaraj.png", companyLogo: "/assets/mentors/Bip-logo.png" },
+    { name: "Akash Maurya", designation: "Data scientist @Koantek", company: "Koantek", image: "/redesign/ai-da/mentors/Aakash Maurya.png", companyLogo: "/assets/mentors/Koantek.png", linkedinUrl: "https://www.linkedin.com/in/akash-maurya-347911164/" },
+    { name: "Ravi Ahlawat", designation: "Sr. Product Manager - PayU", company: "PayU", image: "/redesign/ai-da/mentors/Ravi Ahlawat.png", companyLogo: "/assets/mentors/payu.png", linkedinUrl: "https://www.linkedin.com/in/raviahlawat09/" },
+    { name: "Subhasis Chandra", designation: "Sr. Product Manager - Publicis Sapient", company: "Publicis Sapient", image: "/assets/mentors/Subhasis Chandra 2.png", companyLogo: "/assets/mentors/publicissapient.png", linkedinUrl: "https://www.linkedin.com/in/subhasis-chandra/" },
+    { name: "Nitish Setty", designation: "Managing director at GrowSharp", company: "GrowSharp", image: "/redesign/ai-da/mentors/Nitish Setty.png", companyLogo: "/assets/mentors/grownswap.png", linkedinUrl: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192/" },
+    { name: "Shubham Swaraj", designation: "Founder @BIP Consultant", company: "BIP Consultant", image: "/redesign/ai-da/mentors/Shubham Swaraj.png", companyLogo: "/assets/mentors/Bip-logo.png", linkedinUrl: "https://www.linkedin.com/in/shubham-swaraj-2b9457172" },
 ];
 
 export const TOOLS_LIST = [

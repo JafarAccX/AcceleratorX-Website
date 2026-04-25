@@ -354,7 +354,7 @@ export const regularModules = [...ibmModules];
 // ── Mentors ────────────────────────────────────────────────────────────
 export const MENTORS = [
     { name: "Himangi Sharma", designation: "Data Scientist 2", company: "", image: "/assets/datascience/mentors/himanshi.png", companyLogo: "" },
-    { name: "Piyush Pankaj", designation: "Data Scientist@Edunet", company: "", image: "/assets/datascience/mentors/piyush.png", companyLogo: "/assets/datascience/mentors/edunet.png" },
+    { name: "Piyush Pankaj", designation: "Data Scientist@Edunet", company: "", image: "/assets/datascience/mentors/piyush.png", companyLogo: "/assets/datascience/mentors/edunet.png", linkedinUrl: "https://www.linkedin.com/in/piyush-pankaj-8b44b9ab/" },
 ];
 
 // ── Tools ──────────────────────────────────────────────────────────────

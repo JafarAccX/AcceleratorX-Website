@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linkedin } from 'lucide-react';
 
 export interface Mentor {
     name: string;
@@ -6,6 +7,7 @@ export interface Mentor {
     company: string;
     image: string;
     companyLogo?: string;
+    linkedinUrl?: string;
 }
 
 interface MentorCardProps {
@@ -35,6 +37,20 @@ const MentorCard: React.FC<MentorCardProps> = ({ mentor, accentColor = "#9EFF1F"
                     <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
                         <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
                     </div>
+                </div>
+            )}
+
+            {/* Floating LinkedIn Icon Top-Left */}
+            {mentor.linkedinUrl && (
+                <div className="absolute top-2 left-2 z-[100]" style={{ transform: "translateZ(50px)" }}>
+                    <a
+                        href={mentor.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-[#0077b5] border-[2px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-110"
+                    >
+                        <Linkedin size={14} className="text-white fill-current" />
+                    </a>
                 </div>
             )}
 

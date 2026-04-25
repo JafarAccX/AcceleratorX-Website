@@ -120,17 +120,16 @@ export const Mentors = () => (
                 <h2 className="text-[32px] sm:text-[32px] md:text-[32px] font-medium text-white mb-4 text-center">
                     Learn from Industry AI Experts
                 </h2>
-                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[999px] mx-auto mb-10 sm:mb-14 leading-relaxed">
+                <p className="text-[#CFCFCF] text-[14px] sm:text-[16px] max-w-[999px] mx-auto mb-10 sm:mb-14 leading-relaxed text-center">
                     Get mentored by professionals with 10+ years of experience working in AI and automation roles across top companies.
                 </p>
 
-
-                    <div className="relative w-full overflow-hidden z-10" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-                        <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left py-8 px-12">
-                            {[...MENTORS, ...MENTORS, ...MENTORS, ...MENTORS].map((m, i) => (
-                                <MentorCard key={i} mentor={m} accentColor="#FC6401" />
-                            ))}
-                        </div>
+                <div className="w-full max-w-[1240px] mx-auto px-4 sm:px-10 mt-8 sm:mt-12">
+                    <div className="flex flex-wrap justify-center gap-y-24 sm:gap-y-32 gap-x-6 sm:gap-x-12">
+                        {MENTORS.map((m, i) => (
+                            <MentorCard key={i} mentor={m} accentColor="#FC6401" />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

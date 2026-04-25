@@ -168,28 +168,32 @@ export const MENTORS = [
         designation: "Ass. Director @ DrinkPrime",
         company: "DrinkPrime",
         image: "/assets/digitalmarketing/mentors/Kumar Savino.png",
-        companyLogo: "/assets/digitalmarketing/mentors/drinkprime.png"
+        companyLogo: "/assets/digitalmarketing/mentors/drinkprime.png",
+        linkedinUrl: "https://www.linkedin.com/in/kumar-savino/",
     },
     {
         name: "Ankita Das",
         designation: "Digital Head @ Target G",
         company: "TargetG",
         image: "/assets/digitalmarketing/mentors/Anjali Sharma 3.png",
-        companyLogo: "/assets/digitalmarketing/mentors/targetg.png"
+        companyLogo: "/assets/digitalmarketing/mentors/targetg.png",
+        linkedinUrl: "https://www.linkedin.com/in/ankita-das-marketingmania/",
     },
     {
         name: "Nitya Sagar",
         designation: "Cofounder - Stealth Startup",
         company: "Stealth",
         image: "/assets/digitalmarketing/mentors/Nitya Sagar 1.png",
-        companyLogo: "/assets/digitalmarketing/mentors/stealth.png"
+        companyLogo: "/assets/digitalmarketing/mentors/stealth.png",
+        linkedinUrl: "https://in.linkedin.com/in/nitya-sagar",
     },
     {
         name: "Yash Manghnani",
         designation: "Senior AI Builder @ Better Software",
         company: "Better Software",
         image: "/assets/digitalmarketing/mentors/Yash Manghnani.png",
-        companyLogo: "/assets/digitalmarketing/mentors/bettersoftware.png"
+        companyLogo: "/assets/digitalmarketing/mentors/bettersoftware.png",
+        linkedinUrl: "https://www.linkedin.com/in/yash-manghnani/",
     },
 ];
 
