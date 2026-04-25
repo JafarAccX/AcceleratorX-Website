@@ -15,7 +15,7 @@ interface MentorCardProps {
 
 const MentorCard: React.FC<MentorCardProps> = ({ mentor, accentColor = "#9EFF1F" }) => {
     return (
-        <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group">
+        <div className="relative w-[180px] xs:w-[210px] sm:w-[260px] h-[210px] xs:h-[230px] sm:h-[310px] flex-shrink-0 group isolate" style={{ transformStyle: 'preserve-3d' }}>
             {/* Main Card with Left-Fade */}
             <div
                 className="absolute inset-x-0 top-0 bottom-12 rounded-[28px] overflow-hidden border-t border-r border-b border-white/[0.08] backdrop-blur-md z-10"
@@ -31,7 +31,7 @@ const MentorCard: React.FC<MentorCardProps> = ({ mentor, accentColor = "#9EFF1F"
 
             {/* Floating Logo Top-Right */}
             {mentor.companyLogo && (
-                <div className="absolute top-[-15px] -right-7 z-[100] transform translate-z-0">
+                <div className="absolute top-[-15px] -right-7 z-[100]" style={{ transform: "translateZ(50px)" }}>
                     <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-black border-[2.5px] border-[#1a1a1e] shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
                         <img src={mentor.companyLogo} alt="" className="w-full h-full object-cover" />
                     </div>
