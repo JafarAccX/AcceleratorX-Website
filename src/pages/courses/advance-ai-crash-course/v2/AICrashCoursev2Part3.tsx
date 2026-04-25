@@ -137,7 +137,8 @@ export const Curriculum = ({ onDownloadBrochure }: { onDownloadBrochure?: () => 
                     </button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     );
 };
 

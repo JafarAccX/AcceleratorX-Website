@@ -493,7 +493,8 @@ const Curriculum = ({ onDownloadBrochure }: { onDownloadBrochure?: () => void })
                     </button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     );
 };
 
