@@ -48,33 +48,42 @@ export const Curriculum = () => {
                                     setTimeout(() => {
                                         setOpenModule(i);
                                         setTimeout(() => {
-                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                        }, 50);
-                                    }, 300);
+                                            const element = document.getElementById(`module-${i}`);
+                                            if (element) {
+                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
+                                        }, 150);
+                                    }, 400);
                                 } else {
                                     setOpenModule(i);
                                     setTimeout(() => {
-                                        document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                    }, 50);
+                                        const element = document.getElementById(`module-${i}`);
+                                        if (element) {
+                                            const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                            window.scrollTo({ top, behavior: 'smooth' });
+                                        }
+                                    }, 150);
                                 }
                             }}
                             className="group relative p-4 sm:p-[24px] bg-[#111] transition-all duration-300 rounded-[12px] sm:rounded-[16px] flex flex-col gap-[12px] sm:gap-[16px] text-left cursor-pointer overflow-hidden border border-white/5 hover:border-white/10 scroll-mt-navbar"
                             style={{ minHeight: openModule === i ? 'auto' : '80px' }}
                         >
-                            <div className="flex items-start justify-between w-full">
-                                <div className="flex gap-[8px] sm:gap-[15px] items-center">
-                                    <span className="text-[16px] sm:text-[20px] font-bold text-[#FC6401] leading-[28px] opacity-70">
-                                        {i + 1 < 10 ? `0${i + 1}` : i + 1}
-                                    </span>
-                                    <p className="text-[18px] sm:text-[20px] font-medium text-white leading-[24px] sm:leading-[28px] font-['Inter',sans-serif]">
-                                        {m.week}: {m.title}
-                                    </p>
+                            <div className="flex items-center justify-between gap-4">
+                                <div className="flex items-center gap-3 sm:gap-4 flex-1">
+                                    <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[14px] sm:text-[16px] transition-all duration-300 ${openModule === i ? 'bg-white text-black' : 'bg-white/5 text-white/40'}`}>
+                                        0{i + 1}
+                                    </div>
+                                    <h3 className="text-white text-[16px] sm:text-[20px] font-bold leading-tight group-hover:text-white transition-colors">
+                                        {m.title}
+                                    </h3>
                                 </div>
                                 <ChevronDown className={`w-5 h-5 sm:w-6 sm:h-6 text-white/40 group-hover:text-white transition-transform duration-300 flex-shrink-0 ${openModule === i ? 'rotate-180' : ''}`} />
                             </div>
 
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                <div className="pl-[28px] sm:pl-[40px] flex flex-col gap-6 pb-4">
+                            <div className={`grid transition-all duration-300 ease-in-out ${openModule === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                                <div className="overflow-hidden">
+                                    <div className="pl-[28px] sm:pl-[40px] flex flex-col gap-6 pb-4">
                                     {m.goal && (
                                         <div>
                                             <h4 className="text-[#FC6401] text-[12px] font-bold uppercase tracking-wider mb-2">Goal</h4>
@@ -111,7 +120,8 @@ export const Curriculum = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                ))}
                 </div>
             </div>
         </section>

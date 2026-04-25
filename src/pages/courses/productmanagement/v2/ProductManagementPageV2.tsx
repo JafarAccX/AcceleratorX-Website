@@ -446,13 +446,21 @@ const Curriculum = () => {
                                         setTimeout(() => {
                                             setOpenModule(i);
                                             setTimeout(() => {
-                                                document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                                const element = document.getElementById(`module-${i}`);
+                                                if (element) {
+                                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
+                                                    window.scrollTo({ top, behavior: 'smooth' });
+                                                }
                                             }, 50);
                                         }, 300);
                                     } else {
                                         setOpenModule(i);
                                         setTimeout(() => {
-                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            const element = document.getElementById(`module-${i}`);
+                                            if (element) {
+                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
                                         }, 50);
                                     }
                                 }}
@@ -476,15 +484,16 @@ const Curriculum = () => {
                                 </div>
                             </div>
 
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left">
-                                    {/* Goal Section */}
-                                    <div className="mb-8 p-4 rounded-xl bg-[#4BD3D8]/5 border-l-4 border-[#4BD3D8]">
-                                        <span className="text-[#4BD3D8] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
-                                        <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
-                                            {m.goal}
-                                        </p>
-                                    </div>
+                            <div className={`grid-rows-collapse ${openModule === i ? 'grid-rows-expand' : ''}`}>
+                                <div className="overflow-hidden">
+                                    <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left opacity-0 transition-opacity duration-500 delay-100 data-[active=true]:opacity-100" data-active={openModule === i}>
+                                        {/* Goal Section */}
+                                        <div className="mb-8 p-4 rounded-xl bg-[#4BD3D8]/5 border-l-4 border-[#4BD3D8]">
+                                            <span className="text-[#4BD3D8] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
+                                            <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
+                                                {m.goal}
+                                            </p>
+                                        </div>
 
                                     {/* Sessions List */}
                                     <div className="grid grid-cols-1 gap-4">
@@ -499,7 +508,8 @@ const Curriculum = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                ))}
                 </div>
             </div>
         </section>

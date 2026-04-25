@@ -289,24 +289,56 @@ const Curriculum = () => {
                                     setTimeout(() => {
                                         setOpenModule(i);
                                         setTimeout(() => {
-                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            const element = document.getElementById(`module-${i}`);
+                                            if (element) {
+                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
                                         }, 50);
                                     }, 300);
                                 } else {
                                     setOpenModule(i);
                                     setTimeout(() => {
-                                        document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        const element = document.getElementById(`module-${i}`);
+                                        if (element) {
+                                            const top = element.getBoundingClientRect().top + window.pageYOffset - 100;
+                                            window.scrollTo({ top, behavior: 'smooth' });
+                                        }
                                     }, 50);
                                 }
                             }}
-                            className="p-6 bg-[#0D0D0D] border border-white/5 rounded-xl text-left cursor-pointer transition-all hover:bg-[#111] scroll-mt-navbar"
+                            className="p-6 bg-[#0D0D0D] border border-white/5 rounded-xl text-left cursor-pointer transition-all duration-300 hover:bg-[#111] scroll-mt-navbar"
                         >
                             <div className="flex justify-between items-center">
                                 <span className="text-[#16A44A] font-bold mr-4">0{i + 1}</span>
                                 <h3 className="text-white font-bold flex-1">{m.title}</h3>
                                 <ChevronDown className={`transition-transform duration-300 ${openModule === i ? 'rotate-180' : ''}`} />
                             </div>
-                            {openModule === i && <p className="mt-4 text-[#A0A8B8] pl-10 text-sm leading-relaxed">{m.desc}</p>}
+                            <div className={`grid-rows-collapse ${openModule === i ? 'grid-rows-expand' : ''}`}>
+                                <div className="overflow-hidden">
+                                    <div className="pt-6 space-y-6 opacity-0 transition-opacity duration-500 delay-100 data-[active=true]:opacity-100" data-active={openModule === i}>
+                                        <p className="text-[#A0A8B8] pl-10 text-sm leading-relaxed">{m.desc}</p>
+                                        <div className="space-y-6 pl-10">
+                                            {m.sessions.map((session, sIdx) => (
+                                                <div key={sIdx} className="space-y-3">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="w-1.5 h-1.5 rounded-full bg-[#16A44A]" />
+                                                        <h4 className="text-white font-semibold">{session.title}</h4>
+                                                    </div>
+                                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 pl-4">
+                                                        {session.topics.map((topic, tIdx) => (
+                                                            <li key={tIdx} className="text-gray-400 text-sm flex items-start gap-2">
+                                                                <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-600 flex-shrink-0" />
+                                                                {topic}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

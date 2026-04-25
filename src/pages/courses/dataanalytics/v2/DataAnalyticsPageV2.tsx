@@ -415,20 +415,26 @@ const Curriculum = () => {
                                     const wasOtherOpen = openModule !== null;
                                     
                                     if (wasOtherOpen) {
-                                        // Pro approach: Close current, wait a moment, then open new one.
-                                        // This prevents the "yoyo" effect of two items animating at once.
                                         setOpenModule(null);
                                         setTimeout(() => {
                                             setOpenModule(i);
                                             setTimeout(() => {
-                                                document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                            }, 50);
-                                        }, 300); // 300ms is the sweet spot for staggered animation
+                                                const element = document.getElementById(`module-${i}`);
+                                                if (element) {
+                                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                    window.scrollTo({ top, behavior: 'smooth' });
+                                                }
+                                            }, 150); // Start scroll as expansion is in progress
+                                        }, 400); // Wait for full collapse (500ms transition, 400ms is safe)
                                     } else {
                                         setOpenModule(i);
                                         setTimeout(() => {
-                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                        }, 50);
+                                            const element = document.getElementById(`module-${i}`);
+                                            if (element) {
+                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
+                                        }, 150);
                                     }
                                 }}
                                 className="p-6 sm:p-8 flex items-center justify-between cursor-pointer"
@@ -445,16 +451,16 @@ const Curriculum = () => {
                                     <ChevronDown className="w-5 h-5" />
                                 </div>
                             </div>
-
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left">
-                                    {/* Goal Section */}
-                                    <div className="mb-8 p-4 rounded-xl bg-[#3B82F6]/5 border-l-4 border-[#3B82F6]">
-                                        <span className="text-[#3B82F6] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
-                                        <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
-                                            {m.goal}
-                                        </p>
-                                    </div>
+                            <div className={`grid-rows-collapse ${openModule === i ? 'grid-rows-expand' : ''}`}>
+                                <div className="overflow-hidden">
+                                    <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left opacity-0 transition-opacity duration-500 delay-100 data-[active=true]:opacity-100" data-active={openModule === i}>
+                                        {/* Goal Section */}
+                                        <div className="mb-8 p-4 rounded-xl bg-[#3B82F6]/5 border-l-4 border-[#3B82F6]">
+                                            <span className="text-[#3B82F6] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
+                                            <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
+                                                {m.goal}
+                                            </p>
+                                        </div>
 
                                     {/* Sessions List */}
                                     <div className="grid grid-cols-1 gap-6">
@@ -499,7 +505,8 @@ const Curriculum = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                ))}
                 </div>
             </div>
         </section>

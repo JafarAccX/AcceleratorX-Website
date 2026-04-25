@@ -60,20 +60,28 @@ export const Curriculum = () => {
                                         setTimeout(() => {
                                             setOpenModule(i);
                                             setTimeout(() => {
-                                                document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                            }, 50);
-                                        }, 300);
+                                                const element = document.getElementById(`module-${i}`);
+                                                if (element) {
+                                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                    window.scrollTo({ top, behavior: 'smooth' });
+                                                }
+                                            }, 150);
+                                        }, 400);
                                     } else {
                                         setOpenModule(i);
                                         setTimeout(() => {
-                                            document.getElementById(`module-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                        }, 50);
+                                            const element = document.getElementById(`module-${i}`);
+                                            if (element) {
+                                                const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                                window.scrollTo({ top, behavior: 'smooth' });
+                                            }
+                                        }, 150);
                                     }
                                 }}
                                 className="p-6 sm:p-8 flex items-center justify-between cursor-pointer"
                             >
                                 <div className="flex items-center gap-6 text-left">
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-[18px] transition-all duration-300 ${openModule === i ? 'bg-[#FC6401] text-white' : 'bg-white/5 text-[#FC6401]'}`}>
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-[18px] transition-all duration-300 ${openModule === i ? 'bg-[#FC6401] text-black' : 'bg-white/5 text-[#FC6401]'}`}>
                                         0{i + 1}
                                     </div>
                                     <h3 className="text-white text-[18px] sm:text-[22px] font-bold tracking-tight leading-tight group-hover:text-[#FC6401] transition-colors">
@@ -84,16 +92,16 @@ export const Curriculum = () => {
                                     <ChevronDown className="w-5 h-5" />
                                 </div>
                             </div>
-
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openModule === i ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left">
-                                    {/* Goal Section */}
-                                    <div className="mb-8 p-4 rounded-xl bg-[#FC6401]/5 border-l-4 border-[#FC6401]">
-                                        <span className="text-[#FC6401] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
-                                        <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
-                                            {m.goal}
-                                        </p>
-                                    </div>
+                            <div className={`grid-rows-collapse ${openModule === i ? 'grid-rows-expand' : ''}`}>
+                                <div className="overflow-hidden">
+                                    <div className="p-6 sm:p-8 pt-0 border-t border-white/5 text-left opacity-0 transition-opacity duration-500 delay-100 data-[active=true]:opacity-100" data-active={openModule === i}>
+                                        {/* Goal Section */}
+                                        <div className="mb-8 p-4 rounded-xl bg-[#FC6401]/5 border-l-4 border-[#FC6401]">
+                                            <span className="text-[#FC6401] text-[11px] font-black tracking-widest uppercase block mb-1">Learning Goal</span>
+                                            <p className="text-white text-[15px] sm:text-[16px] leading-relaxed font-medium">
+                                                {m.goal}
+                                            </p>
+                                        </div>
 
                                     {/* Sessions List */}
                                     <div className="grid grid-cols-1 gap-6">
@@ -126,7 +134,8 @@ export const Curriculum = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                ))}
                 </div>
             </div>
         </section>
