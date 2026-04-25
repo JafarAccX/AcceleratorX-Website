@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import * as Constants from "./DataAnalyticsv2Constants";
 import MentorCard from "../../../../components/ui/MentorCard";
 import EnrollmentModalADS from "../../allprograms-ads/EnrollmentModalADS";
+import InfiniteScrollTools from "../../../../components/ui/InfiniteScrollTools";
 
 
 const {
@@ -28,13 +29,6 @@ const GlobalStyles = () => (
         @keyframes borderFlow {
             0% { stroke-dashoffset: 1000; }
             100% { stroke-dashoffset: 0; }
-        }
-        @keyframes infinite-scroll-left {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        .animate-infinite-scroll-left {
-            animation: infinite-scroll-left 40s linear infinite;
         }
         .hover-glow-path {
             stroke-dasharray: 1000;
@@ -512,34 +506,7 @@ const Tools = () => (
             <GradientLabel text="TOOLS" />
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-4 sm:mb-6 text-center">Tools You Will Work With</h2>
 
-            <div className="w-full relative mt-12 mb-16 overflow-hidden" style={{ minHeight: "140px" }}>
-                <div className="absolute inset-y-0 left-0 w-20 sm:w-60 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-20 sm:w-60 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-
-                <div className="flex w-max gap-12 sm:gap-24 animate-infinite-scroll-left items-center py-4 z-20 relative">
-                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((tool, i) => (
-                        <div key={i} className="flex flex-col items-center gap-3 group cursor-pointer flex-shrink-0">
-                            <div className="relative">
-                                <img
-                                    src={tool.logo}
-                                    alt={tool.name}
-                                    loading="lazy"
-                                    className="h-8 sm:h-12 w-auto object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
-                                />
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 z-0"
-                                    style={{ backgroundColor: `${tool.color || '#3B82F6'}30` }} />
-                            </div>
-                            <div className="flex flex-col items-center gap-1">
-                                <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest duration-500">
-                                    {tool.name}
-                                </span>
-                                <div className="h-[2px] w-0 bg-white transition-all duration-500 group-hover:w-full"
-                                    style={{ backgroundColor: tool.color || '#3B82F6' }} />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            <InfiniteScrollTools tools={TOOLS_LIST} accentColor="#3B82F6" speed={40} />
 
         </div>
 

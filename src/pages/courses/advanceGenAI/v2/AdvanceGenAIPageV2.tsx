@@ -135,13 +135,6 @@ export const CTABanner = ({ onDownloadBrochure }: { onDownloadBrochure?: () => v
 export const GlobalStyles = () => (
     <style>{`
         @keyframes borderFlow { 0% { stroke-dashoffset: 1000; } 100% { stroke-dashoffset: 0; } }
-        @keyframes infinite-scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-infinite-scroll-left {
-            animation: infinite-scroll-left 40s linear infinite;
-        }
         .hover-glow-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
         .group:hover .hover-glow-path { animation: borderFlow 15s linear infinite; }
     `}</style>

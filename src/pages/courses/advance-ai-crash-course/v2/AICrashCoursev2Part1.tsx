@@ -265,7 +265,7 @@ export const AlumniLogos = () => (
     <section className="w-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[70px] py-12 sm:py-16 lg:py-24 pb-16 sm:pb-20 lg:pb-32 overflow-hidden">
         <style>{`
             @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-            .animate-scroll { animation: scroll 35s linear infinite; }
+            .animate-scroll { animation: scroll 40s linear infinite; }
         `}</style>
         <GradientLabel text="SOCIAL PROOF" />
         <p className="text-center text-[#F5F7FF] text-xl sm:text-2xl md:text-[32px] font-medium mb-3 px-4">Our Alumni Are Working Across 1700+ Top MNCs</p>

@@ -10,6 +10,7 @@ import { useUser } from "../../../../context/UserContext";
 import { api } from "../../../../api";
 import { PremiumButton } from "../../../../components/common/PremiumButton";
 import EnrollmentModal from "../../../../components/modals/EnrollmentModal";
+import InfiniteScrollTools from "../../../../components/ui/InfiniteScrollTools";
 
 // Razorpay type declaration
 declare global {
@@ -961,29 +962,7 @@ export default function ProductProgramEIE() {
                         <div className="text-center">
                             <h3 className="font-heading text-3xl font-bold mb-12 dark:text-white transition-colors duration-300 uppercase">Tools You Will Work With</h3>
                             
-                            <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
-                                <style>{`
-                                    @keyframes infinite-scroll-left {
-                                        from { transform: translateX(0); }
-                                        to { transform: translateX(-50%); }
-                                    }
-                                    .animate-infinite-scroll-left {
-                                        animation: infinite-scroll-left 30s linear infinite;
-                                    }
-                                `}</style>
-                                <div className="flex w-max gap-16 animate-infinite-scroll-left items-center py-8">
-                                    {[...TOOLS_LIST, ...TOOLS_LIST].map((t, i) => (
-                                        <div key={i} className="flex flex-col items-center gap-2 group transition-all duration-300">
-                                            <img 
-                                                src={t.logo} 
-                                                alt={t.name} 
-                                                className="h-10 sm:h-12 w-auto object-contain grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" 
-                                            />
-                                            <span className="text-[10px] font-bold text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest">{t.name}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                            <InfiniteScrollTools tools={TOOLS_LIST} accentColor="#3b82f6" speed={40} />
 
                         </div>
 

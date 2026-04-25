@@ -139,13 +139,6 @@ export const GlobalStyles = () => (
             0% { stroke-dashoffset: 1000; }
             100% { stroke-dashoffset: 0; }
         }
-        @keyframes infinite-scroll-left {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        .animate-infinite-scroll-left {
-            animation: infinite-scroll-left 80s linear infinite;
-        }
         .hover-glow-path {
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;

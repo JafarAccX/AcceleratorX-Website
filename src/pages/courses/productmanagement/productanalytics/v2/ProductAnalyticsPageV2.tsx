@@ -6,6 +6,7 @@ import * as Constants from "./ProductAnalyticsv2Constants";
 import EnrollmentModalADS from "../../../allprograms-ads/EnrollmentModalADS";
 import { useCoursePurchase } from "../../../../../hooks/useCoursePurchase";
 import { COURSE_IDS } from "../../../../../utils/constants_price";
+import InfiniteScrollTools from "../../../../../components/ui/InfiniteScrollTools";
 
 const {
     ASSETS,
@@ -26,28 +27,6 @@ const {
 const GlobalStyles = () => (
     <style>
         {`
-            @keyframes infinite-scroll-left {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            @keyframes infinite-scroll-right {
-                0% { transform: translateX(-50%); }
-                100% { transform: translateX(0); }
-            }
-            @keyframes draw-chart-line {
-                0% { stroke-dashoffset: 1500; }
-                40% { stroke-dashoffset: 0; }
-                100% { stroke-dashoffset: 0; }
-            }
-            @keyframes dot-appear {
-                0%, 15% { transform: scale(0); opacity: 0; }
-                25%, 100% { transform: scale(1); opacity: 1; }
-            }
-            @keyframes glow-pulse {
-                0%, 100% { opacity: 0.3; }
-                20% { opacity: 0.8; }
-            }
-            .animate-infinite-scroll-left { animation: infinite-scroll-left 30s linear infinite; }
             .animate-infinite-scroll-right { animation: infinite-scroll-right 30s linear infinite; }
             .g-draw-path-green {
                 stroke-dasharray: 1500;
@@ -328,13 +307,7 @@ const Tools = () => (
     <section className="py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1200px] mx-auto text-center">
             <h2 className="text-2xl font-bold text-white mb-12">Tools</h2>
-            <div className="relative w-full overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
-                <div className="flex w-max gap-16 animate-infinite-scroll-right items-center py-4">
-                    {[...TOOLS_LIST, ...TOOLS_LIST, ...TOOLS_LIST].map((t, i) => (
-                        <img key={i} src={t.logo} alt={t.name} loading="lazy" className="h-8 sm:h-10 w-auto object-contain grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-300 cursor-pointer" />
-                    ))}
-                </div>
-            </div>
+            <InfiniteScrollTools tools={TOOLS_LIST} accentColor="#16A44A" speed={40} />
         </div>
     </section>
 );
