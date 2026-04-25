@@ -243,11 +243,11 @@ export const ibmModules = [
 export const regularModules = [...ibmModules];
 
 export const MENTORS = [
-  { name: "Yash Manghnani", designation: "Senior AI Builder", company: "Better Software", image: "/assets/mentors/gen-ai/yash.png", companyLogo: "/assets/mentors/beetersoftware.png", linkedin: "https://www.linkedin.com/in/yash-manghnani/" },
-  { name: "Ashu Mishra", designation: "Technical Product Manager", company: "Zigram", image: "/assets/mentors/gen-ai/Ashu 1.png", companyLogo: "/assets/mentors/zigram.png", linkedin: "https://www.linkedin.com/in/ashumish/" },
-  { name: "Prashant Vijaybhai Sahatiya", designation: "Program Coordinator & Assistant Professor", company: "Assistant Professor", image: "/assets/mentors/gen-ai/Dr. Prashant 2.png", companyLogo: "/assets/mentors/gen-ai/Frame 51378-2.png", linkedin: "https://www.linkedin.com/in/prashant-sahatiya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
-  { name: "Nitish Setty", designation: "Managing Director", company: "GrowSharp", image: "/assets/mentors/gen-ai/Nitish.png", companyLogo: "/assets/mentors/grownswap.png", linkedin: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192/" },
-  { name: "Anjali Sharma", designation: "Sr. AI Product Manager", company: "Search Atlas", image: "/assets/mentors/gen-ai/Anjali Sharma 3.png", companyLogo: "/assets/mentors/searchatlas.png", linkedin: "https://www.linkedin.com/in/anjalisharmaaa/" },
+  { name: "Yash Manghnani", designation: "Senior AI Builder", company: "Better Software", image: "/assets/mentors/gen-ai/yash.png", companyLogo: "/assets/mentors/beetersoftware.png", linkedinUrl: "https://www.linkedin.com/in/yash-manghnani/" },
+  { name: "Ashu Mishra", designation: "Technical Product Manager", company: "Zigram", image: "/assets/mentors/gen-ai/Ashu 1.png", companyLogo: "/assets/mentors/zigram.png", linkedinUrl: "https://www.linkedin.com/in/ashumish/" },
+  { name: "Prashant Vijaybhai Sahatiya", designation: "Program Coordinator & Assistant Professor", company: "Assistant Professor", image: "/assets/mentors/gen-ai/Dr. Prashant 2.png", companyLogo: "/assets/mentors/gen-ai/Frame 51378-2.png", linkedinUrl: "https://www.linkedin.com/in/prashant-sahatiya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
+  { name: "Nitish Setty", designation: "Managing Director", company: "GrowSharp", image: "/assets/mentors/gen-ai/Nitish.png", companyLogo: "/assets/mentors/grownswap.png", linkedinUrl: "https://www.linkedin.com/in/nitish-m-l-setty-7a0206192/" },
+  { name: "Anjali Sharma", designation: "Sr. AI Product Manager", company: "Search Atlas", image: "/assets/mentors/gen-ai/Anjali Sharma 3.png", companyLogo: "/assets/mentors/searchatlas.png", linkedinUrl: "https://www.linkedin.com/in/anjalisharmaaa/" },
 ];
 
 export const TOOLS_LIST = [
