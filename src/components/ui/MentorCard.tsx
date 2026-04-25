@@ -24,7 +24,7 @@ const MentorCard: React.FC<MentorCardProps> = ({ mentor, accentColor = "#9EFF1F"
                 <img
                     src={mentor.image}
                     alt={mentor.name}
-                    className="absolute inset-x-0 bottom-0 mx-auto h-[95%] w-auto object-contain transition-all duration-700 group-hover:scale-105"
+                    className="absolute inset-x-0 top-0 mx-auto h-full w-auto object-contain transition-all duration-700 group-hover:scale-105"
                     loading="lazy"
                 />
             </div>
@@ -59,7 +59,7 @@ const MentorCard: React.FC<MentorCardProps> = ({ mentor, accentColor = "#9EFF1F"
                 </div>
 
                 {/* Accent line */}
-                <div 
+                <div
                     className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] h-[2px] rounded-full"
                     style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
                 />
