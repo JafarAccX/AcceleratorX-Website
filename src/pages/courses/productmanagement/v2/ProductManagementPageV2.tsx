@@ -749,10 +749,22 @@ const BYDP = () => (
             <GradientLabel text="PROJECTS" />
 
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mt-8 mb-4">Build Real AI Products That Get You Hired</h2>
-            <p className="text-[#C2C2C2] text-[16px] sm:text-[18px] mb-2">Instead of just completing assignments, you build:</p>
-            <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] font-semibold mb-12 sm:mb-16">
-                AI-powered product features | Product workflows | Automation systems | Real-world product use cases
+            <p className="text-[#C2C2C2] text-[16px] sm:text-[20px] leading-[1.6] font-medium mb-6 sm:mb-8">
+                Instead of just completing assignments, you build:
             </p>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16">
+                {[
+                    "AI-powered product features",
+                    "Product workflows",
+                    "Automation systems",
+                    "Real-world product use cases"
+                ].map((item, i) => (
+                    <div key={i} className="group relative flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border border-[#4BD3D8]/40 bg-[#0A0A0A] transition-all duration-300 hover:border-[#4BD3D8] hover:bg-[#4BD3D8]/5 hover:scale-105 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(75,211,216,0.05)] hover:shadow-[0_0_25px_rgba(75,211,216,0.25)]">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#4BD3D8] shadow-[0_0_8px_rgba(75,211,216,0.8)] group-hover:animate-pulse"></div>
+                        <span className="text-[#4BD3D8] text-[15px] sm:text-[16px] font-medium tracking-wide">{item}</span>
+                    </div>
+                ))}
+            </div>
 
             <h3 className="text-[18px] sm:text-[20px] font-medium text-white uppercase tracking-widest mb-10">BUILD YOUR DREAM PRODUCT</h3>
 

@@ -951,14 +951,24 @@ const BYDP = () => (
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mb-10 sm:mb-16">Build Real Data Projects That Get You Hired</h2>
 
             <div className="flex flex-col gap-8 sm:gap-12 items-center">
-                <div className="max-w-[950px]">
-                    <p className="text-[#C2C2C2] text-[16px] sm:text-[18px] leading-[1.6] font-medium mb-2">
+                <div className="max-w-[1000px]">
+                    <p className="text-[#C2C2C2] text-[16px] sm:text-[20px] leading-[1.6] font-medium mb-6 sm:mb-8">
                         Instead of just completing assignments, you build:
                     </p>
-                    <p className="text-white text-[18px] sm:text-[22px] font-medium mb-6">
-                        Dashboards | SQL Projects | AI-powered analytics | Business reports
-                    </p>
-                    <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] leading-[1.6] font-medium italic opacity-70">
+                    <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
+                        {[
+                            "Dashboards",
+                            "SQL Projects",
+                            "AI-powered analytics",
+                            "Business reports"
+                        ].map((item, i) => (
+                            <div key={i} className="group relative flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border border-[#3b82f6]/40 bg-[#0A0A0A] transition-all duration-300 hover:border-[#3b82f6] hover:bg-[#3b82f6]/5 hover:scale-105 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(59,130,246,0.05)] hover:shadow-[0_0_25px_rgba(59,130,246,0.25)]">
+                                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#3b82f6] shadow-[0_0_8px_rgba(59,130,246,0.8)] group-hover:animate-pulse"></div>
+                                <span className="text-[#3b82f6] text-[15px] sm:text-[16px] font-medium tracking-wide">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <p className="text-[#C2C2C2] text-[16px] sm:text-[20px] leading-[1.6] font-medium">
                         This becomes your proof of work. What recruiters actually care about.
                     </p>
                 </div>

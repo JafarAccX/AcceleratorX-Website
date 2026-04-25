@@ -784,10 +784,22 @@ const BYDP = () => (
             <GradientLabel text="PROJECTS" />
 
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-medium text-white mt-8 mb-4">Build Real AI Marketing Campaigns That Get You Hired</h2>
-            <p className="text-[#C2C2C2] text-[16px] sm:text-[18px] mb-2 font-medium">Instead of just completing assignments, you build:</p>
-            <p className="text-[#C2C2C2] text-[14px] sm:text-[16px] font-semibold mb-6 sm:mb-8">
-                AI-powered marketing campaigns | Automation funnels | Growth systems | Real-world marketing use cases
+            <p className="text-[#C2C2C2] text-[16px] sm:text-[20px] leading-[1.6] font-medium mb-6 sm:mb-8">
+                Instead of just completing assignments, you build:
             </p>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
+                {[
+                    "AI-powered marketing campaigns",
+                    "Automation funnels",
+                    "Growth systems",
+                    "Real-world marketing use cases"
+                ].map((item, i) => (
+                    <div key={i} className="group relative flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border border-[#9EFF1F]/40 bg-[#0A0A0A] transition-all duration-300 hover:border-[#9EFF1F] hover:bg-[#9EFF1F]/5 hover:scale-105 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(158,255,31,0.05)] hover:shadow-[0_0_25px_rgba(158,255,31,0.25)]">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#9EFF1F] shadow-[0_0_8px_rgba(158,255,31,0.8)] group-hover:animate-pulse"></div>
+                        <span className="text-[#9EFF1F] text-[15px] sm:text-[16px] font-medium tracking-wide">{item}</span>
+                    </div>
+                ))}
+            </div>
 
             <p className="text-[16px] sm:text-[18px] font-medium text-[#C2C2C2]">This becomes your proof of work. What hiring managers actually look for.</p>
         </div>
